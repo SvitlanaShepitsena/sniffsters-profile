@@ -1,0 +1,44 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/app/bower_components/jasmine.d/index.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/controllers/EditProfileCtrl.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/testfile.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/models/IUserProfile.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/app.js" />
+        <item url="file://$PROJECT_DIR$/dist/bower_components/jasmine.d/index.js" />
+        <item url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/bower_components/dt-jquery2/jquery-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/bower_components/dt-jquery2/jquery-tests.js" />
+      <root url="file://$PROJECT_DIR$/dist/bower_components/dt-angular/angular-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/bower_components/dt-angular/angular-tests.js" />
+      <root url="file://$PROJECT_DIR$/dist/bower_components/dt-jquery2/jquery-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/bower_components/dt-jquery2/jquery-tests.js" />
+      <root url="file://$PROJECT_DIR$/dist/bower_components/dt-angular/angular-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/bower_components/dt-angular/angular-tests.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/main.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/services/GetProfile.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/main.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/services/GetProfile.js" />
+      <root url="file://$PROJECT_DIR$/app/bower_components/toastr.d/toastr.d.js" />
+      <root url="file://$PROJECT_DIR$/app/bower_components/dt-toastr/toastr.d.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/TrainingSpec.js" />
+      <root url="file://$PROJECT_DIR$/app/bower_components/jasmine.d/index.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/testfile.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/EditProfileCtrl.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/models/IUserProfile.js" />
+      <root url="file://$PROJECT_DIR$/dist/bower_components/jasmine.d/index.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/app.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
