@@ -4,8 +4,25 @@
 /// <reference path="models/IUserProfile.ts" />
 /// <reference path="services/DataService.ts" />
 /// <reference path="controllers/EditProfileCtrl.ts" />
+/// <reference path="controllers/ExampleCtrl.ts" />
+/// <reference path="controllers/ExampleCtrl.ts" />
+/// <reference path="controllers/ExampleCtrl.ts" />
+/// <reference path="controllers/ExampleCtrl.ts" />
+/// <reference path="controllers/ExampleCtrl.ts" />
+/// <reference path="controllers/ExampleCtrl.ts" />
+/// <reference path="controllers/ExampleCtrl.ts" />
+//#ref
 var profile = angular.module("profile", ['ui.router']);
 
+profile.controller("ExampleCtrl", ExampleCtrl);
+profile.controller("ExampleCtrl", ExampleCtrl);
+profile.controller("ExampleCtrl", ExampleCtrl);
+profile.controller("ExampleCtrl", ExampleCtrl);
+profile.controller("ExampleCtrl", ExampleCtrl);
+profile.controller("ExampleCtrl", ExampleCtrl);
+profile.controller("ExampleCtrl", ExampleCtrl);
+
+//#ctrl
 profile.config(function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });
@@ -22,10 +39,15 @@ profile.config([
         $stateProvider.state("profile", {
             url: "/profile",
             templateUrl: "../views/profile.html"
-        }).state("edit", {
-            url: "/profile/edit",
-            controller: 'EditProfileCtrl',
-            templateUrl: "../views/profile-edit.html"
+        }).state("example", {
+            url: "/profile/example",
+            controller: "ExampleCtrl",
+            templateUrl: "../views/profile-example.html"
+        }).state("example", {
+            url: "/profile/example",
+            controller: "ExampleCtrl",
+            templateUrl: "../views/profile-example.html"
         });
+        //#state
     }]);
 //# sourceMappingURL=app.js.map
