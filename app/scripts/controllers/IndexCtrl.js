@@ -1,20 +1,21 @@
 /// <reference path="../../bower_components/dt-angular/angular.d.ts" />
 /// <reference path="../app.ts" />
 /// <reference path="../../bower_components/dt-toastr/toastr.d.ts" />
-/// <reference path="../models/IUserProfile.ts" />
+/// <reference path="../models/IBreederProfile.ts" />
 var IndexCtrl = (function () {
     function IndexCtrl($scope, DataService, toastr) {
         var _this = this;
         this.DataService = DataService;
         this.toastr = toastr;
+        this.text = 'Text Outer Scope';
         $scope.index = this;
 
         var promiseT = this.DataService.getProfile();
 
-        promiseT.then(function (userProfile) {
+        promiseT.then(function (breederProfile) {
             //Success
             _this.error = false;
-            _this.UserProfile = userProfile;
+            _this.BreederProfile = breederProfile;
         }, function () {
             //Error
             _this.error = true;

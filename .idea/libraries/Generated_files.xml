@@ -4,11 +4,12 @@
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/app/bower_components/jasmine.d/index.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
-        <item url="file://$PROJECT_DIR$/test/spec/controllers/AngrybirdCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/controllers/EditProfileCtrl.js" />
+        <item url="file://$PROJECT_DIR$/test/spec/controllers/AngrybirdCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/controllers/AngrybirdCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/models/IUserProfile.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/models/IBreederProfile.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/MyDetails.js" />
         <item url="file://$PROJECT_DIR$/dist/bower_components/jasmine.d/index.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/app.js" />
         <item url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
@@ -48,13 +49,17 @@
       <root url="file://$PROJECT_DIR$/app/scripts/controllers/TestCtrl.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/ExampleCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/IzyaCtrlSpec.js" />
-      <root url="file://$PROJECT_DIR$/app/bower_components/jasmine.d/index.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/controllers/EditProfileCtrl.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/AngrybirdCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/controllers/AngrybirdCtrl.js" />
+      <root url="file://$PROJECT_DIR$/app/bower_components/jasmine.d/index.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/AngrybirdCtrlSpec.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/EditProfileCtrl.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/AngrybirdCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/models/IUserProfile.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/models/IBreederProfile.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/BreederDetails.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/app.js" />
       <root url="file://$PROJECT_DIR$/dist/bower_components/jasmine.d/index.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
