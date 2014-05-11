@@ -6,14 +6,29 @@ var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
 var enterInside = function (target, before, insert) {
+    if (target == undefined)
+        return target;
+
+    var test = target.indexOf(insert);
+    if (test > 0)return target;
+
     var start = target.indexOf(before);
 
     var p1 = target.substring(0, start);
     var p2 = target.substring(start);
     return p1 + insert + p2;
-
-
 }
+var removeFromInside = function (target, remove) {
+    if (target == undefined)
+        return target;
+
+    target = target.replace(remove, '');
+    return target;
+}
+
+
+
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -21,6 +36,22 @@ var enterInside = function (target, before, insert) {
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+
+    var delFileDep = function(fileName){
+        var arrExt = ['ts', 'js','js.map'];
+
+        var dotCoord = fileName.lastIndexOf('.');
+        fileName = dotCoord > 0 ? fileName.substring(0, dotCoord):fileName;
+
+
+        arrExt.forEach(function(e){
+
+            grunt.file.delete(fileName+'.'+e)
+        });
+
+    }
+
+
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -364,7 +395,12 @@ module.exports = function (grunt) {
         grunt.task.run(['uglify:minvs']);
     });
 
-    grunt.registerTask('c', function () {
+    grunt.registerTask('c', function (cname) {
+//        delete option
+        var rm = grunt.option('rm');
+
+        rm = (rm === undefined) ? false : rm;
+
 
 
 
@@ -373,8 +409,10 @@ module.exports = function (grunt) {
         var t = 'Ctrl' + '.ts';
         var ctrl = grunt.file.read('templates/ctrl.tpl');
 
-        var lname = grunt.option('name').toLowerCase();
+        var lname = cname.toLowerCase();
         var name = lname.charAt(0).toUpperCase() + lname.substring(1);
+
+
 
         var ctrlr = ctrl.replace(/#name#/g, name).replace(/#lname#/g, lname);
 
@@ -400,23 +438,47 @@ module.exports = function (grunt) {
         var apath = 'app/scripts/app.ts';
         var tpath = 'app/views/profile-' + lname + '.html';
         var app = grunt.file.read(apath);
-        app = enterInside(app, '//#ref', ref);
-        app = enterInside(app, '//#ctrl', reg);
-        app = enterInside(app, '//#state', state);
+        if (rm) {
+            app = removeFromInside(app, ref);
+            app = removeFromInside(app, reg);
+            app = removeFromInside(app, state);
+        }
+        else {
+
+            app = enterInside(app, '//#ctrl', reg);
+            app = enterInside(app, '//#state', state);
+            app = enterInside(app, '//#ref', ref);
+        }
+
 
         /////////////////// index
         var ipath = 'app/index.html';
         var src = '<script src="scripts/controllers/' + name + 'Ctrl.js"></script>\r\n';
         var indf = grunt.file.read(ipath);
         //////////////////
-        indf = enterInside(indf, '<!-- links -->', src);
+        if (rm) {
+            indf = removeFromInside(indf, src);
 
-        grunt.file.write(d + name + t, ctrlr);
-        grunt.file.write(sd + name + st, specr);
-        grunt.file.write(apath, app);
-        grunt.file.write(tpath, '<div class="well well-sm">' + name + ' Template</div>');
-        grunt.file.write(ipath, indf);
+        } else {
 
+            indf = enterInside(indf, '<!-- links -->', src);
+        }
+
+        if (rm) {
+            var file = d + name + t;
+            var sfile = sd + name + st;
+
+            delFileDep(file);
+            delFileDep(sfile);
+
+            grunt.file.delete(tpath);
+        } else {
+            grunt.file.write(d + name + t, ctrlr);
+            grunt.file.write(sd + name + st, specr);
+            grunt.file.write(tpath, '<div class="well well-sm">' + name + ' Template</div>');
+        }
+            grunt.file.write(apath, app);
+            grunt.file.write(ipath, indf);
 
     })
 
