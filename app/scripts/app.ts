@@ -7,13 +7,13 @@
 /// <reference path="services/DataService.ts" />
 /// <reference path="directives/BreederDetails.ts" />
 
-
-
+/// <reference path="controllers/EditCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router']);
+
 profile.filter('boolString', () => {
-    return (value: boolean): string => {
+    return (value:boolean):string => {
         return BoolString.filter(value);
     }
 });
@@ -21,8 +21,8 @@ profile.filter('boolString', () => {
 profile.directive("breederDetails", breederDetails);
 
 
+profile.controller("EditCtrl", EditCtrl);
 //#ctrl
-
 
 profile.config(function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -42,8 +42,11 @@ profile.config(
                     url: "/profile",
                     templateUrl: "../views/profile.html"
                 })
-
-
+                .state("edit", {
+                    url: "/profile/edit",
+                    controller: "EditCtrl",
+                    templateUrl: "../views/profile-edit.html"
+                })
 //#state
         }]);
 

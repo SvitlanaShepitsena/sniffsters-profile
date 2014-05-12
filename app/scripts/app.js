@@ -5,8 +5,10 @@
 /// <reference path="filters/BoolString.ts" />
 /// <reference path="services/DataService.ts" />
 /// <reference path="directives/BreederDetails.ts" />
+/// <reference path="controllers/EditCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router']);
+
 profile.filter('boolString', function () {
     return function (value) {
         return BoolString.filter(value);
@@ -14,6 +16,8 @@ profile.filter('boolString', function () {
 });
 
 profile.directive("breederDetails", breederDetails);
+
+profile.controller("EditCtrl", EditCtrl);
 
 //#ctrl
 profile.config(function ($httpProvider) {
@@ -31,6 +35,10 @@ profile.config([
         $stateProvider.state("profile", {
             url: "/profile",
             templateUrl: "../views/profile.html"
+        }).state("edit", {
+            url: "/profile/edit",
+            controller: "EditCtrl",
+            templateUrl: "../views/profile-edit.html"
         });
         //#state
     }]);

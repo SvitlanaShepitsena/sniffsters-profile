@@ -27,8 +27,6 @@ var removeFromInside = function (target, remove) {
 }
 
 
-
-
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -37,16 +35,16 @@ var removeFromInside = function (target, remove) {
 
 module.exports = function (grunt) {
 
-    var delFileDep = function(fileName){
-        var arrExt = ['ts', 'js','js.map'];
+    var delFileDep = function (fileName) {
+        var arrExt = ['ts', 'js', 'js.map'];
 
         var dotCoord = fileName.lastIndexOf('.');
-        fileName = dotCoord > 0 ? fileName.substring(0, dotCoord):fileName;
+        fileName = dotCoord > 0 ? fileName.substring(0, dotCoord) : fileName;
 
 
-        arrExt.forEach(function(e){
+        arrExt.forEach(function (e) {
 
-            grunt.file.delete(fileName+'.'+e)
+            grunt.file.delete(fileName + '.' + e)
         });
 
     }
@@ -403,8 +401,6 @@ module.exports = function (grunt) {
         rm = (rm === undefined) ? false : rm;
 
 
-
-
 //     C        //
         var d = 'app/scripts/controllers/';
         var t = 'Ctrl' + '.ts';
@@ -412,7 +408,6 @@ module.exports = function (grunt) {
 
         var lname = cname.toLowerCase();
         var name = lname.charAt(0).toUpperCase() + lname.substring(1);
-
 
 
         var ctrlr = ctrl.replace(/#name#/g, name).replace(/#lname#/g, lname);
@@ -478,8 +473,116 @@ module.exports = function (grunt) {
             grunt.file.write(sd + name + st, specr);
             grunt.file.write(tpath, '<div class="well well-sm">' + name + ' Template</div>');
         }
-            grunt.file.write(apath, app);
-            grunt.file.write(ipath, indf);
+        grunt.file.write(apath, app);
+        grunt.file.write(ipath, indf);
+
+    })
+    grunt.registerTask('d', function (dname) {
+//        delete option
+        var rm = grunt.option('rm');
+
+        rm = (rm === undefined) ? false : rm;
+
+
+        var d = 'app/scripts/directives/';
+        var directive = grunt.file.read('templates/dir.tpl');
+
+        var dnames = dname.toLowerCase().split('-');
+
+        var uname = '', lname = '', jname = '';
+        var counter = 1;
+        dnames.forEach(function (part) {
+            var Upart = part.charAt(0).toUpperCase() + part.substring(1).toLowerCase();
+            uname += Upart;
+            lname += part.toLowerCase();
+            if (counter++ == 1) {
+                jname += part.toLowerCase();
+            }
+            else {
+                jname += Upart;
+            }
+
+        });
+        grunt.log.ok(uname);
+        grunt.log.ok(lname);
+        grunt.log.ok(jname);
+
+
+
+        var directivef = directive.replace(/#uname#/g, uname).replace(/#lname#/g, lname)
+            .replace(/#jname#/g, jname).replace(/#dname#/g, dname);
+
+       var dirFileName =  d + jname + '.ts', directivef;
+        if (!rm)
+        grunt.file.write(dirFileName, directivef);
+        else {
+            delFileDep(dirFileName);
+        }
+
+        grunt.fail.fatal();
+////////////////
+
+//     Specs   //
+        var sd = 'test/spec/directive/';
+        var st = 'Spec.ts';
+        var spec = grunt.file.read('templates/spec.tpl');
+        var specr = spec.replace(/#name#/g, name).replace(/#lname#/g, lname);
+
+////////////////
+
+        // register
+        var ref = '/// <reference path="controllers/' + name + 'Ctrl.ts" />\r\n';
+        var reg = 'profile.controller("' + name + 'Ctrl", ' + name + 'Ctrl);\r\n';
+        var state = '\t\t\t\t.state("' + lname + '", {\r\n' +
+            '\t\t\t\t\turl: "/profile/' + lname + '", \r\n' +
+            '\t\t\t\t\tcontroller:"' + name + 'Ctrl",\r\n' +
+            '\t\t\t\t\ttemplateUrl: "../views/profile-' + lname + '.html"\r\n' +
+            '\t\t\t\t})\r\n';
+
+        var apath = 'app/scripts/app.ts';
+        var tpath = 'app/views/profile-' + lname + '.html';
+        var app = grunt.file.read(apath);
+        if (rm) {
+            app = removeFromInside(app, ref);
+            app = removeFromInside(app, reg);
+            app = removeFromInside(app, state);
+        }
+        else {
+
+            app = enterInside(app, '//#ctrl', reg);
+            app = enterInside(app, '//#state', state);
+            app = enterInside(app, '//#ref', ref);
+        }
+
+
+        /////////////////// index
+        var ipath = 'app/index.html';
+        var src = '<script src="scripts/controllers/' + name + 'Ctrl.js"></script>\r\n';
+        var indf = grunt.file.read(ipath);
+        //////////////////
+        if (rm) {
+            indf = removeFromInside(indf, src);
+
+        } else {
+
+            indf = enterInside(indf, '<!-- links -->', src);
+        }
+
+        if (rm) {
+            var file = d + name + t;
+            var sfile = sd + name + st;
+
+            delFileDep(file);
+            delFileDep(sfile);
+
+            grunt.file.delete(tpath);
+        } else {
+            grunt.file.write(d + name + t, ctrlr);
+            grunt.file.write(sd + name + st, specr);
+            grunt.file.write(tpath, '<div class="well well-sm">' + name + ' Template</div>');
+        }
+        grunt.file.write(apath, app);
+        grunt.file.write(ipath, indf);
 
     })
 

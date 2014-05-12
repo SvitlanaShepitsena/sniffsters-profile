@@ -1,9 +1,6 @@
-class BoolString
-{
-    static filter(value: string): string
-    {
-        return "Test";
+class BoolString {
+    static filter(value:boolean):string {
+        return value === true ? "Yes" : "No";
     }
-}/**
- * Created by chica_000 on 5/12/2014.
- */
+}
+

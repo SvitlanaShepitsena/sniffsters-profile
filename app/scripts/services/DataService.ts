@@ -1,13 +1,8 @@
 /// <reference path="../../bower_components/dt-angular/angular.d.ts" />
 /// <reference path="../../bower_components/dt-angular/angular-resource.d.ts" />
 
-
-
 class DataService{
-
-
     constructor(public $http:ng.IHttpService, public $q:ng.IQService){
-
     }
 
     getProfile<T>(){
@@ -42,5 +37,4 @@ class DataService{
         });
         return d.promise;
     }
-
 }

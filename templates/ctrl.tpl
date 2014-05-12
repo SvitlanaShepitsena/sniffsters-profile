@@ -12,6 +12,4 @@ class #name#Ctrl {
     constructor($scope:I#name#Scope , public DataService:DataService, public toastr) {
         $scope.#lname# = this;
     }
-
-
 }
