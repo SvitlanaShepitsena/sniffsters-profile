@@ -3,6 +3,7 @@
 
 /// <reference path="../bower_components/dt-toastr/toastr.d.ts" />
 /// <reference path="models/IBreederProfile.ts" />
+/// <reference path="filters/BoolString.ts" />
 /// <reference path="services/DataService.ts" />
 /// <reference path="directives/BreederDetails.ts" />
 
@@ -11,7 +12,11 @@
 //#ref
 
 var profile = angular.module("profile", ['ui.router']);
-
+profile.filter('boolString', () => {
+    return (value: boolean): string => {
+        return BoolString.filter(value);
+    }
+});
 
 profile.directive("breederDetails", breederDetails);
 

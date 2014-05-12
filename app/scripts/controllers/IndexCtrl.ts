@@ -30,6 +30,9 @@ class IndexCtrl {
 
 
     BreederProfile:IBreederProfile;
+
+
+
 text:string = 'Text Outer Scope';
 
     error:boolean;

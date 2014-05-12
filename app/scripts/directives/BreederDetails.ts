@@ -7,13 +7,15 @@ interface IDBreeederDetails extends ng.IScope {
 var breederDetails:() => ng.IDirective = () => {
 
     return{
-        restrict: 'EAC',
-        templateUrl: 'views/directives/breeder-personal.html',
+        restrict: 'E',
+        templateUrl: 'views/directives/breeder-details.html',
         transclude:true,
+        // replace directive tag with template info
         replace:true,
         scope:{
-            text:'@',
             ctrl:'=',
+
+            text:'@',
             func:'&'
         },
         link:(scope:IDBreeederDetails, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {

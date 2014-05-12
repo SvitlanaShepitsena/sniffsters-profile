@@ -1,0 +1,38 @@
+<div class="well well-sm">
+	<h3 ng-transclude></h3>
+	<hr/>
+	<!--<div>{{text}}</div>-->
+	<!--<div>{{ctrl.BreederProfile.FirstName}}</div>-->
+	<dl class="dl-horizontal">
+
+
+		<dt>Location:</dt>
+		<dd>{{ctrl.BreederProfile.Location}}</dd>
+
+		<dt>Website:</dt>
+		<dd>{{ctrl.BreederProfile.Website}}</dd>
+
+		<dt>Email:</dt>
+		<dd>{{ctrl.BreederProfile.Email}}</dd>
+
+		<dt>Phone:</dt>
+		<dd>{{ctrl.BreederProfile.Phone}}</dd>
+
+		<dt>Certifications:</dt>
+		<dd>
+			<ul class="list-unstyled">
+				<li ng-repeat="c in ctrl.BreederProfile.Certifications">
+					{{c.Title}}
+				</li>
+			</ul>
+		</dd>
+
+		<!--<dt>Vet Services:</dt>-->
+		<!--<dd>{{ctrl.BreederProfile.VetServices | boolString}}</dd>-->
+
+		<!--<dt>Shipping:</dt>-->
+		<!--<dd>{{ctrl.BreederProfile.Shipping | boolString}}</dd>-->
+
+
+	</dl>
+</div>
