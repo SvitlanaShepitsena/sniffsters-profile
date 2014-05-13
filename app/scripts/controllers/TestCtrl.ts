@@ -2,14 +2,16 @@
 /// <reference path="../../bower_components/dt-toastr/toastr.d.ts" />
 /// <reference path="../app.ts" />
 
-interface I#name#Scope extends ng.IScope {
-    #lname#:#name#Ctrl;
-    BreederProfile: IBreederProfile;
+interface ITestScope extends ng.IScope {
+    test:TestCtrl;
+    UserProfile: IUserProfile;
 }
-class #name#Ctrl {
+class TestCtrl {
     static $inject = ['$scope', 'DataService', 'toastr'];
 
-    constructor($scope:I#name#Scope , public DataService:DataService, public toastr) {
-        $scope.#lname# = this;
+    constructor($scope:ITestScope , public DataService:DataService, public toastr) {
+        $scope.test = this;
     }
+
+
 }

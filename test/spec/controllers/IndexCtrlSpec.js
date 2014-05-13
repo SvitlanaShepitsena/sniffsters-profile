@@ -8,6 +8,13 @@ describe("Profile Controller Test", function () {
         error: function (error) {
         }
     }, DataService, scope, $controller, ctrl;
+    var CopyProfileService = {
+        Clone: function (breederProfile) {
+        },
+        GetProfile: function () {
+            return {};
+        }
+    };
 
     beforeEach(function () {
         angular.mock.inject(function ($injector) {
@@ -40,18 +47,19 @@ describe("Profile Controller Test", function () {
         // Creating IndexCtrl for test using our defined Controller
         ctrl = $controller('IndexCtrl', {
             $scope: scope,
+            toastr: toastr,
             DataService: DataService,
-            toastr: toastr
+            CopyProfileService: CopyProfileService
         });
 
         /// RESOLVE ALL PROMISES!!!!
         scope.$apply();
 
-        expect(scope.index.UserProfile).toBeDefined();
+        expect(scope.index.BreederProfile).toBeDefined();
 
-        expect(scope.index.UserProfile.FirstName).toBe('Andriy');
-        expect(ctrl.UserProfile.LastName).toBe('Shepitsen');
-        expect(ctrl.UserProfile.UserName).toBe('andriy.shepitsen@aol.com');
+        expect(scope.index.BreederProfile.FirstName).toBe('Andriy');
+        expect(ctrl.BreederProfile.LastName).toBe('Shepitsen');
+        expect(ctrl.BreederProfile.UserName).toBe('andriy.shepitsen@aol.com');
     });
 
     it('Should set error to true when return an error and run method ShowError', function () {
@@ -70,8 +78,9 @@ describe("Profile Controller Test", function () {
         // Creating Profile Ctrl for test using our defined Controller
         ctrl = $controller('IndexCtrl', {
             $scope: scope,
+            toastr: toastr,
             DataService: DataService,
-            toastr: toastr
+            CopyProfileService: CopyProfileService
         });
 
         /// RESOLVE ALL PROMISES!!!!
@@ -79,7 +88,7 @@ describe("Profile Controller Test", function () {
         spyOn(ctrl, 'ShowError');
         scope.$apply();
 
-        expect(ctrl.UserProfile).toBeUndefined();
+        expect(ctrl.BreederProfile).toBeUndefined();
 
         expect(ctrl.error).toBeDefined();
 

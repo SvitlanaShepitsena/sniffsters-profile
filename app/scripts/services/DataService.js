@@ -19,13 +19,11 @@ var DataService = (function () {
         });
         return d.promise;
     };
-    DataService.prototype.updateProfile = function () {
+    DataService.prototype.updateProfile = function (t) {
         var d = this.$q.defer();
 
-        this.$http.jsonp('http://localhost:44300/BreederPersonal/GetProfile?callback=JSON_CALLBACK', { headers: {
-                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-            } }).success(function (result) {
-            d.resolve(result);
+        this.$http.jsonp('http://localhost:44300/BreederPersonal/UpdateUserProfile?callback=JSON_CALLBACK').success(function () {
+            d.resolve();
         }).error(function (data, error) {
             // console.log(data)
             // console.log(error)

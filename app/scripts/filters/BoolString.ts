@@ -3,4 +3,3 @@ class BoolString {
         return value === true ? "Yes" : "No";
     }
 }
-

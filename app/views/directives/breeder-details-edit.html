@@ -1,0 +1,22 @@
+<div class="well well-sm">
+	<h3 ng-transclude></h3>
+	<hr/>
+	<form ng-submit="ctrl.Save()">
+		<p class="">
+			<label for="">Location:</label>
+			<input type="text" ng-model="ctrl.BreederProfileEdit.Location">
+		</p>
+		<p class="">
+			<label for="">Website:</label>
+			<input type="text" ng-model="ctrl.BreederProfileEdit.Website">
+		</p>
+		<p class="">
+			<label for="">Email:</label>
+			<input type="text" ng-model="ctrl.BreederProfileEdit.Email">
+		</p>
+
+
+		<input type="submit" class="btn btn-default" value="Save"/>
+		<a class="btn btn-default" ui-sref="profile">Back</a>
+	</form>
+</div>

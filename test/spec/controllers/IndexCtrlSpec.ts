@@ -14,6 +14,14 @@ describe("Profile Controller Test", () => {
         scope,
         $controller,
         ctrl;
+    var CopyProfileService = {
+        Clone:(breederProfile)  => {
+
+        },
+        getProfile:() => {
+            return {};
+        }
+    }
 
     beforeEach(() => {
 
@@ -43,19 +51,20 @@ describe("Profile Controller Test", () => {
 // Creating IndexCtrl for test using our defined Controller
         ctrl = $controller('IndexCtrl', {
             $scope: scope,
+            toastr: toastr,
             DataService: DataService,
-            toastr: toastr
+            CopyProfileService: CopyProfileService
 
         });
         /// RESOLVE ALL PROMISES!!!!
         scope.$apply();
 
 
-        expect(scope.index.UserProfile).toBeDefined();
+        expect(scope.index.BreederProfile).toBeDefined();
 
-        expect(scope.index.UserProfile.FirstName).toBe('Andriy');
-        expect(ctrl.UserProfile.LastName).toBe('Shepitsen');
-        expect(ctrl.UserProfile.UserName).toBe('andriy.shepitsen@aol.com');
+        expect(scope.index.BreederProfile.FirstName).toBe('Andriy');
+        expect(ctrl.BreederProfile.LastName).toBe('Shepitsen');
+        expect(ctrl.BreederProfile.UserName).toBe('andriy.shepitsen@aol.com');
     });
 
     it('Should set error to true when return an error and run method ShowError', () => {
@@ -74,8 +83,9 @@ describe("Profile Controller Test", () => {
 
         ctrl = $controller('IndexCtrl', {
             $scope: scope,
+            toastr: toastr,
             DataService: DataService,
-            toastr: toastr
+            CopyProfileService: CopyProfileService
 
         });
         /// RESOLVE ALL PROMISES!!!!
@@ -83,7 +93,7 @@ describe("Profile Controller Test", () => {
         spyOn(ctrl, 'ShowError');
         scope.$apply();
 
-        expect(ctrl.UserProfile).toBeUndefined();
+        expect(ctrl.BreederProfile).toBeUndefined();
 
         expect(ctrl.error).toBeDefined();
 

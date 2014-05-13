@@ -111,7 +111,7 @@
 
 				<div class="col-sm-10">
 					<div class="container">
-						<div ng-controller="IndexCtrl">
+						<div ng-controller="IndexCtrl as index">
 							<div ng-hide="index.error" ui-view></div>
 							<div ng-show="index.error" class="panel panel-danger">Error in Database request. Check
 								Internet Connection
@@ -141,7 +141,7 @@
 
 <script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/toastr/toastr.min.js"></script>
-<script src="bower_components/angular/angular.js"></script>
+<script src="http://localhost:44300/Scripts/angular.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 <!-- build:js scripts/plugins.js -->
@@ -154,8 +154,11 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/services/DataService.js"></script>
+<script src="scripts/services/CopyProfileService.js"></script>
+<script src="scripts/models/IBreederProfile.js"></script>
 
 <script src="scripts/directives/BreederDetails.js"></script>
+<script src="scripts/directives/breederDetailsEdit.js"></script>
 <script src="scripts/filters/BoolString.js"></script>
 
 <script src="scripts/controllers/EditCtrl.js"></script>

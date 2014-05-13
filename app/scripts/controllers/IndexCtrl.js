@@ -1,12 +1,14 @@
 /// <reference path="../../bower_components/dt-angular/angular.d.ts" />
 /// <reference path="../app.ts" />
+/// <reference path="../services/CopyProfileService.ts" />
 /// <reference path="../../bower_components/dt-toastr/toastr.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 var IndexCtrl = (function () {
-    function IndexCtrl($scope, DataService, toastr) {
+    function IndexCtrl($scope, toastr, DataService, CopyProfileService) {
         var _this = this;
-        this.DataService = DataService;
         this.toastr = toastr;
+        this.DataService = DataService;
+        this.CopyProfileService = CopyProfileService;
         this.text = 'Text Outer Scope';
         $scope.index = this;
 
@@ -16,6 +18,7 @@ var IndexCtrl = (function () {
             //Success
             _this.error = false;
             _this.BreederProfile = breederProfile;
+            _this.CopyProfileService.Clone(breederProfile);
         }, function () {
             //Error
             _this.error = true;
@@ -25,7 +28,6 @@ var IndexCtrl = (function () {
     IndexCtrl.prototype.ShowError = function (errorMessage) {
         this.toastr.error(errorMessage);
     };
-    IndexCtrl.$inject = ['$scope', 'DataService', 'toastr'];
     return IndexCtrl;
 })();
 //# sourceMappingURL=IndexCtrl.js.map
