@@ -6,14 +6,14 @@
         <item url="file://$PROJECT_DIR$/app/bower_components/jasmine.d/index.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/directives/userDetailsTest.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/userDetailsTest.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/controllers/EditCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/filters/BoolString.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/models/IBreederProfile.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/directives/BreederDetails.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/app.js" />
         <item url="file://$PROJECT_DIR$/dist/bower_components/jasmine.d/index.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/app.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/userDetailsTest.js" />
         <item url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
       </sourceFilesUrls>
     </properties>
@@ -64,12 +64,12 @@
       <root url="file://$PROJECT_DIR$/test/spec/controllers/EditCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/jasmine.d/index.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/userDetailsTest.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/controllers/EditCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/userDetailsTest.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/models/IBreederProfile.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/app.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/userDetailsTest.js" />
     </CLASSES>
     <SOURCES />
   </library>
