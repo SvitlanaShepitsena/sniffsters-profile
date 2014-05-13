@@ -1,7 +1,6 @@
 /// <reference path="../../bower_components/dt-angular/angular.d.ts" />
 /// <reference path="../app.ts" />
 /// <reference path="../services/CopyProfileService.ts" />
-/// <reference path="../../bower_components/dt-toastr/toastr.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 var IndexCtrl = (function () {
     function IndexCtrl($scope, toastr, DataService, CopyProfileService) {

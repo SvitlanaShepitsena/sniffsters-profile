@@ -1,5 +1,4 @@
 /// <reference path="../../bower_components/dt-angular/angular.d.ts" />
-/// <reference path="../../bower_components/dt-angular/angular-resource.d.ts" />
 var DataService = (function () {
     function DataService($http, $q) {
         this.$http = $http;
@@ -22,7 +21,7 @@ var DataService = (function () {
     DataService.prototype.updateProfile = function (t) {
         var d = this.$q.defer();
 
-        this.$http.jsonp('http://localhost:44300/BreederPersonal/UpdateUserProfile?callback=JSON_CALLBACK').success(function () {
+        this.$http.post('http://localhost:44300/BreederPersonal/UpdateUserProfile', { BreederViewModel: t }).success(function () {
             d.resolve();
         }).error(function (data, error) {
             // console.log(data)

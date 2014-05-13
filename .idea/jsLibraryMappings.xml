@@ -2,6 +2,9 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{profile node_modules}" />
+    <file url="file://$PROJECT_DIR$/app/scripts/app.ts" libraries="{angular-ui-DefinitelyTyped, toastr-DefinitelyTyped}" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/EditCtrl.ts" libraries="{angular-ui-DefinitelyTyped, toastr-DefinitelyTyped}" />
+    <file url="PROJECT" libraries="{angular-ui-DefinitelyTyped, toastr-DefinitelyTyped}" />
     <excludedPredefinedLibrary name="HTML" />
     <excludedPredefinedLibrary name="HTML5 / EcmaScript 5" />
   </component>
