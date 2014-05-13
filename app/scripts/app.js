@@ -8,6 +8,7 @@
 /// <reference path="directives/BreederDetails.ts" />
 /// <reference path="directives/breederDetailsEdit.ts" />
 /// <reference path="controllers/EditCtrl.ts" />
+/// <reference path="controllers/TrainingCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router']);
 
@@ -22,6 +23,7 @@ profile.directive("breederDetails", breederDetails);
 profile.directive("breederDetailsEdit", breederDetailsEdit);
 
 profile.controller("EditCtrl", EditCtrl);
+profile.controller("TrainingCtrl", TrainingCtrl);
 
 //#ctrl
 profile.config(function ($httpProvider) {
@@ -43,6 +45,10 @@ profile.config([
             url: "/profile/edit",
             controller: "EditCtrl",
             templateUrl: "../views/profile-edit.html"
+        }).state("training", {
+            url: "/profile/training",
+            controller: "TrainingCtrl",
+            templateUrl: "../views/profile-training.html"
         });
         //#state
     }]);
