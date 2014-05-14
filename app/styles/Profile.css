@@ -1,54 +1,55 @@
 .form-editPersonal {
-
   margin-left: 5px !important;
 }
-
 /**********************
        IMPORTS
 ***********************/
-@import "LessComponents/Functions";
+/**********************
+       CONSTANTS
+***********************/
+/*********************************
+   OPERATIONS & COLOR FUNCTIONS
+**********************************/
+/**********************
+        MIXINS
+***********************/
 hr {
-  border-top-color: @colorFontDimmedL !important;
+  border-top-color: #bababa !important;
 }
-
 .myDetailsFormGroup {
   margin-left: 5px !important;
   margin-bottom: 0em;
 }
-
 .myDetailsForm {
   line-height: 1.1em;
 }
-
 .myDetails-alert {
-  .panel-tan();
-  color: @colorFontDimmed;
-  box-shadow: 0px -3px 5px  @colorLightShadow;
+  background-color: #faf9ee;
+  border-right-color: #FFFFFF !important;
+  border-left-color: #FFFFFF !important;
+  border-top-color: #FFFFFF !important;
+  border-bottom-color: #FFFFFF !important;
+  color: #444444;
+  box-shadow: 0px -3px 5px #cccaca;
 }
-
 .myDetailsHeader {
   font-size: 1.7em;
   font-weight: bold;
 }
-
 .myDetailsInput {
   margin-top: .5em;
   margin-bottom: .5em;
 }
-
 .myProfileSave {
   margin-top: 10px;
 }
-
 .fa-fw {
   font-size: .9em !important;
 }
-
 .myDetailsFont {
   font-style: italic;
   font-weight: bold;
 }
-
 .dl-horizontal dt {
   text-align: left;
 }

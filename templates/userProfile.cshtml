@@ -1,0 +1,90 @@
+﻿
+<div class="text-center">
+    <span ng-transclude class="myDetailsHeader"></span>
+    <i class="fa fa-pencil fa-fw fa-md pointer" ng-click="edit()"></i>
+</div>
+<br />
+<div class="alert alert-warning myDetails-alert">
+    <div ng-show="error" class="error">Error in Database query.</div>
+
+    <div ng-hide="error">
+        <form class="myDetailsForm" role="form">
+            <div class="form-group myDetailsFormGroup">
+                <label class="control-label">First Name:</label>
+                <span class="formText">
+                    <span ng-show="display">{{user.FirstName}} </span>
+                    <input class="myDetailsInput" ng-hide="display" type="text" ng-model="user.FirstName" />
+                </span>
+            </div>
+
+            <div class="form-group myDetailsFormGroup">
+                <label class="control-label">First Name: </label>
+                <span class="formText">
+                    <span ng-show="display">{{user.LastName}}</span>
+                    <input class="myDetailsInput" ng-hide="display" type="text" ng-model="user.LastName" />
+                </span>
+            </div>
+
+            <div class="form-group myDetailsFormGroup">
+                <label class="control-label">Website: </label>
+                <span class="formText">
+                    <span ng-show="display">{{user.Website}}</span>
+                    <input class="myDetailsInput" ng-hide="display" type="text" ng-model="user.Website" />
+                </span>
+            </div>
+
+            <div class="form-group myDetailsFormGroup">
+                <label class="control-label">Email: </label>
+                <span class="formText">
+                    <span ng-show="display">{{user.Email}}</span>
+                    <input class="myDetailsInput" ng-hide="display" type="text" ng-model="user.Email" />
+                </span>
+            </div>
+
+            <div class="form-group myDetailsFormGroup">
+                <label class="control-label">Phone: </label>
+                <span class="formText">
+                    <span ng-show="display">{{user.IsDisclosePhoneNumber}}</span>
+                    <input class="myDetailsInput" ng-hide="display" type="text" ng-model="user.IsDiscolsePnoneNumber" />
+                </span>
+            </div>
+
+            <br />
+            <div class="form-group myDetailsFormGroup">
+                <label class="control-label">Certification: </label>
+                <span class="formText">
+                    <ul class="list-unstyled">
+                        <li ng-repeat="certification in user.Certifications">
+                            <span ng-show="display">{{certification.Title}}</span>
+                            <input class="myDetailsInput" ng-hide="display" type="text" ng-model="certification.Title" />
+                        </li>
+
+                    </ul>
+                </span>
+            </div>
+
+            <div class="form-group myDetailsFormGroup">
+                <label class="control-label">Vet Services: </label>
+                <span class="formText">
+                    <span ng-show="display">{{user.VetServices | boolString}}</span>
+                    <input class="myDetailsInput" ng-hide="display" type="text" ng-model="user.VetServices" />
+                </span>
+            </div>
+
+
+            <div class="form-group myDetailsFormGroup">
+                <label class="control-label">Shipping: </label>
+                <span class="formText">
+                    <span ng-show="display">{{user.Shipping | boolString}}</span>
+                    <input class="myDetailsInput" ng-hide="display" type="text" ng-model="user.Shipping" />
+                </span>
+            </div>
+
+            <div class="form-group myProfileSave text-center">
+                <button class="btn btn-info" ng-hide="display" ng-click="save()">Save</button>
+                <button class="btn btn-default" ng-hide="display" ng-click="save()">Cancel</button>
+
+            </div>
+        </form>
+    </div>
+</div>

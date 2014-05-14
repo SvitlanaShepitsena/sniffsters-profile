@@ -1,0 +1,54 @@
+/**********************
+       CONSTANTS
+***********************/
+@fontGeorgia: 'Georgia', 'Courier New', Courier, 'Nimbus Mono L', monospace;
+@colorBrownBackground: #463D38;
+@colorFontDimmed: #444444;
+@colorFontDimmedL: #bababa;
+@colorLightShadow: #cccaca;
+
+@defaultThemeColor: @colorBrownBackground;
+
+/*********************************
+   OPERATIONS & COLOR FUNCTIONS
+**********************************/
+@colorLightBrown: lighten(@defaultThemeColor, 30%);
+
+
+/**********************
+        MIXINS
+***********************/
+
+
+.scroll() {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: auto !important;
+}
+
+.scrollContent() {
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  width: auto;
+}
+
+.scrollBar() {
+  overflow: auto !important;
+  //container width 100% or custom width
+  width: 100% !important;
+}
+
+.panel-tan() {
+  background-color: #faf9ee;
+  border-right-color: #FFFFFF !important;
+  border-left-color: #FFFFFF !important;
+  border-top-color: #FFFFFF !important;
+  border-bottom-color: #FFFFFF !important;
+}
+
+.btn-custom-padding() {
+  padding-left: 35px;
+  padding-right: 40px;
+}
