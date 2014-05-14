@@ -1,22 +1,24 @@
-<div class="well well-sm">
+<div class="well">
 	<h3 ng-transclude></h3>
 	<hr/>
-	<form ng-submit="ctrl.Save()">
-		<p class="">
-			<label for="">Location:</label>
+	<form class="form-horizontal" role="form" ng-submit="ctrl.Save()">
+		<div class="form-group form-editPersonal">
+			<label class="control-label" for="">Location:</label>
 			<input type="text" ng-model="ctrl.BreederProfileEdit.Location">
-		</p>
-		<p class="">
-			<label for="">Website:</label>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="">Website:</label>
 			<input type="text" ng-model="ctrl.BreederProfileEdit.Website">
-		</p>
-		<p class="">
-			<label for="">Email:</label>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="">Email:</label>
 			<input type="text" ng-model="ctrl.BreederProfileEdit.Email">
-		</p>
+		</div>
 
 
-		<input type="submit" class="btn btn-default" value="Save"/>
-		<a class="btn btn-default" ui-sref="profile">Back</a>
+		<div class="form-group">
+			<input type="submit" class="btn btn-default" value="Save"/>
+			<a class="btn btn-default" ui-sref="profile">Back</a>
+		</div>
 	</form>
 </div>
