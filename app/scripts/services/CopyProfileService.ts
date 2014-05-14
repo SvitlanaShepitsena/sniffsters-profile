@@ -1,23 +1,26 @@
 /// <reference path="../models/IBreederProfile.ts" />
 class CopyProfileService {
 
-    constructor(){
+    constructor() {
 
     }
-    private BreederProfile:IBreederProfile = new BreederProfile();
 
-    Clone(breederProfile:IBreederProfile) {
+    BreederProfile:IBreederProfile = new BreederProfile();
 
-        for (var key in breederProfile) {
-            if (breederProfile.hasOwnProperty(key)) {
-                this.BreederProfile[key] = breederProfile[key];
+
+    GetProfileClone() {
+
+        var dolly:IBreederProfile = new BreederProfile();
+        for (var key in this.BreederProfile) {
+            if (this.BreederProfile.hasOwnProperty(key)) {
+                dolly[key] = this.BreederProfile[key];
             }
         }
+        return dolly;
     }
 
-    GetProfile(){
-        console.log('here');
-        return this.BreederProfile;
-    }
+    SetProfile(breederProfile:IBreederProfile) {
 
+        this.BreederProfile = breederProfile;
+    }
 }

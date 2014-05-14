@@ -6,6 +6,9 @@
 describe("Edit Controller Test", () => {
     // Setting a variables needed to perform test
     var $q,$location,
+        $state = {
+            go(page){}
+        },
         toastr = {
             error(error) {
             },
@@ -36,37 +39,38 @@ describe("Edit Controller Test", () => {
             scope = $rootScope.$new();
         });
     });
-//
-////Positive
-//    it('Should save changes in breeder Profile and notify user and redirect to /profile', () => {
-//        DataService = {
-//            updateProfile: (breederProfile) => {
-//                // Create a postponed service which can be returned in promise
-//                var d = $q.defer();
-//                // emulating resolution
-//                d.resolve();
-//                return d.promise;
-//            }
-//        };
-//
-//        ctrlEdit = $controller('EditCtrl', {
-//            $scope: scope,
-//            $location:$location,
-//            toastr: toastr,
-//            DataService: DataService,
-//            CopyProfileService: CopyProfileService
-//        });
-//
-//        spyOn(ctrlEdit, 'ShowSuccess');
-//        ctrlEdit.Save();
-//        scope.$apply();
-//
-////        expect($location.path).toBe('#/profile');
-//
-//        expect(ctrlEdit.ShowSuccess).toHaveBeenCalled();
-//        //expect(ctrledit.).toBeDefined();
-//        //expect(ctrledit.).toBe();
-//    });
+
+//Positive
+    it('Should save changes in breeder Profile and notify user and redirect to /profile', () => {
+        DataService = {
+            updateProfile: (breederProfile) => {
+                // Create a postponed service which can be returned in promise
+                var d = $q.defer();
+                // emulating resolution
+                d.resolve();
+                return d.promise;
+            }
+        };
+
+        ctrlEdit = $controller('EditCtrl', {
+            $scope: scope,
+            $state:$state,
+            $location:$location,
+            toastr: toastr,
+            DataService: DataService,
+            CopyProfileService: CopyProfileService
+        });
+
+        spyOn(ctrlEdit, 'ShowSuccess');
+        ctrlEdit.Save();
+        scope.$apply();
+
+//        expect($location.path).toBe('#/profile');
+
+        expect(ctrlEdit.ShowSuccess).toHaveBeenCalled();
+        //expect(ctrledit.).toBeDefined();
+        //expect(ctrledit.).toBe();
+    });
 
     it('Should notify user about problem with Db Update when error  ', () => {
         // Emulating Db request
@@ -82,6 +86,7 @@ describe("Edit Controller Test", () => {
 
          ctrlEdit = $controller('EditCtrl', {
             $scope: scope,
+            $state: $state,
             toastr: toastr,
             DataService: DataService,
             CopyProfileService: CopyProfileService

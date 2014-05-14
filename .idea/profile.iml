@@ -8,9 +8,9 @@
     <orderEntry type="library" name="Node.js v0.10.28 Core Modules" level="application" />
     <orderEntry type="library" name="angularjs-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="gruntjs-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="angular-ui-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="toastr-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="profile node_modules" level="project" />
+    <orderEntry type="library" name="Node.js v0.10.28 Core Modules" level="application" />
+    <orderEntry type="library" name="angular-ui-DefinitelyTyped" level="application" />
   </component>
 </module>
 

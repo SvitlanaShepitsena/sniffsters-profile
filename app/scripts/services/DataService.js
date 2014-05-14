@@ -1,4 +1,3 @@
-/// <reference path="../../bower_components/dt-angular/angular.d.ts" />
 var DataService = (function () {
     function DataService($http, $q) {
         this.$http = $http;

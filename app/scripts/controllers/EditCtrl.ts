@@ -1,8 +1,7 @@
-/// <reference path="../../bower_components/dt-angular/angular.d.ts" />
-
 /// <reference path="IndexCtrl.ts" />
-/// <reference path="../../../dist/bower_components/dt-toastr/toastr.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
 /// <reference path="../services/CopyProfileService.ts" />
 /// <reference path="../app.ts" />
 
@@ -12,11 +11,10 @@ interface IEditScope extends IMainScope {
 }
 class EditCtrl {
 
-    constructor($scope:IEditScope, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope:IEditScope, public $state:ng.ui.IStateService,public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.edit = this;
 
-        this.BreederProfileEdit = this.CopyProfileService.GetProfile();
-//        console.log(CopyProfileService);
+        this.BreederProfileEdit = this.CopyProfileService.GetProfileClone();
     }
 
     BreederProfileEdit:IBreederProfile = new BreederProfile();
@@ -41,6 +39,11 @@ class EditCtrl {
 
     ShowSuccess(note:string) {
         this.toastr.info(note);
+        this.CopyProfileService.SetProfile(this.BreederProfileEdit);
+        this.$scope.index.UpdateBreederProfile(this.BreederProfileEdit);
+
+
+        this.$state.go('profile');
     }
 
     ShowError(note:string) {

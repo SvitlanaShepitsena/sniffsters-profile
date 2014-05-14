@@ -1,4 +1,4 @@
-/// <reference path="../../bower_components/dt-angular/angular.d.ts" />
+/// <reference path="../app.ts" />
 interface IBreederDetailsEdit extends ng.IScope {
     test:string;
 }

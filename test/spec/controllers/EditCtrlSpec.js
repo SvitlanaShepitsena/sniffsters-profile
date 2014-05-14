@@ -4,51 +4,71 @@
 /// <reference path="../../../app/scripts/app.ts" />
 describe("Edit Controller Test", function () {
     // Setting a variables needed to perform test
-    var $q, toastr = {
+    var $q, $location, $state = {
+        go: function (page) {
+        }
+    }, toastr = {
         error: function (error) {
         },
         info: function (info) {
         }
-    }, DataService, scope, $controller, ctrledit;
+    }, DataService, scope, $controller, ctrlEdit;
+
+    // Emulating CopyProfileService
+    var CopyProfileService = {
+        Clone: function (breederProfile) {
+        },
+        GetProfile: function () {
+            return {};
+        }
+    };
 
     beforeEach(function () {
         angular.mock.inject(function ($injector) {
             $q = $injector.get('$q');
             var $rootScope = $injector.get('$rootScope');
+            $location = $injector.get('$location');
             $controller = $injector.get('$controller');
             scope = $rootScope.$new();
         });
     });
 
     //Positive
-    it('Should <DO SOMETH.>', function () {
+    it('Should save changes in breeder Profile and notify user and redirect to /profile', function () {
         DataService = {
-            getProfile: function () {
+            updateProfile: function (breederProfile) {
                 // Create a postponed service which can be returned in promise
                 var d = $q.defer();
 
                 // emulating resolution
-                d.resolve({ FirstName: 'Andriy', LastName: 'Shepitsen', UserName: 'andriy.shepitsen@aol.com' });
+                d.resolve();
                 return d.promise;
             }
         };
 
-        ctrledit = $controller('EditCtrl', {
+        ctrlEdit = $controller('EditCtrl', {
             $scope: scope,
+            $state: $state,
+            $location: $location,
+            toastr: toastr,
             DataService: DataService,
-            toastr: toastr
+            CopyProfileService: CopyProfileService
         });
+
+        spyOn(ctrlEdit, 'ShowSuccess');
+        ctrlEdit.Save();
         scope.$apply();
 
-        expect(1).toBe(1);
+        //        expect($location.path).toBe('#/profile');
+        expect(ctrlEdit.ShowSuccess).toHaveBeenCalled();
         //expect(ctrledit.).toBeDefined();
         //expect(ctrledit.).toBe();
     });
 
-    it('Should    when error  ', function () {
+    it('Should notify user about problem with Db Update when error  ', function () {
         // Emulating Db request
         DataService = {
-            getProfile: function () {
+            updateProfile: function (breederProfile) {
                 // Create a postponed service which can be returned in promise
                 var d = $q.defer();
 
@@ -58,16 +78,20 @@ describe("Edit Controller Test", function () {
             }
         };
 
-        ctrledit = $controller('EditCtrl', {
+        ctrlEdit = $controller('EditCtrl', {
             $scope: scope,
+            $state: $state,
+            toastr: toastr,
             DataService: DataService,
-            toastr: toastr
+            CopyProfileService: CopyProfileService
         });
 
-        spyOn(ctrledit, 'ShowError');
+        spyOn(ctrlEdit, 'ShowError');
+        ctrlEdit.Save();
         scope.$apply();
 
-        expect(2).toBe(2);
+        expect(ctrlEdit.ShowError).toHaveBeenCalled();
+        //        expect(ctrlEdit.ShowSuccess).toHaveBeenCalled();
         // expect(ctrledit.error).toBeDefined();
         // expect(ctrledit.ShowError).toHaveBeenCalled();
     });

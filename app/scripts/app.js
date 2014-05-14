@@ -1,5 +1,3 @@
-/// <reference path="../bower_components/dt-angular/angular.d.ts" />
-/// <reference path="../../dist/bower_components/dt-toastr/toastr.d.ts" />
 /// <reference path="models/IBreederProfile.ts" />
 /// <reference path="filters/BoolString.ts" />
 /// <reference path="services/DataService.ts" />

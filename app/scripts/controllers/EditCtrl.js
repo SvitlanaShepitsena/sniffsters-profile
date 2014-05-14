@@ -1,19 +1,20 @@
-/// <reference path="../../bower_components/dt-angular/angular.d.ts" />
 /// <reference path="IndexCtrl.ts" />
-/// <reference path="../../../dist/bower_components/dt-toastr/toastr.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
 /// <reference path="../services/CopyProfileService.ts" />
 /// <reference path="../app.ts" />
 var EditCtrl = (function () {
-    function EditCtrl($scope, toastr, DataService, CopyProfileService) {
+    function EditCtrl($scope, $state, toastr, DataService, CopyProfileService) {
+        this.$scope = $scope;
+        this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
         this.BreederProfileEdit = new BreederProfile();
         $scope.edit = this;
 
-        this.BreederProfileEdit = this.CopyProfileService.GetProfile();
-        //        console.log(CopyProfileService);
+        this.BreederProfileEdit = this.CopyProfileService.GetProfileClone();
     }
     EditCtrl.prototype.Save = function () {
         var _this = this;
@@ -32,6 +33,10 @@ var EditCtrl = (function () {
 
     EditCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
+        this.CopyProfileService.SetProfile(this.BreederProfileEdit);
+        this.$scope.index.UpdateBreederProfile(this.BreederProfileEdit);
+
+        this.$state.go('profile');
     };
 
     EditCtrl.prototype.ShowError = function (note) {

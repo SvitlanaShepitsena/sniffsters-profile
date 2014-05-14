@@ -1,4 +1,3 @@
-/// <reference path="../../bower_components/dt-angular/angular.d.ts" />
 /// <reference path="../app.ts" />
 /// <reference path="../services/CopyProfileService.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
@@ -16,8 +15,8 @@ var IndexCtrl = (function () {
         promiseT.then(function (breederProfile) {
             //Success
             _this.error = false;
-            _this.BreederProfile = breederProfile;
-            _this.CopyProfileService.Clone(breederProfile);
+            _this.CopyProfileService.SetProfile(breederProfile);
+            _this.BreederProfile = _this.CopyProfileService.BreederProfile;
         }, function () {
             //Error
             _this.error = true;
@@ -26,6 +25,10 @@ var IndexCtrl = (function () {
     }
     IndexCtrl.prototype.ShowError = function (errorMessage) {
         this.toastr.error(errorMessage);
+    };
+
+    IndexCtrl.prototype.UpdateBreederProfile = function (breederProfile) {
+        this.BreederProfile = breederProfile;
     };
     return IndexCtrl;
 })();

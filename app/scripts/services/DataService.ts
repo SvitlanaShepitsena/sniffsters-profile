@@ -1,5 +1,3 @@
-/// <reference path="../../bower_components/dt-angular/angular.d.ts" />
-
 class DataService{
     constructor(public $http:ng.IHttpService, public $q:ng.IQService){
     }
