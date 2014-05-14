@@ -24,6 +24,9 @@ profile.filter('boolString', () => {
     }
 });
 
+
+
+//#dir
 profile.directive("breederDetails", breederDetails);
 profile.directive("breederDetailsEdit", breederDetailsEdit);
 

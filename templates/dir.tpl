@@ -1,4 +1,5 @@
-/// <reference path="../../bower_components/dt-angular/angular.d.ts" />
+/// <reference path="../app.ts" />
+
 interface I#uname# extends ng.IScope {
     test:string;
 }
@@ -21,13 +22,7 @@ var #jname#:() => ng.IDirective = () => {
 //            SCOPE (USE just {{test}} . )
             scope.test = 'Test from link scope';
 
-// Element
-            element.on('mouseover', (e) => {
-                element.css({opacity: 0.75});
-            });
-            element.on('mouseout', (e) => {
-                element.css({opacity: 1});
-            });
+
         }
     }
 }

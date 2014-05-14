@@ -19,6 +19,7 @@ profile.filter('boolString', function () {
     };
 });
 
+//#dir
 profile.directive("breederDetails", breederDetails);
 profile.directive("breederDetailsEdit", breederDetailsEdit);
 
