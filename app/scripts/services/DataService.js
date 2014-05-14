@@ -7,9 +7,7 @@ var DataService = (function () {
     DataService.prototype.getProfile = function () {
         var d = this.$q.defer();
 
-        this.$http.jsonp('http://localhost:44300/BreederPersonal/GetProfile?callback=JSON_CALLBACK', { headers: {
-                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-            } }).success(function (result) {
+        this.$http.get('http://localhost:44300/BreederPersonal/GetProfile').success(function (result) {
             d.resolve(result);
         }).error(function (data, error) {
             // console.log(data)

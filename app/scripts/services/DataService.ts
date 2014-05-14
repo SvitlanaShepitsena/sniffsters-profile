@@ -7,10 +7,7 @@ class DataService{
     getProfile<T>(){
         var d = this.$q.defer<T>();
 
-        this.$http.jsonp('http://localhost:44300/BreederPersonal/GetProfile?callback=JSON_CALLBACK',{
-            headers:{
-                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-            }}).success((result) => {
+        this.$http.get('http://localhost:44300/BreederPersonal/GetProfile').success((result) => {
 
             d.resolve(result);
         }).error((data,error) => {
