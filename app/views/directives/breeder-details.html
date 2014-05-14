@@ -21,7 +21,7 @@
 		<dd>
 			<ul class="list-unstyled">
 				<li ng-repeat="c in ctrl.BreederProfile.Certifications">
-					{{c.Title}}
+					{{c.Title}} - {{c.isActive | boolString}}
 				</li>
 			</ul>
 		</dd>

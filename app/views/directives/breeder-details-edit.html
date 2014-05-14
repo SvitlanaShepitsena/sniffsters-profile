@@ -19,16 +19,22 @@
 			<input class=" myDetailsInput" type="text" ng-model="ctrl.BreederProfileEdit.Phone">
 		</div>
 		<div class="form-group myDetailsFormGroup">
-			<label class="control-label" for="">Certifications:</label>
-			<input class=" myDetailsInput" type="text" ng-model="ctrl.BreederProfileEdit.Certifications">
+			<h4>Certifications</h4>
+
+			<ul class="list-unstyled">
+				<li ng-repeat="c in ctrl.BreederProfileEdit.Certifications">
+			<label class="control-label"> {{c.Title}}</label>
+<input type="checkbox" ng-model="c.isActive">
+				</li>
+			</ul>
 		</div>
 		<div class="form-group myDetailsFormGroup">
 			<label class="control-label" for="">Vet Services:</label>
-			<input class=" myDetailsInput" type="text" ng-model="ctrl.BreederProfileEdit.VetServices">
+			<input class=" myDetailsInput" type="checkbox" ng-model="ctrl.BreederProfileEdit.VetServices">
 		</div>
 		<div class="form-group myDetailsFormGroup">
 			<label class="control-label" for="">Shipping:</label>
-			<input class=" myDetailsInput" type="text" ng-model="ctrl.BreederProfileEdit.Shipping">
+			<input class=" myDetailsInput" type="checkbox" ng-model="ctrl.BreederProfileEdit.Shipping">
 		</div>
 
 
