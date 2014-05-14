@@ -12,7 +12,7 @@
 var profile = angular.module("profile", ['ui.router']);
 
 
-profile.config(function($httpProvider){
+profile.config(function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });
 
