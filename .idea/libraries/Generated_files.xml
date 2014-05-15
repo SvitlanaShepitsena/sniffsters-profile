@@ -27,18 +27,20 @@
         <item url="file://$PROJECT_DIR$/app/scripts/app.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-assert-tests.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/myBestDirection.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/controllers/AboutCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-range-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/d3/d3-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/d3/plugins/d3.superformula-tests.js" />
         <item url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-document-tests.js" />
+        <item url="file://$PROJECT_DIR$/test/spec/controllers/PhotosCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor1-tests.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-search-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-anchor-tests.js" />
+        <item url="file://$PROJECT_DIR$/test/spec/controllers/AboutCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-edit_session-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-placeholder-tests.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-range_list-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-selection-tests.js" />
       </sourceFilesUrls>
@@ -91,6 +93,9 @@
       <root url="file://$PROJECT_DIR$/app/bower_components/jasmine.d/index.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/myBestDirection.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/myBestDirection.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/services/CopyProfileService.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor_text_edit-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-virtual_renderer-tests.js" />
@@ -116,19 +121,21 @@
       <root url="file://$PROJECT_DIR$/app/scripts/app.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-assert-tests.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/myBestDirection.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/AboutCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-range-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/d3/d3-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/d3/plugins/d3.superformula-tests.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-document-tests.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/PhotosCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor1-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-search-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-anchor-tests.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/AboutCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-edit_session-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-placeholder-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-range_list-tests.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-selection-tests.js" />
     </CLASSES>
     <SOURCES />

@@ -5,6 +5,8 @@
 /// <reference path="directives/BreederDetails.ts" />
 /// <reference path="directives/breederDetailsEdit.ts" />
 /// <reference path="controllers/EditCtrl.ts" />
+/// <reference path="controllers/AboutCtrl.ts" />
+/// <reference path="controllers/PhotosCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router']);
 
@@ -24,6 +26,8 @@ profile.directive("breederDetails", breederDetails);
 profile.directive("breederDetailsEdit", breederDetailsEdit);
 
 profile.controller("EditCtrl", EditCtrl);
+profile.controller("AboutCtrl", AboutCtrl);
+profile.controller("PhotosCtrl", PhotosCtrl);
 
 //#ctrl
 profile.config(function ($httpProvider) {
@@ -36,11 +40,19 @@ profile.service("DataService", DataService);
 profile.config([
     "$stateProvider", "$urlRouterProvider",
     function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/profile");
+        $urlRouterProvider.otherwise("/profile/about");
 
         $stateProvider.state("profile", {
             url: "/profile",
             templateUrl: "../views/profile.html"
+        }).state("profile.about", {
+            url: "/about",
+            controller: "AboutCtrl",
+            templateUrl: "../views/profile-about.html"
+        }).state("profile.photos", {
+            url: "/photos",
+            controller: "PhotosCtrl",
+            templateUrl: "../views/profile-photos.html"
         }).state("edit", {
             url: "/profile/edit",
             controller: "EditCtrl",

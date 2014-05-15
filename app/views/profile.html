@@ -1,9 +1,10 @@
 <div class="row">
 	<div class="col-sm-6">
-		<my-best-direction></my-best-direction>
+		<ul>
+			<li> <a ui-sref="profile.about">About</a></li>
+			<li> <a ui-sref="profile.photos">Photos</a></li>
+		</ul>
+		<ui-view></ui-view>
 	</div>
 
-	<div class="col-sm-4">
-		<breeder-details ctrl="index"></breeder-details>
-	</div>
 </div>
