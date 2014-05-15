@@ -26,6 +26,7 @@ profile.filter('boolString', () => {
     }
 });
 
+profile.service("DataService", DataService);
 
 
 //#dir
@@ -42,36 +43,52 @@ profile.config(function ($httpProvider) {
 });
 
 profile.value("toastr", toastr)
-profile.service("DataService", DataService);
 
 profile.config(
     ["$stateProvider", "$urlRouterProvider",
         function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise("/profile/about");
+            $urlRouterProvider.otherwise("/profile");
 
             $stateProvider
-                .state("profile", {
+                .state('profile', {
                     url: "/profile",
-                    templateUrl: "../views/profile.html"
+                    views: {
+                        "main": {
+                            template: "Main"
+                        },
+                        "details": {
+                        template: "Sub2<div ui-view></div>"
+                        }
+                    }
                 })
 
-				.state("profile.about", {
-					url: "/about",
-					controller:"AboutCtrl",
-					templateUrl: "../views/profile-about.html"
-				})
-				.state("profile.photos", {
-					url: "/photos",
-					controller:"PhotosCtrl",
-					templateUrl: "../views/profile-photos.html"
-				})
-
-                .state("edit", {
+                .state('profile.edit', {
                     url: "/profile/edit",
-                    controller: "EditCtrl",
-                    templateUrl: "../views/profile-edit.html"
+                    views: {
+                        "details": {
+                            template: "Sub2<div ui-view></div>"
+                        }
+                    }
                 })
+
+
+
+
+
+//                .state('edit', {
+//                    url: "/profile/edit",
+//                    views: {
+//                        "main": {
+//                            template: "index.viewA"
+//                        },
+//                        "details": {
+//                            template: "<breeder-details-edit ctrl = 'edit'></breeder-details-edit>",
+//                            controller:"EditCtrl"
+//                        }
+//                    }
+//                })
+
 //#state
         }]);
 

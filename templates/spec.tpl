@@ -1,6 +1,5 @@
-/// <reference path="../../../app/bower_components/dt-jasmine/jasmine.d.ts" />
-/// <reference path="../../../app/bower_components/dt-angular/angular-mocks.d.ts" />
-/// <reference path="../../../app/bower_components/dt-angular/angular.d.ts" />
+/// <reference path="../../../app/bower_components/DefinitelyTyped/jasmine/jasmine.d.ts" />
+/// <reference path="../../../app/bower_components/DefinitelyTyped/angularjs/angular-mocks.d.ts" />
 /// <reference path="../../../app/scripts/app.ts" />
 
 describe("#name# Controller Test", () => {

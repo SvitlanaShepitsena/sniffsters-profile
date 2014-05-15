@@ -2,6 +2,7 @@
 /// <reference path="../services/CopyProfileService.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 
+
 interface IMainScope extends ng.IScope {
     index:IndexCtrl;
     UserProfile: IBreederProfile;

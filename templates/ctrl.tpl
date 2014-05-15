@@ -1,5 +1,3 @@
-/// <reference path="../../bower_components/dt-angular/angular.d.ts" />
-/// <reference path="../../bower_components/dt-toastr/toastr.d.ts" />
 /// <reference path="../app.ts" />
 
 interface I#name#Scope extends ng.IScope {

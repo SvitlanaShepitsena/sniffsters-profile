@@ -114,7 +114,16 @@
 				<div class="col-sm-10">
 					<div class="container">
 						<div ng-controller="IndexCtrl as index">
-							<div ng-hide="index.error" ui-view></div>
+
+							<div class="row">
+								<div class="col-sm-5">
+									<div class="well" ui-view="main"></div>
+								</div>
+								<div class="col-sm-5">
+									<div class="well" ui-view="details"></div>
+								</div>
+							</div>
+
 							<div ng-show="index.error" class="panel panel-danger">Error in Database request. Check
 								Internet Connection
 							</div>
@@ -173,4 +182,3 @@
 
 
 </body>
-</html>

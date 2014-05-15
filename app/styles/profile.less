@@ -1,14 +1,33 @@
-.form-editPersonal {
-
-  margin-left: 5px !important;
-}
-
 /**********************
        IMPORTS
 ***********************/
 @import "LessComponents/Functions";
+
 hr {
   border-top-color: @colorFontDimmedL !important;
+}
+
+.dl-horizontal dt {
+  text-align: left;
+}
+
+.fa-fw {
+  font-size: .9em !important;
+}
+
+.form-editPersonal {
+  margin-left: 5px !important;
+}
+
+.myDetails-alert {
+  .panel-tan();
+  color: @colorFontDimmed;
+  box-shadow: 0px -3px 5px  @colorLightShadow;
+}
+
+.myDetailsFont {
+  font-style: italic;
+  font-weight: bold;
 }
 
 .myDetailsFormGroup {
@@ -18,12 +37,6 @@ hr {
 
 .myDetailsForm {
   line-height: 1.1em;
-}
-
-.myDetails-alert {
-  .panel-tan();
-  color: @colorFontDimmed;
-  box-shadow: 0px -3px 5px  @colorLightShadow;
 }
 
 .myDetailsHeader {
@@ -38,17 +51,4 @@ hr {
 
 .myProfileSave {
   margin-top: 10px;
-}
-
-.fa-fw {
-  font-size: .9em !important;
-}
-
-.myDetailsFont {
-  font-style: italic;
-  font-weight: bold;
-}
-
-.dl-horizontal dt {
-  text-align: left;
 }

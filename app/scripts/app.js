@@ -21,6 +21,8 @@ profile.filter('boolString', function () {
     };
 });
 
+profile.service("DataService", DataService);
+
 //#dir
 profile.directive("breederDetails", breederDetails);
 profile.directive("breederDetailsEdit", breederDetailsEdit);
@@ -35,29 +37,42 @@ profile.config(function ($httpProvider) {
 });
 
 profile.value("toastr", toastr);
-profile.service("DataService", DataService);
 
 profile.config([
     "$stateProvider", "$urlRouterProvider",
     function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/profile/about");
+        $urlRouterProvider.otherwise("/profile");
 
-        $stateProvider.state("profile", {
+        $stateProvider.state('profile', {
             url: "/profile",
-            templateUrl: "../views/profile.html"
-        }).state("profile.about", {
-            url: "/about",
-            controller: "AboutCtrl",
-            templateUrl: "../views/profile-about.html"
-        }).state("profile.photos", {
-            url: "/photos",
-            controller: "PhotosCtrl",
-            templateUrl: "../views/profile-photos.html"
-        }).state("edit", {
+            views: {
+                "main": {
+                    template: "Main"
+                },
+                "details": {
+                    template: "Sub2<div ui-view></div>"
+                }
+            }
+        }).state('profile.edit', {
             url: "/profile/edit",
-            controller: "EditCtrl",
-            templateUrl: "../views/profile-edit.html"
+            views: {
+                "details": {
+                    template: "Sub2<div ui-view></div>"
+                }
+            }
         });
+        //                .state('edit', {
+        //                    url: "/profile/edit",
+        //                    views: {
+        //                        "main": {
+        //                            template: "index.viewA"
+        //                        },
+        //                        "details": {
+        //                            template: "<breeder-details-edit ctrl = 'edit'></breeder-details-edit>",
+        //                            controller:"EditCtrl"
+        //                        }
+        //                    }
+        //                })
         //#state
     }]);
 //# sourceMappingURL=app.js.map
