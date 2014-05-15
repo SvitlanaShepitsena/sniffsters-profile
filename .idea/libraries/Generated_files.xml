@@ -6,7 +6,6 @@
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor_text_edit-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-virtual_renderer-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-multi_select-tests.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-token_iterator-tests.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/filters/BoolString.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor_highlight_selected_word-tests.js" />
@@ -28,6 +27,7 @@
         <item url="file://$PROJECT_DIR$/app/scripts/app.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-assert-tests.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/myBestDirection.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-range-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/d3/d3-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/d3/plugins/d3.superformula-tests.js" />
@@ -89,12 +89,13 @@
       <root url="file://$PROJECT_DIR$/dist/bower_components/jasmine.d/index.js" />
       <root url="file://$PROJECT_DIR$/dist/bower_components/jasmine.d/index.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/jasmine.d/index.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/services/CopyProfileService.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor_text_edit-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-virtual_renderer-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-multi_select-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-token_iterator-tests.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor_highlight_selected_word-tests.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/filters/BoolString.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/BreederDetails.js" />
@@ -115,6 +116,7 @@
       <root url="file://$PROJECT_DIR$/app/scripts/app.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-assert-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/myBestDirection.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-range-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/d3/d3-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/d3/plugins/d3.superformula-tests.js" />
