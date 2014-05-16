@@ -60,7 +60,7 @@ profile.config(
 
             $stateProvider
                 .state("profile", {
-                    abstract:true,
+                    abstract: true,
                     url: "/profile",
                     views: {
 

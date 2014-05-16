@@ -73,7 +73,7 @@ profile.config([
                 }
             }
         }).state("profile.about.edit", {
-            url: "^/mydetails/edit",
+            url: "^mydetails/edit",
             views: {
                 "details@": {
                     controller: "EditCtrl",
