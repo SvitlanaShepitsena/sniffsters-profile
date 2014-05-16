@@ -43,7 +43,7 @@ class EditCtrl {
         this.$scope.index.UpdateBreederProfile(this.BreederProfileEdit);
 
 
-        this.$state.go('profile');
+        this.$state.go('^');
     }
 
     ShowError(note:string) {

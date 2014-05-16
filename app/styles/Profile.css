@@ -13,6 +13,9 @@
 hr {
   border-top-color: #bababa !important;
 }
+.right {
+  text-align: right;
+}
 .dl-horizontal dt {
   text-align: left;
 }
@@ -39,7 +42,7 @@ hr {
   margin-left: 5px !important;
   margin-bottom: 0em;
 }
-vav .myDetailsForm {
+.myDetailsForm {
   line-height: 1.1em;
 }
 .myDetailsHeader {
