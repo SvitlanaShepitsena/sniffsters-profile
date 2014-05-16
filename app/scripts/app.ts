@@ -12,6 +12,7 @@
 /// <reference path="controllers/PuppiesCtrl.ts" />
 /// <reference path="controllers/DetailsCtrl.ts" />
 /// <reference path="controllers/TestimonialsCtrl.ts" />
+/// <reference path="controllers/AbouteditCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router']);
@@ -41,6 +42,7 @@ profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
 profile.controller("DetailsCtrl", DetailsCtrl);
 profile.controller("TestimonialsCtrl", TestimonialsCtrl);
+profile.controller("AbouteditCtrl", AbouteditCtrl);
 //#ctrl
 
 profile.config(function ($httpProvider) {
@@ -58,7 +60,7 @@ profile.config(
 
             $stateProvider
                 .state("profile", {
-
+                    abstract:true,
                     url: "/profile",
                     views: {
 
@@ -67,17 +69,16 @@ profile.config(
 
                         },
                         "details": {
-                            template: "<breeder-details ctrl = 'index'></breeder-details>"
+                            template: " <div ui-view='submenu'> <breeder-details ctrl = 'index'></breeder-details></div>"
 
                         }
                     }
                 })
 
-
                 .state("profile.about", {
-                    url: "",
-                    views:{
-                        'main@':{
+                    url: "/about",
+                    views: {
+                        'central': {
 
                             controller: "AboutCtrl",
                             templateUrl: "../views/profile-about.html"
@@ -85,21 +86,10 @@ profile.config(
                     }
 
                 })
-                .state("profile.photos", {
-                    url: "/photos",
-                    views:{
-                        'main@':{
-
-                            controller: "PhotosCtrl",
-                            templateUrl: "../views/profile-photos.html"
-                        }
-                    }
-
-                })
 
 
-                .state("profile.edit", {
-                    url: "^/edit",
+                .state("profile.about.edit", {
+                    url: "^/mydetails/edit",
                     views: {
                         "details@": {
 
@@ -108,6 +98,19 @@ profile.config(
                         }
                     }
                 })
+
+                .state("profile.photos", {
+                    url: "/photos",
+                    views: {
+                        'central': {
+
+                            controller: "PhotosCtrl",
+                            templateUrl: "../views/profile-photos.html"
+                        }
+                    }
+
+                })
+
 
 //                .state("profile.puppies", {
 //                    url: "/puppies",
@@ -124,6 +127,27 @@ profile.config(
 //                    controller: "TestimonialsCtrl",
 //                    templateUrl: "../views/profile-testimonials.html"
 //                })
+//				.state("profile.aboutinfo", {
+//					url: "/aboutinfo",
+//					controller:"AboutinfoCtrl",
+//					templateUrl: "../views/profile-aboutinfo.html"
+//				})
+//                .state("profile.aboutinfo", {
+//                    url: "",
+//                    views:{
+//                        'main@':{
+//
+//                            controller: "AboutinfoCtrl",
+//                            templateUrl: "../views/profile-aboutinfo.html"
+//                        }
+//                    }
+
+//                })
+                .state("aboutedit", {
+                    url: "/profile/aboutedit",
+                    controller: "AbouteditCtrl",
+                    templateUrl: "../views/profile-aboutedit.html"
+                })
 //#state
         }]);
 

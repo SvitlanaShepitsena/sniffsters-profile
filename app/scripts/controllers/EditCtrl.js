@@ -36,7 +36,7 @@ var EditCtrl = (function () {
         this.CopyProfileService.SetProfile(this.BreederProfileEdit);
         this.$scope.index.UpdateBreederProfile(this.BreederProfileEdit);
 
-        this.$state.go('profile');
+        this.$state.go('^');
     };
 
     EditCtrl.prototype.ShowError = function (note) {
