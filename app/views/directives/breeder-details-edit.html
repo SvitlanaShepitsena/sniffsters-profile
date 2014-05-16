@@ -1,5 +1,4 @@
-<div class="alert alert-warning myDetails-alert">
-	<h3 class="text-center myDetailsFont">MY DETAILS<i class="fa fa-pencil fa-fw fa-md pointer"></i></h3>
+<div>
 	<hr/>
 	<form class="form-horizontal myDetailsForm" role="form" ng-submit="ctrl.Save()">
 		<div class="form-group myDetailsFormGroup">
@@ -23,8 +22,8 @@
 
 			<ul class="list-unstyled">
 				<li ng-repeat="c in ctrl.BreederProfileEdit.Certifications">
-			<label class="control-label"> {{c.Title}}</label>
-<input type="checkbox" ng-model="c.isActive">
+					<label class="control-label"> {{c.Title}}</label>
+					<input type="checkbox" ng-model="c.isActive">
 				</li>
 			</ul>
 		</div>
@@ -40,7 +39,7 @@
 
 		<div class="form-group  myProfileSave text-center">
 			<button type="submit" class="btn btn-info">Save</button>
-			<button class="btn btn-default"  ui-sref="profile">Cancel</button>
+			<button class="btn btn-default" ui-sref="profile">Cancel</button>
 		</div>
 	</form>
 </div>
