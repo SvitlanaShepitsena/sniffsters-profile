@@ -68,12 +68,19 @@ profile.config([
             url: "/about",
             views: {
                 'central': {
-                    controller: "AboutCtrl",
                     templateUrl: "../views/profile-about.html"
                 }
             }
+        }).state("profile.about.change", {
+            url: "/change",
+            views: {
+                'change': {
+                    controller: "AbouteditCtrl",
+                    templateUrl: "../views/profile-aboutedit.html"
+                }
+            }
         }).state("profile.about.edit", {
-            url: "^mydetails/edit",
+            url: "^/mydetails/edit",
             views: {
                 "details@": {
                     controller: "EditCtrl",
@@ -88,11 +95,37 @@ profile.config([
                     templateUrl: "../views/profile-photos.html"
                 }
             }
-        }).state("aboutedit", {
-            url: "/profile/aboutedit",
-            controller: "AbouteditCtrl",
-            templateUrl: "../views/profile-aboutedit.html"
         });
+        //                .state("profile.puppies", {
+        //                    url: "/puppies",
+        //                    controller: "PuppiesCtrl",
+        //                    templateUrl: "../views/profile-puppies.html"
+        //                })
+        //                .state("profile.details", {
+        //                    url: "/details",
+        //                    controller: "DetailsCtrl",
+        //                    templateUrl: "../views/profile-details.html"
+        //                })
+        //                .state("profile.testimonials", {
+        //                    url: "/testimonials",
+        //                    controller: "TestimonialsCtrl",
+        //                    templateUrl: "../views/profile-testimonials.html"
+        //                })
+        //				.state("profile.aboutinfo", {
+        //					url: "/aboutinfo",
+        //					controller:"AboutinfoCtrl",
+        //					templateUrl: "../views/profile-aboutinfo.html"
+        //				})
+        //                .state("profile.aboutinfo", {
+        //                    url: "",
+        //                    views:{
+        //                        'main@':{
+        //
+        //                            controller: "AboutinfoCtrl",
+        //                            templateUrl: "../views/profile-aboutinfo.html"
+        //                        }
+        //                    }
+        //                })
         //#state
     }]);
 //# sourceMappingURL=app.js.map

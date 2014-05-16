@@ -1,38 +1,49 @@
-	<div class="well">
-		<h4>KENNEL NAME</h4>
-		 <h4>PARENTS</h4>
+<div class="well">
 
-		<h4>Girls</h4>
+	<form class="form-horizontal myDetailsForm" role="form" ng-submit="aboutedit.Save()">
+		<h4>ABOUT</h4>
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur cumque delectus deleniti
-			dignissimos excepturi fugit in ipsa libero maiores, nemo officiis placeat qui quisquam repellat similique
-			sint totam voluptate?</p>
+		<div class="form-group myDetailsFormGroup">
+			<label class="control-label" for="">Kennel Name</label>
+			<input class=" myDetailsInput" type="text" ng-model="aboutedit.BreederProfile.KennelName">
+		</div>
+		<div class="form-group myDetailsFormGroup">
+			<label class="control-label" for="">Your Story</label><br/>
+			<textarea cols="65" rows="5"class="textarea" ng-model="aboutedit.BreederProfile.Story"></textarea>
+		</div>
 
-		<h4>Boys</h4>
+		<h4>PARENTS</h4>
 
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi doloremque fugiat labore perferendis quaerat
-			quia quisquam tempora ut veritatis vitae! At atque in ipsa maiores nulla placeat quas saepe ut.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda delectus deleniti eaque eum odit
-			recusandae repellat repellendus voluptas voluptatum? Aliquid dolore dolorum, id iste maxime numquam odio placeat
-			tenetur.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur cumque delectus deleniti
-			dignissimos excepturi fugit in ipsa libero maiores, nemo officiis placeat qui quisquam repellat similique
-			sint totam voluptate?</p>
+		<div class="form-group myDetailsFormGroup">
+			<label class="control-label" for="">Parents</label><br/>
+			<textarea cols="65" rows="5" class="textarea" ng-model="aboutedit.BreederProfile.Parents"></textarea>
+		</div>
+
+		<div class="form-group myDetailsFormGroup">
+			<label class="control-label" for="">Girls</label><br/>
+			<textarea cols="65" rows="5" class="textarea" ng-model="aboutedit.BreederProfile.Girls"></textarea>
+		</div>
+		<div class="form-group myDetailsFormGroup">
+			<label class="control-label" for="">Boys</label><br/>
+			<textarea cols="65" rows="5" class="textarea" ng-model="aboutedit.BreederProfile.Boys"></textarea>
+		</div>
 
 		<h4>ADDITIONAL INFO</h4>
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur cumque delectus deleniti
-			dignissimos excepturi fugit in ipsa libero maiores, nemo officiis placeat qui quisquam repellat similique
-			sint totam voluptate?</p>
-
-		<div class="right">
-			<button type="submit" class="btn btn-info">Reset all fields</button>
-			<button type="submit" class="btn btn-info">Save</button>
-			<button class="btn btn-info" ui-sref="profile">Next Section</button>
+		<div class="form-group myDetailsFormGroup">
+			<label class="control-label" for="">Is there anything else you would like to mention?</label><br/>
+			<textarea cols="65" rows="5" class="textarea" ng-model="aboutedit.BreederProfile.AddInfo"></textarea>
 		</div>
 
-		<div ui-view="info"></div>
+		<div class="right">
 
-	</div>
+			<a class="btn btn-default" ui-sref="^">Reset All Fields</a>
+			<!--<button type="submit" class="btn btn-info" ui-sref="^">Reset all fields</button>-->
+			<button type="submit" class="btn btn-info">Save</button>
+			<a class="btn btn-info" ui-sref=".">Next Section</a>
+		</div>
+
+
+	</form>
+</div>
 
