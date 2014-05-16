@@ -54,7 +54,7 @@ profile.config(
     ["$stateProvider", "$urlRouterProvider",
         function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise("/profile");
+            $urlRouterProvider.otherwise("/profile/about");
 
             $stateProvider
                 .state("profile", {
@@ -72,8 +72,34 @@ profile.config(
                         }
                     }
                 })
+
+
+                .state("profile.about", {
+                    url: "",
+                    views:{
+                        'main@':{
+
+                            controller: "AboutCtrl",
+                            templateUrl: "../views/profile-about.html"
+                        }
+                    }
+
+                })
+                .state("profile.photos", {
+                    url: "/photos",
+                    views:{
+                        'main@':{
+
+                            controller: "PhotosCtrl",
+                            templateUrl: "../views/profile-photos.html"
+                        }
+                    }
+
+                })
+
+
                 .state("profile.edit", {
-                    url: "/edit",
+                    url: "^/edit",
                     views: {
                         "details@": {
 
@@ -83,31 +109,21 @@ profile.config(
                     }
                 })
 
-                .state("profile.about", {
-                    url: "/about",
-                    controller: "AboutCtrl",
-                    templateUrl: "../views/profile-about.html"
-                })
-                .state("profile.photos", {
-                    url: "/photos",
-                    controller: "PhotosCtrl",
-                    templateUrl: "../views/profile-photos.html"
-                })
-                .state("profile.puppies", {
-                    url: "/puppies",
-                    controller: "PuppiesCtrl",
-                    templateUrl: "../views/profile-puppies.html"
-                })
-                .state("profile.details", {
-                    url: "/details",
-                    controller: "DetailsCtrl",
-                    templateUrl: "../views/profile-details.html"
-                })
-                .state("profile.testimonials", {
-                    url: "/testimonials",
-                    controller: "TestimonialsCtrl",
-                    templateUrl: "../views/profile-testimonials.html"
-                })
+//                .state("profile.puppies", {
+//                    url: "/puppies",
+//                    controller: "PuppiesCtrl",
+//                    templateUrl: "../views/profile-puppies.html"
+//                })
+//                .state("profile.details", {
+//                    url: "/details",
+//                    controller: "DetailsCtrl",
+//                    templateUrl: "../views/profile-details.html"
+//                })
+//                .state("profile.testimonials", {
+//                    url: "/testimonials",
+//                    controller: "TestimonialsCtrl",
+//                    templateUrl: "../views/profile-testimonials.html"
+//                })
 //#state
         }]);
 
