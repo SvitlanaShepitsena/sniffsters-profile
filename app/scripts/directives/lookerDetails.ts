@@ -1,13 +1,14 @@
 /// <reference path="../app.ts" />
-interface IDBreeederDetails extends ng.IScope {
+
+interface ILookerDetails extends ng.IScope {
     test:string;
 }
 
-var breederDetails:() => ng.IDirective = () => {
+var lookerDetails:() => ng.IDirective = () => {
 
     return{
         restrict: 'E',
-        templateUrl: 'views/directives/breeder-details.html',
+        templateUrl: 'views/directives/looker-details.html',
         transclude: true,
         // replace directive tag with template info
         replace: true,
@@ -17,9 +18,10 @@ var breederDetails:() => ng.IDirective = () => {
             text: '@',
             func: '&'
         },
-        link: (scope:IDBreeederDetails, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        link: (scope:ILookerDetails, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
             scope.test = 'Test from link scope';
+
 
         }
     }

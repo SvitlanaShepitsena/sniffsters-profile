@@ -1,9 +1,9 @@
 /// <reference path="../app.ts" />
 
-var breederDetails = function () {
+var lookerDetails = function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/directives/breeder-details.html',
+        templateUrl: 'views/directives/looker-details.html',
         transclude: true,
         // replace directive tag with template info
         replace: true,
@@ -18,4 +18,4 @@ var breederDetails = function () {
         }
     };
 };
-//# sourceMappingURL=BreederDetails.js.map
+//# sourceMappingURL=lookerDetails.js.map

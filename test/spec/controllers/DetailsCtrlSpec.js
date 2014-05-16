@@ -1,14 +1,14 @@
 /// <reference path="../../../app/bower_components/DefinitelyTyped/jasmine/jasmine.d.ts" />
 /// <reference path="../../../app/bower_components/DefinitelyTyped/angularjs/angular-mocks.d.ts" />
 /// <reference path="../../../app/scripts/app.ts" />
-describe("About Controller Test", function () {
+describe("Details Controller Test", function () {
     // Setting a variables needed to perform test
     var $q, toastr = {
         error: function (error) {
         },
         info: function (info) {
         }
-    }, DataService, scope, $controller, ctrlabout;
+    }, DataService, scope, $controller, ctrldetails;
 
     beforeEach(function () {
         angular.mock.inject(function ($injector) {
@@ -32,7 +32,7 @@ describe("About Controller Test", function () {
             }
         };
 
-        ctrlabout = $controller('AboutCtrl', {
+        ctrldetails = $controller('DetailsCtrl', {
             $scope: scope,
             DataService: DataService,
             toastr: toastr
@@ -40,8 +40,8 @@ describe("About Controller Test", function () {
         scope.$apply();
 
         expect(1).toBe(1);
-        //expect(ctrlabout.).toBeDefined();
-        //expect(ctrlabout.).toBe();
+        //expect(ctrldetails.).toBeDefined();
+        //expect(ctrldetails.).toBe();
     });
 
     it('Should    when error  ', function () {
@@ -57,18 +57,18 @@ describe("About Controller Test", function () {
             }
         };
 
-        ctrlabout = $controller('AboutCtrl', {
+        ctrldetails = $controller('DetailsCtrl', {
             $scope: scope,
             DataService: DataService,
             toastr: toastr
         });
 
-        spyOn(ctrlabout, 'ShowError');
+        spyOn(ctrldetails, 'ShowError');
         scope.$apply();
 
         expect(2).toBe(2);
-        // expect(ctrlabout.error).toBeDefined();
-        // expect(ctrlabout.ShowError).toHaveBeenCalled();
+        // expect(ctrldetails.error).toBeDefined();
+        // expect(ctrldetails.ShowError).toHaveBeenCalled();
     });
 });
-//# sourceMappingURL=AboutCtrlSpec.js.map
+//# sourceMappingURL=DetailsCtrlSpec.js.map

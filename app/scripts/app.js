@@ -5,8 +5,12 @@
 /// <reference path="directives/BreederDetails.ts" />
 /// <reference path="directives/breederDetailsEdit.ts" />
 /// <reference path="controllers/EditCtrl.ts" />
+/// <reference path="directives/lookerDetails.ts" />
 /// <reference path="controllers/AboutCtrl.ts" />
 /// <reference path="controllers/PhotosCtrl.ts" />
+/// <reference path="controllers/PuppiesCtrl.ts" />
+/// <reference path="controllers/DetailsCtrl.ts" />
+/// <reference path="controllers/TestimonialsCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router']);
 
@@ -21,7 +25,7 @@ profile.filter('boolString', function () {
     };
 });
 
-profile.service("DataService", DataService);
+profile.directive("lookerDetails", lookerDetails);
 
 //#dir
 profile.directive("breederDetails", breederDetails);
@@ -30,6 +34,9 @@ profile.directive("breederDetailsEdit", breederDetailsEdit);
 profile.controller("EditCtrl", EditCtrl);
 profile.controller("AboutCtrl", AboutCtrl);
 profile.controller("PhotosCtrl", PhotosCtrl);
+profile.controller("PuppiesCtrl", PuppiesCtrl);
+profile.controller("DetailsCtrl", DetailsCtrl);
+profile.controller("TestimonialsCtrl", TestimonialsCtrl);
 
 //#ctrl
 profile.config(function ($httpProvider) {
@@ -37,41 +44,62 @@ profile.config(function ($httpProvider) {
 });
 
 profile.value("toastr", toastr);
+profile.service("DataService", DataService);
 
 profile.config([
     "$stateProvider", "$urlRouterProvider",
     function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/profile");
+        $urlRouterProvider.otherwise("/profile/about");
 
-        $stateProvider.state('profile', {
+        $stateProvider.state("profile", {
             url: "/profile",
             views: {
                 "main": {
-                    template: "Main"
+                    templateUrl: "../views/profile.html"
                 },
                 "details": {
-                    template: "Sub2<div ui-view></div>"
+                    template: "<breeder-details ctrl = 'index'></breeder-details>"
                 }
             }
-        }).state('profile.edit', {
-            url: "/profile/edit",
+        }).state("profile.about", {
+            url: "",
             views: {
-                "details": {
-                    template: "Sub2<div ui-view></div>"
+                'main@': {
+                    controller: "AboutCtrl",
+                    templateUrl: "../views/profile-about.html"
+                }
+            }
+        }).state("profile.photos", {
+            url: "/photos",
+            views: {
+                'main@': {
+                    controller: "PhotosCtrl",
+                    templateUrl: "../views/profile-photos.html"
+                }
+            }
+        }).state("profile.edit", {
+            url: "^/edit",
+            views: {
+                "details@": {
+                    controller: "EditCtrl",
+                    template: "<breeder-details-edit ctrl='edit'></breeder-details-edit>"
                 }
             }
         });
-        //                .state('edit', {
-        //                    url: "/profile/edit",
-        //                    views: {
-        //                        "main": {
-        //                            template: "index.viewA"
-        //                        },
-        //                        "details": {
-        //                            template: "<breeder-details-edit ctrl = 'edit'></breeder-details-edit>",
-        //                            controller:"EditCtrl"
-        //                        }
-        //                    }
+        //                .state("profile.puppies", {
+        //                    url: "/puppies",
+        //                    controller: "PuppiesCtrl",
+        //                    templateUrl: "../views/profile-puppies.html"
+        //                })
+        //                .state("profile.details", {
+        //                    url: "/details",
+        //                    controller: "DetailsCtrl",
+        //                    templateUrl: "../views/profile-details.html"
+        //                })
+        //                .state("profile.testimonials", {
+        //                    url: "/testimonials",
+        //                    controller: "TestimonialsCtrl",
+        //                    templateUrl: "../views/profile-testimonials.html"
         //                })
         //#state
     }]);

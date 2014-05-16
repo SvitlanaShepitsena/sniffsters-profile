@@ -110,20 +110,40 @@
 					</ul>
 
 				</div>
-
+				
 				<div class="col-sm-10">
 					<div class="container">
 						<div ng-controller="IndexCtrl as index">
+						<ul class="nav nav-pills">
+								<li ui-sref-active="active"><a ui-sref="profile.about">About</a></li>
+								<li ui-sref-active="active"><a ui-sref="profile.photos">Photos</a></li>
+								<!--<li ui-sref-active="active"><a ui-sref="profile.puppies">Puppies</a></li>-->
+								<!--<li ui-sref-active="active"><a ui-sref="profile.details">Details</a></li>-->
+								<!--<li ui-sref-active="active"><a ui-sref="profile.testimonials">Testimonials</a></li>-->
+							</ul>
 
 							<div class="row">
-								<div class="col-sm-5">
-									<div class="well" ui-view="main"></div>
+								<div class="col-sm-6">
+
+									<div ng-hide="index.error" ui-view="main">
+									</div>
+
+
 								</div>
-								<div class="col-sm-5">
-									<div class="well" ui-view="details"></div>
+								<div class="col-sm-4">
+									<div ng-hide="index.error">
+
+										<div class="alert alert-warning myDetails-alert">
+											<h3 class="text-center myDetailsFont">MY DETAILS<i
+													class="fa fa-pencil fa-fw fa-md pointer fa-details"></i></h3>
+
+											<div ui-view="details">
+
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-
 							<div ng-show="index.error" class="panel panel-danger">Error in Database request. Check
 								Internet Connection
 							</div>
@@ -173,8 +193,12 @@
 <script src="scripts/filters/BoolString.js"></script>
 
 <script src="scripts/controllers/EditCtrl.js"></script>
+<script src="scripts/directives/lookerDetails.js"></script>
 <script src="scripts/controllers/AboutCtrl.js"></script>
 <script src="scripts/controllers/PhotosCtrl.js"></script>
+<script src="scripts/controllers/PuppiesCtrl.js"></script>
+<script src="scripts/controllers/DetailsCtrl.js"></script>
+<script src="scripts/controllers/TestimonialsCtrl.js"></script>
 <!-- links -->
 <script src="scripts/controllers/IndexCtrl.js"></script>
 <script src="scripts/app.js"></script>
@@ -182,3 +206,4 @@
 
 
 </body>
+</html>
