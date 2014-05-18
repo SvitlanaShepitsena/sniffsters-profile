@@ -80,13 +80,21 @@ profile.config(
                     views: {
                         'central': {
 
-                            controller: "AboutCtrl",
                             templateUrl: "../views/profile-about.html"
                         }
                     }
 
                 })
+                .state("profile.about.change", {
+                    url: "/change",
+                   views:{
+                       'change':{
 
+                           controller: "AbouteditCtrl",
+                           templateUrl: "../views/profile-aboutedit.html"
+                       }
+                   }
+                })
 
                 .state("profile.about.edit", {
                     url: "^/mydetails/edit",
@@ -143,11 +151,7 @@ profile.config(
 //                    }
 
 //                })
-                .state("aboutedit", {
-                    url: "/profile/aboutedit",
-                    controller: "AbouteditCtrl",
-                    templateUrl: "../views/profile-aboutedit.html"
-                })
+
 //#state
         }]);
 

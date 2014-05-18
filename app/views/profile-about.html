@@ -1,78 +1,52 @@
-<div class="well">
-	<h4>KENNEL NAME</h4>
-	<hr/>
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, est, nesciunt. Amet aperiam at consequuntur
-	cumque dolorum eaque, eos est fugiat incidunt laborum mollitia nobis obcaecati quis repellat veniam voluptatem!
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, est, nesciunt. Amet aperiam at consequuntur
-	cumque dolorum eaque, eos est fugiat incidunt laborum mollitia nobis obcaecati quis repellat veniam voluptatem!
+<div ui-view="change">
+	<div class="well">
 
-	<br/>
 
-	<h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+		<div class="row">
+			<div class="col-sm-8">
+				<h3>About</h3>
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur cumque delectus deleniti
-		dignissimos excepturi fugit in ipsa libero maiores, nemo officiis placeat qui quisquam repellat similique
-		sint totam voluptate?</p>
+			</div>
+			<div class="col-sm-2">
+				<a class="btn btn-warning " ui-sref="profile.about.change">Edit</a>
 
-	<h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+			</div>
+		</div>
 
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi doloremque fugiat labore perferendis quaerat
-		quia quisquam tempora ut veritatis vitae! At atque in ipsa maiores nulla placeat quas saepe ut.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda delectus deleniti eaque eum odit
-		recusandae repellat repellendus voluptas voluptatum? Aliquid dolore dolorum, id iste maxime numquam odio placeat
-		tenetur.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur cumque delectus deleniti
-		dignissimos excepturi fugit in ipsa libero maiores, nemo officiis placeat qui quisquam repellat similique
-		sint totam voluptate?</p>
+		<h4>KENNEL NAME</h4>
 
-	<h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+		<p>{{index.BreederProfile.KennelName}}</p>
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur cumque delectus deleniti
-		dignissimos excepturi fugit in ipsa libero maiores, nemo officiis placeat qui quisquam repellat similique
-		sint totam voluptate?</p>
+		<h4>Your Story</h4>
 
-	<h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
-	<hr/>
-	<h4>PARENTS</h4>
-	<hr/>
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, est, nesciunt. Amet aperiam at consequuntur
-	cumque dolorum eaque, eos est fugiat incidunt laborum mollitia nobis obcaecati quis repellat veniam voluptatem!
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, est, nesciunt. Amet aperiam at consequuntur
-	cumque dolorum eaque, eos est fugiat incidunt laborum mollitia nobis obcaecati quis repellat veniam voluptatem!
+		<p>{{index.BreederProfile.Story}}</p>
 
-	<br/>
 
-	<h4>Girls</h4>
+		<h3>PARENTS</h3>
+		<hr/>
+		<h4>About Parents</h4>
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur cumque delectus deleniti
-		dignissimos excepturi fugit in ipsa libero maiores, nemo officiis placeat qui quisquam repellat similique
-		sint totam voluptate?</p>
+		<p>{{index.BreederProfile.Parents}}</p>
 
-	<h4>Boys</h4>
 
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi doloremque fugiat labore perferendis quaerat
-		quia quisquam tempora ut veritatis vitae! At atque in ipsa maiores nulla placeat quas saepe ut.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda delectus deleniti eaque eum odit
-		recusandae repellat repellendus voluptas voluptatum? Aliquid dolore dolorum, id iste maxime numquam odio placeat
-		tenetur.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur cumque delectus deleniti
-		dignissimos excepturi fugit in ipsa libero maiores, nemo officiis placeat qui quisquam repellat similique
-		sint totam voluptate?</p>
+		<h4>Boys</h4>
 
-	<h4>ADDITIONAL INFO</h4>
+		<p>{{index.BreederProfile.Boys}}</p>
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur cumque delectus deleniti
-		dignissimos excepturi fugit in ipsa libero maiores, nemo officiis placeat qui quisquam repellat similique
-		sint totam voluptate?</p>
+		<h4>Girls</h4>
 
-	<div class="right">
-		<button type="submit" class="btn btn-info">Reset all fields</button>
-		<button type="submit" class="btn btn-info">Save</button>
-		<button class="btn btn-info" ui-sref="profile">Next Section</button>
+		<p>{{index.BreederProfile.Girls}}</p>
+
+
+		<h3>ADDITIONAL INFO</h3>
+		<hr/>
+		<p>{{index.BreederProfile.AddInfo}}</p>
+
+
+		<div class="form-group  myProfileSave text-center">
+			<a class="btn btn-warning" ui-sref="profile.about.change">Edit</a>
+		</div>
+		<div ui-view="info"></div>
+
 	</div>
-
-	<div ui-view="info"></div>
-
 </div>
