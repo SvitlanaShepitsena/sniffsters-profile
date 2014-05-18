@@ -1,10 +1,9 @@
 /// <reference path="../app.ts" />
 
-var breederDetailsEdit = function () {
+var aboutInfo = function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/directives/breeder-details-edit.html',
-        transclude: true,
+        templateUrl: 'views/directives/about-info.html',
         // replace directive tag with template info
         replace: true,
         scope: {
@@ -18,4 +17,4 @@ var breederDetailsEdit = function () {
         }
     };
 };
-//# sourceMappingURL=breederDetailsEdit.js.map
+//# sourceMappingURL=aboutInfo.js.map

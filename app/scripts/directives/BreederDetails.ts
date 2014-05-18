@@ -1,6 +1,12 @@
 /// <reference path="../app.ts" />
-interface IDBreeederDetails extends ng.IScope {
-    test:string;
+interface IDBreederDetails extends ng.IScope {
+    IsEdit:Boolean;
+    ctrl:IndexCtrl;
+    Clone:() => IBreederProfile;
+    BreederProfileEdit:IBreederProfile;
+    Edit:() => void;
+    Cancel:() => void;
+    Save:() => void;
 }
 
 var breederDetails:() => ng.IDirective = () => {
@@ -17,9 +23,27 @@ var breederDetails:() => ng.IDirective = () => {
             text: '@',
             func: '&'
         },
-        link: (scope:IDBreeederDetails, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        link: (scope:IDBreederDetails, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
-            scope.test = 'Test from link scope';
+
+            scope.IsEdit = false;
+
+            scope.Edit = () => {
+                scope.ctrl.Clone();
+                scope.IsEdit = true;
+            }
+
+            scope.Cancel = () => {
+
+                scope.IsEdit = false;
+            }
+
+            scope.Save = () => {
+                scope.ctrl.Save();
+                scope.IsEdit = false;
+            }
+
+
 
         }
     }

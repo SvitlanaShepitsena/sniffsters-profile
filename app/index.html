@@ -110,57 +110,34 @@
 					</ul>
 
 				</div>
-				
+
 				<div class="col-sm-10">
 					<div class="container">
-						<div ng-controller="IndexCtrl as index">
-
-
-							<div class="row">
-								<div class="col-sm-6">
-
-									<div ng-hide="index.error" ui-view="main">
-									</div>
-
-
-								</div>
-								<div class="col-sm-4">
-									<div ng-hide="index.error">
-
-										<div class="alert alert-warning myDetails-alert">
-											<h3 class="text-center myDetailsFont">MY DETAILS<i
-													class="fa fa-pencil fa-fw fa-md pointer fa-details"></i></h3>
-
-											<div ui-view="details">
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div ng-show="index.error" class="panel panel-danger">Error in Database request. Check
-								Internet Connection
-							</div>
+						<div ng-controller="IndexCtrl as index" ui-view ng-hide="index.error">
+						</div>
+						<div ng-show="index.error" class="panel panel-danger">Error in Database request. Check
+							Internet Connection
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
-	<hr/>
-	<footer>
-		<div class="container">
-			<div class="navbar-header">
-				<p>COPYRIGHT ©2014 SNIFFSTERS LLC</p>
-			</div>
-			<ul class="nav nav-pills navbar-right navFooter">
-				<li><a href="/Advertise">ADVERTISE</a></li>
-				<li><a href="/Terms">TERMS</a></li>
-				<li><a href="/Contact">CONTACT</a></li>
-			</ul>
+<hr/>
+<footer>
+	<div class="container">
+		<div class="navbar-header">
+			<p>COPYRIGHT ©2014 SNIFFSTERS LLC</p>
 		</div>
-	</footer>
+		<ul class="nav nav-pills navbar-right navFooter">
+			<li><a href="/Advertise">ADVERTISE</a></li>
+			<li><a href="/Terms">TERMS</a></li>
+			<li><a href="/Contact">CONTACT</a></li>
+		</ul>
+	</div>
+</footer>
 </div>
 
 
@@ -183,7 +160,6 @@
 <script src="scripts/models/IBreederProfile.js"></script>
 
 <script src="scripts/directives/BreederDetails.js"></script>
-<script src="scripts/directives/breederDetailsEdit.js"></script>
 <script src="scripts/filters/BoolString.js"></script>
 
 <script src="scripts/controllers/EditCtrl.js"></script>
@@ -193,7 +169,7 @@
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/DetailsCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>
-<script src="scripts/controllers/AbouteditCtrl.js"></script>
+<script src="scripts/directives/aboutInfo.js"></script>
 <!-- links -->
 <script src="scripts/controllers/IndexCtrl.js"></script>
 <script src="scripts/app.js"></script>

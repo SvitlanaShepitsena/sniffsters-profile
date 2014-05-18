@@ -1,0 +1,50 @@
+<div ui-view="change">
+	<div class="well">
+		<div class="row">
+			<div class="col-sm-8">
+				<h3>About</h3>
+
+			</div>
+			<div class="col-sm-2">
+				<a class="btn btn-warning " ui-sref="profile.about.change">Edit</a>
+
+			</div>
+		</div>
+
+		<h4>KENNEL NAME</h4>
+
+		<p>{{ctrl.BreederProfile.KennelName}}</p>
+
+		<h4>Your Story</h4>
+
+		<p>{{ctrl.BreederProfile.Story}}</p>
+
+
+		<h3>PARENTS</h3>
+		<hr/>
+		<h4>About Parents</h4>
+
+		<p>{{ctrl.BreederProfile.Parents}}</p>
+
+
+		<h4>Boys</h4>
+
+		<p>{{ctrl.BreederProfile.Boys}}</p>
+
+		<h4>Girls</h4>
+
+		<p>{{ctrl.BreederProfile.Girls}}</p>
+
+
+		<h3>ADDITIONAL INFO</h3>
+		<hr/>
+		<p>{{ctrl.BreederProfile.AddInfo}}</p>
+
+
+		<div class="form-group  myProfileSave text-center">
+			<a class="btn btn-warning" ui-sref="profile.about.change">Edit</a>
+		</div>
+		<div ui-view="info"></div>
+
+	</div>
+</div>

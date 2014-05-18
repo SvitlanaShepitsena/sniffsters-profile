@@ -2,12 +2,12 @@
 
 interface IAboutScope extends ng.IScope {
     about:AboutCtrl;
-    BreederProfile: IBreederProfile;
 }
 class AboutCtrl {
-    static $inject = ['$scope', 'DataService', 'toastr'];
 
-    constructor($scope:IAboutScope , public DataService:DataService, public toastr) {
+    constructor($scope:IAboutScope , public DataService:DataService, public toastr,public CopyProfileService:CopyProfileService) {
         $scope.about = this;
+        this.BreederProfile = CopyProfileService.BreederProfile;
     }
+    BreederProfile:IBreederProfile;
 }

@@ -14,7 +14,21 @@ var breederDetails = function () {
         },
         link: function (scope, element, attrs) {
             //            SCOPE (USE just {{test}} . )
-            scope.test = 'Test from link scope';
+            scope.IsEdit = false;
+
+            scope.Edit = function () {
+                scope.ctrl.Clone();
+                scope.IsEdit = true;
+            };
+
+            scope.Cancel = function () {
+                scope.IsEdit = false;
+            };
+
+            scope.Save = function () {
+                scope.ctrl.Save();
+                scope.IsEdit = false;
+            };
         }
     };
 };

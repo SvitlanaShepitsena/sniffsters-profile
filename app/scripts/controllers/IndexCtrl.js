@@ -2,8 +2,9 @@
 /// <reference path="../services/CopyProfileService.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 var IndexCtrl = (function () {
-    function IndexCtrl($scope, toastr, DataService, CopyProfileService) {
+    function IndexCtrl($scope, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
+        this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
@@ -27,8 +28,31 @@ var IndexCtrl = (function () {
         this.toastr.error(errorMessage);
     };
 
+    IndexCtrl.prototype.ShowSuccess = function (successMessage) {
+        this.toastr.success(successMessage);
+    };
+
+    IndexCtrl.prototype.Clone = function () {
+        this.BreederProfileCopy = this.CopyProfileService.GetProfileClone();
+    };
+
     IndexCtrl.prototype.UpdateBreederProfile = function (breederProfile) {
         this.BreederProfile = breederProfile;
+    };
+
+    IndexCtrl.prototype.Save = function () {
+        var _this = this;
+        var promise = this.DataService.updateProfile(this.BreederProfileCopy);
+
+        //resolving promise
+        promise.then(function () {
+            // Success
+            _this.BreederProfile = _this.BreederProfileCopy;
+            _this.ShowSuccess('Successfully saved');
+        }, function () {
+            // Error
+            _this.ShowError('Db Connection Problem');
+        });
     };
     return IndexCtrl;
 })();
