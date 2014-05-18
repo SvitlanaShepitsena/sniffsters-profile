@@ -40,7 +40,7 @@ profile.service("DataService", DataService);
 
 profile.config(
          ($stateProvider, $urlRouterProvider) =>  {
-//             $urlRouterProvider.when('/test', '/profile/puppies');
+             $urlRouterProvider.when('/test', '/profile/puppies');
              $urlRouterProvider.otherwise("/profile/about");
 
 
