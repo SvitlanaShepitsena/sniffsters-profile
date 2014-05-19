@@ -14,6 +14,7 @@
 /// <reference path="directives/puppiesInfo.ts" />
 /// <reference path="directives/detailsInfo.ts" />
 /// <reference path="directives/testimonialsInfo.ts" />
+/// <reference path="directives/aboutInfoEdit.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router']);
@@ -30,6 +31,7 @@ profile.directive("photosInfo", photosInfo);
 profile.directive("puppiesInfo", puppiesInfo);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("testimonialsInfo", testimonialsInfo);
+profile.directive("aboutInfoEdit", aboutInfoEdit);
 //#dir
 profile.directive("lookerDetails", lookerDetails);
 profile.directive("aboutInfo", aboutInfo);
@@ -62,6 +64,11 @@ profile.config(
                 .state("profile.about", {
                     url: "/about",
                     templateUrl: "../views/profile-about.html"
+                })
+                .state("profile.about.edit", {
+                    url: "/edit",
+                    controller: "EditCtrl",
+                    templateUrl: "../views/profile-about-edit.html"
                 })
                 .state("profile.photos", {
                     url: "/photos",

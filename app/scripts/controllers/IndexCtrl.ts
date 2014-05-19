@@ -60,6 +60,8 @@ class IndexCtrl {
             () => {
                 // Success
                 this.BreederProfile = this.BreederProfileCopy;
+//                Any time we change information on server we need to update our BreederProfile inside a container.
+                this.CopyProfileService.SetProfile(this.BreederProfileCopy);
                 this.ShowSuccess('Successfully saved');
             },
             () => {

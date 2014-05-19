@@ -10,14 +10,16 @@ var IndexCtrl = (function () {
         this.CopyProfileService = CopyProfileService;
         this.text = 'Text Outer Scope';
         $scope.index = this;
-
         var promiseT = this.DataService.getProfile();
 
         promiseT.then(function (breederProfile) {
             //Success
             _this.error = false;
+            _this.BreederProfile = breederProfile;
+
+            //            Put a received BreederProfile to CopyProfileService, using it like container
+            //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
             _this.CopyProfileService.SetProfile(breederProfile);
-            _this.BreederProfile = _this.CopyProfileService.BreederProfile;
         }, function () {
             //Error
             _this.error = true;
@@ -48,6 +50,9 @@ var IndexCtrl = (function () {
         promise.then(function () {
             // Success
             _this.BreederProfile = _this.BreederProfileCopy;
+
+            //                Any time we change information on server we need to update our BreederProfile inside a container.
+            _this.CopyProfileService.SetProfile(_this.BreederProfileCopy);
             _this.ShowSuccess('Successfully saved');
         }, function () {
             // Error
