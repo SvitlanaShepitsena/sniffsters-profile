@@ -3,9 +3,8 @@
 		<div class="col-sm-8">
 			<h3>About</h3>
 		</div>
-
-		<div class="col-sm-2">
-			<a class="" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
+		<div class="col-sm-2 pull-right">
+			<input type="submit" value="Save" class="btn btn-link">
 		</div>
 	</div>
 	<form class="form" name="aboutInfo">
@@ -17,8 +16,40 @@
 		<div class="form-group">
 			<label>Your Story:</label>
 			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Story">
-
 				{{ctrl.BreederProfileEdit.Story}}
+			</textarea>
+		</div>
+
+	</form>
+
+	<div class="row">
+		<div class="col-sm-8">
+			<h3>Parents</h3>
+		</div>
+		<div class="col-sm-2 pull-right">
+			<input type="submit" value="Save" class="btn btn-link">
+		</div>
+	</div>
+
+	<form class="form" name="parentsInfo">
+		<div class="form-group">
+			<label>About Parents:</label>
+			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Parents">
+				{{ctrl.BreederProfileEdit.Parents}}
+			</textarea>
+		</div>
+
+		<div class="form-group">
+			<label>Boys:</label>
+			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Boys">
+				{{ctrl.BreederProfileEdit.Boys}}
+			</textarea>
+		</div>
+
+		<div class="form-group">
+			<label>Girls:</label>
+			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Girls">
+				{{ctrl.BreederProfileEdit.Girls}}
 			</textarea>
 		</div>
 

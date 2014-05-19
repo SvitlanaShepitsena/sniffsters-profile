@@ -1,9 +1,16 @@
 <div>
+	<div class="row">
+		<div class="col-sm-8">
+			<h3 class="text-center">MY DETAILS</h3>
+		</div>
+		<div class="col-sm-1 pull-right">
+			<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
+		</div>
+	</div>
 	<hr/>
 	<!--<div>{{text}}</div>-->
 	<!--<div>{{BreederProfileEdit.FirstName}}</div>-->
 	<dl class="dl-horizontal">
-
 		<dt>Location:</dt>
 		<dd ng-show = "!IsEdit">{{ctrl.BreederProfile.Location}}</dd>
 		<dd ng-show = "IsEdit"><input  type="text" ng-model="ctrl.BreederProfileCopy.Location"> </dd>
