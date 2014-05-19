@@ -21,8 +21,6 @@ var aboutInfo:() => ng.IDirective = () => {
         link: (scope:IAboutInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
             scope.test = 'Test from link scope';
-
-
         }
     }
 }

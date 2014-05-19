@@ -10,6 +10,10 @@
 /// <reference path="controllers/DetailsCtrl.ts" />
 /// <reference path="controllers/TestimonialsCtrl.ts" />
 /// <reference path="directives/aboutInfo.ts" />
+/// <reference path="directives/photosInfo.ts" />
+/// <reference path="directives/puppiesInfo.ts" />
+/// <reference path="directives/detailsInfo.ts" />
+/// <reference path="directives/testimonialsInfo.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router']);
@@ -22,18 +26,23 @@ profile.filter('boolString', () => {
 });
 
 
+profile.directive("photosInfo", photosInfo);
+profile.directive("puppiesInfo", puppiesInfo);
+profile.directive("detailsInfo", detailsInfo);
+profile.directive("testimonialsInfo", testimonialsInfo);
+//#dir
 profile.directive("lookerDetails", lookerDetails);
 profile.directive("aboutInfo", aboutInfo);
-//#dir
 profile.directive("breederDetails", breederDetails);
 
+//#ctrl
 profile.controller("EditCtrl", EditCtrl);
 profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
 profile.controller("DetailsCtrl", DetailsCtrl);
 profile.controller("TestimonialsCtrl", TestimonialsCtrl);
-//#ctrl
 
+// TODO: Implement filter
 
 profile.value("toastr", toastr)
 profile.service("DataService", DataService);

@@ -7,17 +7,25 @@ interface IMainScope extends ng.IScope {
     index:IndexCtrl;
 }
 class IndexCtrl {
+    BreederProfile:IBreederProfile;
+    BreederProfileCopy:IBreederProfile;
+    text:string = 'Text Outer Scope';
+    error:boolean;
 
     constructor($scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService,public CopyProfileService:CopyProfileService) {
         $scope.index = this;
-
         var promiseT = this.DataService.getProfile<IBreederProfile>();
 
         promiseT.then((breederProfile:IBreederProfile) => {
             //Success
             this.error = false;
+            this.BreederProfile = breederProfile;
+
+
+//            Put a received BreederProfile to CopyProfileService, using it like container
+//            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
             this.CopyProfileService.SetProfile(breederProfile);
-            this.BreederProfile = this.CopyProfileService.BreederProfile;
+
         }, () => {
             //Error
             this.error = true;
@@ -25,13 +33,6 @@ class IndexCtrl {
         })
     }
 
-    BreederProfile:IBreederProfile;
-
-    BreederProfileCopy:IBreederProfile;
-
-    text:string = 'Text Outer Scope';
-
-    error:boolean;
 
     ShowError(errorMessage:string) {
         this.toastr.error(errorMessage);

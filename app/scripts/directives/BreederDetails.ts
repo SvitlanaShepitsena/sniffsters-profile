@@ -42,9 +42,6 @@ var breederDetails:() => ng.IDirective = () => {
                 scope.ctrl.Save();
                 scope.IsEdit = false;
             }
-
-
-
         }
     }
 }
