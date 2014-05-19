@@ -22,6 +22,9 @@ hr {
 .fa-fw {
   font-size: .9em !important;
 }
+.light-gray {
+  color: #bababa;
+}
 .form-editPersonal {
   margin-left: 5px !important;
 }

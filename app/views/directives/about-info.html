@@ -6,12 +6,16 @@
 
 			</div>
 			<div class="col-sm-2">
-				<a class="" ui-sref="profile.about.change"><i class="fa fa-pencil"></i></a>
+				<a class="light-gray" ui-sref="profile.about.change">Save</a>
+				<a class="" ui-sref="profile.about.change"><i class="fa fa-pencil light-gray"></i></a>
 
 			</div>
 		</div>
 
 		<h4>KENNEL NAME</h4>
+		<span ng-show="!isEdit"></span>
+		<dd ng-show = "!IsEdit">{{ctrl.BreederProfile.Location}}</dd>
+		<dd ng-show = "IsEdit"><input  type="text" ng-model="ctrl.BreederProfileCopy.Location"> </dd>
 
 		<p>{{ctrl.BreederProfile.KennelName}}</p>
 
@@ -42,7 +46,9 @@
 
 
 		<div class="form-group  myProfileSave text-center">
-			<a class="btn btn-warning" ui-sref="profile.about.change">Edit</a>
+			<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
+			<a class="btn btn-info" ui-sref="profile.about.change">Save</a>
+			<a class="btn btn-default" ui-sref="profile.about.change">Next Section</a>
 		</div>
 		<div ui-view="info"></div>
 
