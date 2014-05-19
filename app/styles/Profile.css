@@ -16,6 +16,9 @@ hr {
 .right {
   text-align: right;
 }
+.italic {
+  font-style: italic;
+}
 .dl-horizontal dt {
   text-align: left;
 }
@@ -58,4 +61,14 @@ hr {
 }
 .myProfileSave {
   margin-top: 10px;
+}
+/**********************
+  About-Info
+***********************/
+.required {
+  font-size: .9em;
+  color: #bababa;
+}
+.subHeadLabel {
+  margin-right: 15px;
 }

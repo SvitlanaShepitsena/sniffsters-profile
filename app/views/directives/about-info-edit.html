@@ -1,7 +1,7 @@
 <div class="well well-sm" xmlns="http://www.w3.org/1999/html">
 	<div class="row">
 		<div class="col-sm-8">
-			<h3>About</h3>
+			<h4 class="italic">ABOUT</h4>
 		</div>
 		<div class="col-sm-2 pull-right">
 			<input type="submit" value="Save" class="btn btn-link">
@@ -9,7 +9,8 @@
 	</div>
 	<form class="form" name="aboutInfo">
 		<div class="form-group">
-			<label>Kennel Name:</label>
+			<label class="subHeadLabel">Kennel Name:</label>
+			<span class="required">Required</span>
 			<input class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName" type="text"/>
 		</div>
 
@@ -24,7 +25,7 @@
 
 	<div class="row">
 		<div class="col-sm-8">
-			<h3>Parents</h3>
+			<h4 class = "italic">PARENTS</h4>
 		</div>
 		<div class="col-sm-2 pull-right">
 			<input type="submit" value="Save" class="btn btn-link">
@@ -34,6 +35,7 @@
 	<form class="form" name="parentsInfo">
 		<div class="form-group">
 			<label>About Parents:</label>
+			<span class="required">Required</span>
 			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Parents">
 				{{ctrl.BreederProfileEdit.Parents}}
 			</textarea>
@@ -48,6 +50,24 @@
 
 		<div class="form-group">
 			<label>Girls:</label>
+			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Girls">
+				{{ctrl.BreederProfileEdit.Girls}}
+			</textarea>
+		</div>
+
+	</form>
+
+	<form class="form" name="additionalInfo">
+		<div class="row">
+			<div class="col-sm-8">
+				<h4 class="italic">ADDITIONAL INFO</h4>
+			</div>
+			<div class="col-sm-2 pull-right">
+				<input type="submit" value="Save" class="btn btn-link">
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Is there anything else you would like to mention?:</label>
 			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Girls">
 				{{ctrl.BreederProfileEdit.Girls}}
 			</textarea>
