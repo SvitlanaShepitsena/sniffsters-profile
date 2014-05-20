@@ -101,8 +101,8 @@
 
 <div class="container body-content">
 	<div class="container mainContent">
-			<div class="row">
-		<div>
+		<div class="row">
+			<div>
 				<div class="col-sm-2">
 					<ul class="nav nav-stacked">
 						<li><a href="/Breeder-Profile">My Profile</a></li>
@@ -111,13 +111,12 @@
 
 				</div>
 
-					<div class="container">
-						<div ng-controller="IndexCtrl as index" ui-view ng-hide="index.error">
-						</div>
+				<div class="container">
+					<div ng-controller="IndexCtrl as index" ui-view ng-hide="index.error">
+					</div>
 
-						<div ng-show="index.error" class="panel panel-danger">Error in Database request. Check
-							Internet Connection
-						</div>
+					<div ng-show="index.error" class="panel panel-danger">Error in Database request. Check
+						Internet Connection
 					</div>
 				</div>
 			</div>

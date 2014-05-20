@@ -4,19 +4,24 @@
 			<h4 class="italic">ABOUT</h4>
 		</div>
 		<div class="col-sm-2 pull-right">
-			<input type="submit" value="Save" class="btn btn-link">
+			<input type="submit" value="Save" ng-click="SaveKennelName()" class="btn btn-info" ng-disabled="
+			(form.kennel.$pristine && form.story.$pristine)
+			|| (form.kennel.$invalid || form.story.$invalid)">
 		</div>
 	</div>
-	<form class="form" name="aboutInfo">
+	<form class="form" name="form" novalidate>
 		<div class="form-group">
 			<label class="subHeadLabel">Kennel Name:</label>
 			<span class="required">Required</span>
-			<input class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName" type="text"/>
+			<input class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName" name="kennel" type="text"
+			       required/>
 		</div>
 
 		<div class="form-group">
-			<label>Your Story:</label>
-			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Story">
+			<label class="subHeadLabel">Your Story:</label>
+			<span class="required">Required</span>
+			<textarea name="story" rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Story"
+			          required>
 				{{ctrl.BreederProfileEdit.Story}}
 			</textarea>
 		</div>
@@ -25,7 +30,7 @@
 
 	<div class="row">
 		<div class="col-sm-8">
-			<h4 class = "italic">PARENTS</h4>
+			<h4 class="italic">PARENTS</h4>
 		</div>
 		<div class="col-sm-2 pull-right">
 			<input type="submit" value="Save" class="btn btn-link">
@@ -34,7 +39,7 @@
 
 	<form class="form" name="parentsInfo">
 		<div class="form-group">
-			<label>About Parents:</label>
+			<label class="subHeadLabel">About Parents:</label>
 			<span class="required">Required</span>
 			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Parents">
 				{{ctrl.BreederProfileEdit.Parents}}

@@ -25,8 +25,6 @@ profile.filter('boolString', () => {
         return BoolString.filter(value);
     }
 });
-
-
 profile.directive("photosInfo", photosInfo);
 profile.directive("puppiesInfo", puppiesInfo);
 profile.directive("detailsInfo", detailsInfo);
@@ -45,53 +43,51 @@ profile.controller("DetailsCtrl", DetailsCtrl);
 profile.controller("TestimonialsCtrl", TestimonialsCtrl);
 
 // TODO: Implement filter
-
 profile.value("toastr", toastr)
 profile.service("DataService", DataService);
 
 profile.config(
-         ($stateProvider, $urlRouterProvider) =>  {
-             $urlRouterProvider.when('/test', '/profile/puppies');
-             $urlRouterProvider.otherwise("/profile/about");
+    ($stateProvider, $urlRouterProvider) => {
+        $urlRouterProvider.otherwise("/profile/about");
 
 
-            $stateProvider
-                .state("profile", {
-                    abstract: true,
-                    url: "/profile",
-                    templateUrl: "../views/profile.html"
-                })
-                .state("profile.about", {
-                    url: "/about",
-                    templateUrl: "../views/profile-about.html"
-                })
-                .state("profile.about.edit", {
-                    url: "/edit",
-                    controller: "EditCtrl",
-                    templateUrl: "../views/profile-about-edit.html"
-                })
-                .state("profile.photos", {
-                    url: "/photos",
-                    controller: "PhotosCtrl",
-                    templateUrl: "../views/profile-photos.html"
-                })
-                .state("profile.puppies", {
-                    url: "/puppies",
-                    controller: "PuppiesCtrl",
-                    templateUrl: "../views/profile-puppies.html"
-                })
-                .state("profile.details", {
-                    url: "/details",
-                    controller: "DetailsCtrl",
-                    templateUrl: "../views/profile-details.html"
-                })
-                .state("profile.testimonials", {
-                    url: "/testimonials",
-                    controller: "TestimonialsCtrl",
-                    templateUrl: "../views/profile-testimonials.html"
-                })
+        $stateProvider
+            .state("profile", {
+                abstract: true,
+                url: "/profile",
+                templateUrl: "../views/profile.html"
+            })
+            .state("profile.about", {
+                url: "/about",
+                templateUrl: "../views/profile-about.html"
+            })
+            .state("profile.about.edit", {
+                url: "/edit",
+                controller: "EditCtrl",
+                templateUrl: "../views/profile-about-edit.html"
+            })
+            .state("profile.photos", {
+                url: "/photos",
+                controller: "PhotosCtrl",
+                templateUrl: "../views/profile-photos.html"
+            })
+            .state("profile.puppies", {
+                url: "/puppies",
+                controller: "PuppiesCtrl",
+                templateUrl: "../views/profile-puppies.html"
+            })
+            .state("profile.details", {
+                url: "/details",
+                controller: "DetailsCtrl",
+                templateUrl: "../views/profile-details.html"
+            })
+            .state("profile.testimonials", {
+                url: "/testimonials",
+                controller: "TestimonialsCtrl",
+                templateUrl: "../views/profile-testimonials.html"
+            })
 
 
 //#state
-        });
+    });
 

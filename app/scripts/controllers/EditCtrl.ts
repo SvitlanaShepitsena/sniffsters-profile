@@ -7,6 +7,7 @@
 
 interface IEditScope extends IMainScope {
     edit:EditCtrl;
+    ctrl:IndexCtrl;
 
 }
 class EditCtrl {
@@ -15,19 +16,24 @@ class EditCtrl {
         $scope.edit = this;
 
         this.BreederProfileEdit = this.CopyProfileService.GetProfileClone();
+
     }
 
     BreederProfileEdit:IBreederProfile = new BreederProfile();
 
-    Save() {
+    Save(breederProfile:IBreederProfile) {
 //Run Service UpdateProfile Method and get promise back
-        var promise:ng.IPromise<IBreederProfile> = this.DataService.updateProfile<IBreederProfile>(this.BreederProfileEdit);
+        var promise:ng.IPromise<IBreederProfile> = this.DataService.updateProfile<IBreederProfile>(breederProfile);
 //resolving promise
-
 
         promise.then(
             () => {
                 // Success
+                this.CopyProfileService.SetProfile(breederProfile);
+
+//                Update scope on IndexCtrl.
+                this.$scope.ctrl.UpdateBreederProfile(breederProfile);
+
                 this.ShowSuccess('Successfully Saved');
             },
             () => {
@@ -39,15 +45,15 @@ class EditCtrl {
 
     ShowSuccess(note:string) {
         this.toastr.info(note);
-        this.CopyProfileService.SetProfile(this.BreederProfileEdit);
-        this.$scope.index.UpdateBreederProfile(this.BreederProfileEdit);
-
-
-        this.$state.go('^');
     }
 
     ShowError(note:string) {
         this.toastr.error(note);
     }
+
+    GetClone(){
+        return this.CopyProfileService.GetProfileClone();
+    }
+
 
 }

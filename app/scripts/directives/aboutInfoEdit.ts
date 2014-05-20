@@ -2,6 +2,12 @@
 
 interface IAboutInfoEdit extends ng.IScope {
     test:string;
+    SaveKennelName:() => void;
+
+    ctrl:EditCtrl;
+    KennelNameValid:boolean;
+    KennelNameValidityCheck:() => boolean;
+    aboutInfo:HTMLFormElement;
 }
 
 var aboutInfoEdit:() => ng.IDirective = () => {
@@ -18,11 +24,31 @@ var aboutInfoEdit:() => ng.IDirective = () => {
             text: '@',
             func: '&'
         },
-        link: (scope:IAboutInfoEdit, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
-            scope.test = 'Test from link scope';
+
+            scope.SaveKennelName = () => {
+                var breederProfile:IBreederProfile = scope.ctrl.GetClone();
+
+                breederProfile.KennelName = scope.ctrl.BreederProfileEdit.KennelName;
+                breederProfile.Story = scope.ctrl.BreederProfileEdit.Story;
+
+                scope.ctrl.Save(breederProfile);
 
 
+            }
+
+//            scope.form
+
+
+            scope.KennelNameValidityCheck = () => {
+                if (scope.form.kennel.$invalid )
+                    return true;
+
+                return false;
+            }
+
+            scope.KennelNameValid = scope.KennelNameValidityCheck();
         }
     }
 }

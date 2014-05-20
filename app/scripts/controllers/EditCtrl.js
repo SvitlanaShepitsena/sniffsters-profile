@@ -16,14 +16,19 @@ var EditCtrl = (function () {
 
         this.BreederProfileEdit = this.CopyProfileService.GetProfileClone();
     }
-    EditCtrl.prototype.Save = function () {
+    EditCtrl.prototype.Save = function (breederProfile) {
         var _this = this;
         //Run Service UpdateProfile Method and get promise back
-        var promise = this.DataService.updateProfile(this.BreederProfileEdit);
+        var promise = this.DataService.updateProfile(breederProfile);
 
         //resolving promise
         promise.then(function () {
             // Success
+            _this.CopyProfileService.SetProfile(breederProfile);
+
+            //                Update scope on IndexCtrl.
+            _this.$scope.ctrl.UpdateBreederProfile(breederProfile);
+
             _this.ShowSuccess('Successfully Saved');
         }, function () {
             // Error
@@ -33,14 +38,14 @@ var EditCtrl = (function () {
 
     EditCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
-        this.CopyProfileService.SetProfile(this.BreederProfileEdit);
-        this.$scope.index.UpdateBreederProfile(this.BreederProfileEdit);
-
-        this.$state.go('^');
     };
 
     EditCtrl.prototype.ShowError = function (note) {
         this.toastr.error(note);
+    };
+
+    EditCtrl.prototype.GetClone = function () {
+        return this.CopyProfileService.GetProfileClone();
     };
     return EditCtrl;
 })();

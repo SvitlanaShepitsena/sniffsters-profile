@@ -1,31 +1,31 @@
 <div>
-	<div class="row">
-		<div class="col-sm-8">
-			<h3 class="text-center">MY DETAILS</h3>
-		</div>
-		<div class="col-sm-1 pull-right">
-			<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
-		</div>
+	<div class="">
+		<h3 class="text-center">MY DETAILS
+			<a class="right" ui-sref=".edit"><i class="fa fa-pencil fa-fw light-gray"></i></a>
+		</h3>
 	</div>
+	<!--		<div class="col-sm-1 pull-right">
+				<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
+			</div>-->
 	<hr/>
 	<!--<div>{{text}}</div>-->
 	<!--<div>{{BreederProfileEdit.FirstName}}</div>-->
 	<dl class="dl-horizontal">
 		<dt>Location:</dt>
-		<dd ng-show = "!IsEdit">{{ctrl.BreederProfile.Location}}</dd>
-		<dd ng-show = "IsEdit"><input  type="text" ng-model="ctrl.BreederProfileCopy.Location"> </dd>
+		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Location}}</dd>
+		<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Location"></dd>
 
 		<dt>Website:</dt>
-		<dd ng-show = "!IsEdit">{{ctrl.BreederProfile.Website}}</dd>
-		<dd ng-show = "IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Website"> </dd>
+		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Website}}</dd>
+		<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Website"></dd>
 
 		<dt>Email:</dt>
-		<dd ng-show = "!IsEdit">{{ctrl.BreederProfile.Email}}</dd>
-		<dd ng-show = "IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Email"> </dd>
+		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Email}}</dd>
+		<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Email"></dd>
 
 		<dt>Phone:</dt>
-		<dd ng-show = "!IsEdit">{{ctrl.BreederProfile.Phone}}</dd>
-		<dd ng-show = "IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Phone"> </dd>
+		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Phone}}</dd>
+		<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Phone"></dd>
 
 		<dt>Certifications:</dt>
 		<dd>
@@ -42,12 +42,12 @@
 		</dd>
 
 		<dt>Vet Services:</dt>
-		<dd ng-show = "!IsEdit">{{ctrl.BreederProfile.VetServices|boolString}}</dd>
-		<dd ng-show = "IsEdit"><input type="checkbox" ng-model="ctrl.BreederProfileCopy.VetServices"> </dd>
+		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.VetServices|boolString}}</dd>
+		<dd ng-show="IsEdit"><input type="checkbox" ng-model="ctrl.BreederProfileCopy.VetServices"></dd>
 
 		<dt>Shipping:</dt>
-		<dd ng-show = "!IsEdit">{{ctrl.BreederProfile.Shipping|boolString}}</dd>
-		<dd ng-show = "IsEdit"><input type="checkbox" ng-model="BreederProfileCopy.Shipping"> </dd>
+		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Shipping|boolString}}</dd>
+		<dd ng-show="IsEdit"><input type="checkbox" ng-model="BreederProfileCopy.Shipping"></dd>
 	</dl>
 
 	<div class="form-group  myProfileSave text-center">

@@ -1,4 +1,5 @@
 /// <reference path="../app.ts" />
+/// <reference path="EditCtrl.ts" />
 /// <reference path="../services/CopyProfileService.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 

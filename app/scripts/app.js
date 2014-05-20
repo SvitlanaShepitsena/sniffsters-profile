@@ -24,7 +24,6 @@ profile.filter('boolString', function () {
         return BoolString.filter(value);
     };
 });
-
 profile.directive("photosInfo", photosInfo);
 profile.directive("puppiesInfo", puppiesInfo);
 profile.directive("detailsInfo", detailsInfo);
@@ -48,7 +47,6 @@ profile.value("toastr", toastr);
 profile.service("DataService", DataService);
 
 profile.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/test', '/profile/puppies');
     $urlRouterProvider.otherwise("/profile/about");
 
     $stateProvider.state("profile", {

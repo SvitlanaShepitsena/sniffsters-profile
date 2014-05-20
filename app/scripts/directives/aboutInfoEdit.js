@@ -14,7 +14,24 @@ var aboutInfoEdit = function () {
         },
         link: function (scope, element, attrs) {
             //            SCOPE (USE just {{test}} . )
-            scope.test = 'Test from link scope';
+            scope.SaveKennelName = function () {
+                var breederProfile = scope.ctrl.GetClone();
+
+                breederProfile.KennelName = scope.ctrl.BreederProfileEdit.KennelName;
+                breederProfile.Story = scope.ctrl.BreederProfileEdit.Story;
+
+                scope.ctrl.Save(breederProfile);
+            };
+
+            //            scope.form
+            scope.KennelNameValidityCheck = function () {
+                if (scope.form.kennel.$invalid)
+                    return true;
+
+                return false;
+            };
+
+            scope.KennelNameValid = scope.KennelNameValidityCheck();
         }
     };
 };
