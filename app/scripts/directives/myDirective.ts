@@ -1,14 +1,14 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
-interface I#uname# extends ng.IScope {
+interface IMyDirective extends ng.IScope {
     test:string;
 }
 
-var #jname#:() => ng.IDirective = () => {
+var myDirective:() => ng.IDirective = () => {
 
     return{
         restrict: 'E',
-        templateUrl: 'views/directives/#dname#.html',
+        templateUrl: 'views/directives/my-directive.html',
         transclude: true,
         // replace directive tag with template info
         replace: true,
@@ -18,8 +18,9 @@ var #jname#:() => ng.IDirective = () => {
             text: '@',
             func: '&'
         },
-        link: (scope:I#uname#, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
+        link: (scope:IMyDirective, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+//            SCOPE (USE just {{test}} . )
+            scope.test = 'Test from link scope';
 
 
         }

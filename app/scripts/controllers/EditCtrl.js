@@ -1,9 +1,4 @@
 /// <reference path="IndexCtrl.ts" />
-/// <reference path="../models/IBreederProfile.ts" />
-/// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
-/// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
-/// <reference path="../services/CopyProfileService.ts" />
-/// <reference path="../app.ts" />
 var EditCtrl = (function () {
     function EditCtrl($scope, $state, toastr, DataService, CopyProfileService) {
         this.$scope = $scope;

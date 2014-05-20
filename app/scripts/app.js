@@ -1,9 +1,6 @@
-/// <reference path="models/IBreederProfile.ts" />
-/// <reference path="filters/BoolString.ts" />
-/// <reference path="services/DataService.ts" />
-/// <reference path="services/CopyProfileService.ts" />
-/// <reference path="directives/BreederDetails.ts" />
 /// <reference path="controllers/EditCtrl.ts" />
+/// <reference path="directives/BreederDetails.ts" />
+/// <reference path="filters/BoolString.ts" />
 /// <reference path="directives/lookerDetails.ts" />
 /// <reference path="controllers/PhotosCtrl.ts" />
 /// <reference path="controllers/PuppiesCtrl.ts" />
@@ -15,9 +12,11 @@
 /// <reference path="directives/detailsInfo.ts" />
 /// <reference path="directives/testimonialsInfo.ts" />
 /// <reference path="directives/aboutInfoEdit.ts" />
+/// <reference path="directives/myDirective.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router']);
 
+//#serv
 profile.service("CopyProfileService", CopyProfileService);
 profile.filter('boolString', function () {
     return function (value) {
@@ -29,6 +28,7 @@ profile.directive("puppiesInfo", puppiesInfo);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("testimonialsInfo", testimonialsInfo);
 profile.directive("aboutInfoEdit", aboutInfoEdit);
+profile.directive("myDirective", myDirective);
 
 //#dir
 profile.directive("lookerDetails", lookerDetails);

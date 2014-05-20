@@ -1,13 +1,23 @@
-/// <reference path="../app.ts" />
+/// <reference path="IndexCtrl.ts" />
 
-interface I#name#Scope extends ng.IScope {
+interface I#name#Scope extends IMainScope {
     #lname#:#name#Ctrl;
-    BreederProfile: IBreederProfile;
+    ctrl:IndexCtrl;
 }
 class #name#Ctrl {
-    static $inject = ['$scope', 'DataService', 'toastr'];
 
-    constructor($scope:I#name#Scope , public DataService:DataService, public toastr) {
+    constructor($scope:I#name#Scope , public $state:ng.ui.IStateService,public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.#lname# = this;
     }
+
+
+     ShowSuccess(note:string) {
+
+        this.toastr.info(note);
+        }
+
+     ShowError(note:string) {
+        this.toastr.error(note);
+        }
+
 }
