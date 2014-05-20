@@ -53,6 +53,8 @@ var aboutInfoEdit:() => ng.IDirective = () => {
             scope.SaveAddInfo = () => {
                 var breederProfileOriginal:IBreederProfile = scope.ctrl.GetClone();
                 breederProfileOriginal.AddInfo = scope.ctrl.BreederProfileEdit.AddInfo;
+
+                scope.ctrl.Save(breederProfileOriginal);
             }
 
             scope.Save = () => {
