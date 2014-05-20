@@ -36,6 +36,8 @@ var aboutInfoEdit = function () {
             scope.SaveAddInfo = function () {
                 var breederProfileOriginal = scope.ctrl.GetClone();
                 breederProfileOriginal.AddInfo = scope.ctrl.BreederProfileEdit.AddInfo;
+
+                scope.ctrl.Save(breederProfileOriginal);
             };
 
             scope.Save = function () {

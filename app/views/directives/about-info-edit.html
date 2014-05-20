@@ -70,7 +70,7 @@
 			</div>
 			<div class="col-sm-2 pull-right">
 				<button ng-click="SaveAddInfo()" class="btn btn-info"
-				        ng-disabled="form.addInfo.$pristine || form.addInfo.$invalid">Save
+				        ng-disabled="(form.addInfo.$pristine) || (form.addInfo.$invalid)">Save
 				</button>
 			</div>
 		</div>
