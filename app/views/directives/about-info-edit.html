@@ -4,11 +4,12 @@
 			<h4 class="italic">ABOUT</h4>
 		</div>
 		<div class="col-sm-2 pull-right">
-			<input type="submit" value="Save" ng-click="SaveKennelName()" class="btn btn-info" ng-disabled="
+			<button ng-click="SaveKennelName()" class="btn btn-info" ng-disabled="
 			(form.kennel.$pristine && form.story.$pristine)
-			|| (form.kennel.$invalid || form.story.$invalid)">
+			|| (form.kennel.$invalid || form.story.$invalid) || saved">Save</button>
 		</div>
 	</div>
+
 	<form class="form" name="form" novalidate>
 		<div class="form-group">
 			<label class="subHeadLabel">Kennel Name:</label>
@@ -26,22 +27,21 @@
 			</textarea>
 		</div>
 
-	</form>
-
-	<div class="row">
-		<div class="col-sm-8">
-			<h4 class="italic">PARENTS</h4>
+		<div class="row">
+			<div class="col-sm-8">
+				<h4 class="italic">PARENTS</h4>
+			</div>
+			<div class="col-sm-2 pull-right">
+				<button ng-click="SaveAboutParents()" class="btn btn-info"
+				       ng-disabled="form.parents.$pristine || form.parents.$invalid">Save</button>
+			</div>
 		</div>
-		<div class="col-sm-2 pull-right">
-			<input type="submit" value="Save" class="btn btn-link">
-		</div>
-	</div>
 
-	<form class="form" name="parentsInfo">
 		<div class="form-group">
 			<label class="subHeadLabel">About Parents:</label>
 			<span class="required">Required</span>
-			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Parents">
+			<textarea name="parents" rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Parents"
+			          required>
 				{{ctrl.BreederProfileEdit.Parents}}
 			</textarea>
 		</div>
@@ -60,20 +60,18 @@
 			</textarea>
 		</div>
 
-	</form>
 
-	<form class="form" name="additionalInfo">
 		<div class="row">
 			<div class="col-sm-8">
 				<h4 class="italic">ADDITIONAL INFO</h4>
 			</div>
 			<div class="col-sm-2 pull-right">
-				<input type="submit" value="Save" class="btn btn-link">
+				<button class="btn btn-link">Submit</button>
 			</div>
 		</div>
 		<div class="form-group">
 			<label>Is there anything else you would like to mention?:</label>
-			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Girls">
+			<textarea rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.AddInfo">
 				{{ctrl.BreederProfileEdit.Girls}}
 			</textarea>
 		</div>
@@ -81,7 +79,7 @@
 		<div class="form-group  myProfileSave text-center">
 			<a class="btn btn-default" ui-sref="^">Cancel</a>
 			<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
-			<input type="submit" value="Save" class="btn btn-info">
+			<input type="submit" value="Save" ng-click="Save()" class="btn btn-info">
 			<a class="btn btn-default" ui-sref="profile.about.change">Next Section</a>
 		</div>
 	</form>

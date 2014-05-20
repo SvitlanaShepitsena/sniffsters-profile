@@ -14,6 +14,7 @@ var aboutInfoEdit = function () {
         },
         link: function (scope, element, attrs) {
             //            SCOPE (USE just {{test}} . )
+            scope.saved = false;
             scope.SaveKennelName = function () {
                 var breederProfile = scope.ctrl.GetClone();
 
@@ -21,17 +22,27 @@ var aboutInfoEdit = function () {
                 breederProfile.Story = scope.ctrl.BreederProfileEdit.Story;
 
                 scope.ctrl.Save(breederProfile);
+                //                scope.saved = true;
+            };
+            scope.SaveAboutParents = function () {
+                var breederProfile = scope.ctrl.GetClone();
+
+                breederProfile.Parents = scope.ctrl.BreederProfileEdit.Parents;
+
+                scope.ctrl.Save(breederProfile);
             };
 
+            scope.Save = function () {
+                scope.ctrl.Save();
+            };
             //            scope.form
-            scope.KennelNameValidityCheck = function () {
-                if (scope.form.kennel.$invalid)
-                    return true;
-
-                return false;
-            };
-
-            scope.KennelNameValid = scope.KennelNameValidityCheck();
+            /*            scope.KennelNameValidityCheck = () => {
+            if (scope.form.kennel.$invalid)
+            return true;
+            return false;
+            }
+            
+            scope.KennelNameValid = scope.KennelNameValidityCheck();*/
         }
     };
 };

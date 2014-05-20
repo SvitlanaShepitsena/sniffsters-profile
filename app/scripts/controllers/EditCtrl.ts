@@ -12,7 +12,7 @@ interface IEditScope extends IMainScope {
 }
 class EditCtrl {
 
-    constructor(public $scope:IEditScope, public $state:ng.ui.IStateService,public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope:IEditScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.edit = this;
 
         this.BreederProfileEdit = this.CopyProfileService.GetProfileClone();
@@ -51,7 +51,7 @@ class EditCtrl {
         this.toastr.error(note);
     }
 
-    GetClone(){
+    GetClone() {
         return this.CopyProfileService.GetProfileClone();
     }
 

@@ -2,12 +2,16 @@
 
 interface IAboutInfoEdit extends ng.IScope {
     test:string;
+    IsEdit:Boolean;
     SaveKennelName:() => void;
 
     ctrl:EditCtrl;
     KennelNameValid:boolean;
     KennelNameValidityCheck:() => boolean;
-    aboutInfo:HTMLFormElement;
+    form:HTMLFormElement;
+
+    SaveAboutParents:() => void;
+
 }
 
 var aboutInfoEdit:() => ng.IDirective = () => {
@@ -26,7 +30,7 @@ var aboutInfoEdit:() => ng.IDirective = () => {
         },
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
-
+            scope.saved = false;
             scope.SaveKennelName = () => {
                 var breederProfile:IBreederProfile = scope.ctrl.GetClone();
 
@@ -34,21 +38,28 @@ var aboutInfoEdit:() => ng.IDirective = () => {
                 breederProfile.Story = scope.ctrl.BreederProfileEdit.Story;
 
                 scope.ctrl.Save(breederProfile);
+//                scope.saved = true;
+            }
+            scope.SaveAboutParents = () => {
+                var breederProfile:IBreederProfile = scope.ctrl.GetClone();
 
+                breederProfile.Parents = scope.ctrl.BreederProfileEdit.Parents;
 
+                scope.ctrl.Save(breederProfile);
             }
 
+            scope.Save = () => {
+                scope.ctrl.Save();
+
+            }
 //            scope.form
+            /*            scope.KennelNameValidityCheck = () => {
+             if (scope.form.kennel.$invalid)
+             return true;
+             return false;
+             }
 
-
-            scope.KennelNameValidityCheck = () => {
-                if (scope.form.kennel.$invalid )
-                    return true;
-
-                return false;
-            }
-
-            scope.KennelNameValid = scope.KennelNameValidityCheck();
+             scope.KennelNameValid = scope.KennelNameValidityCheck();*/
         }
     }
 }
