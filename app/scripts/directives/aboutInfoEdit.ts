@@ -3,6 +3,8 @@
 interface IAboutInfoEdit extends ng.IScope {
     test:string;
     IsEdit:Boolean;
+    Save:() => void;
+    Cancel:() => void;
     SaveKennelName:() => void;
 
     ctrl:EditCtrl;
@@ -11,7 +13,6 @@ interface IAboutInfoEdit extends ng.IScope {
     form:HTMLFormElement;
 
     SaveAboutParents:() => void;
-
 }
 
 var aboutInfoEdit:() => ng.IDirective = () => {
@@ -32,24 +33,31 @@ var aboutInfoEdit:() => ng.IDirective = () => {
 //            SCOPE (USE just {{test}} . )
             scope.saved = false;
             scope.SaveKennelName = () => {
-                var breederProfile:IBreederProfile = scope.ctrl.GetClone();
+                var breederProfileOriginal:IBreederProfile = scope.ctrl.GetClone();
 
-                breederProfile.KennelName = scope.ctrl.BreederProfileEdit.KennelName;
-                breederProfile.Story = scope.ctrl.BreederProfileEdit.Story;
+                breederProfileOriginal.KennelName = scope.ctrl.BreederProfileEdit.KennelName;
+                breederProfileOriginal.Story = scope.ctrl.BreederProfileEdit.Story;
 
-                scope.ctrl.Save(breederProfile);
+                scope.ctrl.Save(breederProfileOriginal);
 //                scope.saved = true;
             }
             scope.SaveAboutParents = () => {
-                var breederProfile:IBreederProfile = scope.ctrl.GetClone();
+                var breederProfileOriginal:IBreederProfile = scope.ctrl.GetClone();
 
-                breederProfile.Parents = scope.ctrl.BreederProfileEdit.Parents;
+                breederProfileOriginal.Parents = scope.ctrl.BreederProfileEdit.Parents;
+                breederProfileOriginal.Girls = scope.ctrl.BreederProfileEdit.Girls;
+                breederProfileOriginal.Boys = scope.ctrl.BreederProfileEdit.Boys;
 
-                scope.ctrl.Save(breederProfile);
+                scope.ctrl.Save(breederProfileOriginal);
+            }
+            scope.SaveAddInfo = () => {
+                var breederProfileOriginal:IBreederProfile = scope.ctrl.GetClone();
+                breederProfileOriginal.AddInfo = scope.ctrl.BreederProfileEdit.AddInfo;
             }
 
             scope.Save = () => {
-                scope.ctrl.Save();
+                scope.ctrl.Save(scope.ctrl.BreederProfileEdit);
+//                scope.IsEdit = false;
 
             }
 //            scope.form

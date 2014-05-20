@@ -16,24 +16,31 @@ var aboutInfoEdit = function () {
             //            SCOPE (USE just {{test}} . )
             scope.saved = false;
             scope.SaveKennelName = function () {
-                var breederProfile = scope.ctrl.GetClone();
+                var breederProfileOriginal = scope.ctrl.GetClone();
 
-                breederProfile.KennelName = scope.ctrl.BreederProfileEdit.KennelName;
-                breederProfile.Story = scope.ctrl.BreederProfileEdit.Story;
+                breederProfileOriginal.KennelName = scope.ctrl.BreederProfileEdit.KennelName;
+                breederProfileOriginal.Story = scope.ctrl.BreederProfileEdit.Story;
 
-                scope.ctrl.Save(breederProfile);
+                scope.ctrl.Save(breederProfileOriginal);
                 //                scope.saved = true;
             };
             scope.SaveAboutParents = function () {
-                var breederProfile = scope.ctrl.GetClone();
+                var breederProfileOriginal = scope.ctrl.GetClone();
 
-                breederProfile.Parents = scope.ctrl.BreederProfileEdit.Parents;
+                breederProfileOriginal.Parents = scope.ctrl.BreederProfileEdit.Parents;
+                breederProfileOriginal.Girls = scope.ctrl.BreederProfileEdit.Girls;
+                breederProfileOriginal.Boys = scope.ctrl.BreederProfileEdit.Boys;
 
-                scope.ctrl.Save(breederProfile);
+                scope.ctrl.Save(breederProfileOriginal);
+            };
+            scope.SaveAddInfo = function () {
+                var breederProfileOriginal = scope.ctrl.GetClone();
+                breederProfileOriginal.AddInfo = scope.ctrl.BreederProfileEdit.AddInfo;
             };
 
             scope.Save = function () {
-                scope.ctrl.Save();
+                scope.ctrl.Save(scope.ctrl.BreederProfileEdit);
+                //                scope.IsEdit = false;
             };
             //            scope.form
             /*            scope.KennelNameValidityCheck = () => {
