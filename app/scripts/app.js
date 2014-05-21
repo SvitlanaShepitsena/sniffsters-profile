@@ -4,47 +4,41 @@
 /// <reference path="directives/lookerDetails.ts" />
 /// <reference path="controllers/PhotosCtrl.ts" />
 /// <reference path="controllers/PuppiesCtrl.ts" />
+/// <reference path="controllers/DetailsCtrl.ts" />
 /// <reference path="controllers/TestimonialsCtrl.ts" />
 /// <reference path="directives/aboutInfo.ts" />
 /// <reference path="directives/photosInfo.ts" />
 /// <reference path="directives/puppiesInfo.ts" />
 /// <reference path="directives/detailsInfo.ts" />
 /// <reference path="directives/testimonialsInfo.ts" />
-/// <reference path="directives/aboutInfoEdit.ts" />
-/// <reference path="directives/myDirective.ts" />
-/// <reference path="controllers/TestCtrl.ts" />
-/// <reference path="controllers/DetailsCtrl.ts" />
-/// <reference path="directives/userInfoEdit.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router']);
 
-//#serv
-profile.service("CopyProfileService", CopyProfileService);
 profile.filter('boolString', function () {
     return function (value) {
         return BoolString.filter(value);
     };
 });
+
+//#filt
+profile.service("CopyProfileService", CopyProfileService);
+
+//#serv
 profile.directive("photosInfo", photosInfo);
 profile.directive("puppiesInfo", puppiesInfo);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("testimonialsInfo", testimonialsInfo);
-profile.directive("aboutInfoEdit", aboutInfoEdit);
-profile.directive("myDirective", myDirective);
-profile.directive("userInfoEdit", userInfoEdit);
 
 //#dir
 profile.directive("lookerDetails", lookerDetails);
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
 
-profile.controller("TestCtrl", TestCtrl);
-profile.controller("DetailsCtrl", DetailsCtrl);
-
 //#ctrl
 profile.controller("EditCtrl", EditCtrl);
 profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
+profile.controller("DetailsCtrl", DetailsCtrl);
 profile.controller("TestimonialsCtrl", TestimonialsCtrl);
 
 // TODO: Implement filter
@@ -53,7 +47,6 @@ profile.service("DataService", DataService);
 
 profile.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/profile/about");
-    $urlRouterProvider.when('/test', '/profile/details');
 
     $stateProvider.state("profile", {
         abstract: true,
