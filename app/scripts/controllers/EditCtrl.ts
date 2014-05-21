@@ -4,15 +4,13 @@
 interface IEditScope extends IMainScope {
     edit:EditCtrl;
     ctrl:IndexCtrl;
-
 }
-class EditCtrl {
 
+class EditCtrl {
     constructor(public $scope:IEditScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.edit = this;
 
         this.BreederProfileEdit = this.CopyProfileService.GetProfileClone();
-
     }
 
     BreederProfileEdit:IBreederProfile = new BreederProfile();
@@ -36,7 +34,6 @@ class EditCtrl {
                 // Error
                 this.ShowError('Db Connection Problem');
             });
-
     }
 
     ShowSuccess(note:string) {
@@ -51,6 +48,4 @@ class EditCtrl {
     GetClone() {
         return this.CopyProfileService.GetProfileClone();
     }
-
-
 }

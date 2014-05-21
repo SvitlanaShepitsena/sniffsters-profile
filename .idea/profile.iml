@@ -4,12 +4,10 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="profile node_modules" level="project" />
-    <orderEntry type="library" name="angularjs-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="angular-ui-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="gruntjs-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="angularjs-DefinitelyTyped" level="project" />
     <orderEntry type="library" name="angular-ui-DefinitelyTyped" level="project" />
-    <orderEntry type="library" name="gruntjs-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="profile node_modules" level="project" />
   </component>
 </module>
 

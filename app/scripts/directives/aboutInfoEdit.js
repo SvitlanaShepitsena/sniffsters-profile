@@ -22,7 +22,6 @@ var aboutInfoEdit = function () {
                 breederProfileOriginal.Story = scope.ctrl.BreederProfileEdit.Story;
 
                 scope.ctrl.Save(breederProfileOriginal);
-                //                scope.saved = true;
             };
             scope.SaveAboutParents = function () {
                 var breederProfileOriginal = scope.ctrl.GetClone();
@@ -44,14 +43,6 @@ var aboutInfoEdit = function () {
                 scope.ctrl.Save(scope.ctrl.BreederProfileEdit);
                 //                scope.IsEdit = false;
             };
-            //            scope.form
-            /*            scope.KennelNameValidityCheck = () => {
-            if (scope.form.kennel.$invalid)
-            return true;
-            return false;
-            }
-            
-            scope.KennelNameValid = scope.KennelNameValidityCheck();*/
         }
     };
 };

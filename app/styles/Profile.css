@@ -72,11 +72,3 @@ hr {
 .subHeadLabel {
   margin-right: 15px;
 }
-form.ng-invalid input.ng-invalid {
-  border-color: red;
-  outline-color: red;
-}
-form.ng-invalid textarea.ng-invalid {
-  border-color: red;
-  outline-color: red;
-}

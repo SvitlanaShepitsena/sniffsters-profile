@@ -1,4 +1,5 @@
 /// <reference path="IndexCtrl.ts" />
+
 var EditCtrl = (function () {
     function EditCtrl($scope, $state, toastr, DataService, CopyProfileService) {
         this.$scope = $scope;

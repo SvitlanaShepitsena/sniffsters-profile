@@ -39,7 +39,7 @@ var aboutInfoEdit:() => ng.IDirective = () => {
                 breederProfileOriginal.Story = scope.ctrl.BreederProfileEdit.Story;
 
                 scope.ctrl.Save(breederProfileOriginal);
-//                scope.saved = true;
+
             }
             scope.SaveAboutParents = () => {
                 var breederProfileOriginal:IBreederProfile = scope.ctrl.GetClone();
@@ -60,16 +60,7 @@ var aboutInfoEdit:() => ng.IDirective = () => {
             scope.Save = () => {
                 scope.ctrl.Save(scope.ctrl.BreederProfileEdit);
 //                scope.IsEdit = false;
-
             }
-//            scope.form
-            /*            scope.KennelNameValidityCheck = () => {
-             if (scope.form.kennel.$invalid)
-             return true;
-             return false;
-             }
-
-             scope.KennelNameValid = scope.KennelNameValidityCheck();*/
         }
     }
 }

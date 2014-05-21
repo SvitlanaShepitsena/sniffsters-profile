@@ -11,18 +11,21 @@
 		</div>
 	</div>
 
-	<form class="form" name="form" novalidate>
-		<div class="form-group">
-			<label class="subHeadLabel">Kennel Name:</label>
-			<span class="required">Required</span>
-			<input class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName" name="kennel" type="text"
-			       required/>
-		</div>
 
-		<div class="form-group">
-			<label class="subHeadLabel">Your Story:</label>
+	<form class="form" name="form" novalidate>
+		<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
+			<label for="kennel" class="subHeadLabel">Kennel Name:</label>
 			<span class="required">Required</span>
-			<textarea name="story" rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Story"
+			<input id="kennel" class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName" name="kennel"
+			       type="text"
+			       required/>
+			<span ng-show="form.kennel.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+			<span ng-hide="form.kennel.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+		</div>
+		<div class="form-group" ng-class="{'has-error':form.story.$invalid}">
+			<label for="story" class="subHeadLabel">Your Story:</label>
+			<span class="required">Required</span>
+			<textarea id="story" name="story" rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Story"
 			          required>
 				{{ctrl.BreederProfileEdit.Story}}
 			</textarea>
@@ -37,10 +40,11 @@
 				        ng-disabled="(form.parents.$pristine && form.boys.$pristine && form.girls.$pristine)
 				        || form.parents.$invalid">Save
 				</button>
+
 			</div>
 		</div>
 
-		<div class="form-group">
+		<div class="form-group" ng-class="{'has-error':form.parents.$invalid}">
 			<label class="subHeadLabel">About Parents:</label>
 			<span class="required">Required</span>
 			<textarea name="parents" rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Parents"
@@ -48,7 +52,6 @@
 				{{ctrl.BreederProfileEdit.Parents}}
 			</textarea>
 		</div>
-
 		<div class="form-group">
 			<label>Boys:</label>
 			<textarea rows="5" cols="30" name="boys" class="form-control" ng-model="ctrl.BreederProfileEdit.Boys">
