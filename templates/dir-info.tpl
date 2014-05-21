@@ -1,4 +1,4 @@
-<div>
+<div ui-view>
 	<div class="row">
 		<div class="col-sm-9">
 			<h3>Title</h3>

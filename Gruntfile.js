@@ -365,7 +365,20 @@ module.exports = function (grunt) {
                         dest: '<%= yeoman.dist %>/scripts'
                     }
                 ]
+            },
+            vs: {
+                files: [
+                    {
+                        expand: false,
+                        cwd: '<%= yeoman.dist %>/scripts',
+                        src: '*.js',
+                        dest: '<%= yeoman.dist %>/scripts'
+                    }
+                ]
             }
+
+
+
         },
         uglify: {
 
@@ -472,7 +485,7 @@ module.exports = function (grunt) {
         } else {
             grunt.file.write(d + name + t, ctrlr);
             grunt.file.write(sd + name + st, specr);
-            grunt.file.write(tpath, '<div class="well well-sm">' + name + ' Template</div>');
+            grunt.file.write(tpath, grunt.file.read("templates/ctrl-template.tpl"));
         }
         grunt.file.write(apath, app);
         grunt.file.write(ipath, indf);
