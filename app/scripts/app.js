@@ -11,6 +11,7 @@
 /// <reference path="directives/puppiesInfo.ts" />
 /// <reference path="directives/detailsInfo.ts" />
 /// <reference path="directives/testimonialsInfo.ts" />
+/// <reference path="directives/aboutInfoEdit.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router']);
 
@@ -28,6 +29,7 @@ profile.directive("photosInfo", photosInfo);
 profile.directive("puppiesInfo", puppiesInfo);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("testimonialsInfo", testimonialsInfo);
+profile.directive("aboutInfoEdit", aboutInfoEdit);
 
 //#dir
 profile.directive("lookerDetails", lookerDetails);

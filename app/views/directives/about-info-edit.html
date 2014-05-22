@@ -1,22 +1,10 @@
-<div class="well well-sm" xmlns="http://www.w3.org/1999/html">
-	<div class="row">
-		<div class="col-sm-8">
-			<h4 class="italic">ABOUT</h4>
-		</div>
-		<div class="col-sm-2 pull-right">
-			<button ng-click="SaveKennelName()" class="btn btn-info" ng-disabled="
-			(form.kennel.$pristine && form.story.$pristine)
-			|| (form.kennel.$invalid || form.story.$invalid) || saved">Save
-			</button>
-		</div>
-	</div>
+<div class="well">
+	<form name="form" class="form-horizontal" novalidate>
 
-
-	<form class="form" name="form" novalidate>
 		<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
 			<label for="kennel" class="subHeadLabel">Kennel Name:</label>
 			<span class="required">Required</span>
-			<input id="kennel" class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName" name="kennel"
+			<input id="kennel" name="kennel" class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName"
 			       type="text"
 			       required/>
 			<span ng-show="form.kennel.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -26,73 +14,50 @@
 		<div class="form-group" ng-class="{'has-error':form.story.$invalid}">
 			<label for="story" class="subHeadLabel">Your Story:</label>
 			<span class="required">Required</span>
-			<textarea id="story" name="story" rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Story"
+			<textarea id="story" name="story" rows="5" cols="30" class="form-control"
+			          ng-model="ctrl.BreederProfileEdit.Story"
 			          required>
 				{{ctrl.BreederProfileEdit.Story}}
 			</textarea>
 		</div>
 
-		<div class="row">
-			<div class="col-sm-8">
-				<h4 class="italic">PARENTS</h4>
-			</div>
-			<div class="col-sm-2 pull-right">
-				<button ng-click="SaveAboutParents()" class="btn btn-info"
-				        ng-disabled="(form.parents.$pristine && form.boys.$pristine && form.girls.$pristine)
-				        || form.parents.$invalid">Save
-				</button>
-
-			</div>
-		</div>
-
-		<div class="form-group" ng-class="{'has-error':form.parents.$invalid}">
-			<label class="subHeadLabel">About Parents:</label>
-			<span class="required">Required</span>
-			<textarea name="parents" rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Parents"
-			          required>
-				{{ctrl.BreederProfileEdit.Parents}}
-			</textarea>
-		</div>
 		<div class="form-group">
-			<label>Boys:</label>
-			<textarea rows="5" cols="30" name="boys" class="form-control" ng-model="ctrl.BreederProfileEdit.Boys">
-				{{ctrl.BreederProfileEdit.Boys}}
-			</textarea>
+			<label class="control-label col-xs-3">Gender:</label>
+
+			<div class="col-xs-2">
+				<label class="radio-inline">
+					<input type="radio" name="genderRadios" value="male"> Male
+				</label>
+			</div>
+			<div class="col-xs-2">
+				<label class="radio-inline">
+					<input type="radio" name="genderRadios" value="female"> Female
+				</label>
+			</div>
 		</div>
 
 		<div class="form-group">
-			<label>Girls:</label>
-			<textarea rows="5" cols="30" name="girls" class="form-control" ng-model="ctrl.BreederProfileEdit.Girls">
-				{{ctrl.BreederProfileEdit.Girls}}
-			</textarea>
-		</div>
-
-
-		<div class="row">
-			<div class="col-sm-8">
-				<h4 class="italic">ADDITIONAL INFO</h4>
-			</div>
-			<div class="col-sm-2 pull-right">
-				<button ng-click="SaveAddInfo()" class="btn btn-info"
-				        ng-disabled="(form.addInfo.$pristine) || (form.addInfo.$invalid)">Save
-				</button>
+			<div class="col-xs-offset-3 col-xs-9">
+				<label class="checkbox-inline">
+					<input type="checkbox" value="news"> Send me latest news and updates.
+				</label>
 			</div>
 		</div>
+
 		<div class="form-group">
-			<label>Is there anything else you would like to mention?:</label>
-			<textarea rows="5" cols="30" name="addInfo" class="form-control" ng-model="ctrl.BreederProfileEdit.AddInfo">
-				{{ctrl.BreederProfileEdit.Girls}}
-			</textarea>
+			<div class="col-xs-offset-3 col-xs-9">
+				<label class="checkbox-inline">
+					<input type="checkbox" value="agree"> I agree to the <a href="#">Terms and Conditions</a>.
+				</label>
+			</div>
 		</div>
+		<br>
 
-		<div class="form-group  myProfileSave text-center">
-			<a class="btn btn-default" ui-sref="^">Cancel</a>
-			<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
-			<input type="submit" value="Save" ng-click="Save()" class="btn btn-info"
-			       ng-disabled="form.$pristine || form.$invalid">
-			<a class="btn btn-default" ui-sref="profile.about.change">Next Section</a>
+		<div class="form-group">
+			<div class="col-xs-offset-3 col-xs-9">
+				<input type="submit" class="btn btn-primary" value="Submit">
+				<input type="reset" class="btn btn-default" value="Reset">
+			</div>
 		</div>
 	</form>
 </div>
-
-
