@@ -1,27 +1,19 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
-interface IDetailsInfo extends ng.IScope {
-    test:string;
-}
-
-var detailsInfo:() => ng.IDirective = () => {
-
-    return{
+var detailsInfoEdit = function () {
+    return {
         restrict: 'E',
-        templateUrl: 'views/directives/details-info.html',
+        templateUrl: 'views/directives/details-info-edit.html',
         transclude: true,
         // replace directive tag with template info
         replace: true,
         scope: {
             ctrl: '=',
-
             text: '@',
             func: '&'
         },
-        link: (scope:IDetailsInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
-
-
+        link: function (scope, element, attrs) {
         }
-    }
-}
+    };
+};
+//# sourceMappingURL=detailsInfoEdit.js.map

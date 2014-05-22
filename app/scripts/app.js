@@ -9,9 +9,11 @@
 /// <reference path="directives/aboutInfo.ts" />
 /// <reference path="directives/photosInfo.ts" />
 /// <reference path="directives/puppiesInfo.ts" />
-/// <reference path="directives/detailsInfo.ts" />
 /// <reference path="directives/testimonialsInfo.ts" />
 /// <reference path="directives/aboutInfoEdit.ts" />
+/// <reference path="directives/detailsInfo.ts" />
+/// <reference path="directives/detailsInfoEdit.ts" />
+/// <reference path="controllers/DetailsEditCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router']);
 
@@ -27,14 +29,17 @@ profile.service("CopyProfileService", CopyProfileService);
 //#serv
 profile.directive("photosInfo", photosInfo);
 profile.directive("puppiesInfo", puppiesInfo);
-profile.directive("detailsInfo", detailsInfo);
 profile.directive("testimonialsInfo", testimonialsInfo);
 profile.directive("aboutInfoEdit", aboutInfoEdit);
+profile.directive("detailsInfo", detailsInfo);
+profile.directive("detailsInfoEdit", detailsInfoEdit);
 
 //#dir
 profile.directive("lookerDetails", lookerDetails);
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
+
+profile.controller("DetailsEditCtrl", DetailsEditCtrl);
 
 //#ctrl
 profile.controller("EditCtrl", EditCtrl);
@@ -73,6 +78,10 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/details",
         controller: "DetailsCtrl",
         templateUrl: "../views/profile-details.html"
+    }).state("profile.details.edit", {
+        url: "/edit",
+        controller: "DetailsEditCtrl",
+        templateUrl: "../views/profile-detailsEdit.html"
     }).state("profile.testimonials", {
         url: "/testimonials",
         controller: "TestimonialsCtrl",

@@ -1,17 +1,22 @@
 /// <reference path="../../../app/bower_components/DefinitelyTyped/jasmine/jasmine.d.ts" />
 /// <reference path="../../../app/bower_components/DefinitelyTyped/angularjs/angular-mocks.d.ts" />
 /// <reference path="../../../app/scripts/app.ts" />
-describe("Details Controller Test", function () {
-    // Setting a variables needed to perform test
-    var $q, toastr = {
-        error: function (error) {
-        },
-        info: function (info) {
-        }
-    }, DataService, scope, $controller, ctrldetails;
 
-    beforeEach(function () {
-        angular.mock.inject(function ($injector) {
+describe("DetailsEdit Controller Test", () => {
+    // Setting a variables needed to perform test
+    var $q,
+        toastr = {
+            error(error) {},
+            info(info) {}
+        },
+        DataService,
+        scope,
+        $controller,
+        ctrlDetailsEdit;
+
+    beforeEach(() => {
+
+        angular.mock.inject(($injector) => {
             $q = $injector.get('$q');
             var $rootScope = $injector.get('$rootScope');
             $controller = $injector.get('$controller');
@@ -19,56 +24,57 @@ describe("Details Controller Test", function () {
         });
     });
 
-    //Positive
-    it('Should <DO SOMETH.>', function () {
+//Positive
+    it('Should <DO SOMETH.>', () => {
         DataService = {
-            getProfile: function () {
+            getProfile: () => {
                 // Create a postponed service which can be returned in promise
                 var d = $q.defer();
-
                 // emulating resolution
                 d.resolve({ FirstName: 'Andriy', LastName: 'Shepitsen', UserName: 'andriy.shepitsen@aol.com' });
                 return d.promise;
             }
         };
 
-        ctrldetails = $controller('DetailsCtrl', {
+        ctrlDetailsEdit = $controller('DetailsEditCtrl', {
             $scope: scope,
             DataService: DataService,
             toastr: toastr
         });
         scope.$apply();
 
-        expect(1).toBe(1);
-        //expect(ctrldetails.).toBeDefined();
-        //expect(ctrldetails.).toBe();
+
+         expect(1).toBe(1);
+        //expect(ctrlDetailsEdit.).toBeDefined();
+        //expect(ctrlDetailsEdit.).toBe();
     });
 
-    it('Should    when error  ', function () {
+    it('Should    when error  ', () => {
         // Emulating Db request
         DataService = {
-            getProfile: function () {
+            getProfile: () => {
                 // Create a postponed service which can be returned in promise
                 var d = $q.defer();
-
                 // emulating resolution
                 d.reject();
                 return d.promise;
             }
         };
 
-        ctrldetails = $controller('DetailsCtrl', {
+
+        ctrlDetailsEdit = $controller('DetailsEditCtrl', {
             $scope: scope,
             DataService: DataService,
             toastr: toastr
-        });
 
-        spyOn(ctrldetails, 'ShowError');
+        });
+     
+        spyOn(ctrlDetailsEdit, 'ShowError');
         scope.$apply();
 
         expect(2).toBe(2);
-        // expect(ctrldetails.error).toBeDefined();
-        // expect(ctrldetails.ShowError).toHaveBeenCalled();
+       // expect(ctrlDetailsEdit.error).toBeDefined();
+       // expect(ctrlDetailsEdit.ShowError).toHaveBeenCalled();
     });
 });
-//# sourceMappingURL=DetailsCtrlSpec.js.map
+
