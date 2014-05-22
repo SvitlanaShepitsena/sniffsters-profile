@@ -569,11 +569,9 @@ module.exports = function (grunt) {
     })
 
 
-
     grunt.registerTask('f', function (fname) {
 //        delete option
         var rm = grunt.option('rm');
-
         rm = (rm === undefined) ? false : rm;
 
 
@@ -600,9 +598,9 @@ module.exports = function (grunt) {
 
         // register
         var ref = '/// <reference path="filters/' + name + '.ts" />\r\n';
-        var reg = "profile.filter('"+jname+"', () => {" +
+        var reg = "profile.filter('" + jname + "', () => {" +
             " return (value:boolean):string => {" +
-            "return "+name+".filter(value);     } });\r\n";
+            "return " + name + ".filter(value);     } });\r\n";
 
 
         var apath = 'app/scripts/app.ts';
@@ -646,7 +644,6 @@ module.exports = function (grunt) {
         grunt.file.write(ipath, indf);
 
     })
-
 
 
     grunt.registerTask('d', function (dname, dtype) {
@@ -755,7 +752,7 @@ module.exports = function (grunt) {
         if (rm) {
             grunt.file.delete(tpath);
         } else {
-            grunt.file.write(tpath,directiveTemplate);
+            grunt.file.write(tpath, directiveTemplate);
         }
         grunt.file.write(apath, app);
         grunt.file.write(ipath, indf);
