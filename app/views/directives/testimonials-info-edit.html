@@ -1,0 +1,60 @@
+<div>
+	<div class="row">
+		<div class="col-sm-8">
+			<h4 class="italic">WHAT DO YOUR CLIENTS SAY?</h4>
+		</div>
+		<div class="col-sm-1 pull-right ">
+			<a class="right" ui-sref=".edit"><i class="fa fa-plus light-gray"></i></a>
+		</div>
+	</div>
+
+	<form class="form" name="feedback1">
+		<div class="form-group">
+			<label for="feedback1" class="subheadlabel control-label">Name:</label>
+			<input id="feedback1" name="feedback1" class="form-control"
+			       ng-model="ctrl.BreederProfileEdit.Testimonials"
+			       type="text"/>
+		</div>
+
+		<div class="form-group">
+			<label for="feedbackBody1" class="coltrol-label">Feedback:</label>
+			<textarea rows="5" cols="30" name="feedbackBody1" id="feedbackBody1" class="form-control"
+			          ng-model="ctrl.BreederProfileEdit.Testimonials">
+			</textarea>
+		</div>
+	</form>
+
+	<div class="row">
+		<div class="col-sm-1 pull-right ">
+			<a class="right" ui-sref=".edit"><i class="fa fa-save light-gray"></i></a>
+		</div>
+		<div class="col-sm-1 pull-right ">
+			<a class="right" ui-sref=".edit"><i class="fa fa-plus light-gray"></i></a>
+		</div>
+	</div>
+
+	<form class="form" name="feedback2">
+		<div class="form-group">
+			<label for="feedback2" class="subheadlabel control-label">Name:</label>
+			<input id="feedback2" name="feedback2" class="form-control"
+			       ng-model="ctrl.BreederProfileEdit.Testimonials"
+			       type="text"/>
+		</div>
+
+		<div class="form-group">
+			<label for="feedbackBody2" class="coltrol-label">Feedback:</label>
+			<textarea rows="5" cols="30" name="feedbackBody2" id="feedbackBody2" class="form-control"
+			          ng-model="ctrl.BreederProfileEdit.Testimonials">
+			</textarea>
+		</div>
+
+		<div class="form-group  myProfileSave text-center">
+			<a class="btn btn-default" ui-sref="^">Cancel</a>
+			<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
+			<input type="submit" value="Save" ng-click="Save()" class="btn btn-info"
+			       ng-disabled="form.$pristine || form.$invalid">
+			<a class="btn btn-default" ui-sref="profile.about.chang">Next Section</a>
+		</div>
+	</form>
+
+</div>

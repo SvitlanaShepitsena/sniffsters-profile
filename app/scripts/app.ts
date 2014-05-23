@@ -5,15 +5,17 @@
 /// <reference path="controllers/PhotosCtrl.ts" />
 /// <reference path="controllers/PuppiesCtrl.ts" />
 /// <reference path="controllers/DetailsCtrl.ts" />
-/// <reference path="controllers/TestimonialsCtrl.ts" />
 /// <reference path="directives/aboutInfo.ts" />
 /// <reference path="directives/photosInfo.ts" />
 /// <reference path="directives/puppiesInfo.ts" />
-/// <reference path="directives/testimonialsInfo.ts" />
 /// <reference path="directives/aboutInfoEdit.ts" />
 /// <reference path="directives/detailsInfo.ts" />
 /// <reference path="directives/detailsInfoEdit.ts" />
 /// <reference path="controllers/DetailsEditCtrl.ts" />
+/// <reference path="controllers/TestimonialsCtrl.ts" />
+/// <reference path="directives/testimonialsInfo.ts" />
+/// <reference path="directives/testimonialsInfoEdit.ts" />
+/// <reference path="controllers/TestimonialsEditCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router']);
@@ -32,22 +34,24 @@ profile.service("CopyProfileService", CopyProfileService);
 
 profile.directive("photosInfo", photosInfo);
 profile.directive("puppiesInfo", puppiesInfo);
-profile.directive("testimonialsInfo", testimonialsInfo);
 profile.directive("aboutInfoEdit", aboutInfoEdit);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("detailsInfoEdit", detailsInfoEdit);
+profile.directive("testimonialsInfo", testimonialsInfo);
+profile.directive("testimonialsInfoEdit", testimonialsInfoEdit);
 //#dir
 profile.directive("lookerDetails", lookerDetails);
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
 
 profile.controller("DetailsEditCtrl", DetailsEditCtrl);
+profile.controller("TestimonialsCtrl", TestimonialsCtrl);
+profile.controller("TestimonialsEditCtrl", TestimonialsEditCtrl);
 //#ctrl
 profile.controller("EditCtrl", EditCtrl);
 profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
 profile.controller("DetailsCtrl", DetailsCtrl);
-profile.controller("TestimonialsCtrl", TestimonialsCtrl);
 
 // TODO: Implement filter
 profile.value("toastr", toastr)
@@ -98,7 +102,11 @@ profile.config(
                 controller: "TestimonialsCtrl",
                 templateUrl: "../views/profile-testimonials.html"
             })
-
+            .state("profile.testimonials.edit", {
+                url: "/edit",
+                controller: "TestimonialsEditCtrl",
+                templateUrl: "../views/profile-testimonialsEdit.html"
+            })
 
 //#state
     });
