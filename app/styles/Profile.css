@@ -63,12 +63,15 @@ hr {
   margin-top: 10px;
 }
 /**********************
-  About-Info
+ Form
 ***********************/
 .required {
   font-size: .9em;
   color: #bababa;
 }
 .subHeadLabel {
+  margin-right: 15px;
+}
+.glyphicon-col {
   margin-right: 15px;
 }
