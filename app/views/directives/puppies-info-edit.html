@@ -15,7 +15,7 @@
 
 	<form class="form" name="litter1">
 		<div class="form-group">
-			<label for="litter1" class="subheadlabel control-label">Litter 1:</label>
+			<label for="litter1" class="label-subhead control-label">Litter 1:</label>
 			<input id="litter1" name="litter1" class="form-control"
 			       ng-model="ctrl.BreederProfile."
 			       name="litter1"
@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="form-group">
-			<label class="subheadlabel control-label">Date of birth:</label>
+			<label class="label-subhead control-label">Date of birth:</label>
 
 			<div class="row">
 				<div class="col-xs-2">
@@ -48,7 +48,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="puppiesNumber" class="subheadlabel control-label">Number of puppies and sex:</label>
+			<label for="puppiesNumber" class="label-subhead control-label">Number of puppies and sex:</label>
 			<input id="puppiesNumber" name="puppiesNumber" class="form-control"
 			       ng-model="ctrl.BreederProfileEdit."
 			       name="puppiesNumber"
@@ -56,7 +56,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="puppiesColor" class="subheadlabel control-label">Colors:</label>
+			<label for="puppiesColor" class="label-subhead control-label">Colors:</label>
 			<input id="puppiesColor" name="puppiesColor" class="form-control"
 			       ng-model="ctrl.BreederProfileEdit."
 			       name="puppiesColor"
@@ -85,12 +85,12 @@
 	<div class="row">
 		<div class="col-sm-4">
 			<div class="thumbnail thumbExample text-center">
-				<a class="btn btn-info litterBrowse"><i class="fa fa-camera fa-browse-btn"></i>Browse</a>
+				<a class="btn btn-info btn-browse"><i class="fa fa-camera fa-browse-btn"></i>Browse</a>
 			</div>
 		</div>
 	</div>
 
-	<div class="form-group  myprofilesave text-center">
+	<div class="form-group  profileSave text-center">
 		<a class="btn btn-default" ui-sref="^">Cancel</a>
 		<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
 		<input type="submit" value="Save" ng-click="Save()" class="btn btn-info "

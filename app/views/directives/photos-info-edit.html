@@ -16,7 +16,7 @@
 
 	<form class="form" name="litter1">
 		<div class="form-group">
-			<label for="gallery1" class="subheadlabel control-label">Gallery 1:</label>
+			<label for="gallery1" class="label-subhead control-label">Gallery 1:</label>
 			<input id="gallery1" name="gallery1" class="form-control"
 			       ng-model="ctrl.BreederProfile."
 			       name="gallery1"
@@ -34,14 +34,14 @@
 	<div class="row">
 		<div class="col-sm-4">
 			<div class="thumbnail thumbExample text-center">
-				<a class="btn btn-info litterBrowse"><i class="fa fa-camera fa-browse-btn"></i>Browse</a>
+				<a class="btn btn-info btn-browse"><i class="fa fa-camera fa-browse-btn"></i>Browse</a>
 			</div>
 		</div>
 	</div>
 
 	<form class="form" name="gallery2">
 		<div class="form-group">
-			<label for="gallery2" class="subheadlabel control-label">Gallery 2:</label>
+			<label for="gallery2" class="label-subhead control-label">Gallery 2:</label>
 			<input id="gallery2" name="gallery2" class="form-control"
 			       ng-model="ctrl.BreederProfile."
 			       name="gallery2"
@@ -59,12 +59,12 @@
 	<div class="row">
 		<div class="col-sm-4">
 			<div class="thumbnail thumbExample text-center">
-				<a class="btn btn-info litterBrowse"><i class="fa fa-camera fa-browse-btn"></i>Browse</a>
+				<a class="btn btn-info btn-browse"><i class="fa fa-camera fa-browse-btn"></i>Browse</a>
 			</div>
 		</div>
 	</div>
 
-	<div class="form-group  my-profile-save text-center">
+	<div class="form-group  profileSave text-center">
 		<a class="btn btn-default" ui-sref="^">Cancel</a>
 		<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
 		<input type="submit" value="Save" ng-click="Save()" class="btn btn-info "

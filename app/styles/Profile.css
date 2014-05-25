@@ -59,7 +59,7 @@ hr {
   margin-top: .5em;
   margin-bottom: .5em;
 }
-.my-profile-save {
+.pfrofileSave {
   margin-top: 10px;
 }
 /**********************
@@ -69,7 +69,7 @@ hr {
   font-size: .9em;
   color: #bababa;
 }
-.subHeadLabel {
+.label-subhead {
   margin-right: 15px;
 }
 .glyphicon-col {
@@ -87,7 +87,7 @@ hr {
   border: 1px #686868 dashed;
   line-height: 110px;
 }
-.litterBrowse {
+.btn-browse {
   display: inline-block !important;
   vertical-align: middle !important;
   padding-right: 8px !important;

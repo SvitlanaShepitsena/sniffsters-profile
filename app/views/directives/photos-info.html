@@ -1,1 +1,45 @@
-<div class="well well-sm">photos-info Template</div>
+<div ui-view>
+	<div class="well">
+		<div class="row">
+			<div class="col-sm-9">
+				<h3>Photos</h3>
+			</div>
+
+			<div class="col-sm-1 pull-right">
+				<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
+			</div>
+		</div>
+		<h4>KENNEL NAME</h4>
+
+		<p>{{ctrl.BreederProfile.KennelName}}</p>
+
+		<h4>Your Story</h4>
+
+		<p>{{ctrl.BreederProfile.Story}}</p>
+
+
+		<h3>PARENTS</h3>
+		<hr/>
+		<h4>About Parents</h4>
+
+		<p>{{ctrl.BreederProfile.Parents}}</p>
+
+
+		<h4>Boys</h4>
+
+		<p>{{ctrl.BreederProfile.Boys}}</p>
+
+		<h4>Girls</h4>
+
+		<p>{{ctrl.BreederProfile.Girls}}</p>
+
+
+		<h3>ADDITIONAL INFO</h3>
+		<hr/>
+		<p>{{ctrl.BreederProfile.AddInfo}}</p>
+
+
+		<!--<div ui-view="info"></div>-->
+
+	</div>
+</div>

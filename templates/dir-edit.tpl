@@ -2,7 +2,7 @@
 	<form name="form" class="form-horizontal" novalidate>
 
 		<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
-			<label for="kennel" class="subHeadLabel">Kennel Name:</label>
+			<label for="kennel" class="label-subhead">Kennel Name:</label>
 			<span class="required">Required</span>
 			<input id="kennel" name="kennel" class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName"
 			       type="text"
@@ -12,7 +12,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{'has-error':form.story.$invalid}">
-			<label for="story" class="subHeadLabel">Your Story:</label>
+			<label for="story" class="label-subhead">Your Story:</label>
 			<span class="required">Required</span>
 			<textarea id="story" name="story" rows="5" cols="30" class="form-control"
 			          ng-model="ctrl.BreederProfileEdit.Story"

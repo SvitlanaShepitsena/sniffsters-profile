@@ -8,8 +8,10 @@ class PhotosCtrl {
 
     constructor($scope:IPhotosScope , public $state:ng.ui.IStateService,public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.photos = this;
+       this.BreederProfile = CopyProfileService.GetProfileClone();
     }
 
+    BreederProfile:IBreederProfile;
 
      ShowSuccess(note:string) {
 

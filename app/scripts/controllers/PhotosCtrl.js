@@ -6,6 +6,7 @@ var PhotosCtrl = (function () {
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
         $scope.photos = this;
+        this.BreederProfile = CopyProfileService.GetProfileClone();
     }
     PhotosCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

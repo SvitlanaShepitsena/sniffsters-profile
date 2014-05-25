@@ -13,7 +13,7 @@
 
 <form class="form" name="form" novalidate>
 	<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
-		<label for="kennel" class="subheadlabel control-label">Kennel Name:</label>
+		<label for="kennel" class="label-subhead control-label">Kennel Name:</label>
 		<span class="required">Required</span>
 		<input id="kennel" class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName" name="kennel"
 		       type="text"
@@ -25,13 +25,13 @@
 	<div class="form-group">
 		<div class="row">
 			<div class="col-xs-6">
-				<label for="website" class="subheadlabel control-label">Website:</label>
+				<label for="website" class="label-subhead control-label">Website:</label>
 				<input id="website" name="website" class="form-control" ng-model="ctrl.BreederProfileEdit.Website"
 				       name="website"
 				       type="text"/>
 			</div>
 
-			<label class="subheadlabel control-label">Display your email?</label>
+			<label class="label-subhead control-label">Display your email?</label>
 
 			<div class="col-xs-6">
 				<label class="radio-inline">
@@ -45,7 +45,7 @@
 	</div>
 
 	<div class="form-group has-feedback" ng-class="{'has-error':form.email.$invalid}">
-		<label for="email" class="subheadlabel control-label">Email:</label>
+		<label for="email" class="label-subhead control-label">Email:</label>
 		<span class="required">Required</span>
 		<input id="email" name="email" class="form-control" ng-model="ctrl.BreederProfileEdit.Email" name="email"
 		       type="text"
@@ -56,7 +56,7 @@
 
 	<div class="row">
 		<div class="form-group has-feedback col-xs-6" ng-class="{'has-error':form.phone.$invalid}">
-			<label for="phone" class="subheadlabel control-label">Phone:</label>
+			<label for="phone" class="label-subhead control-label">Phone:</label>
 			<span class="required">Required</span>
 			<input id="phone" name="phone" class="form-control" ng-model="ctrl.BreederProfileEdit.Phone"
 			       name="phone"
@@ -68,7 +68,7 @@
 		</div>
 
 		<div class="form-group">
-			<label class="subheadlabel control-label">Display your phone?</label>
+			<label class="label-subhead control-label">Display your phone?</label>
 
 			<div class="col-xs-6">
 				<label class="radio-inline">
@@ -100,7 +100,7 @@
 	<div class="row">
 		<div class="col-xs-6 form-group has-feedback" ng-class="{'has-error':location.city.$invalid}">
 
-			<label for="city" class="subheadlabel control-label">City:</label>
+			<label for="city" class="label-subhead control-label">City:</label>
 			<span class="required">Required</span>
 			<input id="city" name="city" class="form-control" ng-model="ctrl.BreederProfileEdit.City"
 			       name="city"
@@ -113,7 +113,7 @@
 		</div>
 
 		<div class="form-group col-xs-6 has-feedback" ng-class="{'has-error':location.zip.$invalid}">
-			<label for="zip" class="subheadlabel control-label">ZIP:</label>
+			<label for="zip" class="label-subhead control-label">ZIP:</label>
 			<span class="required">Required</span>
 			<input id="zip" name="zip" class="form-control" ng-model="ctrl.BreederProfileEdit.ZIP"
 			       name="zip"
@@ -128,7 +128,7 @@
 	<div class="row">
 		<div class="col-xs-6 form-group has-feedback" ng-class="{'has-error':location.state.$invalid}">
 
-			<label for="state" class="subheadlabel control-label">State:</label>
+			<label for="state" class="label-subhead control-label">State:</label>
 			<span class="required">Required</span>
 			<input id="state" name="state" class="form-control" ng-model="ctrl.BreederProfileEdit.State"
 			       name="state"
@@ -159,7 +159,7 @@
 
 <form class="form" name="specifics">
 	<div class="form-group">
-		<label for="certifications" class="subheadlabel control-label">Certifications:</label>
+		<label for="certifications" class="label-subhead control-label">Certifications:</label>
 		<input id="certifications" name="certifications" class="form-control"
 		       ng-model="ctrl.BreederProfileEdit.Certifications"
 		       name="certifications"
@@ -182,20 +182,20 @@
 	<br/>
 
 	<div class="form-group">
-		<label for="insurance" class="subheadlabel control-label">Insurance:</label>
+		<label for="insurance" class="label-subhead control-label">Insurance:</label>
 		<input id="insurance" name="insurance" class="form-control"
 		       ng-model="ctrl.BreederProfileEdit.Insurance"
 		       name="insurance"
 		       type="text"/>
 	</div>
 	<div class="form-group">
-		<label for="shipping" class="subheadlabel control-label">Shipping:</label>
+		<label for="shipping" class="label-subhead control-label">Shipping:</label>
 		<input id="shipping" name="shipping" class="form-control"
 		       ng-model="ctrl.BreederProfileEdit.Shipping"
 		       name="shipping"
 		       type="text"/>
 	</div>
-	<div class="form-group  myProfileSave text-center">
+	<div class="form-group  profileSave text-center">
 		<a class="btn btn-default" ui-sref="^">Cancel</a>
 		<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
 		<input type="submit" value="Save" ng-click="Save()" class="btn btn-info"
