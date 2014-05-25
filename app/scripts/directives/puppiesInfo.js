@@ -1,4 +1,4 @@
-/// <reference path="../app.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 var puppiesInfo = function () {
     return {
@@ -13,8 +13,6 @@ var puppiesInfo = function () {
             func: '&'
         },
         link: function (scope, element, attrs) {
-            //            SCOPE (USE just {{test}} . )
-            scope.test = 'Test from link scope';
         }
     };
 };

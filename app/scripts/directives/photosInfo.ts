@@ -1,4 +1,4 @@
-/// <reference path="../app.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 interface IPhotosInfo extends ng.IScope {
     test:string;
@@ -19,8 +19,7 @@ var photosInfo:() => ng.IDirective = () => {
             func: '&'
         },
         link: (scope:IPhotosInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-//            SCOPE (USE just {{test}} . )
-            scope.test = 'Test from link scope';
+
 
 
         }

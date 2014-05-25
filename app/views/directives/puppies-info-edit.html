@@ -1,0 +1,100 @@
+<div>
+	<div class="row">
+		<div class="col-sm-8">
+			<h4 class="italic">CURRENT LITTERS</h4>
+		</div>
+
+		<div class="col-sm-1 pull-right ">
+			<a class="right" ui-sref=".edit"><i class="fa fa-save light-gray"></i></a>
+		</div>
+		<div class="col-sm-1 pull-right ">
+			<a class="right" ui-sref=".edit"><i class="fa fa-plus light-gray"></i></a>
+		</div>
+	</div>
+	<br/>
+
+	<form class="form" name="litter1">
+		<div class="form-group">
+			<label for="litter1" class="subheadlabel control-label">Litter 1:</label>
+			<input id="litter1" name="litter1" class="form-control"
+			       ng-model="ctrl.BreederProfile."
+			       name="litter1"
+			       type="text"/>
+		</div>
+
+		<div class="form-group">
+			<label class="subheadlabel control-label">Date of birth:</label>
+
+			<div class="row">
+				<div class="col-xs-2">
+					<input id="dateMonth" name="dateMonth" class="form-control text-center"
+					       ng-model="ctrl.BreederProfileEdit."
+					       placeholder="MM"
+					       type="text"/>
+				</div>
+				<div class="col-xs-2">
+					<input id="dateDay" name="dateMonth" class="form-control text-center"
+					       ng-model="ctrl.BreederProfileEdit."
+					       placeholder="DD"
+					       type="text"/>
+				</div>
+				<div class="col-xs-3">
+					<input id="dateYear" name="dateMonth" class="form-control text-center"
+					       ng-model="ctrl.BreederProfileEdit."
+					       placeholder="YYYY"
+					       type="text"/>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="puppiesNumber" class="subheadlabel control-label">Number of puppies and sex:</label>
+			<input id="puppiesNumber" name="puppiesNumber" class="form-control"
+			       ng-model="ctrl.BreederProfileEdit."
+			       name="puppiesNumber"
+			       type="text"/>
+		</div>
+
+		<div class="form-group">
+			<label for="puppiesColor" class="subheadlabel control-label">Colors:</label>
+			<input id="puppiesColor" name="puppiesColor" class="form-control"
+			       ng-model="ctrl.BreederProfileEdit."
+			       name="puppiesColor"
+			       type="text"/>
+		</div>
+	</form>
+
+	<div class="row">
+		<div class="col-sm-8">
+			<h4 class="italic">PHOTOS OF LITTER 1</h4>
+		</div>
+
+		<div class="col-sm-1 pull-right ">
+			<a class="right" ui-sref=".edit"><i class="fa fa-save light-gray"></i></a>
+		</div>
+		<div class="col-sm-1 pull-right ">
+			<a class="right" ui-sref=".edit"><i class="fa fa-plus light-gray"></i></a>
+		</div>
+	</div>
+	<br/>
+
+	<h5 class="h5Custom">Upload photos (0) <span class="textMuted">Optional</span>
+	</h5>
+	<p class="text-muted">Photo max 3MB - JPG, PNG, GIF</p>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="thumbnail thumbExample text-center">
+				<a class="btn btn-info litterBrowse"><i class="fa fa-camera fa-browse-btn"></i>Browse</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group  myprofilesave text-center">
+		<a class="btn btn-default" ui-sref="^">Cancel</a>
+		<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
+		<input type="submit" value="Save" ng-click="Save()" class="btn btn-info "
+		       ng-disabled="form.$pristine || form.$invalid">
+		<a class="btn btn-default" ui-sref="profile.about.change">Next Section</a>
+	</div>
+</div>

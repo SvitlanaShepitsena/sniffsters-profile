@@ -1,9 +1,9 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
-var photosInfo = function () {
+var puppiesInfoEdit = function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/directives/photos-info.html',
+        templateUrl: 'views/directives/puppies-info-edit.html',
         transclude: true,
         // replace directive tag with template info
         replace: true,
@@ -16,4 +16,4 @@ var photosInfo = function () {
         }
     };
 };
-//# sourceMappingURL=photosInfo.js.map
+//# sourceMappingURL=puppiesInfoEdit.js.map

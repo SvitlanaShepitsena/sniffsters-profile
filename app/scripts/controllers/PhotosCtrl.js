@@ -1,11 +1,19 @@
-/// <reference path="../app.ts" />
+/// <reference path="IndexCtrl.ts" />
 var PhotosCtrl = (function () {
-    function PhotosCtrl($scope, DataService, toastr) {
-        this.DataService = DataService;
+    function PhotosCtrl($scope, $state, toastr, DataService, CopyProfileService) {
+        this.$state = $state;
         this.toastr = toastr;
+        this.DataService = DataService;
+        this.CopyProfileService = CopyProfileService;
         $scope.photos = this;
     }
-    PhotosCtrl.$inject = ['$scope', 'DataService', 'toastr'];
+    PhotosCtrl.prototype.ShowSuccess = function (note) {
+        this.toastr.info(note);
+    };
+
+    PhotosCtrl.prototype.ShowError = function (note) {
+        this.toastr.error(note);
+    };
     return PhotosCtrl;
 })();
 //# sourceMappingURL=PhotosCtrl.js.map

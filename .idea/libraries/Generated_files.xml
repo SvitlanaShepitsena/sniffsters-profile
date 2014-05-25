@@ -2,10 +2,8 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/photosInfo.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/directives/lookerDetails.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-edit_session-tests.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/puppiesInfo.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/elm/elm-tests.js" />
         <item url="file://$PROJECT_DIR$/test/spec/controllers/DetailsEditCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/dot/dot-tests.js" />
@@ -16,20 +14,22 @@
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor_navigation-tests.js" />
         <item url="file://$PROJECT_DIR$/test/spec/controllers/EditCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-range_list-tests.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/puppiesInfoEdit.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-multi_select-tests.js" />
         <item url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/puppiesInfo.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-search-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/d3/d3-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-tests.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/controllers/EditCtrl.js" />
+        <item url="file://$PROJECT_DIR$/test/spec/controllers/PuppiesCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-assert-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/pdf/pdf-tests.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfo.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/controllers/PuppiesCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfoEdit.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/controllers/PuppiesEditCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/tv4/tv4-tests.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/filters/BoolString.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-document-tests.js" />
@@ -48,15 +48,23 @@
         <item url="file://$PROJECT_DIR$/app/scripts/directives/BreederDetails.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/services/CopyProfileService.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/photosInfoEdit.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfoEdit.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-virtual_renderer-tests.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-background_tokenizer-tests.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/controllers/PuppiesCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor_highlight_selected_word-tests.js" />
+        <item url="file://$PROJECT_DIR$/test/spec/controllers/PuppiesEditCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-token_iterator-tests.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosEditCtrl.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosCtrl.js" />
+        <item url="file://$PROJECT_DIR$/test/spec/controllers/PhotosCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-anchor-tests.js" />
+        <item url="file://$PROJECT_DIR$/test/spec/controllers/PhotosEditCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/controllers/TestimonialsCtrl.js" />
-        <item url="file://$PROJECT_DIR$/test/spec/controllers/TestimonialsCtrlSpec.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/photosInfo.js" />
         <item url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-placeholder-tests.js" />
+        <item url="file://$PROJECT_DIR$/test/spec/controllers/TestimonialsCtrlSpec.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -128,10 +136,8 @@
       <root url="file://$PROJECT_DIR$/services/DbService.js" />
       <root url="file://$PROJECT_DIR$/directives/userprofiledirective.js" />
       <root url="file://$PROJECT_DIR$/services/DbService.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/photosInfo.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/lookerDetails.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-edit_session-tests.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/puppiesInfo.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/elm/elm-tests.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/DetailsEditCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/dot/dot-tests.js" />
@@ -142,21 +148,23 @@
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor_navigation-tests.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/EditCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-range_list-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/puppiesInfoEdit.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-multi_select-tests.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/TestCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-search-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/puppiesInfo.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/d3/d3-tests.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/controllers/EditCtrl.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/PuppiesCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/chai/chai-assert-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/pdf/pdf-tests.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/myDirective.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfo.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PuppiesCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfoEdit.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PuppiesEditCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/tv4/tv4-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-document-tests.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/filters/BoolString.js" />
@@ -177,14 +185,22 @@
       <root url="file://$PROJECT_DIR$/app/scripts/services/CopyProfileService.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/controllers/TestCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfoEdit.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/photosInfoEdit.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-virtual_renderer-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PuppiesCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-background_tokenizer-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor_highlight_selected_word-tests.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/PuppiesEditCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-token_iterator-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosEditCtrl.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-anchor-tests.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/PhotosCtrlSpec.js" />
+      <root url="file://$PROJECT_DIR$/test/spec/controllers/PhotosEditCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/controllers/TestimonialsCtrl.js" />
-      <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-placeholder-tests.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/TestimonialsCtrlSpec.js" />
+      <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-placeholder-tests.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/photosInfo.js" />
     </CLASSES>
     <SOURCES />
   </library>

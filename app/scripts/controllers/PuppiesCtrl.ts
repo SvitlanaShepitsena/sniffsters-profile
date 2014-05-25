@@ -1,13 +1,25 @@
-/// <reference path="../app.ts" />
+/// <reference path="IndexCtrl.ts" />
 
-interface IPuppiesScope extends ng.IScope {
+interface IPuppiesScope extends IMainScope {
     puppies:PuppiesCtrl;
-    BreederProfile: IBreederProfile;
+    ctrl:IndexCtrl;
 }
 class PuppiesCtrl {
-    static $inject = ['$scope', 'DataService', 'toastr'];
 
-    constructor($scope:IPuppiesScope , public DataService:DataService, public toastr) {
+    constructor($scope:IPuppiesScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.puppies = this;
+        this.BreederProfile = CopyProfileService.GetProfileClone();
     }
+
+    BreederProfile:IBreederProfile;
+
+    ShowSuccess(note:string) {
+
+        this.toastr.info(note);
+    }
+
+    ShowError(note:string) {
+        this.toastr.error(note);
+    }
+
 }

@@ -1,0 +1,75 @@
+<div class="well">
+	<div class="row">
+		<div class="col-sm-8">
+			<h4 class="italic">PHOTO GALLERIES</h4>
+		</div>
+
+		<div class="col-sm-1 pull-right ">
+			<a class="right" ui-sref=".edit"><i class="fa fa-save light-gray"></i></a>
+		</div>
+		<div class="col-sm-1 pull-right ">
+			<a class="right" ui-sref=".edit"><i class="fa fa-plus light-gray"></i></a>
+		</div>
+	</div>
+
+	<br/>
+
+	<form class="form" name="litter1">
+		<div class="form-group">
+			<label for="gallery1" class="subheadlabel control-label">Gallery 1:</label>
+			<input id="gallery1" name="gallery1" class="form-control"
+			       ng-model="ctrl.BreederProfile."
+			       name="gallery1"
+			       type="text"/>
+		</div>
+	</form>
+
+	<br/>
+
+	<h5 class="h5Custom">Upload photos (0) <span class="textMuted">Optional</span>
+	</h5>
+
+	<p class="text-muted">Photo max 3MB - JPG, PNG, GIF</p>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="thumbnail thumbExample text-center">
+				<a class="btn btn-info litterBrowse"><i class="fa fa-camera fa-browse-btn"></i>Browse</a>
+			</div>
+		</div>
+	</div>
+
+	<form class="form" name="gallery2">
+		<div class="form-group">
+			<label for="gallery2" class="subheadlabel control-label">Gallery 2:</label>
+			<input id="gallery2" name="gallery2" class="form-control"
+			       ng-model="ctrl.BreederProfile."
+			       name="gallery2"
+			       type="text"/>
+		</div>
+	</form>
+
+	<br/>
+
+	<h5 class="h5Custom">Upload photos (0) <span class="textMuted">Optional</span>
+	</h5>
+
+	<p class="text-muted">Photo max 3MB - JPG, PNG, GIF</p>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="thumbnail thumbExample text-center">
+				<a class="btn btn-info litterBrowse"><i class="fa fa-camera fa-browse-btn"></i>Browse</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group  my-profile-save text-center">
+		<a class="btn btn-default" ui-sref="^">Cancel</a>
+		<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
+		<input type="submit" value="Save" ng-click="Save()" class="btn btn-info "
+		       ng-disabled="form.$pristine || form.$invalid">
+		<a class="btn btn-default" ui-sref="profile.about.change">Next Section</a>
+	</div>
+
+</div>
