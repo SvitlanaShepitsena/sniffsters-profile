@@ -15,6 +15,7 @@ var aboutInfoEdit = function () {
         link: function (scope, element, attrs) {
             //            SCOPE (USE just {{test}} . )
             scope.saved = false;
+
             scope.SaveKennelName = function () {
                 var breederProfileOriginal = scope.ctrl.GetClone();
 

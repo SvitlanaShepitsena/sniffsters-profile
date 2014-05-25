@@ -6,6 +6,7 @@ var DetailsEditCtrl = (function () {
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
         $scope.DetailsEdit = this;
+        this.BreederProfileEdit = CopyProfileService.GetProfileClone();
     }
     DetailsEditCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

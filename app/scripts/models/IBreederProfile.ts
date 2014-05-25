@@ -14,6 +14,7 @@ interface IBreederProfile{
 
     Certifications:string[];
     VetServices:boolean;
+    Insurance:boolean;
     Shipping:boolean;
 }
 
@@ -32,6 +33,7 @@ class BreederProfile implements IBreederProfile{
     Phone:string;
     Certifications:string[];
     VetServices:boolean;
+    Insurance:boolean;
     Shipping:boolean;
 
 constructor(){}

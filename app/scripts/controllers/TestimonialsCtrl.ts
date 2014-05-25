@@ -6,18 +6,21 @@ interface ITestimonialsScope extends IMainScope {
 }
 class TestimonialsCtrl {
 
-    constructor($scope:ITestimonialsScope , public $state:ng.ui.IStateService,public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor($scope:ITestimonialsScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.testimonials = this;
+        this.BreederProfile = CopyProfileService.GetProfileClone();
     }
 
+    BreederProfile:IBreederProfile;
 
-     ShowSuccess(note:string) {
+
+    ShowSuccess(note:string) {
 
         this.toastr.info(note);
-        }
+    }
 
-     ShowError(note:string) {
+    ShowError(note:string) {
         this.toastr.error(note);
-        }
+    }
 
 }

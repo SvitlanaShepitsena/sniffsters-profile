@@ -6,18 +6,20 @@ interface IDetailsEditScope extends IMainScope {
 }
 class DetailsEditCtrl {
 
-    constructor($scope:IDetailsEditScope , public $state:ng.ui.IStateService,public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor($scope:IDetailsEditScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.DetailsEdit = this;
+        this.BreederProfileEdit = CopyProfileService.GetProfileClone();
     }
+    BreederProfileEdit:IBreederProfile;
 
 
-     ShowSuccess(note:string) {
+    ShowSuccess(note:string) {
 
         this.toastr.info(note);
-        }
+    }
 
-     ShowError(note:string) {
+    ShowError(note:string) {
         this.toastr.error(note);
-        }
+    }
 
 }

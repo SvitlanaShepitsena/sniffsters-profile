@@ -6,6 +6,7 @@ var TestimonialsCtrl = (function () {
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
         $scope.testimonials = this;
+        this.BreederProfile = CopyProfileService.GetProfileClone();
     }
     TestimonialsCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

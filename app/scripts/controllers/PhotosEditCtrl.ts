@@ -6,18 +6,20 @@ interface IPhotosEditScope extends IMainScope {
 }
 class PhotosEditCtrl {
 
-    constructor($scope:IPhotosEditScope , public $state:ng.ui.IStateService,public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor($scope:IPhotosEditScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.photosEdit = this;
+
+        this.BreederProfileEdit = CopyProfileService.GetProfileClone();
     }
+    BreederProfileEdit:IBreederProfile;
 
-
-     ShowSuccess(note:string) {
+    ShowSuccess(note:string) {
 
         this.toastr.info(note);
-        }
+    }
 
-     ShowError(note:string) {
+    ShowError(note:string) {
         this.toastr.error(note);
-        }
+    }
 
 }

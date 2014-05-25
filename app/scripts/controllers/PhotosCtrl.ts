@@ -10,7 +10,6 @@ class PhotosCtrl {
         $scope.photos = this;
        this.BreederProfile = CopyProfileService.GetProfileClone();
     }
-
     BreederProfile:IBreederProfile;
 
      ShowSuccess(note:string) {
