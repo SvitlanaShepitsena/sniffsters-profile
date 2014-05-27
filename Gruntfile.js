@@ -2,12 +2,15 @@
 'use strict';
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
+var minify = require('html-minify').minify;
+
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
 var enterInside = function (target, before, insert) {
-    if (target == undefined)
+    if (target === undefined) {
         return target;
+    }
 
     var test = target.indexOf(insert);
     if (test > 0)return target;
@@ -65,16 +68,6 @@ module.exports = function (grunt) {
     }
 
     grunt.initConfig({
-        concat: {
-            options: {
-                separator: ';'
-            },
-            dist: {
-                src: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-                dest: 'profile.js'
-            }
-        },
-
 
         yeoman: yeomanConfig,
         watch: {
@@ -288,16 +281,16 @@ module.exports = function (grunt) {
                      removeEmptyAttributes: true,
                      removeOptionalTags: true*/
                 },
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= yeoman.app %>',
-                        src: ['*.html', 'views/*.html'],
-                        dest: '<%= yeoman.dist %>'
-                    }
-                ]
-            }
-        },
+                files: {
+                    'templates.cshtml': '1.html'
+                }
+
+            },
+            dev: {                                       // Another target
+                files: {
+                    'app/views/*.html': 'src/index.html'
+                }
+            }        },
         // Put files not handled in other tasks here
         copy: {
             dist: {
@@ -356,27 +349,12 @@ module.exports = function (grunt) {
             }
         },
         ngmin: {
-            dist: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= yeoman.dist %>/scripts',
-                        src: '*.js',
-                        dest: '<%= yeoman.dist %>/scripts'
-                    }
-                ]
-            },
-            vs: {
-                files: [
-                    {
-                        expand: false,
-                        cwd: '<%= yeoman.dist %>/scripts',
-                        src: '*.js',
-                        dest: '<%= yeoman.dist %>/scripts'
-                    }
-                ]
+            files: {
+                expand: true,
+                cwd: 'app/scripts',
+                src: ['**/*.js'],
+                dest: 'vs'
             }
-
 
 
         },
@@ -391,20 +369,116 @@ module.exports = function (grunt) {
                 }
             },
             minvs: {
-                dist: {
-                    files: {
-                        '<%= yeoman.dist %>/scripts/profile.js': [
-                            '<%= yeoman.dist %>/scripts/profile.js'
-                        ]
-                    }
+                options: {
+                    mangle: false
+                },
+                files: {
+                    'app/profile.js': ['vs/**/*.js']
                 }
+
             }
+        },
+
+        concat: {
+            options: {
+                separator: '\r\n\r\n'
+            },
+            dist: {
+                src: ['vs/{,*/}*.js' ],
+                dest: 'app/profile.js'
+            }
+        }
+
+
+
+    });
+
+    grunt.registerTask('move-app-to-z', function () {
+        if (grunt.file.exists('vs/app.js')) {
+            grunt.file.copy('vs/app.js', 'vs/z/app.js');
+            grunt.file.delete('vs/app.js');
         }
     });
 
+
+    grunt.registerTask('copy-profile-to-root', function () {
+        var address = 'app/profile.js';
+        var content = grunt.file.read(address);
+        content = content.replace(/http:\/\/localhost:44300/g, '');
+        grunt.file.write(address, content);
+        grunt.file.copy('app/profile.js', 'profile.js');
+    });
+
+
+    grunt.registerTask('templates', function () {
+        var file = grunt.file.read('app/scripts/app.ts');
+        var search = "templateUrl";
+        var index = 0, pos = 0;
+        var fileContent = "";
+        var options = {
+            charset: 'utf-8',
+            collapseWhitespace: true,
+            removeComments: true
+
+
+        }
+        while (true) {
+            index = file.indexOf(search, index);
+            if (index == -1) {
+                break;
+            }
+
+            index = file.indexOf('"', index) + 1;
+            var final = file.indexOf('"', index);
+            var key = file.substring(index, final);
+            var startPos = key.indexOf('views');
+            startPos = key.indexOf('/', startPos) + 1;
+            var fileName = 'app/views/' + key.substring(startPos);
+            var content = minify(grunt.file.read(fileName).trim(),options).replace('\n','').replace('\t','');
+
+            var fullChunk = '<script type="text/ng-template" id="' + key + '">' + content + '</script>';
+//            grunt.log.subhead(content);
+            fileContent += fullChunk;
+            if (final > index) {
+                index = final;
+            }
+        }
+
+        var dirFolder = 'app/views/directives';
+
+        grunt.file.recurse(dirFolder, function (file) {
+
+            var content = minify(grunt.file.read(file).trim(),options).replace('\n','').replace('\t','');
+//            grunt.log.ok(content);
+
+            var pos = file.indexOf('views');
+            var key = file.substring(pos);
+//
+            var fullChunk = '<script type="text/ng-template" id="' + key + '">' + content + '</script>';
+            fileContent += fullChunk;
+        });
+
+        grunt.file.write('templates.cshtml', fileContent);
+
+    });
+
+
+    grunt.registerTask('clean', function () {
+        grunt.file.delete('vs');
+        grunt.file.delete('app/profile.js');
+
+
+    });
     grunt.registerTask('vs', function () {
-        grunt.task.run(['concat']);
+
+        grunt.task.run(['ngmin']);
+        grunt.task.run(['move-app-to-z']);
         grunt.task.run(['uglify:minvs']);
+//        grunt.task.run(['concat']);
+        grunt.task.run(['copy-profile-to-root']);
+        grunt.task.run(['templates']);
+        grunt.task.run(['clean']);
+
     });
 
 
@@ -724,7 +798,7 @@ module.exports = function (grunt) {
         }
 
 
-        /////////////////// index
+        /////////////////// index/
         var ipath = 'app/index.html';
         var src = '<script src="scripts/directives/' + jname + '.js"></script>\r\n';
         var indf = grunt.file.read(ipath);
