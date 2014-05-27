@@ -1,56 +1,65 @@
-<div ui-view>
-	<div class="well">
-		<div class="row">
-			<div class="col-sm-9">
-				<h3 class="italic">PERSONAL INFO</h3>
-			</div>
-
-			<div class="col-sm-1 pull-right">
-				<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
-			</div>
+<div class="well">
+	<div class="row">
+		<div class="col-sm-9">
+			<h3 class="italic">PERSONAL INFO</h3>
 		</div>
-		<h4>Kennel Name</h4>
 
-		<p>{{ctrl.BreederProfile.KennelName}}</p>
-
-		<h4>Website</h4>
-
-		<p>{{ctrl.BreederProfile.Website}}</p>
-
-		<h4>Email</h4>
-
-		<p>{{ctrl.BreederProfile.Email}}</p>
-
-		<h4>Phone</h4>
-
-		<p>{{ctrl.BreederProfile.Phone}}</p>
-		<br/>
-		<h4 class="italic">LOCATION</h4>
-
-		<h4>City</h4>
-		<p>{{ctrl.BreederProfile.City}}</p>
-
-		<h4>Zip</h4>
-		<p>{{ctrl.BreederProfile.Zip}}</p>
-
-		<h4>Zip</h4>
-		<p>{{ctrl.BreederProfile.State}}</p>
-
-		<br/>
-
-		<h4 class="italic">SPECIFICS</h4>
-		<!--<div ui-view="info"></div>-->
-
-		<h4>Certifications</h4>
-		<p>{{ctrl.BreederProfile.Certifications}}</p>
-
-		<h4>Vet Services</h4>
-		<p>{{ctrl.BreederProfile.VetServices}}</p>
-
-		<h4>Insurance</h4>
-		<p>{{ctrl.BreederProfile.Insurance}}</p>
-
-		<h4>Shipping</h4>
-		<p>{{ctrl.BreederProfile.Shipping}</p>
+		<div class="col-sm-1 pull-right">
+			<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
+		</div>
 	</div>
+	<h4>Kennel Name</h4>
+
+	<p>{{ctrl.BreederProfile.KennelName}}</p>
+
+	<h4>Website</h4>
+
+	<p>{{ctrl.BreederProfile.Website}}</p>
+
+	<h4>Email</h4>
+
+	<p>{{ctrl.BreederProfile.Email}}</p>
+
+	<h4>Phone</h4>
+
+	<p>{{ctrl.BreederProfile.Phone}}</p>
+	<br/>
+	<h4 class="italic">LOCATION</h4>
+
+	<h4>City</h4>
+
+	<p>{{ctrl.BreederProfile.City}}</p>
+
+	<h4>Zip</h4>
+
+	<p>{{ctrl.BreederProfile.Zip}}</p>
+
+	<h4>State</h4>
+
+	<p>{{ctrl.BreederProfile.State}}</p>
+
+	<br/>
+
+	<h4 class="italic">SPECIFICS</h4>
+	<!--<div ui-view="info"></div>-->
+
+	<h4>Certifications</h4>
+
+	<p ng-repeat="c in ctrl.BreederProfile.Certifications">
+		{{c.Title}} - {{c.isActive | boolString}}
+	</p>
+
+	<h4>Vet Services</h4>
+
+	<p>{{ctrl.BreederProfile.VetServices|boolString}}</p>
+
+	<h4>Insurance</h4>
+
+	<p ng-repeat="c in ctrl.BreederProfile.Insurances">
+		{{c.Title}} - {{c.isActive | boolString}}
+	</p>
+
+	<h4>Shipping</h4>
+
+	<p>{{ctrl.BreederProfile.Shipping|boolString}}</p>
 </div>

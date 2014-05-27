@@ -32,7 +32,10 @@ var aboutInfoEdit:() => ng.IDirective = () => {
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
             scope.saved = false;
-
+            scope.ResetFields = () => {
+                console.log('reset');
+                scope.ctrl.BreederProfileEdit = new BreederProfile();
+            }
             scope.SaveKennelName = () => {
                 var breederProfileOriginal:IBreederProfile = scope.ctrl.GetClone();
 

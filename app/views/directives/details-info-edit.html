@@ -5,21 +5,21 @@
 	</div>
 	<div class="col-sm-2 pull-right">
 		<button ng-click="" class="btn btn-info" ng-disabled="
-					(form.kennel.$pristine && form.story.$pristine)
-					|| (form.kennel.$invalid || form.story.$invalid) || saved">Save
+					(form.kennelDetails.$pristine && form.story.$pristine)
+					|| (form.kennelDetails.$invalid || form.story.$invalid) || saved">Save
 		</button>
 	</div>
 </div>
 
 <form class="form" name="form" novalidate>
-	<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
-		<label for="kennel" class="label-subhead control-label">Kennel Name:</label>
-		<span class="required">Required</span>
-		<input id="kennel" class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName" name="kennel"
+	<div class="form-group has-feedback" ng-class="{'has-error':form.kennelDetails.$invalid}">
+		<label for="kennelDetails" class="label-subhead control-label">kennelDetails Name:</label>
+		<span class="textMuted">Required</span>
+		<input id="kennelDetails" class="form-control" ng-model="ctrl.BreederProfileEdit.kennelDetailsName" name="kennelDetails"
 		       type="text"
 		       required/>
-		<span ng-show="form.kennel.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-		<span ng-hide="form.kennel.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+		<span ng-show="form.kennelDetails.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+		<span ng-hide="form.kennelDetails.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 	</div>
 
 	<div class="form-group">
@@ -46,7 +46,7 @@
 
 	<div class="form-group has-feedback" ng-class="{'has-error':form.email.$invalid}">
 		<label for="email" class="label-subhead control-label">Email:</label>
-		<span class="required">Required</span>
+		<span class="textMuted">Required</span>
 		<input id="email" name="email" class="form-control" ng-model="ctrl.BreederProfileEdit.Email" name="email"
 		       type="text"
 		       required/>
@@ -57,7 +57,7 @@
 	<div class="row">
 		<div class="form-group has-feedback col-xs-6" ng-class="{'has-error':form.phone.$invalid}">
 			<label for="phone" class="label-subhead control-label">Phone:</label>
-			<span class="required">Required</span>
+			<span class="textMuted">Required</span>
 			<input id="phone" name="phone" class="form-control" ng-model="ctrl.BreederProfileEdit.Phone"
 			       name="phone"
 			       type="text"
@@ -101,21 +101,24 @@
 		<div class="col-xs-6 form-group has-feedback" ng-class="{'has-error':location.city.$invalid}">
 
 			<label for="city" class="label-subhead control-label">City:</label>
-			<span class="required">Required</span>
+			<span class="textMuted">Required</span>
 			<input id="city" name="city" class="form-control" ng-model="ctrl.BreederProfileEdit.City"
 			       name="city"
 			       type="text"
 			       required/>
 					<span ng-show="form.city.$invalid"
-					      class="glyphicon glyphicon-col glyphicon-remove form-control-feedback"></span>
+					      class="glyphicon glyphicon-col glyphicon-remove form-control-feedback">
+
+					      </span>
 					<span ng-hide="form.city.$invalid"
-					      class="glyphicon glyphicon-col  glyphicon-ok form-control-feedback"></span>
+					      class="glyphicon glyphicon-col  glyphicon-ok form-control-feedback">
+					    </span>
 		</div>
 
 		<div class="form-group col-xs-6 has-feedback" ng-class="{'has-error':location.zip.$invalid}">
 			<label for="zip" class="label-subhead control-label">ZIP:</label>
-			<span class="required">Required</span>
-			<input id="zip" name="zip" class="form-control" ng-model="ctrl.BreederProfileEdit.ZIP"
+			<span class="textMuted">Required</span>
+			<input id="zip" name="zip" class="form-control" ng-model="ctrl.BreederProfileEdit.Zip"
 			       name="zip"
 			       type="text"
 			       required/>
@@ -129,16 +132,19 @@
 		<div class="col-xs-6 form-group has-feedback" ng-class="{'has-error':location.state.$invalid}">
 
 			<label for="state" class="label-subhead control-label">State:</label>
-			<span class="required">Required</span>
+			<span class="textMuted">Required</span>
 			<input id="state" name="state" class="form-control" ng-model="ctrl.BreederProfileEdit.State"
 			       name="state"
 			       type="text"
 			       required/>
 								<span ng-show="form.state.$invalid"
-								      class="glyphicon glyphicon-col glyphicon-remove form-control-feedback"></span>
-								<span ng-hide="form.state.$invalid"
-								      class="glyphicon glyphicon-col  glyphicon-ok form-control-feedback"></span>
+								      class="glyphicon glyphicon-col glyphicon-remove form-control-feedback">
 
+								      </span>
+								<span ng-hide="form.state.$invalid"
+								      class="glyphicon glyphicon-col  glyphicon-ok form-control-feedback">
+
+								      </span>
 		</div>
 	</div>
 </form>
@@ -158,35 +164,35 @@
 </div>
 
 <form class="form" name="specifics">
-	<div class="form-group">
-		<label for="certifications" class="label-subhead control-label">Certifications:</label>
-		<input id="certifications" name="certifications" class="form-control"
-		       ng-model="ctrl.BreederProfileEdit.Certifications"
-		       name="certifications"
-		       type="text"/>
-	</div>
+	<h5 class="label-subhead control-label bold">Certifications:</h5>
+	<ul class="list-unstyled">
+		<li ng-repeat="c in ctrl.BreederProfileEdit.Certifications">
+			{{c.Title}} - <input type="checkbox" ng-model='c.isActive'>
+		</li>
+	</ul>
 	<div class="btn-group">
-		<button type="button" class="btn btn-danger">Action</button>
-		<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+		<button type="button" class="btn btn-success">Pricing</button>
+		<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
 			<span class="caret"></span>
 			<span class="sr-only">Toggle Dropdown</span>
 		</button>
 		<ul class="dropdown-menu" role="menu">
-			<li><a href="#">Action</a></li>
-			<li><a href="#">Another action</a></li>
-			<li><a href="#">Something else here</a></li>
+			<li><a href="#">Price 1</a></li>
+			<li><a href="#">Price 2</a></li>
+			<li><a href="#">Price 3</a></li>
 			<li class="divider"></li>
-			<li><a href="#">Separated link</a></li>
+			<li><a href="#">Special Offer</a></li>
 		</ul>
 	</div>
 	<br/>
 
 	<div class="form-group">
-		<label for="insurance" class="label-subhead control-label">Insurance:</label>
-		<input id="insurance" name="insurance" class="form-control"
-		       ng-model="ctrl.BreederProfileEdit.Insurance"
-		       name="insurance"
-		       type="text"/>
+		<h5 class="label-subhead control-label">Insurance:</h5>
+		<ul class="list-unstyled">
+			<li ng-repeat="c in ctrl.BreederProfileEdit.Insurances">
+				{{c.Title}} - <input type="checkbox" ng-model='c.isActive'>
+			</li>
+		</ul>
 	</div>
 	<div class="form-group">
 		<label for="shipping" class="label-subhead control-label">Shipping:</label>

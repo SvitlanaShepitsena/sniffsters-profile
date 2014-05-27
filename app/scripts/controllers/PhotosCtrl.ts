@@ -6,19 +6,21 @@ interface IPhotosScope extends IMainScope {
 }
 class PhotosCtrl {
 
-    constructor($scope:IPhotosScope , public $state:ng.ui.IStateService,public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor($scope:IPhotosScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.photos = this;
-       this.BreederProfile = CopyProfileService.GetProfileClone();
-    }
-    BreederProfile:IBreederProfile;
+        this.BreederProfile = this.CopyProfileService.GetProfileClone();
 
-     ShowSuccess(note:string) {
+    }
+
+    BreederProfile:IBreederProfile = new BreederProfile();
+
+    ShowSuccess(note:string) {
 
         this.toastr.info(note);
-        }
+    }
 
-     ShowError(note:string) {
+    ShowError(note:string) {
         this.toastr.error(note);
-        }
+    }
 
 }

@@ -1,4 +1,5 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../controllers/DetailsEditCtrl.ts" />
 
 var detailsInfoEdit = function () {
     return {
@@ -13,6 +14,19 @@ var detailsInfoEdit = function () {
             func: '&'
         },
         link: function (scope, element, attrs) {
+            scope.ResetFields = function () {
+                console.log('reset');
+                scope.ctrl.BreederProfileEdit = new BreederProfile();
+            };
+
+            scope.SaveKennelName = function () {
+                var breederProfileOriginal = scope.ctrl.GetClone();
+
+                breederProfileOriginal.KennelName = scope.ctrl.BreederProfileEdit.KennelName;
+                breederProfileOriginal.Story = scope.ctrl.BreederProfileEdit.Story;
+
+                scope.ctrl.Save(breederProfileOriginal);
+            };
         }
     };
 };

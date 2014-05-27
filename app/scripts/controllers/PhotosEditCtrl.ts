@@ -9,9 +9,10 @@ class PhotosEditCtrl {
     constructor($scope:IPhotosEditScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.photosEdit = this;
 
-        this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+        this.BreederProfileEdit = this.CopyProfileService.GetProfileClone();
+
     }
-    BreederProfileEdit:IBreederProfile;
+    BreederProfileEdit:IBreederProfile = new BreederProfile();
 
     ShowSuccess(note:string) {
 

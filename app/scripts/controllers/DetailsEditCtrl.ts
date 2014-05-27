@@ -6,11 +6,12 @@ interface IDetailsEditScope extends IMainScope {
 }
 class DetailsEditCtrl {
 
-    constructor($scope:IDetailsEditScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope:IDetailsEditScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.DetailsEdit = this;
-        this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+        this.BreederProfileEdit = this.CopyProfileService.GetProfileClone();
     }
-    BreederProfileEdit:IBreederProfile;
+
+    BreederProfileEdit:IBreederProfile = new BreederProfile();
 
 
     ShowSuccess(note:string) {
@@ -22,4 +23,28 @@ class DetailsEditCtrl {
         this.toastr.error(note);
     }
 
+    GetClone() {
+        return this.CopyProfileService.GetProfileClone();
+    }
+
+    Save(breederProfile:IBreederProfile) {
+//Run Service UpdateProfile Method and get promise back
+        var promise:ng.IPromise<IBreederProfile> = this.DataService.updateProfile<IBreederProfile>(breederProfile);
+//resolving promise
+
+        promise.then(
+            () => {
+                // Success
+                this.CopyProfileService.SetProfile(breederProfile);
+
+//                Update scope on IndexCtrl.
+                this.$scope.ctrl.UpdateBreederProfile(breederProfile);
+
+                this.ShowSuccess('Successfully Saved');
+            },
+            () => {
+                // Error
+                this.ShowError('Db Connection Problem');
+            });
+    }
 }

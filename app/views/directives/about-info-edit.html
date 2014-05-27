@@ -11,7 +11,6 @@
 		</div>
 	</div>
 
-
 	<form class="form" name="form" novalidate>
 		<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
 			<label for="kennel" class="label-subhead">Kennel Name:</label>
@@ -19,13 +18,17 @@
 			<input id="kennel" class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName" name="kennel"
 			       type="text"
 			       required/>
-			<span ng-show="form.kennel.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-			<span ng-hide="form.kennel.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+
+			<div ng-show="form.kennel.$dirty">
+				<span ng-show="form.kennel.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span ng-hide="form.kennel.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+			</div>
 		</div>
 		<div class="form-group" ng-class="{'has-error':form.story.$invalid}">
 			<label for="story" class="label-subhead">Your Story:</label>
 			<span class="textMuted">Required</span>
-			<textarea id="story" name="story" rows="5" cols="30" class="form-control" ng-model="ctrl.BreederProfileEdit.Story"
+			<textarea id="story" name="story" rows="5" cols="30" class="form-control"
+			          ng-model="ctrl.BreederProfileEdit.Story"
 			          required>
 				{{ctrl.BreederProfileEdit.Story}}
 			</textarea>
@@ -43,8 +46,6 @@
 
 			</div>
 		</div>
-
-
 
 
 		<div class="form-group" ng-class="{'has-error':form.parents.$invalid}">
@@ -69,7 +70,6 @@
 			</textarea>
 		</div>
 
-
 		<div class="row">
 			<div class="col-sm-8">
 				<h4 class="italic">ADDITIONAL INFO</h4>
@@ -89,7 +89,7 @@
 
 		<div class="form-group  profileSave text-center">
 			<a class="btn btn-default" ui-sref="^">Cancel</a>
-			<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
+			<button class="btn btn-warning" ng-click="ResetFields()">Reset all fields</button>
 			<input type="submit" value="Save" ng-click="Save()" class="btn btn-info"
 			       ng-disabled="form.$pristine || form.$invalid">
 			<a class="btn btn-default" ui-sref="profile.about.change">Next Section</a>

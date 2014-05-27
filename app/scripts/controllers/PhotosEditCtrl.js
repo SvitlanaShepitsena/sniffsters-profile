@@ -5,9 +5,10 @@ var PhotosEditCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        this.BreederProfileEdit = new BreederProfile();
         $scope.photosEdit = this;
 
-        this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+        this.BreederProfileEdit = this.CopyProfileService.GetProfileClone();
     }
     PhotosEditCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

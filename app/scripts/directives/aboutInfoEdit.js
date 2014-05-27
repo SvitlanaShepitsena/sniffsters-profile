@@ -15,7 +15,10 @@ var aboutInfoEdit = function () {
         link: function (scope, element, attrs) {
             //            SCOPE (USE just {{test}} . )
             scope.saved = false;
-
+            scope.ResetFields = function () {
+                console.log('reset');
+                scope.ctrl.BreederProfileEdit = new BreederProfile();
+            };
             scope.SaveKennelName = function () {
                 var breederProfileOriginal = scope.ctrl.GetClone();
 

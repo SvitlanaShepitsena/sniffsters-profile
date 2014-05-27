@@ -13,6 +13,9 @@
 hr {
   border-top-color: #bababa !important;
 }
+h5 {
+  font-weight: bold;
+}
 .right {
   text-align: right;
 }
