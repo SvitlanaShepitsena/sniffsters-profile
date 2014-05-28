@@ -26,7 +26,7 @@ var breederDetails = function () {
             };
 
             scope.Save = function () {
-                scope.ctrl.Save();
+                scope.Save();
                 scope.IsEdit = false;
             };
         }

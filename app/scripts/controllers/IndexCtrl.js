@@ -41,22 +41,28 @@ var IndexCtrl = (function () {
         this.BreederProfileCopy = this.CopyProfileService.GetProfileClone();
     };
 
+    IndexCtrl.prototype.GetClone = function () {
+        return this.CopyProfileService.GetProfileClone();
+    };
+
     IndexCtrl.prototype.UpdateBreederProfile = function (breederProfile) {
         this.BreederProfile = breederProfile;
     };
 
-    IndexCtrl.prototype.Save = function () {
+    IndexCtrl.prototype.Save = function (breederProfile) {
         var _this = this;
-        var promise = this.DataService.updateProfile(this.BreederProfileCopy);
+        //Run Service UpdateProfile Method and get promise back
+        var promise = this.DataService.updateProfile(breederProfile);
 
         //resolving promise
         promise.then(function () {
             // Success
-            _this.BreederProfile = _this.BreederProfileCopy;
+            _this.CopyProfileService.SetProfile(breederProfile);
 
-            //                Any time we change information on server we need to update our BreederProfile inside a container.
-            _this.CopyProfileService.SetProfile(_this.BreederProfileCopy);
-            _this.ShowSuccess('Successfully saved');
+            //                Update scope on IndexCtrl.
+            _this.UpdateBreederProfile(breederProfile);
+
+            _this.ShowSuccess('Successfully Saved');
         }, function () {
             // Error
             _this.ShowError('Db Connection Problem');

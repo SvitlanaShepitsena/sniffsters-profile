@@ -1,5 +1,5 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-/// <reference path="../controllers/DetailsEditCtrl.ts" />
+/// <reference path="../controllers/IndexCtrl.ts" />
 
 var detailsInfoEdit = function () {
     return {
@@ -21,7 +21,6 @@ var detailsInfoEdit = function () {
 
             scope.SaveKennelName = function () {
                 var breederProfileOriginal = scope.ctrl.GetClone();
-
                 breederProfileOriginal.KennelName = scope.ctrl.BreederProfileEdit.KennelName;
                 breederProfileOriginal.Story = scope.ctrl.BreederProfileEdit.Story;
 

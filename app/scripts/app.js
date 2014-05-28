@@ -7,7 +7,6 @@
 /// <reference path="directives/aboutInfoEdit.ts" />
 /// <reference path="directives/detailsInfo.ts" />
 /// <reference path="directives/detailsInfoEdit.ts" />
-/// <reference path="controllers/DetailsEditCtrl.ts" />
 /// <reference path="controllers/TestimonialsCtrl.ts" />
 /// <reference path="directives/testimonialsInfo.ts" />
 /// <reference path="directives/testimonialsInfoEdit.ts" />
@@ -48,7 +47,6 @@ profile.directive("lookerDetails", lookerDetails);
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
 
-profile.controller("DetailsEditCtrl", DetailsEditCtrl);
 profile.controller("TestimonialsCtrl", TestimonialsCtrl);
 profile.controller("TestimonialsEditCtrl", TestimonialsEditCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
@@ -76,7 +74,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-about.html"
     }).state("profile.about.edit", {
         url: "/edit",
-        controller: "EditCtrl",
+        //                controller: "EditCtrl",
         templateUrl: "../views/profile-about-edit.html"
     }).state("profile.photos", {
         url: "/photos",

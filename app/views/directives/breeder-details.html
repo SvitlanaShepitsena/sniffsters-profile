@@ -1,15 +1,11 @@
 <div>
 	<div class="">
 		<h3 class="text-center">MY DETAILS
-			<a class="right" ui-sref=".edit"><i class="fa fa-pencil fa-fw light-gray"></i></a>
+			<a ng-show="!IsEdit" class="right" ng-click="Edit()"><i class="fa fa-pencil fa-fw light-gray"></i></a>
+			<a ng-show="IsEdit" class="right" ng-click="Save()"><i class="fa fa-save fa-fw light-gray"></i></a>
 		</h3>
 	</div>
-	<!--		<div class="col-sm-1 pull-right">
-				<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
-			</div>-->
 	<hr/>
-	<!--<div>{{text}}</div>-->
-	<!--<div>{{BreederProfileEdit.FirstName}}</div>-->
 	<dl class="dl-horizontal">
 		<dt>Location:</dt>
 		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Location}}</dd>

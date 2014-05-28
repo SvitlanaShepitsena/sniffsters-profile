@@ -1,12 +1,11 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-/// <reference path="../controllers/DetailsEditCtrl.ts" />
+/// <reference path="../controllers/IndexCtrl.ts" />
 
 interface IDetailsInfoEdit extends ng.IScope {
     test:string;
     ResetFields: () => void;
     SaveKennelName: () => void;
-    ctrl:DetailsEditCtrl;
-
+    ctrl:IndexCtrl;
 }
 
 var detailsInfoEdit:() => ng.IDirective = () => {
@@ -32,12 +31,10 @@ var detailsInfoEdit:() => ng.IDirective = () => {
 
             scope.SaveKennelName = () => {
                 var breederProfileOriginal:IBreederProfile = scope.ctrl.GetClone();
-
                 breederProfileOriginal.KennelName = scope.ctrl.BreederProfileEdit.KennelName;
                 breederProfileOriginal.Story = scope.ctrl.BreederProfileEdit.Story;
 
                 scope.ctrl.Save(breederProfileOriginal);
-
             }
         }
     }

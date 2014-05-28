@@ -2,8 +2,6 @@
 interface IDBreederDetails extends ng.IScope {
     IsEdit:Boolean;
     ctrl:IndexCtrl;
-    Clone:() => IBreederProfile;
-    BreederProfileEdit:IBreederProfile;
     Edit:() => void;
     Cancel:() => void;
     Save:() => void;
@@ -39,7 +37,7 @@ var breederDetails:() => ng.IDirective = () => {
             }
 
             scope.Save = () => {
-                scope.ctrl.Save();
+                scope.Save();
                 scope.IsEdit = false;
             }
         }

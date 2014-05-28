@@ -15,7 +15,7 @@ class IndexCtrl {
     BreederProfileCopy:IBreederProfile;
     error:boolean;
 
-    constructor($scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService,public CopyProfileService:CopyProfileService) {
+    constructor($scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index = this;
         var promiseT = this.DataService.getProfile<IBreederProfile>();
 
@@ -45,34 +45,38 @@ class IndexCtrl {
         this.toastr.success(successMessage);
     }
 
-    Clone() {
+    Clone(){
         this.BreederProfileCopy = this.CopyProfileService.GetProfileClone();
     }
 
-    UpdateBreederProfile(breederProfile:IBreederProfile){
+    GetClone() {
+        return this.CopyProfileService.GetProfileClone();
+    }
+
+    UpdateBreederProfile(breederProfile:IBreederProfile) {
         this.BreederProfile = breederProfile;
     }
 
 
-    Save() {
-        var promise:ng.IPromise<IBreederProfile> = this.DataService.updateProfile<IBreederProfile>(this.BreederProfileCopy);
+    Save(breederProfile:IBreederProfile) {
+//Run Service UpdateProfile Method and get promise back
+        var promise:ng.IPromise<IBreederProfile> = this.DataService.updateProfile<IBreederProfile>(breederProfile);
 //resolving promise
-
 
         promise.then(
             () => {
                 // Success
-                this.BreederProfile = this.BreederProfileCopy;
-//                Any time we change information on server we need to update our BreederProfile inside a container.
-                this.CopyProfileService.SetProfile(this.BreederProfileCopy);
-                this.ShowSuccess('Successfully saved');
+                this.CopyProfileService.SetProfile(breederProfile);
+
+//                Update scope on IndexCtrl.
+                this.UpdateBreederProfile(breederProfile);
+
+                this.ShowSuccess('Successfully Saved');
             },
             () => {
                 // Error
                 this.ShowError('Db Connection Problem');
             });
-
     }
-
 
 }
