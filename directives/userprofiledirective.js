@@ -20,4 +20,4 @@ var userProfileDirective = function () {
         }
     };
 };
-//# sourceMappingURL=userProfileDirective.js.map
+//# sourceMappingURL=userprofiledirective.js.map

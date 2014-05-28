@@ -14,4 +14,4 @@ var DbService = (function () {
     DbService.$injector = ['$resource'];
     return DbService;
 })();
-//# sourceMappingURL=DbService.js.map
+//# sourceMappingURL=dbservice.js.map
