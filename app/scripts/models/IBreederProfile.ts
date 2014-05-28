@@ -14,26 +14,26 @@ interface IBreederProfile{
 
     Certifications:string[];
     VetServices:boolean;
-    Insurances:boolean;
+    Insurances:string[];
     Shipping:boolean;
 }
 
 class BreederProfile implements IBreederProfile{
+    FirstName:string;
+    LastName:string;
     KennelName:string;
     Story:string;
     Parents:string;
     Boys:string;
     Girls:string;
     AddInfo:string;
-    FirstName:string;
-    LastName:string;
     Location:string;
     Website:string;
     Email:string;
     Phone:string;
     Certifications:string[];
     VetServices:boolean;
-    Insurances:boolean;
+    Insurances:string[];
     Shipping:boolean;
 
 constructor(){}

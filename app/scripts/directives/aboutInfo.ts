@@ -2,6 +2,7 @@
 
 interface IAboutInfo extends ng.IScope {
     test:string;
+    ctrl:IndexCtrl;
 }
 
 var aboutInfo:() => ng.IDirective = () => {

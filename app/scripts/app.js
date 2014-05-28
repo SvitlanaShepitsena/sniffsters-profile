@@ -1,8 +1,6 @@
-/// <reference path="controllers/EditCtrl.ts" />
 /// <reference path="directives/BreederDetails.ts" />
 /// <reference path="filters/BoolString.ts" />
 /// <reference path="directives/lookerDetails.ts" />
-/// <reference path="controllers/DetailsCtrl.ts" />
 /// <reference path="directives/aboutInfo.ts" />
 /// <reference path="directives/aboutInfoEdit.ts" />
 /// <reference path="directives/detailsInfo.ts" />
@@ -19,6 +17,7 @@
 /// <reference path="controllers/PhotosEditCtrl.ts" />
 /// <reference path="directives/photosInfo.ts" />
 /// <reference path="directives/photosInfoEdit.ts" />
+/// <reference path="directives/profileButtons.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router']);
 
@@ -41,6 +40,7 @@ profile.directive("puppiesInfo", puppiesInfo);
 profile.directive("puppiesInfoEdit", puppiesInfoEdit);
 profile.directive("photosInfo", photosInfo);
 profile.directive("photosInfoEdit", photosInfoEdit);
+profile.directive("profileButtons", profileButtons);
 
 //#dir
 profile.directive("lookerDetails", lookerDetails);
@@ -55,9 +55,6 @@ profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PhotosEditCtrl", PhotosEditCtrl);
 
 //#ctrl
-profile.controller("EditCtrl", EditCtrl);
-profile.controller("DetailsCtrl", DetailsCtrl);
-
 // TODO: Implement filter
 profile.value("toastr", toastr);
 profile.service("DataService", DataService);
@@ -74,7 +71,6 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-about.html"
     }).state("profile.about.edit", {
         url: "/edit",
-        //                controller: "EditCtrl",
         templateUrl: "../views/profile-about-edit.html"
     }).state("profile.photos", {
         url: "/photos",

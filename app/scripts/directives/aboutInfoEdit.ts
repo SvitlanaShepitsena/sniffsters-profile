@@ -7,7 +7,7 @@ interface IAboutInfoEdit extends ng.IScope {
     Cancel:() => void;
     SaveKennelName:() => void;
 
-    ctrl:EditCtrl;
+    ctrl:IndexCtrl;
     KennelNameValid:boolean;
     KennelNameValidityCheck:() => boolean;
     form:HTMLFormElement;
@@ -32,38 +32,20 @@ var aboutInfoEdit:() => ng.IDirective = () => {
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
             scope.saved = false;
+
             scope.ResetFields = () => {
-                console.log('reset');
-                scope.ctrl.BreederProfileEdit = new BreederProfile();
-            }
-            scope.SaveKennelName = () => {
-                var breederProfileOriginal:IBreederProfile = scope.ctrl.GetClone();
-
-                breederProfileOriginal.KennelName = scope.ctrl.BreederProfileEdit.KennelName;
-                breederProfileOriginal.Story = scope.ctrl.BreederProfileEdit.Story;
-
-                scope.ctrl.Save(breederProfileOriginal);
-
-            }
-            scope.SaveAboutParents = () => {
-                var breederProfileOriginal:IBreederProfile = scope.ctrl.GetClone();
-
-                breederProfileOriginal.Parents = scope.ctrl.BreederProfileEdit.Parents;
-                breederProfileOriginal.Girls = scope.ctrl.BreederProfileEdit.Girls;
-                breederProfileOriginal.Boys = scope.ctrl.BreederProfileEdit.Boys;
-
-                scope.ctrl.Save(breederProfileOriginal);
-            }
-            scope.SaveAddInfo = () => {
-                var breederProfileOriginal:IBreederProfile = scope.ctrl.GetClone();
-                breederProfileOriginal.AddInfo = scope.ctrl.BreederProfileEdit.AddInfo;
-
-                scope.ctrl.Save(breederProfileOriginal);
+                scope.ctrl.BreederProfileEdit.KennelName = '';
+                scope.ctrl.BreederProfileEdit.Story = '';
+                scope.ctrl.BreederProfileEdit.Parents = '';
+                scope.ctrl.BreederProfileEdit.Boys = '';
+                scope.ctrl.BreederProfileEdit.Girls = '';
+                scope.ctrl.BreederProfileEdit.AddInfo = '';
+//                scope.ctrl.BreederProfileEdit = new BreederProfile();
             }
 
-            scope.Save = () => {
-                scope.ctrl.Save(scope.ctrl.BreederProfileEdit);
-//                scope.IsEdit = false;
+            scope.Next=() =>
+            {
+                scope.ctrl.Next('profile.photos');
             }
         }
     }

@@ -7,6 +7,7 @@
 var IndexCtrl = (function () {
     function IndexCtrl($scope, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
+        this.$scope = $scope;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
@@ -29,6 +30,34 @@ var IndexCtrl = (function () {
             _this.ShowError("Error in Db Connection");
         });
     }
+    IndexCtrl.prototype.SaveKennelName = function () {
+        var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
+
+        breederProfileOriginal.KennelName = this.BreederProfileEdit.KennelName;
+        breederProfileOriginal.Story = this.BreederProfileEdit.Story;
+        this.Save(breederProfileOriginal);
+    };
+    IndexCtrl.prototype.SaveAboutParents = function () {
+        var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
+
+        breederProfileOriginal.Parents = this.BreederProfileEdit.Parents;
+        breederProfileOriginal.Girls = this.BreederProfileEdit.Girls;
+        breederProfileOriginal.Boys = this.BreederProfileEdit.Boys;
+        console.log(breederProfileOriginal);
+
+        this.Save(breederProfileOriginal);
+    };
+    IndexCtrl.prototype.SaveAddInfo = function () {
+        var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
+        breederProfileOriginal.AddInfo = this.BreederProfileEdit.AddInfo;
+
+        this.Save(breederProfileOriginal);
+    };
+
+    IndexCtrl.prototype.Next = function (state) {
+        this.$state.go(state);
+    };
+
     IndexCtrl.prototype.ShowError = function (errorMessage) {
         this.toastr.error(errorMessage);
     };

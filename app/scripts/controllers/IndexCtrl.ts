@@ -15,7 +15,7 @@ class IndexCtrl {
     BreederProfileCopy:IBreederProfile;
     error:boolean;
 
-    constructor($scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index = this;
         var promiseT = this.DataService.getProfile<IBreederProfile>();
 
@@ -37,6 +37,38 @@ class IndexCtrl {
     }
 
 
+    SaveKennelName () {
+        var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
+
+        breederProfileOriginal.KennelName = this.BreederProfileEdit.KennelName;
+        breederProfileOriginal.Story = this.BreederProfileEdit.Story;
+        this.Save(breederProfileOriginal);
+
+    }
+    SaveAboutParents() {
+        var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
+
+        breederProfileOriginal.Parents = this.BreederProfileEdit.Parents;
+        breederProfileOriginal.Girls = this.BreederProfileEdit.Girls;
+        breederProfileOriginal.Boys = this.BreederProfileEdit.Boys;
+        console.log(breederProfileOriginal);
+
+        this.Save(breederProfileOriginal);
+    }
+    SaveAddInfo() {
+        var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
+        breederProfileOriginal.AddInfo = this.BreederProfileEdit.AddInfo;
+
+        this.Save(breederProfileOriginal);
+    }
+
+
+    Next(state:string){
+        this.$state.go(state);
+    }
+
+
+
     ShowError(errorMessage:string) {
         this.toastr.error(errorMessage);
     }
@@ -45,7 +77,7 @@ class IndexCtrl {
         this.toastr.success(successMessage);
     }
 
-    Clone(){
+    Clone() {
         this.BreederProfileCopy = this.CopyProfileService.GetProfileClone();
     }
 
@@ -78,5 +110,6 @@ class IndexCtrl {
                 this.ShowError('Db Connection Problem');
             });
     }
+
 
 }

@@ -6,7 +6,7 @@ interface I#name#Scope extends IMainScope {
 }
 class #name#Ctrl {
 
-    constructor($scope:I#name#Scope , public $state:ng.ui.IStateService,public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope:I#name#Scope , public $state:ng.ui.IStateService,public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.#lname# = this;
     }
 
