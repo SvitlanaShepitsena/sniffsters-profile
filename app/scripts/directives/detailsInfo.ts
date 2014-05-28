@@ -12,14 +12,10 @@ var detailsInfo:() => ng.IDirective = () => {
         replace: true,
         scope: {
             ctrl: '=',
-
             text: '@',
             func: '&'
         },
         link: (scope:IDetailsInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
-
-
         }
     }
 }
