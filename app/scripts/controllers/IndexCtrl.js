@@ -11,7 +11,6 @@ var IndexCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
-        this.text = 'Text Outer Scope';
         $scope.index = this;
         var promiseT = this.DataService.getProfile();
 
@@ -23,6 +22,7 @@ var IndexCtrl = (function () {
             //            Put a received BreederProfile to CopyProfileService, using it like container
             //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
             _this.CopyProfileService.SetProfile(breederProfile);
+            _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
         }, function () {
             //Error
             _this.error = true;

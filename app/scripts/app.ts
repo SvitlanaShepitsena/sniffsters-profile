@@ -107,12 +107,10 @@ profile.config(
             })
             .state("profile.details", {
                 url: "/details",
-                controller: "DetailsCtrl",
                 templateUrl: "../views/profile-details.html"
             })
             .state("profile.details.edit", {
                 url: "/edit",
-                controller: "DetailsEditCtrl",
                 templateUrl: "../views/profile-detailsEdit.html"
             })
             .state("profile.testimonials", {

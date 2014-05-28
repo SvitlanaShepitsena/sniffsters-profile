@@ -11,8 +11,8 @@ interface IMainScope extends ng.IScope {
 }
 class IndexCtrl {
     BreederProfile:IBreederProfile;
+    BreederProfileEdit:IBreederProfile;
     BreederProfileCopy:IBreederProfile;
-    text:string = 'Text Outer Scope';
     error:boolean;
 
     constructor($scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService,public CopyProfileService:CopyProfileService) {
@@ -28,7 +28,7 @@ class IndexCtrl {
 //            Put a received BreederProfile to CopyProfileService, using it like container
 //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
             this.CopyProfileService.SetProfile(breederProfile);
-
+            this.BreederProfileEdit = CopyProfileService.GetProfileClone();
         }, () => {
             //Error
             this.error = true;

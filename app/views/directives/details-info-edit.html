@@ -12,14 +12,17 @@
 </div>
 
 <form class="form" name="form" novalidate>
-	<div class="form-group has-feedback" ng-class="{'has-error':form.kennelDetails.$invalid}">
-		<label for="kennelDetails" class="label-subhead control-label">kennelDetails Name:</label>
+	<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
+		<label for="kennel" class="label-subhead">Kennel Name:</label>
 		<span class="textMuted">Required</span>
-		<input id="kennelDetails" class="form-control" ng-model="ctrl.BreederProfileEdit.kennelDetailsName" name="kennelDetails"
+		<input id="kennel" class="form-control" ng-model="ctrl.BreederProfileEdit.KennelName" name="kennel"
 		       type="text"
 		       required/>
-		<span ng-show="form.kennelDetails.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-		<span ng-hide="form.kennelDetails.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+
+		<div ng-show="form.kennel.$dirty">
+			<span ng-show="form.kennel.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+			<span ng-hide="form.kennel.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+		</div>
 	</div>
 
 	<div class="form-group">
@@ -185,6 +188,7 @@
 		</ul>
 	</div>
 	<br/>
+
 
 	<div class="form-group">
 		<h5 class="label-subhead control-label">Insurance:</h5>
