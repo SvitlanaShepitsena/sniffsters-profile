@@ -1,6 +1,5 @@
 /// <reference path="IndexCtrl.ts" />
 
-
 interface IEditScope extends IMainScope {
     edit:EditCtrl;
     ctrl:IndexCtrl;

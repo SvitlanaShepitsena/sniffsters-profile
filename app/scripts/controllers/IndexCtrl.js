@@ -37,6 +37,7 @@ var IndexCtrl = (function () {
         breederProfileOriginal.Story = this.BreederProfileEdit.Story;
         this.Save(breederProfileOriginal);
     };
+
     IndexCtrl.prototype.SaveAboutParents = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 
@@ -47,6 +48,7 @@ var IndexCtrl = (function () {
 
         this.Save(breederProfileOriginal);
     };
+
     IndexCtrl.prototype.SaveAddInfo = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
         breederProfileOriginal.AddInfo = this.BreederProfileEdit.AddInfo;
@@ -82,8 +84,6 @@ var IndexCtrl = (function () {
         var _this = this;
         //Run Service UpdateProfile Method and get promise back
         var promise = this.DataService.updateProfile(breederProfile);
-
-        //resolving promise
         promise.then(function () {
             // Success
             _this.CopyProfileService.SetProfile(breederProfile);

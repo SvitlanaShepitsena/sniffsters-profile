@@ -79,10 +79,10 @@ module.exports = function (grunt) {
                 files: ['test/spec/{,*/}*.coffee'],
                 tasks: ['coffee:test']
             },
-//            typescript: {
-//                files: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
-//                tasks: ['typescript:dist']
-//            },
+            typescript: {
+                files: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
+                tasks: ['typescript:dist']
+            },
             livereload: {
                 options: {
                     livereload: LIVERELOAD_PORT

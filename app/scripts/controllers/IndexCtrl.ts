@@ -5,7 +5,6 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
 
-
 interface IMainScope extends ng.IScope {
     index:IndexCtrl;
 }
@@ -24,7 +23,6 @@ class IndexCtrl {
             this.error = false;
             this.BreederProfile = breederProfile;
 
-
 //            Put a received BreederProfile to CopyProfileService, using it like container
 //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
             this.CopyProfileService.SetProfile(breederProfile);
@@ -36,15 +34,14 @@ class IndexCtrl {
         })
     }
 
-
-    SaveKennelName () {
+    SaveKennelName() {
         var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
 
         breederProfileOriginal.KennelName = this.BreederProfileEdit.KennelName;
         breederProfileOriginal.Story = this.BreederProfileEdit.Story;
         this.Save(breederProfileOriginal);
-
     }
+
     SaveAboutParents() {
         var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
 
@@ -55,6 +52,7 @@ class IndexCtrl {
 
         this.Save(breederProfileOriginal);
     }
+
     SaveAddInfo() {
         var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
         breederProfileOriginal.AddInfo = this.BreederProfileEdit.AddInfo;
@@ -62,12 +60,9 @@ class IndexCtrl {
         this.Save(breederProfileOriginal);
     }
 
-
-    Next(state:string){
+    Next(state:string) {
         this.$state.go(state);
     }
-
-
 
     ShowError(errorMessage:string) {
         this.toastr.error(errorMessage);
@@ -89,17 +84,13 @@ class IndexCtrl {
         this.BreederProfile = breederProfile;
     }
 
-
     Save(breederProfile:IBreederProfile) {
 //Run Service UpdateProfile Method and get promise back
         var promise:ng.IPromise<IBreederProfile> = this.DataService.updateProfile<IBreederProfile>(breederProfile);
-//resolving promise
-
         promise.then(
             () => {
                 // Success
                 this.CopyProfileService.SetProfile(breederProfile);
-
 //                Update scope on IndexCtrl.
                 this.UpdateBreederProfile(breederProfile);
 
@@ -110,6 +101,4 @@ class IndexCtrl {
                 this.ShowError('Db Connection Problem');
             });
     }
-
-
 }

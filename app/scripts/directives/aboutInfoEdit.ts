@@ -33,19 +33,23 @@ var aboutInfoEdit:() => ng.IDirective = () => {
 //            SCOPE (USE just {{test}} . )
             scope.saved = false;
 
-            scope.ResetFields = () => {
+            scope.resetFields = () => {
                 scope.ctrl.BreederProfileEdit.KennelName = '';
                 scope.ctrl.BreederProfileEdit.Story = '';
                 scope.ctrl.BreederProfileEdit.Parents = '';
                 scope.ctrl.BreederProfileEdit.Boys = '';
                 scope.ctrl.BreederProfileEdit.Girls = '';
                 scope.ctrl.BreederProfileEdit.AddInfo = '';
+
+                scope.form.$setPristine();
+//                scope.form.addInfo.$setPristine();
+
 //                scope.ctrl.BreederProfileEdit = new BreederProfile();
             }
 
             scope.Next=() =>
             {
-                scope.ctrl.Next('profile.photos');
+//                scope.ctrl.Next('profile.photos');
             }
         }
     }

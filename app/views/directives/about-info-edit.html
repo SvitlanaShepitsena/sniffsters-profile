@@ -11,7 +11,7 @@
 		</div>
 	</div>
 
-	<form class="form" name="form" novalidate">
+	<form class="form" name="form" id="form" novalidate>
 		<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
 			<label for="kennel" class="label-subhead">Kennel Name:</label>
 			<span class="textMuted">Required</span>
@@ -75,17 +75,19 @@
 				<h4 class="italic">ADDITIONAL INFO</h4>
 			</div>
 			<div class="col-sm-2 pull-right">
-				<button ng-click="ctrl.SaveAddInfo()" class="btn btn-info"
-				        ng-disabled="(form.AddInfo.$pristine) || (form.AddInfo.$invalid)">Save
+				<button name='saveinfo' ng-click="form.$setPristine()" class="btn btn-info" ng-disabled="form.info.$pristine">Save
 				</button>
 			</div>
 		</div>
-		<div class="form-group">
-			<label>Is there anything else you would like to mention?:</label>
-			<textarea rows="5" cols="30" name="AddInfo" class="form-control" ng-model="ctrl.BreederProfileEdit.AddInfo">
+
+			<textarea id="info" name="info" rows="5" cols="30" class="form-control"
+			          ng-model="ctrl.BreederProfileEdit.AddInfo"
+			          >
 				{{ctrl.BreederProfileEdit.AddInfo}}
 			</textarea>
-		</div>
+		<br/>
+
+
 		<profile-buttons></profile-buttons>
 
 	</form>
