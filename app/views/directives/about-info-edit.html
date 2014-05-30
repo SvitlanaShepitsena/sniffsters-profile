@@ -4,7 +4,8 @@
 			<h4 class="italic">ABOUT</h4>
 		</div>
 		<div class="col-sm-2 pull-right">
-			<button ng-click="ctrl.SaveKennelName();" class="btn btn-info" ng-disabled="'thesame=true'">Save
+			<button ng-click="ctrl.SaveKennelName();form.kennel.$setPristine();form.story.$setPristine();"
+			        class="btn btn-info" ng-disabled="(form.kennel.$invalid || form.story.$invalid) || (form.kennel.$pristine && form.story.$pristine)">Save
 			</button>
 		</div>
 	</div>
@@ -37,7 +38,8 @@
 				<h4 class="italic">PARENTS</h4>
 			</div>
 			<div class="col-sm-2 pull-right">
-				<button ng-click="ctrl.SaveAboutParents();form.parents.$setPristine;form.girls.$setPristine;form.boys.$setPristine;" class="btn btn-info"
+				<button ng-click="ctrl.SaveAboutParents();form.parents.$setPristine();form.girls.$setPristine();form.boys.$setPristine();"
+				        class="btn btn-info"
 				        ng-disabled="(form.parents.$pristine && form.boys.$pristine && form.girls.$pristine)
 				        || form.parents.$invalid">Save
 				</button>
@@ -73,16 +75,17 @@
 				<h4 class="italic">ADDITIONAL INFO</h4>
 			</div>
 			<div class="col-sm-2 pull-right">
-				<button name='saveinfo' ng-click="ctrl.SaveAddInfo();form.info.$setPristine()" class="btn btn-info" ng-disabled="form.info.$pristine">Save
+				<button name='saveinfo' ng-click="ctrl.SaveAddInfo();form.info.$setPristine()" class="btn btn-info"
+				        ng-disabled="form.info.$pristine">Save
 				</button>
 			</div>
 		</div>
 
-			<textarea id="info" name="info" rows="5" cols="30" class="form-control"
-			          ng-model="ctrl.BreederProfileEdit.AddInfo"
-			          >
-				{{ctrl.BreederProfileEdit.AddInfo}}
-			</textarea>
+		<textarea id="info" name="info" rows="5" cols="30" class="form-control"
+		          ng-model="ctrl.BreederProfileEdit.AddInfo"
+				>
+			{{ctrl.BreederProfileEdit.AddInfo}}
+		</textarea>
 		<br/>
 
 

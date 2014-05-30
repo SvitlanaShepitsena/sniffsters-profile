@@ -32,8 +32,8 @@ var aboutInfoEdit:() => ng.IDirective = () => {
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
 
-            console.log(scope.form.$dirty=true);
-            console.log(scope.form);
+//            console.log(scope.form.$dirty=true);
+//            console.log(scope.form);
 
             scope.resetFields = () => {
                 scope.ctrl.BreederProfileEdit.KennelName = '';
@@ -43,7 +43,7 @@ var aboutInfoEdit:() => ng.IDirective = () => {
                 scope.ctrl.BreederProfileEdit.Girls = '';
                 scope.ctrl.BreederProfileEdit.AddInfo = '';
 
-                scope.form.$setPristine();
+//                scope.form.$setPristine();
 //                scope.form.addInfo.$setPristine();
 
 //                scope.ctrl.BreederProfileEdit = new BreederProfile();

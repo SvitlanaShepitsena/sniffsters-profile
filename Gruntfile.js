@@ -268,29 +268,6 @@ module.exports = function (grunt) {
             //   }
             // }
         },
-        htmlmin: {
-            dist: {
-                options: {
-                    /*removeCommentsFromCDATA: true,
-                     // https://github.com/yeoman/grunt-usemin/issues/44
-                     //collapseWhitespace: true,
-                     collapseBooleanAttributes: true,
-                     removeAttributeQuotes: true,
-                     removeRedundantAttributes: true,
-                     useShortDoctype: true,
-                     removeEmptyAttributes: true,
-                     removeOptionalTags: true*/
-                },
-                files: {
-                    'templates.cshtml': '1.html'
-                }
-
-            },
-            dev: {                                       // Another target
-                files: {
-                    'app/views/*.html': 'src/index.html'
-                }
-            }        },
         // Put files not handled in other tasks here
         copy: {
             dist: {
@@ -415,13 +392,13 @@ module.exports = function (grunt) {
         var search = "templateUrl";
         var index = 0, pos = 0;
         var fileContent = "";
+
         var options = {
             charset: 'utf-8',
             collapseWhitespace: true,
             removeComments: true
-
-
         }
+
         while (true) {
             index = file.indexOf(search, index);
             if (index == -1) {
@@ -434,7 +411,7 @@ module.exports = function (grunt) {
             var startPos = key.indexOf('views');
             startPos = key.indexOf('/', startPos) + 1;
             var fileName = 'app/views/' + key.substring(startPos);
-            var content = minify(grunt.file.read(fileName).trim(),options).replace('\n','').replace('\t','');
+            var content = minify(grunt.file.read(fileName).trim(), options).replace('\n', '').replace('\t', '');
 
             var fullChunk = '<script type="text/ng-template" id="' + key + '">' + content + '</script>';
 //            grunt.log.subhead(content);
@@ -448,7 +425,7 @@ module.exports = function (grunt) {
 
         grunt.file.recurse(dirFolder, function (file) {
 
-            var content = minify(grunt.file.read(file).trim(),options).replace('\n','').replace('\t','');
+            var content = minify(grunt.file.read(file).trim(), options).replace('\n', '').replace('\t', '');
 //            grunt.log.ok(content);
 
             var pos = file.indexOf('views');
@@ -464,10 +441,13 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask('clean', function () {
-        grunt.file.delete('vs');
-        grunt.file.delete('app/profile.js');
+        if (grunt.file.exists('vs')) {
+            grunt.file.delete('vs');
+        }
 
-
+        if (grunt.file.exists('app/profile.js')) {
+            grunt.file.delete('app/profile.js');
+        }
     });
     grunt.registerTask('vs', function () {
 
