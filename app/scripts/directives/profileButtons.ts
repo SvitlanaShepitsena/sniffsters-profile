@@ -7,6 +7,7 @@ interface IProfileButtons extends ng.IScope {
 var profileButtons:() => ng.IDirective = () => {
 
     return{
+
         restrict: 'E',
         templateUrl: 'views/directives/profile-buttons.html',
         transclude: true,

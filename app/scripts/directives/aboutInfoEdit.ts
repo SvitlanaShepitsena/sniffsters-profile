@@ -35,14 +35,15 @@ var aboutInfoEdit:() => ng.IDirective = () => {
 //            console.log(scope.form.$dirty=true);
 //            console.log(scope.form);
 
-            scope.resetFields = () => {
+            scope.ResetAllFields = () => {
+
                 scope.ctrl.BreederProfileEdit.KennelName = '';
                 scope.ctrl.BreederProfileEdit.Story = '';
                 scope.ctrl.BreederProfileEdit.Parents = '';
                 scope.ctrl.BreederProfileEdit.Boys = '';
                 scope.ctrl.BreederProfileEdit.Girls = '';
                 scope.ctrl.BreederProfileEdit.AddInfo = '';
-
+                scope.form.$setDirty();
 //                scope.form.$setPristine();
 //                scope.form.addInfo.$setPristine();
 

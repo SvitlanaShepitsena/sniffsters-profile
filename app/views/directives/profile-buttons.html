@@ -1,6 +1,6 @@
 <div class="form-group profileSave text-center">
 	<a class="btn btn-default" ui-sref="^">Cancel</a>
-	<button class="btn btn-warning" ng-click="resetFields()"> Reset all fields</button>
+	<button class="btn btn-warning" ng-click="ResetAllFields();form.info.$setDirty()"> Reset all fields</button>
 	<button class="btn btn-info"
 	        ng-disabled="form.$invalid || (form.kennel.$pristine && form.story.$pristine && form.parents.$pristine && form.boys.$pristine && form.girls.$pristine && form.info.$pristine)"
 	        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save</button>

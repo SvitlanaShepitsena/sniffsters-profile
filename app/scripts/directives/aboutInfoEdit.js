@@ -14,20 +14,23 @@ var aboutInfoEdit = function () {
         },
         link: function (scope, element, attrs) {
             //            SCOPE (USE just {{test}} . )
-            scope.saved = false;
-
-            scope.ResetFields = function () {
+            //            console.log(scope.form.$dirty=true);
+            //            console.log(scope.form);
+            scope.ResetAllFields = function () {
                 scope.ctrl.BreederProfileEdit.KennelName = '';
                 scope.ctrl.BreederProfileEdit.Story = '';
                 scope.ctrl.BreederProfileEdit.Parents = '';
                 scope.ctrl.BreederProfileEdit.Boys = '';
                 scope.ctrl.BreederProfileEdit.Girls = '';
                 scope.ctrl.BreederProfileEdit.AddInfo = '';
+                scope.form.$setDirty();
+                //                scope.form.$setPristine();
+                //                scope.form.addInfo.$setPristine();
                 //                scope.ctrl.BreederProfileEdit = new BreederProfile();
             };
 
             scope.Next = function () {
-                scope.ctrl.Next('profile.photos');
+                //                scope.ctrl.Next('profile.photos');
             };
         }
     };

@@ -88,9 +88,6 @@ class IndexCtrl {
         this.BreederProfile = breederProfile;
     }
 
-    Reset() {
-        this.BreederProfileEdit.KennelName = '';
-    }
 
     Save(breederProfile:IBreederProfile) {
 //Run Service UpdateProfile Method and get promise back

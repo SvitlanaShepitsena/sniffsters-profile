@@ -198,6 +198,18 @@ module.exports = function (grunt) {
                     // fullSourceMapPath: true,
                     // declaration: true,
                 }
+            },
+            same: {
+                src: '<%= yeoman.app %>/scripts/{,*/}*.ts',
+                dest: 'app/scripts',
+                options: {
+                    module: 'amd', //or commonjs
+                    target: 'es5', //or es3/es5
+                    basePath: '<%= yeoman.app %>/scripts',
+                    sourcemap: false,
+                    fullSourceMapPath: false
+                    // declaration: true,
+                }
             }
 
         },
@@ -299,7 +311,7 @@ module.exports = function (grunt) {
         concurrent: {
             server: [
                 'coffee:dist',
-                'typescript:dist'
+                'typescript:same'
             ],
             test: [
                 'coffee',
@@ -307,7 +319,7 @@ module.exports = function (grunt) {
             ],
             dist: [
                 'coffee',
-                'typescript:dist',
+                'typescript:same',
                 'typescript:tf',
                 'imagemin',
                 'svgmin',
@@ -450,7 +462,7 @@ module.exports = function (grunt) {
         }
     });
     grunt.registerTask('vs', function () {
-
+//        grunt.task.run('typescript:same');
         grunt.task.run(['ngmin']);
         grunt.task.run(['move-app-to-z']);
         grunt.task.run(['uglify:minvs']);

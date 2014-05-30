@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 
 var EditCtrl = (function () {
     function EditCtrl($scope, $state, toastr, DataService, CopyProfileService) {
@@ -14,20 +13,15 @@ var EditCtrl = (function () {
     }
     EditCtrl.prototype.Save = function (breederProfile) {
         var _this = this;
-        //Run Service UpdateProfile Method and get promise back
         var promise = this.DataService.updateProfile(breederProfile);
 
-        //resolving promise
         promise.then(function () {
-            // Success
             _this.CopyProfileService.SetProfile(breederProfile);
 
-            //                Update scope on IndexCtrl.
             _this.$scope.ctrl.UpdateBreederProfile(breederProfile);
 
             _this.ShowSuccess('Successfully Saved');
         }, function () {
-            // Error
             _this.ShowError('Db Connection Problem');
         });
     };
@@ -45,4 +39,3 @@ var EditCtrl = (function () {
     };
     return EditCtrl;
 })();
-//# sourceMappingURL=EditCtrl.js.map

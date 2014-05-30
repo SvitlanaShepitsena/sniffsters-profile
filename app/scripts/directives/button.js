@@ -1,8 +1,8 @@
 
-var userInfoEdit = function () {
+var button = function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/directives/user-info-edit.html',
+        template: '<button>Test</button>',
         transclude: true,
         replace: true,
         scope: {
