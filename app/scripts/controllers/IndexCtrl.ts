@@ -9,14 +9,18 @@ interface IMainScope extends ng.IScope {
     index:IndexCtrl;
 }
 class IndexCtrl {
+
     BreederProfile:IBreederProfile;
     BreederProfileEdit:IBreederProfile;
+
     BreederProfileCopy:IBreederProfile;
     error:boolean;
+
 
     constructor(public $scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index = this;
         var promiseT = this.DataService.getProfile<IBreederProfile>();
+
 
         promiseT.then((breederProfile:IBreederProfile) => {
             //Success
@@ -82,6 +86,10 @@ class IndexCtrl {
 
     UpdateBreederProfile(breederProfile:IBreederProfile) {
         this.BreederProfile = breederProfile;
+    }
+
+    Reset() {
+        this.BreederProfileEdit.KennelName = '';
     }
 
     Save(breederProfile:IBreederProfile) {

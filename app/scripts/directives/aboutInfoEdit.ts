@@ -31,7 +31,9 @@ var aboutInfoEdit:() => ng.IDirective = () => {
         },
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
-            scope.saved = false;
+
+            console.log(scope.form.$dirty=true);
+            console.log(scope.form);
 
             scope.resetFields = () => {
                 scope.ctrl.BreederProfileEdit.KennelName = '';
@@ -47,8 +49,7 @@ var aboutInfoEdit:() => ng.IDirective = () => {
 //                scope.ctrl.BreederProfileEdit = new BreederProfile();
             }
 
-            scope.Next=() =>
-            {
+            scope.Next = () => {
 //                scope.ctrl.Next('profile.photos');
             }
         }
