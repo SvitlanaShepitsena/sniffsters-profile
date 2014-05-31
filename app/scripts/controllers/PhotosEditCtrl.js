@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 var PhotosEditCtrl = (function () {
     function PhotosEditCtrl($scope, $state, toastr, DataService, CopyProfileService) {
         this.$state = $state;
@@ -19,4 +18,3 @@ var PhotosEditCtrl = (function () {
     };
     return PhotosEditCtrl;
 })();
-//# sourceMappingURL=PhotosEditCtrl.js.map

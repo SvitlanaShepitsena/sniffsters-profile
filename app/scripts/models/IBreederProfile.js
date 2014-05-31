@@ -3,4 +3,3 @@ var BreederProfile = (function () {
     }
     return BreederProfile;
 })();
-//# sourceMappingURL=IBreederProfile.js.map

@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 var TestimonialsCtrl = (function () {
     function TestimonialsCtrl($scope, $state, toastr, DataService, CopyProfileService) {
         this.$state = $state;
@@ -17,4 +16,3 @@ var TestimonialsCtrl = (function () {
     };
     return TestimonialsCtrl;
 })();
-//# sourceMappingURL=TestimonialsCtrl.js.map

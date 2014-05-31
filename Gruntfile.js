@@ -267,19 +267,18 @@ module.exports = function (grunt) {
                 ]
             }
         },
+
         cssmin: {
-            // By default, your `index.html` <!-- Usemin Block --> will take care of
-            // minification. This option is pre-configured if you do not wish to use
-            // Usemin blocks.
-            // dist: {
-            //   files: {
-            //     '<%= yeoman.dist %>/styles/main.css': [
-            //       '.tmp/styles/{,*/}*.css',
-            //       '<%= yeoman.app %>/styles/{,*/}*.css'
-            //     ]
-            //   }
-            // }
-        },
+            minify: {
+                expand: true,
+                cwd: 'app/styles/',
+                src: ['*.css', '!*.min.css'],
+                dest: 'app/styles/',
+                ext: '.min.css'
+            }
+        }
+
+        ,
         // Put files not handled in other tasks here
         copy: {
             dist: {
@@ -451,6 +450,16 @@ module.exports = function (grunt) {
 
     });
 
+    grunt.registerTask('addcss', function () {
+
+        grunt.task.run('cssmin');
+        var tempFile = grunt.file.read('templates.cshtml');
+        var cssFile = '<style>'+grunt.file.read('app/styles/Profile.min.css')+'</style>';
+
+        var fileContent = tempFile + cssFile;
+        grunt.file.write('templates.cshtml', fileContent);
+
+    });
 
     grunt.registerTask('clean', function () {
         if (grunt.file.exists('vs')) {
@@ -462,13 +471,14 @@ module.exports = function (grunt) {
         }
     });
     grunt.registerTask('vs', function () {
-//        grunt.task.run('typescript:same');
+        grunt.task.run('typescript:same');
         grunt.task.run(['ngmin']);
         grunt.task.run(['move-app-to-z']);
         grunt.task.run(['uglify:minvs']);
 //        grunt.task.run(['concat']);
         grunt.task.run(['copy-profile-to-root']);
         grunt.task.run(['templates']);
+        grunt.task.run(['addcss']);
         grunt.task.run(['clean']);
 
     });

@@ -99,3 +99,6 @@ h5 {
 .fa-browse-btn {
   margin-right: 5px;
 }
+.btn {
+  margin: 3px !important;
+}

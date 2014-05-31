@@ -1,11 +1,9 @@
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 var photosInfoEdit = function () {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/photos-info-edit.html',
         transclude: true,
-        // replace directive tag with template info
         replace: true,
         scope: {
             ctrl: '=',
@@ -16,4 +14,3 @@ var photosInfoEdit = function () {
         }
     };
 };
-//# sourceMappingURL=photosInfoEdit.js.map
