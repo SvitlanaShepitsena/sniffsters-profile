@@ -9,8 +9,6 @@ var DataService = (function () {
         this.$http.get('http://localhost:44300/BreederPersonal/GetProfile').success(function (result) {
             d.resolve(result);
         }).error(function (data, error) {
-            // console.log(data)
-            // console.log(error)
             d.reject();
         });
         return d.promise;
@@ -21,12 +19,9 @@ var DataService = (function () {
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateUserProfile', { BreederViewModel: t }).success(function () {
             d.resolve();
         }).error(function (data, error) {
-            // console.log(data)
-            // console.log(error)
             d.reject();
         });
         return d.promise;
     };
     return DataService;
 })();
-//# sourceMappingURL=DataService.js.map

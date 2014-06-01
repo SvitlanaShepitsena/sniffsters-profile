@@ -6,4 +6,3 @@ var BoolString = (function () {
     };
     return BoolString;
 })();
-//# sourceMappingURL=BoolString.js.map

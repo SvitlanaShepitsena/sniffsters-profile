@@ -1,24 +1,3 @@
-/// <reference path="directives/BreederDetails.ts" />
-/// <reference path="filters/BoolString.ts" />
-/// <reference path="directives/lookerDetails.ts" />
-/// <reference path="directives/aboutInfo.ts" />
-/// <reference path="directives/aboutInfoEdit.ts" />
-/// <reference path="directives/detailsInfo.ts" />
-/// <reference path="directives/detailsInfoEdit.ts" />
-/// <reference path="controllers/TestimonialsCtrl.ts" />
-/// <reference path="directives/testimonialsInfo.ts" />
-/// <reference path="directives/testimonialsInfoEdit.ts" />
-/// <reference path="controllers/TestimonialsEditCtrl.ts" />
-/// <reference path="controllers/PuppiesCtrl.ts" />
-/// <reference path="controllers/PuppiesEditCtrl.ts" />
-/// <reference path="directives/puppiesInfo.ts" />
-/// <reference path="directives/puppiesInfoEdit.ts" />
-/// <reference path="controllers/PhotosCtrl.ts" />
-/// <reference path="controllers/PhotosEditCtrl.ts" />
-/// <reference path="directives/photosInfo.ts" />
-/// <reference path="directives/photosInfoEdit.ts" />
-/// <reference path="directives/profileButtons.ts" />
-//#ref
 var profile = angular.module("profile", ['ui.router']);
 
 profile.filter('boolString', function () {
@@ -27,10 +6,8 @@ profile.filter('boolString', function () {
     };
 });
 
-//#filt
 profile.service("CopyProfileService", CopyProfileService);
 
-//#serv
 profile.directive("aboutInfoEdit", aboutInfoEdit);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("detailsInfoEdit", detailsInfoEdit);
@@ -42,7 +19,6 @@ profile.directive("photosInfo", photosInfo);
 profile.directive("photosInfoEdit", photosInfoEdit);
 profile.directive("profileButtons", profileButtons);
 
-//#dir
 profile.directive("lookerDetails", lookerDetails);
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -54,8 +30,6 @@ profile.controller("PuppiesEditCtrl", PuppiesEditCtrl);
 profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PhotosEditCtrl", PhotosEditCtrl);
 
-//#ctrl
-// TODO: Implement filter
 profile.value("toastr", toastr);
 profile.service("DataService", DataService);
 
@@ -103,6 +77,4 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         controller: "TestimonialsEditCtrl",
         templateUrl: "../views/profile-testimonialsEdit.html"
     });
-    //#state
 });
-//# sourceMappingURL=app.js.map

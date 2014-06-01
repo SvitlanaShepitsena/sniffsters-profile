@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 var PuppiesCtrl = (function () {
     function PuppiesCtrl($scope, $state, toastr, DataService, CopyProfileService) {
         this.$state = $state;
@@ -17,4 +16,3 @@ var PuppiesCtrl = (function () {
     };
     return PuppiesCtrl;
 })();
-//# sourceMappingURL=PuppiesCtrl.js.map
