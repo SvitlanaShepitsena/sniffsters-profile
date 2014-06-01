@@ -10,7 +10,7 @@ var aboutInfo = function () {
             func: '&'
         },
         link: function (scope, element, attrs) {
-            scope.test = 'Test from link scope';
+            scope.ctrl.url = 'about';
         }
     };
 };

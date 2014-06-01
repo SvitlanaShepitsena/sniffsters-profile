@@ -31,7 +31,7 @@ var aboutInfoEdit:() => ng.IDirective = () => {
         },
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
-
+//            scope.ctrl.url = 'about';
 //            console.log(scope.form.$dirty=true);
 //            console.log(scope.form);
 
