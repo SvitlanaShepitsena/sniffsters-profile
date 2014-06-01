@@ -83,5 +83,6 @@ var IndexCtrl = (function () {
             _this.ShowError('Db Connection Problem');
         });
     };
+    IndexCtrl.$inject = ['$scope', '$state', 'toastr', 'DataService', 'CopyProfileService'];
     return IndexCtrl;
 })();
