@@ -7,6 +7,7 @@
 /// <reference path="directives/detailsInfoEdit.ts" />
 /// <reference path="directives/litters.ts" />
 /// <reference path="directives/previousPuppies.ts" />
+/// <reference path="directives/photosInfo.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router']);
@@ -29,6 +30,7 @@ profile.directive("detailsInfo", detailsInfo);
 profile.directive("detailsInfoEdit", detailsInfoEdit);
 profile.directive("litters", litters);
 profile.directive("previousPuppies", previousPuppies);
+profile.directive("photosInfo", photosInfo);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
