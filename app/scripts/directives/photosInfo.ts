@@ -3,6 +3,7 @@
 interface IPhotosInfo extends ng.IScope {
     test:string;
     ctrl:IndexCtrl;
+    pnumbers:number;
 }
 
 var photosInfo:() => ng.IDirective = () => {
@@ -21,6 +22,7 @@ var photosInfo:() => ng.IDirective = () => {
         },
         link: (scope:IPhotosInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
             scope.ctrl.url = 'photos';
+            scope.pnumbers = 0;
 
 
         }
