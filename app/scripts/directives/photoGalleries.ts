@@ -18,13 +18,17 @@ var photoGalleries:() => ng.IDirective = () => {
             text: '@',
             func: '&'
         },
-        controller: ($scope) => {
-            $scope.ttt = "TEst";
-        }
-//        link: (scope:IPhotoGalleries, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-//            scope.test= "T";
-//            console.log("I am here");
-//
+//        controller: ($scope) => {
+//            $scope.myvar = '4';
 //        }
+        link: (scope:IPhotoGalleries, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+            var userName:string= angular.element($('#loggedUser')).html();
+            var start:number=userName.indexOf(',')+1;
+            var finish:number=userName.indexOf('!');
+
+            scope.userName = userName.substr(start,finish-start).trim();
+
+
+        }
     }
 }

@@ -9,8 +9,13 @@ var photoGalleries = function () {
             text: '@',
             func: '&'
         },
-        controller: function ($scope) {
-            $scope.ttt = "TEst";
+        link: function (scope, element, attrs) {
+            var userName = angular.element($('#loggedUser')).html();
+            var pos = userName.indexOf(',') + 1;
+
+            scope.userName = userName.substr(pos).trim();
+
+            console.log("I am here");
         }
     };
 };
