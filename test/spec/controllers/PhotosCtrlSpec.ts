@@ -12,7 +12,7 @@ describe("Photos Controller Test", () => {
         DataService,
         scope,
         $controller,
-        ctrlphotos;
+        ctrlPhotos;
 
     beforeEach(() => {
 
@@ -36,7 +36,7 @@ describe("Photos Controller Test", () => {
             }
         };
 
-        ctrlphotos = $controller('PhotosCtrl', {
+        ctrlPhotos = $controller('PhotosCtrl', {
             $scope: scope,
             DataService: DataService,
             toastr: toastr
@@ -45,8 +45,8 @@ describe("Photos Controller Test", () => {
 
 
          expect(1).toBe(1);
-        //expect(ctrlphotos.).toBeDefined();
-        //expect(ctrlphotos.).toBe();
+        //expect(ctrlPhotos.).toBeDefined();
+        //expect(ctrlPhotos.).toBe();
     });
 
     it('Should    when error  ', () => {
@@ -62,19 +62,19 @@ describe("Photos Controller Test", () => {
         };
 
 
-        ctrlphotos = $controller('PhotosCtrl', {
+        ctrlPhotos = $controller('PhotosCtrl', {
             $scope: scope,
             DataService: DataService,
             toastr: toastr
 
         });
      
-        spyOn(ctrlphotos, 'ShowError');
+        spyOn(ctrlPhotos, 'ShowError');
         scope.$apply();
 
         expect(2).toBe(2);
-       // expect(ctrlphotos.error).toBeDefined();
-       // expect(ctrlphotos.ShowError).toHaveBeenCalled();
+       // expect(ctrlPhotos.error).toBeDefined();
+       // expect(ctrlPhotos.ShowError).toHaveBeenCalled();
     });
 });
 

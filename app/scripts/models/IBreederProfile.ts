@@ -17,6 +17,16 @@ interface IBreederProfile{
     Insurances:string[];
     Shipping:boolean;
 }
+interface IPhoto {
+    Id:number;
+    Caption:string;
+    FilePath:string;
+}
+interface IGallery{
+    Id:number;
+    Title:string;
+    Photos:IPhoto[]
+}
 
 class BreederProfile implements IBreederProfile{
     FirstName:string;

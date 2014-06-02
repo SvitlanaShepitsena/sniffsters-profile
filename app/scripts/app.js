@@ -5,6 +5,11 @@ profile.filter('boolString', function () {
         return BoolString.filter(value);
     };
 });
+profile.filter('spacesToDashes', function () {
+    return function (value) {
+        return SpacesToDashes.filter(value);
+    };
+});
 
 profile.service("CopyProfileService", CopyProfileService);
 
@@ -13,9 +18,15 @@ profile.directive("profileButtons", profileButtons);
 profile.directive("aboutInfoEdit", aboutInfoEdit);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("detailsInfoEdit", detailsInfoEdit);
+profile.directive("litters", litters);
+profile.directive("previousPuppies", previousPuppies);
+profile.directive("photosInfo", photosInfo);
+profile.directive("photoGalleries", photoGalleries);
 
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
+
+profile.controller("PhotosCtrl", PhotosCtrl);
 
 profile.value("toastr", toastr);
 profile.service("DataService", DataService);
@@ -35,6 +46,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-about-edit.html"
     }).state("profile.photos", {
         url: "/photos",
+        controller: "PhotosCtrl",
         templateUrl: "../views/profile-photos.html"
     }).state("profile.photos.edit", {
         url: "/edit",

@@ -8,6 +8,9 @@
 /// <reference path="directives/litters.ts" />
 /// <reference path="directives/previousPuppies.ts" />
 /// <reference path="directives/photosInfo.ts" />
+/// <reference path="controllers/PhotosCtrl.ts" />
+/// <reference path="directives/photoGalleries.ts" />
+/// <reference path="filters/SpacesToDashes.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router']);
@@ -17,6 +20,7 @@ profile.filter('boolString', () => {
         return BoolString.filter(value);
     }
 });
+profile.filter('spacesToDashes', () => { return (value:string):string => {return SpacesToDashes.filter(value);     } });
 //#filt
 
 
@@ -31,10 +35,12 @@ profile.directive("detailsInfoEdit", detailsInfoEdit);
 profile.directive("litters", litters);
 profile.directive("previousPuppies", previousPuppies);
 profile.directive("photosInfo", photosInfo);
+profile.directive("photoGalleries", photoGalleries);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
 
+profile.controller("PhotosCtrl", PhotosCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -44,7 +50,6 @@ profile.service("DataService", DataService);
 profile.config(
     ($stateProvider, $urlRouterProvider) => {
         $urlRouterProvider.otherwise("/profile/about");
-
 
         $stateProvider
             .state("profile", {
@@ -62,6 +67,7 @@ profile.config(
             })
             .state("profile.photos", {
                 url:"/photos",
+                controller:"PhotosCtrl",
                 templateUrl: "../views/profile-photos.html"
             })
             .state("profile.photos.edit", {

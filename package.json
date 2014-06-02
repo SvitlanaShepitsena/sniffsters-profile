@@ -12,6 +12,7 @@
   "devDependencies": {
     "connect-livereload": "~0.2.0",
     "grunt": "~0.4.1",
+    "grunt-cdnify": "0.0.2",
     "grunt-concurrent": "~0.3.0",
     "grunt-connect": "^0.2.0",
     "grunt-contrib-clean": "~0.4.1",
