@@ -16,9 +16,16 @@ class IndexCtrl {
 
     BreederProfileCopy:IBreederProfile;
     error:boolean;
+    userName:string;
     url:string;
 
     constructor(public $scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+
+        var userName:string= angular.element($('#loggedUser')).html();
+        var start:number=userName.indexOf(',')+1;
+        var finish:number=userName.indexOf('!');
+        this.userName = userName.substr(start,finish-start).trim();
+
         $scope.index = this;
         var promiseT = this.DataService.getProfile<IBreederProfile>();
 
