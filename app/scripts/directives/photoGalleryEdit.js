@@ -6,9 +6,13 @@ var photoGalleryEdit = function () {
         transclude: true,
         replace: true,
         scope: {
-            ctrl: '=',
-            text: '@',
+            galleries: '=',
+            userName: '@',
             func: '&'
+        },
+        controller: function ($scope, $stateParams) {
+            var index = $stateParams.id;
+            $scope.index = index;
         },
         link: function (scope, element, attrs) {
         }

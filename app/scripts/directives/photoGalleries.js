@@ -6,7 +6,7 @@ var photoGalleries = function () {
         replace: true,
         scope: {
             galleries: '=',
-            userName: '@',
+            id: '@',
             func: '&'
         },
         link: function (scope, element, attrs) {

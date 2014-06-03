@@ -15,7 +15,7 @@ var photoGallery:() => ng.IDirective = () => {
         replace: true,
         scope: {
             galleries: '=',
-            userName: '@',
+            id: '@',
             func: '&'
         },
         controller: ($scope, $stateParams) => {
