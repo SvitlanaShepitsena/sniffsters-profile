@@ -81,7 +81,7 @@ module.exports = function (grunt) {
             },
             typescript: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
-                tasks: ['typescript:dist']
+                tasks: ['typescript:same']
             },
             livereload: {
                 options: {
