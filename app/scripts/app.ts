@@ -11,6 +11,7 @@
 /// <reference path="controllers/PhotosCtrl.ts" />
 /// <reference path="directives/photoGalleries.ts" />
 /// <reference path="filters/SpacesToDashes.ts" />
+/// <reference path="directives/photoGallery.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router']);
@@ -20,7 +21,11 @@ profile.filter('boolString', () => {
         return BoolString.filter(value);
     }
 });
-profile.filter('spacesToDashes', () => { return (value:string):string => {return SpacesToDashes.filter(value);     } });
+profile.filter('spacesToDashes', () => {
+    return (value:string):string => {
+        return SpacesToDashes.filter(value);
+    }
+});
 //#filt
 
 
@@ -36,6 +41,7 @@ profile.directive("litters", litters);
 profile.directive("previousPuppies", previousPuppies);
 profile.directive("photosInfo", photosInfo);
 profile.directive("photoGalleries", photoGalleries);
+profile.directive("photoGallery", photoGallery);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -66,9 +72,14 @@ profile.config(
                 templateUrl: "../views/profile-about-edit.html"
             })
             .state("profile.photos", {
-                url:"/photos",
-                controller:"PhotosCtrl",
+                url: "/photos",
+                controller: "PhotosCtrl",
                 templateUrl: "../views/profile-photos.html"
+            })
+            .state("profile.photos.galleries", {
+                url: "/gallery/:id",
+                controller: "PhotosCtrl",
+                template: "<div ui-view><photo-gallery galleries='photosCtrl.Galleries'></photo-gallery></div>"
             })
             .state("profile.photos.edit", {
                 url: "/edit",

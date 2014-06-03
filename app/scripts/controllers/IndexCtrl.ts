@@ -9,16 +9,14 @@ interface IMainScope extends ng.IScope {
     index:IndexCtrl;
 }
 class IndexCtrl {
-
-
-    static $inject = ['$scope', '$state','toastr', 'DataService', 'CopyProfileService'];
+    static $inject = ['$scope', '$state', 'toastr', 'DataService', 'CopyProfileService'];
 
     BreederProfile:IBreederProfile;
     BreederProfileEdit:IBreederProfile;
 
     BreederProfileCopy:IBreederProfile;
     error:boolean;
-url:string;
+    url:string;
 
     constructor(public $scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index = this;

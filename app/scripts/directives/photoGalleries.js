@@ -9,8 +9,12 @@ var photoGalleries = function () {
             text: '@',
             func: '&'
         },
-        controller: function ($scope) {
-            $scope.ttt = "TEst";
+        link: function (scope, element, attrs) {
+            var userName = angular.element($('#loggedUser')).html();
+            var start = userName.indexOf(',') + 1;
+            var finish = userName.indexOf('!');
+
+            scope.userName = userName.substr(start, finish - start).trim();
         }
     };
 };

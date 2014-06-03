@@ -19,8 +19,6 @@ class PhotosCtrl {
             this.ShowError('Error in getting Photo Galleries from the server');
         })
     }
-
-
     ShowSuccess(note:string) {
 
         this.toastr.info(note);
@@ -29,5 +27,4 @@ class PhotosCtrl {
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }
