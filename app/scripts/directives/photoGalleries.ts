@@ -14,19 +14,14 @@ var photoGalleries:() => ng.IDirective = () => {
         replace: true,
         scope: {
             galleries: '=',
+            userName: '@',
 
-            text: '@',
             func: '&'
         },
 //        controller: ($scope) => {
 //            $scope.myvar = '4';
 //        }
         link: (scope:IPhotoGalleries, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-            var userName:string= angular.element($('#loggedUser')).html();
-            var start:number=userName.indexOf(',')+1;
-            var finish:number=userName.indexOf('!');
-
-            scope.userName = userName.substr(start,finish-start).trim();
         }
     }
 }
