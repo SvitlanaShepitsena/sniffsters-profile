@@ -27,8 +27,6 @@ var photoGalleries:() => ng.IDirective = () => {
             var finish:number=userName.indexOf('!');
 
             scope.userName = userName.substr(start,finish-start).trim();
-
-
         }
     }
 }

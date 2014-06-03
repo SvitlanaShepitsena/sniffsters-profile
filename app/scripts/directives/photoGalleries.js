@@ -11,11 +11,10 @@ var photoGalleries = function () {
         },
         link: function (scope, element, attrs) {
             var userName = angular.element($('#loggedUser')).html();
-            var pos = userName.indexOf(',') + 1;
+            var start = userName.indexOf(',') + 1;
+            var finish = userName.indexOf('!');
 
-            scope.userName = userName.substr(pos).trim();
-
-            console.log("I am here");
+            scope.userName = userName.substr(start, finish - start).trim();
         }
     };
 };

@@ -22,8 +22,6 @@ var photosInfo:() => ng.IDirective = () => {
         },
         link: (scope:IPhotosInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
             scope.pnumbers = 0;
-
-
-        }
+       }
     }
 }
