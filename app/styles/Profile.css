@@ -102,3 +102,18 @@ h5 {
 .btn {
   margin: 3px !important;
 }
+/**********************
+ Photos
+***********************/
+.puppyPic {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.puppyPicWrapper {
+  padding-top: 10px !important;
+}
+.btn-del {
+  margin-top: 10px !important;
+  margin-bottom: 5px !important;
+  margin-right: 5px !important;
+}
