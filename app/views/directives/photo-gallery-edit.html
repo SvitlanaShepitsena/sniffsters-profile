@@ -1,32 +1,25 @@
 <div class="well well-sm">
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-xs-10">
 			<div class="form-group">
 				<label>Gallery Title:</label>
 				<input type="text" class="form-control" ng-model="galleries[index].Title">
 			</div>
 		</div>
+		<div class="col-xs-2">
+		</div>
 	</div>
-	<div class="row">
+	<div>
 		<ul class="list-unstyled ">
-			<li class="col-xs-12 " ng-repeat="p in galleries[index].Photos">
-				<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
-				        title="Delete this picture" ng-click="delete($index)"><i class="fa fa-trash-o"></i></button>
-				<div class="thumbnail ">
-					<img class="puppyPic"
-					     ng-src="{{('photos/'+id+'/'+galleries[index].Id+'/'+p.FilePath) | spacesToDashes}}">
+			<li ng-repeat="p in galleries[index].Photos">
+				<img class="thumbnail"
+				     ng-src="{{('photos/'+id+'/'+galleries[index].Id+'/'+p.FilePath) | spacesToDashes}}">
+				<button class="btn btn-warning" ng-click="delete($index)">X</button>
+				<input type="text" class="form-control" ng-model="p.Caption">
 
-					<div class="caption">
-						<input type="text" class="form-control" ng-model="p.Caption">
-					</div>
-				</div>
 			</li>
 		</ul>
 	</div>
-	<div class="row">
-		<div class="col-xs-12 text-center ">
-			<a ui-sref="^" class="btn btn-default">Cancel</a>
-			<button class="btn btn-info" ng-click="">Save</button>
-		</div>
-	</div>
+	<a ui-sref="^" class="btn btn-default">Cancel</a>
+	<button class="btn btn-info" ng-click="">Save</button>
 </div>

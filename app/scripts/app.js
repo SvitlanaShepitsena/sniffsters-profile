@@ -1,4 +1,4 @@
-var profile = angular.module("profile", ['ui.router']);
+var profile = angular.module("profile", ['ui.router', 'angularFileUpload']);
 
 profile.filter('boolString', function () {
     return function (value) {
@@ -53,11 +53,11 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("profile.photos.galleries", {
         url: "/gallery/:id",
         controller: "PhotosCtrl",
-        template: "<div ui-view><photo-gallery user-name={{index.Id}} galleries='photosCtrl.Galleries'></photo-gallery></div>"
+        template: "<div ui-view><photo-gallery id={{index.Id}} galleries='photosCtrl.Galleries'></photo-gallery></div>"
     }).state("profile.photos.galleries.edit", {
         url: "/edit",
         controller: "PhotosCtrl",
-        template: "<photo-gallery-edit user-name={{index.Id}} galleries='photosCtrl.Galleries'></photo-gallery-edit>"
+        template: "<photo-gallery-edit id={{index.Id}} galleries='photosCtrl.Galleries'></photo-gallery-edit>"
     }).state("profile.photos.edit", {
         url: "/edit",
         templateUrl: "../views/profile-photosEdit.html"

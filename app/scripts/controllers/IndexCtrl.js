@@ -6,17 +6,14 @@ var IndexCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
-        var userName = angular.element($('#loggedUser')).html();
-        var start = userName.indexOf(',') + 1;
-        var finish = userName.indexOf('!');
-        this.userName = userName.substr(start, finish - start).trim();
-
         $scope.index = this;
         var promiseT = this.DataService.getProfile();
 
         promiseT.then(function (breederProfile) {
             _this.error = false;
             _this.BreederProfile = breederProfile;
+
+            _this.Id = breederProfile.Id;
 
             _this.CopyProfileService.SetProfile(breederProfile);
             _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
