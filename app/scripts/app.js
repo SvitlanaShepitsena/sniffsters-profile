@@ -23,6 +23,7 @@ profile.directive("previousPuppies", previousPuppies);
 profile.directive("photosInfo", photosInfo);
 profile.directive("photoGalleries", photoGalleries);
 profile.directive("photoGallery", photoGallery);
+profile.directive("photoGalleryEdit", photoGalleryEdit);
 
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -52,7 +53,11 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("profile.photos.galleries", {
         url: "/gallery/:id",
         controller: "PhotosCtrl",
-        template: "<div ui-view><photo-gallery galleries='photosCtrl.Galleries'></photo-gallery></div>"
+        template: "<div ui-view><photo-gallery user-name={{index.userName}} galleries='photosCtrl.Galleries'></photo-gallery></div>"
+    }).state("profile.photos.galleries.edit", {
+        url: "/edit",
+        controller: "PhotosCtrl",
+        template: "<div><photo-gallery-edit user-name={{index.userName}} galleries='photosCtrl.Galleries'></photo-gallery-edit></div>"
     }).state("profile.photos.edit", {
         url: "/edit",
         templateUrl: "../views/profile-photosEdit.html"

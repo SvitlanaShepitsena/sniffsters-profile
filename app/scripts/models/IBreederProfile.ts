@@ -1,4 +1,5 @@
 interface IBreederProfile{
+    Id:string;
     FirstName:string;
     LastName:string;
     Location:string;
@@ -29,6 +30,7 @@ interface IGallery{
 }
 
 class BreederProfile implements IBreederProfile{
+    Id:string;
     FirstName:string;
     LastName:string;
     KennelName:string;

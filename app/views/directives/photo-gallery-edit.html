@@ -1,1 +1,26 @@
-<div class="well well-sm">photo-gallery-edit Template</div>
+<div class="well well-sm">
+	<div class="row">
+
+		<div class="col-xs-10">
+			<div class="form-group">
+				<label>Gallery Title:</label>
+				<input type="text" class="form-control" ng-model="galleries[index].Title">
+			</div>
+		</div>
+		<div class="col-xs-2">
+		</div>
+	</div>
+	<div>
+		<ul class="list-unstyled ">
+			<li ng-repeat="p in galleries[index].Photos">
+				<img class="thumbnail"   ng-src="{{('photos/'+userName+'/'+galleries[index].Title+'/'+p.FilePath) | spacesToDashes}}">
+				<button class="btn btn-warning" ng-click="delete($index)">X</button>
+				<input type="text" class="form-control" ng-model="p.Caption">
+
+			</li>
+		</ul>
+	</div>
+
+	<a ui-sref="^" class="btn btn-default">Cancel</a>
+	<button class="btn btn-info">Save</button>
+</div>

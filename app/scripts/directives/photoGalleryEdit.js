@@ -1,12 +1,13 @@
 
-var photoGalleries = function () {
+var photoGalleryEdit = function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/directives/photo-galleries.html',
+        templateUrl: 'views/directives/photo-gallery-edit.html',
+        transclude: true,
         replace: true,
         scope: {
-            galleries: '=',
-            userName: '@',
+            ctrl: '=',
+            text: '@',
             func: '&'
         },
         link: function (scope, element, attrs) {

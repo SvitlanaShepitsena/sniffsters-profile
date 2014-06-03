@@ -81,12 +81,12 @@ profile.config(
             .state("profile.photos.galleries", {
                 url: "/gallery/:id",
                 controller: "PhotosCtrl",
-                template: "<div ui-view><photo-gallery user-name={{index.userName}} galleries='photosCtrl.Galleries'></photo-gallery></div>"
+                template: "<div ui-view><photo-gallery user-name={{index.Id}} galleries='photosCtrl.Galleries'></photo-gallery></div>"
             })
             .state("profile.photos.galleries.edit", {
                 url: "/edit",
                 controller: "PhotosCtrl",
-                template: "<div><photo-gallery-edit user-name={{index.userName}} galleries='photosCtrl.Galleries'></photo-gallery-edit></div>"
+                template: "<photo-gallery-edit user-name={{index.Id}} galleries='photosCtrl.Galleries'></photo-gallery-edit>"
             })
             .state("profile.photos.edit", {
                 url: "/edit",

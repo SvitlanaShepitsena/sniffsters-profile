@@ -13,15 +13,16 @@ var photoGalleryEdit:() => ng.IDirective = () => {
         // replace directive tag with template info
         replace: true,
         scope: {
-            ctrl: '=',
-
-            text: '@',
+            galleries: '=',
+            userName: '@',
             func: '&'
         },
-        link: (scope:IPhotoGalleryEdit, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
-
-
+        controller: ($scope, $stateParams) => {
+            var index:number = $stateParams.id;
+            $scope.index = index;
+//            $scope.gallery = $scope.galleries[index];
+        },
+        link: (scope:IPhotoGallery, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
         }
     }
 }
