@@ -1,0 +1,10 @@
+<div class="well well-sm">
+	{{galleries[index].Title}}
+	<div>
+		<ul>
+			<li ng-repeat="p in galleries[index].Photos">
+				<img ng-src="{{('photos/'+userName+'/'+galleries[index].Title+'/'+p.FilePath) | spacesToDashes}}">
+			</li>
+		</ul>
+	</div>
+</div>
