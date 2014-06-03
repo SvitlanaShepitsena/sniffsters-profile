@@ -7,14 +7,27 @@ var photoGalleryEdit = function () {
         replace: true,
         scope: {
             galleries: '=',
-            userName: '@',
+            id: '@',
             func: '&'
         },
-        controller: function ($scope, $stateParams) {
+        controller: function ($scope, $stateParams, $upload) {
             var index = $stateParams.id;
             $scope.index = index;
-        },
-        link: function (scope, element, attrs) {
+
+            $scope.onFileSelect = function ($files) {
+                for (var i = 0; i < $files.length; i++) {
+                    var file = $files[i];
+                    $scope.upload = $upload.upload({
+                        url: 'app/photos/' + $scope.id + '/' + $scope.galleries[$scope.index].Id + '/',
+                        data: { myObj: $scope.myModelObj },
+                        file: file
+                    }).progress(function (evt) {
+                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+                    }).success(function (data, status, headers, config) {
+                        console.log(data);
+                    });
+                }
+            };
         }
     };
 };

@@ -7,7 +7,7 @@ var photoGallery = function () {
         replace: true,
         scope: {
             galleries: '=',
-            userName: '@',
+            id: '@',
             func: '&'
         },
         controller: function ($scope, $stateParams) {
