@@ -14,7 +14,7 @@ var photoGalleries:() => ng.IDirective = () => {
         replace: true,
         scope: {
             galleries: '=',
-            userName: '@',
+            id: '@',
 
             func: '&'
         },
