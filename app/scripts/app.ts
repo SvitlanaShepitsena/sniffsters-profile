@@ -15,7 +15,7 @@
 /// <reference path="directives/photoGalleryEdit.ts" />
 //#ref
 
-var profile = angular.module("profile", ['ui.router','angularFileUpload']);
+var profile = angular.module("profile", ['ui.router']);
 
 profile.filter('boolString', () => {
     return (value:boolean):string => {

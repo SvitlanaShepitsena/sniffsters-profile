@@ -20,7 +20,6 @@ var photosInfo:() => ng.IDirective = () => {
             text: '@',
             func: '&'
         },
-
         link: (scope:IPhotosInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
             scope.pnumbers = 0;
        }

@@ -5,9 +5,7 @@
 			<li class="col-xs-6 col-md-4" ng-repeat="g in galleries">
 				<div class="thumbnail">
 					<a href="#/profile/photos/gallery/{{$index}}" class="">
-						<div class="text-primary text-center capture">
-						<h5>{{g.Title}}</h5>
-						</div>
+						<div class="text-primary text-center capture">{{g.Title}}</div>
 						<img ng-src="{{('photos/'+id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}">
 					</a>
 				</div>
