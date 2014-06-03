@@ -15,8 +15,7 @@ var photoGallery:() => ng.IDirective = () => {
         replace: true,
         scope: {
             galleries: '=',
-
-            text: '@',
+            userName: '@',
             func: '&'
         },
         controller: ($scope, $stateParams) => {
@@ -25,10 +24,6 @@ var photoGallery:() => ng.IDirective = () => {
 //            $scope.gallery = $scope.galleries[index];
         },
         link: (scope:IPhotoGallery, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-            var userName:string = angular.element($('#loggedUser')).html();
-            var start:number = userName.indexOf(',') + 1;
-            var finish:number = userName.indexOf('!');
-            scope.userName = userName.substr(start, finish - start).trim();
         }
     }
 }
