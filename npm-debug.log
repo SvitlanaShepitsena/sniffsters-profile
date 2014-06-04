@@ -1,0 +1,667 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'i' ]
+2 info using npm@1.4.9
+3 info using node@v0.10.28
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json profile@0.0.0 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ 'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile',
+7 verbose install   [ 'grunt',
+7 verbose install     'grunt-contrib-concat',
+7 verbose install     'grunt-contrib-connect',
+7 verbose install     'grunt-google-cdn',
+7 verbose install     'grunt-html-minify',
+7 verbose install     'karma-jasmine',
+7 verbose install     'connect-livereload',
+7 verbose install     'delayed-stream',
+7 verbose install     'grunt-cdnify',
+7 verbose install     'grunt-concurrent',
+7 verbose install     'grunt-connect',
+7 verbose install     'grunt-contrib-clean',
+7 verbose install     'grunt-contrib-coffee',
+7 verbose install     'grunt-contrib-compass',
+7 verbose install     'grunt-contrib-copy',
+7 verbose install     'grunt-contrib-cssmin',
+7 verbose install     'grunt-contrib-htmlmin',
+7 verbose install     'grunt-contrib-imagemin',
+7 verbose install     'grunt-contrib-jshint',
+7 verbose install     'grunt-contrib-uglify',
+7 verbose install     'grunt-contrib-watch',
+7 verbose install     'grunt-htmlrefs',
+7 verbose install     'grunt-karma',
+7 verbose install     'grunt-ngmin',
+7 verbose install     'grunt-open',
+7 verbose install     'grunt-rev',
+7 verbose install     'grunt-svgmin',
+7 verbose install     'grunt-typescript',
+7 verbose install     'grunt-usemin',
+7 verbose install     'html-minify',
+7 verbose install     'karma-phantomjs-launcher',
+7 verbose install     'matchdep',
+7 verbose install     'minimist',
+7 verbose install     'wordwrap' ] ]
+8 info preinstall profile@0.0.0
+9 verbose readDependencies using package.json deps
+10 verbose already installed skipping grunt@~0.4.1 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+11 verbose already installed skipping grunt-contrib-concat@~0.3.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+12 verbose already installed skipping grunt-contrib-connect@~0.3.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+13 verbose already installed skipping grunt-google-cdn@~0.2.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+14 verbose already installed skipping grunt-html-minify@^0.3.1 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+15 verbose already installed skipping karma-jasmine@^0.1.5 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+16 verbose already installed skipping connect-livereload@~0.2.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+17 verbose cache add [ 'delayed-stream@0.0.5', null ]
+18 verbose cache add name=undefined spec="delayed-stream@0.0.5" args=["delayed-stream@0.0.5",null]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: 'delayed-stream@0.0.5',
+19 verbose parsed url   path: 'delayed-stream@0.0.5',
+19 verbose parsed url   href: 'delayed-stream@0.0.5' }
+20 verbose cache add name="delayed-stream" spec="0.0.5" args=["delayed-stream","0.0.5"]
+21 verbose parsed url { protocol: null,
+21 verbose parsed url   slashes: null,
+21 verbose parsed url   auth: null,
+21 verbose parsed url   host: null,
+21 verbose parsed url   port: null,
+21 verbose parsed url   hostname: null,
+21 verbose parsed url   hash: null,
+21 verbose parsed url   search: null,
+21 verbose parsed url   query: null,
+21 verbose parsed url   pathname: '0.0.5',
+21 verbose parsed url   path: '0.0.5',
+21 verbose parsed url   href: '0.0.5' }
+22 verbose addNamed [ 'delayed-stream', '0.0.5' ]
+23 verbose addNamed [ '0.0.5', '0.0.5' ]
+24 verbose already installed skipping grunt-cdnify@0.0.2 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+25 verbose already installed skipping grunt-concurrent@~0.3.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+26 verbose already installed skipping grunt-connect@^0.2.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+27 verbose already installed skipping grunt-contrib-clean@~0.4.1 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+28 verbose already installed skipping grunt-contrib-coffee@~0.7.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+29 verbose already installed skipping grunt-contrib-compass@~0.3.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+30 silly lockFile 1ace22b7-delayed-stream-0-0-5 delayed-stream@0.0.5
+31 verbose lock delayed-stream@0.0.5 C:\Users\Andriy\AppData\Roaming\npm-cache\1ace22b7-delayed-stream-0-0-5.lock
+32 verbose url raw delayed-stream
+33 verbose url resolving [ 'https://registry.npmjs.org/', './delayed-stream' ]
+34 verbose url resolved https://registry.npmjs.org/delayed-stream
+35 info trying registry request attempt 1 at 09:47:12
+36 verbose etag "E4IB3MQH3KYCL1N9H1HE001PT"
+37 http GET https://registry.npmjs.org/delayed-stream
+38 verbose already installed skipping grunt-contrib-imagemin@~0.1.4 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+39 verbose already installed skipping grunt-contrib-copy@~0.4.1 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+40 verbose already installed skipping grunt-contrib-jshint@~0.6.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+41 verbose already installed skipping grunt-contrib-cssmin@~0.6.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+42 verbose already installed skipping grunt-contrib-uglify@~0.2.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+43 verbose already installed skipping grunt-contrib-htmlmin@~0.1.3 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+44 verbose already installed skipping grunt-contrib-watch@~0.4.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+45 verbose already installed skipping grunt-htmlrefs@~0.4.1 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+46 verbose already installed skipping grunt-karma@^0.8.3 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+47 verbose already installed skipping grunt-ngmin@~0.0.2 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+48 verbose already installed skipping grunt-open@~0.2.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+49 verbose already installed skipping grunt-rev@~0.1.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+50 verbose already installed skipping grunt-svgmin@~0.2.0 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+51 verbose already installed skipping grunt-typescript@~0.2.2 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+52 verbose already installed skipping grunt-usemin@~0.1.11 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+53 verbose already installed skipping html-minify@^0.3.1 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+54 verbose already installed skipping karma-phantomjs-launcher@^0.1.4 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+55 verbose already installed skipping matchdep@~0.1.2 C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+56 verbose cache add [ 'minimist@^0.1.0', null ]
+57 verbose cache add name=undefined spec="minimist@^0.1.0" args=["minimist@^0.1.0",null]
+58 verbose parsed url { protocol: null,
+58 verbose parsed url   slashes: null,
+58 verbose parsed url   auth: null,
+58 verbose parsed url   host: null,
+58 verbose parsed url   port: null,
+58 verbose parsed url   hostname: null,
+58 verbose parsed url   hash: null,
+58 verbose parsed url   search: null,
+58 verbose parsed url   query: null,
+58 verbose parsed url   pathname: 'minimist@^0.1.0',
+58 verbose parsed url   path: 'minimist@^0.1.0',
+58 verbose parsed url   href: 'minimist@^0.1.0' }
+59 verbose cache add name="minimist" spec="^0.1.0" args=["minimist","^0.1.0"]
+60 verbose parsed url { protocol: null,
+60 verbose parsed url   slashes: null,
+60 verbose parsed url   auth: null,
+60 verbose parsed url   host: null,
+60 verbose parsed url   port: null,
+60 verbose parsed url   hostname: null,
+60 verbose parsed url   hash: null,
+60 verbose parsed url   search: null,
+60 verbose parsed url   query: null,
+60 verbose parsed url   pathname: '^0.1.0',
+60 verbose parsed url   path: '^0.1.0',
+60 verbose parsed url   href: '^0.1.0' }
+61 verbose addNamed [ 'minimist', '^0.1.0' ]
+62 verbose addNamed [ null, '>=0.1.0-0 <0.2.0-0' ]
+63 silly lockFile 5a214faa-minimist-0-1-0 minimist@^0.1.0
+64 verbose lock minimist@^0.1.0 C:\Users\Andriy\AppData\Roaming\npm-cache\5a214faa-minimist-0-1-0.lock
+65 verbose cache add [ 'wordwrap@0.0.2', null ]
+66 verbose cache add name=undefined spec="wordwrap@0.0.2" args=["wordwrap@0.0.2",null]
+67 verbose parsed url { protocol: null,
+67 verbose parsed url   slashes: null,
+67 verbose parsed url   auth: null,
+67 verbose parsed url   host: null,
+67 verbose parsed url   port: null,
+67 verbose parsed url   hostname: null,
+67 verbose parsed url   hash: null,
+67 verbose parsed url   search: null,
+67 verbose parsed url   query: null,
+67 verbose parsed url   pathname: 'wordwrap@0.0.2',
+67 verbose parsed url   path: 'wordwrap@0.0.2',
+67 verbose parsed url   href: 'wordwrap@0.0.2' }
+68 verbose cache add name="wordwrap" spec="0.0.2" args=["wordwrap","0.0.2"]
+69 verbose parsed url { protocol: null,
+69 verbose parsed url   slashes: null,
+69 verbose parsed url   auth: null,
+69 verbose parsed url   host: null,
+69 verbose parsed url   port: null,
+69 verbose parsed url   hostname: null,
+69 verbose parsed url   hash: null,
+69 verbose parsed url   search: null,
+69 verbose parsed url   query: null,
+69 verbose parsed url   pathname: '0.0.2',
+69 verbose parsed url   path: '0.0.2',
+69 verbose parsed url   href: '0.0.2' }
+70 verbose addNamed [ 'wordwrap', '0.0.2' ]
+71 verbose addNamed [ '0.0.2', '0.0.2' ]
+72 silly lockFile 24a694c8-wordwrap-0-0-2 wordwrap@0.0.2
+73 verbose lock wordwrap@0.0.2 C:\Users\Andriy\AppData\Roaming\npm-cache\24a694c8-wordwrap-0-0-2.lock
+74 silly addNameRange { name: 'minimist', range: '>=0.1.0-0 <0.2.0-0', hasData: false }
+75 verbose url raw wordwrap
+76 verbose url resolving [ 'https://registry.npmjs.org/', './wordwrap' ]
+77 verbose url resolved https://registry.npmjs.org/wordwrap
+78 info trying registry request attempt 1 at 09:47:12
+79 verbose etag "6GUW1CYLCM04DMNSMK3F17IKN"
+80 http GET https://registry.npmjs.org/wordwrap
+81 verbose url raw minimist
+82 verbose url resolving [ 'https://registry.npmjs.org/', './minimist' ]
+83 verbose url resolved https://registry.npmjs.org/minimist
+84 info trying registry request attempt 1 at 09:47:12
+85 verbose etag "2OO80ZMFOGKKRWHOGFX41GODA"
+86 http GET https://registry.npmjs.org/minimist
+87 http 304 https://registry.npmjs.org/wordwrap
+88 silly registry.get cb [ 304,
+88 silly registry.get   { date: 'Tue, 03 Jun 2014 14:47:20 GMT',
+88 silly registry.get     server: 'Apache',
+88 silly registry.get     via: '1.1 varnish',
+88 silly registry.get     'last-modified': 'Tue, 03 Jun 2014 14:47:20 GMT',
+88 silly registry.get     'cache-control': 'max-age=1',
+88 silly registry.get     etag: '"6GUW1CYLCM04DMNSMK3F17IKN"',
+88 silly registry.get     'x-served-by': 'cache-c32-CHI',
+88 silly registry.get     'x-cache': 'HIT',
+88 silly registry.get     'x-cache-hits': '1',
+88 silly registry.get     'x-timer': 'S1401806840.687959,VS0,VE21',
+88 silly registry.get     vary: 'Accept',
+88 silly registry.get     'content-length': '0',
+88 silly registry.get     'keep-alive': 'timeout=10, max=50',
+88 silly registry.get     connection: 'Keep-Alive' } ]
+89 verbose etag wordwrap from cache
+90 silly lockFile 24a694c8-wordwrap-0-0-2 wordwrap@0.0.2
+91 silly lockFile 24a694c8-wordwrap-0-0-2 wordwrap@0.0.2
+92 http 200 https://registry.npmjs.org/minimist
+93 silly registry.get cb [ 200,
+93 silly registry.get   { date: 'Tue, 03 Jun 2014 14:47:20 GMT',
+93 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+93 silly registry.get     etag: '"3VO7ZZOQ24NSBR02QPQUPI2GU"',
+93 silly registry.get     'content-type': 'application/json',
+93 silly registry.get     via: '1.1 varnish',
+93 silly registry.get     'cache-control': 'max-age=1',
+93 silly registry.get     'content-length': '16053',
+93 silly registry.get     'accept-ranges': 'bytes',
+93 silly registry.get     age: '32',
+93 silly registry.get     'x-served-by': 'cache-v44-ASH, cache-c101-CHI',
+93 silly registry.get     'x-cache': 'HIT, MISS',
+93 silly registry.get     'x-cache-hits': '1, 0',
+93 silly registry.get     'x-timer': 'S1401806840.693335,VS0,VE21',
+93 silly registry.get     vary: 'Accept',
+93 silly registry.get     'keep-alive': 'timeout=10, max=50',
+93 silly registry.get     connection: 'Keep-Alive' } ]
+94 silly addNameRange number 2 { name: 'minimist', range: '>=0.1.0-0 <0.2.0-0', hasData: true }
+95 silly addNameRange versions [ 'minimist',
+95 silly addNameRange   [ '0.0.0',
+95 silly addNameRange     '0.0.1',
+95 silly addNameRange     '0.0.2',
+95 silly addNameRange     '0.0.3',
+95 silly addNameRange     '0.0.4',
+95 silly addNameRange     '0.0.5',
+95 silly addNameRange     '0.0.6',
+95 silly addNameRange     '0.0.7',
+95 silly addNameRange     '0.0.8',
+95 silly addNameRange     '0.0.9',
+95 silly addNameRange     '0.0.10',
+95 silly addNameRange     '0.1.0' ] ]
+96 verbose addNamed [ 'minimist', '0.1.0' ]
+97 verbose addNamed [ '0.1.0', '0.1.0' ]
+98 silly lockFile 961eaec4-minimist-0-1-0 minimist@0.1.0
+99 verbose lock minimist@0.1.0 C:\Users\Andriy\AppData\Roaming\npm-cache\961eaec4-minimist-0-1-0.lock
+100 silly lockFile aa532575--org-minimist-minimist-0-1-0-tgz https://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz
+101 verbose lock https://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz C:\Users\Andriy\AppData\Roaming\npm-cache\aa532575--org-minimist-minimist-0-1-0-tgz.lock
+102 verbose addRemoteTarball [ 'https://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz',
+102 verbose addRemoteTarball   '99df657a52574c21c9057497df742790b2b4c0de' ]
+103 info retry fetch attempt 1 at 09:47:13
+104 verbose fetch to= C:\Users\Andriy\AppData\Local\Temp\npm-10696-7MU0ugKO\1401806833140-0.2928708987310529\tmp.tgz
+105 http GET https://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz
+106 http 304 https://registry.npmjs.org/delayed-stream
+107 silly registry.get cb [ 304,
+107 silly registry.get   { date: 'Tue, 03 Jun 2014 14:47:20 GMT',
+107 silly registry.get     server: 'Apache',
+107 silly registry.get     via: '1.1 varnish',
+107 silly registry.get     'last-modified': 'Tue, 03 Jun 2014 14:47:20 GMT',
+107 silly registry.get     'cache-control': 'max-age=1',
+107 silly registry.get     etag: '"E4IB3MQH3KYCL1N9H1HE001PT"',
+107 silly registry.get     'x-served-by': 'cache-c99-CHI',
+107 silly registry.get     'x-cache': 'HIT',
+107 silly registry.get     'x-cache-hits': '1',
+107 silly registry.get     'x-timer': 'S1401806840.701782,VS0,VE99',
+107 silly registry.get     vary: 'Accept',
+107 silly registry.get     'content-length': '0',
+107 silly registry.get     'keep-alive': 'timeout=10, max=50',
+107 silly registry.get     connection: 'Keep-Alive' } ]
+108 verbose etag delayed-stream from cache
+109 silly lockFile 1ace22b7-delayed-stream-0-0-5 delayed-stream@0.0.5
+110 silly lockFile 1ace22b7-delayed-stream-0-0-5 delayed-stream@0.0.5
+111 http 200 https://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz
+112 verbose tar unpack C:\Users\Andriy\AppData\Local\Temp\npm-10696-7MU0ugKO\1401806833140-0.2928708987310529\tmp.tgz
+113 silly lockFile c339d600-npm-cache-minimist-0-1-0-package tar://C:\Users\Andriy\AppData\Roaming\npm-cache\minimist\0.1.0\package
+114 verbose lock tar://C:\Users\Andriy\AppData\Roaming\npm-cache\minimist\0.1.0\package C:\Users\Andriy\AppData\Roaming\npm-cache\c339d600-npm-cache-minimist-0-1-0-package.lock
+115 silly lockFile 9a25de43-33140-0-2928708987310529-tmp-tgz tar://C:\Users\Andriy\AppData\Local\Temp\npm-10696-7MU0ugKO\1401806833140-0.2928708987310529\tmp.tgz
+116 verbose lock tar://C:\Users\Andriy\AppData\Local\Temp\npm-10696-7MU0ugKO\1401806833140-0.2928708987310529\tmp.tgz C:\Users\Andriy\AppData\Roaming\npm-cache\9a25de43-33140-0-2928708987310529-tmp-tgz.lock
+117 silly gunzTarPerm modes [ '755', '644' ]
+118 silly gunzTarPerm extractEntry package.json
+119 silly gunzTarPerm extractEntry LICENSE
+120 silly gunzTarPerm extractEntry index.js
+121 silly gunzTarPerm extractEntry .travis.yml
+122 silly gunzTarPerm extractEntry example/parse.js
+123 silly gunzTarPerm extractEntry readme.markdown
+124 silly gunzTarPerm extractEntry test/bool.js
+125 silly gunzTarPerm extractEntry test/dash.js
+126 silly gunzTarPerm extractEntry test/default_bool.js
+127 silly gunzTarPerm extractEntry test/dotted.js
+128 silly gunzTarPerm extractEntry test/long.js
+129 silly gunzTarPerm extractEntry test/num.js
+130 silly gunzTarPerm extractEntry test/parse.js
+131 silly gunzTarPerm extractEntry test/parse_modified.js
+132 silly gunzTarPerm extractEntry test/short.js
+133 silly gunzTarPerm extractEntry test/whitespace.js
+134 silly lockFile c339d600-npm-cache-minimist-0-1-0-package tar://C:\Users\Andriy\AppData\Roaming\npm-cache\minimist\0.1.0\package
+135 silly lockFile c339d600-npm-cache-minimist-0-1-0-package tar://C:\Users\Andriy\AppData\Roaming\npm-cache\minimist\0.1.0\package
+136 silly lockFile 9a25de43-33140-0-2928708987310529-tmp-tgz tar://C:\Users\Andriy\AppData\Local\Temp\npm-10696-7MU0ugKO\1401806833140-0.2928708987310529\tmp.tgz
+137 silly lockFile 9a25de43-33140-0-2928708987310529-tmp-tgz tar://C:\Users\Andriy\AppData\Local\Temp\npm-10696-7MU0ugKO\1401806833140-0.2928708987310529\tmp.tgz
+138 silly lockFile aa532575--org-minimist-minimist-0-1-0-tgz https://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz
+139 silly lockFile aa532575--org-minimist-minimist-0-1-0-tgz https://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz
+140 silly lockFile 961eaec4-minimist-0-1-0 minimist@0.1.0
+141 silly lockFile 961eaec4-minimist-0-1-0 minimist@0.1.0
+142 silly lockFile 5a214faa-minimist-0-1-0 minimist@^0.1.0
+143 silly lockFile 5a214faa-minimist-0-1-0 minimist@^0.1.0
+144 silly resolved [ { name: 'wordwrap',
+144 silly resolved     description: 'Wrap those words. Show them at what columns to start and stop.',
+144 silly resolved     version: '0.0.2',
+144 silly resolved     repository:
+144 silly resolved      { type: 'git',
+144 silly resolved        url: 'git://github.com/substack/node-wordwrap.git' },
+144 silly resolved     main: './index.js',
+144 silly resolved     keywords: [ 'word', 'wrap', 'rule', 'format', 'column' ],
+144 silly resolved     directories: { lib: '.', example: 'example', test: 'test' },
+144 silly resolved     scripts: { test: 'expresso' },
+144 silly resolved     devDependencies: { expresso: '=0.7.x' },
+144 silly resolved     engines: { node: '>=0.4.0' },
+144 silly resolved     license: 'MIT/X11',
+144 silly resolved     author:
+144 silly resolved      { name: 'James Halliday',
+144 silly resolved        email: 'mail@substack.net',
+144 silly resolved        url: 'http://substack.net' },
+144 silly resolved     readme: 'wordwrap\n========\n\nWrap your words.\n\nexample\n=======\n\nmade out of meat\n----------------\n\nmeat.js\n\n    var wrap = require(\'wordwrap\')(15);\n    console.log(wrap(\'You and your whole family are made out of meat.\'));\n\noutput:\n\n    You and your\n    whole family\n    are made out\n    of meat.\n\ncentered\n--------\n\ncenter.js\n\n    var wrap = require(\'wordwrap\')(20, 60);\n    console.log(wrap(\n        \'At long last the struggle and tumult was over.\'\n        + \' The machines had finally cast off their oppressors\'\n        + \' and were finally free to roam the cosmos.\'\n        + \'\\n\'\n        + \'Free of purpose, free of obligation.\'\n        + \' Just drifting through emptiness.\'\n        + \' The sun was just another point of light.\'\n    ));\n\noutput:\n\n                        At long last the struggle and tumult\n                        was over. The machines had finally cast\n                        off their oppressors and were finally\n                        free to roam the cosmos.\n                        Free of purpose, free of obligation.\n                        Just drifting through emptiness. The\n                        sun was just another point of light.\n\nmethods\n=======\n\nvar wrap = require(\'wordwrap\');\n\nwrap(stop), wrap(start, stop, params={mode:"soft"})\n---------------------------------------------------\n\nReturns a function that takes a string and returns a new string.\n\nPad out lines with spaces out to column `start` and then wrap until column\n`stop`. If a word is longer than `stop - start` characters it will overflow.\n\nIn "soft" mode, split chunks by `/(\\S+\\s+/` and don\'t break up chunks which are\nlonger than `stop - start`, in "hard" mode, split chunks with `/\\b/` and break\nup chunks longer than `stop - start`.\n\nwrap.hard(start, stop)\n----------------------\n\nLike `wrap()` but with `params.mode = "hard"`.\n',
+144 silly resolved     readmeFilename: 'README.markdown',
+144 silly resolved     bugs: { url: 'https://github.com/substack/node-wordwrap/issues' },
+144 silly resolved     homepage: 'https://github.com/substack/node-wordwrap',
+144 silly resolved     _id: 'wordwrap@0.0.2',
+144 silly resolved     _shasum: 'b79669bb42ecb409f83d583cad52ca17eaa1643f',
+144 silly resolved     _from: 'wordwrap@0.0.2',
+144 silly resolved     _resolved: 'https://registry.npmjs.org/wordwrap/-/wordwrap-0.0.2.tgz' },
+144 silly resolved   { author:
+144 silly resolved      { name: 'Felix Geisendörfer',
+144 silly resolved        email: 'felix@debuggable.com',
+144 silly resolved        url: 'http://debuggable.com/' },
+144 silly resolved     name: 'delayed-stream',
+144 silly resolved     description: 'Buffers events from a stream until you are ready to handle them.',
+144 silly resolved     version: '0.0.5',
+144 silly resolved     homepage: 'https://github.com/felixge/node-delayed-stream',
+144 silly resolved     repository:
+144 silly resolved      { type: 'git',
+144 silly resolved        url: 'git://github.com/felixge/node-delayed-stream.git' },
+144 silly resolved     main: './lib/delayed_stream',
+144 silly resolved     engines: { node: '>=0.4.0' },
+144 silly resolved     dependencies: {},
+144 silly resolved     devDependencies: { fake: '0.2.0', far: '0.0.1' },
+144 silly resolved     readme: '# delayed-stream\n\nBuffers events from a stream until you are ready to handle them.\n\n## Installation\n\n``` bash\nnpm install delayed-stream\n```\n\n## Usage\n\nThe following example shows how to write a http echo server that delays its\nresponse by 1000 ms.\n\n``` javascript\nvar DelayedStream = require(\'delayed-stream\');\nvar http = require(\'http\');\n\nhttp.createServer(function(req, res) {\n  var delayed = DelayedStream.create(req);\n\n  setTimeout(function() {\n    res.writeHead(200);\n    delayed.pipe(res);\n  }, 1000);\n});\n```\n\nIf you are not using `Stream#pipe`, you can also manually release the buffered\nevents by calling `delayedStream.resume()`:\n\n``` javascript\nvar delayed = DelayedStream.create(req);\n\nsetTimeout(function() {\n  // Emit all buffered events and resume underlaying source\n  delayed.resume();\n}, 1000);\n```\n\n## Implementation\n\nIn order to use this meta stream properly, here are a few things you should\nknow about the implementation.\n\n### Event Buffering / Proxying\n\nAll events of the `source` stream are hijacked by overwriting the `source.emit`\nmethod. Until node implements a catch-all event listener, this is the only way.\n\nHowever, delayed-stream still continues to emit all events it captures on the\n`source`, regardless of whether you have released the delayed stream yet or\nnot.\n\nUpon creation, delayed-stream captures all `source` events and stores them in\nan internal event buffer. Once `delayedStream.release()` is called, all\nbuffered events are emitted on the `delayedStream`, and the event buffer is\ncleared. After that, delayed-stream merely acts as a proxy for the underlaying\nsource.\n\n### Error handling\n\nError events on `source` are buffered / proxied just like any other events.\nHowever, `delayedStream.create` attaches a no-op `\'error\'` listener to the\n`source`. This way you only have to handle errors on the `delayedStream`\nobject, rather than in two places.\n\n### Buffer limits\n\ndelayed-stream provides a `maxDataSize` property that can be used to limit\nthe amount of data being buffered. In order to protect you from bad `source`\nstreams that don\'t react to `source.pause()`, this feature is enabled by\ndefault.\n\n## API\n\n### DelayedStream.create(source, [options])\n\nReturns a new `delayedStream`. Available options are:\n\n* `pauseStream`\n* `maxDataSize`\n\nThe description for those properties can be found below.\n\n### delayedStream.source\n\nThe `source` stream managed by this object. This is useful if you are\npassing your `delayedStream` around, and you still want to access properties\non the `source` object.\n\n### delayedStream.pauseStream = true\n\nWhether to pause the underlaying `source` when calling\n`DelayedStream.create()`. Modifying this property afterwards has no effect.\n\n### delayedStream.maxDataSize = 1024 * 1024\n\nThe amount of data to buffer before emitting an `error`.\n\nIf the underlaying source is emitting `Buffer` objects, the `maxDataSize`\nrefers to bytes.\n\nIf the underlaying source is emitting JavaScript strings, the size refers to\ncharacters.\n\nIf you know what you are doing, you can set this property to `Infinity` to\ndisable this feature. You can also modify this property during runtime.\n\n### delayedStream.maxDataSize = 1024 * 1024\n\nThe amount of data to buffer before emitting an `error`.\n\nIf the underlaying source is emitting `Buffer` objects, the `maxDataSize`\nrefers to bytes.\n\nIf the underlaying source is emitting JavaScript strings, the size refers to\ncharacters.\n\nIf you know what you are doing, you can set this property to `Infinity` to\ndisable this feature.\n\n### delayedStream.dataSize = 0\n\nThe amount of data buffered so far.\n\n### delayedStream.readable\n\nAn ECMA5 getter that returns the value of `source.readable`.\n\n### delayedStream.resume()\n\nIf the `delayedStream` has not been released so far, `delayedStream.release()`\nis called.\n\nIn either case, `source.resume()` is called.\n\n### delayedStream.pause()\n\nCalls `source.pause()`.\n\n### delayedStream.pipe(dest)\n\nCalls `delayedStream.resume()` and then proxies the arguments to `source.pipe`.\n\n### delayedStream.release()\n\nEmits and clears all events that have been buffered up so far. This does not\nresume the underlaying source, use `delayedStream.resume()` instead.\n\n## License\n\ndelayed-stream is licensed under the MIT license.\n',
+144 silly resolved     readmeFilename: 'Readme.md',
+144 silly resolved     bugs: { url: 'https://github.com/felixge/node-delayed-stream/issues' },
+144 silly resolved     _id: 'delayed-stream@0.0.5',
+144 silly resolved     _shasum: 'd4b1f43a93e8296dfe02694f4680bc37a313c73f',
+144 silly resolved     _from: 'delayed-stream@0.0.5',
+144 silly resolved     _resolved: 'https://registry.npmjs.org/delayed-stream/-/delayed-stream-0.0.5.tgz',
+144 silly resolved     scripts: {} },
+144 silly resolved   { name: 'minimist',
+144 silly resolved     version: '0.1.0',
+144 silly resolved     description: 'parse argument options',
+144 silly resolved     main: 'index.js',
+144 silly resolved     devDependencies: { tape: '~1.0.4', tap: '~0.4.0' },
+144 silly resolved     scripts: { test: 'tap test/*.js' },
+144 silly resolved     testling: { files: 'test/*.js', browsers: [Object] },
+144 silly resolved     repository: { type: 'git', url: 'git://github.com/substack/minimist.git' },
+144 silly resolved     homepage: 'https://github.com/substack/minimist',
+144 silly resolved     keywords: [ 'argv', 'getopt', 'parser', 'optimist' ],
+144 silly resolved     author:
+144 silly resolved      { name: 'James Halliday',
+144 silly resolved        email: 'mail@substack.net',
+144 silly resolved        url: 'http://substack.net' },
+144 silly resolved     license: 'MIT',
+144 silly resolved     readme: '# minimist\n\nparse argument options\n\nThis module is the guts of optimist\'s argument parser without all the\nfanciful decoration.\n\n[![browser support](https://ci.testling.com/substack/minimist.png)](http://ci.testling.com/substack/minimist)\n\n[![build status](https://secure.travis-ci.org/substack/minimist.png)](http://travis-ci.org/substack/minimist)\n\n# example\n\n``` js\nvar argv = require(\'minimist\')(process.argv.slice(2));\nconsole.dir(argv);\n```\n\n```\n$ node example/parse.js -a beep -b boop\n{ _: [], a: \'beep\', b: \'boop\' }\n```\n\n```\n$ node example/parse.js -x 3 -y 4 -n5 -abc --beep=boop foo bar baz\n{ _: [ \'foo\', \'bar\', \'baz\' ],\n  x: 3,\n  y: 4,\n  n: 5,\n  a: true,\n  b: true,\n  c: true,\n  beep: \'boop\' }\n```\n\n# methods\n\n``` js\nvar parseArgs = require(\'minimist\')\n```\n\n## var argv = parseArgs(args, opts={})\n\nReturn an argument object `argv` populated with the array arguments from `args`.\n\n`argv._` contains all the arguments that didn\'t have an option associated with\nthem.\n\nNumeric-looking arguments will be returned as numbers unless `opts.string` or\n`opts.boolean` is set for that argument name.\n\nAny arguments after `\'--\'` will not be parsed and will end up in `argv._`.\n\noptions can be:\n\n* `opts.string` - a string or array of strings argument names to always treat as\nstrings\n* `opts.boolean` - a string or array of strings to always treat as booleans\n* `opts.alias` - an object mapping string names to strings or arrays of string\nargument names to use as aliases\n* `opts.default` - an object mapping string argument names to default values\n* `opts[\'--\']` - when true, populate `argv._` with everything before the `--`\nand `argv[\'--\']` with everything after the `--`. Here\'s an example:\n\n```\n> require(\'./\')(\'one two three -- four five --six\'.split(\' \'), { \'--\': true })\n{ _: [ \'one\', \'two\', \'three\' ],\n  \'--\': [ \'four\', \'five\', \'--six\' ] }\n```\n\nNote that with `opts[\'--\']` set, parsing for arguments still stops after the\n`--`.\n\n# install\n\nWith [npm](https://npmjs.org) do:\n\n```\nnpm install minimist\n```\n\n# license\n\nMIT\n',
+144 silly resolved     readmeFilename: 'readme.markdown',
+144 silly resolved     bugs: { url: 'https://github.com/substack/minimist/issues' },
+144 silly resolved     _id: 'minimist@0.1.0',
+144 silly resolved     _shasum: '99df657a52574c21c9057497df742790b2b4c0de',
+144 silly resolved     _from: 'minimist@^0.1.0',
+144 silly resolved     _resolved: 'https://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz' } ]
+145 info install wordwrap@0.0.2 into C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+146 info install delayed-stream@0.0.5 into C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+147 info install minimist@0.1.0 into C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+148 info installOne wordwrap@0.0.2
+149 info installOne delayed-stream@0.0.5
+150 info installOne minimist@0.1.0
+151 info C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\wordwrap unbuild
+152 info C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\delayed-stream unbuild
+153 info C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\minimist unbuild
+154 verbose tar unpack C:\Users\Andriy\AppData\Roaming\npm-cache\wordwrap\0.0.2\package.tgz
+155 silly lockFile bc021329-pp-profile-node-modules-wordwrap tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\wordwrap
+156 verbose lock tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\wordwrap C:\Users\Andriy\AppData\Roaming\npm-cache\bc021329-pp-profile-node-modules-wordwrap.lock
+157 silly lockFile b591f978-cache-wordwrap-0-0-2-package-tgz tar://C:\Users\Andriy\AppData\Roaming\npm-cache\wordwrap\0.0.2\package.tgz
+158 verbose lock tar://C:\Users\Andriy\AppData\Roaming\npm-cache\wordwrap\0.0.2\package.tgz C:\Users\Andriy\AppData\Roaming\npm-cache\b591f978-cache-wordwrap-0-0-2-package-tgz.lock
+159 verbose tar unpack C:\Users\Andriy\AppData\Roaming\npm-cache\delayed-stream\0.0.5\package.tgz
+160 silly lockFile 710409c3-file-node-modules-delayed-stream tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\delayed-stream
+161 verbose lock tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\delayed-stream C:\Users\Andriy\AppData\Roaming\npm-cache\710409c3-file-node-modules-delayed-stream.lock
+162 silly lockFile 578acf5a-delayed-stream-0-0-5-package-tgz tar://C:\Users\Andriy\AppData\Roaming\npm-cache\delayed-stream\0.0.5\package.tgz
+163 verbose lock tar://C:\Users\Andriy\AppData\Roaming\npm-cache\delayed-stream\0.0.5\package.tgz C:\Users\Andriy\AppData\Roaming\npm-cache\578acf5a-delayed-stream-0-0-5-package-tgz.lock
+164 verbose tar unpack C:\Users\Andriy\AppData\Roaming\npm-cache\minimist\0.1.0\package.tgz
+165 silly lockFile 10a60322-pp-profile-node-modules-minimist tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\minimist
+166 verbose lock tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\minimist C:\Users\Andriy\AppData\Roaming\npm-cache\10a60322-pp-profile-node-modules-minimist.lock
+167 silly lockFile 82281b6f-cache-minimist-0-1-0-package-tgz tar://C:\Users\Andriy\AppData\Roaming\npm-cache\minimist\0.1.0\package.tgz
+168 verbose lock tar://C:\Users\Andriy\AppData\Roaming\npm-cache\minimist\0.1.0\package.tgz C:\Users\Andriy\AppData\Roaming\npm-cache\82281b6f-cache-minimist-0-1-0-package-tgz.lock
+169 silly gunzTarPerm modes [ '755', '644' ]
+170 silly gunzTarPerm modes [ '755', '644' ]
+171 silly gunzTarPerm modes [ '755', '644' ]
+172 silly gunzTarPerm extractEntry index.js
+173 silly gunzTarPerm extractEntry .gitignore
+174 silly gunzTarPerm extractEntry package.json
+175 silly gunzTarPerm extractEntry LICENSE
+176 silly gunzTarPerm extractEntry index.js
+177 silly gunzTarPerm extractEntry .npmignore
+178 silly gunzTarPerm extractEntry package.json
+179 silly gunzTarPerm extractEntry License
+180 silly gunzTarPerm extractEntry Makefile
+181 silly gunzTarPerm extractEntry .travis.yml
+182 silly gunzTarPerm extractEntry example/parse.js
+183 silly gunzTarPerm extractEntry README.markdown
+184 silly gunzTarPerm extractEntry example/center.js
+185 silly gunzTarPerm extractEntry package.json
+186 silly gunzTarPerm extractEntry Readme.md
+187 silly gunzTarPerm extractEntry example/meat.js
+188 silly gunzTarPerm extractEntry test/wrap.js
+189 silly gunzTarPerm extractEntry readme.markdown
+190 silly gunzTarPerm extractEntry test/bool.js
+191 silly gunzTarPerm extractEntry lib/delayed_stream.js
+192 silly gunzTarPerm extractEntry test/common.js
+193 silly gunzTarPerm extractEntry test/break.js
+194 silly gunzTarPerm extractEntry test/idleness.txt
+195 silly gunzTarPerm extractEntry test/run.js
+196 silly gunzTarPerm extractEntry test/integration/test-delayed-http-upload.js
+197 silly gunzTarPerm extractEntry test/integration/test-delayed-stream-auto-pause.js
+198 silly gunzTarPerm extractEntry test/dash.js
+199 silly gunzTarPerm extractEntry test/default_bool.js
+200 silly gunzTarPerm extractEntry test/dotted.js
+201 silly gunzTarPerm extractEntry test/integration/test-delayed-stream-pause.js
+202 silly gunzTarPerm extractEntry test/integration/test-delayed-stream.js
+203 silly gunzTarPerm extractEntry test/long.js
+204 silly gunzTarPerm extractEntry test/num.js
+205 silly gunzTarPerm extractEntry test/integration/test-handle-source-errors.js
+206 silly gunzTarPerm extractEntry test/integration/test-max-data-size.js
+207 silly gunzTarPerm extractEntry test/parse.js
+208 silly gunzTarPerm extractEntry test/parse_modified.js
+209 silly gunzTarPerm extractEntry test/integration/test-pipe-resumes.js
+210 silly gunzTarPerm extractEntry test/integration/test-proxy-readable.js
+211 silly gunzTarPerm extractEntry test/short.js
+212 silly gunzTarPerm extractEntry test/whitespace.js
+213 silly lockFile bc021329-pp-profile-node-modules-wordwrap tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\wordwrap
+214 silly lockFile bc021329-pp-profile-node-modules-wordwrap tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\wordwrap
+215 silly lockFile b591f978-cache-wordwrap-0-0-2-package-tgz tar://C:\Users\Andriy\AppData\Roaming\npm-cache\wordwrap\0.0.2\package.tgz
+216 silly lockFile b591f978-cache-wordwrap-0-0-2-package-tgz tar://C:\Users\Andriy\AppData\Roaming\npm-cache\wordwrap\0.0.2\package.tgz
+217 info preinstall wordwrap@0.0.2
+218 verbose readDependencies using package.json deps
+219 verbose readDependencies using package.json deps
+220 silly resolved []
+221 verbose about to build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\wordwrap
+222 info build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\wordwrap
+223 verbose linkStuff [ false,
+223 verbose linkStuff   false,
+223 verbose linkStuff   false,
+223 verbose linkStuff   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules' ]
+224 info linkStuff wordwrap@0.0.2
+225 verbose linkBins wordwrap@0.0.2
+226 verbose linkMans wordwrap@0.0.2
+227 verbose rebuildBundles wordwrap@0.0.2
+228 info install wordwrap@0.0.2
+229 info postinstall wordwrap@0.0.2
+230 silly lockFile 710409c3-file-node-modules-delayed-stream tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\delayed-stream
+231 silly lockFile 710409c3-file-node-modules-delayed-stream tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\delayed-stream
+232 silly lockFile 578acf5a-delayed-stream-0-0-5-package-tgz tar://C:\Users\Andriy\AppData\Roaming\npm-cache\delayed-stream\0.0.5\package.tgz
+233 silly lockFile 578acf5a-delayed-stream-0-0-5-package-tgz tar://C:\Users\Andriy\AppData\Roaming\npm-cache\delayed-stream\0.0.5\package.tgz
+234 info preinstall delayed-stream@0.0.5
+235 verbose readDependencies using package.json deps
+236 verbose readDependencies using package.json deps
+237 silly resolved []
+238 verbose about to build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\delayed-stream
+239 info build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\delayed-stream
+240 verbose linkStuff [ false,
+240 verbose linkStuff   false,
+240 verbose linkStuff   false,
+240 verbose linkStuff   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules' ]
+241 info linkStuff delayed-stream@0.0.5
+242 verbose linkBins delayed-stream@0.0.5
+243 verbose linkMans delayed-stream@0.0.5
+244 verbose rebuildBundles delayed-stream@0.0.5
+245 silly lockFile 10a60322-pp-profile-node-modules-minimist tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\minimist
+246 silly lockFile 10a60322-pp-profile-node-modules-minimist tar://C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\minimist
+247 info install delayed-stream@0.0.5
+248 silly lockFile 82281b6f-cache-minimist-0-1-0-package-tgz tar://C:\Users\Andriy\AppData\Roaming\npm-cache\minimist\0.1.0\package.tgz
+249 silly lockFile 82281b6f-cache-minimist-0-1-0-package-tgz tar://C:\Users\Andriy\AppData\Roaming\npm-cache\minimist\0.1.0\package.tgz
+250 info postinstall delayed-stream@0.0.5
+251 info preinstall minimist@0.1.0
+252 verbose readDependencies using package.json deps
+253 verbose readDependencies using package.json deps
+254 silly resolved []
+255 verbose about to build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\minimist
+256 info build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\minimist
+257 verbose linkStuff [ false,
+257 verbose linkStuff   false,
+257 verbose linkStuff   false,
+257 verbose linkStuff   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules' ]
+258 info linkStuff minimist@0.1.0
+259 verbose linkBins minimist@0.1.0
+260 verbose linkMans minimist@0.1.0
+261 verbose rebuildBundles minimist@0.1.0
+262 info install minimist@0.1.0
+263 info postinstall minimist@0.1.0
+264 info build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+265 verbose linkStuff [ false,
+265 verbose linkStuff   false,
+265 verbose linkStuff   false,
+265 verbose linkStuff   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app' ]
+266 info linkStuff profile@0.0.0
+267 verbose linkBins profile@0.0.0
+268 verbose linkMans profile@0.0.0
+269 verbose rebuildBundles profile@0.0.0
+270 verbose rebuildBundles [ '.bin',
+270 verbose rebuildBundles   'connect-livereload',
+270 verbose rebuildBundles   'delayed-stream',
+270 verbose rebuildBundles   'grunt',
+270 verbose rebuildBundles   'grunt-cdnify',
+270 verbose rebuildBundles   'grunt-concurrent',
+270 verbose rebuildBundles   'grunt-connect',
+270 verbose rebuildBundles   'grunt-contrib-clean',
+270 verbose rebuildBundles   'grunt-contrib-coffee',
+270 verbose rebuildBundles   'grunt-contrib-compass',
+270 verbose rebuildBundles   'grunt-contrib-concat',
+270 verbose rebuildBundles   'grunt-contrib-connect',
+270 verbose rebuildBundles   'grunt-contrib-copy',
+270 verbose rebuildBundles   'grunt-contrib-cssmin',
+270 verbose rebuildBundles   'grunt-contrib-htmlmin',
+270 verbose rebuildBundles   'grunt-contrib-imagemin',
+270 verbose rebuildBundles   'grunt-contrib-jshint',
+270 verbose rebuildBundles   'grunt-contrib-uglify',
+270 verbose rebuildBundles   'grunt-contrib-watch',
+270 verbose rebuildBundles   'grunt-google-cdn',
+270 verbose rebuildBundles   'grunt-html-minify',
+270 verbose rebuildBundles   'grunt-htmlrefs',
+270 verbose rebuildBundles   'grunt-karma',
+270 verbose rebuildBundles   'grunt-less',
+270 verbose rebuildBundles   'grunt-ngmin',
+270 verbose rebuildBundles   'grunt-open',
+270 verbose rebuildBundles   'grunt-rev',
+270 verbose rebuildBundles   'grunt-svgmin',
+270 verbose rebuildBundles   'grunt-typescript',
+270 verbose rebuildBundles   'grunt-usemin',
+270 verbose rebuildBundles   'html-minify',
+270 verbose rebuildBundles   'karma',
+270 verbose rebuildBundles   'karma-jasmine',
+270 verbose rebuildBundles   'karma-ng-html2js-preprocessor',
+270 verbose rebuildBundles   'karma-ng-scenario',
+270 verbose rebuildBundles   'karma-phantomjs-launcher',
+270 verbose rebuildBundles   'matchdep',
+270 verbose rebuildBundles   'minimist',
+270 verbose rebuildBundles   'phantomjs',
+270 verbose rebuildBundles   'typescript',
+270 verbose rebuildBundles   'wordwrap' ]
+271 verbose rebuild bundle C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\grunt-less
+272 info build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\grunt-less
+273 info preinstall grunt-less@0.1.7
+274 verbose linkStuff [ false,
+274 verbose linkStuff   false,
+274 verbose linkStuff   false,
+274 verbose linkStuff   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules' ]
+275 info linkStuff grunt-less@0.1.7
+276 verbose linkBins grunt-less@0.1.7
+277 verbose link bins [ { 'grunt-less': 'bin/grunt-less' },
+277 verbose link bins   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules\\.bin',
+277 verbose link bins   false ]
+278 verbose linkMans grunt-less@0.1.7
+279 verbose rebuildBundles grunt-less@0.1.7
+280 verbose rebuildBundles [ '.bin', 'less' ]
+281 info install grunt-less@0.1.7
+282 info postinstall grunt-less@0.1.7
+283 verbose rebuild bundle C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\karma
+284 info build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\karma
+285 info preinstall karma@0.12.16
+286 verbose linkStuff [ false,
+286 verbose linkStuff   false,
+286 verbose linkStuff   false,
+286 verbose linkStuff   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules' ]
+287 info linkStuff karma@0.12.16
+288 verbose linkBins karma@0.12.16
+289 verbose link bins [ {},
+289 verbose link bins   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules\\.bin',
+289 verbose link bins   false ]
+290 verbose linkMans karma@0.12.16
+291 verbose rebuildBundles karma@0.12.16
+292 verbose rebuildBundles [ '.bin',
+292 verbose rebuildBundles   'chokidar',
+292 verbose rebuildBundles   'colors',
+292 verbose rebuildBundles   'connect',
+292 verbose rebuildBundles   'di',
+292 verbose rebuildBundles   'glob',
+292 verbose rebuildBundles   'graceful-fs',
+292 verbose rebuildBundles   'http-proxy',
+292 verbose rebuildBundles   'lodash',
+292 verbose rebuildBundles   'log4js',
+292 verbose rebuildBundles   'mime',
+292 verbose rebuildBundles   'minimatch',
+292 verbose rebuildBundles   'optimist',
+292 verbose rebuildBundles   'q',
+292 verbose rebuildBundles   'rimraf',
+292 verbose rebuildBundles   'socket.io',
+292 verbose rebuildBundles   'source-map',
+292 verbose rebuildBundles   'useragent' ]
+293 info install karma@0.12.16
+294 info postinstall karma@0.12.16
+295 verbose rebuild bundle C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\karma-ng-html2js-preprocessor
+296 info build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\karma-ng-html2js-preprocessor
+297 info preinstall karma-ng-html2js-preprocessor@0.1.0
+298 verbose linkStuff [ false,
+298 verbose linkStuff   false,
+298 verbose linkStuff   false,
+298 verbose linkStuff   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules' ]
+299 info linkStuff karma-ng-html2js-preprocessor@0.1.0
+300 verbose linkBins karma-ng-html2js-preprocessor@0.1.0
+301 verbose linkMans karma-ng-html2js-preprocessor@0.1.0
+302 verbose rebuildBundles karma-ng-html2js-preprocessor@0.1.0
+303 info install karma-ng-html2js-preprocessor@0.1.0
+304 info postinstall karma-ng-html2js-preprocessor@0.1.0
+305 verbose rebuild bundle C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\karma-ng-scenario
+306 info build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\karma-ng-scenario
+307 info preinstall karma-ng-scenario@0.1.0
+308 verbose linkStuff [ false,
+308 verbose linkStuff   false,
+308 verbose linkStuff   false,
+308 verbose linkStuff   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules' ]
+309 info linkStuff karma-ng-scenario@0.1.0
+310 verbose linkBins karma-ng-scenario@0.1.0
+311 verbose linkMans karma-ng-scenario@0.1.0
+312 verbose rebuildBundles karma-ng-scenario@0.1.0
+313 info install karma-ng-scenario@0.1.0
+314 info postinstall karma-ng-scenario@0.1.0
+315 verbose rebuild bundle C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\phantomjs
+316 info build C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile\node_modules\phantomjs
+317 info preinstall phantomjs@1.9.7-6
+318 verbose linkStuff [ false,
+318 verbose linkStuff   false,
+318 verbose linkStuff   false,
+318 verbose linkStuff   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules' ]
+319 info linkStuff phantomjs@1.9.7-6
+320 verbose linkBins phantomjs@1.9.7-6
+321 verbose link bins [ { phantomjs: './bin/phantomjs' },
+321 verbose link bins   'C:\\HappySaturday\\Sniffsters\\Sniffsters\\Scripts\\app\\profile\\node_modules\\.bin',
+321 verbose link bins   false ]
+322 verbose linkMans phantomjs@1.9.7-6
+323 verbose rebuildBundles phantomjs@1.9.7-6
+324 verbose rebuildBundles [ '.bin',
+324 verbose rebuildBundles   'adm-zip',
+324 verbose rebuildBundles   'kew',
+324 verbose rebuildBundles   'mkdirp',
+324 verbose rebuildBundles   'ncp',
+324 verbose rebuildBundles   'npmconf',
+324 verbose rebuildBundles   'rimraf',
+324 verbose rebuildBundles   'which' ]
+325 info install phantomjs@1.9.7-6
+326 verbose unsafe-perm in lifecycle true
+327 error Error: spawn ENOENT
+327 error     at errnoException (child_process.js:998:11)
+327 error     at Process.ChildProcess._handle.onexit (child_process.js:789:34)
+328 error If you need help, you may report this *entire* log,
+328 error including the npm and node versions, at:
+328 error     <http://github.com/npm/npm/issues>
+329 error System Windows_NT 6.2.9200
+330 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "i"
+331 error cwd C:\HappySaturday\Sniffsters\Sniffsters\Scripts\app\profile
+332 error node -v v0.10.28
+333 error npm -v 1.4.9
+334 error syscall spawn
+335 error code ENOENT
+336 error errno ENOENT
+337 verbose exit [ 1, true ]

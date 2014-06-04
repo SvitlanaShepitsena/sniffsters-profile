@@ -33,7 +33,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
                         // method: 'POST' or 'PUT',
                         // headers: {'header-key': 'header-value'},
                         // withCredentials: true,
-                        data: {myObj: $scope.myModelObj},
+                        data: {gallery:$scope.galleries[$scope.index].Id },
                         file: file // or list of files: $files for html5 only
                         /* set the file formData name ('Content-Desposition'). Default is 'file' */
                         //fileFormDataName: myFile, //or a list of names for multiple files (html5).
