@@ -22,7 +22,6 @@ var photoGalleryEdit = function () {
                         data: { myObj: $scope.myModelObj },
                         file: file
                     }).progress(function (evt) {
-                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                     }).success(function (data, status, headers, config) {
                         console.log(data);
                     });

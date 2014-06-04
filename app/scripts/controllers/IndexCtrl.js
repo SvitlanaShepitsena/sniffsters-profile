@@ -13,7 +13,7 @@ var IndexCtrl = (function () {
             _this.error = false;
             _this.BreederProfile = breederProfile;
 
-            _this.Id = breederProfile.Id;
+            _this.Id = breederProfile.Email;
 
             _this.CopyProfileService.SetProfile(breederProfile);
             _this.BreederProfileEdit = CopyProfileService.GetProfileClone();

@@ -40,7 +40,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
                         /* customize how data is added to formData. See #40#issuecomment-28612000 for sample code */
                         //formDataAppender: function(formData, key, val){}
                     }).progress((evt) => {
-                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+//                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                     }).success((data, status, headers, config) => {
                         // file is uploaded successfully
                         console.log(data);
@@ -53,3 +53,6 @@ var photoGalleryEdit:() => ng.IDirective = () => {
         }
     }
 }
+
+
+

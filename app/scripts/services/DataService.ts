@@ -34,7 +34,6 @@ class DataService {
         var d = this.$q.defer<T[]>();
 
         this.$http.get('http://localhost:44300/BreederPersonal/GetGalleries').success((result) => {
-
             d.resolve(result);
         }).error((data, error) => {
             // console.log(data)
@@ -42,8 +41,8 @@ class DataService {
             d.reject();
         });
         return d.promise;
-    }
 
+    }
     updateGalleries<T>(t:T[]) {
         var d = this.$q.defer<T>();
 

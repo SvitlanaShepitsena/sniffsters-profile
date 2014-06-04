@@ -35,7 +35,6 @@ var DataService = (function () {
         });
         return d.promise;
     };
-
     DataService.prototype.updateGalleries = function (t) {
         var d = this.$q.defer();
 
