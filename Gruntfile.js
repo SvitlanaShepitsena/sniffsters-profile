@@ -81,7 +81,7 @@ module.exports = function (grunt) {
             },
             typescript: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
-                tasks: ['typescript:dist']
+                tasks: ['typescript:same']
             },
             livereload: {
                 options: {
@@ -393,6 +393,7 @@ module.exports = function (grunt) {
         var address = 'app/profile.js';
         var content = grunt.file.read(address);
         content = content.replace(/http:\/\/localhost:44300/g, '');
+
         grunt.file.write(address, content);
         grunt.file.copy('app/profile.js', 'profile.js');
     });
@@ -458,6 +459,10 @@ module.exports = function (grunt) {
         var cssFile = '<style>'+grunt.file.read('app/styles/Profile.min.css')+'</style>';
 
         var fileContent = tempFile + cssFile;
+
+
+        fileContent= fileContent.replace(/imgdir\//g, '/Scripts/app/profile/app/imgdir/');
+
         grunt.file.write('templates.cshtml', fileContent);
 
     });

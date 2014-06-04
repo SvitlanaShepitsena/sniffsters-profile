@@ -1,4 +1,4 @@
-var profile = angular.module("profile", ['ui.router']);
+var profile = angular.module("profile", ['ui.router', 'angularFileUpload']);
 
 profile.filter('boolString', function () {
     return function (value) {

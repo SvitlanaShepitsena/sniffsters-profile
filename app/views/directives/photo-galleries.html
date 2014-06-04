@@ -1,20 +1,15 @@
-<div class="well">
+<div class="well well-sm">
 	<h3>Current Galleries</h3>
-
-	<div class="row">
-		<ul class="list-unstyled list-inline">
-			<li class="col-xs-6 col-md-4" ng-repeat="g in galleries">
-				<div class="thumbnail">
-					<div class="text-primary text-center capture">
-						<h4 class="">
-							{{g.Title}}
-						</h4>
-					</div>
-					<a href="#/profile/photos/gallery/{{$index}}" class="">
-						<img ng-src="{{('photos/'+id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}">
+	<ul class="list-unstyled">
+		<li ng-repeat="g in galleries">
+			<div class="row">
+				<div class="col-xs-6 col-md-3">
+					<a href="#/profile/photos/gallery/{{$index}}" class="thumbnail">
+						<div class="text-primary text-center">{{g.Title}}</div>
+						<img ng-src="{{('imgdir/'+id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}">
 					</a>
 				</div>
-			</li>
-		</ul>
-	</div>
+			</div>
+		</li>
+	</ul>
 </div>
