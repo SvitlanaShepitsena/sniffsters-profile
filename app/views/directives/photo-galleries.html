@@ -1,20 +1,22 @@
-<div class="well well-sm">
+<div class="well">
 	<h3>Current Galleries</h3>
 
 	<div class="row">
-		<ul class="list-unstyled list-inline">
-			<li class="col-xs-6 col-md-4" ng-repeat="g in galleries">
-				<div class="thumbnail">
-					<div class="text-primary text-center caption">
+		<div class="col-xs-12">
+			<ul class="list-unstyled list-inline">
+				<li class="col-xs-12 col-md-4" ng-repeat="g in galleries">
+					<div class="thumbnail">
+						<div class="text-primary text-center caption">
 							<h4 class="">
 								{{g.Title}}
 							</h4>
+						</div>
 						<a href="#/profile/photos/gallery/{{$index}}" class="">
 							<img ng-src="{{('imgdir/'+id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}">
 						</a>
 					</div>
-				</div>
-			</li>
-		</ul>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
