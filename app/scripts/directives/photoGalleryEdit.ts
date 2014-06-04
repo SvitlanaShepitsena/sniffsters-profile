@@ -20,15 +20,14 @@ var photoGalleryEdit:() => ng.IDirective = () => {
         controller: ($scope, $stateParams, $upload) => {
             var index:number = $stateParams.id;
             $scope.index = index;
-//            $scope.gallery = $scope.galleries[index];
-//            $scope.folder = $scope.galleries[index].Id;
 
+            $scope.unloadPriFiles = [];
 
             $scope.onFileSelect = ($files) => {
                 //$files: an array of files selected, each file has name, size, and type.
                 for (var i = 0; i < $files.length; i++) {
                     var file = $files[i];
-                    console.log(file);
+
                     $scope.upload = $upload.upload({
                         url:'http://localhost:44300/BreederPersonal/AddPicture',
                         // method: 'POST' or 'PUT',
@@ -45,9 +44,11 @@ var photoGalleryEdit:() => ng.IDirective = () => {
                     }).success((data, status, headers, config) => {
                         // file is uploaded successfully
                         $scope.galleries[$scope.index].Photos.push({
-                            Caption:'Picture',
-                            FilePath:file.name
-                        })
+                            Caption: 'Picture',
+                            FilePath: data.substring(1, data.length - 1)
+                        });
+//                        $scope.myModelObj = {};
+//                        alert(data);
                     });
                     //.error(...)
                     //.then(success, error, progress);
