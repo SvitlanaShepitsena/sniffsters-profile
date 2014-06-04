@@ -28,6 +28,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
                 //$files: an array of files selected, each file has name, size, and type.
                 for (var i = 0; i < $files.length; i++) {
                     var file = $files[i];
+                    console.log(file);
                     $scope.upload = $upload.upload({
                         url:'http://localhost:44300/BreederPersonal/AddPicture',
                         // method: 'POST' or 'PUT',
@@ -43,7 +44,10 @@ var photoGalleryEdit:() => ng.IDirective = () => {
 //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                     }).success((data, status, headers, config) => {
                         // file is uploaded successfully
-                        console.log(data);
+                        $scope.galleries[$scope.index].Photos.push({
+                            Caption:'Picture',
+                            FilePath:file.name
+                        })
                     });
                     //.error(...)
                     //.then(success, error, progress);
