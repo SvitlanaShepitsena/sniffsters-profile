@@ -17,9 +17,20 @@ var photoGalleryEdit:() => ng.IDirective = () => {
             id: '@',
             func: '&'
         },
-        controller: ($scope, $stateParams, $upload) => {
+        controller: ($scope, $stateParams, $upload, DataService:DataService,toastr:Toastr) => {
             var index:number = $stateParams.id;
             $scope.index = index;
+
+            $scope.delete = (p:IPhoto, index:number) => {
+                DataService.deletePhoto($scope.galleries[$scope.index].Id, p.Id).then(() => {
+                    $scope.galleries[$scope.index].Photos.splice(index, 1);
+                })
+            }
+            $scope.update = (p:IPhoto) => {
+                DataService.updateCaption($scope.galleries[$scope.index].Id, p.Id, p.Caption).then(() => {
+                    toastr.success('Changes have been successfully saved to Db');
+                })
+            }
 
             $scope.onFileSelect = ($files) => {
                 //$files: an array of files selected, each file has name, size, and type.
@@ -41,12 +52,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
 //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                     }).success((data, status, headers, config) => {
                         // file is uploaded successfully
-//                        update array of photos on the page after a successful upload in order user can
-//                        see changes immediately.
-                        $scope.galleries[$scope.index].Photos.push({
-                            Caption: 'Picture',
-                            FilePath: data.substring(1, data.length - 1)
-                        });
+                        $scope.galleries[$scope.index].Photos.push(data);
 //                        $scope.myModelObj = {};
 //                        alert(data);
                     });

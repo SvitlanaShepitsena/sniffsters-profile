@@ -10,9 +10,20 @@ var photoGalleryEdit = function () {
             id: '@',
             func: '&'
         },
-        controller: function ($scope, $stateParams, $upload) {
+        controller: function ($scope, $stateParams, $upload, DataService, toastr) {
             var index = $stateParams.id;
             $scope.index = index;
+
+            $scope.delete = function (p, index) {
+                DataService.deletePhoto($scope.galleries[$scope.index].Id, p.Id).then(function () {
+                    $scope.galleries[$scope.index].Photos.splice(index, 1);
+                });
+            };
+            $scope.update = function (p) {
+                DataService.updateCaption($scope.galleries[$scope.index].Id, p.Id, p.Caption).then(function () {
+                    toastr.success('Changes have been successfully saved to Db');
+                });
+            };
 
             $scope.onFileSelect = function ($files) {
                 for (var i = 0; i < $files.length; i++) {
@@ -24,10 +35,7 @@ var photoGalleryEdit = function () {
                         file: file
                     }).progress(function (evt) {
                     }).success(function (data, status, headers, config) {
-                        $scope.galleries[$scope.index].Photos.push({
-                            Caption: 'Picture',
-                            FilePath: data.substring(1, data.length - 1)
-                        });
+                        $scope.galleries[$scope.index].Photos.push(data);
                     });
                 }
             };

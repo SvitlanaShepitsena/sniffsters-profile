@@ -25,6 +25,34 @@ var DataService = (function () {
         return d.promise;
     };
 
+    DataService.prototype.deletePhoto = function (galleryId, photoId) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/DeletePhoto', { deletePhoto: {
+                GalleryId: galleryId,
+                PhotoId: photoId
+            } }).success(function () {
+            d.resolve();
+        }).error(function () {
+            d.reject();
+        });
+        return d.promise;
+    };
+    DataService.prototype.updateCaption = function (galleryId, photoId, caption) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
+                GalleryId: galleryId,
+                PhotoId: photoId,
+                Caption: caption
+            } }).success(function () {
+            d.resolve();
+        }).error(function () {
+            d.reject();
+        });
+        return d.promise;
+    };
+
     DataService.prototype.getGalleries = function () {
         var d = this.$q.defer();
 
@@ -35,6 +63,7 @@ var DataService = (function () {
         });
         return d.promise;
     };
+
     DataService.prototype.updateGalleries = function (t) {
         var d = this.$q.defer();
 

@@ -11,14 +11,23 @@
 		<ul class="list-unstyled ">
 			<li class="col-xs-12" ng-repeat="p in galleries[index].Photos">
 				<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
-				        title="Delete this picture" ng-click="delete($index)"><i class="fa fa-trash-o"></i>
+				        title="Delete this picture" ng-click="delete(p,$index)"><i class="fa fa-trash-o"></i>
 				</button>
 				<div class="thumbnail">
 					<img class="puppyPic"
 					     ng-src="{{('imgdir/'+id+'/'+galleries[index].Id+'/'+p.FilePath) | spacesToDashes}}">
 
-					<div class="caption">
-						<input type="text" class="form-control" ng-model="p.Caption">
+					<div class="row">
+						<div class="col-xs-9 caption">
+							<input type="text" class="form-control" ng-model="p.Caption">
+						</div>
+
+						<div class="col-xs-3">
+
+							<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
+							        title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i>
+								</button>
+						</div>
 					</div>
 				</div>
 			</li>
