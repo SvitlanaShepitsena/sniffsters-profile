@@ -19,7 +19,7 @@ var photoGalleryEdit = function () {
                     var file = $files[i];
                     $scope.upload = $upload.upload({
                         url: 'http://localhost:44300/BreederPersonal/AddPicture',
-                        data: { myObj: $scope.myModelObj },
+                        data: { gallery: $scope.galleries[$scope.index].Id },
                         file: file
                     }).progress(function (evt) {
                     }).success(function (data, status, headers, config) {
