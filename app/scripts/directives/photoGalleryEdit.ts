@@ -21,19 +21,17 @@ var photoGalleryEdit:() => ng.IDirective = () => {
             var index:number = $stateParams.id;
             $scope.index = index;
 
-            $scope.unloadPriFiles = [];
-
             $scope.onFileSelect = ($files) => {
                 //$files: an array of files selected, each file has name, size, and type.
                 for (var i = 0; i < $files.length; i++) {
                     var file = $files[i];
 
                     $scope.upload = $upload.upload({
-                        url:'http://localhost:44300/BreederPersonal/AddPicture',
+                        url: 'http://localhost:44300/BreederPersonal/AddPicture',
                         // method: 'POST' or 'PUT',
                         // headers: {'header-key': 'header-value'},
                         // withCredentials: true,
-                        data: {gallery:$scope.galleries[$scope.index].Id },
+                        data: {gallery: $scope.galleries[$scope.index].Id },
                         file: file // or list of files: $files for html5 only
                         /* set the file formData name ('Content-Desposition'). Default is 'file' */
                         //fileFormDataName: myFile, //or a list of names for multiple files (html5).
@@ -43,6 +41,8 @@ var photoGalleryEdit:() => ng.IDirective = () => {
 //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                     }).success((data, status, headers, config) => {
                         // file is uploaded successfully
+//                        update array of photos on the page after a successful upload in order user can
+//                        see changes immediately.
                         $scope.galleries[$scope.index].Photos.push({
                             Caption: 'Picture',
                             FilePath: data.substring(1, data.length - 1)

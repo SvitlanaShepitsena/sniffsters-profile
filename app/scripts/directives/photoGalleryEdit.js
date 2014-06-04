@@ -14,8 +14,6 @@ var photoGalleryEdit = function () {
             var index = $stateParams.id;
             $scope.index = index;
 
-            $scope.unloadPriFiles = [];
-
             $scope.onFileSelect = function ($files) {
                 for (var i = 0; i < $files.length; i++) {
                     var file = $files[i];
