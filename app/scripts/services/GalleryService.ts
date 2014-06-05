@@ -1,10 +1,23 @@
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-
+/// <reference path="../models/IBreederProfile.ts" />
 class GalleryService {
-    constructor(public $http:ng.IHttpService, public $q:ng.IQService) {
+
+
+   Gallery:IGallery;
+
+
+    GetGalleryClone() {
+
+        var dolly:IGallery = new Gallery();
+        for (var key in this.Gallery) {
+            if (this.Gallery.hasOwnProperty(key)) {
+                dolly[key] = this.Gallery[key];
+            }
+        }
+        return dolly;
     }
 
-    Method() {
-        return 1;
+    SetGallery(gallery:IGallery) {
+
+        this.Gallery = gallery;
     }
 }
