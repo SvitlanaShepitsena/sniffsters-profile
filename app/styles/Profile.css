@@ -17,6 +17,9 @@
 .chooseFilesButton {
   margin-top: 1em;
 }
+.cursor-p {
+  cursor: pointer;
+}
 hr {
   border-top-color: #bababa !important;
 }
