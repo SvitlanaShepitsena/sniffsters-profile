@@ -3,7 +3,18 @@
 		<div class="col-xs-12">
 			<div class="form-group">
 				<label>Gallery Title:</label>
-				<input type="text" class="form-control" ng-model="galleries[index].Title">
+
+				<div class="row">
+					<div class="col-xs-11">
+						<input type="text" class="form-control" ng-model="galleries[index].Title">
+					</div>
+
+					<div class="col-xs-1">
+						<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
+						        title="Save Caption" ng-click="updateTitle(galleries[index].Title)"><i class="fa fa-save"></i>
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

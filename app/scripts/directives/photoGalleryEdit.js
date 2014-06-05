@@ -25,6 +25,12 @@ var photoGalleryEdit = function () {
                 });
             };
 
+            $scope.updateTitle = function (newTitle) {
+                DataService.updateTitle($scope.galleries[$scope.index].Id, newTitle).then(function () {
+                    toastr.success('Changes have been successfully saved to Db');
+                });
+            };
+
             $scope.onFileSelect = function ($files) {
                 for (var i = 0; i < $files.length; i++) {
                     var file = $files[i];

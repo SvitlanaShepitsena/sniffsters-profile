@@ -61,6 +61,21 @@ class DataService {
             });
         return d.promise;
     }
+    updateTitle(galleryId:number, title:string) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/UpdateTitle', {
+            galleryTitle: {
+                GalleryId: galleryId,
+                Title: title
+            }})
+            .success(() => {
+                d.resolve();
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
+    }
 
     getGalleries<T>() {
         var d = this.$q.defer<T[]>();

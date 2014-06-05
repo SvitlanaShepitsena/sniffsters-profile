@@ -52,6 +52,19 @@ var DataService = (function () {
         });
         return d.promise;
     };
+    DataService.prototype.updateTitle = function (galleryId, title) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/UpdateTitle', { galleryTitle: {
+                GalleryId: galleryId,
+                Title: title
+            } }).success(function () {
+            d.resolve();
+        }).error(function () {
+            d.reject();
+        });
+        return d.promise;
+    };
 
     DataService.prototype.getGalleries = function () {
         var d = this.$q.defer();

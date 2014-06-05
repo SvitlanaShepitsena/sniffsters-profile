@@ -32,6 +32,13 @@ var photoGalleryEdit:() => ng.IDirective = () => {
                 })
             }
 
+
+           $scope.updateTitle=(newTitle:string) => {
+               DataService.updateTitle($scope.galleries[$scope.index].Id, newTitle).then(() => {
+                   toastr.success('Changes have been successfully saved to Db');
+               });
+           }
+
             $scope.onFileSelect = ($files) => {
                 //$files: an array of files selected, each file has name, size, and type.
                 for (var i = 0; i < $files.length; i++) {
