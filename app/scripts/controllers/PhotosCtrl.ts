@@ -6,8 +6,7 @@ interface IPhotosScope extends IMainScope {
     index:IndexCtrl;
 }
 class PhotosCtrl {
-    public Galleries:IGallery[];
-    public SelectedGallery:IGallery;
+    Galleries:IGallery[];
 
     constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.photosCtrl = this;
@@ -20,13 +19,6 @@ class PhotosCtrl {
             this.ShowError('Error in getting Photo Galleries from the server');
         })
     }
-
-    setSelectedGallery(galid:number) {
-        this.SelectedGallery = this.Galleries[galid];
-        this.$state.go('profile.photos.galleries', {'id': galid});
-//        console.log(this.SelectedGallery);
-    }
-
     ShowSuccess(note:string) {
 
         this.toastr.info(note);

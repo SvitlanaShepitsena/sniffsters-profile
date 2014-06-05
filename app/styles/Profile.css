@@ -10,16 +10,6 @@
 /**********************
         MIXINS
 ***********************/
-.gragPhotosImg {
-  margin-top: 1.5em;
-  margin-bottom: 1em;
-}
-.chooseFilesButton {
-  margin-top: 1em;
-}
-.cursor-p {
-  cursor: pointer;
-}
 hr {
   border-top-color: #bababa !important;
 }
@@ -127,10 +117,32 @@ h5 {
   margin-bottom: 5px !important;
   margin-right: 5px !important;
 }
+.btn-save {
+  margin-top: 0px !important;
+}
 .panel-file-upload {
   padding: 1.7em;
 }
 .dropFilesHere {
   border: 2px #c3c3c3 dashed;
   min-height: 100px;
+}
+.dragPhotosImg {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+.chooseFilesButton {
+  margin-top: 1em;
+}
+.addNewGalleryLink {
+  padding-top: 2.2em;
+  padding-bottom: 2.2em;
+  padding-left: 3.4em;
+  padding-right: 3.4em;
+}
+.chooseFilesCentered {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  padding-right: 8px !important;
+  padding-left: 8px !important;
 }

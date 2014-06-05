@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-xs-11">
 			<h3 class="content text-center">
-				{{photosCtrl.SelectedGallery.Title | uppercase}}
+				{{galleries[index].Title | uppercase}}
 			</h3>
 		</div>
 		<div class="col-xs-1">
@@ -15,9 +15,9 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<ul class="list-unstyled list-inline">
-				<li class="col-xs-12" ng-repeat="p in photosCtrl.SelectedGallery.Photos">
+				<li class="col-xs-12" ng-repeat="p in galleries[index].Photos">
 					<div class="thumbnail">
-						<img ng-src="{{('imgdir/'+index.Id+'/'+photosCtrl.SelectedGallery.Id+'/'+p.FilePath) | spacesToDashes}}">
+						<img ng-src="{{('imgdir/'+id+'/'+galleries[index].Id+'/'+p.FilePath) | spacesToDashes}}">
 
 						<div class="caption">
 							<h4>{{p.Caption}}</h4>

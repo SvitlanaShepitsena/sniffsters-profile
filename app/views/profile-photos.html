@@ -3,16 +3,9 @@
 		<div class="col-sm-6">
 			<h3>Photo Galleries</h3>
 		</div>
-		<div class="col-sm-2">
-			<button class="btn btn-link" ng-click="">Save</button>
-		</div>
-		<div class="col-sm-3">
-			<button class="btn btn-link" ng-click="">Add new gallery</button>
-		</div>
-		<div class="col-sm-1"><i class="fa fa-pencil-square-o"></i></div>
 	</div>
 	<photos-info>Gallery 1</photos-info>
 	<div ui-view>
-		<photo-galleries photos-ctrl="photosCtrl" id="{{index.Id}}" ></photo-galleries>
+		<photo-galleries id="{{index.Id}}" galleries="photosCtrl.Galleries"></photo-galleries>
 	</div>
 </div>

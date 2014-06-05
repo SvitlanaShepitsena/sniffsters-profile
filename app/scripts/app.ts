@@ -13,7 +13,6 @@
 /// <reference path="filters/SpacesToDashes.ts" />
 /// <reference path="directives/photoGallery.ts" />
 /// <reference path="directives/photoGalleryEdit.ts" />
-/// <reference path="services/GalleryService.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router','angularFileUpload']);
@@ -32,7 +31,6 @@ profile.filter('spacesToDashes', () => {
 
 
 profile.service("CopyProfileService", CopyProfileService);
-profile.service("GalleryService", GalleryService);
 //#serv
 
 profile.directive("profileButtons", profileButtons);
@@ -82,11 +80,13 @@ profile.config(
             })
             .state("profile.photos.galleries", {
                 url: "/gallery/:id",
-                template: "<div ui-view><photo-gallery></photo-gallery></div>"
+                controller: "PhotosCtrl",
+                template: "<div ui-view><photo-gallery id={{index.Id}} galleries='photosCtrl.Galleries'></photo-gallery></div>"
             })
             .state("profile.photos.galleries.edit", {
                 url: "/edit",
-                template: "<photo-gallery-edit></photo-gallery-edit>"
+                controller: "PhotosCtrl",
+                template: "<photo-gallery-edit id={{index.Id}} galleries='photosCtrl.Galleries'></photo-gallery-edit>"
             })
             .state("profile.photos.edit", {
                 url: "/edit",

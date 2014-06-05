@@ -12,7 +12,12 @@ var photoGalleryEdit:() => ng.IDirective = () => {
         transclude: true,
         // replace directive tag with template info
         replace: true,
-        controller: ($scope, $stateParams, $upload, DataService:DataService,toastr:Toastr) => {
+        scope: {
+            galleries: '=',
+            id: '@',
+            func: '&'
+        },
+        controller: ($scope, $stateParams, $upload, DataService:DataService, toastr:Toastr) => {
             var index:number = $stateParams.id;
             $scope.index = index;
 

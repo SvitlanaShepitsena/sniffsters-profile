@@ -10,7 +10,7 @@
 					</div>
 
 					<div class="col-xs-1">
-						<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
+						<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
 						        title="Save Caption" ng-click="updateTitle(galleries[index].Title)"><i
 								class="fa fa-save"></i>
 						</button>
@@ -30,13 +30,13 @@
 					     ng-src="{{('imgdir/'+id+'/'+galleries[index].Id+'/'+p.FilePath) | spacesToDashes}}">
 
 					<div class="row">
-						<div class="col-xs-9 caption">
+						<div class="col-xs-11">
 							<input type="text" class="form-control" ng-model="p.Caption">
 						</div>
 
-						<div class="col-xs-3">
+						<div class="col-xs-1">
 
-							<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
+							<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
 							        title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i>
 							</button>
 						</div>
@@ -50,7 +50,7 @@
 		<div class="text-center dropFilesHere" ng-file-drop="onFileSelect($files)"
 		     ng-file-drag-over-class="optional-css-class"
 		     ng-show="dropSupported">
-			<img class="gragPhotosImg" src="../../img/photo-icon.png" alt="">
+			<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
 			<p class="">
 				Drag photos here
 			</p>

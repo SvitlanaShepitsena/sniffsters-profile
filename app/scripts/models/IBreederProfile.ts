@@ -28,12 +28,7 @@ interface IGallery{
     Title:string;
     Photos:IPhoto[]
 }
-class Gallery implements  IGallery
-{
-    Id:number;
-    Title:string;
-    Photos:IPhoto[];
-}
+
 class BreederProfile implements IBreederProfile{
     Id:string;
     FirstName:string;

@@ -5,6 +5,11 @@ var photoGalleryEdit = function () {
         templateUrl: 'views/directives/photo-gallery-edit.html',
         transclude: true,
         replace: true,
+        scope: {
+            galleries: '=',
+            id: '@',
+            func: '&'
+        },
         controller: function ($scope, $stateParams, $upload, DataService, toastr) {
             var index = $stateParams.id;
             $scope.index = index;

@@ -11,11 +11,17 @@ var photoGalleries:() => ng.IDirective = () => {
         restrict: 'E',
         templateUrl: 'views/directives/photo-galleries.html',
         // replace directive tag with template info
-        replace: true
-//        controller: ($scope,galleryService:GalleryService) => {
-//           $scope.setSelectedGa
-//        },
-//        link: (scope:IPhotoGalleries, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        replace: true,
+        scope: {
+            galleries: '=',
+            id: '@',
+
+            func: '&'
+        },
+//        controller: ($scope) => {
+//            $scope.myvar = '4';
 //        }
+        link: (scope:IPhotoGalleries, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        }
     }
 }
