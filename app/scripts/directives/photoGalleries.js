@@ -7,7 +7,7 @@ var photoGalleries = function () {
         scope: {
             galleries: '=',
             id: '@',
-            func: '&'
+            setSelectedGallery: '&'
         },
         link: function (scope, element, attrs) {
         }

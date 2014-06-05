@@ -12,6 +12,7 @@ profile.filter('spacesToDashes', function () {
 });
 
 profile.service("CopyProfileService", CopyProfileService);
+profile.service("GalleryService", GalleryService);
 
 profile.directive("profileButtons", profileButtons);
 
@@ -53,7 +54,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("profile.photos.galleries", {
         url: "/gallery/:id",
         controller: "PhotosCtrl",
-        template: "<div ui-view><photo-gallery id={{index.Id}} galleries='photosCtrl.Galleries'></photo-gallery></div>"
+        template: "<div ui-view><photo-gallery id={{index.Id}} gallery='photosCtrl.SelectedGallery'></photo-gallery></div>"
     }).state("profile.photos.galleries.edit", {
         url: "/edit",
         controller: "PhotosCtrl",

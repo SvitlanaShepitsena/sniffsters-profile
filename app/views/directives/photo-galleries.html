@@ -11,8 +11,9 @@
 								{{g.Title}}
 							</h4>
 						</div>
-						<a href="#/profile/photos/gallery/{{$index}}" class="">
+						<a ng-click="setSelectedGallery({galid:$index})" class="cursor-p">
 							<img ng-src="{{('imgdir/'+id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}">
+							<!--Click-->
 						</a>
 					</div>
 				</li>

@@ -14,6 +14,11 @@ var PhotosCtrl = (function () {
             _this.ShowError('Error in getting Photo Galleries from the server');
         });
     }
+    PhotosCtrl.prototype.setSelectedGallery = function (galid) {
+        this.SelectedGallery = this.Galleries[galid];
+        this.$state.go('profile.photos.galleries', { 'id': galid });
+    };
+
     PhotosCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

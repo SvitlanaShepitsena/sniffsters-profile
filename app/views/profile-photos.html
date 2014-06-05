@@ -13,6 +13,6 @@
 	</div>
 	<photos-info>Gallery 1</photos-info>
 	<div ui-view>
-		<photo-galleries id="{{index.Id}}" galleries="photosCtrl.Galleries"></photo-galleries>
+		<photo-galleries set-selected-gallery="photosCtrl.setSelectedGallery(galid)" id="{{index.Id}}" galleries="photosCtrl.Galleries"></photo-galleries>
 	</div>
 </div>

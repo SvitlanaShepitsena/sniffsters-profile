@@ -10,6 +10,9 @@
 /**********************
         MIXINS
 ***********************/
+.cursor-p {
+  cursor: pointer;
+}
 hr {
   border-top-color: #bababa !important;
 }

@@ -16,7 +16,7 @@ var photoGalleries:() => ng.IDirective = () => {
             galleries: '=',
             id: '@',
 
-            func: '&'
+            setSelectedGallery: '&'
         },
 //        controller: ($scope) => {
 //            $scope.myvar = '4';
