@@ -12,9 +12,8 @@ var photoGallery:() => ng.IDirective = () => {
         templateUrl: 'views/directives/photo-gallery.html',
         // replace directive tag with template info
         replace: true,
-
         controller: ($scope, $stateParams) => {
-
+            console.log($scope.photosCtrl);
         },
         link: (scope:IPhotoGallery, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
         }

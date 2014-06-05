@@ -4,15 +4,16 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<ul class="list-unstyled list-inline">
-				<li class="col-xs-12 col-md-4" ng-repeat="g in galleries">
+				<li class="col-xs-12 col-md-4" ng-repeat="g in photosCtrl.Galleries">
 					<div class="thumbnail">
 						<div class="text-primary text-center caption">
 							<h4 class="">
 								{{g.Title}}
 							</h4>
 						</div>
-						<a ng-click="setSelectedGallery({galid:$index})" class="cursor-p">
-							<img ng-src="{{('imgdir/'+id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}">
+
+						<a ng-click="photosCtrl.setSelectedGallery($index)" class="cursor-p">
+							<img ng-src="{{('imgdir/'+index.Id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}">
 							<!--Click-->
 						</a>
 					</div>

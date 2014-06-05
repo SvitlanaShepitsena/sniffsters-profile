@@ -53,12 +53,10 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-photos.html"
     }).state("profile.photos.galleries", {
         url: "/gallery/:id",
-        controller: "PhotosCtrl",
-        template: "<div ui-view><photo-gallery id={{index.Id}} gallery='photosCtrl.SelectedGallery'></photo-gallery></div>"
+        template: "<div ui-view><photo-gallery></photo-gallery></div>"
     }).state("profile.photos.galleries.edit", {
         url: "/edit",
-        controller: "PhotosCtrl",
-        template: "<photo-gallery-edit id={{index.Id}} galleries='photosCtrl.Galleries'></photo-gallery-edit>"
+        template: "<photo-gallery-edit></photo-gallery-edit>"
     }).state("profile.photos.edit", {
         url: "/edit",
         templateUrl: "../views/profile-photosEdit.html"
