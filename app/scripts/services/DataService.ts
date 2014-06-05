@@ -45,6 +45,7 @@ class DataService {
             });
         return d.promise;
     }
+
     updateCaption(galleryId:number, photoId:number, caption:string) {
         var d = this.$q.defer();
 
@@ -52,7 +53,7 @@ class DataService {
             photoCaption: {
                 GalleryId: galleryId,
                 PhotoId: photoId,
-                Caption:caption
+                Caption: caption
             }})
             .success(() => {
                 d.resolve();

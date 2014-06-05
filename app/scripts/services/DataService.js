@@ -38,6 +38,7 @@ var DataService = (function () {
         });
         return d.promise;
     };
+
     DataService.prototype.updateCaption = function (galleryId, photoId, caption) {
         var d = this.$q.defer();
 

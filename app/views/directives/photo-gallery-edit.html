@@ -11,7 +11,8 @@
 
 					<div class="col-xs-1">
 						<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
-						        title="Save Caption" ng-click="updateTitle(galleries[index].Title)"><i class="fa fa-save"></i>
+						        title="Save Caption" ng-click="updateTitle(galleries[index].Title)"><i
+								class="fa fa-save"></i>
 						</button>
 					</div>
 				</div>
@@ -37,7 +38,7 @@
 
 							<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
 							        title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i>
-								</button>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -45,12 +46,18 @@
 		</ul>
 	</div>
 
-	<div class="panel panel-info">
-		<input type="file" ng-file-select="onFileSelect($files)" multiple>
-
-		<div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class"
-		     ng-show="dropSupported">drop files here
+	<div class="panel panel-default panel-file-upload">
+		<div class="text-center dropFilesHere" ng-file-drop="onFileSelect($files)"
+		     ng-file-drag-over-class="optional-css-class"
+		     ng-show="dropSupported">
+			<img class="gragPhotosImg" src="../../img/photo-icon.png" alt="">
+			<p class="">
+				Drag photos here
+			</p>
 		</div>
+
+		<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple>
+
 		<div ng-file-drop-available="dropSupported=true"
 		     ng-show="!dropSupported">HTML5 Drop File is not supported!
 		</div>
