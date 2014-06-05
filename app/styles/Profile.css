@@ -10,6 +10,13 @@
 /**********************
         MIXINS
 ***********************/
+.gragPhotosImg {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+.chooseFilesButton {
+  margin-top: 1em;
+}
 hr {
   border-top-color: #bababa !important;
 }
@@ -116,4 +123,11 @@ h5 {
   margin-top: 10px !important;
   margin-bottom: 5px !important;
   margin-right: 5px !important;
+}
+.panel-file-upload {
+  padding: 1.7em;
+}
+.dropFilesHere {
+  border: 2px #c3c3c3 dashed;
+  min-height: 100px;
 }

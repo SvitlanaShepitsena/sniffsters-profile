@@ -17,7 +17,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
             id: '@',
             func: '&'
         },
-        controller: ($scope, $stateParams, $upload, DataService:DataService,toastr:Toastr) => {
+        controller: ($scope, $stateParams, $upload, DataService:DataService, toastr:Toastr) => {
             var index:number = $stateParams.id;
             $scope.index = index;
 
