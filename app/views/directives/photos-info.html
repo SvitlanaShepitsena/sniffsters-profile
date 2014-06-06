@@ -1,46 +1,21 @@
 <div panel panel-info>
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="form-group">
-				<label>Gallery Title:</label>
-
-				<div class="row">
-					<div class="col-xs-11">
-						<input type="text" class="form-control" ng-model="galleries[index].Title">
-					</div>
-
-					<div class="col-xs-1">
-						<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
-						        title="Save Caption" ng-click="updateTitle(galleries[index].Title)"><i
-								class="fa fa-save"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
+	<h4>
+		<p ng-transclude></p>
+	</h4>
+	<div>
+		<input type="text" ng-model="gtitle" class="form-control">
 	</div>
 	<div>
 		<b>Uploaded photos({{pnumbers}})</b><span>Optional</span>
 	</div>
 	<div class="text-muted">Photo 3MB max JPG, PNG, GIF</div>
-
-	<div class="panel panel-default panel-file-upload">
-		<div class="text-center dropFilesHere" ng-file-drop="onFileSelect($files)"
-		     ng-file-drag-over-class="optional-css-class"
-		     ng-show="dropSupported">
-			<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
-			<p class="">
-				Drag photos here
-			</p>
-		</div>
-		<div class="row">
-			<div class="col-xs-6 col-xs-offset-3">
-					<p class="text-center">or</p>
-					<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple>
-				</div>
-
-			<div ng-file-drop-available="dropSupported=true"
-			     ng-show="!dropSupported">HTML5 Drop File is not supported!
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="panel panel-info text-center">
+				<br/>
+				<button ng-click="" class="btn btn-success">Browse</button>
+				<br/>
+				<br/>
 			</div>
 		</div>
 	</div>

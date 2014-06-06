@@ -9,32 +9,26 @@ var photoGalleryEdit:() => ng.IDirective = () => {
     return{
         restrict: 'E',
         templateUrl: 'views/directives/photo-gallery-edit.html',
-        transclude: true,
         // replace directive tag with template info
         replace: true,
-        scope: {
-            galleries: '=',
-            id: '@',
-            func: '&'
-        },
-        controller: ($scope, $stateParams, $upload, DataService:DataService, toastr:Toastr) => {
+        controller: ($scope, $stateParams, $upload, DataService:DataService,toastr:Toastr) => {
+            $scope.photosCtrl.CreateSelectedGalleryClone();
             var index:number = $stateParams.id;
-            $scope.index = index;
 
             $scope.delete = (p:IPhoto, index:number) => {
-                DataService.deletePhoto($scope.galleries[$scope.index].Id, p.Id).then(() => {
-                    $scope.galleries[$scope.index].Photos.splice(index, 1);
+                DataService.deletePhoto($scope.photosCtrl.SelectedGallery.Id, p.Id).then(() => {
+                    $scope.photosCtrl.SelectedGallery.Photos.splice(index, 1);
                 })
             }
             $scope.update = (p:IPhoto) => {
-                DataService.updateCaption($scope.galleries[$scope.index].Id, p.Id, p.Caption).then(() => {
+                DataService.updateCaption($scope.photosCtrl.SelectedGallery.Id, p.Id, p.Caption).then(() => {
                     toastr.success('Changes have been successfully saved to Db');
                 })
             }
 
 
            $scope.updateTitle=(newTitle:string) => {
-               DataService.updateTitle($scope.galleries[$scope.index].Id, newTitle).then(() => {
+               DataService.updateTitle($scope.photosCtrl.SelectedGallery.Id, newTitle).then(() => {
                    toastr.success('Changes have been successfully saved to Db');
                });
            }
@@ -49,7 +43,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
                         // method: 'POST' or 'PUT',
                         // headers: {'header-key': 'header-value'},
                         // withCredentials: true,
-                        data: {gallery: $scope.galleries[$scope.index].Id },
+                        data: {gallery: $scope.photosCtrl.SelectedGallery.Id },
                         file: file // or list of files: $files for html5 only
                         /* set the file formData name ('Content-Desposition'). Default is 'file' */
                         //fileFormDataName: myFile, //or a list of names for multiple files (html5).
@@ -59,7 +53,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
 //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                     }).success((data, status, headers, config) => {
                         // file is uploaded successfully
-                        $scope.galleries[$scope.index].Photos.push(data);
+                        $scope.photosCtrl.SelectedGallery.Photos.push(data);
 //                        $scope.myModelObj = {};
 //                        alert(data);
                     });
