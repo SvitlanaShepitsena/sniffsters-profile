@@ -10,9 +10,9 @@
 					</div>
 
 					<div class="col-xs-1">
-						<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
+						<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
 						        title="Save Caption" ng-click="updateTitle(photosCtrl.SelectedGalleryEdit.Title)"><i
-								class="fa fa-save"></i> </button>
+								class="fa fa-save"></i></button>
 					</div>
 				</div>
 			</div>
@@ -29,13 +29,12 @@
 					     ng-src="{{('imgdir/'+index.Id+'/'+photosCtrl.SelectedGalleryEdit.Id+'/'+p.FilePath) | spacesToDashes}}">
 
 					<div class="row">
-						<div class="col-xs-9 caption">
+						<div class="col-xs-11">
 							<input type="text" class="form-control" ng-model="p.Caption">
 						</div>
 
-						<div class="col-xs-3">
-
-							<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
+						<div class="col-xs-1">
+							<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
 							        title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i>
 							</button>
 						</div>
@@ -45,11 +44,13 @@
 		</ul>
 	</div>
 
+
 	<div class="panel panel-default panel-file-upload">
+		<div class="text-muted">Photo 3MB max JPG, PNG, GIF</div>
 		<div class="text-center dropFilesHere" ng-file-drop="onFileSelect($files)"
 		     ng-file-drag-over-class="optional-css-class"
 		     ng-show="dropSupported">
-			<img class="gragPhotosImg" src="../../img/photo-icon.png" alt="">
+			<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
 			<p class="">
 				Drag photos here
 			</p>
@@ -61,6 +62,7 @@
 		     ng-show="!dropSupported">HTML5 Drop File is not supported!
 		</div>
 	</div>
+
 
 	<a ui-sref="^" class="btn btn-default">Cancel</a>
 	<button class="btn btn-info" ng-click="">Save</button>

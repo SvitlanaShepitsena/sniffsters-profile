@@ -13,14 +13,11 @@
 	</div>
 	<ul class="list-unstyled">
 		<li ng-repeat="ng in photosCtrl.GalleriesNew">
-
-	<photos-info>Gallery {{$index+1}}</photos-info>
-
-
+			<photos-info>Gallery {{$index+1}}</photos-info>
 		</li>
 	</ul>
-
 	<div ui-view>
-		<photo-galleries photos-ctrl="photosCtrl" id="{{index.Id}}" ></photo-galleries>
+		<photo-galleries photos-ctrl="photosCtrl" id="{{index.Id}}"></photo-galleries>
 	</div>
 </div>
+
