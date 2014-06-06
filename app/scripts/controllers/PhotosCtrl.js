@@ -6,6 +6,9 @@ var PhotosCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        var newGallery = new Gallery();
+        this.GalleriesNew = new Array(newGallery);
+
         $scope.photosCtrl = this;
         $scope.index.url = "photos";
         DataService.getGalleries().then(function (data) {
@@ -14,6 +17,10 @@ var PhotosCtrl = (function () {
             _this.ShowError('Error in getting Photo Galleries from the server');
         });
     }
+    PhotosCtrl.prototype.addGallery = function () {
+        this.GalleriesNew.push(new Gallery());
+    };
+
     PhotosCtrl.prototype.setSelectedGallery = function (galid) {
         this.SelectedGallery = this.Galleries[galid];
         this.$state.go('profile.photos.galleries', { 'id': galid });

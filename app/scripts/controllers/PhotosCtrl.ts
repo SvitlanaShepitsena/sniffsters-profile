@@ -7,10 +7,14 @@ interface IPhotosScope extends IMainScope {
 }
 class PhotosCtrl {
     public Galleries:IGallery[];
+    public GalleriesNew:IGallery[];
     public SelectedGallery:IGallery;
     public SelectedGalleryEdit:IGallery;
 
     constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+        var newGallery = new Gallery();
+        this.GalleriesNew = new Array(newGallery);
+
         $scope.photosCtrl = this;
         $scope.index.url = "photos";
         DataService.getGalleries<IGallery>().then((data) => {
@@ -20,6 +24,10 @@ class PhotosCtrl {
 //            Error
             this.ShowError('Error in getting Photo Galleries from the server');
         })
+    }
+
+    addGallery() {
+        this.GalleriesNew.push(new Gallery());
     }
 
     setSelectedGallery(galid:number) {
@@ -37,7 +45,7 @@ class PhotosCtrl {
         this.toastr.error(note);
     }
 
-    CreateSelectedGalleryClone(){
+    CreateSelectedGalleryClone() {
         this.SelectedGalleryEdit = new Gallery();
         for (var key in this.SelectedGallery) {
             if (this.SelectedGallery.hasOwnProperty(key)) {
