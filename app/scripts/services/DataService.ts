@@ -62,6 +62,7 @@ class DataService {
             });
         return d.promise;
     }
+
     updateTitle(galleryId:number, title:string) {
         var d = this.$q.defer();
 
@@ -70,6 +71,19 @@ class DataService {
                 GalleryId: galleryId,
                 Title: title
             }})
+            .success(() => {
+                d.resolve();
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
+    }
+    deleteGallery(galleryId:number) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/DeleteGallery', {
+            galleryId: galleryId
+        })
             .success(() => {
                 d.resolve();
             }).error(() => {

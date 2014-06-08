@@ -53,6 +53,7 @@ var DataService = (function () {
         });
         return d.promise;
     };
+
     DataService.prototype.updateTitle = function (galleryId, title) {
         var d = this.$q.defer();
 
@@ -60,6 +61,18 @@ var DataService = (function () {
                 GalleryId: galleryId,
                 Title: title
             } }).success(function () {
+            d.resolve();
+        }).error(function () {
+            d.reject();
+        });
+        return d.promise;
+    };
+    DataService.prototype.deleteGallery = function (galleryId) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/DeleteGallery', {
+            galleryId: galleryId
+        }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
