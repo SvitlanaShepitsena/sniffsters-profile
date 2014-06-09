@@ -10,6 +10,11 @@ profile.filter('spacesToDashes', function () {
         return SpacesToDashes.filter(value);
     };
 });
+profile.filter('titleLength', function () {
+    return function (value, len) {
+        return TitleLength.filter(value, len);
+    };
+});
 
 profile.service("CopyProfileService", CopyProfileService);
 profile.service("GalleryService", GalleryService);

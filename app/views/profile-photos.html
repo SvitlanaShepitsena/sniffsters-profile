@@ -12,11 +12,15 @@
 		<div class="col-sm-1"><i class="fa fa-pencil-square-o"></i></div>
 	</div>
 
+
 	<ul class="list-unstyled">
 		<li ng-repeat="newgal in photosCtrl.GalleriesNew">
 			<photos-info new-gallery="newgal" user-name="{{index.Id}}">Gallery {{$index+1}}</photos-info>
 		</li>
 	</ul>
+
+
+
 	<div ui-view>
 		<photo-galleries photos-ctrl="photosCtrl" id="{{index.Id}}"></photo-galleries>
 	</div>

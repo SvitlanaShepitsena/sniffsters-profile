@@ -7,9 +7,9 @@
 				<li class="col-xs-12 col-md-4" ng-repeat="g in photosCtrl.Galleries">
 					<div class="thumbnail">
 						<div class="text-primary text-center caption">
-							<h4 class="">
-								{{g.Title}}
-							</h4>
+							<h5 class="">
+								{{g.Title | titleLength:15}}
+							</h5>
 						</div>
 
 						<a ng-click="photosCtrl.setSelectedGallery($index)" class="cursor-p">
@@ -17,15 +17,15 @@
 							<!--Click-->
 						</a>
 					</div>
-				<li>
-					<a class="thumbnail addNewGalleryLink" href="">
-						<h4 class="h4-addNewGallery">
-							Add new gallery
-						</h4>
-						<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
+				<!--<li>-->
+					<!--<a class="thumbnail addNewGalleryLink" href="">-->
+						<!--<h4 class="h4-addNewGallery">-->
+							<!--Add new gallery-->
+						<!--</h4>-->
+						<!--<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">-->
 
-					</a>
-				</li>
+					<!--</a>-->
+				<!--</li>-->
 				</li>
 			</ul>
 		</div>

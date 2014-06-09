@@ -12,6 +12,7 @@ var photosInfo = function () {
         controller: function ($scope, $q, $stateParams, $state, $upload, DataService, toastr) {
             var index = 0;
             $scope.newGallery.Photos = [];
+
             $scope.delete = function (p, index) {
                 DataService.deletePhoto($scope.newGallery.Id, p.Id).then(function () {
                     $scope.newGallery.Photos.splice(index, 1);
@@ -48,8 +49,8 @@ var photosInfo = function () {
                         Caption: 'Picture',
                         FilePath: data.FileName
                     };
-                    $scope.newGallery.Id = data.GalleryId;
                     $scope.newGallery.Photos.push(photo);
+                    $scope.newGallery.Id = data.GalleryId;
                     $scope.up($files, index + 1);
                 });
             };

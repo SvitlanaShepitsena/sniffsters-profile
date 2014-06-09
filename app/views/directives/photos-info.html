@@ -9,22 +9,22 @@
 						<input type="text" class="form-control" ng-model="newGallery.Title">
 					</div>
 
-					<div class="col-xs-1">
-					<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
-					title="Save Caption" ng-click="updateTitle()"><i
-					class="fa fa-save"></i>
-					</button>
-					</div>
+					<!--<div class="col-xs-1">-->
+					<!--<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"-->
+					<!--title="Save Caption" ng-click="updateTitle()"><i-->
+					<!--class="fa fa-save"></i>-->
+					<!--</button>-->
+					<!--</div>-->
 				</div>
 				<div class="row">
 					<ul class="list-unstyled ">
 						<li class="col-md-4 col-xs-12" ng-repeat="p in newGallery.Photos">
 							<div class="thumbnail">
-							<button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left"
-							        title="Delete this picture" ng-click="delete(p,$index)"><i
-									class="fa fa-trash-o"></i>
-							</button>
-								<img class="puppyPic"
+								<button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left"
+								        title="Delete this picture" ng-click="delete(p,$index)"><i
+										class="fa fa-trash-o"></i>
+								</button>
+								<img class="puppyPic img-responsive"
 								     ng-src="{{('imgdir/'+userName+'/'+newGallery.Id+'/'+p.FilePath) | spacesToDashes}}">
 
 								<div class="row">
