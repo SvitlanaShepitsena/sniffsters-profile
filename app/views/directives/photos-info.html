@@ -3,6 +3,7 @@
 		<div class="col-xs-12">
 			<div class="form-group">
 				<label>Gallery Title:</label>
+
 				<div class="row">
 					<div class="col-xs-11">
 						<input type="text" class="form-control" ng-model="newGallery.Title">
@@ -10,12 +11,35 @@
 
 
 					<div class="col-xs-1">
-						<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
-						        title="Save Caption" ng-click="updateTitle(galleries[index].Title)"><i
-								class="fa fa-save"></i>
-						</button>
+					<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
+					title="Save Caption" ng-click="updateTitle()"><i
+					class="fa fa-save"></i>
+					</button>
 					</div>
 				</div>
+				<ul class="list-unstyled ">
+					<li class="col-xs-12" ng-repeat="p in Photos">
+						<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
+						        title="Delete this picture" ng-click="delete(p,$index)"><i class="fa fa-trash-o"></i>
+						</button>
+						<div class="thumbnail">
+							<img class="puppyPic"
+							     ng-src="{{('imgdir/'+userName+'/'+GalleryId+'/'+p.FilePath) | spacesToDashes}}">
+
+							<div class="row">
+								<div class="col-xs-11">
+									<input type="text" class="form-control" ng-model="p.Caption">
+								</div>
+
+								<div class="col-xs-1">
+									<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
+									        title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -29,6 +53,7 @@
 		     ng-file-drag-over-class="optional-css-class"
 		     ng-show="dropSupported">
 			<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
+
 			<p class="">
 				Drag photos here
 			</p>

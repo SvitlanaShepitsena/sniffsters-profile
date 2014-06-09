@@ -14,18 +14,41 @@ var photosInfo:() => ng.IDirective = () => {
         transclude: true,
         // replace directive tag with template info
         replace: true,
+        scope: {
+            userName:'@'
 
-        controller: ($scope, $stateParams, $upload, DataService:DataService, toastr:Toastr) => {
+        },
+
+        controller: ($scope, $q, $stateParams, $state, $upload, DataService:DataService, toastr:Toastr) => {
+            $scope.Photos = [];
+            $scope.GalleryId;
             $scope.newGallery = {};
+
             $scope.files = [];
+            $scope.photoData = [];
             var index = 0;
-            $scope.save = () => {
-                $scope.up($scope.files, 0);
+
+            $scope.delete = (p:IPhoto, index:number) => {
+                DataService.deletePhoto($scope.GalleryId, p.Id).then(() => {
+                    $scope.Photos.splice(index, 1);
+                })
+            }
+            $scope.update = (p:IPhoto) => {
+                DataService.updateCaption($scope.GalleryId, p.Id, p.Caption).then(() => {
+                    toastr.success('Changes have been successfully saved to Db');
+                })
+            }
+
+
+            $scope.updateTitle=() => {
+                DataService.updateTitle($scope.GalleryId, $scope.newGallery.Title).then(() => {
+                    toastr.success('Changes have been successfully saved to Db');
+                });
             }
             $scope.onFileSelect = ($files) => {
                 //$files: an array of files selected, each file has name, size, and type.
 //                 var file = $files[0];
-                $scope.files = $files;
+                $scope.up($files, 0);
 //                $scope.up($files, 0);
 
             }
@@ -37,23 +60,22 @@ var photosInfo:() => ng.IDirective = () => {
                 var file = $files[index];
                 $upload.upload({
                     url: 'http://localhost:44300/BreederPersonal/AddPictureNewGallery',
-                    // method: 'POST' or 'PUT',
-                    // headers: {'header-key': 'header-value'},
-                    // withCredentials: true,
                     data: {Title: $scope.newGallery.Title},
                     file: file // or list of files: $files for html5 only
-                    /* set the file formData name ('Content-Desposition'). Default is 'file' */
-                    //fileFormDataName: myFile, //or a list of names for multiple files (html5).
-                    /* customize how data is added to formData. See #40#issuecomment-28612000 for sample code */
-                    //formDataAppender: function(formData, key, val){}
+
                 }).progress((evt) => {
 //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                 }).success((data, status, headers, config) => {
+//                    console.log(data);
+                    var photo:IPhoto = {
+                        Id: data.PhotoId,
+                        Caption: 'Picture',
+                        FilePath: data.FileName
+                    }
+                    $scope.GalleryId=data.GalleryId;
+                    $scope.Photos.push(photo);
                     $scope.up($files, index + 1);
-                    console.log(data);
-//                        $scope.photosCtrl.SelectedGallery.Photos.push(data);
-//                        $scope.myModelObj = {};
-//                        alert(data);
+
                 });
             }
 

@@ -7,7 +7,7 @@ describe("Edit Controller Test", () => {
     // Setting a variables needed to perform test
     var $q,$location,
         $state = {
-            go(page){}
+            go(page, p){}
         },
         toastr = {
             error(error) {

@@ -13,7 +13,7 @@
 	</div>
 	<ul class="list-unstyled">
 		<li ng-repeat="ng in photosCtrl.GalleriesNew">
-			<photos-info>Gallery {{$index+1}}</photos-info>
+			<photos-info user-name="{{index.Id}}">Gallery {{$index+1}}</photos-info>
 		</li>
 	</ul>
 	<div ui-view>
