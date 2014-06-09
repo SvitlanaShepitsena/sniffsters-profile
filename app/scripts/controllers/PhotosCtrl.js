@@ -17,6 +17,9 @@ var PhotosCtrl = (function () {
             _this.ShowError('Error in getting Photo Galleries from the server');
         });
     }
+    PhotosCtrl.prototype.saveNewGalleries = function () {
+    };
+
     PhotosCtrl.prototype.addGallery = function () {
         this.GalleriesNew.push(new Gallery());
     };

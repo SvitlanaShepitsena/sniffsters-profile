@@ -28,7 +28,9 @@ class PhotosCtrl {
         })
     }
 
+    saveNewGalleries() {
 
+    }
 
     addGallery() {
         this.GalleriesNew.push(new Gallery());
