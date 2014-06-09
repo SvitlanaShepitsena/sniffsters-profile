@@ -28,6 +28,8 @@ class PhotosCtrl {
         })
     }
 
+
+
     addGallery() {
         this.GalleriesNew.push(new Gallery());
     }
