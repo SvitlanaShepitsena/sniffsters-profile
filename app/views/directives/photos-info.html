@@ -18,13 +18,13 @@
 					</div>
 				</div>
 				<ul class="list-unstyled ">
-					<li class="col-xs-12" ng-repeat="p in Photos">
+					<li class="col-xs-12" ng-repeat="p in newGallery.Photos">
 						<button class="btn pull-right btn-del" data-toggle="tooltip" data-placement="left"
 						        title="Delete this picture" ng-click="delete(p,$index)"><i class="fa fa-trash-o"></i>
 						</button>
 						<div class="thumbnail">
 							<img class="puppyPic"
-							     ng-src="{{('imgdir/'+userName+'/'+GalleryId+'/'+p.FilePath) | spacesToDashes}}">
+							     ng-src="{{('imgdir/'+userName+'/'+newGallery.Id+'/'+p.FilePath) | spacesToDashes}}">
 
 							<div class="row">
 								<div class="col-xs-11">
@@ -69,6 +69,5 @@
 			</div>
 		</div>
 
-		<button ng-click="save()">Save</button>
 	</div>
 </div>

@@ -15,35 +15,27 @@ var photosInfo:() => ng.IDirective = () => {
         // replace directive tag with template info
         replace: true,
         scope: {
-            userName:'@'
-
+            userName: '@',
+            newGallery: '='
         },
 
         controller: ($scope, $q, $stateParams, $state, $upload, DataService:DataService, toastr:Toastr) => {
-            $scope.Photos = [];
-            $scope.GalleryId;
-            $scope.newGallery = {};
-
-            $scope.files = [];
-            $scope.photoData = [];
             var index = 0;
-
+            $scope.newGallery.Photos = [];
             $scope.delete = (p:IPhoto, index:number) => {
-                DataService.deletePhoto($scope.GalleryId, p.Id).then(() => {
-                    $scope.Photos.splice(index, 1);
+                DataService.deletePhoto($scope.newGallery.Id, p.Id).then(() => {
+                    $scope.newGallery.Photos.splice(index, 1);
                 })
             }
             $scope.update = (p:IPhoto) => {
-                DataService.updateCaption($scope.GalleryId, p.Id, p.Caption).then(() => {
+                DataService.updateCaption($scope.newGallery.Id, p.Id, p.Caption).then(() => {
                     toastr.success('Changes have been successfully saved to Db');
                 })
             }
 
 
-
-
-            $scope.updateTitle=() => {
-                DataService.updateTitle($scope.GalleryId, $scope.newGallery.Title).then(() => {
+            $scope.updateTitle = () => {
+                DataService.updateTitle($scope.newGallery.Id, $scope.newGallery.Title).then(() => {
                     toastr.success('Changes have been successfully saved to Db');
                 });
             }
@@ -74,8 +66,8 @@ var photosInfo:() => ng.IDirective = () => {
                         Caption: 'Picture',
                         FilePath: data.FileName
                     }
-                    $scope.GalleryId=data.GalleryId;
-                    $scope.Photos.push(photo);
+                    $scope.newGallery.Id= data.GalleryId;
+                    $scope.newGallery.Photos.push(photo);
                     $scope.up($files, index + 1);
 
                 });

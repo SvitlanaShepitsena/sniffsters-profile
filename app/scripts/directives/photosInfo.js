@@ -6,30 +6,25 @@ var photosInfo = function () {
         transclude: true,
         replace: true,
         scope: {
-            userName: '@'
+            userName: '@',
+            newGallery: '='
         },
         controller: function ($scope, $q, $stateParams, $state, $upload, DataService, toastr) {
-            $scope.Photos = [];
-            $scope.GalleryId;
-            $scope.newGallery = {};
-
-            $scope.files = [];
-            $scope.photoData = [];
             var index = 0;
-
+            $scope.newGallery.Photos = [];
             $scope.delete = function (p, index) {
-                DataService.deletePhoto($scope.GalleryId, p.Id).then(function () {
-                    $scope.Photos.splice(index, 1);
+                DataService.deletePhoto($scope.newGallery.Id, p.Id).then(function () {
+                    $scope.newGallery.Photos.splice(index, 1);
                 });
             };
             $scope.update = function (p) {
-                DataService.updateCaption($scope.GalleryId, p.Id, p.Caption).then(function () {
+                DataService.updateCaption($scope.newGallery.Id, p.Id, p.Caption).then(function () {
                     toastr.success('Changes have been successfully saved to Db');
                 });
             };
 
             $scope.updateTitle = function () {
-                DataService.updateTitle($scope.GalleryId, $scope.newGallery.Title).then(function () {
+                DataService.updateTitle($scope.newGallery.Id, $scope.newGallery.Title).then(function () {
                     toastr.success('Changes have been successfully saved to Db');
                 });
             };
@@ -53,8 +48,8 @@ var photosInfo = function () {
                         Caption: 'Picture',
                         FilePath: data.FileName
                     };
-                    $scope.GalleryId = data.GalleryId;
-                    $scope.Photos.push(photo);
+                    $scope.newGallery.Id = data.GalleryId;
+                    $scope.newGallery.Photos.push(photo);
                     $scope.up($files, index + 1);
                 });
             };
