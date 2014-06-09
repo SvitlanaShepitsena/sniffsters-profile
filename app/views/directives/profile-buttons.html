@@ -4,5 +4,5 @@
 	<button class="btn btn-info"
 	        ng-disabled="form.$invalid || (form.kennel.$pristine && form.story.$pristine && form.parents.$pristine && form.boys.$pristine && form.girls.$pristine && form.info.$pristine)"
 	        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save</button>
-	<button ng-click="Next()" class="btn btn-default" >Next Section</button>
+	<a ui-sref="profile.photos" class="btn btn-default" >Next Section</a>
 </div>
