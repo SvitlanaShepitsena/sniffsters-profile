@@ -29,7 +29,18 @@ class PhotosCtrl {
     }
 
     saveNewGalleries() {
+        var index = 0;
+        this.GalleriesNew.forEach((gallery:IGallery) => {
+            this.DataService.updateGallery(gallery).then(() => {
+                this.GalleriesNew.splice(index++, 1);
+                this.Galleries.push(gallery);
 
+                if (this.GalleriesNew.length==0){
+                    this.GalleriesNew.push(new Gallery());
+                }
+
+            })
+        })
     }
 
     addGallery() {

@@ -79,6 +79,18 @@ var DataService = (function () {
         });
         return d.promise;
     };
+    DataService.prototype.updateGallery = function (gallery) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/UpdateGallery', {
+            gallery: gallery
+        }).success(function () {
+            d.resolve();
+        }).error(function () {
+            d.reject();
+        });
+        return d.promise;
+    };
 
     DataService.prototype.getGalleries = function () {
         var d = this.$q.defer();

@@ -18,6 +18,18 @@ var PhotosCtrl = (function () {
         });
     }
     PhotosCtrl.prototype.saveNewGalleries = function () {
+        var _this = this;
+        var index = 0;
+        this.GalleriesNew.forEach(function (gallery) {
+            _this.DataService.updateGallery(gallery).then(function () {
+                _this.GalleriesNew.splice(index++, 1);
+                _this.Galleries.push(gallery);
+
+                if (_this.GalleriesNew.length == 0) {
+                    _this.GalleriesNew.push(new Gallery());
+                }
+            });
+        });
     };
 
     PhotosCtrl.prototype.addGallery = function () {
