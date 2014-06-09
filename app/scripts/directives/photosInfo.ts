@@ -22,6 +22,7 @@ var photosInfo:() => ng.IDirective = () => {
         controller: ($scope, $q, $stateParams, $state, $upload, DataService:DataService, toastr:Toastr) => {
             var index = 0;
             $scope.newGallery.Photos = [];
+
             $scope.delete = (p:IPhoto, index:number) => {
                 DataService.deletePhoto($scope.newGallery.Id, p.Id).then(() => {
                     $scope.newGallery.Photos.splice(index, 1);
@@ -66,8 +67,8 @@ var photosInfo:() => ng.IDirective = () => {
                         Caption: 'Picture',
                         FilePath: data.FileName
                     }
-                    $scope.newGallery.Id= data.GalleryId;
                     $scope.newGallery.Photos.push(photo);
+                    $scope.newGallery.Id= data.GalleryId;
                     $scope.up($files, index + 1);
 
                 });

@@ -14,6 +14,7 @@
 /// <reference path="directives/photoGallery.ts" />
 /// <reference path="directives/photoGalleryEdit.ts" />
 /// <reference path="services/GalleryService.ts" />
+/// <reference path="filters/TitleLength.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router','angularFileUpload']);
@@ -28,6 +29,7 @@ profile.filter('spacesToDashes', () => {
         return SpacesToDashes.filter(value);
     }
 });
+profile.filter('titleLength', () => { return (value:string,len:number):string => {return TitleLength.filter(value,len);     } });
 //#filt
 
 

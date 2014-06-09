@@ -6,8 +6,8 @@ interface IPhotosScope extends IMainScope {
     index:IndexCtrl;
 }
 class PhotosCtrl {
-    public Galleries:IGallery[];
     public GalleriesNew:IGallery[];
+    public Galleries:IGallery[];
 
     public SelectedGallery:IGallery;
     public SelectedGalleryEdit:IGallery;
