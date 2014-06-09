@@ -16,6 +16,7 @@ class PhotosCtrl {
         var newGallery = new Gallery();
         this.GalleriesNew = new Array(newGallery);
 
+
         $scope.photosCtrl = this;
         $scope.index.url = "photos";
         DataService.getGalleries<IGallery>().then((data) => {
