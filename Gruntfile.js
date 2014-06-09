@@ -462,6 +462,7 @@ module.exports = function (grunt) {
 
 
         fileContent= fileContent.replace(/imgdir\//g, '/Scripts/app/profile/app/imgdir/');
+        fileContent= fileContent.replace(/..\/..\/img\//g, '/Scripts/app/profile/app/img/');
 
         grunt.file.write('templates.cshtml', fileContent);
 
