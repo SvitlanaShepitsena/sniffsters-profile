@@ -6,8 +6,22 @@ interface ISpinDiv extends ng.IScope {
 
 var spinDiv:() => ng.IDirective = () => {
 
-    return {
+    return{
         restrict: 'E',
-        template:'<div class="sp"><i class="fa fa-spinner fa-spin fa-5x"></i></div>'
-    };
+        templateUrl: 'views/directives/spin-div.html',
+        transclude: true,
+        // replace directive tag with template info
+        replace: true,
+        scope: {
+            ctrl: '=',
+
+            text: '@',
+            func: '&'
+        },
+        link: (scope:ISpinDiv, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+
+
+
+        }
+    }
 }

@@ -2,6 +2,15 @@
 var spinDiv = function () {
     return {
         restrict: 'E',
-        template: '<div class="sp"><i class="fa fa-spinner fa-spin fa-5x"></i></div>'
+        templateUrl: 'views/directives/spin-div.html',
+        transclude: true,
+        replace: true,
+        scope: {
+            ctrl: '=',
+            text: '@',
+            func: '&'
+        },
+        link: function (scope, element, attrs) {
+        }
     };
 };
