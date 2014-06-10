@@ -19,12 +19,16 @@ class PhotosCtrl {
         $scope.photosCtrl = this;
 
         $scope.index.url = "photos";
+        $scope.index.spinner = true;
         DataService.getGalleries<IGallery>().then((data) => {
 //            Success
             this.Galleries = data;
         }, () => {
 //            Error
             this.ShowError('Error in getting Photo Galleries from the server');
+        }).finally(() => {
+
+        $scope.index.spinner = false;
         })
     }
 

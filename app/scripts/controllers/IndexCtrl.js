@@ -7,8 +7,9 @@ var IndexCtrl = (function () {
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
         $scope.index = this;
-        var promiseT = this.DataService.getProfile();
+        this.spinner = true;
 
+        var promiseT = this.DataService.getProfile();
         promiseT.then(function (breederProfile) {
             _this.error = false;
             _this.BreederProfile = breederProfile;
@@ -20,6 +21,8 @@ var IndexCtrl = (function () {
         }, function () {
             _this.error = true;
             _this.ShowError("Error in Db Connection");
+        }).finally(function () {
+            _this.spinner = false;
         });
     }
     IndexCtrl.prototype.SaveKennelName = function () {

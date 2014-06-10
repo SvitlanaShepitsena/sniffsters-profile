@@ -10,11 +10,15 @@ var PhotosCtrl = (function () {
         this.GalleriesNew = new Array(newGallery);
 
         $scope.photosCtrl = this;
+
         $scope.index.url = "photos";
+        $scope.index.spinner = true;
         DataService.getGalleries().then(function (data) {
             _this.Galleries = data;
         }, function () {
             _this.ShowError('Error in getting Photo Galleries from the server');
+        }).finally(function () {
+            $scope.index.spinner = false;
         });
     }
     PhotosCtrl.prototype.saveNewGalleries = function () {

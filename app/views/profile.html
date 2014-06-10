@@ -9,7 +9,8 @@
 		</ul>
 
 		<br/>
-		<div ui-view></div>
+		<div ng-hide="index.spinner" ui-view></div>
+		<spin-div ng-show="index.spinner"></spin-div>
 	</div>
 	<div class="col-sm-4">
 	<breeder-details ctrl = "index"></breeder-details>

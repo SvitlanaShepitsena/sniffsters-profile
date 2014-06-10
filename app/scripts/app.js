@@ -1,4 +1,4 @@
-var profile = angular.module("profile", ['ui.router', 'angularFileUpload']);
+var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate']);
 
 profile.filter('boolString', function () {
     return function (value) {
@@ -30,6 +30,7 @@ profile.directive("photosInfo", photosInfo);
 profile.directive("photoGalleries", photoGalleries);
 profile.directive("photoGallery", photoGallery);
 profile.directive("photoGalleryEdit", photoGalleryEdit);
+profile.directive("spinDiv", spinDiv);
 
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);

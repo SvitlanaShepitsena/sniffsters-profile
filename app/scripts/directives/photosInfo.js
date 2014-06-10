@@ -18,21 +18,9 @@ var photosInfo = function () {
                     $scope.newGallery.Photos.splice(index, 1);
                 });
             };
-            $scope.update = function (p) {
-                DataService.updateCaption($scope.newGallery.Id, p.Id, p.Caption).then(function () {
-                    toastr.success('Changes have been successfully saved to Db');
-                });
-            };
-
-            $scope.updateTitle = function () {
-                DataService.updateTitle($scope.newGallery.Id, $scope.newGallery.Title).then(function () {
-                    toastr.success('Changes have been successfully saved to Db');
-                });
-            };
             $scope.onFileSelect = function ($files) {
                 $scope.up($files, 0);
             };
-
             $scope.up = function ($files, index) {
                 if (index == $files.length) {
                     return;

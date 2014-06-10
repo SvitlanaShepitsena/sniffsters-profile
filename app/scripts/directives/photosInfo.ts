@@ -28,26 +28,12 @@ var photosInfo:() => ng.IDirective = () => {
                     $scope.newGallery.Photos.splice(index, 1);
                 })
             }
-            $scope.update = (p:IPhoto) => {
-                DataService.updateCaption($scope.newGallery.Id, p.Id, p.Caption).then(() => {
-                    toastr.success('Changes have been successfully saved to Db');
-                })
-            }
-
-
-            $scope.updateTitle = () => {
-                DataService.updateTitle($scope.newGallery.Id, $scope.newGallery.Title).then(() => {
-                    toastr.success('Changes have been successfully saved to Db');
-                });
-            }
             $scope.onFileSelect = ($files) => {
                 //$files: an array of files selected, each file has name, size, and type.
 //                 var file = $files[0];
                 $scope.up($files, 0);
 //                $scope.up($files, 0);
-
             }
-
             $scope.up = ($files, index) => {
                 if (index == $files.length) {
                     return;
@@ -57,7 +43,6 @@ var photosInfo:() => ng.IDirective = () => {
                     url: 'http://localhost:44300/BreederPersonal/AddPictureNewGallery',
                     data: {Title: $scope.newGallery.Title},
                     file: file // or list of files: $files for html5 only
-
                 }).progress((evt) => {
 //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                 }).success((data, status, headers, config) => {
@@ -68,12 +53,10 @@ var photosInfo:() => ng.IDirective = () => {
                         FilePath: data.FileName
                     }
                     $scope.newGallery.Photos.push(photo);
-                    $scope.newGallery.Id= data.GalleryId;
+                    $scope.newGallery.Id = data.GalleryId;
                     $scope.up($files, index + 1);
-
                 });
             }
-
         }
     }
 }

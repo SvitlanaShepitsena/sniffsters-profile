@@ -18,12 +18,14 @@ class IndexCtrl {
     error:boolean;
     Id:string;
     url:string;
+    spinner:boolean;
 
     constructor(public $scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
 
         $scope.index = this;
-        var promiseT = this.DataService.getProfile<IBreederProfile>();
+        this.spinner = true;
 
+        var promiseT = this.DataService.getProfile<IBreederProfile>();
         promiseT.then((breederProfile:IBreederProfile) => {
             //Success
             this.error = false;
@@ -38,6 +40,8 @@ class IndexCtrl {
             //Error
             this.error = true;
             this.ShowError("Error in Db Connection")
+        }).finally(() => {
+            this.spinner=false;
         })
     }
 
