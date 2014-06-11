@@ -6,6 +6,15 @@ var photoGalleryEdit = function () {
         replace: true,
         controller: function ($scope, $stateParams, $upload, DataService, toastr) {
             $scope.photosCtrl.CreateSelectedGalleryClone();
+
+            $scope.tempPhoto = [];
+            var index = 0;
+
+            $scope.photosCtrl.SelectedGalleryEdit.Photos.forEach(function (photo) {
+                $scope.tempPhoto.push(photo);
+                $scope.photosCtrl.SelectedGalleryEdit.Photos.splice(index++, 1);
+            });
+
             var index = $stateParams.id;
 
             $scope.delete = function (p, index) {

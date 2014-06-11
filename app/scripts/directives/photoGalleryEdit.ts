@@ -14,6 +14,17 @@ var photoGalleryEdit:() => ng.IDirective = () => {
 
         controller: ($scope, $stateParams, $upload, DataService:DataService,toastr:Toastr) => {
             $scope.photosCtrl.CreateSelectedGalleryClone();
+
+            $scope.tempPhoto = [];
+            var index=0;
+            //iterating over arrey of photos of selected gallery
+            $scope.photosCtrl.SelectedGalleryEdit.Photos.forEach((photo) =>  {
+                //move photo from main ctrl to temp empty arrey
+                $scope.tempPhoto.push(photo);
+                $scope.photosCtrl.SelectedGalleryEdit.Photos.splice(index++, 1);
+            });
+
+
             var index:number = $stateParams.id;
 
             $scope.delete = (p:IPhoto, index:number) => {
