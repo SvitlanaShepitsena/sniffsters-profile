@@ -11,6 +11,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
         templateUrl: 'views/directives/photo-gallery-edit.html',
         // replace directive tag with template info
         replace: true,
+
         controller: ($scope, $stateParams, $upload, DataService:DataService,toastr:Toastr) => {
             $scope.photosCtrl.CreateSelectedGalleryClone();
             var index:number = $stateParams.id;
