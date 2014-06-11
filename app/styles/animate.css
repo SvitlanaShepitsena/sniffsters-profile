@@ -151,3 +151,8 @@
   height: 1000px;
   overflow: hidden;
 }
+.well-photos {
+  background: #efefef;
+  padding: 5px;
+  margin: 5px;
+}
