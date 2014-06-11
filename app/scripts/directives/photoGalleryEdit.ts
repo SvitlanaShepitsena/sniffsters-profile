@@ -12,17 +12,21 @@ var photoGalleryEdit:() => ng.IDirective = () => {
         // replace directive tag with template info
         replace: true,
 
-        controller: ($scope, $stateParams, $upload, DataService:DataService,toastr:Toastr) => {
+        controller: ($scope, $stateParams, $upload, DataService:DataService, toastr:Toastr) => {
             $scope.photosCtrl.CreateSelectedGalleryClone();
 
             $scope.tempPhoto = [];
-            var index=0;
+            var index = 0;
             //iterating over arrey of photos of selected gallery
-            $scope.photosCtrl.SelectedGalleryEdit.Photos.forEach((photo) =>  {
+            $scope.photosCtrl.SelectedGalleryEdit.Photos.forEach((photo) => {
                 //move photo from main ctrl to temp empty arrey
                 $scope.tempPhoto.push(photo);
                 $scope.photosCtrl.SelectedGalleryEdit.Photos.splice(index++, 1);
             });
+//iterate over temp arrey, take each element and put it back
+            $scope.tempPhoto.forEach((photo) => {
+                $scope.photosCtrl.SelectedGallery.Photos.push(photo);
+            })
 
 
             var index:number = $stateParams.id;
@@ -39,11 +43,11 @@ var photoGalleryEdit:() => ng.IDirective = () => {
             }
 
 
-           $scope.updateTitle=(newTitle:string) => {
-               DataService.updateTitle($scope.photosCtrl.SelectedGallery.Id, newTitle).then(() => {
-                   toastr.success('Changes have been successfully saved to Db');
-               });
-           }
+            $scope.updateTitle = (newTitle:string) => {
+                DataService.updateTitle($scope.photosCtrl.SelectedGallery.Id, newTitle).then(() => {
+                    toastr.success('Changes have been successfully saved to Db');
+                });
+            }
 
             $scope.onFileSelect = ($files) => {
                 //$files: an array of files selected, each file has name, size, and type.

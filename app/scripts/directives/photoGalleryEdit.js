@@ -15,6 +15,10 @@ var photoGalleryEdit = function () {
                 $scope.photosCtrl.SelectedGalleryEdit.Photos.splice(index++, 1);
             });
 
+            $scope.tempPhoto.forEach(function (photo) {
+                $scope.photosCtrl.SelectedGallery.Photos.push(photo);
+            });
+
             var index = $stateParams.id;
 
             $scope.delete = function (p, index) {
