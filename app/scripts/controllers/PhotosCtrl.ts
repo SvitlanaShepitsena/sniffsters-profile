@@ -16,6 +16,7 @@ class PhotosCtrl {
         var newGallery = new Gallery();
         this.GalleriesNew = new Array(newGallery);
 
+        $scope.index.menuIndex=2;
         $scope.photosCtrl = this;
 
         $scope.index.url = "photos";

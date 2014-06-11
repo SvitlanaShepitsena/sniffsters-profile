@@ -152,13 +152,12 @@
 .animate-enter.animate-enter-active,
 .animate-leave {
   opacity: 1;
-  width: 150px;
   height: 30px;
 }
 .cont {
   position: relative;
-  width: 500px;
-  height: 500px;
+  height: 1000px;
+  overflow: hidden;
 }
 .abs {
   position: absolute;

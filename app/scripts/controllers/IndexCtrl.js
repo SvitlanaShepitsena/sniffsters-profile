@@ -8,9 +8,15 @@ var IndexCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        this.menuIndex = 1;
         $scope.slide = '';
 
         $rootScope.$on('$stateChangeStart', function () {
+            if (_this.menuIndex == 2) {
+                $scope.slide = 'slide-left';
+            } else {
+                $scope.slide = 'slide-right';
+            }
             $scope.slide = $scope.slide || 'slide-right';
         });
 

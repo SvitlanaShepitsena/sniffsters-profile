@@ -19,11 +19,19 @@ class IndexCtrl {
     Id:string;
     url:string;
     spinner:boolean;
+    menuIndex:number;
 
-    constructor(public $scope,public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+        this.menuIndex = 1;
         $scope.slide = '';
 
         $rootScope.$on('$stateChangeStart', () => {
+            if (this.menuIndex==2) {
+                $scope.slide = 'slide-left';
+            } else{
+
+                $scope.slide = 'slide-right';
+            }
             $scope.slide = $scope.slide || 'slide-right'
         });
 
@@ -55,7 +63,7 @@ class IndexCtrl {
             this.error = true;
             this.ShowError("Error in Db Connection")
         }).finally(() => {
-            this.spinner=false;
+            this.spinner = false;
         })
     }
 
