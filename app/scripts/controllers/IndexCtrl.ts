@@ -9,7 +9,7 @@ interface IMainScope extends ng.IScope {
     index:IndexCtrl;
 }
 class IndexCtrl {
-    static $inject = ['$scope', '$state', 'toastr', 'DataService', 'CopyProfileService'];
+
 
     BreederProfile:IBreederProfile;
     BreederProfileEdit:IBreederProfile;
@@ -20,8 +20,22 @@ class IndexCtrl {
     url:string;
     spinner:boolean;
 
-    constructor(public $scope:IMainScope, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope,public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+        $scope.slide = '';
 
+        $rootScope.$on('$stateChangeStart', () => {
+            $scope.slide = $scope.slide || 'slide-right'
+        });
+
+        $rootScope.back = () => {
+            $scope.slide = 'slide-right';
+            $window.history.back();
+        }
+
+        $rootScope.forward = () => {
+            $scope.slide = 'slide-left';
+            $window.history.forward();
+        }
         $scope.index = this;
         this.spinner = true;
 

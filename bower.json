@@ -8,10 +8,10 @@
     "jquery": "*",
     "angular-bootstrap": "*",
     "es5-shim": "*",
-    "angular-ui-router": "*",
     "bootstrap": "*",
     "toastr": "*",
-    "angular-animate": "*"
+    "angular-animate": "*",
+    "angular-ui-router": "0.2.10"
   },
   "devDependencies": {
     "angular-mocks": "*",

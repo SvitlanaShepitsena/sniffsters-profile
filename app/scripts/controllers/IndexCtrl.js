@@ -1,11 +1,28 @@
 var IndexCtrl = (function () {
-    function IndexCtrl($scope, $state, toastr, DataService, CopyProfileService) {
+    function IndexCtrl($scope, $rootScope, $window, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
+        this.$rootScope = $rootScope;
+        this.$window = $window;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        $scope.slide = '';
+
+        $rootScope.$on('$stateChangeStart', function () {
+            $scope.slide = $scope.slide || 'slide-right';
+        });
+
+        $rootScope.back = function () {
+            $scope.slide = 'slide-right';
+            $window.history.back();
+        };
+
+        $rootScope.forward = function () {
+            $scope.slide = 'slide-left';
+            $window.history.forward();
+        };
         $scope.index = this;
         this.spinner = true;
 
@@ -88,6 +105,5 @@ var IndexCtrl = (function () {
             _this.ShowError('Db Connection Problem');
         });
     };
-    IndexCtrl.$inject = ['$scope', '$state', 'toastr', 'DataService', 'CopyProfileService'];
     return IndexCtrl;
 })();

@@ -10,6 +10,47 @@
 /**********************
         MIXINS
 ***********************/
+.slide-left.ng-enter,
+.slide-left.ng-leave,
+.slide-right.ng-enter,
+.slide-right.ng-leave {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  -ms-transition: 0.7s ease-in-out;
+  -webkit-transition: 0.7s ease-in-out;
+  transition: 0.7s ease-in-out;
+}
+.slide-left.ng-enter.ng-enter-active {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.slide-left.ng-leave {
+  z-index: 100;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.slide-left.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+.slide-right.ng-enter {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+.slide-right.ng-enter.ng-enter-active,
+.slide-right.ng-leave {
+  position: absolute;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.slide-right.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
 .sp {
   left: 40%;
   top: 100px;
@@ -113,6 +154,14 @@
   opacity: 1;
   width: 150px;
   height: 30px;
+}
+.cont {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+.abs {
+  position: absolute;
 }
 .cursor-p {
   cursor: pointer;

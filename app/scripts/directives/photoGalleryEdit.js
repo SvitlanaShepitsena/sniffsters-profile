@@ -4,7 +4,7 @@ var photoGalleryEdit = function () {
         restrict: 'E',
         templateUrl: 'views/directives/photo-gallery-edit.html',
         replace: true,
-        controller: function ($scope, $stateParams, $upload, DataService, toastr) {
+        controller: function ($scope, $stateParams, $upload, $modal, DataService, toastr) {
             $scope.photosCtrl.CreateSelectedGalleryClone();
 
             $scope.tempPhoto = [];
@@ -16,15 +16,13 @@ var photoGalleryEdit = function () {
             });
 
             $scope.tempPhoto.forEach(function (photo) {
-                $scope.photosCtrl.SelectedGallery.Photos.push(photo);
+                $scope.photosCtrl.SelectedGalleryEdit.Photos.push(photo);
             });
 
             var index = $stateParams.id;
 
             $scope.delete = function (p, index) {
-                DataService.deletePhoto($scope.photosCtrl.SelectedGallery.Id, p.Id).then(function () {
-                    $scope.photosCtrl.SelectedGallery.Photos.splice(index, 1);
-                });
+                $modal.open();
             };
             $scope.update = function (p) {
                 DataService.updateCaption($scope.photosCtrl.SelectedGallery.Id, p.Id, p.Caption).then(function () {

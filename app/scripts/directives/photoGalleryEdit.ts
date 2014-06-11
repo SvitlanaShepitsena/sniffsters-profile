@@ -12,7 +12,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
         // replace directive tag with template info
         replace: true,
 
-        controller: ($scope, $stateParams, $upload, DataService:DataService, toastr:Toastr) => {
+        controller: ($scope, $stateParams, $upload, $modal, DataService:DataService, toastr:Toastr) => {
             $scope.photosCtrl.CreateSelectedGalleryClone();
 
             $scope.tempPhoto = [];
@@ -23,18 +23,19 @@ var photoGalleryEdit:() => ng.IDirective = () => {
                 $scope.tempPhoto.push(photo);
                 $scope.photosCtrl.SelectedGalleryEdit.Photos.splice(index++, 1);
             });
-//iterate over temp arrey, take each element and put it back
+
             $scope.tempPhoto.forEach((photo) => {
-                $scope.photosCtrl.SelectedGallery.Photos.push(photo);
+                $scope.photosCtrl.SelectedGalleryEdit.Photos.push(photo);
             })
 
 
             var index:number = $stateParams.id;
 
             $scope.delete = (p:IPhoto, index:number) => {
-                DataService.deletePhoto($scope.photosCtrl.SelectedGallery.Id, p.Id).then(() => {
-                    $scope.photosCtrl.SelectedGallery.Photos.splice(index, 1);
-                })
+                $modal.open();
+//                    DataService.deletePhoto($scope.photosCtrl.SelectedGallery.Id, p.Id).then(() => {
+//                        $scope.photosCtrl.SelectedGallery.Photos.splice(index, 1);
+//                    })
             }
             $scope.update = (p:IPhoto) => {
                 DataService.updateCaption($scope.photosCtrl.SelectedGallery.Id, p.Id, p.Caption).then(() => {

@@ -1,4 +1,4 @@
-var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate']);
+var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap']);
 
 profile.filter('boolString', function () {
     return function (value) {
