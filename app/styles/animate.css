@@ -12,6 +12,10 @@
   -webkit-transition: 0.7s ease-in-out;
   transition: 0.7s ease-in-out;
 }
+.slide-left.ng-enter {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
 .slide-left.ng-enter.ng-enter-active {
   -webkit-transform: translateX(0);
   transform: translateX(0);
@@ -26,8 +30,8 @@
   transform: translateX(-100%);
 }
 .slide-right.ng-enter {
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
 }
 .slide-right.ng-enter.ng-enter-active,
 .slide-right.ng-leave {
@@ -146,7 +150,4 @@
   position: relative;
   height: 1000px;
   overflow: hidden;
-}
-.abs {
-  position: absolute;
 }

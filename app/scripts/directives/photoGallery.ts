@@ -34,7 +34,7 @@ var photoGallery:() => ng.IDirective = () => {
                         var id = $stateParams.id;
                         $scope.photosCtrl.Galleries.splice(id, 1);
 //                        2. Navigate to List of Galleries
-                        $state.go('profile.photos',{});
+                        $state.go('profile.photos2',{});
                     })
             }
         },

@@ -6,10 +6,11 @@ var PhotosCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        $scope.index.menuIndex = 2;
+
         var newGallery = new Gallery();
         this.GalleriesNew = new Array(newGallery);
 
-        $scope.index.menuIndex = 2;
         $scope.photosCtrl = this;
 
         $scope.index.url = "photos";
@@ -51,7 +52,7 @@ var PhotosCtrl = (function () {
 
     PhotosCtrl.prototype.setSelectedGallery = function (galid) {
         this.SelectedGallery = this.Galleries[galid];
-        this.$state.go('profile.photos.galleries', { 'id': galid });
+        this.$state.go('profile.photos2.galleries', { 'id': galid });
     };
 
     PhotosCtrl.prototype.ShowSuccess = function (note) {

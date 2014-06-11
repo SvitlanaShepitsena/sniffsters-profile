@@ -21,7 +21,7 @@ var photoGallery = function () {
                     var id = $stateParams.id;
                     $scope.photosCtrl.Galleries.splice(id, 1);
 
-                    $state.go('profile.photos', {});
+                    $state.go('profile.photos2', {});
                 });
             };
         },

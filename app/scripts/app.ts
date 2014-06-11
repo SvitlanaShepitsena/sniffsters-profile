@@ -71,52 +71,52 @@ profile.config(
                 url: "/profile",
                 templateUrl: "../views/profile.html"
             })
-            .state("profile.about", {
+            .state("profile.about1", {
                 url: "/about",
                 templateUrl: "../views/profile-about.html"
             })
-            .state("profile.about.edit", {
+            .state("profile.about1.edit", {
                 url: "/edit",
                 templateUrl: "../views/profile-about-edit.html"
             })
-            .state("profile.photos", {
+            .state("profile.photos2", {
                 url: "/photos",
                 controller: "PhotosCtrl",
                 templateUrl: "../views/profile-photos.html"
             })
-            .state("profile.photos.galleries", {
+            .state("profile.photos2.galleries", {
                 url: "/gallery/:id",
                 template: "<div ui-view><photo-gallery></photo-gallery></div>"
             })
-            .state("profile.photos.galleries.edit", {
+            .state("profile.photos2.galleries.edit", {
                 url: "/edit",
                 template: "<photo-gallery-edit></photo-gallery-edit>"
             })
-            .state("profile.photos.edit", {
+            .state("profile.photos2.edit", {
                 url: "/edit",
                 templateUrl: "../views/profile-photosEdit.html"
             })
-            .state("profile.puppies", {
+            .state("profile.puppies3", {
                 url: "/puppies",
                 templateUrl: "../views/profile-puppies.html"
             })
-            .state("profile.puppies.edit", {
+            .state("profile.puppies3.edit", {
                 url: "/edit",
                 templateUrl: "../views/profile-puppiesEdit.html"
             })
-            .state("profile.details", {
+            .state("profile.details4", {
                 url: "/details",
                 templateUrl: "../views/profile-details.html"
             })
-            .state("profile.details.edit", {
+            .state("profile.details4.edit", {
                 url: "/edit",
                 templateUrl: "../views/profile-detailsEdit.html"
             })
-            .state("profile.testimonials", {
+            .state("profile.testimonials5", {
                 url: "/testimonials",
                 templateUrl: "../views/profile-testimonials.html"
             })
-            .state("profile.testimonials.edit", {
+            .state("profile.testimonials5.edit", {
                 url: "/edit",
                 templateUrl: "../views/profile-testimonialsEdit.html"
             })

@@ -13,10 +13,12 @@ class PhotosCtrl {
     public SelectedGalleryEdit:IGallery;
 
     constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+        $scope.index.menuIndex=2;
+
+
         var newGallery = new Gallery();
         this.GalleriesNew = new Array(newGallery);
 
-        $scope.index.menuIndex=2;
         $scope.photosCtrl = this;
 
         $scope.index.url = "photos";
@@ -62,7 +64,7 @@ class PhotosCtrl {
 
     setSelectedGallery(galid:number) {
         this.SelectedGallery = this.Galleries[galid];
-        this.$state.go('profile.photos.galleries', {'id': galid});
+        this.$state.go('profile.photos2.galleries', {'id': galid});
 //        console.log(this.SelectedGallery);
     }
 
