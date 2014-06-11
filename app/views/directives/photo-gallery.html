@@ -20,7 +20,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<ul class="list-unstyled list-inline">
-				<li class="col-xs-12" ng-repeat="p in photosCtrl.SelectedGallery.Photos">
+				<li class="col-xs-12 shuffle-animation"  ng-repeat="p in photosCtrl.SelectedGallery.Photos">
 					<div class="thumbnail">
 						<img ng-src="{{('imgdir/'+index.Id+'/'+photosCtrl.SelectedGallery.Id+'/'+p.FilePath) | spacesToDashes}}">
 
