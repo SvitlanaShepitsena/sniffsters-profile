@@ -28,22 +28,30 @@ class PhotosCtrl {
             this.ShowError('Error in getting Photo Galleries from the server');
         }).finally(() => {
 
-        $scope.index.spinner = false;
+            $scope.index.spinner = false;
         })
     }
 
     saveNewGalleries() {
         var index = 0;
-        this.GalleriesNew.forEach((gallery:IGallery) => {
-            this.DataService.updateGallery(gallery).then(() => {
-                this.GalleriesNew.splice(index++, 1);
-                this.Galleries.push(gallery);
+        this.updateGallery(this.GalleriesNew, index);
+    }
 
-                if (this.GalleriesNew.length==0){
-                    this.GalleriesNew.push(new Gallery());
-                }
+    updateGallery(galleries:IGallery[], index:number) {
+        if (galleries.length==0) {
+            if (this.GalleriesNew.length == 0) {
+                this.GalleriesNew.push(new Gallery());
+            }
+            return;
+        }
+        var gallery = galleries[index];
 
-            })
+        this.DataService.updateGallery(gallery).then(() => {
+            this.GalleriesNew.splice(index, 1);
+            this.Galleries.push(gallery);
+
+
+            this.updateGallery(galleries, index);
         })
     }
 

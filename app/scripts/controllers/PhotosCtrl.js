@@ -22,17 +22,25 @@ var PhotosCtrl = (function () {
         });
     }
     PhotosCtrl.prototype.saveNewGalleries = function () {
-        var _this = this;
         var index = 0;
-        this.GalleriesNew.forEach(function (gallery) {
-            _this.DataService.updateGallery(gallery).then(function () {
-                _this.GalleriesNew.splice(index++, 1);
-                _this.Galleries.push(gallery);
+        this.updateGallery(this.GalleriesNew, index);
+    };
 
-                if (_this.GalleriesNew.length == 0) {
-                    _this.GalleriesNew.push(new Gallery());
-                }
-            });
+    PhotosCtrl.prototype.updateGallery = function (galleries, index) {
+        var _this = this;
+        if (galleries.length == 0) {
+            if (this.GalleriesNew.length == 0) {
+                this.GalleriesNew.push(new Gallery());
+            }
+            return;
+        }
+        var gallery = galleries[index];
+
+        this.DataService.updateGallery(gallery).then(function () {
+            _this.GalleriesNew.splice(index, 1);
+            _this.Galleries.push(gallery);
+
+            _this.updateGallery(galleries, index);
         });
     };
 
