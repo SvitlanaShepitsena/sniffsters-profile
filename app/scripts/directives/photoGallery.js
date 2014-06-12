@@ -16,6 +16,7 @@ var photoGallery = function () {
             $scope.tempPhoto.forEach(function (photo) {
                 $scope.photosCtrl.SelectedGallery.Photos.push(photo);
             });
+
             $scope.delGallery = function () {
                 DataService.deleteGallery($scope.photosCtrl.SelectedGallery.Id).then(function () {
                     var id = $stateParams.id;

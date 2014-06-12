@@ -54,7 +54,4 @@ class BreederProfile implements IBreederProfile{
     Shipping:boolean;
 
 constructor(){}
-
-
-
 }

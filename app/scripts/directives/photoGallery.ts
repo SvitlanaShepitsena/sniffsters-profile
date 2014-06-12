@@ -17,15 +17,15 @@ var photoGallery:() => ng.IDirective = () => {
             var index=0;
             //iterating over arrey of photos of selected gallery
             $scope.photosCtrl.SelectedGallery.Photos.forEach((photo) =>  {
-                //move photo from main ctrl to temp empty arrey
+            //move photo from main ctrl to temp empty arrey
                 $scope.tempPhoto.push(photo);
                 $scope.photosCtrl.SelectedGallery.Photos.splice(index++, 1);
             });
-
-//iterate over temp arrey, take each element and put it back
+            //iterate over temp arrey, take each element and put it back
             $scope.tempPhoto.forEach((photo) => {
                     $scope.photosCtrl.SelectedGallery.Photos.push(photo);
-            })
+            });
+
             $scope.delGallery = () => {
                 DataService.deleteGallery($scope.photosCtrl.SelectedGallery.Id)
                 .then(() => {

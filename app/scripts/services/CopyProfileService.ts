@@ -1,12 +1,9 @@
 /// <reference path="../models/IBreederProfile.ts" />
 class CopyProfileService {
-
     constructor() {
-
     }
 
     BreederProfile:IBreederProfile = new BreederProfile();
-
 
     GetProfileClone() {
 

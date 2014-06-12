@@ -9,8 +9,6 @@ interface IMainScope extends ng.IScope {
     index:IndexCtrl;
 }
 class IndexCtrl {
-
-
     BreederProfile:IBreederProfile;
     BreederProfileEdit:IBreederProfile;
 
@@ -121,7 +119,6 @@ class IndexCtrl {
     UpdateBreederProfile(breederProfile:IBreederProfile) {
         this.BreederProfile = breederProfile;
     }
-
 
     Save(breederProfile:IBreederProfile) {
 //Run Service UpdateProfile Method and get promise back
