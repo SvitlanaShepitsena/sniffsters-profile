@@ -1,5 +1,5 @@
 var IndexCtrl = (function () {
-    function IndexCtrl($scope, $rootScope, $window, $state, toastr, DataService, CopyProfileService) {
+    function IndexCtrl($scope, $location, $rootScope, $window, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
         this.$rootScope = $rootScope;
@@ -8,25 +8,23 @@ var IndexCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        $scope.navigate = function (menuIndex) {
+            if (menuIndex == 2) {
+                $scope.slide = 'slide-left';
+                $location.url('/profile/photos');
+            }
+
+            if (menuIndex == 1) {
+                $scope.slide = 'slide-right';
+                $location.url('/profile/about');
+            }
+        };
+
         this.menuIndex = 1;
         $scope.slide = '';
 
-        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-            var menuToRank = parseInt(toState.name.substr(toState.name.length - 1));
-            var menuFromRank = parseInt(fromState.name.substr(fromState.name.length - 1));
-
-            if (menuToRank > menuFromRank) {
-                $scope.slide = 'slide-right';
-            }
-            if (menuToRank < menuFromRank) {
-                $scope.slide = 'slide-left';
-            }
-
-            $scope.slide = $scope.slide || 'slide-right';
-        });
-
         $rootScope.back = function () {
-            $scope.slide = 'slide-right';
+            $scope.slide = 'slide-left';
             $window.history.back();
         };
 
