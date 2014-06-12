@@ -20,7 +20,7 @@ class IndexCtrl {
     menuIndex:number;
 
     constructor(public $scope, $location, public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-
+        this.url = 'about';
         $scope.navigate = (menuIndex:number) => {
             if (menuIndex == 2) {
                 $scope.slide = 'slide-left';

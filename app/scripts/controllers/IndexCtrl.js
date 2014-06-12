@@ -8,6 +8,7 @@ var IndexCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        this.url = 'about';
         $scope.navigate = function (menuIndex) {
             if (menuIndex == 2) {
                 $scope.slide = 'slide-left';
@@ -29,7 +30,7 @@ var IndexCtrl = (function () {
         };
 
         $rootScope.forward = function () {
-            $scope.slide = 'slide-left';
+            $scope.slide = 'slide-right';
             $window.history.forward();
         };
         $scope.index = this;

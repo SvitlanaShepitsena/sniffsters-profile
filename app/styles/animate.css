@@ -1,4 +1,6 @@
-/*#region Angular ng-include, ng-view, ng-repeat shuffle animations*/
+/**********************
+        SHUFFLE
+***********************/
 .shuffle-animation.ng-enter,
 .shuffle-animation.ng-leave {
   position: relative;
