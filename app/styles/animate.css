@@ -1,10 +1,3 @@
-.sp {
-  left: 40%;
-  top: 100px;
-  position: relative;
-  color: #5bc0de;
-  font-size: 2em;
-}
 /*#region Angular ng-include, ng-view, ng-repeat shuffle animations*/
 .shuffle-animation.ng-enter,
 .shuffle-animation.ng-leave {
@@ -47,12 +40,6 @@
   opacity: 0;
 }
 /*#endregion*/
-/*#region Angular ng-include, ng-view, ng-repeat fader animation */
-.fader-animation.ng-enter,
-.fader-animation.ng-leave,
-.fader-animation.ng-move {
-  position: relative;
-}
 .cont {
   position: relative;
   min-height: 1000px;
@@ -62,4 +49,11 @@
   background: #efefef;
   padding: 5px;
   margin: 5px;
+}
+.sp {
+  left: 40%;
+  top: 100px;
+  position: relative;
+  color: #5bc0de;
+  font-size: 2em;
 }

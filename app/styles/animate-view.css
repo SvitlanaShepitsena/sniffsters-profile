@@ -7,14 +7,18 @@
 .slide-left.ng-enter {
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
-  /*  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: inherit;
-  -ms-transition: 0.7s ease-in-out;*/
+  -ms-transition: 0.7s ease-in-out;
   -webkit-transition: 0.7s ease-in-out;
   transition: 0.7s ease-in-out;
 }
 .slide-left.ng-enter.ng-enter-active {
+  position: absolute;
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
@@ -22,10 +26,13 @@
   z-index: 100;
   -webkit-transform: translateX(0);
   transform: translateX(0);
-  /*  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: inherit;
-  -ms-transition: 0.7s ease-in-out;*/
+  -ms-transition: 0.7s ease-in-out;
   -webkit-transition: 0.7s ease-in-out;
   transition: 0.7s ease-in-out;
 }
@@ -37,12 +44,15 @@
       SLIDE-RIGHT
 ***********************/
 .slide-right.ng-enter {
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  /*  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: inherit;
-  -ms-transition: 0.7s ease-in-out;*/
+  -ms-transition: 0.7s ease-in-out;
   -webkit-transition: 0.7s ease-in-out;
   transition: 0.7s ease-in-out;
 }
@@ -55,10 +65,13 @@
   z-index: 100;
   -webkit-transform: translateX(0);
   transform: translateX(0);
-  /*  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: inherit;
-  -ms-transition: 0.7s ease-in-out;*/
+  -ms-transition: 0.7s ease-in-out;
   -webkit-transition: 0.7s ease-in-out;
   transition: 0.7s ease-in-out;
 }
