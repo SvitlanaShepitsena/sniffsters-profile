@@ -33,7 +33,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
 
             $scope.delete = (p:IPhoto, index:number) => {
                 var modalInstance = $modal.open({
-                    templateUrl: 'myModalContent.html',
+                    template: "<div><div class=\"modal-body\"> Delete image from your gallery?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
                     size: 'sm',
                     controller: ($scope, $modalInstance) => {
                         $scope.ok = () => {

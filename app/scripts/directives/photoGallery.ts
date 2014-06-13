@@ -12,7 +12,7 @@ var photoGallery:() => ng.IDirective = () => {
         templateUrl: 'views/directives/photo-gallery.html',
         // replace directive tag with template info
         replace: true,
-        controller: ($scope, DataService:DataService, $stateParams, $state) => {
+        controller: ($scope, $modal, DataService:DataService, $stateParams, $state) => {
             $scope.tempPhoto = [];
             var index=0;
             //iterating over arrey of photos of selected gallery
@@ -27,15 +27,37 @@ var photoGallery:() => ng.IDirective = () => {
             });
 
             $scope.delGallery = () => {
-                DataService.deleteGallery($scope.photosCtrl.SelectedGallery.Id)
-                .then(() => {
+
+                var modalInstance = $modal.open({
+                    template: "<div><div class=\"modal-body\"> Delete this gallery?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
+                    size: 'sm',
+                    controller: ($scope, $modalInstance) => {
+                        $scope.ok = () => {
+                            $modalInstance.close(true)
+                        }
+
+                        $scope.cancel = () => {
+                            $modalInstance.close(false)
+                        }
+                    }
+
+                });
+                modalInstance.result.then((confirmation:boolean) => {
+                    if (confirmation) {
+                        DataService.deleteGallery($scope.photosCtrl.SelectedGallery.Id)
+                            .then(() => {
 //                        Success
 //                        1. Delete Gallery from Array
-                        var id = $stateParams.id;
-                        $scope.photosCtrl.Galleries.splice(id, 1);
+                                var id = $stateParams.id;
+                                $scope.photosCtrl.Galleries.splice(id, 1);
 //                        2. Navigate to List of Galleries
-                        $state.go('profile.photos2',{});
-                    })
+                                $state.go('profile.photos2',{});
+                            })
+
+
+                    }
+                })
+
             }
         },
         link: (scope:IPhotoGallery, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {

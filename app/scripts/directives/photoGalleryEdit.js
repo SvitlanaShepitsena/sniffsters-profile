@@ -23,7 +23,7 @@ var photoGalleryEdit = function () {
 
             $scope.delete = function (p, index) {
                 var modalInstance = $modal.open({
-                    templateUrl: 'myModalContent.html',
+                    template: "<div><div class=\"modal-body\"> Delete image from your gallery?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
                     size: 'sm',
                     controller: function ($scope, $modalInstance) {
                         $scope.ok = function () {

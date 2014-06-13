@@ -4,7 +4,7 @@ var photoGallery = function () {
         restrict: 'E',
         templateUrl: 'views/directives/photo-gallery.html',
         replace: true,
-        controller: function ($scope, DataService, $stateParams, $state) {
+        controller: function ($scope, $modal, DataService, $stateParams, $state) {
             $scope.tempPhoto = [];
             var index = 0;
 
@@ -18,11 +18,28 @@ var photoGallery = function () {
             });
 
             $scope.delGallery = function () {
-                DataService.deleteGallery($scope.photosCtrl.SelectedGallery.Id).then(function () {
-                    var id = $stateParams.id;
-                    $scope.photosCtrl.Galleries.splice(id, 1);
+                var modalInstance = $modal.open({
+                    template: "<div><div class=\"modal-body\"> Delete this gallery?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
+                    size: 'sm',
+                    controller: function ($scope, $modalInstance) {
+                        $scope.ok = function () {
+                            $modalInstance.close(true);
+                        };
 
-                    $state.go('profile.photos2', {});
+                        $scope.cancel = function () {
+                            $modalInstance.close(false);
+                        };
+                    }
+                });
+                modalInstance.result.then(function (confirmation) {
+                    if (confirmation) {
+                        DataService.deleteGallery($scope.photosCtrl.SelectedGallery.Id).then(function () {
+                            var id = $stateParams.id;
+                            $scope.photosCtrl.Galleries.splice(id, 1);
+
+                            $state.go('profile.photos2', {});
+                        });
+                    }
                 });
             };
         },
