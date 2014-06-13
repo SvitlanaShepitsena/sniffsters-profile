@@ -1,0 +1,58 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+/**********************
+       CONSTANTS
+***********************/
+/*********************************
+   OPERATIONS & COLOR FUNCTIONS
+**********************************/
+/**********************
+        MIXINS
+***********************/
+/**********************
+  FILE UPLOAD BUTTON
+***********************/
+.fileContainer {
+  overflow: hidden;
+  position: relative;
+}
+.fileContainer [type=file] {
+  display: block;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+/**********************
+   ADD NEW GALLERY
+***********************/
+.panel-file-upload {
+  padding: 1.7em;
+}
+.dropFilesHere {
+  border: 2px #c3c3c3 dashed;
+  min-height: 100px;
+}
+.dragPhotosImg {
+  margin-top: 2.5em;
+  margin-bottom: 1.4em;
+}
+.chooseFilesButton {
+  margin-left: 5px;
+  width: 110px;
+  height: 40px;
+}
+.addNewGalleryLink {
+  padding: 1.1em 1.1em 1.2em;
+}
+.inputEmpty {
+  border: 1px solid red !important;
+}
+.inputEmpty {
+  border: 1px solid red !important;
+}

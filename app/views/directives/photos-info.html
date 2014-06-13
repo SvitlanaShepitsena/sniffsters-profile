@@ -52,20 +52,16 @@
 			</div>
 			<h4 class="text-center">or</h4>
 
-			<div class="uploadContainer">
-				<div class="uploadCenter">
-					<label ng-class="{'text-muted':!newGallery.Title}" class="fileContainer">
-						<button class="btn btn-primary btn-choose" ng-disabled="!newGallery.Title">Choose Files</button>
-
-						<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple
-						       ng-disabled="!newGallery.Title">
-
-					</label>
-				</div>
-
+			<div class="text-center">
 				<div ng-file-drop-available="dropSupported=true"
 				     ng-show="!dropSupported">HTML5 Drop File is not supported!
 				</div>
+				<label ng-class="{'text-muted':!newGallery.Title}" class="fileContainer">
+					<button class="btn btn-primary btn-choose" ng-disabled="!newGallery.Title">Choose Files</button>
+
+					<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple
+					       ng-disabled="!newGallery.Title">
+				</label>
 			</div>
 		</div>
 	</form>
