@@ -36,21 +36,6 @@ class IndexCtrl {
         this.menuIndex = 1;
         $scope.slide = '';
 
-//        $rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState, fromParams) => {
-//            var menuToRank = parseInt(toState.name.substr(toState.name.length - 1));
-//            var menuFromRank = parseInt(fromState.name.substr(fromState.name.length - 1));
-//
-//
-//            if (menuToRank > menuFromRank) {
-//                $scope.slide = 'slide-right';
-//            }
-//            if (menuToRank < menuFromRank) {
-//                $scope.slide = 'slide-left';
-//            }
-//
-//            $scope.slide = $scope.slide || 'slide-right'
-//        });
-
         $rootScope.back = () => {
             $scope.slide = 'slide-left';
             $window.history.back();
@@ -60,6 +45,7 @@ class IndexCtrl {
             $scope.slide = 'slide-right';
             $window.history.forward();
         }
+
         $scope.index = this;
         this.spinner = true;
 

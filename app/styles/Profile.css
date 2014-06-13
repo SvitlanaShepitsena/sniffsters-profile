@@ -72,7 +72,10 @@
   font-size: 2em;
 }
 /**********************
-    MIXINS
+      MIXINS
+***********************/
+/**********************
+       STYLES
 ***********************/
 .slide-left.ng-enter {
   z-index: 100;
@@ -272,6 +275,7 @@ h5 {
 }
 .chooseFilesButton {
   margin-top: 1em;
+  padding-right: 30px !important;
 }
 .addNewGalleryLink {
   padding: 1.1em 1.1em 1.2em;

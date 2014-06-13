@@ -33,6 +33,7 @@ var IndexCtrl = (function () {
             $scope.slide = 'slide-right';
             $window.history.forward();
         };
+
         $scope.index = this;
         this.spinner = true;
 
