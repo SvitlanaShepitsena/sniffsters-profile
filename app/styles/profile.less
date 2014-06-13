@@ -1,17 +1,38 @@
 /**********************
        IMPORTS
 ***********************/
+@import "LessComponents/elements";
 @import "LessComponents/Functions";
 @import "animate";
 @import "animate-view";
+@import "file-upload";
+
+/**********************
+  BOOTSTRAP BUTTONS
+***********************/
+
+.btn-primary {
+  .gradient(#498cc6, #2279c1, #498cc6);
+  //  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#498cc6), to(#2779c1));
+
+  &:hover {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+  }
+  &:active {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+  }
+}
 
 .cursor-p {
   cursor: pointer;
 }
 
-.container .jumbotron{
+.container .jumbotron {
   padding: 20px;
 }
+
 hr {
   border-top-color: @colorFontDimmedL !important;
 }
@@ -195,11 +216,43 @@ h5 {
   color: @colorFontDimmed;
 }
 
-.chooseFilesButton {
-  margin-top: 1em;
-  padding-right: 30px !important;
+/**********************
+  FILE UPLOAD BUTTON
+***********************/
+.uploadContainer
+{
+  background-color: green;
 }
 
+.uploadCenter{
+  vertical-align: middle;
+  display: inline-block;
+  width: 120px;
+  margin: 0px auto 0px auto;
+}
+.fileContainer {
+  overflow: hidden;
+  position: relative;
+}
+
+.fileContainer [type=file] {
+  cursor: inherit;
+  display: block;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+/**********************
+   ADD NEW GALLERY
+***********************/
+.chooseFilesButton{
+  margin-left: 5px;
+  width: 110px;
+  height: 40px;
+}
 .addNewGalleryLink {
   padding: 1.1em 1.1em 1.2em;
 }
@@ -210,6 +263,7 @@ h5 {
   padding-right: 8px !important;
   padding-left: 8px !important;
 }
+
 .inputEmpty {
   border: 1px solid red !important;
 }

@@ -46,20 +46,32 @@
 
 
 	<div class="panel panel-default panel-file-upload">
-		<div class="text-muted">Photo 3MB max JPG, PNG, GIF</div>
-		<div class="text-center dropFilesHere" ng-file-drop="onFileSelect($files)"
-		     ng-file-drag-over-class="optional-css-class"
-		     ng-show="dropSupported">
-			<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
-			<p class="">
-				Drag photos here
-			</p>
+		<div class="row">
+			<div class="xs-12-col">
+				<div class="text-muted">Photo 3MB max JPG, PNG, GIF</div>
+				<div class="text-center dropFilesHere" ng-file-drop="onFileSelect($files)"
+				     ng-file-drag-over-class="optional-css-class"
+				     ng-show="dropSupported">
+					<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
+
+					<p class="">
+						Drag photos here
+					</p>
+				</div>
+			</div>
 		</div>
 
-		<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple>
+		<div class="row">
+			<div class="xs-12-col  text-center">
+				<div ng-file-drop-available="dropSupported=true"
+				     ng-show="!dropSupported">HTML5 Drop File is not supported!
+				</div>
+				<label class="fileContainer">
+					<button class="btn btn-primary">Choose Files</button>
+					<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple>
+				</label>
 
-		<div ng-file-drop-available="dropSupported=true"
-		     ng-show="!dropSupported">HTML5 Drop File is not supported!
+			</div>
 		</div>
 	</div>
 

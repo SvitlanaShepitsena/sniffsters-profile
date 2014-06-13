@@ -1,6 +1,12 @@
 /**********************
        IMPORTS
 ***********************/
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
 /**********************
        CONSTANTS
 ***********************/
@@ -129,6 +135,25 @@
 }
 .slide-right.ng-leave.ng-leave-active {
   left: 100%;
+}
+/**********************
+  BOOTSTRAP BUTTONS
+***********************/
+.btn-primary {
+  background: #498cc6;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2279c1), color-stop(1, #498cc6));
+  background: -ms-linear-gradient(bottom, #2279c1, #498cc6);
+  background: -moz-linear-gradient(center bottom, #2279c1 0%, #498cc6 100%);
+  background: -o-linear-gradient(#498cc6, #2279c1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#498cc6', endColorstr='#2279c1', GradientType=0);
+}
+.btn-primary:hover {
+  background-color: #4b95d6 !important;
+  border-color: #4389cf !important;
+}
+.btn-primary:active {
+  background-color: #4b95d6 !important;
+  border-color: #4389cf !important;
 }
 .cursor-p {
   cursor: pointer;
@@ -273,9 +298,38 @@ h5 {
 .h4-addNewGallery {
   color: #444444;
 }
+/**********************
+  FILE UPLOAD BUTTON
+***********************/
+.uploadContainer {
+  background-color: green;
+}
+.uploadCenter {
+  vertical-align: middle;
+  display: inline-block;
+  width: 120px;
+  margin: 0px auto 0px auto;
+}
+.fileContainer {
+  overflow: hidden;
+  position: relative;
+}
+.fileContainer [type=file] {
+  cursor: inherit;
+  display: block;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+/**********************
+   ADD NEW GALLERY
+***********************/
 .chooseFilesButton {
-  margin-top: 1em;
-  padding-right: 30px !important;
+  margin-left: 5px;
+  width: 110px;
+  height: 40px;
 }
 .addNewGalleryLink {
   padding: 1.1em 1.1em 1.2em;
