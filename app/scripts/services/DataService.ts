@@ -5,7 +5,7 @@ class DataService {
     getProfile<T>() {
         var d = this.$q.defer<T>();
 
-        this.$http.get('http://localhost:44300/BreederPersonal/GetProfile').success((result) => {
+        this.$http.get('http://localhost:44300/BreederPersonal/GetProfile').success((result:T) => {
 
             d.resolve(result);
         }).error((data, error) => {
@@ -108,7 +108,7 @@ class DataService {
     getGalleries<T>() {
         var d = this.$q.defer<T[]>();
 
-        this.$http.get('http://localhost:44300/BreederPersonal/GetGalleries').success((result) => {
+        this.$http.get('http://localhost:44300/BreederPersonal/GetGalleries').success((result:T[]) => {
             d.resolve(result);
         }).error((data, error) => {
             // console.log(data)
