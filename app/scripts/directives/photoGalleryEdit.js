@@ -22,8 +22,28 @@ var photoGalleryEdit = function () {
             var index = $stateParams.id;
 
             $scope.delete = function (p, index) {
-                $modal.open();
+                var modalInstance = $modal.open({
+                    templateUrl: 'myModalContent.html',
+                    size: 'sm',
+                    controller: function ($scope, $modalInstance) {
+                        $scope.ok = function () {
+                            $modalInstance.close(true);
+                        };
+
+                        $scope.cancel = function () {
+                            $modalInstance.close(false);
+                        };
+                    }
+                });
+                modalInstance.result.then(function (confirmation) {
+                    if (confirmation) {
+                        DataService.deletePhoto($scope.photosCtrl.SelectedGallery.Id, p.Id).then(function () {
+                            $scope.photosCtrl.SelectedGallery.Photos.splice(index, 1);
+                        });
+                    }
+                });
             };
+
             $scope.update = function (p) {
                 DataService.updateCaption($scope.photosCtrl.SelectedGallery.Id, p.Id, p.Caption).then(function () {
                     toastr.success('Changes have been successfully saved to Db');

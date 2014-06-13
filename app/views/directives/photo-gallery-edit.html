@@ -66,5 +66,16 @@
 
 	<a ui-sref="^" class="btn btn-default">Cancel</a>
 	<button class="btn btn-info" ng-click="">Save</button>
+
+	<script type="text/ng-template" id="myModalContent.html">
+		<div class="modal-body">
+			Delete image from your gallery?
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="ok()">OK</button>
+			<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+		</div>
+	</script>
 </div>
+
 

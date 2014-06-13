@@ -18,7 +18,7 @@
 /// <reference path="directives/spinDiv.ts" />
 //#ref
 
-var profile = angular.module("profile", ['ui.router','angularFileUpload', 'ngAnimate','ui.bootstrap']);
+var profile = angular.module("profile", ['ui.router','angularFileUpload', 'ngAnimate','ui.bootstrap.modal','ui.bootstrap.tpls']);
 
 profile.filter('boolString', () => {
     return (value:boolean):string => {

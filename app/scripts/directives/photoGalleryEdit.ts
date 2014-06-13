@@ -32,11 +32,31 @@ var photoGalleryEdit:() => ng.IDirective = () => {
             var index:number = $stateParams.id;
 
             $scope.delete = (p:IPhoto, index:number) => {
-                $modal.open();
-//                    DataService.deletePhoto($scope.photosCtrl.SelectedGallery.Id, p.Id).then(() => {
-//                        $scope.photosCtrl.SelectedGallery.Photos.splice(index, 1);
-//                    })
+                var modalInstance = $modal.open({
+                    templateUrl: 'myModalContent.html',
+                    size: 'sm',
+                    controller: ($scope, $modalInstance) => {
+                        $scope.ok = () => {
+                            $modalInstance.close(true)
+                        }
+
+                        $scope.cancel = () => {
+                            $modalInstance.close(false)
+                        }
+                    }
+
+                });
+                modalInstance.result.then((confirmation:boolean) => {
+                    if (confirmation) {
+                        DataService.deletePhoto($scope.photosCtrl.SelectedGallery.Id, p.Id).then(() => {
+                            $scope.photosCtrl.SelectedGallery.Photos.splice(index, 1);
+                        });
+
+                    }
+                })
             }
+
+
             $scope.update = (p:IPhoto) => {
                 DataService.updateCaption($scope.photosCtrl.SelectedGallery.Id, p.Id, p.Caption).then(() => {
                     toastr.success('Changes have been successfully saved to Db');
