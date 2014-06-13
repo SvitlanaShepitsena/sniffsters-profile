@@ -7,7 +7,8 @@
 
 					<div class="row">
 						<div class="col-xs-12">
-							<input type="text" placeholder="Gallery Title" class="form-control" ng-class="{inputEmpty:!newGallery.Title}" ng-model="newGallery.Title" required>
+							<input type="text" placeholder="Gallery Title" class="form-control"
+							       ng-class="{inputEmpty:!newGallery.Title}" ng-model="newGallery.Title" required>
 						</div>
 					</div>
 					<div class="row">
@@ -49,11 +50,17 @@
 					Drag photos here
 				</p>
 			</div>
-			<div class="row">
-				<div class="col-xs-6 col-xs-offset-3">
-					<p class="text-center">or</p>
-					<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple
-					       ng-disabled="!newGallery.Title">
+			<h4 class="text-center">or</h4>
+
+			<div class="uploadContainer">
+				<div class="uploadCenter">
+					<label ng-class="{'text-muted':!newGallery.Title}" class="fileContainer">
+						<button class="btn btn-primary btn-choose" ng-disabled="!newGallery.Title">Choose Files</button>
+
+						<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple
+						       ng-disabled="!newGallery.Title">
+
+					</label>
 				</div>
 
 				<div ng-file-drop-available="dropSupported=true"
