@@ -5,7 +5,7 @@ interface IPhotoGallery extends ng.IScope {
     userName:string;
 }
 
-var photoGallery:() => ng.IDirective = () => {
+var photoGallery:(data) => ng.IDirective = () => {
 
     return{
         restrict: 'E',
@@ -14,16 +14,24 @@ var photoGallery:() => ng.IDirective = () => {
         replace: true,
         controller: ($scope, $modal, DataService:DataService, $stateParams, $state) => {
             $scope.tempPhoto = [];
-            var index=0;
+            var index = 0;
+
+            if ($scope.photosCtrl.SelectedGallery == undefined) {
+                var id = $stateParams.id;
+                $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
+
+            }
+
+
             //iterating over arrey of photos of selected gallery
-            $scope.photosCtrl.SelectedGallery.Photos.forEach((photo) =>  {
-            //move photo from main ctrl to temp empty arrey
+            $scope.photosCtrl.SelectedGallery.Photos.forEach((photo) => {
+                //move photo from main ctrl to temp empty arrey
                 $scope.tempPhoto.push(photo);
                 $scope.photosCtrl.SelectedGallery.Photos.splice(index++, 1);
             });
             //iterate over temp arrey, take each element and put it back
             $scope.tempPhoto.forEach((photo) => {
-                    $scope.photosCtrl.SelectedGallery.Photos.push(photo);
+                $scope.photosCtrl.SelectedGallery.Photos.push(photo);
             });
 
             $scope.delGallery = () => {
@@ -51,7 +59,7 @@ var photoGallery:() => ng.IDirective = () => {
                                 var id = $stateParams.id;
                                 $scope.photosCtrl.Galleries.splice(id, 1);
 //                        2. Navigate to List of Galleries
-                                $state.go('profile.photos2',{});
+                                $state.go('profile.photos2', {});
                             })
 
 

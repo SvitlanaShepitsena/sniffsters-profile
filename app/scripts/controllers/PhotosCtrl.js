@@ -1,6 +1,5 @@
 var PhotosCtrl = (function () {
-    function PhotosCtrl($scope, galleries, $state, toastr, DataService, CopyProfileService) {
-        var _this = this;
+    function PhotosCtrl($scope, $state, data, toastr, DataService, CopyProfileService) {
         this.$scope = $scope;
         this.$state = $state;
         this.toastr = toastr;
@@ -14,15 +13,8 @@ var PhotosCtrl = (function () {
         $scope.photosCtrl = this;
 
         $scope.index.url = "photos";
-        $scope.index.spinner = true;
 
-        galleries.then(function (data) {
-            _this.Galleries = data;
-        }, function () {
-            _this.ShowError('Error in getting Photo Galleries from the server');
-        }).finally(function () {
-            $scope.index.spinner = false;
-        });
+        this.Galleries = data;
     }
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var index = 0;

@@ -19,7 +19,7 @@ class IndexCtrl {
     spinner:boolean;
     menuIndex:number;
 
-    constructor(public $scope, $location, profile,public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, $location, public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         this.url = 'about';
         $scope.navigate = (menuIndex:number) => {
             if (menuIndex == 2) {
@@ -49,7 +49,7 @@ class IndexCtrl {
         $scope.index = this;
         this.spinner = true;
 
-        var promiseT = profile;
+        var promiseT = this.DataService.getProfile<IBreederProfile>();
         promiseT.then((breederProfile:IBreederProfile) => {
             //Success
             this.error = false;

@@ -8,6 +8,11 @@ var photoGallery = function () {
             $scope.tempPhoto = [];
             var index = 0;
 
+            if ($scope.photosCtrl.SelectedGallery == undefined) {
+                var id = $stateParams.id;
+                $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
+            }
+
             $scope.photosCtrl.SelectedGallery.Photos.forEach(function (photo) {
                 $scope.tempPhoto.push(photo);
                 $scope.photosCtrl.SelectedGallery.Photos.splice(index++, 1);
