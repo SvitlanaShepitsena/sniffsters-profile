@@ -151,6 +151,11 @@
   top: 0;
   cursor: pointer;
 }
+.chooseFilesButton {
+  margin-left: 5px;
+  width: 110px;
+  height: 40px;
+}
 /**********************
    ADD NEW GALLERY
 ***********************/
@@ -165,23 +170,98 @@
   margin-top: 2.5em;
   margin-bottom: 1.4em;
 }
-.chooseFilesButton {
-  margin-left: 5px;
-  width: 110px;
-  height: 40px;
-}
 .addNewGalleryLink {
   padding: 1.1em 1.1em 1.2em;
 }
+.h4-addNewGallery {
+  color: #444444;
+}
 .inputEmpty {
   border: 1px solid red !important;
 }
 .inputEmpty {
   border: 1px solid red !important;
+}
+.fa-browse-btn {
+  margin-right: 5px;
 }
 /**********************
-  BOOTSTRAP BUTTONS
+       IMPORTS
 ***********************/
+/**********************
+    MY DETAILS
+***********************/
+.myDetails-alert {
+  background-color: #faf9ee;
+  border-color: #FFFFFF;
+  color: #444444;
+  box-shadow: 0px -3px 5px #cccaca;
+}
+.myDetailsFont {
+  font-style: italic;
+  font-weight: bold;
+}
+.myDetailsFormGroup {
+  margin-left: 5px !important;
+  margin-bottom: 0em;
+}
+.myDetailsForm {
+  line-height: 1.1em;
+}
+.myDetailsHeader {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+.myDetailsInput {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+.profileSave {
+  margin-top: 10px;
+}
+/**********************
+       IMPORTS
+***********************/
+/**********************
+        Photos
+***********************/
+.puppyPic {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.puppyPicWrapper {
+  padding-top: 10px !important;
+}
+.btn-del {
+  margin-top: 3px !important;
+  margin-bottom: 5px !important;
+  margin-right: 5px !important;
+  padding: 1px 7px;
+}
+.btn-del-pic {
+  margin-top: 10px !important;
+  margin-bottom: 5px !important;
+  margin-right: 5px !important;
+  padding: 3px 7px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.btn-edit {
+  padding: 1px 7px;
+}
+.btn-save {
+  margin-top: 4px !important;
+  margin-bottom: 5px !important;
+  margin-right: 0px !important;
+  padding: 1px 7px;
+}
+/*************************
+  BOOTSTRAP CUSTOM STYLES
+**************************/
+.btn {
+  margin: 3px !important;
+}
 .btn-primary {
   background: #2279c1;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2279c1), color-stop(1, #498cc6));
@@ -225,40 +305,12 @@ h5 {
 .light-gray {
   color: #bababa;
 }
+/**********************
+     Profile Form
+***********************/
 .form-editPersonal {
   margin-left: 5px !important;
 }
-.myDetails-alert {
-  background-color: #faf9ee;
-  border-color: #FFFFFF;
-  color: #444444;
-  box-shadow: 0px -3px 5px #cccaca;
-}
-.myDetailsFont {
-  font-style: italic;
-  font-weight: bold;
-}
-.myDetailsFormGroup {
-  margin-left: 5px !important;
-  margin-bottom: 0em;
-}
-.myDetailsForm {
-  line-height: 1.1em;
-}
-.myDetailsHeader {
-  font-size: 1.7em;
-  font-weight: bold;
-}
-.myDetailsInput {
-  margin-top: .5em;
-  margin-bottom: .5em;
-}
-.profileSave {
-  margin-top: 10px;
-}
-/**********************
-        Form
-***********************/
 .textMuted {
   font-size: .9em;
   color: #bababa;
@@ -275,58 +327,18 @@ h5 {
   line-height: 1.2em;
   margin-bottom: 5px;
 }
-.thumbExample {
+/*.thumbExample {
   height: 130px;
   width: 130px;
   border: 1px #686868 dashed;
   line-height: 110px;
-}
-.btn-browse {
+}*/
+/*.btn-browse {
   display: inline-block !important;
   vertical-align: middle !important;
   padding-right: 8px !important;
   padding-left: 8px !important;
-}
-.fa-browse-btn {
+}*/
+/*.fa-browse-btn {
   margin-right: 5px;
-}
-.btn {
-  margin: 3px !important;
-}
-/**********************
-        Photos
-***********************/
-.puppyPic {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.puppyPicWrapper {
-  padding-top: 10px !important;
-}
-.btn-del {
-  margin-top: 3px !important;
-  margin-bottom: 5px !important;
-  margin-right: 5px !important;
-  padding: 1px 7px;
-}
-.btn-del-pic {
-  margin-top: 10px !important;
-  margin-bottom: 5px !important;
-  margin-right: 5px !important;
-  padding: 3px 7px;
-  position: absolute;
-  top: 10px;
-  right: 20px;
-}
-.btn-edit {
-  padding: 1px 7px;
-}
-.btn-save {
-  margin-top: 4px !important;
-  margin-bottom: 5px !important;
-  margin-right: 0px !important;
-  padding: 1px 7px;
-}
-.h4-addNewGallery {
-  color: #444444;
-}
+}*/
