@@ -456,7 +456,7 @@ module.exports = function (grunt) {
 
         grunt.task.run('cssmin');
         var tempFile = grunt.file.read('templates.cshtml');
-        var cssFile = '<style>'+grunt.file.read('app/styles/Profile.min.css')+'</style>';
+        var cssFile = '<style>'+grunt.file.read('app/styles/profile.min.css')+'</style>';
 
         var fileContent = tempFile + cssFile;
 
