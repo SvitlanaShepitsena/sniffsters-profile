@@ -20,30 +20,36 @@
     MY DETAILS
 ***********************/
 .myDetails-alert {
-  background-color: #faf9ee;
-  border-color: #FFFFFF;
-  color: #444444;
-  box-shadow: 0px -3px 5px #cccaca;
+    background-color: #faf9ee;
+    border-color: #FFFFFF;
+    color: #444444;
+    box-shadow: 0px -3px 5px #cccaca;
 }
+
 .myDetailsFont {
-  font-style: italic;
-  font-weight: bold;
+    font-style: italic;
+    font-weight: bold;
 }
+
 .myDetailsFormGroup {
-  margin-left: 5px !important;
-  margin-bottom: 0em;
+    margin-left: 5px !important;
+    margin-bottom: 0em;
 }
+
 .myDetailsForm {
-  line-height: 1.1em;
+    line-height: 1.1em;
 }
+
 .myDetailsHeader {
-  font-size: 1.7em;
-  font-weight: bold;
+    font-size: 1.7em;
+    font-weight: bold;
 }
+
 .myDetailsInput {
-  margin-top: .5em;
-  margin-bottom: .5em;
+    margin-top: .5em;
+    margin-bottom: .5em;
 }
+
 .profileSave {
-  margin-top: 10px;
+    margin-top: 10px;
 }
