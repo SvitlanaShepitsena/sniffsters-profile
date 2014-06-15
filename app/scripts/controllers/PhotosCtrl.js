@@ -1,5 +1,5 @@
 var PhotosCtrl = (function () {
-    function PhotosCtrl($scope, $state, toastr, DataService, CopyProfileService) {
+    function PhotosCtrl($scope, galleries, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
         this.$state = $state;
@@ -15,7 +15,8 @@ var PhotosCtrl = (function () {
 
         $scope.index.url = "photos";
         $scope.index.spinner = true;
-        DataService.getGalleries().then(function (data) {
+
+        galleries.then(function (data) {
             _this.Galleries = data;
         }, function () {
             _this.ShowError('Error in getting Photo Galleries from the server');

@@ -1,5 +1,5 @@
 var IndexCtrl = (function () {
-    function IndexCtrl($scope, $location, $rootScope, $window, $state, toastr, DataService, CopyProfileService) {
+    function IndexCtrl($scope, $location, profile, $rootScope, $window, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
         this.$rootScope = $rootScope;
@@ -37,7 +37,7 @@ var IndexCtrl = (function () {
         $scope.index = this;
         this.spinner = true;
 
-        var promiseT = this.DataService.getProfile();
+        var promiseT = profile;
         promiseT.then(function (breederProfile) {
             _this.error = false;
             _this.BreederProfile = breederProfile;

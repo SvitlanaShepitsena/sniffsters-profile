@@ -49,14 +49,24 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile.html"
     }).state("profile.about1", {
         url: "/about",
-        templateUrl: "../views/profile-about.html"
+        templateUrl: "../views/profile-about.html",
+        resolve: {
+            profile: function (DataService) {
+                return DataService.getProfile();
+            }
+        }
     }).state("profile.about1.edit", {
         url: "/edit",
         templateUrl: "../views/profile-about-edit.html"
     }).state("profile.photos2", {
         url: "/photos",
         controller: "PhotosCtrl",
-        templateUrl: "../views/profile-photos.html"
+        templateUrl: "../views/profile-photos.html",
+        resolve: {
+            galleries: function (DataService) {
+                return DataService.getGalleries()();
+            }
+        }
     }).state("profile.photos2.galleries", {
         url: "/gallery/:id",
         template: "<div ui-view><photo-gallery></photo-gallery></div>"

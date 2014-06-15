@@ -12,7 +12,7 @@ class PhotosCtrl {
     public SelectedGallery:IGallery;
     public SelectedGalleryEdit:IGallery;
 
-    constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope:IPhotosScope, galleries, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index.menuIndex=2;
 
 
@@ -23,7 +23,8 @@ class PhotosCtrl {
 
         $scope.index.url = "photos";
         $scope.index.spinner = true;
-        DataService.getGalleries<IGallery>().then((data) => {
+
+        galleries.then((data) => {
 //            Success
             this.Galleries = data;
         }, () => {

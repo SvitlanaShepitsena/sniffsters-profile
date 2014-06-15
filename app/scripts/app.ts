@@ -18,7 +18,7 @@
 /// <reference path="directives/spinDiv.ts" />
 //#ref
 
-var profile = angular.module("profile", ['ui.router','angularFileUpload', 'ngAnimate','ui.bootstrap.modal','ui.bootstrap.tpls']);
+var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap.tpls']);
 
 profile.filter('boolString', () => {
     return (value:boolean):string => {
@@ -30,7 +30,11 @@ profile.filter('spacesToDashes', () => {
         return SpacesToDashes.filter(value);
     }
 });
-profile.filter('titleLength', () => { return (value:string,len:number):string => {return TitleLength.filter(value,len);     } });
+profile.filter('titleLength', () => {
+    return (value:string, len:number):string => {
+        return TitleLength.filter(value, len);
+    }
+});
 //#filt
 
 
@@ -73,7 +77,12 @@ profile.config(
             })
             .state("profile.about1", {
                 url: "/about",
-                templateUrl: "../views/profile-about.html"
+                templateUrl: "../views/profile-about.html",
+                resolve: {
+                    profile: (DataService:DataService) => {
+                        return DataService.getProfile<IBreederProfile>();
+                    }
+                }
             })
             .state("profile.about1.edit", {
                 url: "/edit",
@@ -82,7 +91,13 @@ profile.config(
             .state("profile.photos2", {
                 url: "/photos",
                 controller: "PhotosCtrl",
-                templateUrl: "../views/profile-photos.html"
+                templateUrl: "../views/profile-photos.html",
+
+                resolve: {
+                    galleries: (DataService:DataService) => {
+                        return DataService.getGalleries()<IGallery>();
+                    }
+                }
             })
             .state("profile.photos2.galleries", {
                 url: "/gallery/:id",
