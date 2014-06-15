@@ -28,6 +28,11 @@
   top: 0;
   cursor: pointer;
 }
+.chooseFilesButton {
+  margin-left: 5px;
+  width: 110px;
+  height: 40px;
+}
 /**********************
    ADD NEW GALLERY
 ***********************/
@@ -42,17 +47,18 @@
   margin-top: 2.5em;
   margin-bottom: 1.4em;
 }
-.chooseFilesButton {
-  margin-left: 5px;
-  width: 110px;
-  height: 40px;
-}
 .addNewGalleryLink {
   padding: 1.1em 1.1em 1.2em;
 }
+.h4-addNewGallery {
+  color: #444444;
+}
 .inputEmpty {
   border: 1px solid red !important;
 }
 .inputEmpty {
   border: 1px solid red !important;
+}
+.fa-browse-btn {
+  margin-right: 5px;
 }
