@@ -1,0 +1,34 @@
+.myDetails-alert {
+    background-color: #faf9ee;
+    border-color: #FFF;
+    color: #444;
+    box-shadow: 0 -3px 5px #cccaca
+}
+
+.myDetailsFont {
+    font-style: italic;
+    font-weight: 700
+}
+
+.myDetailsFormGroup {
+    margin-left: 5px !important;
+    margin-bottom: 0
+}
+
+.myDetailsForm {
+    line-height: 1.1em
+}
+
+.myDetailsHeader {
+    font-size: 1.7em;
+    font-weight: 700
+}
+
+.myDetailsInput {
+    margin-top: .5em;
+    margin-bottom: .5em
+}
+
+.profileSave {
+    margin-top: 10px
+}
