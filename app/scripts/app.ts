@@ -37,8 +37,8 @@ profile.filter('titleLength', () => {
     }
 });
 profile.filter('galleryActive', () => {
-    return (value:boolean):string => {
-        return GalleryActive.filter(value);
+    return (Galleries:IGallery[], isActive:Boolean):IGallery[] => {
+        return GalleryActive.filter(Galleries, isActive);
     }
 });
 //#filt
