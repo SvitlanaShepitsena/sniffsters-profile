@@ -16,9 +16,10 @@
 /// <reference path="services/GalleryService.ts" />
 /// <reference path="filters/TitleLength.ts" />
 /// <reference path="directives/spinDiv.ts" />
+/// <reference path="filters/GalleryActive.ts" />
 //#ref
 
-var profile = angular.module("profile", ['ui.router','angularFileUpload', 'ngAnimate','ui.bootstrap.modal','ui.bootstrap.tpls']);
+var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap.tpls']);
 
 profile.filter('boolString', () => {
     return (value:boolean):string => {
@@ -30,7 +31,16 @@ profile.filter('spacesToDashes', () => {
         return SpacesToDashes.filter(value);
     }
 });
-profile.filter('titleLength', () => { return (value:string,len:number):string => {return TitleLength.filter(value,len);     } });
+profile.filter('titleLength', () => {
+    return (value:string, len:number):string => {
+        return TitleLength.filter(value, len);
+    }
+});
+profile.filter('galleryActive', () => {
+    return (value:boolean):string => {
+        return GalleryActive.filter(value);
+    }
+});
 //#filt
 
 
@@ -82,7 +92,7 @@ profile.config(
             .state("profile.photos2", {
                 url: "/photos",
                 resolve: {
-                    data:(DataService:DataService) => {
+                    data: (DataService:DataService) => {
                         return DataService.getGalleries<IGallery>();
                     }
                 },
