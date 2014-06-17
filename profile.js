@@ -66,8 +66,11 @@ var IndexCtrl = function () {
         })
     }, PhotosCtrl.prototype.addGallery = function () {
         this.GalleriesNew.push(new Gallery)
-    }, PhotosCtrl.prototype.setSelectedGallery = function (galid) {
-        this.SelectedGallery = this.Galleries[galid], this.$state.go("profile.photos2.galleries", {id: galid})
+    }, PhotosCtrl.prototype.setSelectedGallery = function (galleryId) {
+        var galid = 0, index = 0;
+        this.Galleries.forEach(function (gallery) {
+            return gallery.Id === galleryId ? (galid = index, !1) : void index++
+        }), this.SelectedGallery = this.Galleries[galid], this.$state.go("profile.photos2.galleries", {id: galid})
     }, PhotosCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note)
     }, PhotosCtrl.prototype.ShowError = function (note) {
@@ -118,7 +121,7 @@ var IndexCtrl = function () {
 }, photoGalleries = function () {
     return{restrict: "E", templateUrl: "views/directives/photo-galleries.html", replace: !0}
 }, photoGallery = function () {
-    return{restrict: "E", templateUrl: "views/directives/photo-gallery.html", replace: !0, controller: function ($scope, $modal, DataService, $stateParams, $state) {
+    return{restrict: "E", templateUrl: "views/directives/photo-gallery.html", replace: !0, controller: function ($scope, $modal, DataService, $stateParams, $state, toastr) {
         $scope.tempPhoto = [];
         var index = 0;
         if (void 0 == $scope.photosCtrl.SelectedGallery) {
@@ -129,7 +132,12 @@ var IndexCtrl = function () {
             $scope.tempPhoto.push(photo), $scope.photosCtrl.SelectedGallery.Photos.splice(index++, 1)
         }), $scope.tempPhoto.forEach(function (photo) {
             $scope.photosCtrl.SelectedGallery.Photos.push(photo)
-        }), $scope.delGallery = function () {
+        }), $scope.shareGallery = function () {
+            DataService.shareGallery($scope.photosCtrl.SelectedGallery.Id).then(function () {
+                $scope.photosCtrl.SelectedGallery.IsShared = !0, toastr.success("This gallery is shared.")
+            }, function () {
+            })
+        }, $scope.delGallery = function () {
             var modalInstance = $modal.open({template: '<div><div class="modal-body"> Delete this gallery?</div><div class="modal-footer"><button class="btn btn-primary" ng-click="ok()">OK</button><button class="btn btn-warning" ng-click="cancel()">Cancel</button></div></div>', size: "sm", controller: function ($scope, $modalInstance) {
                 $scope.ok = function () {
                     $modalInstance.close(!0)
@@ -222,6 +230,16 @@ var IndexCtrl = function () {
     return BoolString.filter = function (value) {
         return value === !0 ? "Yes" : "No"
     }, BoolString
+}(), GalleryActive = function () {
+    function GalleryActive() {
+    }
+
+    return GalleryActive.filter = function (Galleries, isActive) {
+        var finalArray = [];
+        return Galleries.forEach(function (gallery) {
+            gallery.IsActive === isActive && finalArray.push(gallery)
+        }), finalArray
+    }, GalleryActive
 }(), SpacesToDashes = function () {
     function SpacesToDashes() {
     }
@@ -305,6 +323,13 @@ var IndexCtrl = function () {
         }).error(function () {
             d.reject()
         }), d.promise
+    }, DataService.prototype.shareGallery = function (galleryId) {
+        var d = this.$q.defer();
+        return this.$http.post("/BreederPersonal/ShareGallery", {galleryId: galleryId}).success(function () {
+            d.resolve()
+        }).error(function () {
+            d.reject()
+        }), d.promise
     }, DataService.prototype.updateGallery = function (gallery) {
         var d = this.$q.defer();
         return this.$http.post("/BreederPersonal/UpdateGallery", {gallery: gallery}).success(function () {
@@ -350,6 +375,10 @@ profile.filter("boolString", function () {
 }), profile.filter("titleLength", function () {
     return function (value, len) {
         return TitleLength.filter(value, len)
+    }
+}), profile.filter("galleryActive", function () {
+    return function (Galleries, isActive) {
+        return GalleryActive.filter(Galleries, isActive)
     }
 }), profile.service("CopyProfileService", CopyProfileService), profile.service("GalleryService", GalleryService), profile.directive("profileButtons", profileButtons), profile.directive("aboutInfoEdit", aboutInfoEdit), profile.directive("detailsInfo", detailsInfo), profile.directive("detailsInfoEdit", detailsInfoEdit), profile.directive("litters", litters), profile.directive("previousPuppies", previousPuppies), profile.directive("photosInfo", photosInfo), profile.directive("photoGalleries", photoGalleries), profile.directive("photoGallery", photoGallery), profile.directive("photoGalleryEdit", photoGalleryEdit), profile.directive("spinDiv", spinDiv), profile.directive("aboutInfo", aboutInfo), profile.directive("breederDetails", breederDetails), profile.controller("PhotosCtrl", PhotosCtrl), profile.value("toastr", toastr), profile.service("DataService", DataService), profile.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/profile/about"), $stateProvider.state("profile", {"abstract": !0, url: "/profile", templateUrl: "../views/profile.html"}).state("profile.about1", {url: "/about", templateUrl: "../views/profile-about.html"}).state("profile.about1.edit", {url: "/edit", templateUrl: "../views/profile-about-edit.html"}).state("profile.photos2", {url: "/photos", resolve: {data: function (DataService) {

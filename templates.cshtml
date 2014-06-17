@@ -24,4 +24,318 @@
 					(form.kennel.$pristine && form.story.$pristine)
 					|| (form.kennel.$invalid || form.story.$invalid) || saved">Save</button></div></div><form class="form" name="location" novalidate=""><div class="row"><div class="col-xs-6 form-group has-feedback" ng-class="{'has-error':location.city.$invalid}"><label for="city" class="label-subhead control-label">City:</label><span class="textMuted">Required</span><input id="city" name="city" class="form-control" ng-model="ctrl.BreederProfileEdit.City" name="city" type="text" required=""/><span ng-show="form.city.$invalid" class="glyphicon glyphicon-col glyphicon-remove form-control-feedback"></span><span ng-hide="form.city.$invalid" class="glyphicon glyphicon-col glyphicon-ok form-control-feedback"></span></div><div class="form-group col-xs-6 has-feedback" ng-class="{'has-error':location.zip.$invalid}"><label for="zip" class="label-subhead control-label">ZIP:</label><span class="textMuted">Required</span><input id="zip" name="zip" class="form-control" ng-model="ctrl.BreederProfileEdit.Zip" name="zip" type="text" required=""/><span ng-show="form.zip.$invalid" class="glyphicon glyphicon-col glyphicon-remove form-control-feedback"></span><span ng-hide="form.zip.$invalid" class="glyphicon glyphicon-col glyphicon-ok form-control-feedback"></span></div></div><div class="row"><div class="col-xs-6 form-group has-feedback" ng-class="{'has-error':location.state.$invalid}"><label for="state" class="label-subhead control-label">State:</label><span class="textMuted">Required</span><input id="state" name="state" class="form-control" ng-model="ctrl.BreederProfileEdit.State" name="state" type="text" required=""/><span ng-show="form.state.$invalid" class="glyphicon glyphicon-col glyphicon-remove form-control-feedback"></span><span ng-hide="form.state.$invalid" class="glyphicon glyphicon-col glyphicon-ok form-control-feedback"></span></div></div></form><br/><div class="row"><div class="col-sm-8"><h4 class="italic">SPECIFICS</h4></div><div class="col-sm-2 pull-right"><button ng-click="SaveSpecifics()" class="btn btn-info" ng-disabled="
 					(form.kennel.$pristine && form.story.$pristine)
-					|| (form.kennel.$invalid || form.story.$invalid) || saved">Save</button></div></div><form class="form" name="specifics"><h5 class="label-subhead control-label bold">Certifications:</h5><ul class="list-unstyled"><li ng-repeat="c in ctrl.BreederProfileEdit.Certifications">{{c.Title}} -<input type="checkbox" ng-model="c.isActive"/></li></ul><div class="btn-group"><button type="button" class="btn btn-success">Pricing</button><button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button><ul class="dropdown-menu" role="menu"><li><a href="#">Price 1</a></li><li><a href="#">Price 2</a></li><li><a href="#">Price 3</a></li><li class="divider"></li><li><a href="#">Special Offer</a></li></ul></div><br/><div class="form-group"><h5 class="label-subhead control-label">Insurance:</h5><ul class="list-unstyled"><li ng-repeat="c in ctrl.BreederProfileEdit.Insurances">{{c.Title}} -<input type="checkbox" ng-model="c.isActive"/></li></ul></div><div class="form-group"><label for="shipping" class="label-subhead control-label">Shipping:</label><input id="shipping" name="shipping" class="form-control" ng-model="ctrl.BreederProfileEdit.Shipping" name="shipping" type="text"/></div><div class="form-group profileSave text-center"><a class="btn btn-default" ui-sref="profile.details">Cancel</a><a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a><input type="submit" value="Save" ng-click="Save()" class="btn btn-info" ng-disabled="form.$pristine || form.$invalid"/><a class="btn btn-default" ui-sref="profile.about.change">Next Section</a></div></form></div></script><script type="text/ng-template" id="views/directives/details-info.html"><div class="well"><div class="row"><div class="col-sm-9"><h3 class="italic">PERSONAL INFO</h3></div><div class="col-sm-1 pull-right"><a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a></div></div><h4>Kennel Name</h4><p>{{ctrl.BreederProfile.KennelName}}</p><h4>Website</h4><p>{{ctrl.BreederProfile.Website}}</p><h4>Email</h4><p>{{ctrl.BreederProfile.Email}}</p><h4>Phone</h4><p>{{ctrl.BreederProfile.Phone}}</p><br/><h4 class="italic">LOCATION</h4><h4>City</h4><p>{{ctrl.BreederProfile.City}}</p><h4>Zip</h4><p>{{ctrl.BreederProfile.Zip}}</p><h4>State</h4><p>{{ctrl.BreederProfile.State}}</p><br/><h4 class="italic">SPECIFICS</h4><h4>Certifications</h4><p ng-repeat="c in ctrl.BreederProfile.Certifications">{{c.Title}} - {{c.isActive | boolString}}</p><h4>Vet Services</h4><p>{{ctrl.BreederProfile.VetServices|boolString}}</p><h4>Insurance</h4><p ng-repeat="c in ctrl.BreederProfile.Insurances">{{c.Title}} - {{c.isActive | boolString}}</p><h4>Shipping</h4><p>{{ctrl.BreederProfile.Shipping|boolString}}</p></div></script><script type="text/ng-template" id="views/directives/litters.html"><div class="panel panel-info text-center" xmlns="http://www.w3.org/1999/html"><div class="panel-heading"><h2 class="panel-title"><p ng-transclude=""></p></h2></div><div class="panel-body"><p><button class="btn btn-primary">Edit</button></p></div></div></script><script type="text/ng-template" id="views/directives/photo-galleries.html"><div class="well"><h3>Current Galleries</h3><div class="row"><div class="col-xs-12"><ul class="list-unstyled list-inline"><li class="col-xs-12 col-md-4 shuffle-animation" ng-repeat="g in photosCtrl.Galleries"><div class="thumbnail"><div class="text-primary text-center caption"><h5 class="">{{g.Title | titleLength:15}}</h5></div><a ng-click="photosCtrl.setSelectedGallery($index)" class="cursor-p"><img ng-src="{{('/Scripts/app/profile/app/imgdir/'+index.Id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}"/></a></div></li></ul></div></div></div></script><script type="text/ng-template" id="views/directives/photo-gallery-edit.html"><div class="well"><div class="row"><div class="col-xs-12"><div class="form-group"><label>Gallery Title:</label><div class="row"><div class="col-xs-11"><input type="text" class="form-control" ng-model="photosCtrl.SelectedGalleryEdit.Title"/></div><div class="col-xs-1"><button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left" title="Save Caption" ng-click="updateTitle(photosCtrl.SelectedGalleryEdit.Title)"><i class="fa fa-save"></i></button></div></div></div></div></div><div class="row"><ul class="list-unstyled"><li class="col-xs-12 shuffle-animation" ng-repeat="p in photosCtrl.SelectedGalleryEdit.Photos"><button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left" title="Delete this picture" ng-click="delete(p,$index)"><i class="fa fa-trash-o"></i></button><div class="thumbnail"><img class="puppyPic" ng-src="{{('/Scripts/app/profile/app/imgdir/'+index.Id+'/'+photosCtrl.SelectedGalleryEdit.Id+'/'+p.FilePath) | spacesToDashes}}"/><div class="row"><div class="col-xs-11"><input type="text" class="form-control" ng-model="p.Caption"/></div><div class="col-xs-1"><button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left" title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i></button></div></div></div></li></ul></div><div class="panel panel-default panel-file-upload"><div class="row"><div class="col-xs-12"><div class="text-muted">Photo 3MB max JPG, PNG, GIF</div><div class="text-center dropFilesHere" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class" ng-show="dropSupported"><img class="dragPhotosImg" src="/Scripts/app/profile/app/img/photo-icon.png" alt=""/><p class="">Drag photos here</p></div></div></div><br/><div class="row"><div class="col-xs-12 text-center"><div ng-file-drop-available="dropSupported=true" ng-show="!dropSupported">HTML5 Drop File is not supported!</div><label class="fileContainer"><button class="btn btn-primary">Choose Files</button><input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple="multiple"/></label></div></div></div><a ui-sref="^" class="btn btn-default">Cancel</a><button class="btn btn-info" ng-click="">Save</button></div></script><script type="text/ng-template" id="views/directives/photo-gallery.html"><div class="well"><div class="row"><div class="col-xs-10"><h3 class="content text-center">{{photosCtrl.SelectedGallery.Title | uppercase}}</h3></div><div class="col-xs-1"><button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery" ui-sref=".edit"><i class="fa fa-pencil"></i></button></div><div class="col-xs-1"><button class="btn btn-del" data-toggle="tooltip" data-placement="left" title="Delete this gallery" ng-click="delGallery()"><i class="fa fa-trash-o"></i></button></div></div><div class="row"><div class="col-xs-12"><ul class="list-unstyled list-inline"><li class="col-xs-12 shuffle-animation" ng-repeat="p in photosCtrl.SelectedGallery.Photos"><div class="thumbnail"><img ng-src="{{('/Scripts/app/profile/app/imgdir/'+index.Id+'/'+photosCtrl.SelectedGallery.Id+'/'+p.FilePath) | spacesToDashes}}"/><div class="caption"><h4>{{p.Caption}}</h4></div></div></li></ul></div></div></div></script><script type="text/ng-template" id="views/directives/photos-info.html"><div panel="" panel-info=""><form name="form" novalidate=""><div class="row"><div class="col-xs-12"><div class="form-group"><label>Gallery Title:</label>&nbsp<span class="textMuted">Required</span><div class="row"><div class="col-xs-12"><input type="text" placeholder="Gallery Title" class="form-control" ng-class="{inputEmpty:!newGallery.Title}" ng-model="newGallery.Title" required=""/></div></div><div class="row"><ul class="list-unstyled"><li class="col-md-4 col-xs-12" ng-repeat="p in newGallery.Photos"><div class="thumbnail"><button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left" title="Delete this picture" ng-click="delete(p,$index)"><i class="fa fa-trash-o"></i></button><img class="puppyPic img-responsive" ng-src="{{('/Scripts/app/profile/app/imgdir/'+userName+'/'+newGallery.Id+'/'+p.FilePath) | spacesToDashes}}"/><div class="row"><div class="col-xs-12"><input type="text" class="form-control" ng-model="p.Caption"/></div></div></div></li></ul></div></div></div></div><div><b>Uploaded photos({{pnumbers}})</b><span>Optional</span></div><div class="text-muted">Photo 3MB max JPG, PNG, GIF</div><div class="panel panel-default panel-file-upload"><div class="text-center dropFilesHere" ng-disabled="!newGallery.Title" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class" ng-show="dropSupported"><img class="dragPhotosImg" src="/Scripts/app/profile/app/img/photo-icon.png" alt="" ng-disabled="!newGallery.Title"/><p class="">Drag photos here</p></div><h4 class="text-center">or</h4><div class="text-center"><div ng-file-drop-available="dropSupported=true" ng-show="!dropSupported">HTML5 Drop File is not supported!</div><label ng-class="{'text-muted':!newGallery.Title}" class="fileContainer"><button class="btn btn-primary btn-choose" ng-disabled="!newGallery.Title">Choose Files</button><input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple="multiple" ng-disabled="!newGallery.Title"/></label></div></div></form></div></script><script type="text/ng-template" id="views/directives/previous-puppies.html"><div class="panel panel-info text-center"><div class="panel-heading"><h2 class="panel-title"><p ng-transclude=""></p></h2></div><div class="panel-body"><p><button class="btn btn-primary">Add Photos</button></p></div></div></script><script type="text/ng-template" id="views/directives/profile-buttons.html"><div class="form-group profileSave text-center"><a class="btn btn-default" ui-sref="profile.about">Cancel</a><button class="btn btn-warning" ng-click="ResetAllFields();form.info.$setDirty()">Reset all fields</button><button class="btn btn-info" ng-disabled="form.$invalid || (form.kennel.$pristine && form.story.$pristine && form.parents.$pristine && form.boys.$pristine && form.girls.$pristine && form.info.$pristine)" ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save</button><a ui-sref="profile.photos" class="btn btn-default">Next Section</a></div></script><script type="text/ng-template" id="views/directives/spin-div.html"><div class="sp"><i class="fa fa-spinner fa-spin fa-5x"></i></div></script><style>.shuffle-animation.ng-enter,.shuffle-animation.ng-leave{position:relative}.shuffle-animation.ng-enter{-moz-transition:ease-out all .3s .4s;-o-transition:ease-out all .3s .4s;-webkit-transition:ease-out all .3s .4s;transition:ease-out all .3s .4s;left:2em;opacity:0}.shuffle-animation.ng-enter.ng-enter-active{left:0;opacity:1}.shuffle-animation.ng-enter-stagger{-webkit-transition-delay:.2s;transition-delay:.2s;-webkit-transition-duration:0s;transition-duration:0s}.shuffle-animation.ng-leave-stagger{-webkit-transition-delay:.2s;transition-delay:.2s;-webkit-transition-duration:0s;transition-duration:0s}.shuffle-animation.ng-leave{-moz-transition:.3s ease-out all;-o-transition:.3s ease-out all;-webkit-transition:.3s ease-out all;transition:.3s ease-out all;left:0;opacity:1}.shuffle-animation.ng-leave.ng-leave-active{left:2em;opacity:0}.cont{position:relative;min-height:1000px;overflow:hidden}.well-photos{background:#efefef;padding:5px;margin:5px}.sp{left:40%;top:100px;position:relative;color:#5bc0de;font-size:2em}.slide-left.ng-enter{z-index:100;left:100%;-webkit-transition:.5s ease-in-out;-moz-transition:.5s ease-in-out;-o-transition:.5s ease-in-out;transition:.5s ease-in-out;position:absolute;width:100%}.slide-left.ng-enter.ng-enter-active{left:0;right:0}.slide-left.ng-leave{z-index:101;left:0;-webkit-transition:.5s ease-in-out;-moz-transition:.5s ease-in-out;-o-transition:.5s ease-in-out;transition:.5s ease-in-out;position:absolute;width:100%}.slide-left.ng-leave.ng-leave-active{left:-100%}.slide-right.ng-enter{z-index:100;left:-100%;-webkit-transition:.5s ease-in-out;-moz-transition:.5s ease-in-out;-o-transition:.5s ease-in-out;transition:.5s ease-in-out;position:absolute;width:100%}.slide-right.ng-enter.ng-enter-active{left:0}.slide-right.ng-leave{z-index:101;left:0;-webkit-transition:.5s ease-in-out;-moz-transition:.5s ease-in-out;-o-transition:.5s ease-in-out;transition:.5s ease-in-out;position:absolute;width:100%}.slide-right.ng-leave.ng-leave-active{left:100%}.fileContainer{overflow:hidden;position:relative}.fileContainer [type=file]{display:block;opacity:0;position:absolute;right:0;top:0;cursor:pointer}.chooseFilesButton{margin-left:5px;width:110px;height:40px}.panel-file-upload{padding:1.7em}.dropFilesHere{border:2px #c3c3c3 dashed;min-height:100px}.dragPhotosImg{margin-top:2.5em;margin-bottom:1.4em}.addNewGalleryLink{padding:1.1em 1.1em 1.2em}.h4-addNewGallery{color:#444}.inputEmpty{border:1px solid red!important}.inputEmpty{border:1px solid red!important}.fa-browse-btn{margin-right:5px}.myDetails-alert{background-color:#faf9ee;border-color:#FFF;color:#444;box-shadow:0 -3px 5px #cccaca}.myDetailsFont{font-style:italic;font-weight:700}.myDetailsFormGroup{margin-left:5px!important;margin-bottom:0}.myDetailsForm{line-height:1.1em}.myDetailsHeader{font-size:1.7em;font-weight:700}.myDetailsInput{margin-top:.5em;margin-bottom:.5em}.profileSave{margin-top:10px}.puppyPic{margin-top:10px;margin-bottom:10px}.puppyPicWrapper{padding-top:10px!important}.btn-del{margin-top:3px!important;margin-bottom:5px!important;margin-right:5px!important;padding:1px 7px}.btn-del-pic{margin-top:10px!important;margin-bottom:5px!important;margin-right:5px!important;padding:3px 7px;position:absolute;top:10px;right:20px}.btn-edit{padding:1px 7px}.btn-save{margin-top:4px!important;margin-bottom:5px!important;margin-right:0!important;padding:1px 7px}.btn{margin:3px!important}.btn-primary{background:#2279c1;background:-webkit-gradient(linear,left bottom,left top,color-stop(0,#2279c1),color-stop(1,#498cc6));background:-ms-linear-gradient(bottom,#2279c1,#498cc6);background:-moz-linear-gradient(center bottom,#2279c1 0,#498cc6 100%);background:-o-linear-gradient(#498cc6,#2279c1);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#498cc6', endColorstr='#2279c1', GradientType=0)}.btn-primary:hover{background-color:#4b95d6!important;border-color:#4389cf!important}.btn-primary:active{background-color:#4b95d6!important;border-color:#4389cf!important}.cursor-p{cursor:pointer}.container .jumbotron{padding:20px}hr{border-top-color:#bababa!important}h5{font-weight:700}.right{text-align:right}.italic{font-style:italic}.dl-horizontal dt{text-align:left}.fa-fw{font-size:.9em!important}.light-gray{color:#bababa}.form-editPersonal{margin-left:5px!important}.textMuted{font-size:.9em;color:#bababa}.label-subhead{margin-right:15px}.glyphicon-col{margin-right:15px}.h5Custom{font-size:1em;font-weight:700;line-height:1.2em;margin-bottom:5px}</style>
+					|| (form.kennel.$invalid || form.story.$invalid) || saved">Save</button></div></div><form class="form" name="specifics"><h5 class="label-subhead control-label bold">Certifications:</h5><ul class="list-unstyled"><li ng-repeat="c in ctrl.BreederProfileEdit.Certifications">{{c.Title}} -<input type="checkbox" ng-model="c.isActive"/></li></ul><div class="btn-group"><button type="button" class="btn btn-success">Pricing</button><button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button><ul class="dropdown-menu" role="menu"><li><a href="#">Price 1</a></li><li><a href="#">Price 2</a></li><li><a href="#">Price 3</a></li><li class="divider"></li><li><a href="#">Special Offer</a></li></ul></div><br/><div class="form-group"><h5 class="label-subhead control-label">Insurance:</h5><ul class="list-unstyled"><li ng-repeat="c in ctrl.BreederProfileEdit.Insurances">{{c.Title}} -<input type="checkbox" ng-model="c.isActive"/></li></ul></div><div class="form-group"><label for="shipping" class="label-subhead control-label">Shipping:</label><input id="shipping" name="shipping" class="form-control" ng-model="ctrl.BreederProfileEdit.Shipping" name="shipping" type="text"/></div><div class="form-group profileSave text-center"><a class="btn btn-default" ui-sref="profile.details">Cancel</a><a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a><input type="submit" value="Save" ng-click="Save()" class="btn btn-info" ng-disabled="form.$pristine || form.$invalid"/><a class="btn btn-default" ui-sref="profile.about.change">Next Section</a></div></form></div></script><script type="text/ng-template" id="views/directives/details-info.html"><div class="well"><div class="row"><div class="col-sm-9"><h3 class="italic">PERSONAL INFO</h3></div><div class="col-sm-1 pull-right"><a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a></div></div><h4>Kennel Name</h4><p>{{ctrl.BreederProfile.KennelName}}</p><h4>Website</h4><p>{{ctrl.BreederProfile.Website}}</p><h4>Email</h4><p>{{ctrl.BreederProfile.Email}}</p><h4>Phone</h4><p>{{ctrl.BreederProfile.Phone}}</p><br/><h4 class="italic">LOCATION</h4><h4>City</h4><p>{{ctrl.BreederProfile.City}}</p><h4>Zip</h4><p>{{ctrl.BreederProfile.Zip}}</p><h4>State</h4><p>{{ctrl.BreederProfile.State}}</p><br/><h4 class="italic">SPECIFICS</h4><h4>Certifications</h4><p ng-repeat="c in ctrl.BreederProfile.Certifications">{{c.Title}} - {{c.isActive | boolString}}</p><h4>Vet Services</h4><p>{{ctrl.BreederProfile.VetServices|boolString}}</p><h4>Insurance</h4><p ng-repeat="c in ctrl.BreederProfile.Insurances">{{c.Title}} - {{c.isActive | boolString}}</p><h4>Shipping</h4><p>{{ctrl.BreederProfile.Shipping|boolString}}</p></div></script><script type="text/ng-template" id="views/directives/litters.html"><div class="panel panel-info text-center" xmlns="http://www.w3.org/1999/html"><div class="panel-heading"><h2 class="panel-title"><p ng-transclude=""></p></h2></div><div class="panel-body"><p><button class="btn btn-primary">Edit</button></p></div></div></script><script type="text/ng-template" id="views/directives/photo-galleries.html"><div class="well"><h3>Current Galleries</h3><div class="row"><div class="col-xs-12"><h4>Shared</h4><ul class="list-unstyled list-inline"><li class="col-xs-12 col-md-4 shuffle-animation" ng-repeat="g in photosCtrl.Galleries | galleryActive:true"><div class="thumbnail"><div class="text-primary text-center caption"><h5 class="">{{g.Title | titleLength:15}}</h5></div><a ng-click="photosCtrl.setSelectedGallery(g.Id)" class="cursor-p"><img ng-src="{{('/Scripts/app/profile/app/imgdir/'+index.Id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}"/></a></div></li></ul></div></div><div class="row"><div class="col-xs-12"><h4>Un-Shared</h4><ul class="list-unstyled list-inline"><li class="col-xs-12 col-md-4 shuffle-animation" ng-repeat="g in photosCtrl.Galleries | galleryActive:false"><div class="thumbnail"><div class="text-primary text-center caption"><h5 class="">{{g.Title | titleLength:15}}</h5></div><a ng-click="photosCtrl.setSelectedGallery(g.Id)" class="cursor-p"><img ng-src="{{('/Scripts/app/profile/app/imgdir/'+index.Id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}"/></a></div></li></ul></div></div></div></script><script type="text/ng-template" id="views/directives/photo-gallery-edit.html"><div class="well"><div class="row"><div class="col-xs-12"><div class="form-group"><label>Gallery Title:</label><div class="row"><div class="col-xs-11"><input type="text" class="form-control" ng-model="photosCtrl.SelectedGalleryEdit.Title"/></div><div class="col-xs-1"><button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left" title="Save Caption" ng-click="updateTitle(photosCtrl.SelectedGalleryEdit.Title)"><i class="fa fa-save"></i></button></div></div></div></div></div><div class="row"><ul class="list-unstyled"><li class="col-xs-12 shuffle-animation" ng-repeat="p in photosCtrl.SelectedGalleryEdit.Photos"><button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left" title="Delete this picture" ng-click="delete(p,$index)"><i class="fa fa-trash-o"></i></button><div class="thumbnail"><img class="puppyPic" ng-src="{{('/Scripts/app/profile/app/imgdir/'+index.Id+'/'+photosCtrl.SelectedGalleryEdit.Id+'/'+p.FilePath) | spacesToDashes}}"/><div class="row"><div class="col-xs-11"><input type="text" class="form-control" ng-model="p.Caption"/></div><div class="col-xs-1"><button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left" title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i></button></div></div></div></li></ul></div><div class="panel panel-default panel-file-upload"><div class="row"><div class="col-xs-12"><div class="text-muted">Photo 3MB max JPG, PNG, GIF</div><div class="text-center dropFilesHere" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class" ng-show="dropSupported"><img class="dragPhotosImg" src="/Scripts/app/profile/app/img/photo-icon.png" alt=""/><p class="">Drag photos here</p></div></div></div><br/><div class="row"><div class="col-xs-12 text-center"><div ng-file-drop-available="dropSupported=true" ng-show="!dropSupported">HTML5 Drop File is not supported!</div><label class="fileContainer"><button class="btn btn-primary">Choose Files</button><input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple="multiple"/></label></div></div></div><a ui-sref="^" class="btn btn-default">Cancel</a><button class="btn btn-info" ng-click="">Save</button></div></script><script type="text/ng-template" id="views/directives/photo-gallery.html"><div class="well"><div class="row"><div class="col-xs-9"><h3 class="content text-center">{{photosCtrl.SelectedGallery.Title | uppercase}}</h3></div><div class="col-xs-1"><button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery" ui-sref=".edit"><i class="fa fa-pencil"></i></button></div><div class="col-xs-1"><button class="btn btn-del" data-toggle="tooltip" data-placement="left" title="Delete this gallery" ng-click="delGallery()"><i class="fa fa-trash-o"></i></button></div><div class="col-xs-1" ng-show="!photosCtrl.SelectedGallery.IsActive"><button class="btn" data-toggle="tooltip" data-placement="left" title="Share this gallery" ng-click="shareGallery()"><i class="fa fa-share"></i></button></div></div><div class="row"><div class="col-xs-12"><ul class="list-unstyled list-inline"><li class="col-xs-12 shuffle-animation" ng-repeat="p in photosCtrl.SelectedGallery.Photos"><div class="thumbnail"><img ng-src="{{('/Scripts/app/profile/app/imgdir/'+index.Id+'/'+photosCtrl.SelectedGallery.Id+'/'+p.FilePath) | spacesToDashes}}"/><div class="caption"><h4>{{p.Caption}}</h4></div></div></li></ul></div></div></div></script><script type="text/ng-template" id="views/directives/photos-info.html"><div panel="" panel-info=""><form name="form" novalidate=""><div class="row"><div class="col-xs-12"><div class="form-group"><label>Gallery Title:</label>&nbsp<span class="textMuted">Required</span><div class="row"><div class="col-xs-12"><input type="text" placeholder="Gallery Title" class="form-control" ng-class="{inputEmpty:!newGallery.Title}" ng-model="newGallery.Title" required=""/></div></div><div class="row"><ul class="list-unstyled"><li class="col-md-4 col-xs-12" ng-repeat="p in newGallery.Photos"><div class="thumbnail"><button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left" title="Delete this picture" ng-click="delete(p,$index)"><i class="fa fa-trash-o"></i></button><img class="puppyPic img-responsive" ng-src="{{('/Scripts/app/profile/app/imgdir/'+userName+'/'+newGallery.Id+'/'+p.FilePath) | spacesToDashes}}"/><div class="row"><div class="col-xs-12"><input type="text" class="form-control" ng-model="p.Caption"/></div></div></div></li></ul></div></div></div></div><div><b>Uploaded photos({{pnumbers}})</b><span>Optional</span></div><div class="text-muted">Photo 3MB max JPG, PNG, GIF</div><div class="panel panel-default panel-file-upload"><div class="text-center dropFilesHere" ng-disabled="!newGallery.Title" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class" ng-show="dropSupported"><img class="dragPhotosImg" src="/Scripts/app/profile/app/img/photo-icon.png" alt="" ng-disabled="!newGallery.Title"/><p class="">Drag photos here</p></div><h4 class="text-center">or</h4><div class="text-center"><div ng-file-drop-available="dropSupported=true" ng-show="!dropSupported">HTML5 Drop File is not supported!</div><label ng-class="{'text-muted':!newGallery.Title}" class="fileContainer"><button class="btn btn-primary btn-choose" ng-disabled="!newGallery.Title">Choose Files</button><input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple="multiple" ng-disabled="!newGallery.Title"/></label></div></div></form></div></script><script type="text/ng-template" id="views/directives/previous-puppies.html"><div class="panel panel-info text-center"><div class="panel-heading"><h2 class="panel-title"><p ng-transclude=""></p></h2></div><div class="panel-body"><p><button class="btn btn-primary">Add Photos</button></p></div></div></script><script type="text/ng-template" id="views/directives/profile-buttons.html"><div class="form-group profileSave text-center"><a class="btn btn-default" ui-sref="profile.about">Cancel</a><button class="btn btn-warning" ng-click="ResetAllFields();form.info.$setDirty()">Reset all fields</button><button class="btn btn-info" ng-disabled="form.$invalid || (form.kennel.$pristine && form.story.$pristine && form.parents.$pristine && form.boys.$pristine && form.girls.$pristine && form.info.$pristine)" ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save</button><a ui-sref="profile.photos" class="btn btn-default">Next Section</a></div></script><script type="text/ng-template" id="views/directives/spin-div.html"><div class="sp"><i class="fa fa-spinner fa-spin fa-5x"></i></div></script><style>.shuffle-animation.ng-enter, .shuffle-animation.ng-leave {
+    position: relative
+}
+
+.shuffle-animation.ng-enter {
+    -moz-transition: ease-out all .3s .4s;
+    -o-transition: ease-out all .3s .4s;
+    -webkit-transition: ease-out all .3s .4s;
+    transition: ease-out all .3s .4s;
+    left: 2em;
+    opacity: 0
+}
+
+.shuffle-animation.ng-enter.ng-enter-active {
+    left: 0;
+    opacity: 1
+}
+
+.shuffle-animation.ng-enter-stagger, .shuffle-animation.ng-leave-stagger {
+    -webkit-transition-delay: .2s;
+    transition-delay: .2s;
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s
+}
+
+.shuffle-animation.ng-leave {
+    -moz-transition: .3s ease-out all;
+    -o-transition: .3s ease-out all;
+    -webkit-transition: .3s ease-out all;
+    transition: .3s ease-out all;
+    left: 0;
+    opacity: 1
+}
+
+.shuffle-animation.ng-leave.ng-leave-active {
+    left: 2em;
+    opacity: 0
+}
+
+.cont {
+    position: relative;
+    min-height: 1000px;
+    overflow: hidden
+}
+
+.well-photos {
+    background: #efefef;
+    padding: 5px;
+    margin: 5px
+}
+
+.sp {
+    left: 40%;
+    top: 100px;
+    position: relative;
+    color: #5bc0de;
+    font-size: 2em
+}
+
+.slide-left.ng-enter {
+    z-index: 100;
+    left: 100%;
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    position: absolute;
+    width: 100%
+}
+
+.slide-left.ng-enter.ng-enter-active {
+    left: 0;
+    right: 0
+}
+
+.slide-left.ng-leave {
+    z-index: 101;
+    left: 0;
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    position: absolute;
+    width: 100%
+}
+
+.slide-left.ng-leave.ng-leave-active {
+    left: -100%
+}
+
+.slide-right.ng-enter {
+    z-index: 100;
+    left: -100%;
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    position: absolute;
+    width: 100%
+}
+
+.slide-right.ng-enter.ng-enter-active {
+    left: 0
+}
+
+.slide-right.ng-leave {
+    z-index: 101;
+    left: 0;
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    position: absolute;
+    width: 100%
+}
+
+.slide-right.ng-leave.ng-leave-active {
+    left: 100%
+}
+
+.fileContainer {
+    overflow: hidden;
+    position: relative
+}
+
+.fileContainer [type=file] {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer
+}
+
+.chooseFilesButton {
+    margin-left: 5px;
+    width: 110px;
+    height: 40px
+}
+
+.panel-file-upload {
+    padding: 1.7em
+}
+
+.dropFilesHere {
+    border: 2px dashed #c3c3c3;
+    min-height: 100px
+}
+
+.dragPhotosImg {
+    margin-top: 2.5em;
+    margin-bottom: 1.4em
+}
+
+.addNewGalleryLink {
+    padding: 1.1em 1.1em 1.2em
+}
+
+.h4-addNewGallery {
+    color: #444
+}
+
+.inputEmpty {
+    border: 1px solid red !important
+}
+
+.fa-browse-btn {
+    margin-right: 5px
+}
+
+.myDetails-alert {
+    background-color: #faf9ee;
+    border-color: #FFF;
+    color: #444;
+    box-shadow: 0 -3px 5px #cccaca
+}
+
+.myDetailsFont {
+    font-style: italic;
+    font-weight: 700
+}
+
+.myDetailsFormGroup {
+    margin-left: 5px !important;
+    margin-bottom: 0
+}
+
+.myDetailsForm {
+    line-height: 1.1em
+}
+
+.myDetailsHeader {
+    font-size: 1.7em;
+    font-weight: 700
+}
+
+.myDetailsInput {
+    margin-top: .5em;
+    margin-bottom: .5em
+}
+
+.profileSave {
+    margin-top: 10px
+}
+
+.puppyPic {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.puppyPicWrapper {
+    padding-top: 10px !important
+}
+
+.btn-del {
+    margin-top: 3px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+    padding: 1px 7px
+}
+
+.btn-del-pic {
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+    padding: 3px 7px;
+    position: absolute;
+    top: 10px;
+    right: 20px
+}
+
+.btn-edit {
+    padding: 1px 7px
+}
+
+.btn-save {
+    margin-top: 4px !important;
+    margin-bottom: 5px !important;
+    margin-right: 0 !important;
+    padding: 1px 7px
+}
+
+.btn {
+    margin: 3px !important
+}
+
+.btn-primary {
+    background: #2279c1;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2279c1), color-stop(1, #498cc6));
+    background: -ms-linear-gradient(bottom, #2279c1, #498cc6);
+    background: -moz-linear-gradient(center bottom, #2279c1 0, #498cc6 100%);
+    background: -o-linear-gradient(#498cc6, #2279c1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#498cc6', endColorstr='#2279c1', GradientType=0)
+}
+
+.btn-primary:active, .btn-primary:hover {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important
+}
+
+.cursor-p {
+    cursor: pointer
+}
+
+.container .jumbotron {
+    padding: 20px
+}
+
+hr {
+    border-top-color: #bababa !important
+}
+
+h5 {
+    font-weight: 700
+}
+
+.right {
+    text-align: right
+}
+
+.italic {
+    font-style: italic
+}
+
+.dl-horizontal dt {
+    text-align: left
+}
+
+.fa-fw {
+    font-size: .9em !important
+}
+
+.light-gray {
+    color: #bababa
+}
+
+.form-editPersonal {
+    margin-left: 5px !important
+}
+
+.textMuted {
+    font-size: .9em;
+    color: #bababa
+}
+
+.glyphicon-col, .label-subhead {
+    margin-right: 15px
+}
+
+.h5Custom {
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.2em;
+    margin-bottom: 5px
+}</style>

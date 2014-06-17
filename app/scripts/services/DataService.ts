@@ -91,6 +91,20 @@ class DataService {
             });
         return d.promise;
     }
+
+    shareGallery(galleryId:number) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/ShareGallery', {
+            galleryId: galleryId
+        })
+            .success(() => {
+                d.resolve();
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
+    }
     updateGallery(gallery:IGallery) {
         var d = this.$q.defer();
 

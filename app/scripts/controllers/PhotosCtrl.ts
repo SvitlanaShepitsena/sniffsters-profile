@@ -13,7 +13,7 @@ class PhotosCtrl {
     public SelectedGalleryEdit:IGallery;
 
     constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, data, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-        $scope.index.menuIndex=2;
+        $scope.index.menuIndex = 2;
 
 
         var newGallery = new Gallery();
@@ -23,7 +23,7 @@ class PhotosCtrl {
 
         $scope.index.url = "photos";
 
-      this.Galleries=data;
+        this.Galleries = data;
     }
 
     saveNewGalleries() {
@@ -32,7 +32,7 @@ class PhotosCtrl {
     }
 
     updateGallery(galleries:IGallery[], index:number) {
-        if (galleries.length==0) {
+        if (galleries.length == 0) {
             if (this.GalleriesNew.length == 0) {
                 this.GalleriesNew.push(new Gallery());
             }
@@ -53,7 +53,16 @@ class PhotosCtrl {
         this.GalleriesNew.push(new Gallery());
     }
 
-    setSelectedGallery(galid:number) {
+    setSelectedGallery(galleryId:number) {
+        var galid:number = 0;
+        var index:number = 0;
+        this.Galleries.forEach((gallery:IGallery) => {
+            if (gallery.Id === galleryId) {
+                galid = index;
+                return false;
+            }
+            index++;
+        });
         this.SelectedGallery = this.Galleries[galid];
         this.$state.go('profile.photos2.galleries', {'id': galid});
 //        console.log(this.SelectedGallery);

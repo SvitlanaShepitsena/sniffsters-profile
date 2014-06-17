@@ -15,6 +15,11 @@ profile.filter('titleLength', function () {
         return TitleLength.filter(value, len);
     };
 });
+profile.filter('galleryActive', function () {
+    return function (Galleries, isActive) {
+        return GalleryActive.filter(Galleries, isActive);
+    };
+});
 
 profile.service("CopyProfileService", CopyProfileService);
 profile.service("GalleryService", GalleryService);

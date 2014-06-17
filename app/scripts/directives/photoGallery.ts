@@ -12,16 +12,14 @@ var photoGallery:(data) => ng.IDirective = () => {
         templateUrl: 'views/directives/photo-gallery.html',
         // replace directive tag with template info
         replace: true,
-        controller: ($scope, $modal, DataService:DataService, $stateParams, $state) => {
+        controller: ($scope, $modal, DataService:DataService, $stateParams, $state, toastr) => {
             $scope.tempPhoto = [];
             var index = 0;
 
             if ($scope.photosCtrl.SelectedGallery == undefined) {
                 var id = $stateParams.id;
                 $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
-
             }
-
 
             //iterating over arrey of photos of selected gallery
             $scope.photosCtrl.SelectedGallery.Photos.forEach((photo) => {
@@ -33,6 +31,16 @@ var photoGallery:(data) => ng.IDirective = () => {
             $scope.tempPhoto.forEach((photo) => {
                 $scope.photosCtrl.SelectedGallery.Photos.push(photo);
             });
+            $scope.shareGallery = () => {
+                DataService.shareGallery($scope.photosCtrl.SelectedGallery.Id).then(() => {
+                    //Success
+                    $scope.photosCtrl.SelectedGallery.IsShared = true;
+                    toastr.success('This gallery is shared.');
+                }, () => {
+                    //error
+                })
+            }
+
 
             $scope.delGallery = () => {
 

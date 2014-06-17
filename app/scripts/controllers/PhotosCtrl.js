@@ -16,6 +16,7 @@ var PhotosCtrl = (function () {
 
         this.Galleries = data;
     }
+
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var index = 0;
         this.updateGallery(this.GalleriesNew, index);
@@ -43,7 +44,16 @@ var PhotosCtrl = (function () {
         this.GalleriesNew.push(new Gallery());
     };
 
-    PhotosCtrl.prototype.setSelectedGallery = function (galid) {
+    PhotosCtrl.prototype.setSelectedGallery = function (galleryId) {
+        var galid = 0;
+        var index = 0;
+        this.Galleries.forEach(function (gallery) {
+            if (gallery.Id === galleryId) {
+                galid = index;
+                return false;
+            }
+            index++;
+        });
         this.SelectedGallery = this.Galleries[galid];
         this.$state.go('profile.photos2.galleries', { 'id': galid });
     };
