@@ -1,8 +1,11 @@
-interface IBreederProfile{
+interface IBreederProfile {
     Id:string;
     FirstName:string;
     LastName:string;
     Location:string;
+    State:string;
+    City:string
+    Zip:string
     Website:string;
     Email:string;
     Phone:string;
@@ -23,20 +26,19 @@ interface IPhoto {
     Caption:string;
     FilePath:string;
 }
-interface IGallery{
+interface IGallery {
     Id:number;
     Title:string;
     IsActive:Boolean;
     Photos:IPhoto[]
 }
-class Gallery implements  IGallery
-{
+class Gallery implements IGallery {
     Id:number;
     Title:string;
     IsActive:Boolean;
     Photos:IPhoto[];
 }
-class BreederProfile implements IBreederProfile{
+class BreederProfile implements IBreederProfile {
     Id:string;
     FirstName:string;
     LastName:string;
@@ -47,6 +49,9 @@ class BreederProfile implements IBreederProfile{
     Girls:string;
     AddInfo:string;
     Location:string;
+    State:string;
+    City:string;
+    Zip:string;
     Website:string;
     Email:string;
     Phone:string;
@@ -55,5 +60,6 @@ class BreederProfile implements IBreederProfile{
     Insurances:string[];
     Shipping:boolean;
 
-constructor(){}
+    constructor() {
+    }
 }

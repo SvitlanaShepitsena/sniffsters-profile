@@ -27,8 +27,8 @@
 
 	<div class="form-group">
 		<div class="row">
-			<div class="col-xs-6">
-				<label for="website" class="label-subhead control-label">Website:</label>
+			<div class="col-sm-6">
+			<label for="website" class="label-subhead control-label">Website:</label>
 				<input id="website" name="website" class="form-control" ng-model="ctrl.BreederProfileEdit.Website"
 				       name="website"
 				       type="text"/>
@@ -36,8 +36,8 @@
 
 			<label class="label-subhead control-label">Display your email?</label>
 
-			<div class="col-xs-6">
-				<label class="radio-inline">
+			<div class="col-sm-6">
+			<label class="radio-inline">
 					<input type="radio" id="displayEmail1" name="displayEmail" value="male"> Yes
 				</label>
 				<label class="radio-inline">
@@ -58,23 +58,23 @@
 	</div>
 
 	<div class="row">
-		<div class="form-group has-feedback col-xs-6" ng-class="{'has-error':form.phone.$invalid}">
+		<div class="form-group has-feedback col-sm-6" ng-class="{'has-error':form.phone.$invalid}">
 			<label for="phone" class="label-subhead control-label">Phone:</label>
 			<span class="textMuted">Required</span>
 			<input id="phone" name="phone" class="form-control" ng-model="ctrl.BreederProfileEdit.Phone"
 			       name="phone"
 			       type="text"
 			       required/>
-				<span ng-show="form.phone.$invalid"
-				      class="glyphicon glyphicon-remove form-control-feedback glyphicon-col"></span>
-			<span ng-hide="form.phone.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+			<span ng-show="form.phone.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+			<span ng-hide="form.phone.$invalid"
+			      class="glyphicon glyphicon-col glyphicon-ok form-control-feedback"></span>
 		</div>
 
 		<div class="form-group">
 			<label class="label-subhead control-label">Display your phone?</label>
 
-			<div class="col-xs-6">
-				<label class="radio-inline">
+			<div class="col-sm-6">
+			<label class="radio-inline">
 					<input type="radio" id="displayPhone1" name="displayEmail" value="male"> Yes
 				</label>
 				<label class="radio-inline">
@@ -206,11 +206,11 @@
 		       type="text"/>
 	</div>
 	<div class="form-group  profileSave text-center">
-		<a class="btn btn-default" ui-sref="profile.details">Cancel</a>
-		<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
+		<a class="btn btn-default" ui-sref="profile.details4">Cancel</a>
+		<a class="btn btn-warning" ng-click="ResetAllFields();form.$setDirty()">Reset all fields</a>
 		<input type="submit" value="Save" ng-click="Save()" class="btn btn-info"
 		       ng-disabled="form.$pristine || form.$invalid">
-		<a class="btn btn-default" ui-sref="profile.about.change">Next Section</a>
+		<a class="btn btn-default" ui-sref="profile.details4.change">Next Section</a>
 	</div>
 </form>
 </div>

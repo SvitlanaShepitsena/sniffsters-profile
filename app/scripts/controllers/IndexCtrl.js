@@ -34,6 +34,12 @@ var IndexCtrl = (function () {
                 _this.menuIndex = 4;
                 $location.url('/profile/details');
             }
+
+            if (menuIndex == 5) {
+                _this.url = 'testimonials';
+                _this.menuIndex = 5;
+                $location.url('/profile/testimonials');
+            }
         };
 
         this.menuIndex = 1;

@@ -5,7 +5,9 @@
 		</div>
 		<div class="col-sm-2 pull-right">
 			<button ng-click="ctrl.SaveKennelName();form.kennel.$setPristine();form.story.$setPristine();"
-			        class="btn btn-info" ng-disabled="(form.kennel.$invalid || form.story.$invalid) || (form.kennel.$pristine && form.story.$pristine)">Save
+			        class="btn btn-info"
+			        ng-disabled="(form.kennel.$invalid || form.story.$invalid) || (form.kennel.$pristine && form.story.$pristine)">
+				Save
 			</button>
 		</div>
 	</div>
@@ -85,8 +87,6 @@
 		          ng-model="ctrl.BreederProfileEdit.AddInfo">
 		</textarea>
 		<br/>
-
-
 		<profile-buttons></profile-buttons>
 
 	</form>

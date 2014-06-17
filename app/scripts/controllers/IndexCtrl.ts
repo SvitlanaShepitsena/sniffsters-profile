@@ -58,6 +58,13 @@ class IndexCtrl {
                 $location.url('/profile/details');
             }
 
+
+            if (menuIndex == 5) {
+                this.url = 'testimonials';
+                this.menuIndex = 5;
+                $location.url('/profile/testimonials');
+            }
+
         }
 
         this.menuIndex = 1;

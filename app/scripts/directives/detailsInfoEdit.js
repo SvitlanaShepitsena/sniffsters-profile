@@ -1,4 +1,3 @@
-
 var detailsInfoEdit = function () {
     return {
         restrict: 'E',
@@ -11,9 +10,16 @@ var detailsInfoEdit = function () {
             func: '&'
         },
         link: function (scope, element, attrs) {
-            scope.ResetFields = function () {
-                console.log('reset');
-                scope.ctrl.BreederProfileEdit = new BreederProfile();
+            scope.ResetAllFields = function () {
+                scope.ctrl.BreederProfileEdit.KennelName = '';
+                scope.ctrl.BreederProfileEdit.Website = '';
+                scope.ctrl.BreederProfileEdit.Email = '';
+                scope.ctrl.BreederProfileEdit.Phone = '';
+                scope.ctrl.BreederProfileEdit.Location = '';
+                scope.ctrl.BreederProfileEdit.State = '';
+                scope.ctrl.BreederProfileEdit.Zip = "";
+                scope.ctrl.BreederProfileEdit.City = "";
+                scope.ctrl.BreederProfileEdit.Shipping = false;
             };
 
             scope.SaveKennelName = function () {

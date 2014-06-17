@@ -21,62 +21,72 @@
 ***********************/
 .shuffle-animation.ng-enter,
 .shuffle-animation.ng-leave {
-  position: relative;
+    position: relative;
 }
+
 .shuffle-animation.ng-enter {
-  -moz-transition: ease-out all 0.3s 0.4s;
-  -o-transition: ease-out all 0.3s 0.4s;
-  -webkit-transition: ease-out all 0.3s 0.4s;
-  transition: ease-out all 0.3s 0.4s;
-  left: 2em;
-  opacity: 0;
+    -moz-transition: ease-out all 0.3s 0.4s;
+    -o-transition: ease-out all 0.3s 0.4s;
+    -webkit-transition: ease-out all 0.3s 0.4s;
+    transition: ease-out all 0.3s 0.4s;
+    left: 2em;
+    opacity: 0;
 }
+
 .shuffle-animation.ng-enter.ng-enter-active {
-  left: 0;
-  opacity: 1;
+    left: 0;
+    opacity: 1;
 }
+
 .shuffle-animation.ng-enter-stagger {
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
-  -webkit-transition-duration: 0s;
-  transition-duration: 0s;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
 }
+
 .shuffle-animation.ng-leave-stagger {
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
-  -webkit-transition-duration: 0s;
-  transition-duration: 0s;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
 }
+
 .shuffle-animation.ng-leave {
-  -moz-transition: 0.3s ease-out all;
-  -o-transition: 0.3s ease-out all;
-  -webkit-transition: 0.3s ease-out all;
-  transition: 0.3s ease-out all;
-  left: 0;
-  opacity: 1;
+    -moz-transition: 0.3s ease-out all;
+    -o-transition: 0.3s ease-out all;
+    -webkit-transition: 0.3s ease-out all;
+    transition: 0.3s ease-out all;
+    left: 0;
+    opacity: 1;
 }
+
 .shuffle-animation.ng-leave.ng-leave-active {
-  left: 2em;
-  opacity: 0;
+    left: 2em;
+    opacity: 0;
 }
+
 /*#endregion*/
 .cont {
-  position: relative;
-  min-height: 1000px;
-  overflow: hidden;
+    position: relative;
+    min-height: 1000px;
+    overflow: hidden;
 }
+
 .well-photos {
-  background: #efefef;
-  padding: 5px;
-  margin: 5px;
+    background: #efefef;
+    padding: 5px;
+    margin: 5px;
 }
+
 .sp {
-  left: 40%;
-  top: 100px;
-  position: relative;
-  color: #5bc0de;
-  font-size: 2em;
+    left: 40%;
+    top: 100px;
+    position: relative;
+    color: #5bc0de;
+    font-size: 2em;
 }
+
 /**********************
       MIXINS
 ***********************/
@@ -84,107 +94,126 @@
        STYLES
 ***********************/
 .slide-left.ng-enter {
-  z-index: 100;
-  left: 100%;
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-  position: absolute;
-  width: 100%;
+    z-index: 100;
+    left: 100%;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
 }
+
 .slide-left.ng-enter.ng-enter-active {
-  left: 0;
-  right: 0;
+    left: 0;
+    right: 0;
 }
+
 .slide-left.ng-leave {
-  z-index: 101;
-  left: 0;
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-  position: absolute;
-  width: 100%;
+    z-index: 101;
+    left: 0;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
 }
+
 .slide-left.ng-leave.ng-leave-active {
-  left: -100%;
+    left: -100%;
 }
+
 .slide-right.ng-enter {
-  z-index: 100;
-  left: -100%;
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-  position: absolute;
-  width: 100%;
+    z-index: 100;
+    left: -100%;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
 }
+
 .slide-right.ng-enter.ng-enter-active {
-  left: 0;
+    left: 0;
 }
+
 .slide-right.ng-leave {
-  z-index: 101;
-  left: 0;
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-  position: absolute;
-  width: 100%;
+    z-index: 101;
+    left: 0;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
 }
+
 .slide-right.ng-leave.ng-leave-active {
-  left: 100%;
+    left: 100%;
 }
+
 /**********************
   FILE UPLOAD BUTTON
 ***********************/
 .fileContainer {
-  overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    position: relative;
 }
+
 .fileContainer [type=file] {
-  display: block;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  cursor: pointer;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
 }
+
 .chooseFilesButton {
-  margin-left: 5px;
-  width: 110px;
-  height: 40px;
+    margin-left: 5px;
+    width: 110px;
+    height: 40px;
 }
+
 /**********************
    ADD NEW GALLERY
 ***********************/
 .panel-file-upload {
-  padding: 1.7em;
+    padding: 1.7em;
 }
+
 .dropFilesHere {
-  border: 2px #c3c3c3 dashed;
-  min-height: 100px;
+    border: 2px #c3c3c3 dashed;
+    min-height: 100px;
 }
+
 .dragPhotosImg {
-  margin-top: 2.5em;
-  margin-bottom: 1.4em;
+    margin-top: 2.5em;
+    margin-bottom: 1.4em;
 }
+
 .addNewGalleryLink {
-  padding: 1.1em 1.1em 1.2em;
+    padding: 1.1em 1.1em 1.2em;
 }
+
 .h4-addNewGallery {
-  color: #444444;
+    color: #444444;
 }
+
 .inputEmpty {
-  border: 1px solid red !important;
+    border: 1px solid red !important;
 }
+
 .inputEmpty {
-  border: 1px solid red !important;
+    border: 1px solid red !important;
 }
+
 .fa-browse-btn {
-  margin-right: 5px;
+    margin-right: 5px;
 }
+
 /**********************
        IMPORTS
 ***********************/
@@ -192,33 +221,40 @@
     MY DETAILS
 ***********************/
 .myDetails-alert {
-  background-color: #faf9ee;
-  border-color: #FFFFFF;
-  color: #444444;
-  box-shadow: 0px -3px 5px #cccaca;
+    background-color: #faf9ee;
+    border-color: #FFFFFF;
+    color: #444444;
+    box-shadow: 0px -3px 5px #cccaca;
 }
+
 .myDetailsFont {
-  font-style: italic;
-  font-weight: bold;
+    font-style: italic;
+    font-weight: bold;
 }
+
 .myDetailsFormGroup {
-  margin-left: 5px !important;
-  margin-bottom: 0em;
+    margin-left: 5px !important;
+    margin-bottom: 0em;
 }
+
 .myDetailsForm {
-  line-height: 1.1em;
+    line-height: 1.1em;
 }
+
 .myDetailsHeader {
-  font-size: 1.7em;
-  font-weight: bold;
+    font-size: 1.7em;
+    font-weight: bold;
 }
+
 .myDetailsInput {
-  margin-top: .5em;
-  margin-bottom: .5em;
+    margin-top: .5em;
+    margin-bottom: .5em;
 }
+
 .profileSave {
-  margin-top: 10px;
+    margin-top: 10px;
 }
+
 /**********************
        IMPORTS
 ***********************/
@@ -226,107 +262,133 @@
         Photos
 ***********************/
 .puppyPic {
-  margin-top: 10px;
-  margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
+
 .puppyPicWrapper {
-  padding-top: 10px !important;
+    padding-top: 10px !important;
 }
+
 .btn-del {
-  margin-top: 3px !important;
-  margin-bottom: 5px !important;
-  margin-right: 5px !important;
-  padding: 1px 7px;
+    margin-top: 3px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+    padding: 1px 7px;
 }
+
 .btn-del-pic {
-  margin-top: 10px !important;
-  margin-bottom: 5px !important;
-  margin-right: 5px !important;
-  padding: 3px 7px;
-  position: absolute;
-  top: 10px;
-  right: 20px;
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+    padding: 3px 7px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
 }
+
 .btn-edit {
-  padding: 1px 7px;
+    padding: 1px 7px;
 }
+
 .btn-save {
-  margin-top: 4px !important;
-  margin-bottom: 5px !important;
-  margin-right: 0px !important;
-  padding: 1px 7px;
+    margin-top: 4px !important;
+    margin-bottom: 5px !important;
+    margin-right: 0px !important;
+    padding: 1px 7px;
 }
+
 /*************************
   BOOTSTRAP CUSTOM STYLES
 **************************/
 .btn {
-  margin: 3px !important;
+    margin: 3px !important;
 }
+
 .btn-primary {
-  background: #2279c1;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2279c1), color-stop(1, #498cc6));
-  background: -ms-linear-gradient(bottom, #2279c1, #498cc6);
-  background: -moz-linear-gradient(center bottom, #2279c1 0%, #498cc6 100%);
-  background: -o-linear-gradient(#498cc6, #2279c1);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#498cc6', endColorstr='#2279c1', GradientType=0);
+    background: #2279c1;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2279c1), color-stop(1, #498cc6));
+    background: -ms-linear-gradient(bottom, #2279c1, #498cc6);
+    background: -moz-linear-gradient(center bottom, #2279c1 0%, #498cc6 100%);
+    background: -o-linear-gradient(#498cc6, #2279c1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#498cc6', endColorstr='#2279c1', GradientType=0);
 }
+
 .btn-primary:hover {
-  background-color: #4b95d6 !important;
-  border-color: #4389cf !important;
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
 }
+
 .btn-primary:active {
-  background-color: #4b95d6 !important;
-  border-color: #4389cf !important;
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
 }
+
 .cursor-p {
-  cursor: pointer;
+    cursor: pointer;
 }
-.container .jumbotron {
-  padding: 20px;
+
+.container .jumbo-custom {
+    background-color: #f6f6f6 !important;
+    border: 1px #ebebeb solid !important;
+    padding: 20px;
 }
+
 hr {
-  border-top-color: #bababa !important;
+    border-top-color: #bababa !important;
 }
+
 h5 {
-  font-weight: bold;
+    font-weight: bold;
 }
+
 .right {
-  text-align: right;
+    text-align: right;
 }
+
 .italic {
-  font-style: italic;
+    font-style: italic;
 }
+
 .dl-horizontal dt {
-  text-align: left;
+    text-align: left;
 }
+
 .fa-fw {
-  font-size: .9em !important;
+    font-size: .9em !important;
 }
+
 .light-gray {
-  color: #bababa;
+    color: #bababa;
 }
+
 /**********************
      Profile Form
 ***********************/
 .form-editPersonal {
-  margin-left: 5px !important;
+    margin-left: 5px !important;
 }
+
 .textMuted {
-  font-size: .9em;
-  color: #bababa;
+    font-size: .9em;
+    color: #bababa;
 }
+
 .label-subhead {
-  margin-right: 15px;
+    margin-right: 15px;
 }
+
 .glyphicon-col {
-  margin-right: 15px;
+    margin-right: 15px;
 }
+
 .h5Custom {
-  font-size: 1em;
-  font-weight: bold;
-  line-height: 1.2em;
-  margin-bottom: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.2em;
+    margin-bottom: 5px;
 }
+
 /*.thumbExample {
   height: 130px;
   width: 130px;
