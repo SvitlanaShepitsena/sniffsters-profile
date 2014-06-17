@@ -80,6 +80,7 @@ var DataService = (function () {
         });
         return d.promise;
     };
+
     DataService.prototype.shareGallery = function (galleryId) {
         var d = this.$q.defer();
 
