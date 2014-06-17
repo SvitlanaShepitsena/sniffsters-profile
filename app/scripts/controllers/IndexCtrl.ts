@@ -19,18 +19,45 @@ class IndexCtrl {
     spinner:boolean;
     menuIndex:number;
 
+    animationDirection(menuIndex:number):string {
+
+        if (menuIndex > this.menuIndex)
+            return 'slide-left';
+        else
+            return 'slide-right';
+    }
+
     constructor(public $scope, $location, public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         this.url = 'about';
+
         $scope.navigate = (menuIndex:number) => {
+            $scope.slide = this.animationDirection(menuIndex);
+
+            if (menuIndex == 1) {
+                this.menuIndex = 1;
+                $location.url('/profile/about');
+            }
+
+
             if (menuIndex == 2) {
-                $scope.slide = 'slide-left';
+                this.menuIndex = 2;
                 $location.url('/profile/photos');
             }
 
-            if (menuIndex == 1) {
-                $scope.slide = 'slide-right';
-                $location.url('/profile/about');
+
+            if (menuIndex == 3) {
+                this.url = 'puppies';
+                this.menuIndex = 3;
+                $location.url('/profile/puppies');
             }
+
+
+            if (menuIndex == 4) {
+                this.url = 'details';
+                this.menuIndex = 4;
+                $location.url('/profile/details');
+            }
+
         }
 
         this.menuIndex = 1;

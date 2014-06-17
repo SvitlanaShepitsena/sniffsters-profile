@@ -9,15 +9,30 @@ var IndexCtrl = (function () {
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
         this.url = 'about';
+
         $scope.navigate = function (menuIndex) {
+            $scope.slide = _this.animationDirection(menuIndex);
+
+            if (menuIndex == 1) {
+                _this.menuIndex = 1;
+                $location.url('/profile/about');
+            }
+
             if (menuIndex == 2) {
-                $scope.slide = 'slide-left';
+                _this.menuIndex = 2;
                 $location.url('/profile/photos');
             }
 
-            if (menuIndex == 1) {
-                $scope.slide = 'slide-right';
-                $location.url('/profile/about');
+            if (menuIndex == 3) {
+                _this.url = 'puppies';
+                _this.menuIndex = 3;
+                $location.url('/profile/puppies');
+            }
+
+            if (menuIndex == 4) {
+                _this.url = 'details';
+                _this.menuIndex = 4;
+                $location.url('/profile/details');
             }
         };
 
@@ -53,6 +68,14 @@ var IndexCtrl = (function () {
             _this.spinner = false;
         });
     }
+
+    IndexCtrl.prototype.animationDirection = function (menuIndex) {
+        if (menuIndex > this.menuIndex)
+            return 'slide-left';
+        else
+            return 'slide-right';
+    };
+
     IndexCtrl.prototype.SaveKennelName = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 
