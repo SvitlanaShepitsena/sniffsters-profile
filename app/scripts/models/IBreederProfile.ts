@@ -26,12 +26,14 @@ interface IPhoto {
 interface IGallery{
     Id:number;
     Title:string;
+    IsActive:Boolean;
     Photos:IPhoto[]
 }
 class Gallery implements  IGallery
 {
     Id:number;
     Title:string;
+    IsActive:Boolean;
     Photos:IPhoto[];
 }
 class BreederProfile implements IBreederProfile{
