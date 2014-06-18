@@ -5,7 +5,6 @@ interface IAboutInfoEdit extends ng.IScope {
     IsEdit:Boolean;
     Save:() => void;
     Cancel:() => void;
-    SaveKennelName:() => void;
 
     ctrl:IndexCtrl;
     KennelNameValid:boolean;

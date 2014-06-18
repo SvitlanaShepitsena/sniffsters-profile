@@ -129,6 +129,34 @@ class IndexCtrl {
         this.Save(breederProfileOriginal);
     }
 
+    /* =DETAILS*/
+
+    SavePersonalInfo() {
+        var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
+
+        breederProfileOriginal.KennelName = this.BreederProfileEdit.KennelName;
+        breederProfileOriginal.Website = this.BreederProfileEdit.Website;
+        breederProfileOriginal.Email = this.BreederProfileEdit.Email;
+        breederProfileOriginal.Phone = this.BreederProfileEdit.Phone;
+        this.Save(breederProfileOriginal);
+    }
+
+    SaveLocation() {
+        var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
+
+        breederProfileOriginal.City = this.BreederProfileEdit.City;
+        breederProfileOriginal.Zip = this.BreederProfileEdit.Zip;
+        breederProfileOriginal.State = this.BreederProfileEdit.State;
+        this.Save(breederProfileOriginal);
+    }
+
+    SaveSpecifics() {
+        var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
+
+        breederProfileOriginal.Certifications = this.BreederProfileEdit.Certifications;
+        breederProfileOriginal.Insurances = this.BreederProfileEdit.Insurances;
+        this.Save(breederProfileOriginal);
+    }
     Next(state:string) {
         this.$state.go(state);
     }
