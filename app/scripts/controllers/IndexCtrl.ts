@@ -157,7 +157,6 @@ class IndexCtrl {
         breederProfileOriginal.Insurances = this.BreederProfileEdit.Insurances;
         this.Save(breederProfileOriginal);
     }
-
     Next(state:string) {
         this.$state.go(state);
     }

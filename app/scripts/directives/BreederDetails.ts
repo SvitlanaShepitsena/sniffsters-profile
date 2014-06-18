@@ -41,5 +41,5 @@ var breederDetails:() => ng.IDirective = () => {
                 scope.IsEdit = false;
             }
         }
-    }
+}
 }
