@@ -5,7 +5,10 @@ var PuppiesCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        $scope.index.url = 'puppies';
+
         $scope.puppies = this;
+
         this.Litters = litters;
     }
 

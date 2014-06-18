@@ -6,8 +6,7 @@ var litter = function () {
         replace: true,
         scope: {
             l: '=',
-            text: '@',
-            func: '&'
+            userName: '@'
         },
         controller: function ($scope) {
             $scope.today = function () {
@@ -26,11 +25,9 @@ var litter = function () {
                 $scope.opened = true;
             };
 
-            $scope.minDate = new Date('2014-01-01');
-
-            $scope.initDate = new Date('2014-01-01');
+            $scope.initDate = new Date();
             $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-            $scope.format = $scope.formats[0];
+            $scope.format = $scope.formats[2];
         },
         link: function (scope, element, attrs) {
         }

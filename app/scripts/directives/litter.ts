@@ -14,9 +14,7 @@ var litter:() => ng.IDirective = () => {
         replace: true,
         scope: {
             l: '=',
-
-            text: '@',
-            func: '&'
+            userName: '@'
         },
         controller: ($scope)=> {
 
@@ -37,11 +35,10 @@ var litter:() => ng.IDirective = () => {
                 $scope.opened = true;
             };
 
-            $scope.minDate = new Date('2014-01-01')
 
-            $scope.initDate = new Date('2014-01-01');
+            $scope.initDate = new Date();
             $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-            $scope.format = $scope.formats[0];
+            $scope.format = $scope.formats[2];
         },
 
         link: (scope:ILitter, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {

@@ -8,7 +8,10 @@ class PuppiesCtrl {
     Litters:ILitter[];
 
     constructor(public $scope:IPuppiesScope, litters:ILitter[], public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+        $scope.index.url = 'puppies';
+
         $scope.puppies = this;
+
         this.Litters = litters;
     }
 
