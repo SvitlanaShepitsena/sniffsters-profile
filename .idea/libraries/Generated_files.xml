@@ -136,7 +136,6 @@
       <root url="file://$PROJECT_DIR$/aprofile.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/photosInfoEdit.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-virtual_renderer-tests.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PuppiesCtrl.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-background_tokenizer-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-editor_highlight_selected_word-tests.js" />
       <root url="file://$PROJECT_DIR$/app/bower_components/DefinitelyTyped/ace/tests/ace-token_iterator-tests.js" />
@@ -154,6 +153,7 @@
       <root url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/photosInfo.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfo.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PuppiesCtrl.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/PhotosCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/PuppiesEditCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfo.js" />

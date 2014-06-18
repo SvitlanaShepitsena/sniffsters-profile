@@ -20,7 +20,7 @@
 /// <reference path="directives/litter.ts" />
 //#ref
 
-var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap.tpls']);
+var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls']);
 
 profile.filter('boolString', () => {
     return (value:boolean):string => {
