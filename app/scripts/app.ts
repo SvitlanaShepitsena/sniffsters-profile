@@ -1,4 +1,3 @@
-/// <reference path="directives/profileButtons.ts" />
 /// <reference path="directives/BreederDetails.ts" />
 /// <reference path="filters/BoolString.ts" />
 /// <reference path="directives/aboutInfo.ts" />
@@ -48,7 +47,6 @@ profile.service("CopyProfileService", CopyProfileService);
 profile.service("GalleryService", GalleryService);
 //#serv
 
-profile.directive("profileButtons", profileButtons);
 
 profile.directive("aboutInfoEdit", aboutInfoEdit);
 profile.directive("detailsInfo", detailsInfo);

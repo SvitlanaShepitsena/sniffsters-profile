@@ -24,8 +24,6 @@ profile.filter('galleryActive', function () {
 profile.service("CopyProfileService", CopyProfileService);
 profile.service("GalleryService", GalleryService);
 
-profile.directive("profileButtons", profileButtons);
-
 profile.directive("aboutInfoEdit", aboutInfoEdit);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("detailsInfoEdit", detailsInfoEdit);
