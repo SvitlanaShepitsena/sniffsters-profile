@@ -37,6 +37,8 @@ class Gallery implements  IGallery
     Photos:IPhoto[];
 }
 class BreederProfile implements IBreederProfile{
+    IsShowEmail:boolean;
+    IsShowPhoneNumber:boolean;
     Id:string;
     FirstName:string;
     LastName:string;
