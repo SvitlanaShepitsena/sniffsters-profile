@@ -41,6 +41,7 @@ profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
 
 profile.controller("PhotosCtrl", PhotosCtrl);
+profile.controller("PuppiesCtrl", PuppiesCtrl);
 
 profile.value("toastr", toastr);
 profile.service("DataService", DataService);
@@ -78,6 +79,12 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-photosEdit.html"
     }).state("profile.puppies3", {
         url: "/puppies",
+        controller: "PuppiesCtrl",
+        resolve: {
+            litters: function (DataService) {
+                return DataService.getLitters();
+            }
+        },
         templateUrl: "../views/profile-puppies.html"
     }).state("profile.puppies3.edit", {
         url: "/edit",

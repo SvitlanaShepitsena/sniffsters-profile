@@ -5,9 +5,11 @@ interface IPuppiesScope extends IMainScope {
     ctrl:IndexCtrl;
 }
 class PuppiesCtrl {
+    Litters:ILitter[];
 
-    constructor(public $scope:IPuppiesScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope:IPuppiesScope, litters:ILitter[], public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.puppies = this;
+        this.Litters = litters;
     }
 
 

@@ -15,6 +15,17 @@ var DataService = (function () {
         return d.promise;
     };
 
+    DataService.prototype.getLitters = function () {
+        var d = this.$q.defer();
+
+        this.$http.get('http://localhost:44300/BreederPersonal/GetLitters').success(function (result) {
+            d.resolve(result);
+        }).error(function (data, error) {
+            d.reject();
+        });
+        return d.promise;
+    };
+
     DataService.prototype.updateProfile = function (t) {
         var d = this.$q.defer();
 
@@ -68,6 +79,7 @@ var DataService = (function () {
         });
         return d.promise;
     };
+
     DataService.prototype.deleteGallery = function (galleryId) {
         var d = this.$q.defer();
 
@@ -93,6 +105,7 @@ var DataService = (function () {
         });
         return d.promise;
     };
+
     DataService.prototype.updateGallery = function (gallery) {
         var d = this.$q.defer();
 

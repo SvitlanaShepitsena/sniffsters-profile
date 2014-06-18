@@ -17,7 +17,7 @@ class DataService {
     }
 
     getLitters<T>() {
-        var d = this.$q.defer<T>();
+        var d = this.$q.defer<T[]>();
 
         this.$http.get('http://localhost:44300/BreederPersonal/GetLitters').success((result:T[]) => {
 
