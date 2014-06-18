@@ -4,9 +4,13 @@
 		<h4 class="italic">PERSONAL INFO</h4>
 	</div>
 	<div class="col-sm-2 pull-right">
-		<button ng-click="" class="btn btn-info" ng-disabled="
-					(form.kennelDetails.$pristine && form.story.$pristine)
-					|| (form.kennelDetails.$invalid || form.story.$invalid) || saved">Save
+		<button ng-click="ctrl.SavePersonalInfo();
+		form.$setPristine();"
+		        class="btn btn-primary"
+		        ng-disabled="(form.$pristine)
+					|| (form.kennel.$invalid || form.email.$invalid  || form.phone.$invalid)
+					|| saved">
+			Save
 		</button>
 	</div>
 </div>
@@ -27,7 +31,7 @@
 
 	<div class="form-group">
 		<div class="row">
-			<div class="col-xs-6">
+			<div class="col-sm-6">
 				<label for="website" class="label-subhead control-label">Website:</label>
 				<input id="website" name="website" class="form-control" ng-model="ctrl.BreederProfileEdit.Website"
 				       name="website"
@@ -36,13 +40,9 @@
 
 			<label class="label-subhead control-label">Display your email?</label>
 
-			<div class="col-xs-6">
-				<label class="radio-inline">
-					<input type="radio" id="displayEmail1" name="displayEmail" value="male"> Yes
-				</label>
-				<label class="radio-inline">
-					<input type="radio" id="displayEmail2" name="displayEmail" value="female"> No
-				</label>
+			<div class="col-sm-6">
+				<input type="checkbox" id="displayEmail1" name="displayEmail"
+				       ng-model="ctrl.BreederProfileEdit.IsShowEmail"> Yes
 			</div>
 		</div>
 	</div>
@@ -58,28 +58,27 @@
 	</div>
 
 	<div class="row">
-		<div class="form-group has-feedback col-xs-6" ng-class="{'has-error':form.phone.$invalid}">
+		<div class="form-group has-feedback col-sm-6" ng-class="{'has-error':form.phone.$invalid}">
 			<label for="phone" class="label-subhead control-label">Phone:</label>
 			<span class="textMuted">Required</span>
 			<input id="phone" name="phone" class="form-control" ng-model="ctrl.BreederProfileEdit.Phone"
 			       name="phone"
 			       type="text"
 			       required/>
-				<span ng-show="form.phone.$invalid"
-				      class="glyphicon glyphicon-remove form-control-feedback glyphicon-col"></span>
-			<span ng-hide="form.phone.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+					<span ng-show="form.phone.$invalid"
+					      class="glyphicon glyphicon-col glyphicon-remove form-control-feedback">
+
+					      </span>
+			<span ng-hide="form.phone.$invalid"
+			      class="glyphicon glyphicon-col glyphicon-ok form-control-feedback"></span>
 		</div>
 
 		<div class="form-group">
 			<label class="label-subhead control-label">Display your phone?</label>
 
-			<div class="col-xs-6">
-				<label class="radio-inline">
-					<input type="radio" id="displayPhone1" name="displayEmail" value="male"> Yes
-				</label>
-				<label class="radio-inline">
-					<input type="radio" id="displayPhone2" name="displayEmail" value="female"> No
-				</label>
+			<div class="col-sm-6">
+				<input type="checkbox" id="displayPhone1" name="displayPhone"
+				       ng-model="ctrl.BreederProfileEdit.IsShowPhone"> Yes
 			</div>
 
 		</div>
@@ -92,9 +91,10 @@
 		<h4 class="italic">LOCATION</h4>
 	</div>
 	<div class="col-sm-2 pull-right">
-		<button ng-click="" class="btn btn-info" ng-disabled="
-					(form.kennel.$pristine && form.story.$pristine)
-					|| (form.kennel.$invalid || form.story.$invalid) || saved">Save
+		<button class="btn btn-primary"
+		        ng-click="ctrl.SaveLocation();  location.$setPristine();"
+		        ng-disabled="(location.city.$pristine  && location.zip.$pristine && location.state.$pristine)
+						|| (location.city.$invalid || location.zip.$invalid  || location.state.$invalid)  || saved">Save
 		</button>
 	</div>
 </div>
@@ -159,9 +159,8 @@
 		<h4 class="italic">SPECIFICS</h4>
 	</div>
 	<div class="col-sm-2 pull-right">
-		<button ng-click="SaveSpecifics()" class="btn btn-info" ng-disabled="
-					(form.kennel.$pristine && form.story.$pristine)
-					|| (form.kennel.$invalid || form.story.$invalid) || saved">Save
+		<button ng-click="ctrl.SaveSpecifics()" class="btn btn-primary"
+		        ng-disabled="specifics.$pristine || saved">Save
 		</button>
 	</div>
 </div>
@@ -199,18 +198,21 @@
 		</ul>
 	</div>
 	<div class="form-group">
-		<label for="shipping" class="label-subhead control-label">Shipping:</label>
-		<input id="shipping" name="shipping" class="form-control"
-		       ng-model="ctrl.BreederProfileEdit.Shipping"
-		       name="shipping"
-		       type="text"/>
+		<label class="label-subhead control-label">Shipping:</label>
+		<input type="checkbox" id="shipping1" name="shipping" ng-model="ctrl.BreederProfileEdit.shipping"> Yes
 	</div>
 	<div class="form-group  profileSave text-center">
-		<a class="btn btn-default" ui-sref="profile.details">Cancel</a>
-		<a class="btn btn-warning" ui-sref="profile.about.change">Reset all fields</a>
-		<input type="submit" value="Save" ng-click="Save()" class="btn btn-info"
-		       ng-disabled="form.$pristine || form.$invalid">
-		<a class="btn btn-default" ui-sref="profile.about.change">Next Section</a>
+		<a class="btn btn-default" ui-sref="profile.details4">Cancel</a>
+		<a class="btn btn-warning" ng-click="ResetAllFields();form.$setDirty()">Reset all fields</a>
+		<button class="btn btn-primary"
+		        ng-disabled="(form.$pristine && location.$pristine && specifics.$pristine) || (form.$invalid || location.$invalid ) "
+		        ng-click="ctrl.Save(ctrl.BreederProfileEdit);
+		        form.$setPristine();
+		        location.$setPristine();
+		        specifics.$setPristine();">
+			Save
+		</button>
+		<a class="btn btn-default" ui-sref="profile.testimonials5.edit">Next Section</a>
 	</div>
 </form>
 </div>

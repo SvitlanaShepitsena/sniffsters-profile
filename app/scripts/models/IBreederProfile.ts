@@ -3,6 +3,9 @@ interface IBreederProfile {
     FirstName:string;
     LastName:string;
     Location:string;
+    State:string;
+    City:string
+    Zip:string
     Website:string;
     Email:string;
     Phone:string;
@@ -17,6 +20,8 @@ interface IBreederProfile {
     VetServices:boolean;
     Insurances:string[];
     Shipping:boolean;
+    IsShowEmail:boolean
+    IsShowPhoneNumber:boolean
 }
 interface IPhoto {
     Id:number;
@@ -35,6 +40,7 @@ class Gallery implements IGallery {
     IsActive:Boolean;
     Photos:IPhoto[];
 }
+<<<<<<< HEAD
 
 interface ILitter {
     Id:number;
@@ -46,6 +52,17 @@ interface ILitter {
 }
 
 class BreederProfile implements IBreederProfile {
+=======
+    class
+    BreederProfile
+    implements
+    IBreederProfile {
+    IsShowEmail:boolean;
+    IsShowPhoneNumber:boolean;
+>>>>>>>
+    origin
+/
+    master
     Id:string;
     FirstName:string;
     LastName:string;
@@ -56,6 +73,9 @@ class BreederProfile implements IBreederProfile {
     Girls:string;
     AddInfo:string;
     Location:string;
+    State:string;
+    City:string;
+    Zip:string;
     Website:string;
     Email:string;
     Phone:string;
