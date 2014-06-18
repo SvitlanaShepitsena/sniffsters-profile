@@ -1,8 +1,7 @@
-
-var litters = function () {
+var litter = function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/directives/litters.html',
+        templateUrl: 'views/directives/litter.html',
         transclude: true,
         replace: true,
         scope: {

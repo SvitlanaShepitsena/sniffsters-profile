@@ -44,14 +44,7 @@ interface ILitter {
     Colors:string;
     Photos:IPhoto[];
 }
-class Litter implements ILitter {
-    Id:number;
-    Title:string;
-    DateOfBirth:Date;
-    Puppies:string;
-    Colors:string;
-    Photos:IPhoto[];
-}
+
 class BreederProfile implements IBreederProfile {
     Id:string;
     FirstName:string;

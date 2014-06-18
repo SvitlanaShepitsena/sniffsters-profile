@@ -5,12 +5,6 @@ var Gallery = (function () {
     return Gallery;
 })();
 
-var Litter = (function () {
-    function Litter() {
-    }
-
-    return Litter;
-})();
 var BreederProfile = (function () {
     function BreederProfile() {
     }

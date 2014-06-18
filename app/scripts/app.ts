@@ -5,7 +5,6 @@
 /// <reference path="directives/aboutInfoEdit.ts" />
 /// <reference path="directives/detailsInfo.ts" />
 /// <reference path="directives/detailsInfoEdit.ts" />
-/// <reference path="directives/litters.ts" />
 /// <reference path="directives/previousPuppies.ts" />
 /// <reference path="directives/photosInfo.ts" />
 /// <reference path="controllers/PhotosCtrl.ts" />
@@ -55,7 +54,6 @@ profile.directive("profileButtons", profileButtons);
 profile.directive("aboutInfoEdit", aboutInfoEdit);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("detailsInfoEdit", detailsInfoEdit);
-profile.directive("litters", litters);
 profile.directive("previousPuppies", previousPuppies);
 profile.directive("photosInfo", photosInfo);
 profile.directive("photoGalleries", photoGalleries);

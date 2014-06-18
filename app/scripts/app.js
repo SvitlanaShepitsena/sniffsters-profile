@@ -29,13 +29,13 @@ profile.directive("profileButtons", profileButtons);
 profile.directive("aboutInfoEdit", aboutInfoEdit);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("detailsInfoEdit", detailsInfoEdit);
-profile.directive("litters", litters);
 profile.directive("previousPuppies", previousPuppies);
 profile.directive("photosInfo", photosInfo);
 profile.directive("photoGalleries", photoGalleries);
 profile.directive("photoGallery", photoGallery);
 profile.directive("photoGalleryEdit", photoGalleryEdit);
 profile.directive("spinDiv", spinDiv);
+profile.directive("litter", litter);
 
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
