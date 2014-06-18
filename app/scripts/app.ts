@@ -17,6 +17,7 @@
 /// <reference path="filters/TitleLength.ts" />
 /// <reference path="directives/spinDiv.ts" />
 /// <reference path="filters/GalleryActive.ts" />
+/// <reference path="controllers/PuppiesCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap.tpls']);
@@ -65,6 +66,7 @@ profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
 
 profile.controller("PhotosCtrl", PhotosCtrl);
+profile.controller("PuppiesCtrl", PuppiesCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -96,6 +98,7 @@ profile.config(
                         return DataService.getGalleries<IGallery>();
                     }
                 },
+
                 controller: "PhotosCtrl",
                 templateUrl: "../views/profile-photos.html"
             })
@@ -113,6 +116,12 @@ profile.config(
             })
             .state("profile.puppies3", {
                 url: "/puppies",
+                controller: "PuppiesCtrl",
+                resolve: {
+                    data: (DataService:DataService) => {
+                        return DataService.getLitters()<ILitter>();
+                    }
+                },
                 templateUrl: "../views/profile-puppies.html"
             })
             .state("profile.puppies3.edit", {
@@ -134,7 +143,7 @@ profile.config(
             .state("profile.testimonials5.edit", {
                 url: "/edit",
                 templateUrl: "../views/profile-testimonialsEdit.html"
-            });
+            })
 //#state
     });
 

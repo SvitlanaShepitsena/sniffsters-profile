@@ -1,4 +1,4 @@
-interface IBreederProfile{
+interface IBreederProfile {
     Id:string;
     FirstName:string;
     LastName:string;
@@ -23,20 +23,36 @@ interface IPhoto {
     Caption:string;
     FilePath:string;
 }
-interface IGallery{
+interface IGallery {
     Id:number;
     Title:string;
     IsActive:Boolean;
     Photos:IPhoto[]
 }
-class Gallery implements  IGallery
-{
+class Gallery implements IGallery {
     Id:number;
     Title:string;
     IsActive:Boolean;
     Photos:IPhoto[];
 }
-class BreederProfile implements IBreederProfile{
+
+interface ILitter {
+    Id:number;
+    Title:string;
+    DateOfBirth:Date;
+    Puppies:string;
+    Colors:string;
+    Photos:IPhoto[];
+}
+class Litter implements ILitter {
+    Id:number;
+    Title:string;
+    DateOfBirth:Date;
+    Puppies:string;
+    Colors:string;
+    Photos:IPhoto[];
+}
+class BreederProfile implements IBreederProfile {
     Id:string;
     FirstName:string;
     LastName:string;
@@ -55,5 +71,6 @@ class BreederProfile implements IBreederProfile{
     Insurances:string[];
     Shipping:boolean;
 
-constructor(){}
+    constructor() {
+    }
 }
