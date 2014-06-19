@@ -277,6 +277,13 @@
     padding: 1px 7px;
 }
 
+.btn-share {
+    margin-top: 3px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+    padding: 1px 7px;
+}
+
 .btn-del-pic {
     margin-top: 10px !important;
     margin-bottom: 5px !important;

@@ -4,7 +4,6 @@ var Gallery = (function () {
 
     return Gallery;
 })();
-
 var BreederProfile = (function () {
     function BreederProfile() {
     }
