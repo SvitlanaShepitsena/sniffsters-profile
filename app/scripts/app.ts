@@ -18,6 +18,10 @@
 /// <reference path="controllers/PuppiesCtrl.ts" />
 /// <reference path="directives/litter.ts" />
 /// <reference path="directives/litterNew.ts" />
+/// <reference path="directives/testimonialsInfo.ts" />
+/// <reference path="directives/testimonialsInfoEdit.ts" />
+/// <reference path="controllers/TestimonialsCtrl.ts" />
+/// <reference path="directives/feedback.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls']);
@@ -61,12 +65,16 @@ profile.directive("photoGalleryEdit", photoGalleryEdit);
 profile.directive("spinDiv", spinDiv);
 profile.directive("litter", litter);
 profile.directive("litterNew", litterNew);
+profile.directive("testimonialsInfo", testimonialsInfo);
+profile.directive("testimonialsInfoEdit", testimonialsInfoEdit);
+profile.directive("feedback", feedback);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
 
 profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
+profile.controller("TestimonialsCtrl", TestimonialsCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -143,6 +151,11 @@ profile.config(
             .state("profile.testimonials5.edit", {
                 url: "/edit",
                 templateUrl: "../views/profile-testimonialsEdit.html"
+            })
+            .state("testimonials", {
+                url: "/profile/testimonials",
+                controller: "TestimonialsCtrl",
+                templateUrl: "../views/profile-testimonials.html"
             })
 //#state
     });
