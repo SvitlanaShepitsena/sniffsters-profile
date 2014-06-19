@@ -146,16 +146,12 @@ profile.config(
             })
             .state("profile.testimonials5", {
                 url: "/testimonials",
+                controller: "TestimonialsCtrl",
                 templateUrl: "../views/profile-testimonials.html"
             })
             .state("profile.testimonials5.edit", {
                 url: "/edit",
                 templateUrl: "../views/profile-testimonialsEdit.html"
-            })
-            .state("testimonials", {
-                url: "/profile/testimonials",
-                controller: "TestimonialsCtrl",
-                templateUrl: "../views/profile-testimonials.html"
             })
 //#state
     });

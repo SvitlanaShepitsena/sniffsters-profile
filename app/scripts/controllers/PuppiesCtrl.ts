@@ -6,7 +6,7 @@ interface IPuppiesScope extends IMainScope {
 }
 class PuppiesCtrl {
     Litters:ILitter[];
-    LittersNew:ILitter[];
+    LittersNew:Litter[];
 
     constructor(public $scope:IPuppiesScope, litters:ILitter[], public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index.url = 'puppies';
