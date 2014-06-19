@@ -69,16 +69,16 @@ class BreederProfile implements IBreederProfile {
 interface ILitter {
     Id:number;
     Title:string;
-    DateOfBirth:Date;
+    DateOfBirth:string;
     Puppies:string;
     Colors:string;
     Photos:IPhoto[];
 }
 
-class Litter implements ILitter{
+class Litter {
     Id:number;
     Title:string;
-    DateOfBirth:Date;
+    DateOfBirth:string;
     Puppies:string;
     Colors:string;
     Photos:IPhoto[];
