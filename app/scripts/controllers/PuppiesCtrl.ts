@@ -16,6 +16,10 @@ class PuppiesCtrl {
         this.Litters = litters;
     }
 
+    addNewLitter() {
+        this.LittersNew.push(new Litter());
+    }
+
     saveLitters() {
         this.DataService.saveLitters(this.Litters).then(() => {
             this.ShowSuccess('You changes have been saved to Db');
