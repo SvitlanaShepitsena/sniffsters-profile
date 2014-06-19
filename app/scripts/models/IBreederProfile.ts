@@ -20,6 +20,16 @@ interface IBreederProfile {
     Insurances:string[];
     Shipping:boolean;
 }
+interface IFeedback {
+    Id:string;
+    ClientName:string;
+    FeedbackBody:string;
+}
+class Feedback {
+    Id:string;
+    ClientName:string;
+    FeedbackBody:string;
+}
 interface IPhoto {
     Id:number;
     Caption:string;
