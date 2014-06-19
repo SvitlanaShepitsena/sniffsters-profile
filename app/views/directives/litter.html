@@ -31,7 +31,7 @@
 		</div>
 		<div class="form-group">
 			<label for="Colors">Colors</label>
-			<input type="text" class="form-control" id="colors" name="colors" placeholder="title" ng-model="l.Colors">
+			<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title" ng-model="l.Colors">
 		</div>
 
 
@@ -39,22 +39,19 @@
 			<ul class="list-unstyled ">
 				<li class="col-xs-12 shuffle-animation" ng-repeat="p in l.Photos">
 					<button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left"
-					        title="Delete this picture" ng-click="delete(p,$index)"><i class="fa fa-trash-o"></i>
+					        title="Delete this photo." ng-click="deleteLitterPhoto(l.Id, p.Id,$index)"><i
+							class="fa fa-trash-o"></i>
 					</button>
 					<div class="thumbnail">
 						<img class="puppyPic"
 						     ng-src="{{('imgdir/'+userName+'/litters/'+l.Id+'/'+p.FilePath) | spacesToDashes}}">
 
 						<div class="row">
-							<div class="col-xs-11">
+							<div class="col-xs-12">
 								<input type="text" class="form-control" ng-model="p.Caption">
 							</div>
 
-							<div class="col-xs-1">
-								<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
-								        title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i>
-								</button>
-							</div>
+
 						</div>
 					</div>
 				</li>

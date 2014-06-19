@@ -74,7 +74,6 @@ var IndexCtrl = (function () {
             _this.spinner = false;
         });
     }
-
     IndexCtrl.prototype.animationDirection = function (menuIndex) {
         if (menuIndex > this.menuIndex)
             return 'slide-left';

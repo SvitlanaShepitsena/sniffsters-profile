@@ -60,6 +60,38 @@ class DataService {
         return d.promise;
     }
 
+    saveLitters(litters:ILitter[]) {
+
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/SaveLitters', {
+            litters: litters
+
+        })
+            .success(() => {
+                d.resolve();
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
+    }
+
+    deleteLitterPhoto(galleryId:number, photoId:number) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', {
+            deletePhoto: {
+                GalleryId: galleryId,
+                PhotoId: photoId
+            }})
+            .success(() => {
+                d.resolve();
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
+    }
+
     updateCaption(galleryId:number, photoId:number, caption:string) {
         var d = this.$q.defer();
 

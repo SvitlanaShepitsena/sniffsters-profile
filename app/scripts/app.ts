@@ -17,6 +17,7 @@
 /// <reference path="filters/GalleryActive.ts" />
 /// <reference path="controllers/PuppiesCtrl.ts" />
 /// <reference path="directives/litter.ts" />
+/// <reference path="directives/litterNew.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls']);
@@ -59,6 +60,7 @@ profile.directive("photoGallery", photoGallery);
 profile.directive("photoGalleryEdit", photoGalleryEdit);
 profile.directive("spinDiv", spinDiv);
 profile.directive("litter", litter);
+profile.directive("litterNew", litterNew);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);

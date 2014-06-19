@@ -1,3 +1,4 @@
+
 var litter = function () {
     return {
         restrict: 'E',
@@ -8,7 +9,46 @@ var litter = function () {
             l: '=',
             userName: '@'
         },
-        controller: function ($scope) {
+        controller: function ($scope, DataService, $modal, $upload) {
+            $scope.onFileSelect = function ($files) {
+                for (var i = 0; i < $files.length; i++) {
+                    var file = $files[i];
+
+                    $scope.upload = $upload.upload({
+                        url: 'http://localhost:44300/BreederPersonal/AddLitterPicture',
+                        data: { gallery: $scope.l.Id },
+                        file: file
+                    }).progress(function (evt) {
+                    }).success(function (data, status, headers, config) {
+                        $scope.l.Photos.push(data);
+                    });
+                }
+            };
+
+            $scope.deleteLitterPhoto = function (litterId, photoId, index) {
+                var modalInstance = $modal.open({
+                    template: "<div><div class=\"modal-body\">Delete this photo?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
+                    size: 'sm',
+                    controller: function ($scope, $modalInstance) {
+                        $scope.ok = function () {
+                            $modalInstance.close(true);
+                        };
+
+                        $scope.cancel = function () {
+                            $modalInstance.close(false);
+                        };
+                    }
+                });
+
+                modalInstance.result.then(function (confirmation) {
+                    if (confirmation) {
+                        DataService.deleteLitterPhoto(litterId, photoId).then(function () {
+                            $scope.l.Photos.splice(index, 1);
+                        });
+                    }
+                });
+            };
+
             $scope.today = function () {
                 $scope.dt = new Date();
             };

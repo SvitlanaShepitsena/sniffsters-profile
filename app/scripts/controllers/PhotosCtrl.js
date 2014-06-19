@@ -16,7 +16,6 @@ var PhotosCtrl = (function () {
 
         this.Galleries = data;
     }
-
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var index = 0;
         this.updateGallery(this.GalleriesNew, index);
