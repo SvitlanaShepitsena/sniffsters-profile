@@ -1,7 +1,8 @@
-var testimonialsInfo = function () {
+var feedbackInfo = function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/directives/testimonials-info.html',
+        templateUrl: 'views/directives/feedback-info.html',
+        transclude: true,
         replace: true,
         scope: {
             ctrl: '=',

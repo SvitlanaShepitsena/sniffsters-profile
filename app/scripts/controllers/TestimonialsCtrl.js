@@ -1,11 +1,14 @@
 var TestimonialsCtrl = (function () {
-    function TestimonialsCtrl($scope, $state, toastr, DataService, CopyProfileService) {
+    function TestimonialsCtrl($scope, feedbacks, $state, toastr, DataService, CopyProfileService) {
         this.$scope = $scope;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        $scope.index.url = "testimonials";
+
         $scope.testimonials = this;
+        this.Feedbacks = feedbacks;
     }
 
     TestimonialsCtrl.prototype.ShowSuccess = function (note) {

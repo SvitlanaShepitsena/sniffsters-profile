@@ -30,6 +30,20 @@ class DataService {
         return d.promise;
     }
 
+    getFeedbacks<T>() {
+        var d = this.$q.defer<T[]>();
+
+        this.$http.get('http://localhost:44300/BreederPersonal/GetFeedbacks').success((result:T[]) => {
+
+            d.resolve(result);
+        }).error((data, error) => {
+            // console.log(data)
+            // console.log(error)
+            d.reject();
+        });
+        return d.promise;
+    }
+
     updateProfile<T>(t:T) {
         var d = this.$q.defer<T>();
 

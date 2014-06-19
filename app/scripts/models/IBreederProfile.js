@@ -1,3 +1,10 @@
+var Feedback = (function () {
+    function Feedback() {
+    }
+
+    return Feedback;
+})();
+
 var Gallery = (function () {
     function Gallery() {
     }

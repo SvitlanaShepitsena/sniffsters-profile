@@ -35,9 +35,8 @@ profile.directive("photoGalleryEdit", photoGalleryEdit);
 profile.directive("spinDiv", spinDiv);
 profile.directive("litter", litter);
 profile.directive("litterNew", litterNew);
-profile.directive("testimonialsInfo", testimonialsInfo);
-profile.directive("testimonialsInfoEdit", testimonialsInfoEdit);
 profile.directive("feedback", feedback);
+profile.directive("feedbackInfo", feedbackInfo);
 
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -100,10 +99,12 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-detailsEdit.html"
     }).state("profile.testimonials5", {
         url: "/testimonials",
+        resolve: {
+            feedbacks: function (DataService) {
+                return DataService.getFeedbacks();
+            }
+        },
         controller: "TestimonialsCtrl",
         templateUrl: "../views/profile-testimonials.html"
-    }).state("profile.testimonials5.edit", {
-        url: "/edit",
-        templateUrl: "../views/profile-testimonialsEdit.html"
     });
 });

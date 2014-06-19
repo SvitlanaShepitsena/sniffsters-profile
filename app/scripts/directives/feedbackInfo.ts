@@ -1,14 +1,15 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
-interface ITestimonialsInfo extends ng.IScope {
+interface IFeedbackInfo extends ng.IScope {
     test:string;
 }
 
-var testimonialsInfo:() => ng.IDirective = () => {
+var feedbackInfo:() => ng.IDirective = () => {
 
     return{
         restrict: 'E',
-        templateUrl: 'views/directives/testimonials-info.html',
+        templateUrl: 'views/directives/feedback-info.html',
+        transclude: true,
         // replace directive tag with template info
         replace: true,
         scope: {
@@ -17,7 +18,7 @@ var testimonialsInfo:() => ng.IDirective = () => {
             text: '@',
             func: '&'
         },
-        link: (scope:ITestimonialsInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        link: (scope:IFeedbackInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 
 
         }

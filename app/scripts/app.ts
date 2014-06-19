@@ -18,10 +18,9 @@
 /// <reference path="controllers/PuppiesCtrl.ts" />
 /// <reference path="directives/litter.ts" />
 /// <reference path="directives/litterNew.ts" />
-/// <reference path="directives/testimonialsInfo.ts" />
-/// <reference path="directives/testimonialsInfoEdit.ts" />
 /// <reference path="controllers/TestimonialsCtrl.ts" />
 /// <reference path="directives/feedback.ts" />
+/// <reference path="directives/feedbackInfo.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls']);
@@ -65,9 +64,8 @@ profile.directive("photoGalleryEdit", photoGalleryEdit);
 profile.directive("spinDiv", spinDiv);
 profile.directive("litter", litter);
 profile.directive("litterNew", litterNew);
-profile.directive("testimonialsInfo", testimonialsInfo);
-profile.directive("testimonialsInfoEdit", testimonialsInfoEdit);
 profile.directive("feedback", feedback);
+profile.directive("feedbackInfo", feedbackInfo);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -146,12 +144,13 @@ profile.config(
             })
             .state("profile.testimonials5", {
                 url: "/testimonials",
+                resolve: {
+                    feedbacks: (DataService:DataService) => {
+                        return DataService.getFeedbacks<IFeedback>();
+                    }
+                },
                 controller: "TestimonialsCtrl",
                 templateUrl: "../views/profile-testimonials.html"
-            })
-            .state("profile.testimonials5.edit", {
-                url: "/edit",
-                templateUrl: "../views/profile-testimonialsEdit.html"
             })
 //#state
     });

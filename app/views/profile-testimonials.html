@@ -1,1 +1,11 @@
-<testimonials-info ui-view ctrl="index"></testimonials-info>
+<div class="row">
+	<div class="col-sm-12">
+		<h3 class="italic">WHAT DO YOUR CLIENTS SAY?</h3>
+	</div>
+</div>
+
+<ul class="list-unstyled">
+	<li ng-repeat="f in testimonials.Feedbacks">
+		<feedback f="f"></feedback>
+	</li>
+</ul>

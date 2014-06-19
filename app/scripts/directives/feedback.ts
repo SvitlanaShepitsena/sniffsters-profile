@@ -9,11 +9,10 @@ var feedback:() => ng.IDirective = () => {
     return{
         restrict: 'E',
         templateUrl: 'views/directives/feedback.html',
-        transclude: true,
         // replace directive tag with template info
         replace: true,
         scope: {
-            ctrl: '=',
+            f: '=',
 
             text: '@',
             func: '&'
