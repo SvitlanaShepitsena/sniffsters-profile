@@ -18,6 +18,12 @@ var PuppiesCtrl = (function () {
 
     PuppiesCtrl.prototype.saveLitters = function () {
         var _this = this;
+        var indexNew = 0;
+        this.LittersNew.forEach(function (litter) {
+            _this.Litters.push(litter);
+            _this.LittersNew.splice(indexNew++, 1);
+        });
+
         this.DataService.saveLitters(this.Litters).then(function () {
             _this.ShowSuccess('You changes have been saved to Db');
         }, function () {
