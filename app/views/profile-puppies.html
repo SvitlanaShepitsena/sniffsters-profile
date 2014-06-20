@@ -8,10 +8,9 @@
 		</div>
 	</div>
 	<div ng-show="puppies.LittersNew.length>0">
-		<h3>New Litters</h3>
 		<ul class="list-unstyled">
-			<li ng-repeat="l in puppies.LittersNew">
-				<litter-new l="l" user-name="{{index.Id}}"></litter-new>
+			<li ng-repeat="l in puppies.LittersNew" class="bouncy-slide-right">
+			<litter-new l="l" user-name="{{index.Id}}"></litter-new>
 			</li>
 		</ul>
 	</div>
@@ -23,8 +22,8 @@
 
 	<ul class="list-unstyled">
 		<li ng-repeat="l in puppies.Litters">
-			<litter l="l" user-name="{{index.Id}}"></litter>
+		<litter l="l" user-name="{{index.Id}}"></litter>
 		</li>
 	</ul>
 	<!-- PUT DIRECTIVES BELOW -->
-</div>
+</div
