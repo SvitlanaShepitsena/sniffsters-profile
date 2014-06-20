@@ -19,7 +19,8 @@ class PuppiesCtrl {
         this.Litters = litters;
     }
 
-    /*    setSelectedLitter(litterId:number) {
+    /*
+     setSelectedLitter(litterId:number) {
      var litid:number = 0;
      var index:number = 0;
      this.Litters.forEach((litter:ILitter) => {
@@ -32,7 +33,9 @@ class PuppiesCtrl {
      this.SelectedLitter = this.Litters[litid];
      this.$state.go('profile.photos2.galleries', {'id': litid});
      //        console.log(this.SelectedGallery);
-     }*/
+     }
+     */
+
     addNewLitter() {
         this.LittersNew.push(new Litter());
     }

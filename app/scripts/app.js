@@ -37,6 +37,7 @@ profile.directive("litter", litter);
 profile.directive("litterNew", litterNew);
 profile.directive("feedback", feedback);
 profile.directive("feedbackInfo", feedbackInfo);
+profile.directive("litterInfo", litterInfo);
 
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
