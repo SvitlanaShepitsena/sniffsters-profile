@@ -11,7 +11,6 @@ var PuppiesCtrl = (function () {
         this.LittersNew = [];
         this.Litters = litters;
     }
-
     PuppiesCtrl.prototype.addNewLitter = function () {
         this.LittersNew.push(new Litter());
     };

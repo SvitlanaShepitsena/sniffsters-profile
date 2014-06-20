@@ -21,6 +21,7 @@
 /// <reference path="controllers/TestimonialsCtrl.ts" />
 /// <reference path="directives/feedback.ts" />
 /// <reference path="directives/feedbackInfo.ts" />
+/// <reference path="directives/litterInfo.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls']);
@@ -66,6 +67,7 @@ profile.directive("litter", litter);
 profile.directive("litterNew", litterNew);
 profile.directive("feedback", feedback);
 profile.directive("feedbackInfo", feedbackInfo);
+profile.directive("litterInfo", litterInfo);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);

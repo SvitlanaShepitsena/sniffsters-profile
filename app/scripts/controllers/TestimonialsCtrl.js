@@ -10,7 +10,6 @@ var TestimonialsCtrl = (function () {
         $scope.testimonials = this;
         this.Feedbacks = feedbacks;
     }
-
     TestimonialsCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

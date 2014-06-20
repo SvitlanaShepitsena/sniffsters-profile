@@ -8,6 +8,9 @@ class PuppiesCtrl {
     Litters:ILitter[];
     LittersNew:Litter[];
 
+    SelectedLitter:ILitter[];
+    SelectedLitterEdit:ILitter[];
+
     constructor(public $scope:IPuppiesScope, litters:ILitter[], public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index.url = 'puppies';
 
@@ -16,6 +19,20 @@ class PuppiesCtrl {
         this.Litters = litters;
     }
 
+    /*    setSelectedLitter(litterId:number) {
+     var litid:number = 0;
+     var index:number = 0;
+     this.Litters.forEach((litter:ILitter) => {
+     if (litter.Id === litterId) {
+     litid = index;
+     return false;
+     }
+     index++;
+     });
+     this.SelectedLitter = this.Litters[litid];
+     this.$state.go('profile.photos2.galleries', {'id': litid});
+     //        console.log(this.SelectedGallery);
+     }*/
     addNewLitter() {
         this.LittersNew.push(new Litter());
     }
