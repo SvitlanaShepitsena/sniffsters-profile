@@ -212,7 +212,7 @@
     padding-top: 10px !important
 }
 
-.btn-del {
+.btn-del, .btn-share {
     margin-top: 3px !important;
     margin-bottom: 5px !important;
     margin-right: 5px !important;
@@ -262,7 +262,9 @@
     cursor: pointer
 }
 
-.container .jumbotron {
+.container .jumbo-custom {
+    background-color: #f6f6f6 !important;
+    border: 1px solid #ebebeb !important;
     padding: 20px
 }
 
@@ -312,4 +314,8 @@ h5 {
     font-weight: 700;
     line-height: 1.2em;
     margin-bottom: 5px
+}
+
+.jumbotron p {
+    font-size: 14px
 }
