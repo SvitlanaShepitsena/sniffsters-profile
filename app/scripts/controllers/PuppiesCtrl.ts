@@ -45,19 +45,12 @@ class PuppiesCtrl {
     saveNewLitters() {
 
 
-        this.DataService.saveNewLitters(this.LittersNew).then(() => {
-
-            var indexNew:number = 0;
-            this.LittersNew.forEach((litter:ILitter) => {
-                this.Litters.push(litter);
-                this.LittersNew.splice(indexNew++, 1);
-            });
-
-            this.ShowSuccess('You changes have been saved to Db');
-        }, () => {
-
-            this.ShowSuccess('You changes have not been saved to Db. Check please you connection.');
+        var indexNew:number = 0;
+        this.LittersNew.forEach((litter:ILitter) => {
+            this.Litters.push(litter);
+            this.LittersNew.splice(indexNew++, 1);
         });
+
     }
 
     deleteLitter() {

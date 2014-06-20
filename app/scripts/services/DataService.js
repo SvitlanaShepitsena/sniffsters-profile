@@ -169,6 +169,7 @@ var DataService = (function () {
         });
         return d.promise;
     };
+
     DataService.prototype.deleteLitter = function (id) {
         var d = this.$q.defer();
 

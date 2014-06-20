@@ -35,16 +35,10 @@ var PuppiesCtrl = (function () {
 
     PuppiesCtrl.prototype.saveNewLitters = function () {
         var _this = this;
-        this.DataService.saveNewLitters(this.LittersNew).then(function () {
-            var indexNew = 0;
-            _this.LittersNew.forEach(function (litter) {
-                _this.Litters.push(litter);
-                _this.LittersNew.splice(indexNew++, 1);
-            });
-
-            _this.ShowSuccess('You changes have been saved to Db');
-        }, function () {
-            _this.ShowSuccess('You changes have not been saved to Db. Check please you connection.');
+        var indexNew = 0;
+        this.LittersNew.forEach(function (litter) {
+            _this.Litters.push(litter);
+            _this.LittersNew.splice(indexNew++, 1);
         });
     };
 
