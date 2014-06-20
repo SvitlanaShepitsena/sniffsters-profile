@@ -21,6 +21,13 @@ class PuppiesCtrl {
     }
 
     saveLitters() {
+        var indexNew:number = 0;
+        this.LittersNew.forEach((litter:ILitter) => {
+            this.Litters.push(litter);
+            this.LittersNew.splice(indexNew++, 1);
+        });
+
+
         this.DataService.saveLitters(this.Litters).then(() => {
             this.ShowSuccess('You changes have been saved to Db');
         }, () => {

@@ -446,6 +446,7 @@ module.exports = function (grunt) {
             }
         }
 
+
         var dirFolder = 'app/views/directives';
 
         grunt.file.recurse(dirFolder, function (file) {

@@ -93,4 +93,7 @@ class Litter {
     Colors:string;
     Photos:IPhoto[];
 
+    constructor() {
+        this.Photos = [];
+    }
 }
