@@ -1,4 +1,3 @@
-
 var litterInfo = function () {
     return {
         restrict: 'E',
@@ -7,7 +6,12 @@ var litterInfo = function () {
         replace: true,
         scope: {
             l: '=',
+            puppies: '=',
             userName: '@'
+        },
+        controller: function ($scope, $stateParams) {
+            var id = $stateParams.id;
+            $scope.puppies.SelectedLitter = $scope.puppies.Litters[id];
         },
         link: function (scope, element, attrs) {
         }

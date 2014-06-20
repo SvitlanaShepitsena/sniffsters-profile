@@ -1,7 +1,7 @@
-<div class="well">
+<div>
 	<div class="row">
 		<div class="col-sm-1 pull-right">
-			<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
+			<button class="right" ng-click="saveLitter()"><i class="fa fa-save light-gray"></i></button>
 		</div>
 	</div>
 	<form role="form" name="litter" novalidate>
@@ -20,7 +20,7 @@
 				       ng-required="true" close-text="Close"/>
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open($event)"><i
-		                class="glyphicon glyphicon-calendar"></i></button>
+		                class="fa fa-calendar"></i></button>
               </span>
 			</p>
 		</div>
@@ -72,6 +72,7 @@
 				</div>
 			</div>
 			<br/>
+
 			<div class="row">
 				<div class="col-xs-12 text-center">
 					<div ng-file-drop-available="dropSupported=true"
@@ -84,5 +85,7 @@
 				</div>
 			</div>
 		</div>
+		<a ui-sref="^" class="btn btn-default">Cancel</a>
+		<button class="btn btn-info" ng-click="saveLitter()">Save</button>
 	</form>
 </div>

@@ -14,11 +14,15 @@ var litterInfo:() => ng.IDirective = () => {
         replace: true,
         scope: {
             l: '=',
+            puppies: '=',
             userName: '@'
         },
+        controller: ($scope, $stateParams) => {
+            var id = $stateParams.id;
+            $scope.puppies.SelectedLitter = $scope.puppies.Litters[id];
+        },
+
         link: (scope:ILitterInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
-
         }
     }
 }

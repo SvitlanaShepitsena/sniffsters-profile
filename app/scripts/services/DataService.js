@@ -3,6 +3,7 @@ var DataService = (function () {
         this.$http = $http;
         this.$q = $q;
     }
+
     DataService.prototype.getProfile = function () {
         var d = this.$q.defer();
 
@@ -51,9 +52,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeletePhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -61,10 +62,10 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.saveLitters = function (litters) {
+    DataService.prototype.saveNewLitters = function (litters) {
         var d = this.$q.defer();
 
-        this.$http.post('http://localhost:44300/BreederPersonal/SaveLitters', {
+        this.$http.post('http://localhost:44300/BreederPersonal/SaveNewLitters', {
             litters: litters
         }).success(function () {
             d.resolve();
@@ -78,9 +79,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -92,10 +93,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-                GalleryId: galleryId,
-                PhotoId: photoId,
-                Caption: caption
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId,
+            Caption: caption
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -107,9 +108,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateTitle', { galleryTitle: {
-                GalleryId: galleryId,
-                Title: title
-            } }).success(function () {
+            GalleryId: galleryId,
+            Title: title
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -148,6 +149,31 @@ var DataService = (function () {
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateGallery', {
             gallery: gallery
+        }).success(function () {
+            d.resolve();
+        }).error(function () {
+            d.reject();
+        });
+        return d.promise;
+    };
+
+    DataService.prototype.updateLitter = function (litter) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/SaveLitter', {
+            litter: litter
+        }).success(function () {
+            d.resolve();
+        }).error(function () {
+            d.reject();
+        });
+        return d.promise;
+    };
+    DataService.prototype.deleteLitter = function (id) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitter', {
+            litterId: id
         }).success(function () {
             d.resolve();
         }).error(function () {
