@@ -1,21 +1,21 @@
 {
-  "name": "profile",
-  "app": "profile",
-  "version": "0.0.0",
-  "dependencies": {
-    "angular": "*",
-    "json3": "*",
-    "jquery": "*",
-    "angular-bootstrap": "*",
-    "es5-shim": "*",
-    "bootstrap": "*",
-    "toastr": "*",
-    "angular-animate": "*",
-    "angular-ui-router": "0.2.10"
-  },
-  "devDependencies": {
-    "angular-mocks": "*",
-    "angular-scenario": "*",
-    "DefinitelyTyped": "*"
-  }
+    "name": "profile",
+    "app": "profile",
+    "version": "0.0.0",
+    "dependencies": {
+        "angular": "*",
+        "json3": "*",
+        "jquery": "*",
+        "angular-bootstrap": "*",
+        "es5-shim": "*",
+        "bootstrap": "*",
+        "toastr": "*",
+        "angular-animate": "*",
+        "angular-ui-router": "*"
+    },
+    "devDependencies": {
+        "angular-mocks": "*",
+        "angular-scenario": "*",
+        "DefinitelyTyped": "*"
+    }
 }

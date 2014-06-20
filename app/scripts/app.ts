@@ -45,8 +45,8 @@ profile.filter('galleryActive', () => {
         return GalleryActive.filter(Galleries, isActive);
     }
 });
-//#filt
 
+//#filt
 
 profile.service("CopyProfileService", CopyProfileService);
 profile.service("GalleryService", GalleryService);
