@@ -27,6 +27,7 @@ class IndexCtrl {
             return 'slide-right';
     }
 
+
     constructor(public $scope, $location, public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         this.url = 'about';
 
