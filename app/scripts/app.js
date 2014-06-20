@@ -37,6 +37,7 @@ profile.directive("litter", litter);
 profile.directive("litterNew", litterNew);
 profile.directive("feedback", feedback);
 profile.directive("feedbackInfo", feedbackInfo);
+profile.directive("litterInfo", litterInfo);
 
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -88,9 +89,12 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
             }
         },
         templateUrl: "../views/profile-puppies.html"
-    }).state("profile.puppies3.edit", {
+    }).state("profile.puppies3.litter", {
+        url: "/litter/:id",
+        templateUrl: "../views/profile-puppiesLitter.html"
+    }).state("profile.puppies3.litter.edit", {
         url: "/edit",
-        templateUrl: "../views/profile-puppiesEdit.html"
+        template: "<litter l='puppies.SelectedLitter' user-name='{{index.Id}}'></litter>"
     }).state("profile.details4", {
         url: "/details",
         templateUrl: "../views/profile-details.html"

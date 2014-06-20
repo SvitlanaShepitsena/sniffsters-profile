@@ -74,11 +74,11 @@ class DataService {
         return d.promise;
     }
 
-    saveLitters(litters:ILitter[]) {
+    saveNewLitters(litters:Litter[]) {
 
         var d = this.$q.defer();
 
-        this.$http.post('http://localhost:44300/BreederPersonal/SaveLitters', {
+        this.$http.post('http://localhost:44300/BreederPersonal/SaveNewLitters', {
             litters: litters
 
         })
@@ -172,6 +172,34 @@ class DataService {
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateGallery', {
             gallery: gallery
+        })
+            .success(() => {
+                d.resolve();
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
+    }
+
+    updateLitter(litter:ILitter) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/SaveLitter', {
+            litter: litter
+        })
+            .success(() => {
+                d.resolve();
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
+    }
+
+    deleteLitter(id:number) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitter', {
+            litterId: id
         })
             .success(() => {
                 d.resolve();

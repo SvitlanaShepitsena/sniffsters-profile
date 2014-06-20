@@ -21,6 +21,7 @@
 /// <reference path="controllers/TestimonialsCtrl.ts" />
 /// <reference path="directives/feedback.ts" />
 /// <reference path="directives/feedbackInfo.ts" />
+/// <reference path="directives/litterInfo.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls']);
@@ -66,6 +67,7 @@ profile.directive("litter", litter);
 profile.directive("litterNew", litterNew);
 profile.directive("feedback", feedback);
 profile.directive("feedbackInfo", feedbackInfo);
+profile.directive("litterInfo", litterInfo);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -130,9 +132,13 @@ profile.config(
                 },
                 templateUrl: "../views/profile-puppies.html"
             })
-            .state("profile.puppies3.edit", {
+            .state("profile.puppies3.litter", {
+                url: "/litter/:id",
+                templateUrl: "../views/profile-puppiesLitter.html"
+            })
+            .state("profile.puppies3.litter.edit", {
                 url: "/edit",
-                templateUrl: "../views/profile-puppiesEdit.html"
+                template: "<litter l='puppies.SelectedLitter' user-name='{{index.Id}}'></litter>"
             })
             .state("profile.details4", {
                 url: "/details",

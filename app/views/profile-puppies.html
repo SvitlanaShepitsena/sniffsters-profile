@@ -1,17 +1,18 @@
-<div>
+<div ui-view="">
 	<div class="row">
 		<div class="col-xs-3 pull-right">
 			<button class="btn btn-link" ng-click="puppies.addNewLitter()">Add New Litter</button>
 		</div>
 		<div class="col-sm-xs-3 pull-right">
-			<button class="btn btn-link" ng-click="puppies.saveLitters()">Save</button>
+			<button class="btn btn-link" ng-click="puppies.saveNewLitters()">Save</button>
 		</div>
+
 	</div>
 	<div ng-show="puppies.LittersNew.length>0">
-		<h3>New Litters</h3>
 		<ul class="list-unstyled">
-			<li ng-repeat="l in puppies.LittersNew">
-				<litter-new l="l" user-name="{{index.Id}}"></litter-new>
+
+			<li ng-repeat="l in puppies.LittersNew" class="bouncy-slide-down">
+			<litter-new l="l" user-name="{{index.Id}}"></litter-new>
 			</li>
 		</ul>
 	</div>
@@ -23,7 +24,7 @@
 
 	<ul class="list-unstyled">
 		<li ng-repeat="l in puppies.Litters">
-			<litter l="l" user-name="{{index.Id}}"></litter>
+			<litter-info puppies="puppies" l="l" user-name="{{index.Id}}"></litter-info>
 		</li>
 	</ul>
 	<!-- PUT DIRECTIVES BELOW -->

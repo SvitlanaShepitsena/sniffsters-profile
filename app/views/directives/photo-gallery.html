@@ -1,12 +1,17 @@
 <div class="well">
 	<div class="row">
-		<div class="col-xs-8">
+		<div class="col-xs-9">
 			<h3 class="content text-center">
 				{{photosCtrl.SelectedGallery.Title | uppercase}}
 			</h3>
 		</div>
+		<div class="col-xs-1" ng-show="!photosCtrl.SelectedGallery.IsActive">
+			<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"
+			        ng-click="shareGallery()">
+				<i class="fa fa-share"></i>
+			</button>
+		</div>
 		<div class="col-xs-1">
-
 			<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
 			        ui-sref=".edit">
 				<i class="fa fa-pencil"></i>
@@ -16,12 +21,6 @@
 			<button class="btn btn-del" data-toggle="tooltip" data-placement="left" title="Delete this gallery"
 			        ng-click="delGallery()">
 				<i class="fa fa-trash-o"></i>
-			</button>
-		</div>
-		<div class="col-xs-1" ng-show="!photosCtrl.SelectedGallery.IsActive">
-			<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"
-			        ng-click="shareGallery()">
-				<i class="fa fa-share"></i>
 			</button>
 		</div>
 	</div>

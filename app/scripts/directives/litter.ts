@@ -16,7 +16,12 @@ var litter:() => ng.IDirective = () => {
             l: '=',
             userName: '@'
         },
-        controller: ($scope, DataService:DataService, $modal, $upload)=> {
+        controller: ($scope, DataService:DataService, $modal, $upload, toastr)=> {
+            $scope.saveLitter = () => {
+                DataService.updateLitter($scope.l).then(() => {
+                    toastr.success("Your changes have been saved to the Db.");
+                })
+            }
             $scope.onFileSelect = ($files) => {
                 //$files: an array of files selected, each file has name, size, and type.
                 for (var i = 0; i < $files.length; i++) {
