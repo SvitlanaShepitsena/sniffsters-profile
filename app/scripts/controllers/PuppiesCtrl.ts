@@ -29,8 +29,6 @@ class PuppiesCtrl {
                 litid = index;
                 return false;
             }
-
-
             index++;
         });
         this.SelectedLitter = this.Litters[litid];
@@ -39,12 +37,10 @@ class PuppiesCtrl {
     }
 
     addNewLitter() {
-        this.LittersNew.push(new Litter());
+        this.LittersNew.unshift(new Litter());
     }
 
     saveNewLitters() {
-
-
         var indexNew:number = 0;
         this.LittersNew.forEach((litter:ILitter) => {
             this.Litters.push(litter);
@@ -83,25 +79,17 @@ class PuppiesCtrl {
                         }
                         index++;
                     })
-
-
                     this.$state.go('^');
                 })
-
-
             }
         })
-
-
     }
 
     ShowSuccess(note:string) {
-
         this.toastr.info(note);
     }
 
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }

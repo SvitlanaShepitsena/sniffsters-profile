@@ -4,44 +4,71 @@
 	<form role="form" name="newLitterForm" id="newLitterForm" novalidate>
 		<div class="form-group">
 			<label for="title">Title:</label>&nbsp<span class="textMuted">Required</span>
-			<input type="text" class="form-control" id="title" name="title" placeholder="title"
-			       ng-class="{inputEmpty:!l.Title}" ng-model="l.Title">
+			<input type="text" class="form-control" id="title" name="title"
+			       placeholder="title"
+			       ng-class="{inputEmpty:!l.Title}"
+			       ng-model="l.Title"
+			       required>
 		</div>
 
 		<div class="form-group">
 			<label for="date">Date of Birth:</label>&nbsp<span class="textMuted">Required</span>
 
 			<p class="input-group">
-				<input type="text" ng-class="{inputEmpty:!l.DateOfBirth}" ng-model="l.DateOfBirth" id="date" name="date"
+				<input type="text" id="date" name="date"
 				       class="form-control"
-				       datepicker-popup='dd.MM.yyyy' ng-model="dt" is-open="opened"
-				       datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
-				       ng-required="true" close-text="Close"/>
+				       placeholder="Date of Birth"
+				       ng-class="{inputEmpty:!l.DateOfBirth}"
+				       ng-required="true"
+				       ng-model="l.DateOfBirth"
+				       ng-model="dt"
+				       datepicker-popup='dd.MM.yyyy'
+				       is-open="opened"
+				       datepicker-options="dateOptions"
+				       date-disabled="disabled(date, mode)"
+				       close-text="Close"
+				       required
+						/>
               <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open($event)"><i
-		                class="fa fa-calendar"></i>
+                <button type="button"
+                        class="btn btn-default"
+                        ng-click="open($event)">
+	                <i class="fa fa-calendar"></i>
                 </button>
               </span>
 			</p>
 		</div>
 
 		<div class="form-group">
-			<label for="puppies">Amount of puppies and sex:</label>&nbsp<span class="textMuted">Required</span>
-			<input type="text" class="form-control" id="puppies" name="puppies" placeholder="title"
+			<label for="puppies">Number of puppies and sex:</label>&nbsp<span class="textMuted">Required</span>
+			<input type="text"
+			       class="form-control"
+			       id="puppies"
+			       name="puppies"
+			       placeholder="Number of puppies and sex"
 			       ng-class="{inputEmpty:!l.Puppies}"
-			       ng-model="l.Puppies">
+			       ng-model="l.Puppies"
+			       required>
 		</div>
 		<div class="form-group">
 			<label for="colors">Colors:</label>&nbsp<span class="textMuted">Required</span>
-			<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title"
-			       ng-class="{inputEmpty:!l.Colors}" ng-model="l.Colors">
+			<input tybpe="text"
+			       class="form-control"
+			       id="colors" name="colors"
+			       placeholder="Color"
+			       ng-class="{inputEmpty:!l.Colors}"
+			       ng-model="l.Colors"
+			       required>
 		</div>
 
 		<div class="row">
 			<ul class="list-unstyled ">
 				<li class="col-xs-12 shuffle-animation" ng-repeat="p in l.Photos">
-					<button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left"
-					        title="Delete this photo." ng-click="deleteLitterPhoto(l.Id, p.Id,$index)"><i
+					<button class="btn pull-right btn-del-pic"
+					        data-toggle="tooltip"
+					        data-placement="left"
+					        title="Delete this photo."
+					        ng-click="deleteLitterPhoto(l.Id, p.Id,$index)"><i
 							class="fa fa-trash-o"></i>
 					</button>
 					<div class="thumbnail">
@@ -79,7 +106,7 @@
 					     ng-show="!dropSupported">HTML5 Drop File is not supported!
 					</div>
 					<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer">
-						<button class="btn btn-primary btn-choose" ng-disabled="!newLitterForm.Title">Choose Files
+						<button class="btn btn-primary btn-choose" ng-disabled="newLitterForm.$invalid">Choose Files
 						</button>
 						<input class="chooseFilesButton" type="file" ng-file-select="onNewFileSelect($files)" multiple
 						       ng-disabled="!newLitterForm.Title">

@@ -4,7 +4,8 @@
 			<button class="btn btn-link" ng-click="puppies.addNewLitter()">Add New Litter</button>
 		</div>
 		<div class="col-sm-xs-3 pull-right">
-			<button class="btn btn-link" ng-click="puppies.saveNewLitters()">Save</button>
+			<button ng-show="puppies.LittersNew.length" class="btn btn-link" ng-click="puppies.saveNewLitters()">Save
+			</button>
 		</div>
 
 	</div>
@@ -12,7 +13,7 @@
 		<ul class="list-unstyled">
 
 			<li ng-repeat="l in puppies.LittersNew" class="bouncy-slide-down">
-			<litter-new l="l" user-name="{{index.Id}}"></litter-new>
+				<litter-new l="l" user-name="{{index.Id}}"></litter-new>
 			</li>
 		</ul>
 	</div>

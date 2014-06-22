@@ -22,7 +22,6 @@ var PuppiesCtrl = (function () {
                 litid = index;
                 return false;
             }
-
             index++;
         });
         this.SelectedLitter = this.Litters[litid];
@@ -30,7 +29,7 @@ var PuppiesCtrl = (function () {
     };
 
     PuppiesCtrl.prototype.addNewLitter = function () {
-        this.LittersNew.push(new Litter());
+        this.LittersNew.unshift(new Litter());
     };
 
     PuppiesCtrl.prototype.saveNewLitters = function () {
@@ -69,7 +68,6 @@ var PuppiesCtrl = (function () {
                         }
                         index++;
                     });
-
                     _this.$state.go('^');
                 });
             }
