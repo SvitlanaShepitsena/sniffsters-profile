@@ -24,8 +24,8 @@
 		       required/>
 
 		<div ng-show="form.kennel.$dirty">
-			<span ng-show="form.kennel.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-			<span ng-hide="form.kennel.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+			<span ng-show="form.kennel.$invalid" class="fa fa-times form-control-feedback"></span>
+			<span ng-hide="form.kennel.$invalid" class="fa fa-check form-control-feedback"></span>
 		</div>
 	</div>
 
@@ -53,8 +53,8 @@
 		<input id="email" name="email" class="form-control" ng-model="ctrl.BreederProfileEdit.Email" name="email"
 		       type="text"
 		       required/>
-		<span ng-show="form.email.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-		<span ng-hide="form.email.$invalid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+		<span ng-show="form.email.$invalid" class="fa fa-times form-control-feedback"></span>
+		<span ng-hide="form.email.$invalid" class="fa fa-check form-control-feedback"></span>
 	</div>
 
 	<div class="row">
@@ -66,11 +66,11 @@
 			       type="text"
 			       required/>
 					<span ng-show="form.phone.$invalid"
-					      class="glyphicon glyphicon-col glyphicon-remove form-control-feedback">
+					      class="fa custom-col fa-times form-control-feedback">
 
 					      </span>
 			<span ng-hide="form.phone.$invalid"
-			      class="glyphicon glyphicon-col glyphicon-ok form-control-feedback"></span>
+			      class="fa custom-col fa-check form-control-feedback"></span>
 		</div>
 
 		<div class="form-group">
@@ -110,11 +110,11 @@
 			       type="text"
 			       required/>
 					<span ng-show="form.city.$invalid"
-					      class="glyphicon glyphicon-col glyphicon-remove form-control-feedback">
+					      class="fa custom-col fa-times form-control-feedback">
 
 					      </span>
 					<span ng-hide="form.city.$invalid"
-					      class="glyphicon glyphicon-col  glyphicon-ok form-control-feedback">
+					      class="fa custom-col  fa-check form-control-feedback">
 					    </span>
 		</div>
 
@@ -126,9 +126,9 @@
 			       type="text"
 			       required/>
 					<span ng-show="form.zip.$invalid"
-					      class="glyphicon glyphicon-col glyphicon-remove form-control-feedback"></span>
+					      class="fa custom-col fa-times form-control-feedback"></span>
 					<span ng-hide="form.zip.$invalid"
-					      class="glyphicon glyphicon-col  glyphicon-ok form-control-feedback"></span>
+					      class="fa custom-col  fa-check form-control-feedback"></span>
 		</div>
 	</div>
 	<div class="row">
@@ -141,11 +141,11 @@
 			       type="text"
 			       required/>
 								<span ng-show="form.state.$invalid"
-								      class="glyphicon glyphicon-col glyphicon-remove form-control-feedback">
+								      class="fa custom-col fa-times form-control-feedback">
 
 								      </span>
 								<span ng-hide="form.state.$invalid"
-								      class="glyphicon glyphicon-col  glyphicon-ok form-control-feedback">
+								      class="fa custom-col  fa-check form-control-feedback">
 
 								      </span>
 		</div>
