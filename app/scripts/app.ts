@@ -22,6 +22,7 @@
 /// <reference path="directives/feedback.ts" />
 /// <reference path="directives/feedbackInfo.ts" />
 /// <reference path="directives/litterInfo.ts" />
+/// <reference path="directives/feedbackEdit.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls']);
@@ -68,6 +69,7 @@ profile.directive("litterNew", litterNew);
 profile.directive("feedback", feedback);
 profile.directive("feedbackInfo", feedbackInfo);
 profile.directive("litterInfo", litterInfo);
+profile.directive("feedbackEdit", feedbackEdit);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -157,6 +159,15 @@ profile.config(
                 },
                 controller: "TestimonialsCtrl",
                 templateUrl: "../views/profile-testimonials.html"
+	        })
+	        .state("profile.testimonials5.edit", {
+		        url: "/edit",
+		        resolve: {
+			        feedbacks: (DataService:DataService) => {
+				        return DataService.getFeedbacks<IFeedback>();
+			        }
+		        },
+		        templateUrl: ""
             })
 //#state
     });

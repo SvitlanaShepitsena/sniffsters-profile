@@ -1,14 +1,15 @@
-var feedback = function () {
+var aboutInfo = function () {
 	return {
 		restrict: 'E',
-		templateUrl: 'views/directives/feedback.html',
+		templateUrl: 'views/directives/about-info.html',
 		replace: true,
 		scope: {
-			f: '=',
+			ctrl: '=',
 			text: '@',
 			func: '&'
 		},
 		link: function (scope, element, attrs) {
+			scope.ctrl.url = 'about';
 		}
 	};
 };

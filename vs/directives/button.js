@@ -1,10 +1,11 @@
-var feedback = function () {
+var button = function () {
 	return {
 		restrict: 'E',
-		templateUrl: 'views/directives/feedback.html',
+		template: '<button>Test</button>',
+		transclude: true,
 		replace: true,
 		scope: {
-			f: '=',
+			ctrl: '=',
 			text: '@',
 			func: '&'
 		},

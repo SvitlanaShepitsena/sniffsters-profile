@@ -1,10 +1,10 @@
-var feedback = function () {
+var detailsInfo = function () {
 	return {
 		restrict: 'E',
-		templateUrl: 'views/directives/feedback.html',
+		templateUrl: 'views/directives/details-info.html',
 		replace: true,
 		scope: {
-			f: '=',
+			ctrl: '=',
 			text: '@',
 			func: '&'
 		},

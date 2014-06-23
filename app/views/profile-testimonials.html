@@ -1,11 +1,43 @@
-<div class="row">
-	<div class="col-sm-12">
-		<h3 class="italic">WHAT DO YOUR CLIENTS SAY?</h3>
-	</div>
-</div>
+<div ui-view>
+	<div class="row">
+		<div class="col-xs-2 col-xs-offset-7" ng-show="testimonials.FeedbacksNew.length>0">
+			<button class="btn btn-link" ng-click="testimonials.saveNewTestimonials()">Save</button>
+		</div>
+		<div class="col-xs-3 pull-right">
 
-<ul class="list-unstyled">
-	<li ng-repeat="f in testimonials.Feedbacks">
-		<feedback f="f"></feedback>
-	</li>
-</ul>
+			<button class="btn btn-link" ng-click="testimonials.addNewTestimonial()">Add New</button>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h3 class="italic">WHAT DO YOUR CLIENTS SAY?</h3>
+		</div>
+	</div>
+	<div class="row" ng-show="testimonials.FeedbacksNew.length>0">
+		<div class="col-sm-12">
+			<h4>New Testimonials</h4>
+
+			<ul class="list-unstyled">
+				<li ng-repeat="f in testimonials.FeedbacksNew" class="bouncy-slide-down">
+					<feedback-info f="f"></feedback-info>
+					<hr/>
+				</li>
+			</ul>
+		</div>
+		<hr/>
+	</div>
+	<ul class="list-unstyled">
+		<li ng-repeat="f in testimonials.Feedbacks">
+			<div class="row pull-right">
+				<div class="col-sm-12">
+					<a><i class="fa fa-edit"/></a>
+					<button class="btn btn-link" ng-click="testimonials.deleteFeedback(f, $index)"><i
+							class="fa fa-times"/></button>
+				</div>
+			</div>
+			<feedback f="f"></feedback>
+
+		</li>
+	</ul>
+</div>

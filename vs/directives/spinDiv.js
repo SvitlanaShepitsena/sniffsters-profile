@@ -1,10 +1,11 @@
-var feedback = function () {
+var spinDiv = function () {
 	return {
 		restrict: 'E',
-		templateUrl: 'views/directives/feedback.html',
+		templateUrl: 'views/directives/spin-div.html',
+		transclude: true,
 		replace: true,
 		scope: {
-			f: '=',
+			ctrl: '=',
 			text: '@',
 			func: '&'
 		},

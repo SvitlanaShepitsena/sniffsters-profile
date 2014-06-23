@@ -8,8 +8,8 @@
     <orderEntry type="library" name="profile node_modules" level="project" />
     <orderEntry type="library" name="angular-ui-DefinitelyTyped" level="project" />
     <orderEntry type="library" name="toastr-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="jQuery-2.0.0" level="application" />
     <orderEntry type="library" name="angular-ui-bootstrap-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="jQuery-2.0.0" level="application" />
   </component>
 </module>
 

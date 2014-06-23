@@ -1,10 +1,11 @@
-var feedback = function () {
+var previousPuppies = function () {
 	return {
 		restrict: 'E',
-		templateUrl: 'views/directives/feedback.html',
+		templateUrl: 'views/directives/previous-puppies.html',
+		transclude: true,
 		replace: true,
 		scope: {
-			f: '=',
+			ctrl: '=',
 			text: '@',
 			func: '&'
 		},
