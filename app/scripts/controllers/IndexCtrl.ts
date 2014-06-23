@@ -112,23 +112,6 @@ class IndexCtrl {
         this.Save(breederProfileOriginal);
     }
 
-    SaveAboutParents() {
-        var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
-
-        breederProfileOriginal.Parents = this.BreederProfileEdit.Parents;
-        breederProfileOriginal.Girls = this.BreederProfileEdit.Girls;
-        breederProfileOriginal.Boys = this.BreederProfileEdit.Boys;
-        console.log(breederProfileOriginal);
-
-        this.Save(breederProfileOriginal);
-    }
-
-    SaveAddInfo() {
-        var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();
-        breederProfileOriginal.AddInfo = this.BreederProfileEdit.AddInfo;
-
-        this.Save(breederProfileOriginal);
-    }
 
     /* =DETAILS*/
 
@@ -158,6 +141,7 @@ class IndexCtrl {
         breederProfileOriginal.Insurances = this.BreederProfileEdit.Insurances;
         this.Save(breederProfileOriginal);
     }
+
     Next(state:string) {
         this.$state.go(state);
     }

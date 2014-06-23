@@ -10,8 +10,6 @@ interface IAboutInfoEdit extends ng.IScope {
     KennelNameValid:boolean;
     KennelNameValidityCheck:() => boolean;
     form:HTMLFormElement;
-
-    SaveAboutParents:() => void;
 }
 
 var aboutInfoEdit:() => ng.IDirective = () => {

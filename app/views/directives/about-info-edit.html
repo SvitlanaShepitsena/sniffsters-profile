@@ -4,10 +4,9 @@
 			<h4 class="italic">ABOUT</h4>
 		</div>
 		<div class="col-sm-2 pull-right">
-			<button ng-click="ctrl.SaveKennelName();form.kennel.$setPristine();form.story.$setPristine();"
-			        class="btn btn-primary"
-			        ng-disabled="(form.kennel.$invalid || form.story.$invalid) || (form.kennel.$pristine && form.story.$pristine)">
-				Save
+			<button class="btn btn-primary"
+			        ng-disabled="form.$invalid || (form.kennel.$pristine && form.story.$pristine && form.parents.$pristine && form.boys.$pristine && form.girls.$pristine && form.info.$pristine)"
+			        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save
 			</button>
 		</div>
 	</div>
@@ -36,16 +35,8 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-8">
-				<h4 class="italic">PARENTS</h4>
-			</div>
-			<div class="col-sm-2 pull-right">
-				<button ng-click="ctrl.SaveAboutParents();form.parents.$setPristine();form.girls.$setPristine();form.boys.$setPristine();"
-				        class="btn btn-primary"
-				        ng-disabled="(form.parents.$pristine && form.boys.$pristine && form.girls.$pristine)
-				        || form.parents.$invalid">Save
-				</button>
-
+			<div class="col-sm-12">
+			<h4 class="italic">PARENTS</h4>
 			</div>
 		</div>
 
@@ -73,13 +64,8 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-8">
-				<h4 class="italic">ADDITIONAL INFO</h4>
-			</div>
-			<div class="col-sm-2 pull-right">
-				<button name='saveinfo' ng-click="ctrl.SaveAddInfo();form.info.$setPristine()" class="btn btn-primary"
-				        ng-disabled="form.info.$pristine">Save
-				</button>
+			<div class="col-sm-12">
+			<h4 class="italic">ADDITIONAL INFO</h4>
 			</div>
 		</div>
 
