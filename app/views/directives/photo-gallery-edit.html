@@ -9,9 +9,11 @@
 
 					<div class="row">
 						<div class="col-xs-11">
-							<input type="text" class="form-control"
+							<input type="text"
 							       placeholder="Gallery Title"
 							       name="galTitleEdit"
+							       class="form-control"
+							       ng-class="{inputEmpty:!photosCtrl.SelectedGalleryEdit.Title}"
 							       ng-maxLength="250"
 							       ng-model="photosCtrl.SelectedGalleryEdit.Title"
 							       required>
@@ -19,7 +21,9 @@
 
 						<div class="col-xs-1">
 							<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
-							        title="Save Caption" ng-click="updateTitle(photosCtrl.SelectedGalleryEdit.Title)"><i
+							        ng-disabled="form.galTitleEdit.$invalid || form.$pristine"
+							        title="Save Gallery Title"
+							        ng-click="updateTitle(photosCtrl.SelectedGalleryEdit.Title)"><i
 									class="fa fa-save"></i>
 							</button>
 						</div>
@@ -32,7 +36,9 @@
 		<ul class="list-unstyled ">
 			<li class="col-xs-12 shuffle-animation" ng-repeat="p in photosCtrl.SelectedGalleryEdit.Photos">
 				<button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left"
-				        title="Delete this picture" ng-click="delete(p,$index)"><i class="fa fa-trash-o"></i>
+				        title="Delete this picture"
+				        ng-click="delete(p,$index)">
+					<i class="fa fa-trash-o"></i>
 				</button>
 				<div class="thumbnail">
 					<img class="puppyPic"
@@ -40,20 +46,26 @@
 
 					<form name="picCapForm">
 						<div class="form-group">
-						<span ng-show="form.picCapForm.$invalid"
+						<span ng-show="picCapForm.picCaptionEdit.$invalid"
 						      class="text text-danger maxSymb">Max 250 symbols!</span>
 
 							<div class="row">
 								<div class="col-xs-11">
-									<input type="text" class="form-control"
+									<input type="text"
+									       class="form-control"
 									       name="picCaptionEdit"
 									       ng-maxlength="250"
+									       ng-class="{inputEmpty:picCapForm.picCaptionEdit.$invalid}"
 									       ng-model="p.Caption"/>
 								</div>
 
 								<div class="col-xs-1">
-									<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
-									        title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i>
+									<button class="btn pull-right btn-save"
+									        data-toggle="tooltip" data-placement="left"
+									        title="Save Caption"
+									        ng-click="update(p)"
+									        ng-disabled="(picCapForm.picCaptionEdit.$invalid)||(picCapForm.$pristine)">
+										<i class="fa fa-save"></i>
 									</button>
 								</div>
 							</div>

@@ -290,8 +290,8 @@
     margin-right: 5px !important;
     padding: 3px 7px;
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 20px;
+    right: 25px;
 }
 
 .btn-edit {
@@ -1703,6 +1703,10 @@
   BOOTSTRAP CUSTOM STYLES
 **************************/
 /*.ng-invalid-maxlength input {
+  border: 1px red solid;
+}
+
+.ng-invalid-required input {
   border: 1px red solid;
 }
 
