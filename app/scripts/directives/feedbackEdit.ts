@@ -12,8 +12,8 @@ var feedbackEdit:() => ng.IDirective = () => {
 		transclude: true,
 		// replace directive tag with template info
 		replace: true,
-		controller: ($scope, $stateProvider) => {
-			var index:number = $stateProvider.id;
+		controller: ($scope, $stateParams) => {
+			var index:number = $stateParams.id;
 			$scope.SelectedFeedback = $scope.testimonials.Feedbacks[index];
 		}
 	}
