@@ -13,18 +13,18 @@
 							       placeholder="Gallery Title"
 							       name="galTitleEdit"
 							       class="form-control"
+							       ng-model="photosCtrl.SelectedGalleryEdit.Title"
 							       ng-class="{inputEmpty:!photosCtrl.SelectedGalleryEdit.Title}"
 							       ng-maxLength="250"
-							       ng-model="photosCtrl.SelectedGalleryEdit.Title"
 							       required>
 						</div>
 
 						<div class="col-xs-1">
-							<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
+							<button class="btn pull-right btn-save"
+							        data-toggle="tooltip" data-placement="left" title="Save Gallery Title"
 							        ng-disabled="form.galTitleEdit.$invalid || form.$pristine"
-							        title="Save Gallery Title"
-							        ng-click="updateTitle(photosCtrl.SelectedGalleryEdit.Title)"><i
-									class="fa fa-save"></i>
+							        ng-click="updateTitle(photosCtrl.SelectedGalleryEdit.Title)">
+								<i class="fa fa-save"></i>
 							</button>
 						</div>
 					</div>
@@ -35,8 +35,8 @@
 	<div class="row">
 		<ul class="list-unstyled ">
 			<li class="col-xs-12 shuffle-animation" ng-repeat="p in photosCtrl.SelectedGalleryEdit.Photos">
-				<button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left"
-				        title="Delete this picture"
+				<button class="btn pull-right btn-del-pic"
+				        data-toggle="tooltip" data-placement="left" title="Delete this picture"
 				        ng-click="delete(p,$index)">
 					<i class="fa fa-trash-o"></i>
 				</button>
@@ -54,9 +54,9 @@
 									<input type="text"
 									       class="form-control"
 									       name="picCaptionEdit"
-									       ng-maxlength="250"
+									       ng-model="p.Caption"
 									       ng-class="{inputEmpty:picCapForm.picCaptionEdit.$invalid}"
-									       ng-model="p.Caption"/>
+									       ng-maxlength="250"/>
 								</div>
 
 								<div class="col-xs-1">
@@ -81,7 +81,8 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="text-muted">Photo 3MB max JPG, PNG, GIF</div>
-				<div class="text-center dropFilesHere" ng-file-drop="onFileSelect($files)"
+				<div class="text-center dropFilesHere"
+				     ng-file-drop="onFileSelect($files)"
 				     ng-file-drag-over-class="optional-css-class"
 				     ng-show="dropSupported">
 					<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
@@ -103,15 +104,11 @@
 					<button class="btn btn-primary">Choose Files</button>
 					<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple>
 				</label>
-
 			</div>
 		</div>
 	</div>
-
-
 	<a ui-sref="^" class="btn btn-default">Cancel</a>
 	<button class="btn btn-info" ng-click="">Save</button>
-
 </div>
 
 

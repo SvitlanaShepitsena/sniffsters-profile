@@ -27,10 +27,8 @@
 		       ng-maxlength="250"
 		       required/>
 
-		<div ng-show="form.kennel.$dirty">
 			<span ng-show="form.kennel.$invalid" class="fa fa-times form-control-feedback"></span>
 			<span ng-hide="form.kennel.$invalid" class="fa fa-check form-control-feedback"></span>
-		</div>
 	</div>
 
 	<div class="form-group">
@@ -39,17 +37,15 @@
 				<label for="website" class="label-subhead control-label">Website:</label>
 				<span ng-show="form.website.$invalid" class="text text-danger maxsymb">Max 250 symbols!</span>
 				<input id="website" name="website" class="form-control"
+				       type="text"
 				       ng-model="ctrl.BreederProfileEdit.Website"
-				       ng-maxlength="250
-				       name="website"
-				       type="text"/>
+				       ng-maxlength="250"/>
 			</div>
-
 			<label class="label-subhead control-label">Display your email?</label>
 
 			<div class="col-sm-6">
 				<input type="checkbox" id="displayEmail1" name="displayEmail"
-				       ng-model="ctrl.BreederProfileEdit.IsShowEmail"> Yes
+				       ng-model="ctrl.BreederProfileEdit.IsShowEmail"/> Yes
 			</div>
 		</div>
 	</div>
@@ -57,9 +53,12 @@
 	<div class="form-group has-feedback" ng-class="{'has-error':form.email.$invalid}">
 		<label for="email" class="label-subhead control-label">Email:</label>
 		<span class="textMuted">Required</span>
-		<input id="email" name="email" class="form-control" ng-model="ctrl.BreederProfileEdit.Email" name="email"
-		       type="text"
+		<input type="text" id="email" name="email"
+		       class="form-control"
+		       name="email"
+		       ng-model="ctrl.BreederProfileEdit.Email"
 		       required/>
+
 		<span ng-show="form.email.$invalid" class="fa fa-times form-control-feedback"></span>
 		<span ng-hide="form.email.$invalid" class="fa fa-check form-control-feedback"></span>
 	</div>
@@ -68,16 +67,12 @@
 		<div class="form-group has-feedback col-sm-6" ng-class="{'has-error':form.phone.$invalid}">
 			<label for="phone" class="label-subhead control-label">Phone:</label>
 			<span class="textMuted">Required</span>
-			<input id="phone" name="phone" class="form-control" ng-model="ctrl.BreederProfileEdit.Phone"
-			       name="phone"
-			       type="text"
+			<input type="text" id="phone" name="phone" class="form-control"
+			       ng-model="ctrl.BreederProfileEdit.Phone"
 			       required/>
-					<span ng-show="form.phone.$invalid"
-					      class="fa custom-col fa-times form-control-feedback">
 
-					      </span>
-			<span ng-hide="form.phone.$invalid"
-			      class="fa custom-col fa-check form-control-feedback"></span>
+			<span ng-show="form.phone.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
+			<span ng-hide="form.phone.$invalid" class="fa custom-col fa-check form-control-feedback"></span>
 		</div>
 
 		<div class="form-group">
@@ -87,7 +82,6 @@
 				<input type="checkbox" id="displayPhone1" name="displayPhone"
 				       ng-model="ctrl.BreederProfileEdit.IsShowPhone"> Yes
 			</div>
-
 		</div>
 	</div>
 </form>
@@ -113,17 +107,12 @@
 
 			<label for="city" class="label-subhead control-label">City:</label>
 			<span class="textMuted">Required</span>
-			<input id="city" name="city" class="form-control" ng-model="ctrl.BreederProfileEdit.City"
-			       name="city"
-			       type="text"
+			<input type="text" id="city" name="city"
+			       class="form-control"
+			       ng-model="ctrl.BreederProfileEdit.City"
 			       required/>
-					<span ng-show="form.city.$invalid"
-					      class="fa custom-col fa-times form-control-feedback">
-
-					      </span>
-					<span ng-hide="form.city.$invalid"
-					      class="fa custom-col  fa-check form-control-feedback">
-					    </span>
+			<span ng-show="form.city.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
+			<span ng-hide="form.city.$invalid" class="fa custom-col  fa-check form-control-feedback"></span>
 		</div>
 
 		<div class="form-group col-xs-6 has-feedback" ng-class="{'has-error':location.zip.$invalid}">
