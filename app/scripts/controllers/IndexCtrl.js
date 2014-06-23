@@ -116,6 +116,7 @@ var IndexCtrl = (function () {
         breederProfileOriginal.Insurances = this.BreederProfileEdit.Insurances;
         this.Save(breederProfileOriginal);
     };
+
     IndexCtrl.prototype.Next = function (state) {
         this.$state.go(state);
     };

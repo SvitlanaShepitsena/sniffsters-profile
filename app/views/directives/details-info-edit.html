@@ -6,11 +6,11 @@
 	<div class="col-sm-2 pull-right">
 		<button ng-click="ctrl.SavePersonalInfo();
 		form.$setPristine();"
-		        class="btn btn-primary"
+		        class="btn pull-right btn-save"
 		        ng-disabled="(form.$pristine)
 					|| (form.kennel.$invalid || form.email.$invalid  || form.phone.$invalid)
 					|| saved">
-			Save
+			<i class="fa fa-save"></i>
 		</button>
 	</div>
 </div>
@@ -30,6 +30,7 @@
 	</div>
 
 	<div class="form-group">
+		ca
 		<div class="row">
 			<div class="col-sm-6">
 				<label for="website" class="label-subhead control-label">Website:</label>
@@ -91,10 +92,11 @@
 		<h4 class="italic">LOCATION</h4>
 	</div>
 	<div class="col-sm-2 pull-right">
-		<button class="btn btn-primary"
+		<button class="btn pull-right btn-save"
 		        ng-click="ctrl.SaveLocation();  location.$setPristine();"
 		        ng-disabled="(location.city.$pristine  && location.zip.$pristine && location.state.$pristine)
-						|| (location.city.$invalid || location.zip.$invalid  || location.state.$invalid)  || saved">Save
+						|| (location.city.$invalid || location.zip.$invalid  || location.state.$invalid)  || saved">
+			<i class="fa fa-save"></i>
 		</button>
 	</div>
 </div>
@@ -159,8 +161,10 @@
 		<h4 class="italic">SPECIFICS</h4>
 	</div>
 	<div class="col-sm-2 pull-right">
-		<button ng-click="ctrl.SaveSpecifics()" class="btn btn-primary"
-		        ng-disabled="specifics.$pristine || saved">Save
+		<button ng-click="ctrl.SaveSpecifics()"
+		        class="btn pull-right btn-save"
+		        ng-disabled="specifics.$pristine || saved">
+			<i class="fa fa-save"></i>
 		</button>
 	</div>
 </div>
@@ -169,7 +173,7 @@
 	<h5 class="label-subhead control-label bold">Certifications:</h5>
 	<ul class="list-unstyled">
 		<li ng-repeat="c in ctrl.BreederProfileEdit.Certifications">
-		{{c.Title}} - <input type="checkbox" ng-model='c.isActive'>
+			{{c.Title}} - <input type="checkbox" ng-model='c.isActive'>
 		</li>
 	</ul>
 	<div class="btn-group">
