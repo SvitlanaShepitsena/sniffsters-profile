@@ -167,7 +167,7 @@ profile.config(
 				        return DataService.getFeedbacks<IFeedback>();
 			        }
 		        },
-		        templateUrl: ""
+		        templateUrl: "<feedback-edit></feedback-edit>"
             })
 //#state
     });
