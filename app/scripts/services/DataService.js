@@ -74,6 +74,7 @@ var DataService = (function () {
 		});
 		return d.promise;
 	};
+
 	DataService.prototype.saveNewTestimonials = function (feedbacks) {
 		var d = this.$q.defer();
 		console.log(feedbacks);
@@ -207,6 +208,7 @@ var DataService = (function () {
 		});
 		return d.promise;
 	};
+
 	DataService.prototype.deleteFeedback = function (id) {
 		var d = this.$q.defer();
 

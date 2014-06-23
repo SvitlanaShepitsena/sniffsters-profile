@@ -59,5 +59,13 @@ var TestimonialsCtrl = (function () {
 			}
 		});
 	};
+
+	TestimonialsCtrl.prototype.updateFeedBack = function (feedback) {
+		var _this = this;
+		this.DataService.updateFeedback(feedback).then(function () {
+			_this.ShowSuccess("Feedback has been successfully saved to Db");
+			_this.$state.go('^');
+		});
+	};
 	return TestimonialsCtrl;
 })();

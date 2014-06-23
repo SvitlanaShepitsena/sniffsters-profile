@@ -38,6 +38,7 @@ profile.directive("litterNew", litterNew);
 profile.directive("feedback", feedback);
 profile.directive("feedbackInfo", feedbackInfo);
 profile.directive("litterInfo", litterInfo);
+profile.directive("feedbackEdit", feedbackEdit);
 
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -111,12 +112,12 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
 		controller: "TestimonialsCtrl",
 		templateUrl: "../views/profile-testimonials.html"
 	}).state("profile.testimonials5.edit", {
-		url: "/edit",
+		url: "/edit/:id",
 		resolve: {
 			feedbacks: function (DataService) {
 				return DataService.getFeedbacks();
 			}
 		},
-		templateUrl: ""
+		template: "<feedback-edit></feedback-edit>"
 	});
 });

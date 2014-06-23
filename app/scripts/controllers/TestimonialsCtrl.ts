@@ -64,4 +64,11 @@ class TestimonialsCtrl {
 		})
 	}
 
+	updateFeedBack(feedback:IFeedback) {
+		this.DataService.updateFeedback(feedback).then(() => {
+			this.ShowSuccess("Feedback has been successfully saved to Db");
+			this.$state.go('^');
+		})
+	}
+
 }
