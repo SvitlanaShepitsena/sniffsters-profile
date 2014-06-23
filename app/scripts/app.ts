@@ -161,7 +161,7 @@ profile.config(
                 templateUrl: "../views/profile-testimonials.html"
 	        })
 	        .state("profile.testimonials5.edit", {
-		        url: "/edit",
+		        url: "/edit/:id",
 		        resolve: {
 			        feedbacks: (DataService:DataService) => {
 				        return DataService.getFeedbacks<IFeedback>();

@@ -12,14 +12,9 @@ var feedbackEdit:() => ng.IDirective = () => {
 		transclude: true,
 		// replace directive tag with template info
 		replace: true,
-		scope: {
-			ctrl: '=',
-
-			text: '@',
-			func: '&'
-		},
-		link: (scope:IFeedbackEdit, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
+		controller: ($scope, $stateProvider) => {
+			var index:number = $stateProvider.id;
+			$scope.SelectedFeedback = $scope.testimonials.Feedbacks[index];
 		}
 	}
 }
