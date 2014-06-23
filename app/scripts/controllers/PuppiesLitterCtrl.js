@@ -7,7 +7,6 @@ var PuppiesLitterCtrl = (function () {
         this.CopyProfileService = CopyProfileService;
         $scope.puppiesLitter = this;
     }
-
     PuppiesLitterCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

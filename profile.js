@@ -101,7 +101,7 @@ var IndexCtrl = function () {
             return litter.Id === litterId ? (litid = index, !1) : void index++
         }), this.SelectedLitter = this.Litters[litid], this.$state.go("profile.puppies3.litter", {id: litid})
     }, PuppiesCtrl.prototype.addNewLitter = function () {
-        this.LittersNew.push(new Litter)
+        this.LittersNew.unshift(new Litter)
     }, PuppiesCtrl.prototype.saveNewLitters = function () {
         var _this = this, indexNew = 0;
         this.LittersNew.forEach(function (litter) {

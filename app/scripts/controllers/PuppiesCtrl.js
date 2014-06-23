@@ -12,7 +12,6 @@ var PuppiesCtrl = (function () {
         this.LittersNew = [];
         this.Litters = litters;
     }
-
     PuppiesCtrl.prototype.setSelectedLitter = function (litterId) {
         var litid = 0;
         var index = 0;
