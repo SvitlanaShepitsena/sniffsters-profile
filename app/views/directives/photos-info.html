@@ -4,11 +4,16 @@
 			<div class="col-xs-12">
 				<div class="form-group">
 					<label>Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
+					<span ng-show="form.galleryTitle.$invalid" class="text text-danger maxsymb">Max 250 symbols!</span>
 
 					<div class="row">
 						<div class="col-xs-12">
-							<input type="text" placeholder="Gallery Title" class="form-control"
-							       ng-class="{inputEmpty:!newGallery.Title}" ng-model="newGallery.Title" required>
+							<input type="text" placeholder="Gallery Title"
+							       name="galleryTitle"
+							       class="form-control"
+							       ng-class="{inputEmpty:!newGallery.Title}"
+							       ng-maxlength="250"
+							       ng-model="newGallery.Title" required>
 						</div>
 					</div>
 					<div class="row">

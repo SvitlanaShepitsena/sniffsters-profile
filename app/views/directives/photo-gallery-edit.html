@@ -1,24 +1,33 @@
 <div class="well">
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="form-group">
-				<label>Gallery Title:</label>
+	<form class="form" name="form" id="form" novalidate>
+		<div class="row">
+			<div class="col-xs-12">
 
-				<div class="row">
-					<div class="col-xs-11">
-						<input type="text" class="form-control" ng-model="photosCtrl.SelectedGalleryEdit.Title">
-					</div>
+				<div class="form-group">
+					<label>Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
+					<span ng-show="form.galTitleEdit.$invalid" class="text text-danger maxsymb">Max 250 symbols!</span>
 
-					<div class="col-xs-1">
-						<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
-						        title="Save Caption" ng-click="updateTitle(photosCtrl.SelectedGalleryEdit.Title)"><i
-								class="fa fa-save"></i>
-						</button>
+					<div class="row">
+						<div class="col-xs-11">
+							<input type="text" class="form-control"
+							       placeholder="Gallery Title"
+							       name="galTitleEdit"
+							       ng-maxLength="250"
+							       ng-model="photosCtrl.SelectedGalleryEdit.Title"
+							       required>
+						</div>
+
+						<div class="col-xs-1">
+							<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
+							        title="Save Caption" ng-click="updateTitle(photosCtrl.SelectedGalleryEdit.Title)"><i
+									class="fa fa-save"></i>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 	<div class="row">
 		<ul class="list-unstyled ">
 			<li class="col-xs-12 shuffle-animation" ng-repeat="p in photosCtrl.SelectedGalleryEdit.Photos">
@@ -29,17 +38,27 @@
 					<img class="puppyPic"
 					     ng-src="{{('imgdir/'+index.Id+'/'+photosCtrl.SelectedGalleryEdit.Id+'/'+p.FilePath) | spacesToDashes}}">
 
-					<div class="row">
-						<div class="col-xs-11">
-							<input type="text" class="form-control" ng-model="p.Caption">
-						</div>
+					<form name="picCapForm">
+						<div class="form-group">
+						<span ng-show="form.picCapForm.$invalid"
+						      class="text text-danger maxSymb">Max 250 symbols!</span>
 
-						<div class="col-xs-1">
-							<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
-							        title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i>
-							</button>
+							<div class="row">
+								<div class="col-xs-11">
+									<input type="text" class="form-control"
+									       name="picCaptionEdit"
+									       ng-maxlength="250"
+									       ng-model="p.Caption"/>
+								</div>
+
+								<div class="col-xs-1">
+									<button class="btn pull-right btn-save" data-toggle="tooltip" data-placement="left"
+									        title="Save Caption" ng-click="update(p)"><i class="fa fa-save"></i>
+									</button>
+								</div>
+							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</li>
 		</ul>
@@ -62,6 +81,7 @@
 			</div>
 		</div>
 		<br/>
+
 		<div class="row">
 			<div class="col-xs-12 text-center">
 				<div ng-file-drop-available="dropSupported=true"
