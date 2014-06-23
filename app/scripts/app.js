@@ -118,6 +118,6 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
 				return DataService.getFeedbacks();
 			}
 		},
-		template: "<feedback-edit></feedback-edit>"
+		templateUrl: "<feedback-edit></feedback-edit>"
 	});
 });
