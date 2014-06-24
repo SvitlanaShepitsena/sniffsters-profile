@@ -1,11 +1,25 @@
 var PhotosCtrl = (function () {
     function PhotosCtrl($scope, $state, data, toastr, DataService, CopyProfileService) {
+        var _this = this;
         this.$scope = $scope;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
         $scope.index.menuIndex = 2;
+
+        $scope.$watch("photosCtrl.GalleriesNew", function () {
+            for (var i = 0; i < _this.GalleriesNew.length; i++) {
+                var gallery = _this.GalleriesNew[i];
+                if (!(typeof (gallery.Title) != 'undefined' && gallery.Title.length < 250 && gallery.Photos.length > 0)) {
+                    _this.$scope.isOk = true;
+
+                    break;
+                } else {
+                    _this.$scope.isOk = false;
+                }
+            }
+        }, true);
 
         var newGallery = new Gallery();
         this.GalleriesNew = new Array(newGallery);
@@ -16,6 +30,7 @@ var PhotosCtrl = (function () {
 
         this.Galleries = data;
     }
+
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var index = 0;
         this.updateGallery(this.GalleriesNew, index);

@@ -19,7 +19,7 @@
 	<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
 		<label for="kennel" class="label-subhead">Kennel Name:</label>
 		<span class="textMuted">Required</span>
-		<span ng-show="form.kennel.$invalid" class="text text-danger maxsymb">Max 250 symbols!</span>
+		<span ng-show="form.kennel.$error.maxlength" class="text text-danger maxsymb">Max 250 symbols!</span>
 		<input id="kennel" class="form-control"
 		       name="kennel"
 		       type="text"
@@ -27,15 +27,15 @@
 		       ng-maxlength="250"
 		       required/>
 
-			<span ng-show="form.kennel.$invalid" class="fa fa-times form-control-feedback"></span>
-			<span ng-hide="form.kennel.$invalid" class="fa fa-check form-control-feedback"></span>
+		<span ng-show="form.kennel.$invalid" class="fa fa-times form-control-feedback"></span>
+		<span ng-hide="form.kennel.$invalid" class="fa fa-check form-control-feedback"></span>
 	</div>
 
 	<div class="form-group">
 		<div class="row">
 			<div class="col-sm-6">
 				<label for="website" class="label-subhead control-label">Website:</label>
-				<span ng-show="form.website.$invalid" class="text text-danger maxsymb">Max 250 symbols!</span>
+				<span ng-show="form.website.$error.maxlength" class="text text-danger maxsymb">Max 250 symbols!</span>
 				<input id="website" name="website" class="form-control"
 				       type="text"
 				       ng-model="ctrl.BreederProfileEdit.Website"

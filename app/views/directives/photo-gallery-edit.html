@@ -5,7 +5,8 @@
 
 				<div class="form-group">
 					<label>Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
-					<span ng-show="form.galTitleEdit.$invalid" class="text text-danger maxSymb">Max 250 symbols!</span>
+					<span ng-show="form.galTitleEdit.$error.maxlength"
+					      class="text text-danger maxSymb">Max 250 symbols!</span>
 
 					<div class="row">
 						<div class="col-xs-11">
@@ -46,7 +47,7 @@
 
 					<form name="picCapForm">
 						<div class="form-group">
-						<span ng-show="picCapForm.picCaptionEdit.$invalid"
+						<span ng-show="picCapForm.picCaptionEdit.$error.maxlength"
 						      class="text text-danger maxSymb">Max 250 symbols!</span>
 
 							<div class="row">

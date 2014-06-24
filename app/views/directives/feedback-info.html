@@ -4,7 +4,7 @@
 			<div class="col-sm-12">
 				<div class="form-group">
 					<label for="clientName" class="subheadlabel control-label">Client Name:</label>
-					<span ng-show="formNewFeedback.clientName.$invalid" class="text text-danger maxSymb">Max 250 symbols!</span>
+					<span ng-show="formNewFeedback.clientName.$error.maxlength" class="text text-danger maxSymb">Max 250 symbols!</span>
 					<input type="text" id="clientName" name="clientName" class="form-control"
 					       ng-model="f.ClientName"
 					       ng-class="{inputEmpty:!formNewFeedback.clientName}"

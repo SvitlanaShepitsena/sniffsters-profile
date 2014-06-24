@@ -4,6 +4,7 @@
 interface IPhotosScope extends IMainScope {
     photosCtrl:PhotosCtrl;
     index:IndexCtrl;
+    isOk:boolean;
 }
 class PhotosCtrl {
     public GalleriesNew:IGallery[];
@@ -14,6 +15,23 @@ class PhotosCtrl {
 
     constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, data, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index.menuIndex = 2;
+
+        $scope.$watch("photosCtrl.GalleriesNew", () => {
+            for (var i = 0; i < this.GalleriesNew.length; i++) {
+                var gallery:IGallery = this.GalleriesNew[i];
+                if (!(
+                    typeof(gallery.Title) != 'undefined' && gallery.Title.length < 250
+                    && gallery.Photos.length > 0
+                    )) {
+                    this.$scope.isOk = true;
+//                console.log($scope.isOk);
+                    break;
+                } else {
+
+                    this.$scope.isOk = false;
+                }
+            }
+        }, true);
 
 
         var newGallery = new Gallery();

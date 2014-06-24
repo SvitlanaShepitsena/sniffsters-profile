@@ -4,7 +4,8 @@
 	<form role="form" name="newLitterForm" id="newLitterForm" novalidate>
 		<div class="form-group">
 			<label for="title">Title:</label>&nbsp<span class="textMuted">Required</span>
-			<span ng-show="newLitterForm.title.$invalid" class="text text-danger maxsymb">Max 250 symbols!</span>
+			<span ng-show="newLitterForm.title.$error.maxlength"
+			      class="text text-danger maxsymb">Max 250 symbols!</span>
 			<input type="text" class="form-control" id="title" name="title"
 			       placeholder="title"
 			       ng-class="{inputEmpty:!l.Title}"
@@ -15,6 +16,7 @@
 
 		<div class="form-group">
 			<label for="date">Date of Birth:</label>&nbsp<span class="textMuted">Required</span>
+
 			<p class="input-group">
 				<input type="text" id="date" name="date"
 				       class="form-control"
@@ -41,7 +43,8 @@
 
 		<div class="form-group">
 			<label for="puppies">Number of puppies and sex:</label>&nbsp<span class="textMuted">Required</span>
-			<span ng-show="newLitterForm.puppies.$invalid" class="text text-danger maxsymb">Max 250 symbols!</span>
+			<span ng-show="newLitterForm.puppies.$error.maxlength"
+			      class="text text-danger maxsymb">Max 250 symbols!</span>
 			<input type="text"
 			       class="form-control"
 			       id="puppies"
@@ -54,7 +57,8 @@
 		</div>
 		<div class="form-group">
 			<label for="colors">Colors:</label>&nbsp<span class="textMuted">Required</span>
-			<span ng-show="newLitterForm.colors.$invalid" class="text text-danger maxsymb">Max 250 symbols!</span>
+			<span ng-show="newLitterForm.colors.$error.maxlength"
+			      class="text text-danger maxsymb">Max 250 symbols!</span>
 			<input tybpe="text"
 			       class="form-control"
 			       id="colors" name="colors"

@@ -4,7 +4,8 @@
 			<div class="col-xs-12">
 				<div class="form-group">
 					<label>Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
-					<span ng-show="form.galleryTitle.$invalid" class="text text-danger maxsymb">Max 250 symbols!</span>
+					<span ng-show="form.galleryTitle.$error.maxlength"
+					      class="text text-danger maxsymb">Max 250 symbols!</span>
 
 					<div class="row">
 						<div class="col-xs-12">
