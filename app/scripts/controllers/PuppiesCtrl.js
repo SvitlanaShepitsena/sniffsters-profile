@@ -1,5 +1,6 @@
 var PuppiesCtrl = (function () {
     function PuppiesCtrl($scope, $modal, litters, $state, toastr, DataService, CopyProfileService) {
+        var _this = this;
         this.$scope = $scope;
         this.$modal = $modal;
         this.$state = $state;
@@ -7,11 +8,26 @@ var PuppiesCtrl = (function () {
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
         $scope.index.url = 'puppies';
+        $scope.isOk = false;
 
-        $scope.puppies = this;
         this.LittersNew = [];
+        $scope.puppies = this;
         this.Litters = litters;
+
+        $scope.$watch("puppies.LittersNew", function () {
+            for (var i = 0; i < _this.LittersNew.length; i++) {
+                var litter = _this.LittersNew[i];
+                if (!(typeof (litter.Title) != 'undefined' && litter.Title.length < 250 && typeof (litter.Puppies) != 'undefined' && litter.Puppies.length < 250 && typeof (litter.DateOfBirth) != 'undefined' && typeof (litter.Colors) != 'undefined' && litter.Colors.length < 250)) {
+                    _this.$scope.isOk = true;
+
+                    break;
+                } else {
+                    _this.$scope.isOk = false;
+                }
+            }
+        }, true);
     }
+
     PuppiesCtrl.prototype.setSelectedLitter = function (litterId) {
         var litid = 0;
         var index = 0;

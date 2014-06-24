@@ -1,9 +1,5 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
-interface ILitter extends ng.IScope {
-    test:string;
-}
-
 var litter:() => ng.IDirective = () => {
 
     return{
@@ -101,11 +97,7 @@ var litter:() => ng.IDirective = () => {
             $scope.initDate = new Date();
             $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
             $scope.format = $scope.formats[2];
-        },
-
-        link: (scope:ILitter, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
-
         }
+
     }
 }

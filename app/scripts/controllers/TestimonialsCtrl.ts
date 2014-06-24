@@ -28,9 +28,7 @@ class TestimonialsCtrl {
                 }
             }
         }, true);
-
     }
-
 
     addNewTestimonial() {
         this.FeedbacksNew.unshift(new Feedback());
@@ -87,5 +85,4 @@ class TestimonialsCtrl {
             this.$state.go('^');
         })
     }
-
 }

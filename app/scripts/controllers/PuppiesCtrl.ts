@@ -6,17 +6,38 @@ interface IPuppiesScope extends IMainScope {
 }
 class PuppiesCtrl {
     Litters:ILitter[];
-    LittersNew:Litter[];
+    LittersNew:ILitter[];
 
     SelectedLitter:ILitter;
     SelectedLitterEdit:ILitter;
 
-    constructor(public $scope:IPuppiesScope, public $modal, litters:ILitter[], public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public $modal, litters:ILitter[], public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index.url = 'puppies';
+        $scope.isOk = false;
 
-        $scope.puppies = this;
         this.LittersNew = [];
+        $scope.puppies = this;
         this.Litters = litters;
+
+        $scope.$watch("puppies.LittersNew", () => {
+            for (var i = 0; i < this.LittersNew.length; i++) {
+                var litter:ILitter = this.LittersNew[i];
+                if (!(
+                    typeof(litter.Title) != 'undefined' && litter.Title.length < 250
+                    && typeof(litter.Puppies) != 'undefined' && litter.Puppies.length < 250
+                    && typeof(litter.DateOfBirth) != 'undefined'
+                    && typeof(litter.Colors) != 'undefined' && litter.Colors.length < 250
+
+                    )) {
+                    this.$scope.isOk = true;
+//                console.log($scope.isOk);
+                    break;
+                } else {
+
+                    this.$scope.isOk = false;
+                }
+            }
+        }, true);
     }
 
     setSelectedLitter(litterId:number) {

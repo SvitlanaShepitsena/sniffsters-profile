@@ -1,17 +1,22 @@
 <div ui-view="">
 	<div class="row">
 		<div class="col-xs-3 pull-right">
-			<button class="btn btn-link" ng-click="puppies.addNewLitter()">Add New Litter</button>
+			<button class="btn btn-link"
+			        ng-click="puppies.addNewLitter()">
+				Add New Litter
+			</button>
 		</div>
 		<div class="col-sm-xs-3 pull-right">
-			<button ng-show="puppies.LittersNew.length" class="btn btn-link" ng-click="puppies.saveNewLitters()">Save
+			<button class="btn btn-link"
+			        ng-show="puppies.LittersNew.length"
+			        ng-disabled="isOk"
+			        ng-click="puppies.saveNewLitters()">Save
 			</button>
 		</div>
 
 	</div>
 	<div ng-show="puppies.LittersNew.length>0">
 		<ul class="list-unstyled">
-
 			<li ng-repeat="l in puppies.LittersNew" class="bouncy-slide-down">
 				<litter-new l="l" user-name="{{index.Id}}"></litter-new>
 			</li>

@@ -1,4 +1,3 @@
-
 var litter = function () {
     return {
         restrict: 'E',
@@ -73,8 +72,6 @@ var litter = function () {
             $scope.initDate = new Date();
             $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
             $scope.format = $scope.formats[2];
-        },
-        link: function (scope, element, attrs) {
         }
     };
 };
