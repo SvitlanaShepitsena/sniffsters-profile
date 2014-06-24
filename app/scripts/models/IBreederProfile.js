@@ -9,6 +9,7 @@ var Feedback = (function () {
 
 var Gallery = (function () {
     function Gallery() {
+        this.Photos = [];
     }
 
     return Gallery;

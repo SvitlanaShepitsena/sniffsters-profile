@@ -51,6 +51,10 @@ class Gallery implements IGallery {
     Title:string;
     IsActive:Boolean;
     Photos:IPhoto[];
+
+    constructor() {
+        this.Photos = [];
+    }
 }
 class BreederProfile implements IBreederProfile {
     City:string;

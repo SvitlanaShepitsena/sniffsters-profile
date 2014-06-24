@@ -46,7 +46,12 @@ class PhotosCtrl {
 
     saveNewGalleries() {
         var index = 0;
-        this.updateGallery(this.GalleriesNew, index);
+        this.GalleriesNew.forEach((gallery:IGallery) => {
+            this.GalleriesNew.splice(index, 1);
+            gallery.IsActive = true;
+            this.Galleries.push(gallery);
+        });
+
     }
 
     updateGallery(galleries:IGallery[], index:number) {

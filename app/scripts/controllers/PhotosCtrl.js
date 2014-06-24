@@ -30,10 +30,14 @@ var PhotosCtrl = (function () {
 
         this.Galleries = data;
     }
-
     PhotosCtrl.prototype.saveNewGalleries = function () {
+        var _this = this;
         var index = 0;
-        this.updateGallery(this.GalleriesNew, index);
+        this.GalleriesNew.forEach(function (gallery) {
+            _this.GalleriesNew.splice(index, 1);
+            gallery.IsActive = true;
+            _this.Galleries.push(gallery);
+        });
     };
 
     PhotosCtrl.prototype.updateGallery = function (galleries, index) {

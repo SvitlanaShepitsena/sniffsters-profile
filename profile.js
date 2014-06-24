@@ -54,7 +54,17 @@ var IndexCtrl = function () {
     }, IndexCtrl
 }(), PhotosCtrl = function () {
     function PhotosCtrl($scope, $state, data, toastr, DataService, CopyProfileService) {
-        this.$scope = $scope, this.$state = $state, this.toastr = toastr, this.DataService = DataService, this.CopyProfileService = CopyProfileService, $scope.index.menuIndex = 2;
+        var _this = this;
+        this.$scope = $scope, this.$state = $state, this.toastr = toastr, this.DataService = DataService, this.CopyProfileService = CopyProfileService, $scope.index.menuIndex = 2, $scope.$watch("photosCtrl.GalleriesNew", function () {
+            for (var i = 0; i < _this.GalleriesNew.length; i++) {
+                var gallery = _this.GalleriesNew[i];
+                if (!("undefined" != typeof gallery.Title && gallery.Title.length < 250 && gallery.Photos.length > 0)) {
+                    _this.$scope.isOk = !0;
+                    break
+                }
+                _this.$scope.isOk = !1
+            }
+        }, !0);
         var newGallery = new Gallery;
         this.GalleriesNew = new Array(newGallery), $scope.photosCtrl = this, $scope.index.url = "photos", this.Galleries = data
     }
@@ -284,7 +294,7 @@ var IndexCtrl = function () {
         }, $scope.up = function ($files, index) {
             if (index != $files.length) {
                 var file = $files[index];
-                $upload.upload({url: "/BreederPersonal/AddPictureNewLitter", data: {Title: $scope.l.Title}, file: file}).progress(function () {
+                $upload.upload({url: "/BreederPersonal/AddPictureNewLitter", data: {Title: $scope.l.Title, Puppies: $scope.l.Puppies, Colors: $scope.l.Colors, DateOfBirth: $scope.l.DateOfBirth}, file: file}).progress(function () {
                 }).success(function (data) {
                     var photo = {Id: data.PhotoId, Caption: "Picture", FilePath: data.FileName};
                     $scope.l.Photos.push(photo), $scope.l.Id = data.GalleryId, $scope.up($files, index + 1)
