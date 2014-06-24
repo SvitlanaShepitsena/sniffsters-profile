@@ -119,10 +119,6 @@ profile.config(
 				url: "/edit",
 				template: "<photo-gallery-edit></photo-gallery-edit>"
 			})
-			.state("profile.photos2.edit", {
-				url: "/edit",
-				templateUrl: "../views/profile-photosEdit.html"
-			})
 			.state("profile.puppies3", {
 				url: "/puppies",
 				controller: "PuppiesCtrl",

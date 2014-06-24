@@ -23,12 +23,6 @@ var IndexCtrl = function () {
 	}, IndexCtrl.prototype.SaveKennelName = function () {
 		var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 		breederProfileOriginal.KennelName = this.BreederProfileEdit.KennelName, breederProfileOriginal.Story = this.BreederProfileEdit.Story, this.Save(breederProfileOriginal)
-	}, IndexCtrl.prototype.SaveAboutParents = function () {
-		var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
-		breederProfileOriginal.Parents = this.BreederProfileEdit.Parents, breederProfileOriginal.Girls = this.BreederProfileEdit.Girls, breederProfileOriginal.Boys = this.BreederProfileEdit.Boys, console.log(breederProfileOriginal), this.Save(breederProfileOriginal)
-	}, IndexCtrl.prototype.SaveAddInfo = function () {
-		var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
-		breederProfileOriginal.AddInfo = this.BreederProfileEdit.AddInfo, this.Save(breederProfileOriginal)
 	}, IndexCtrl.prototype.SavePersonalInfo = function () {
 		var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 		breederProfileOriginal.KennelName = this.BreederProfileEdit.KennelName, breederProfileOriginal.Website = this.BreederProfileEdit.Website, breederProfileOriginal.Email = this.BreederProfileEdit.Email, breederProfileOriginal.Phone = this.BreederProfileEdit.Phone, this.Save(breederProfileOriginal)
@@ -139,14 +133,41 @@ var IndexCtrl = function () {
 		this.toastr.error(note)
 	}, PuppiesLitterCtrl
 }(), TestimonialsCtrl = function () {
-	function TestimonialsCtrl($scope, feedbacks, $state, toastr, DataService, CopyProfileService) {
-		this.$scope = $scope, this.$state = $state, this.toastr = toastr, this.DataService = DataService, this.CopyProfileService = CopyProfileService, $scope.index.url = "testimonials", $scope.testimonials = this, this.Feedbacks = feedbacks
+	function TestimonialsCtrl($scope, $modal, feedbacks, $state, toastr, DataService, CopyProfileService) {
+		this.$scope = $scope, this.$modal = $modal, this.$state = $state, this.toastr = toastr, this.DataService = DataService, this.CopyProfileService = CopyProfileService, $scope.index.url = "testimonials", this.FeedbacksNew = [], $scope.testimonials = this, this.Feedbacks = feedbacks
 	}
 
-	return TestimonialsCtrl.prototype.ShowSuccess = function (note) {
+	return TestimonialsCtrl.prototype.addNewTestimonial = function () {
+		this.FeedbacksNew.unshift(new Feedback)
+	}, TestimonialsCtrl.prototype.saveNewTestimonials = function () {
+		var _this = this;
+		this.DataService.saveNewTestimonials(this.FeedbacksNew).then(function (feedbacks) {
+			feedbacks.forEach(function (feedback) {
+				_this.Feedbacks.unshift(feedback)
+			}), _this.FeedbacksNew = [], _this.ShowSuccess("Feedbacks have been successfully saved to Db")
+		})
+	}, TestimonialsCtrl.prototype.ShowSuccess = function (note) {
 		this.toastr.info(note)
 	}, TestimonialsCtrl.prototype.ShowError = function (note) {
 		this.toastr.error(note)
+	}, TestimonialsCtrl.prototype.deleteFeedback = function (feedback, index) {
+		var _this = this, modalInstance = this.$modal.open({template: '<div><div class="modal-body">Delete this Feedback?</div><div class="modal-footer"><button class="btn btn-primary" ng-click="ok()">OK</button><button class="btn btn-warning" ng-click="cancel()">Cancel</button></div></div>', size: "sm", controller: function ($scope, $modalInstance) {
+			$scope.ok = function () {
+				$modalInstance.close(!0)
+			}, $scope.cancel = function () {
+				$modalInstance.close(!1)
+			}
+		}});
+		modalInstance.result.then(function (confirmation) {
+			confirmation && _this.DataService.deleteFeedback(feedback.Id).then(function () {
+				_this.Feedbacks.splice(index, 1)
+			})
+		})
+	}, TestimonialsCtrl.prototype.updateFeedBack = function (feedback) {
+		var _this = this;
+		this.DataService.updateFeedback(feedback).then(function () {
+			_this.ShowSuccess("Feedback has been successfully saved to Db"), _this.$state.go("^")
+		})
 	}, TestimonialsCtrl
 }(), breederDetails = function () {
 	return{restrict: "E", templateUrl: "views/directives/breeder-details.html", transclude: !0, replace: !0, scope: {ctrl: "=", text: "@", func: "&"}, link: function (scope) {
@@ -187,8 +208,13 @@ var IndexCtrl = function () {
 }, feedback = function () {
 	return{restrict: "E", templateUrl: "views/directives/feedback.html", replace: !0, scope: {f: "=", text: "@", func: "&"}, link: function () {
 	}}
+}, feedbackEdit = function () {
+	return{restrict: "E", templateUrl: "views/directives/feedback-edit.html", transclude: !0, replace: !0, controller: function ($scope, $stateParams) {
+		var index = $stateParams.id;
+		$scope.SelectedFeedback = $scope.testimonials.Feedbacks[index]
+	}}
 }, feedbackInfo = function () {
-	return{restrict: "E", templateUrl: "views/directives/feedback-info.html", transclude: !0, replace: !0, scope: {ctrl: "=", text: "@", func: "&"}, link: function () {
+	return{restrict: "E", templateUrl: "views/directives/feedback-info.html", transclude: !0, replace: !0, scope: {f: "=", text: "@", func: "&"}, link: function () {
 	}}
 }, litter = function () {
 	return{restrict: "E", templateUrl: "views/directives/litter.html", transclude: !0, replace: !0, scope: {l: "=", userName: "@"}, controller: function ($scope, DataService, $modal, $upload, toastr) {
@@ -480,6 +506,13 @@ var IndexCtrl = function () {
 		}).error(function () {
 			d.reject()
 		}), d.promise
+	}, DataService.prototype.saveNewTestimonials = function (feedbacks) {
+		var d = this.$q.defer();
+		return console.log(feedbacks), this.$http.post("/BreederPersonal/SaveNewFeedbacks", {feedbacks: feedbacks}).success(function (result) {
+			d.resolve(result)
+		}).error(function () {
+			d.reject()
+		}), d.promise
 	}, DataService.prototype.deleteLitterPhoto = function (galleryId, photoId) {
 		var d = this.$q.defer();
 		return this.$http.post("/BreederPersonal/DeleteLitterPhoto", {deletePhoto: {GalleryId: galleryId, PhotoId: photoId}}).success(function () {
@@ -529,9 +562,23 @@ var IndexCtrl = function () {
 		}).error(function () {
 			d.reject()
 		}), d.promise
+	}, DataService.prototype.updateFeedback = function (feedback) {
+		var d = this.$q.defer();
+		return this.$http.post("/BreederPersonal/UpdateFeedback", {feedback: feedback}).success(function () {
+			d.resolve()
+		}).error(function () {
+			d.reject()
+		}), d.promise
 	}, DataService.prototype.deleteLitter = function (id) {
 		var d = this.$q.defer();
 		return this.$http.post("/BreederPersonal/DeleteLitter", {litterId: id}).success(function () {
+			d.resolve()
+		}).error(function () {
+			d.reject()
+		}), d.promise
+	}, DataService.prototype.deleteFeedback = function (id) {
+		var d = this.$q.defer();
+		return this.$http.post("/BreederPersonal/DeleteFeedback", {feedbackId: id}).success(function () {
 			d.resolve()
 		}).error(function () {
 			d.reject()
@@ -579,12 +626,14 @@ profile.filter("boolString", function () {
 	return function (Galleries, isActive) {
 		return GalleryActive.filter(Galleries, isActive)
 	}
-}), profile.service("CopyProfileService", CopyProfileService), profile.service("GalleryService", GalleryService), profile.directive("aboutInfoEdit", aboutInfoEdit), profile.directive("detailsInfo", detailsInfo), profile.directive("detailsInfoEdit", detailsInfoEdit), profile.directive("previousPuppies", previousPuppies), profile.directive("photosInfo", photosInfo), profile.directive("photoGalleries", photoGalleries), profile.directive("photoGallery", photoGallery), profile.directive("photoGalleryEdit", photoGalleryEdit), profile.directive("spinDiv", spinDiv), profile.directive("litter", litter), profile.directive("litterNew", litterNew), profile.directive("feedback", feedback), profile.directive("feedbackInfo", feedbackInfo), profile.directive("litterInfo", litterInfo), profile.directive("aboutInfo", aboutInfo), profile.directive("breederDetails", breederDetails), profile.controller("PhotosCtrl", PhotosCtrl), profile.controller("PuppiesCtrl", PuppiesCtrl), profile.controller("TestimonialsCtrl", TestimonialsCtrl), profile.value("toastr", toastr), profile.service("DataService", DataService), profile.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
+}), profile.service("CopyProfileService", CopyProfileService), profile.service("GalleryService", GalleryService), profile.directive("aboutInfoEdit", aboutInfoEdit), profile.directive("detailsInfo", detailsInfo), profile.directive("detailsInfoEdit", detailsInfoEdit), profile.directive("previousPuppies", previousPuppies), profile.directive("photosInfo", photosInfo), profile.directive("photoGalleries", photoGalleries), profile.directive("photoGallery", photoGallery), profile.directive("photoGalleryEdit", photoGalleryEdit), profile.directive("spinDiv", spinDiv), profile.directive("litter", litter), profile.directive("litterNew", litterNew), profile.directive("feedback", feedback), profile.directive("feedbackInfo", feedbackInfo), profile.directive("litterInfo", litterInfo), profile.directive("feedbackEdit", feedbackEdit), profile.directive("aboutInfo", aboutInfo), profile.directive("breederDetails", breederDetails), profile.controller("PhotosCtrl", PhotosCtrl), profile.controller("PuppiesCtrl", PuppiesCtrl), profile.controller("TestimonialsCtrl", TestimonialsCtrl), profile.value("toastr", toastr), profile.service("DataService", DataService), profile.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/profile/about"), $stateProvider.state("profile", {"abstract": !0, url: "/profile", templateUrl: "../views/profile.html"}).state("profile.about1", {url: "/about", templateUrl: "../views/profile-about.html"}).state("profile.about1.edit", {url: "/edit", templateUrl: "../views/profile-about-edit.html"}).state("profile.photos2", {url: "/photos", resolve: {data: function (DataService) {
 		return DataService.getGalleries()
-	}}, controller: "PhotosCtrl", templateUrl: "../views/profile-photos.html"}).state("profile.photos2.galleries", {url: "/gallery/:id", template: "<div ui-view><photo-gallery></photo-gallery></div>"}).state("profile.photos2.galleries.edit", {url: "/edit", template: "<photo-gallery-edit></photo-gallery-edit>"}).state("profile.photos2.edit", {url: "/edit", templateUrl: "../views/profile-photosEdit.html"}).state("profile.puppies3", {url: "/puppies", controller: "PuppiesCtrl", resolve: {litters: function (DataService) {
+	}}, controller: "PhotosCtrl", templateUrl: "../views/profile-photos.html"}).state("profile.photos2.galleries", {url: "/gallery/:id", template: "<div ui-view><photo-gallery></photo-gallery></div>"}).state("profile.photos2.galleries.edit", {url: "/edit", template: "<photo-gallery-edit></photo-gallery-edit>"}).state("profile.puppies3", {url: "/puppies", controller: "PuppiesCtrl", resolve: {litters: function (DataService) {
 		return DataService.getLitters()
 	}}, templateUrl: "../views/profile-puppies.html"}).state("profile.puppies3.litter", {url: "/litter/:id", templateUrl: "../views/profile-puppiesLitter.html"}).state("profile.puppies3.litter.edit", {url: "/edit", template: "<litter l='puppies.SelectedLitter' user-name='{{index.Id}}'></litter>"}).state("profile.details4", {url: "/details", templateUrl: "../views/profile-details.html"}).state("profile.details4.edit", {url: "/edit", templateUrl: "../views/profile-detailsEdit.html"}).state("profile.testimonials5", {url: "/testimonials", resolve: {feedbacks: function (DataService) {
 		return DataService.getFeedbacks()
-	}}, controller: "TestimonialsCtrl", templateUrl: "../views/profile-testimonials.html"})
+	}}, controller: "TestimonialsCtrl", templateUrl: "../views/profile-testimonials.html"}).state("profile.testimonials5.edit", {url: "/edit/:id", resolve: {feedbacks: function (DataService) {
+		return DataService.getFeedbacks()
+	}}, template: "<feedback-edit></feedback-edit>"})
 }]);

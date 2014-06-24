@@ -157,7 +157,7 @@
 }
 
 .h4-addNewGallery {
-    color: #444
+    color: #6e6e6e
 }
 
 .inputEmpty {
@@ -171,7 +171,7 @@
 .myDetails-alert {
     background-color: #faf9ee;
     border-color: #FFF;
-    color: #444;
+    color: #6e6e6e;
     box-shadow: 0 -3px 5px #cccaca
 }
 
@@ -225,8 +225,8 @@
     margin-right: 5px !important;
     padding: 3px 7px;
     position: absolute;
-    top: 10px;
-    right: 20px
+    top: 20px;
+    right: 25px
 }
 
 .btn-edit {
@@ -1456,7 +1456,7 @@ h5 {
 }
 
 .light-gray {
-    color: #bababa
+    color: #6e6e6e
 }
 
 .form-editPersonal {
@@ -1466,6 +1466,10 @@ h5 {
 .textMuted {
     font-size: .9em;
     color: #bababa
+}
+
+.maxSymb {
+    font-size: .9em
 }
 
 .custom-col, .label-subhead {
