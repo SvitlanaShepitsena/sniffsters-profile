@@ -1,4 +1,3 @@
-
 var litterNew = function () {
     return {
         restrict: 'E',
@@ -22,7 +21,12 @@ var litterNew = function () {
                 var file = $files[index];
                 $upload.upload({
                     url: 'http://localhost:44300/BreederPersonal/AddPictureNewLitter',
-                    data: { Title: $scope.l.Title },
+                    data: {
+                        Title: $scope.l.Title,
+                        Puppies: $scope.l.Puppies,
+                        Colors: $scope.l.Colors,
+                        DateOfBirth: $scope.l.DateOfBirth
+                    },
                     file: file
                 }).progress(function (evt) {
                 }).success(function (data, status, headers, config) {

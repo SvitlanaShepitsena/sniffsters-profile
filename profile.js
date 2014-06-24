@@ -86,7 +86,17 @@ var IndexCtrl = function () {
     }, PhotosCtrl
 }(), PuppiesCtrl = function () {
     function PuppiesCtrl($scope, $modal, litters, $state, toastr, DataService, CopyProfileService) {
-        this.$scope = $scope, this.$modal = $modal, this.$state = $state, this.toastr = toastr, this.DataService = DataService, this.CopyProfileService = CopyProfileService, $scope.index.url = "puppies", $scope.puppies = this, this.LittersNew = [], this.Litters = litters
+        var _this = this;
+        this.$scope = $scope, this.$modal = $modal, this.$state = $state, this.toastr = toastr, this.DataService = DataService, this.CopyProfileService = CopyProfileService, $scope.index.url = "puppies", $scope.isOk = !1, this.LittersNew = [], $scope.puppies = this, this.Litters = litters, $scope.$watch("puppies.LittersNew", function () {
+            for (var i = 0; i < _this.LittersNew.length; i++) {
+                var litter = _this.LittersNew[i];
+                if (!("undefined" != typeof litter.Title && litter.Title.length < 250 && "undefined" != typeof litter.Puppies && litter.Puppies.length < 250 && "undefined" != typeof litter.DateOfBirth && "undefined" != typeof litter.Colors && litter.Colors.length < 250)) {
+                    _this.$scope.isOk = !0;
+                    break
+                }
+                _this.$scope.isOk = !1
+            }
+        }, !0)
     }
 
     return PuppiesCtrl.prototype.setSelectedLitter = function (litterId) {
@@ -260,7 +270,6 @@ var IndexCtrl = function () {
         }, $scope.open = function ($event) {
             $event.preventDefault(), $event.stopPropagation(), $scope.opened = !0
         }, $scope.initDate = new Date, $scope.formats = ["dd-MMMM-yyyy", "yyyy/MM/dd", "dd.MM.yyyy", "shortDate"], $scope.format = $scope.formats[2]
-    }, link: function () {
     }}
 }, litterInfo = function () {
     return{restrict: "E", templateUrl: "views/directives/litter-info.html", transclude: !0, replace: !0, scope: {l: "=", puppies: "=", userName: "@"}, controller: function ($scope, $stateParams) {

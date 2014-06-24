@@ -33,7 +33,13 @@ var litterNew:() => ng.IDirective = () => {
                 var file = $files[index];
                 $upload.upload({
                     url: 'http://localhost:44300/BreederPersonal/AddPictureNewLitter',
-                    data: {Title: $scope.l.Title},
+                    data: {
+                        Title: $scope.l.Title,
+                        Puppies: $scope.l.Puppies,
+                        Colors: $scope.l.Colors,
+                        DateOfBirth: $scope.l.DateOfBirth
+
+                    },
                     file: file // or list of files: $files for html5 only
                 }).progress((evt) => {
 //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
