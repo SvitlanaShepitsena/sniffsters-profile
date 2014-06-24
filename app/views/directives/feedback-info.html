@@ -1,23 +1,29 @@
 <div>
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="form-group">
-				<label for="clientName" class="subheadlabel control-label">Client Name:</label>
-				<input id="clientName" name="clientName" class="form-control"
-				       ng-model="f.ClientName"
-				       name="clientName"
-				       type="text"/>
+	<form role="form" name="formNewFeedback">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label for="clientName" class="subheadlabel control-label">Client Name:</label>
+					<span ng-show="formNewFeedback.clientName.$invalid" class="text text-danger maxSymb">Max 250 symbols!</span>
+					<input type="text" id="clientName" name="clientName" class="form-control"
+					       ng-model="f.ClientName"
+					       ng-class="{inputEmpty:!formNewFeedback.clientName}"
+					       ng-maxlength="250"/>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="form-group">
-				<label for="feedback" class="coltrol-label">Feedback:</label>
-				<textarea rows="5" cols="30" name="feedback" id="feedback" class="form-control"
-				          ng-model="f.FeedbackBody">
-				</textarea>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label for="newFeedbackBody" class="coltrol-label">Feedback:</label>
+					<span ng-show="formNewFeedback.newFeedbackBody.$invalid" class="text text-danger maxSymb">Max 500 symbols!</span>
+					<textarea rows="5" cols="30" name="newFeedbackBody" id="newFeedbackBody" class="form-control"
+					          ng-model="f.FeedbackBody"
+					          ng-class="{inputEmpty:!formNewFeedback.newFeedbackBody}"
+					          ng-maxlength="500">
+					</textarea>
+				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 </div>
