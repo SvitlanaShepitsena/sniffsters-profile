@@ -29,6 +29,11 @@ class Feedback implements IFeedback {
 	Id:number;
 	ClientName:string;
 	FeedbackBody:string;
+
+    constructor() {
+        this.ClientName = "";
+        this.FeedbackBody = "";
+    }
 }
 interface IPhoto {
 	Id:number;
