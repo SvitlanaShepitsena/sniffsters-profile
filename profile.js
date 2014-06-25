@@ -70,8 +70,14 @@ var IndexCtrl = function () {
     }
 
     return PhotosCtrl.prototype.saveNewGalleries = function () {
-        var index = 0;
-        this.updateGallery(this.GalleriesNew, index)
+        var _this = this, newGalleries = [];
+        this.GalleriesNew.forEach(function (gallery) {
+            newGalleries.push(gallery.Id)
+        }), this.DataService.convertNewGalleries(newGalleries).then(function () {
+            _this.GalleriesNew.forEach(function (gallery) {
+                gallery.IsActive = !0, _this.Galleries.push(gallery)
+            }), _this.GalleriesNew = [], _this.GalleriesNew.push(new Gallery), _this.ShowSuccess("Galleries have been saved to Db")
+        })
     }, PhotosCtrl.prototype.updateGallery = function (galleries, index) {
         var _this = this;
         if (0 == galleries.length)return void(0 == this.GalleriesNew.length && this.GalleriesNew.push(new Gallery));
@@ -463,6 +469,7 @@ var IndexCtrl = function () {
     return Feedback
 }(), Gallery = function () {
     function Gallery() {
+        this.Photos = []
     }
 
     return Gallery
@@ -581,6 +588,13 @@ var IndexCtrl = function () {
     }, DataService.prototype.updateGallery = function (gallery) {
         var d = this.$q.defer();
         return this.$http.post("/BreederPersonal/UpdateGallery", {gallery: gallery}).success(function () {
+            d.resolve()
+        }).error(function () {
+            d.reject()
+        }), d.promise
+    }, DataService.prototype.convertNewGalleries = function (galleries) {
+        var d = this.$q.defer();
+        return this.$http.post("/BreederPersonal/ConvertNewGalleries", {galleries: galleries}).success(function () {
             d.resolve()
         }).error(function () {
             d.reject()

@@ -18,8 +18,7 @@
 			<label for="date">Date of Birth:</label>&nbsp<span class="textMuted">Required</span>
 
 			<p class="input-group">
-				<input type="text" id="date" name="date"
-				       class="form-control"
+				<input type="text" id="date" name="date" class="form-control"
 				       placeholder="Date of Birth"
 				       ng-class="{inputEmpty:!l.DateOfBirth}"
 				       ng-required="true"
@@ -45,13 +44,10 @@
 			<label for="puppies">Number of puppies and sex:</label>&nbsp<span class="textMuted">Required</span>
 			<span ng-show="newLitterForm.puppies.$error.maxlength"
 			      class="text text-danger maxsymb">Max 250 symbols!</span>
-			<input type="text"
-			       class="form-control"
-			       id="puppies"
-			       name="puppies"
+			<input type="text" class="form-control" id="puppies" name="puppies"
 			       placeholder="Number of puppies and sex"
-			       ng-class="{inputEmpty:!l.Puppies}"
 			       ng-model="l.Puppies"
+			       ng-class="{inputEmpty:!l.Puppies}"
 			       ng-maxlength="250"
 			       required>
 		</div>
@@ -59,12 +55,10 @@
 			<label for="colors">Colors:</label>&nbsp<span class="textMuted">Required</span>
 			<span ng-show="newLitterForm.colors.$error.maxlength"
 			      class="text text-danger maxsymb">Max 250 symbols!</span>
-			<input tybpe="text"
-			       class="form-control"
-			       id="colors" name="colors"
+			<input type="text" class="form-control" id="colors" name="colors"
 			       placeholder="Color"
-			       ng-class="{inputEmpty:!l.Colors}"
 			       ng-model="l.Colors"
+			       ng-class="{inputEmpty:!l.Colors}"
 			       ng-maxlength="250"
 			       required>
 		</div>
@@ -73,9 +67,7 @@
 			<ul class="list-unstyled ">
 				<li class="col-xs-12 shuffle-animation" ng-repeat="p in l.Photos">
 					<button class="btn pull-right btn-del-pic"
-					        data-toggle="tooltip"
-					        data-placement="left"
-					        title="Delete this photo."
+					        data-toggle="tooltip" data-placement="left" title="Delete this photo."
 					        ng-click="deleteLitterPhoto(l.Id, p.Id,$index)"><i
 							class="fa fa-trash-o"></i>
 					</button>
@@ -97,7 +89,8 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="text-muted">Photo 3MB max JPG, PNG, GIF</div>
-					<div class="text-center dropFilesHere" ng-file-drop="onFileNewSelect($files)"
+					<div class="text-center dropFilesHere"
+					     ng-file-drop="onFileNewSelect($files)"
 					     ng-file-drag-over-class="optional-css-class"
 					     ng-show="dropSupported">
 						<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
@@ -114,9 +107,11 @@
 					     ng-show="!dropSupported">HTML5 Drop File is not supported!
 					</div>
 					<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer">
-						<button class="btn btn-primary btn-choose" ng-disabled="newLitterForm.$invalid">Choose Files
+						<button class="btn btn-primary btn-choose"
+						        ng-disabled="newLitterForm.$invalid">Choose Files
 						</button>
-						<input class="chooseFilesButton" type="file" ng-file-select="onNewFileSelect($files)" multiple/>
+						<input class="chooseFilesButton" type="file"
+						       ng-file-select="onNewFileSelect($files)" multiple/>
 					</label>
 				</div>
 			</div>

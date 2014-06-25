@@ -19,13 +19,17 @@
 			<label for="date">Date of Birth</label>
 
 			<p class="input-group">
-				<input type="text" ng-model="l.DateOfBirth" id="date" name="date" class="form-control"
-				       datepicker-popup='dd.MM.yyyy' ng-model="dt" is-open="opened"
+				<input type="text" id="date" name="date" class="form-control"
+				       datepicker-popup='dd.MM.yyyy' is-open="opened"
 				       datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+				       ng-model="l.DateOfBirth"
+				       ng-model="dt"
 				       ng-required="true" close-text="Close"/>
               <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open($event)"><i
-		                class="fa fa-calendar"></i></button>
+                <button type="button" class="btn btn-default"
+                        ng-click="open($event)">
+	                <i class="fa fa-calendar"></i>
+                </button>
               </span>
 			</p>
 		</div>
@@ -40,13 +44,13 @@
 			<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title" ng-model="l.Colors">
 		</div>
 
-
 		<div class="row">
 			<ul class="list-unstyled ">
 				<li class="col-xs-12 shuffle-animation" ng-repeat="p in l.Photos">
-					<button class="btn pull-right btn-del-pic" data-toggle="tooltip" data-placement="left"
-					        title="Delete this photo." ng-click="deleteLitterPhoto(l.Id, p.Id,$index)"><i
-							class="fa fa-trash-o"></i>
+					<button class="btn pull-right btn-del-pic"
+					        data-toggle="tooltip" data-placement="left" title="Delete this photo."
+					        ng-click="deleteLitterPhoto(l.Id, p.Id,$index)">
+						<i class="fa fa-trash-o"></i>
 					</button>
 					<div class="thumbnail">
 						<img class="puppyPic"
@@ -56,8 +60,6 @@
 							<div class="col-xs-12">
 								<input type="text" class="form-control" ng-model="p.Caption">
 							</div>
-
-
 						</div>
 					</div>
 				</li>
@@ -67,7 +69,8 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="text-muted">Photo 3MB max JPG, PNG, GIF</div>
-					<div class="text-center dropFilesHere" ng-file-drop="onFileSelect($files)"
+					<div class="text-center dropFilesHere"
+					     ng-file-drop="onFileSelect($files)"
 					     ng-file-drag-over-class="optional-css-class"
 					     ng-show="dropSupported">
 						<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
@@ -85,7 +88,8 @@
 					</div>
 					<label class="fileContainer">
 						<button class="btn btn-primary">Choose Files</button>
-						<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple>
+						<input class="chooseFilesButton" type="file"
+						       ng-file-select="onFileSelect($files)" multiple>
 					</label>
 				</div>
 			</div>
