@@ -4,9 +4,8 @@
 		<h4 class="italic">PERSONAL INFO</h4>
 	</div>
 	<div class="col-sm-2 pull-right">
-		<button ng-click="ctrl.SavePersonalInfo();
-		form.$setPristine();"
-		        class="btn pull-right btn-save"
+		<button class="btn pull-right btn-save"
+		        ng-click="ctrl.SavePersonalInfo(); form.$setPristine();"
 		        ng-disabled="(form.$pristine)
 					|| (form.kennel.$invalid || form.email.$invalid  || form.phone.$invalid)
 					|| saved">
@@ -156,8 +155,8 @@
 		<h4 class="italic">SPECIFICS</h4>
 	</div>
 	<div class="col-sm-2 pull-right">
-		<button ng-click="ctrl.SaveSpecifics()"
-		        class="btn pull-right btn-save"
+		<button class="btn pull-right btn-save"
+		        ng-click="ctrl.SaveSpecifics(); specifics.$setPristine();"
 		        ng-disabled="specifics.$pristine || saved">
 			<i class="fa fa-save"></i>
 		</button>
@@ -205,11 +204,8 @@
 		<a class="btn btn-warning" ng-click="ResetAllFields();form.$setDirty()">Reset all fields</a>
 		<button class="btn btn-primary"
 		        ng-disabled="(form.$pristine && location.$pristine && specifics.$pristine) || (form.$invalid || location.$invalid ) "
-		        ng-click="ctrl.Save(ctrl.BreederProfileEdit);
-		        form.$setPristine();
-		        location.$setPristine();
-		        specifics.$setPristine();">
-			Save
+		        ng-click="ctrl.Save(ctrl.BreederProfileEdit); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
+		Save
 		</button>
 
 		<a class="btn btn-default" ui-sref="profile.testimonials5.edit">Next Section</a>

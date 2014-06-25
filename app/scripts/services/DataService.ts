@@ -74,9 +74,9 @@ class DataService {
         return d.promise;
     }
 
-	saveNewLitters<T>(litters:Litter[]) {
+    saveNewLitters<T>(litters:Litter[]) {
 
-		var d = this.$q.defer<T[]>();
+        var d = this.$q.defer<T[]>();
 
         this.$http.post('http://localhost:44300/BreederPersonal/SaveNewLitters', {
             litters: litters
@@ -90,20 +90,20 @@ class DataService {
         return d.promise;
     }
 
-	saveNewTestimonials<T>(feedbacks:IFeedback[]) {
+    saveNewTestimonials<T>(feedbacks:IFeedback[]) {
 
-		var d = this.$q.defer<T[]>();
-		console.log(feedbacks);
-		this.$http.post('http://localhost:44300/BreederPersonal/SaveNewFeedbacks', {
-			feedbacks: feedbacks
-		})
-			.success((result:T[]) => {
-				d.resolve(result);
-			}).error(() => {
-				d.reject();
-			});
-		return d.promise;
-	}
+        var d = this.$q.defer<T[]>();
+        console.log(feedbacks);
+        this.$http.post('http://localhost:44300/BreederPersonal/SaveNewFeedbacks', {
+            feedbacks: feedbacks
+        })
+            .success((result:T[]) => {
+                d.resolve(result);
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
+    }
 
     deleteLitterPhoto(galleryId:number, photoId:number) {
         var d = this.$q.defer();
@@ -210,19 +210,19 @@ class DataService {
         return d.promise;
     }
 
-	updateFeedback(feedback:IFeedback) {
-		var d = this.$q.defer();
+    updateFeedback(feedback:IFeedback) {
+        var d = this.$q.defer();
 
-		this.$http.post('http://localhost:44300/BreederPersonal/UpdateFeedback', {
-			feedback: feedback
-		})
-			.success(() => {
-				d.resolve();
-			}).error(() => {
-				d.reject();
-			});
-		return d.promise;
-	}
+        this.$http.post('http://localhost:44300/BreederPersonal/UpdateFeedback', {
+            feedback: feedback
+        })
+            .success(() => {
+                d.resolve();
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
+    }
 
     deleteLitter(id:number) {
         var d = this.$q.defer();
@@ -230,19 +230,19 @@ class DataService {
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitter', {
             litterId: id
         })
-	        .success(() => {
-		        d.resolve();
-	        }).error(() => {
-		        d.reject();
-	        });
-	    return d.promise;
+            .success(() => {
+                d.resolve();
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
     }
 
-	deleteFeedback(id:number) {
-		var d = this.$q.defer();
+    deleteFeedback(id:number) {
+        var d = this.$q.defer();
 
-		this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
-			feedbackId: id
+        this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
+            feedbackId: id
         })
             .success(() => {
                 d.resolve();

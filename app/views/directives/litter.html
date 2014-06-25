@@ -1,10 +1,15 @@
 <div>
 	<div class="row">
 		<div class="col-sm-1 pull-right">
-			<button class="right" ng-click="saveLitter()"><i class="fa fa-save light-gray"></i></button>
+			<button class="right"
+			        ng-disabled="(litter.$pristine)
+					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.invalid || saved)"
+			        ng-click="saveLitter();litter.$setPristine();">
+				<i class="fa fa-save"></i>
+			</button>
 		</div>
 	</div>
-	<form role="form" name="litter" novalidate>
+	<form role="form" name="litter" id="litter" novalidate>
 		<div class="form-group">
 			<label for="title"> Title</label>
 			<input type="text" class="form-control" id="title" name="title" placeholder="title" ng-model="l.Title">
@@ -86,6 +91,9 @@
 			</div>
 		</div>
 		<a ui-sref="^" class="btn btn-default">Cancel</a>
-		<button class="btn btn-info" ng-click="saveLitter()">Save</button>
+		<button class="btn btn-info"
+		        ng-disabled="litter.$pristine();"
+		        ng-click="saveLitter(); litter.$setPristine(); ">Save
+		</button>
 	</form>
 </div>

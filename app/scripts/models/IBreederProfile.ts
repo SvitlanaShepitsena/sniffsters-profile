@@ -102,10 +102,6 @@ class Litter implements ILitter {
     Photos:IPhoto[];
 
     constructor() {
-//        this.Title = "";
-//        this.DateOfBirth = "";
-//        this.Puppies = "";
-//        this.Colors = "";
         this.Photos = [];
     }
 }
