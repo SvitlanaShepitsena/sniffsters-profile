@@ -196,6 +196,21 @@ class DataService {
         return d.promise;
     }
 
+    convertNewGalleries(galleries:number[]) {
+
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/ConvertNewGalleries', {
+            galleries: galleries
+        })
+            .success(() => {
+                d.resolve();
+            }).error(() => {
+                d.reject();
+            });
+        return d.promise;
+    }
+
     updateLitter(litter:ILitter) {
         var d = this.$q.defer();
 

@@ -20,8 +20,7 @@ class PhotosCtrl {
             for (var i = 0; i < this.GalleriesNew.length; i++) {
                 var gallery:IGallery = this.GalleriesNew[i];
                 if (!(
-                    typeof(gallery.Title) != 'undefined' && gallery.Title.length < 250
-                    && gallery.Photos.length > 0
+                    typeof(gallery.Title) != 'undefined' && gallery.Title.length < 250 && gallery.Photos.length > 0
                     )) {
                     this.$scope.isOk = true;
 //                console.log($scope.isOk);
@@ -46,11 +45,24 @@ class PhotosCtrl {
 
     saveNewGalleries() {
         var index = 0;
+        var newGalleries:number[] = [];
+
         this.GalleriesNew.forEach((gallery:IGallery) => {
-            this.GalleriesNew.splice(index, 1);
-            gallery.IsActive = true;
-            this.Galleries.push(gallery);
+            newGalleries.push(gallery.Id);
         });
+
+        this.DataService.convertNewGalleries(newGalleries).then(() => {
+
+            this.GalleriesNew.forEach((gallery:IGallery) => {
+                gallery.IsActive = true;
+                this.Galleries.push(gallery);
+            });
+            this.GalleriesNew = [];
+            this.GalleriesNew.push(new Gallery());
+            this.ShowSuccess("Galleries have been saved to Db");
+
+        })
+
 
     }
 

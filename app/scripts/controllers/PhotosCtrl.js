@@ -30,13 +30,24 @@ var PhotosCtrl = (function () {
 
         this.Galleries = data;
     }
+
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var _this = this;
         var index = 0;
+        var newGalleries = [];
+
         this.GalleriesNew.forEach(function (gallery) {
-            _this.GalleriesNew.splice(index, 1);
-            gallery.IsActive = true;
-            _this.Galleries.push(gallery);
+            newGalleries.push(gallery.Id);
+        });
+
+        this.DataService.convertNewGalleries(newGalleries).then(function () {
+            _this.GalleriesNew.forEach(function (gallery) {
+                gallery.IsActive = true;
+                _this.Galleries.push(gallery);
+            });
+            _this.GalleriesNew = [];
+            _this.GalleriesNew.push(new Gallery());
+            _this.ShowSuccess("Galleries have been saved to Db");
         });
     };
 

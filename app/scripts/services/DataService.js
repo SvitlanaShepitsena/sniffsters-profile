@@ -170,6 +170,19 @@ var DataService = (function () {
         return d.promise;
     };
 
+    DataService.prototype.convertNewGalleries = function (galleries) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/ConvertNewGalleries', {
+            galleries: galleries
+        }).success(function () {
+            d.resolve();
+        }).error(function () {
+            d.reject();
+        });
+        return d.promise;
+    };
+
     DataService.prototype.updateLitter = function (litter) {
         var d = this.$q.defer();
 
