@@ -1,30 +1,30 @@
 var Feedback = (function () {
-	function Feedback() {
-		this.ClientName = "";
-		this.FeedbackBody = "";
-	}
+    function Feedback() {
+        this.ClientName = "";
+        this.FeedbackBody = "";
+    }
 
-	return Feedback;
+    return Feedback;
 })();
 
 var Gallery = (function () {
-	function Gallery() {
-		this.Photos = [];
-	}
+    function Gallery() {
+        this.Photos = [];
+    }
 
-	return Gallery;
+    return Gallery;
 })();
 var BreederProfile = (function () {
-	function BreederProfile() {
-	}
+    function BreederProfile() {
+    }
 
-	return BreederProfile;
+    return BreederProfile;
 })();
 
 var Litter = (function () {
-	function Litter() {
-		this.Photos = [];
-	}
+    function Litter() {
+        this.Photos = [];
+    }
 
-	return Litter;
+    return Litter;
 })();
