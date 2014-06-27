@@ -1,6 +1,7 @@
 node_modules
 dist
 .tmp
+.js
 .sass-cache
 app/bower_components
 app/imgdir
