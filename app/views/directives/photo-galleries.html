@@ -1,11 +1,12 @@
-<div class="well">
+<div class="">
 	<h3>Current Galleries</h3>
+
 
 	<div class="row">
 		<div class="col-xs-12">
-			<h4>Shared</h4>
+			<h4 class="subheader">Shared</h4>
 			<ul class="list-unstyled list-inline">
-				<li class="col-xs-12 col-md-4 shuffle-animation"
+				<li class="col-md-3 col-xs-6 shuffle-animation"
 				    ng-repeat="g in photosCtrl.Galleries | galleryActive:true">
 					<div class="thumbnail">
 						<div class="text-primary text-center caption">
@@ -37,7 +38,7 @@
 
 			<h4>Un-Shared</h4>
 			<ul class="list-unstyled list-inline">
-				<li class="col-xs-12 col-md-4 shuffle-animation"
+				<li class="col-md-3 col-xs-6 shuffle-animation"
 				    ng-repeat="g in photosCtrl.Galleries | galleryActive:false">
 					<div class="thumbnail">
 						<div class="text-primary text-center caption">
