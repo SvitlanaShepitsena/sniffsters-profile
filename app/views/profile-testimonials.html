@@ -1,19 +1,15 @@
 <div ui-view>
-	<div class="row">
-		<div class="col-xs-2 col-xs-offset-7" ng-show="testimonials.FeedbacksNew.length>0">
-			<button class="btn btn-link"
-			        ng-disabled="isOk"
-			        ng-click="testimonials.saveNewTestimonials()">Save
-			</button>
-		</div>
-		<div class="col-xs-3 pull-right">
-			<button class="btn btn-link" ng-click="testimonials.addNewTestimonial()">Add New</button>
-		</div>
+	<div class=" form-group text-right">
+		<button class="btn btn-link"
+		        ng-disabled="isOk"
+		        ng-show="testimonials.FeedbacksNew.length>0"
+		        ng-click="testimonials.saveNewTestimonials()">Save All
+		</button>
+		<button class="btn btn-link" ng-click="testimonials.addNewTestimonial()">Add New</button>
 	</div>
+
 	<div class="row" ng-show="testimonials.FeedbacksNew.length>0">
 		<div class="col-sm-12">
-			<h3>New Feedback</h3>
-			<hr/>
 			<ul class="list-unstyled">
 				<li ng-repeat="f in testimonials.FeedbacksNew" class="bouncy-slide-down">
 					<feedback-info f="f"></feedback-info>

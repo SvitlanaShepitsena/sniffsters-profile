@@ -104,20 +104,38 @@
 </div>
 
 <div class="container body-content">
+	<div class="col-sm-12">
+
+		<img class="img-responsive" src="imgdir/default/myimg/maincover.jpg">
+	</div>
 	<div class="container mainContent">
 		<div class="row">
 			<div class="col-sm-2">
+				<div class="profileSideMenu">
+
+					<img src="imgdir/default/myimg/mainpic.jpg">
+
+
+					<ul class="nav nav-pills nav-stacked">
+						<li id="profileLink" class="active"><a href="/Breeder-Personal">My Profile</a></li>
+						<li id="messagesLink"><a href="/Messages">Messages</a></li>
+						<li id="followersLink"><a href="/Followings">Followings</a></li>
+						<li id="followingsLink"><a href="/Followers">Followers</a></li>
+
+					</ul>
+				</div>
 			</div>
+			<div class="col-sm-10">
+				<div ng-controller="IndexCtrl as index" ui-view ng-hide="index.error">
+				</div>
+
+				<div ng-show="index.error" class="panel panel-danger">Error in Database request. Check
+					Internet Connection
+				</div>
+			</div>
+
 		</div>
 
-		<div class="container">
-			<div ng-controller="IndexCtrl as index" ui-view ng-hide="index.error">
-			</div>
-
-			<div ng-show="index.error" class="panel panel-danger">Error in Database request. Check
-				Internet Connection
-			</div>
-		</div>
 
 	</div>
 </div>

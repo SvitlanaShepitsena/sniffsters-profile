@@ -1769,6 +1769,10 @@ h5 {
     text-align: left;
 }
 
+.dtMyDetails {
+    width: 90px;
+}
+
 .fa-fw {
     font-size: .9em !important;
 }
@@ -1780,6 +1784,10 @@ h5 {
 /**********************
      Profile Form
 ***********************/
+.profileContWrapper {
+    margin-top: 20px;
+}
+
 .form-editPersonal {
     margin-left: 5px !important;
 }

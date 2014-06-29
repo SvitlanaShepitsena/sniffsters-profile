@@ -4,10 +4,9 @@
 			<h4 class="italic">ABOUT</h4>
 		</div>
 		<div class="col-sm-2 pull-right">
-			<button class="btn pull-right btn-save"
+			<button class="btn pull-right btn-link"
 			        ng-disabled="form.$invalid || form.$pristine"
-			        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">
-				<i class="fa fa-save"></i>
+			        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save
 			</button>
 		</div>
 	</div>
@@ -17,7 +16,8 @@
 		     ng-class="{'has-error':form.kennel.$invalid}">
 			<label for="kennel" class="label-subhead">Kennel Name:</label>
 			<span class="textMuted">Required</span>
-			<span ng-show="form.kennel.$error.maxlength" class="text text-danger maxSymb">Max 250 symbols!</span>
+			<span ng-show="form.kennel.$error.maxlength"
+			      class="text text-danger pull-right maxSymb">Max 250 symbols!</span>
 			<input id="kennel" class="form-control"
 			       name="kennel"
 			       type="text"
@@ -34,7 +34,7 @@
 		<div class="form-group" ng-class="{'has-error':form.story.$invalid}">
 			<label for="story" class="label-subhead">Your Story:</label>
 			<span class="textMuted">Required</span>
-			<span ng-show="form.story.$invalid" class="text text-danger maxsymb">Max 1000 symbols!</span>
+			<span ng-show="form.story.$invalid" class="text text-danger pull-right  maxsymb">Max 1000 symbols!</span>
 			<textarea id="story" name="story" rows="5" cols="30" class="form-control"
 			          ng-model="ctrl.BreederProfileEdit.Story"
 			          ng-maxlength="1000"
@@ -52,7 +52,8 @@
 		<div class="form-group" ng-class="{'has-error':form.parents.$invalid}">
 			<label class="label-subhead">About Parents:</label>
 			<span class="textMuted">Required</span>
-			<span ng-show="form.parents.$error.maxlength" class="text text-danger maxsymb">Max 250 symbols!</span>
+			<span ng-show="form.parents.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			<textarea name="parents" rows="5" cols="30" class="form-control"
 			          ng-model="ctrl.BreederProfileEdit.Parents"
 			          ng-maxlength="250"
@@ -62,7 +63,8 @@
 		</div>
 		<div class="form-group">
 			<label>Boys:</label>
-			<span ng-show="form.boys.$error.maxlength" class="text text-danger maxsymb">Max 250 symbols!</span>
+			<span ng-show="form.boys.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			<textarea rows="5" cols="30" name="boys" class="form-control"
 			          ng-maxlength="250"
 			          ng-model="ctrl.BreederProfileEdit.Boys">
@@ -72,7 +74,7 @@
 
 		<div class="form-group">
 			<label>Girls:</label>
-			<span ng-show="form.girls.$invalid" class="text text-danger maxsymb">Max 250 symbols!</span>
+			<span ng-show="form.girls.$invalid" class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			<textarea rows="5" cols="30" name="girls" class="form-control"
 			          ng-maxlength="250"
 			          ng-model="ctrl.BreederProfileEdit.Girls">
@@ -83,7 +85,8 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<h4 class="italic">ADDITIONAL INFO</h4>
-				<span ng-show="form.info.$error.maxlength" class="text text-danger maxsymb">Max 250 symbols!</span>
+				<span ng-show="form.info.$error.maxlength"
+				      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			</div>
 		</div>
 

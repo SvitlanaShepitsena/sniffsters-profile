@@ -18,7 +18,8 @@
 		<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
 			<label for="kennel" class="label-subhead">Kennel Name:</label>
 			<span class="textMuted">Required</span>
-			<span ng-show="form.kennel.$error.maxlength" class="text text-danger maxsymb">Max 250 symbols!</span>
+			<span ng-show="form.kennel.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			<input type="text" id="kennel" name="kennel" class="form-control"
 			       ng-model="ctrl.BreederProfileEdit.KennelName"
 			       ng-maxlength="250"
@@ -32,7 +33,7 @@
 				<div class="col-sm-6">
 					<label for="website" class="label-subhead control-label">Website:</label>
 					<span ng-show="form.website.$error.maxlength"
-					      class="text text-danger maxsymb">Max 250 symbols!</span>
+					      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 					<input type="text" id="website" name="website" class="form-control"
 					       ng-model="ctrl.BreederProfileEdit.Website"
 					       ng-maxlength="250"/>

@@ -1,20 +1,14 @@
 <div>
-	<button class="btn pull-right btn-save"
-	        data-toggle="tooltip" data-placement="left" title="Save Gallery Title"
-	        ng-disabled="formTestimonials.$invalid || formTestimonials.$pristine"
-	        ng-click="testimonials.updateFeedBack(SelectedFeedback)">
-		<i class="fa fa-save"></i>
-	</button>
-
 	<form role="form" name="formTestimonials" id="formTestimonials">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group">
 					<label for="clientName" class="subheadlabel control-label">Client Name:</label>
-					<span ng-show="formTestimonials.clientName.$error.maxlength" class="text text-danger maxSymb">Max 250 symbols!</span>
+					<span ng-show="formTestimonials.clientName.$error.maxlength"
+					      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
 					<input type="text" id="clientName" name="clientName" class="form-control"
 					       ng-model="SelectedFeedback.ClientName"
-					       ng-class="{inputEmpty:!SelectedFeedback.ClientName}"
+					       ng-class="{inputEmpty:!formTestimonials.clientName}"
 					       ng-maxlength="250"/>
 				</div>
 			</div>
@@ -23,14 +17,23 @@
 			<div class="col-sm-12">
 				<div class="form-group">
 					<label for="feedbackBody" class="control-label">Feedback:</label>
-					<span ng-show="formTestimonials.FeedbackBody.$invalid" class="text text-danger maxsymb">Max 500 symbols!</span>
+					<span ng-show="formTestimonials.feedbackBody.$invalid" class="text text-danger pull-right  maxsymb">Max 3000 symbols!</span>
 					<textarea rows="5" cols="30" name="feedbackBody" id="feedbackBody" class="form-control"
 					          ng-model="SelectedFeedback.FeedbackBody"
-					          ng-class="{inputEmpty:!SelectedFeedback.FeedbackBody}"
-					          ng-maxlength="500">
+					          ng-class="{inputEmpty:!formTestimonials.feedbackBody}"
+					          ng-maxlength="3000">
 					</textarea>
 				</div>
 			</div>
+		</div>
+
+		<div class="form-group text-right">
+			<a class="btn btn-default" ui-sref="profile.testimonials5">Cancel</a>
+			<button class="btn btn-primary"
+			        data-toggle="tooltip" data-placement="left" title="Save Feedback Title"
+			        ng-disabled="formTestimonials.$invalid || formTestimonials.$pristine"
+			        ng-click="testimonials.updateFeedBack(SelectedFeedback)">Save
+			</button>
 		</div>
 	</form>
 </div>

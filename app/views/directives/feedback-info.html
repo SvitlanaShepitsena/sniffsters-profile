@@ -1,10 +1,13 @@
 <div>
 	<form role="form" name="formNewFeedback">
+		<h3>New Feedback</h3>
+		<hr/>
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group">
 					<label for="clientName" class="subheadlabel control-label">Client Name:</label>
-					<span ng-show="formNewFeedback.clientName.$error.maxlength" class="text text-danger maxSymb">Max 250 symbols!</span>
+					<span ng-show="formNewFeedback.clientName.$error.maxlength"
+					      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
 					<input type="text" id="clientName" name="clientName" class="form-control"
 					       ng-model="f.ClientName"
 					       ng-class="{inputEmpty:!formNewFeedback.clientName}"
@@ -15,12 +18,13 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label for="newFeedbackBody" class="coltrol-label">Feedback:</label>
-					<span ng-show="formNewFeedback.newFeedbackBody.$invalid" class="text text-danger maxSymb">Max 500 symbols!</span>
+					<label for="newFeedbackBody" class="control-label">Feedback:</label>
+					<span ng-show="formNewFeedback.newFeedbackBody.$invalid"
+					      class="text text-danger pull-right  maxSymb">Max 3000 symbols!</span>
 					<textarea rows="5" cols="30" name="newFeedbackBody" id="newFeedbackBody" class="form-control"
 					          ng-model="f.FeedbackBody"
 					          ng-class="{inputEmpty:!formNewFeedback.newFeedbackBody}"
-					          ng-maxlength="500">
+					          ng-maxlength="3000">
 					</textarea>
 				</div>
 			</div>
