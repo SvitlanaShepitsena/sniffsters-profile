@@ -53,3 +53,12 @@
 .profileSave {
     margin-top: 10px;
 }
+
+.dl-horizontal dt {
+    text-align: left;
+    width: 70px;
+}
+
+.dl-horizontal dd {
+    margin-left: 150px !important;
+}

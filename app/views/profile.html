@@ -1,8 +1,7 @@
 <div class="row">
-	<div class="col-sm-8 profileContWrapper">
-
-		<ul class="nav nav-pills">
-			<li ng-class="{'active':index.url=='about'}">
+	<div class="col-sm-8 col-xs-12">
+		<ul class="nav nav-pills navProfileWrapper">
+		<li ng-class="{'active':index.url=='about'}">
 				<a class='btn btn-link' ng-click="navigate(1)">About</a>
 			</li>
 			<li ng-class="{'active':index.url=='photos'}">
@@ -20,14 +19,7 @@
 			<li ng-class="{'active':index.url=='testimonials'}">
 				<a class='btn btn-link' ng-click="navigate(5)">Testimonials</a>
 			</li>
-
-			<!--<li ng-class="{'active':index.url=='puppies'}"><a ui-sref="profile.puppies">Puppies</a></li>-->
-			<!--<li ng-class="{'active':index.url=='details'}"><a ui-sref="profile.details">Details</a></li>-->
-			<!--<li ng-class="{'active':index.url=='testimonials'}"><a ui-sref="profile.testimonials">Testimonials</a></li>-->
 		</ul>
-
-
-		<br/>
 
 		<div class="row">
 			<div class="col-md-12 cont jumbotron jumbo-custom">
@@ -37,9 +29,8 @@
 		<!--		 ng-hide="index.spinner"
 				<spin-div ng-show="index.spinner"></spin-div>-->
 	</div>
-	<div class="col-xs-4 profileContWrapper">
-		<breeder-details ctrl="index"></breeder-details>
-		<litters>Litters</litters>
+	<div class="col-sm-4 profileContWrapper">
+	<breeder-details ctrl="index"></breeder-details>
 		<previous-puppies>Our Previous Puppies</previous-puppies>
 	</div>
 </div>
