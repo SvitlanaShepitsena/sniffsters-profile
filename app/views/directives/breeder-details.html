@@ -5,50 +5,55 @@
 	</h3>
 
 	<hr/>
-	<dl class="dl-horizontal">
-		<dt class="dtMyDetails">Location:</dt>
-		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Location}}</dd>
-		<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Location"></dd>
+	<form role="form" class="myDetailsForm" name="myDetailsForm" id="myDetailsForm" novalidate>
+		<dl class="dl-horizontal">
+			<dt class="dtMyDetails">Location:</dt>
+			<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Location}}</dd>
+			<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Location"></dd>
 
-		<dt>Website:</dt>
-		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Website}}</dd>
-		<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Website"></dd>
+			<dt>Website:</dt>
+			<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Website}}</dd>
+			<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Website"></dd>
 
-		<dt>Email:</dt>
-		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Email}}</dd>
-		<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Email"></dd>
+			<dt>Email:</dt>
+			<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Email}}</dd>
+			<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Email"></dd>
 
-		<dt>Phone:</dt>
-		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Phone}}</dd>
-		<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Phone"></dd>
+			<dt>Phone:</dt>
+			<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Phone}}</dd>
+			<dd ng-show="IsEdit"><input type="text" ng-model="ctrl.BreederProfileCopy.Phone"></dd>
 
-		<dt>Certifications:</dt>
-		<dd>
-			<ul class="list-unstyled">
-				<li ng-show="!IsEdit" ng-repeat="c in ctrl.BreederProfile.Certifications">
-					{{c.Title}} - {{c.isActive | boolString}}
-				</li>
+			<dt>Certifications:</dt>
+			<dd>
+				<ul class="list-unstyled">
+					<li ng-show="!IsEdit" ng-repeat="c in ctrl.BreederProfile.Certifications">
+						{{c.Title}} - {{c.isActive | boolString}}
+					</li>
 
-				<li ng-show="IsEdit" ng-repeat="c in ctrl.BreederProfileCopy.Certifications">
-					{{c.Title}} - <input type="checkbox" ng-model='c.isActive'>
-				</li>
+					<li ng-show="IsEdit" ng-repeat="c in ctrl.BreederProfileCopy.Certifications">
+						{{c.Title}} - <input type="checkbox" ng-model='c.isActive'>
+					</li>
 
-			</ul>
-		</dd>
+				</ul>
+			</dd>
 
-		<dt>Vet Services:</dt>
-		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.VetServices|boolString}}</dd>
-		<dd ng-show="IsEdit"><input type="checkbox" ng-model="ctrl.BreederProfileCopy.VetServices"></dd>
+			<dt>Vet Services:</dt>
+			<dd ng-show="!IsEdit">{{ctrl.BreederProfile.VetServices|boolString}}</dd>
+			<dd ng-show="IsEdit"><input type="checkbox" ng-model="ctrl.BreederProfileCopy.VetServices"></dd>
 
-		<dt>Shipping:</dt>
-		<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Shipping|boolString}}</dd>
-		<dd ng-show="IsEdit"><input type="checkbox" ng-model="BreederProfileCopy.Shipping"></dd>
-	</dl>
+			<dt>Shipping:</dt>
+			<dd ng-show="!IsEdit">{{ctrl.BreederProfile.Shipping|boolString}}</dd>
+			<dd ng-show="IsEdit"><input type="checkbox" ng-model="BreederProfileCopy.Shipping"></dd>
+		</dl>
+	</form>
 
 	<div class="form-group  profileSave text-center">
 		<button ng-show="!IsEdit" class="btn btn-primary" ng-click="Edit()">Edit</button>
 		<div ng-show="IsEdit">
-			<button class="btn btn-primary" ng-click="Save()">Save</button>
+			<button class="btn btn-primary"
+			        ng-disabled=""
+			        ng-click="Save()">Save
+			</button>
 			<button class="btn btn-primary" ng-click="Cancel()">Cancel</button>
 		</div>
 	</div>
