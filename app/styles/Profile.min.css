@@ -1511,3 +1511,16 @@ h5 {
 .jumbotron p {
     font-size: 14px
 }
+
+.socialMediaSection {
+    position: absolute;
+    overflow: hidden;
+    top: 225px;
+    left: -32px;
+    padding: 10px 5px 0 7px;
+    border-top: 3px #dcdcdc solid;
+    border-left: 3px #dcdcdc solid;
+    border-bottom: 3px #dcdcdc solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px
+}
