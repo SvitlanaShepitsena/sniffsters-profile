@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="col-sm-8 col-xs-12">
-		<ul class="nav nav-pills navProfileWrapper">
+
+	<ul class="nav nav-pills navProfileWrapper">
 		<li ng-class="{'active':index.url=='about'}">
 				<a class='btn btn-link' ng-click="navigate(1)">About</a>
 			</li>
@@ -29,7 +30,7 @@
 		<!--		 ng-hide="index.spinner"
 				<spin-div ng-show="index.spinner"></spin-div>-->
 	</div>
-	<div class="col-sm-4 profileContWrapper">
+	<div class="col-sm-4 myContWrapper">
 	<breeder-details ctrl="index"></breeder-details>
 		<previous-puppies>Our Previous Puppies</previous-puppies>
 	</div>

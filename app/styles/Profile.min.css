@@ -118,142 +118,6 @@
     left: 100%
 }
 
-.fileContainer {
-    overflow: hidden;
-    position: relative
-}
-
-.fileContainer [type=file] {
-    display: block;
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    cursor: pointer
-}
-
-.chooseFilesButton {
-    margin-left: 5px;
-    width: 110px;
-    height: 40px
-}
-
-.panel-file-upload {
-    padding: 1.7em
-}
-
-.dropFilesHere {
-    border: 2px dashed #c3c3c3;
-    min-height: 100px
-}
-
-.dragPhotosImg {
-    margin-top: 2.5em;
-    margin-bottom: 1.4em
-}
-
-.addNewGalleryLink {
-    padding: 1.1em 1.1em 1.2em
-}
-
-.h4-addNewGallery {
-    color: #6e6e6e
-}
-
-.inputEmpty {
-    border: 1px solid red !important
-}
-
-.fa-browse-btn {
-    margin-right: 5px
-}
-
-.myDetails-alert {
-    background-color: #faf9ee;
-    border-color: #FFF;
-    color: #6e6e6e;
-    box-shadow: 0 -3px 5px #cccaca
-}
-
-.myDetailsFont {
-    font-style: italic;
-    font-weight: 700
-}
-
-.myDetailsFormGroup {
-    margin-left: 5px !important;
-    margin-bottom: 0
-}
-
-.myDetailsForm {
-    line-height: 1.1em
-}
-
-.myDetailsHeader {
-    font-size: 1.7em;
-    font-weight: 700
-}
-
-.myDetailsInput {
-    margin-top: .5em;
-    margin-bottom: .5em
-}
-
-.profileSave {
-    margin-top: 10px
-}
-
-.dl-horizontal dt {
-    text-align: left;
-    width: 70px
-}
-
-.dl-horizontal dd {
-    margin-left: 150px !important
-}
-
-.puppyPic {
-    margin-top: 10px;
-    margin-bottom: 10px
-}
-
-.puppyPicWrapper {
-    padding-top: 10px !important
-}
-
-.btn-del, .btn-share {
-    margin-top: 3px !important;
-    margin-bottom: 5px !important;
-    margin-right: 5px !important;
-    padding: 1px 7px
-}
-
-.btn-del-pic {
-    margin-top: 10px !important;
-    margin-bottom: 5px !important;
-    margin-right: 5px !important;
-    padding: 3px 7px;
-    position: absolute;
-    top: 20px;
-    right: 25px
-}
-
-.btn-edit {
-    padding: 1px 7px
-}
-
-.btn-save {
-    margin-top: 4px !important;
-    margin-bottom: 5px !important;
-    margin-right: 0 !important;
-    padding: 1px 7px
-}
-
-.jumbotron .textLitter p {
-    line-height: .7em;
-    font-size: 12px
-}
-
 .toggle {
     -webkit-transition: all 0 cubic-bezier(0.25, .46, .45, .94);
     -moz-transition: all 0 cubic-bezier(0.25, .46, .45, .94);
@@ -1412,6 +1276,142 @@
     opacity: 1
 }
 
+.fileContainer {
+    overflow: hidden;
+    position: relative
+}
+
+.fileContainer [type=file] {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer
+}
+
+.chooseFilesButton {
+    margin-left: 5px;
+    width: 110px;
+    height: 40px
+}
+
+.panel-file-upload {
+    padding: 1.7em
+}
+
+.dropFilesHere {
+    border: 2px dashed #c3c3c3;
+    min-height: 100px
+}
+
+.dragPhotosImg {
+    margin-top: 2.5em;
+    margin-bottom: 1.4em
+}
+
+.addNewGalleryLink {
+    padding: 1.1em 1.1em 1.2em
+}
+
+.h4-addNewGallery {
+    color: #6e6e6e
+}
+
+.inputEmpty {
+    border: 1px solid red !important
+}
+
+.fa-browse-btn {
+    margin-right: 5px
+}
+
+.myDetails-alert {
+    background-color: #faf9ee;
+    border-color: #FFF;
+    color: #6e6e6e;
+    box-shadow: 0 -3px 5px #cccaca
+}
+
+.myDetailsFont {
+    font-style: italic;
+    font-weight: 700
+}
+
+.myDetailsFormGroup {
+    margin-left: 5px !important;
+    margin-bottom: 0
+}
+
+.myDetailsForm {
+    line-height: 1.1em
+}
+
+.myDetailsHeader {
+    font-size: 1.7em;
+    font-weight: 700
+}
+
+.myDetailsInput {
+    margin-top: .5em;
+    margin-bottom: .5em
+}
+
+.profileSave {
+    margin-top: 10px
+}
+
+.dl-horizontal dt {
+    text-align: left;
+    width: 70px
+}
+
+.dl-horizontal dd {
+    margin-left: 150px !important
+}
+
+.puppyPic {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.puppyPicWrapper {
+    padding-top: 10px !important
+}
+
+.btn-del, .btn-share {
+    margin-top: 3px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+    padding: 1px 7px
+}
+
+.btn-del-pic {
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+    padding: 3px 7px;
+    position: absolute;
+    top: 20px;
+    right: 25px
+}
+
+.btn-edit {
+    padding: 1px 7px
+}
+
+.btn-save {
+    margin-top: 4px !important;
+    margin-bottom: 5px !important;
+    margin-right: 0 !important;
+    padding: 1px 7px
+}
+
+.jumbotron .textLitter p {
+    line-height: .7em;
+    font-size: 12px
+}
+
 .btn {
     margin: 3px !important
 }
@@ -1464,8 +1464,16 @@ h5 {
     color: #6e6e6e
 }
 
-.profileContWrapper {
+.no-l-pad {
+    padding-left: 0
+}
+
+.myContWrapper {
     margin-top: 20px
+}
+
+.myDetailsContWrapper .form-group {
+    margin-left: 0
 }
 
 .navProfileWrapper {
