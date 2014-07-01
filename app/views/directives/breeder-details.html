@@ -14,21 +14,22 @@
 	</div>
 	<div ng-hide="ctrl.isOwner" class="row">
 		<div class="col-sm-12">
-			<ul class="list-inline text-center">
-				<li>
-					<a href="">FOLLOW</a>
-				</li>
-				<li>
-					<a href="">SHARE</a>
-				</li>
-				<li>
-					<a href="">CONTACT</a>
-				</li>
-			</ul>
+			<div class="alert alert-warning sniff-alert">
+				<ul class="list-inline text-center ulMyDetailsUsers">
+					<li>
+						<a href="">FOLLOW</a>
+					</li>
+					<li>
+						<a href="">SHARE</a>
+					</li>
+					<li>
+						<a href="">CONTACT</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 
-	<hr/>
 	<form role="form" class="myDetailsForm form-horizontal" name="myDetailsForm" id="myDetailsForm" novalidate>
 		<div class="form-group" ng-show="ctrl.isOwner">
 			<label for="locationInput" class="labelMyDetails">Location:</label>

@@ -94,3 +94,12 @@
     margin-right: 0px !important;
     padding: 2px 5px;
 }
+
+.ulMyDetailsUsers {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.ulMyDetailsUsers a {
+    color: #6e6e6e;
+}

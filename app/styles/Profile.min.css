@@ -1402,6 +1402,15 @@
     padding: 2px 5px
 }
 
+.ulMyDetailsUsers {
+    font-style: italic;
+    font-weight: 700
+}
+
+.ulMyDetailsUsers a {
+    color: #6e6e6e
+}
+
 .puppyPic {
     margin-top: 10px;
     margin-bottom: 10px
