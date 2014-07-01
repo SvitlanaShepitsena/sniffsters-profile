@@ -19,6 +19,7 @@ class IndexCtrl {
     spinner:boolean;
     menuIndex:number;
     isOwner:boolean;
+    BreederId:string;
 
     animationDirection(menuIndex:number):string {
 
@@ -84,8 +85,9 @@ class IndexCtrl {
 
         $scope.index = this;
         this.spinner = true;
+        this.BreederId = this.GetBreederId();
 
-        var promiseT = this.DataService.getProfile<IBreederProfile>();
+        var promiseT = this.DataService.getProfile<IBreederProfile>(this.BreederId);
         promiseT.then((breederProfile:IBreederProfile) => {
             //Success
             this.error = false;
@@ -108,6 +110,19 @@ class IndexCtrl {
         })
     }
 
+    GetBreederId() {
+
+        var browsedUser = angular.element('#breeder-public');
+        if (browsedUser == null) {
+            return null;
+        }
+
+        console.log(browsedUser.text());
+        return browsedUser.text().trim();
+
+
+    }
+
     Ownership() {
         var loggedUser = angular.element('#loggedUser');
         if (loggedUser == null) {
@@ -122,7 +137,6 @@ class IndexCtrl {
         var userName = loggedUserTxt.substr(start, finish - start).trim();
 
         return this.Id === userName;
-
     }
 
 

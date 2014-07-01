@@ -7,8 +7,8 @@ var IndexCtrl = function () {
             $scope.slide = "slide-left", $window.history.back()
         }, $rootScope.forward = function () {
             $scope.slide = "slide-right", $window.history.forward()
-        }, $scope.index = this, this.spinner = !0;
-        var promiseT = this.DataService.getProfile();
+        }, $scope.index = this, this.spinner = !0, this.BreederId = this.GetBreederId();
+        var promiseT = this.DataService.getProfile(this.BreederId);
         promiseT.then(function (breederProfile) {
             _this.error = !1, _this.BreederProfile = breederProfile, _this.Id = breederProfile.Email, _this.isOwner = _this.Ownership(), _this.CopyProfileService.SetProfile(breederProfile), _this.BreederProfileEdit = CopyProfileService.GetProfileClone()
         }, function () {
@@ -20,6 +20,9 @@ var IndexCtrl = function () {
 
     return IndexCtrl.prototype.animationDirection = function (menuIndex) {
         return menuIndex > this.menuIndex ? "slide-left" : "slide-right"
+    }, IndexCtrl.prototype.GetBreederId = function () {
+        var browsedUser = angular.element("#breeder-public");
+        return null == browsedUser ? null : (console.log(browsedUser.text()), browsedUser.text().trim())
     }, IndexCtrl.prototype.Ownership = function () {
         var loggedUser = angular.element("#loggedUser");
         if (null == loggedUser)return!1;
@@ -506,9 +509,9 @@ var IndexCtrl = function () {
         this.$http = $http, this.$q = $q
     }
 
-    return DataService.prototype.getProfile = function () {
+    return DataService.prototype.getProfile = function (id) {
         var d = this.$q.defer();
-        return this.$http.get("/BreederPersonal/GetProfile").success(function (result) {
+        return this.$http.post("/BreederPersonal/GetProfile", {id: id}).success(function (result) {
             d.resolve(result)
         }).error(function () {
             d.reject()

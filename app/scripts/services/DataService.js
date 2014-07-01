@@ -4,10 +4,10 @@ var DataService = (function () {
         this.$q = $q;
     }
 
-    DataService.prototype.getProfile = function () {
+    DataService.prototype.getProfile = function (id) {
         var d = this.$q.defer();
 
-        this.$http.get('http://localhost:44300/BreederPersonal/GetProfile').success(function (result) {
+        this.$http.post('http://localhost:44300/BreederPersonal/GetProfile', { id: id }).success(function (result) {
             d.resolve(result);
         }).error(function (data, error) {
             d.reject();

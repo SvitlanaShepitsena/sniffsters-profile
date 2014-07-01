@@ -2,10 +2,10 @@ class DataService {
     constructor(public $http:ng.IHttpService, public $q:ng.IQService) {
     }
 
-    getProfile<T>() {
+    getProfile<T>(id:string) {
         var d = this.$q.defer<T>();
 
-        this.$http.get('http://localhost:44300/BreederPersonal/GetProfile').success((result:T) => {
+        this.$http.post('http://localhost:44300/BreederPersonal/GetProfile', {id: id}).success((result:T) => {
 
             d.resolve(result);
         }).error((data, error) => {

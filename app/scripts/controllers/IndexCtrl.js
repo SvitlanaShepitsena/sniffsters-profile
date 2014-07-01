@@ -57,8 +57,9 @@ var IndexCtrl = (function () {
 
         $scope.index = this;
         this.spinner = true;
+        this.BreederId = this.GetBreederId();
 
-        var promiseT = this.DataService.getProfile();
+        var promiseT = this.DataService.getProfile(this.BreederId);
         promiseT.then(function (breederProfile) {
             _this.error = false;
             _this.BreederProfile = breederProfile;
@@ -81,6 +82,16 @@ var IndexCtrl = (function () {
             return 'slide-left';
         else
             return 'slide-right';
+    };
+
+    IndexCtrl.prototype.GetBreederId = function () {
+        var browsedUser = angular.element('#breeder-public');
+        if (browsedUser == null) {
+            return null;
+        }
+
+        console.log(browsedUser.text());
+        return browsedUser.text().trim();
     };
 
     IndexCtrl.prototype.Ownership = function () {
