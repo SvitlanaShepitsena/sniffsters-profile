@@ -1,3 +1,20 @@
+.myDetailsContWrapper {
+    margin-bottom: 30px
+}
+
+.myDetailsContWrapper .form-group {
+    margin-left: 0;
+    margin-bottom: 5px
+}
+
+.myDetailsContWrapper .form-control {
+    width: auto;
+    display: inline-block;
+    padding: 2px 5px;
+    line-height: 16px;
+    height: 28px
+}
+
 .myDetails-alert {
     background-color: #faf9ee;
     border-color: #FFF;

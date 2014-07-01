@@ -10,7 +10,7 @@ var IndexCtrl = function () {
         }, $scope.index = this, this.spinner = !0;
         var promiseT = this.DataService.getProfile();
         promiseT.then(function (breederProfile) {
-            _this.error = !1, _this.BreederProfile = breederProfile, _this.Id = breederProfile.Email, _this.CopyProfileService.SetProfile(breederProfile), _this.BreederProfileEdit = CopyProfileService.GetProfileClone()
+            _this.error = !1, _this.BreederProfile = breederProfile, _this.Id = breederProfile.Email, _this.isOwner = _this.Ownership(), _this.CopyProfileService.SetProfile(breederProfile), _this.BreederProfileEdit = CopyProfileService.GetProfileClone()
         }, function () {
             _this.error = !0, _this.ShowError("Error in Db Connection")
         }).finally(function () {
@@ -20,6 +20,11 @@ var IndexCtrl = function () {
 
     return IndexCtrl.prototype.animationDirection = function (menuIndex) {
         return menuIndex > this.menuIndex ? "slide-left" : "slide-right"
+    }, IndexCtrl.prototype.Ownership = function () {
+        var loggedUser = angular.element("#loggedUser");
+        if (null == loggedUser)return!1;
+        var loggedUserTxt = loggedUser.text(), start = loggedUserTxt.indexOf(",") + 1, finish = loggedUserTxt.indexOf("!"), userName = loggedUserTxt.substr(start, finish - start).trim();
+        return this.Id === userName
     }, IndexCtrl.prototype.SaveKennelName = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
         breederProfileOriginal.KennelName = this.BreederProfileEdit.KennelName, breederProfileOriginal.Story = this.BreederProfileEdit.Story, this.Save(breederProfileOriginal)

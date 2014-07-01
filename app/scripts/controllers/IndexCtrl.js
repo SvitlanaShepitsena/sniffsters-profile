@@ -65,6 +65,8 @@ var IndexCtrl = (function () {
 
             _this.Id = breederProfile.Email;
 
+            _this.isOwner = _this.Ownership();
+
             _this.CopyProfileService.SetProfile(breederProfile);
             _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
         }, function () {
@@ -74,12 +76,26 @@ var IndexCtrl = (function () {
             _this.spinner = false;
         });
     }
-
     IndexCtrl.prototype.animationDirection = function (menuIndex) {
         if (menuIndex > this.menuIndex)
             return 'slide-left';
         else
             return 'slide-right';
+    };
+
+    IndexCtrl.prototype.Ownership = function () {
+        var loggedUser = angular.element('#loggedUser');
+        if (loggedUser == null) {
+            return false;
+        }
+        var loggedUserTxt = loggedUser.text();
+
+        var start = loggedUserTxt.indexOf(',') + 1;
+        var finish = loggedUserTxt.indexOf('!');
+
+        var userName = loggedUserTxt.substr(start, finish - start).trim();
+
+        return this.Id === userName;
     };
 
     IndexCtrl.prototype.SaveKennelName = function () {
