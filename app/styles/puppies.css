@@ -24,4 +24,6 @@
     font-size: 12px;
 }
 
-/*# sourceMappingURL=puppies.css.map */
+.litterWrapper {
+    margin: 15px;
+}

@@ -1,10 +1,10 @@
 {
-	"version": 3,
-	"file": "photos.css",
-	"sources": [
-		"photos.less",
-		"LessComponents/Functions.less"
-	],
-	"names": [],
-	"mappings": ";;;;;;;;;;;;;;;;;;;;;AASA;EACE,gBAAA;EACA,mBAAA;;AAGF;EACE,4BAAA;;AAGF;ECoCE,0BAAA;EACA,6BAAA;EACA,4BAAA;EACA,gBAAA;;ADnCF;ECgCE,0BAAA;EACA,6BAAA;EACA,4BAAA;EACA,gBAAA;;AD5BF;EACE,2BAAA;EACA,6BAAA;EACA,4BAAA;EACA,gBAAA;EACA,kBAAA;EACA,SAAA;EACA,WAAA;;AAGF;EACE,gBAAA;;AAGF;EACE,0BAAA;EACA,6BAAA;EACA,4BAAA;EACA,gBAAA"
+    "version": 3,
+    "file": "photos.css",
+    "sources": [
+        "photos.less",
+        "LessComponents/Functions.less"
+    ],
+    "names": [],
+    "mappings": ";;;;;;;;;;;;;;;;;;;;;AASA;EACE,gBAAA;EACA,mBAAA;;AAGF;EACE,4BAAA;;AAGF;ECoCE,0BAAA;EACA,6BAAA;EACA,4BAAA;EACA,gBAAA;;ADnCF;ECgCE,0BAAA;EACA,6BAAA;EACA,4BAAA;EACA,gBAAA;;AD5BF;EACE,2BAAA;EACA,6BAAA;EACA,4BAAA;EACA,gBAAA;EACA,kBAAA;EACA,SAAA;EACA,WAAA;;AAGF;EACE,gBAAA;;AAGF;EACE,0BAAA;EACA,6BAAA;EACA,4BAAA;EACA,gBAAA"
 }

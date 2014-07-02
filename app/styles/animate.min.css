@@ -1,4 +1,4 @@
-﻿.shuffle-animation.ng-enter, .shuffle-animation.ng-leave {
+.shuffle-animation.ng-enter, .shuffle-animation.ng-leave {
     position: relative
 }
 
@@ -16,14 +16,7 @@
     opacity: 1
 }
 
-.shuffle-animation.ng-enter-stagger {
-    -webkit-transition-delay: .2s;
-    transition-delay: .2s;
-    -webkit-transition-duration: 0s;
-    transition-duration: 0s
-}
-
-.shuffle-animation.ng-leave-stagger {
+.shuffle-animation.ng-enter-stagger, .shuffle-animation.ng-leave-stagger {
     -webkit-transition-delay: .2s;
     transition-delay: .2s;
     -webkit-transition-duration: 0s;

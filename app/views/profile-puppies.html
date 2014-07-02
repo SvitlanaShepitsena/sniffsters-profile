@@ -28,10 +28,12 @@
 		</div>
 	</div>
 
-	<ul class="list-unstyled">
-		<li class="col-md-6 col-xs-12" ng-repeat="l in puppies.Litters">
-			<litter-info puppies="puppies" l="l" user-name="{{index.Id}}"></litter-info>
-		</li>
-	</ul>
+	<div class="row">
+		<ul class="list-unstyled list-inline">
+			<li class="col-md-6" ng-repeat="l in puppies.Litters">
+				<litter-info puppies="puppies" l="l" user-name="{{index.Id}}"></litter-info>
+			</li>
+		</ul>
+	</div>
 	<!-- PUT DIRECTIVES BELOW -->
 </div>

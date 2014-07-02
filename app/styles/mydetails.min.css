@@ -1,4 +1,4 @@
-﻿.myDetailsContWrapper {
+.myDetailsContWrapper {
     margin-bottom: 30px
 }
 
@@ -17,14 +17,14 @@
 
 .myDetails-alert {
     background-color: #faf9ee;
-    border-color: #fff;
+    border-color: #FFF;
     color: #6e6e6e;
     box-shadow: 0 -3px 5px #cccaca
 }
 
 .myDetailsFont {
     font-style: italic;
-    font-weight: bold
+    font-weight: 700
 }
 
 .myDetailsFormGroup {
@@ -38,7 +38,7 @@
 
 .myDetailsHeader {
     font-size: 1.7em;
-    font-weight: bold
+    font-weight: 700
 }
 
 .myDetailsInput {
@@ -76,7 +76,7 @@
 
 .ulMyDetailsUsers {
     font-style: italic;
-    font-weight: bold
+    font-weight: 700
 }
 
 .ulMyDetailsUsers a {
