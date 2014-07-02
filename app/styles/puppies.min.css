@@ -1,1 +1,8 @@
-.jumbotron .textLitter p{line-height:.7em;font-size:12px}
+.jumbotron .textLitter p {
+    line-height: .7em;
+    font-size: 12px
+}
+
+.litterWrapper {
+    margin: 15px
+}

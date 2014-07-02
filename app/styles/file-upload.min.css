@@ -1,4 +1,4 @@
-﻿.fileContainer {
+.fileContainer {
     overflow: hidden;
     position: relative
 }
@@ -23,7 +23,7 @@
 }
 
 .dropFilesHere {
-    border: 2px #c3c3c3 dashed;
+    border: 2px dashed #c3c3c3;
     min-height: 100px
 }
 
@@ -38,10 +38,6 @@
 
 .h4-addNewGallery {
     color: #6e6e6e
-}
-
-.inputEmpty {
-    border: 1px solid red !important
 }
 
 .inputEmpty {
