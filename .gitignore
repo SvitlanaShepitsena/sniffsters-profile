@@ -2,6 +2,9 @@ node_modules
 dist
 .tmp
 .js
+!Gruntfile.js
+.css
+.css.map
 .sass-cache
 app/bower_components
 app/imgdir
