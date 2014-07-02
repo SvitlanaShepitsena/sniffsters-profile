@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "mydetails.css",
+	"sources": [
+		"mydetails.less",
+		"LessComponents/Functions.less"
+	],
+	"names": [],
+	"mappings": ";;;;;;;;;;;;;;;;;;;;;AAUA;ECkCE,yBAAA;EACA,qBAAA;EDjCA,cAAA;EACA,gCAAA;;AAGF;EACE,kBAAA;EACA,iBAAA;;AAGF;EACE,2BAAA;EACA,kBAAA;;AAGF;EACE,kBAAA;;AAGF;EACE,gBAAA;EACA,iBAAA;;AAGF;EACE,gBAAA;EACA,mBAAA;;AAGF;EACE,gBAAA"
+}
