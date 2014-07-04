@@ -81,22 +81,22 @@
 	<div class="container">
 		<div class="row">
 			<form action="/Breeders-Search-Result" class="navbar-form" method="get">
-				<div class="col-sm-2 searchAgain">
+				<div class="col-xs-2 searchAgain">
                                 <span class="quickSearch">
                                     QUICK SEARCH
                                 </span>
 				</div>
-				<div class="form-group col-sm-3">
-					<label class="sr-only" ></label>
+				<div class="form-group col-xs-3">
+				<label class="sr-only" ></label>
 					<input type="text" class="form-control" placeholder="Breed">
 
 				</div>
-				<div class="form-group col-sm-3">
-					<label class="sr-only">Password</label>
+				<div class="form-group col-xs-3">
+				<label class="sr-only">Password</label>
 					<input class="form-control" placeholder="Location">
 				</div>
-				<div class="col-sm-2">
-					<input class="btn btn-info btn-fetch" type="submit" value="Fetch"/>
+				<div class="col-xs-2">
+				<input class="btn btn-info btn-fetch" type="submit" value="Fetch"/>
 				</div>
 			</form>
 		</div>
@@ -104,20 +104,20 @@
 </div>
 
 <div class="container body-content">
-	<div class="container mainContent">
+	<div class="mainContent">
 		<div class="row">
 			<div>
-				<div class="col-sm-2">
-					<ul class="nav nav-stacked">
+				<div class="col-xs-2">
+				<ul class="nav nav-stacked">
 						<li><a href="/Breeder-Profile">My Profile</a></li>
 						<li><a href="/Messages/Index">Messages</a></li>
 					</ul>
 
 				</div>
 
-				<div class="container">
+				<div class="col-xs-10">
 
-					<div ng-controller="IndexCtrl as index" ui-view>
+				<div ng-controller="IndexCtrl as index" ui-view>
 					</div>
 
 					<!--<div ng-show="index.error" class="panel panel-danger">Error in Database request. Check-->
@@ -132,8 +132,8 @@
 <hr/>
 <footer>
 	<div class="container">
-		<div class="navbar-header">
-			<p>COPYRIGHT ©2014 SNIFFSTERS LLC</p>
+		<div class="navbar navbar-header">
+		<p>COPYRIGHT ©2014 SNIFFSTERS LLC</p>
 		</div>
 		<ul class="nav nav-pills navbar-right navFooter">
 			<li><a href="/Advertise">ADVERTISE</a></li>
