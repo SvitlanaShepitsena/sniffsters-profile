@@ -1760,6 +1760,11 @@
     width: 1200px !important;
 }
 
+.search-bar-form {
+    width: 900px;
+    margin: 0px auto;
+}
+
 .btn {
     margin: 3px !important;
 }
