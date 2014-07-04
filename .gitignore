@@ -4,6 +4,7 @@ dist
 !Gruntfile.js
 !app/bower_components/angular-bootstrap/ui-bootstrap-custom-tpls-0.10.0.min.js
 .js
+
 .css
 .css.map
 .sass-cache
