@@ -119,27 +119,29 @@ class IndexCtrl {
             return null;
         }
 
-        console.log(browsedUser.text());
+//        console.log(browsedUser.text());
         return browsedUser.text().trim();
 
 
     }
 
     Ownership() {
-        var loggedUser = angular.element('#loggedUser');
-        if (loggedUser == null) {
-            return false;
-        }
-        var loggedUserTxt:string = loggedUser.text();
+//        var loggedUser = angular.element('#loggedUser');
+//        if (loggedUser == null) {
+//            return false;
+//        }
+//        var loggedUserTxt:string = loggedUser.text();
+//
+//        var start = loggedUserTxt.indexOf(',') + 1;
+//        var finish = loggedUserTxt.indexOf('!');
+//
+//
+//        var userName = loggedUserTxt.substr(start, finish - start).trim();
 
-        var start = loggedUserTxt.indexOf(',') + 1;
-        var finish = loggedUserTxt.indexOf('!');
-
-
-        var userName = loggedUserTxt.substr(start, finish - start).trim();
-
-        return this.Id === userName;
+//        return this.Id === userName;
+    return true;
     }
+
 
 
     SaveKennelName() {

@@ -122,11 +122,7 @@ profile.config(
 			.state("profile.puppies3", {
 				url: "/puppies",
 				controller: "PuppiesCtrl",
-				resolve: {
-					litters: (DataService:DataService) => {
-						return DataService.getLitters<ILitter>();
-					}
-				},
+
 				templateUrl: "../views/profile-puppies.html"
 			})
 			.state("profile.puppies3.litter", {
@@ -147,11 +143,6 @@ profile.config(
 			})
 			.state("profile.testimonials5", {
 				url: "/testimonials",
-				resolve: {
-					feedbacks: (DataService:DataService) => {
-						return DataService.getFeedbacks<IFeedback>();
-					}
-				},
 				controller: "TestimonialsCtrl",
 				templateUrl: "../views/profile-testimonials.html"
 			})

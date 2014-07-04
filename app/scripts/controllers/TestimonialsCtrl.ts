@@ -8,12 +8,15 @@ class TestimonialsCtrl {
     Feedbacks:IFeedback[];
     FeedbacksNew:IFeedback[];
 
-    constructor(public $scope, public $modal, feedbacks:IFeedback[], public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public $modal,  public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index.url = "testimonials";
         $scope.isOk = false;
         this.FeedbacksNew = [];
         $scope.testimonials = this;
+       DataService.getFeedbacks().then((feedbacks)=> {
+
         this.Feedbacks = feedbacks;
+       })
 
         $scope.$watch("testimonials.FeedbacksNew", () => {
             for (var i = 0; i < this.FeedbacksNew.length; i++) {

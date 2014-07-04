@@ -90,23 +90,11 @@ var IndexCtrl = (function () {
             return null;
         }
 
-        console.log(browsedUser.text());
         return browsedUser.text().trim();
     };
 
     IndexCtrl.prototype.Ownership = function () {
-        var loggedUser = angular.element('#loggedUser');
-        if (loggedUser == null) {
-            return false;
-        }
-        var loggedUserTxt = loggedUser.text();
-
-        var start = loggedUserTxt.indexOf(',') + 1;
-        var finish = loggedUserTxt.indexOf('!');
-
-        var userName = loggedUserTxt.substr(start, finish - start).trim();
-
-        return this.Id === userName;
+        return true;
     };
 
     IndexCtrl.prototype.SaveKennelName = function () {

@@ -1,5 +1,5 @@
 var TestimonialsCtrl = (function () {
-    function TestimonialsCtrl($scope, $modal, feedbacks, $state, toastr, DataService, CopyProfileService) {
+    function TestimonialsCtrl($scope, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
         this.$modal = $modal;
@@ -11,7 +11,9 @@ var TestimonialsCtrl = (function () {
         $scope.isOk = false;
         this.FeedbacksNew = [];
         $scope.testimonials = this;
-        this.Feedbacks = feedbacks;
+        DataService.getFeedbacks().then(function (feedbacks) {
+            _this.Feedbacks = feedbacks;
+        });
 
         $scope.$watch("testimonials.FeedbacksNew", function () {
             for (var i = 0; i < _this.FeedbacksNew.length; i++) {

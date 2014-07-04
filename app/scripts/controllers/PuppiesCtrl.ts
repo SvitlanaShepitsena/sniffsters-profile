@@ -11,13 +11,18 @@ class PuppiesCtrl {
     SelectedLitter:ILitter;
     SelectedLitterEdit:ILitter;
 
-    constructor(public $scope, public $modal, litters:ILitter[], public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index.url = 'puppies';
         $scope.isOk = false;
 
         this.LittersNew = [];
         $scope.puppies = this;
+        DataService.getLitters<ILitter>().then((litters)=> {
         this.Litters = litters;
+
+        })
+
+
 
         $scope.$watch("puppies.LittersNew", () => {
             for (var i = 0; i < this.LittersNew.length; i++) {
