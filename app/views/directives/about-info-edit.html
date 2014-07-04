@@ -1,9 +1,9 @@
 <div>
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-xs-8">
 			<h4 class="italic">ABOUT</h4>
 		</div>
-		<div class="col-sm-2 pull-right">
+		<div class="col-xs-2 pull-right">
 			<button class="btn pull-right btn-link"
 			        ng-disabled="form.$invalid || form.$pristine"
 			        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save
@@ -44,7 +44,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-xs-12">
 				<h4 class="italic">PARENTS</h4>
 			</div>
 		</div>
@@ -83,7 +83,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-xs-12">
 				<h4 class="italic">ADDITIONAL INFO</h4>
 				<span ng-show="form.info.$error.maxlength"
 				      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>

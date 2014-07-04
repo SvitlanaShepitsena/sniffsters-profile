@@ -1,8 +1,8 @@
 <div class="row">
-	<div class="col-sm-8">
+	<div class="col-xs-8">
 
 		<div class="row">
-			<div class="col-sm-9 pull-right">
+			<div class="col-xs-9 pull-right">
 			<ul class="nav nav-pills navProfileWrapper">
 					<li ng-class="{'active':index.url=='about'}">
 						<a class='btn btn-link' ng-click="navigate(1)">About</a>
@@ -27,15 +27,15 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-12">
-				<div class=" jumbotron jumbo-custom" ng-class="slide" ui-view></div>
+			<div class="col-xs-12">
+				<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
 			</div>
 		</div>
 		<!--		 ng-hide="index.spinner"
 				<spin-div ng-show="index.spinner"></spin-div>-->
 	</div>
-	<div class="col-sm-4 myContWrapper">
-		<breeder-details ctrl="index"></breeder-details>
+	<div class="col-xs-4 myContWrapper">
+	<breeder-details ctrl="index"></breeder-details>
 		<previous-puppies>Our Previous Puppies</previous-puppies>
 	</div>
 </div>

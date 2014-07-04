@@ -13,7 +13,7 @@
 		</h3>
 	</div>
 	<div ng-hide="ctrl.isOwner" class="row">
-		<div class="col-sm-12">
+		<div class="col-xs-12">
 			<div class="alert alert-warning sniff-alert">
 				<ul class="list-inline text-center ulMyDetailsUsers">
 					<li>
@@ -44,7 +44,7 @@
 		</div>
 
 		<div class="form-group" ng-show="ctrl.isOwner">
-		<label class="labelMyDetails">Website:</label>
+			<label class="labelMyDetails">Website:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Website}}</span>
 			<input type="text" class="form-control"
 			       ng-model="ctrl.BreederProfileCopy.Website"
@@ -56,7 +56,7 @@
 		</div>
 
 		<div class="form-group" ng-show="ctrl.isOwner">
-		<label class="labelMyDetails">Email:</label>
+			<label class="labelMyDetails">Email:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Email}}</span>
 			<input type="text" class="form-control"
 			       ng-model="ctrl.BreederProfileCopy.Email"
@@ -69,7 +69,7 @@
 		</div>
 
 		<div class="form-group" ng-show="ctrl.isOwner">
-		<label class="labelMyDetails">Phone:</label>
+			<label class="labelMyDetails">Phone:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Phone}}</span>
 			<input type="text" class="form-control"
 			       ng-model="ctrl.BreederProfileCopy.Phone"
@@ -82,8 +82,8 @@
 		</div>
 
 		<div class="form-group" ng-show="ctrl.isOwner">
-		<label class="col-sm-4 no-l-pad labelMyDetails">Certifications:</label>
-			<span class="col-sm-7 spanCertif">
+			<label class="col-xs-4 no-l-pad labelMyDetails">Certifications:</label>
+			<span class="col-xs-7 spanCertif">
 				<ul class="list-unstyled">
 					<li ng-show="!IsEdit" ng-repeat="c in ctrl.BreederProfile.Certifications">
 						{{c.Title}} - {{c.isActive | boolString}}
@@ -97,8 +97,8 @@
 		</div>
 
 		<div class="form-group" ng-show="!ctrl.isOwner">
-			<label class="col-sm-4 no-l-pad labelMyDetails">Certifications:</label>
-			<span class="col-sm-7 spanCertif">
+			<label class="col-xs-4 no-l-pad labelMyDetails">Certifications:</label>
+			<span class="col-xs-7 spanCertif">
 				<ul class="list-unstyled">
 					<li ng-show="!IsEdit" ng-repeat="c in ctrl.BreederProfile.Certifications">
 						{{c.Title}} - {{c.isActive | boolString}}
@@ -108,7 +108,7 @@
 		</div>
 
 		<div class="form-group" ng-show="ctrl.isOwner">
-		<label class="labelMyDetails">Vet Services:</label>
+			<label class="labelMyDetails">Vet Services:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.VetServices|boolString}}</span>
 			<input type="checkbox"
 			       ng-model="ctrl.BreederProfileCopy.VetServices"
@@ -121,7 +121,7 @@
 		</div>
 
 		<div class="form-group" ng-show="ctrl.isOwner">
-		<label class="labelMyDetails">Shipping:</label>
+			<label class="labelMyDetails">Shipping:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Shipping|boolString}}</span>
 			<input type="checkbox"
 			       ng-model="ctrl.BreederProfileCopy.Shipping"
@@ -134,7 +134,7 @@
 		</div>
 
 		<div class="form-group  profileSave text-center" ng-show="ctrl.isOwner">
-		<button ng-show="!IsEdit" class="btn btn-primary" ng-click="Edit()">Edit</button>
+			<button ng-show="!IsEdit" class="btn btn-primary" ng-click="Edit()">Edit</button>
 			<div ng-show="IsEdit">
 				<button class="btn btn-primary"
 				        ng-disabled="myDetailsForm.$invalid || myDetailsForm.$pristine"

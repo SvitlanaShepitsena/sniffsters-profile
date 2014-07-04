@@ -1,9 +1,9 @@
 <div>
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-xs-8">
 			<h4 class="italic">PERSONAL INFO</h4>
 		</div>
-		<div class="col-sm-2 pull-right">
+		<div class="col-xs-2 pull-right">
 			<button class="btn pull-right btn-save"
 			        ng-click="ctrl.SavePersonalInfo(); form.$setPristine();"
 			        ng-disabled="(form.$pristine)
@@ -30,7 +30,7 @@
 
 		<div class="form-group">
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-xs-6">
 					<label for="website" class="label-subhead control-label">Website:</label>
 					<span ng-show="form.website.$error.maxlength"
 					      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
@@ -40,7 +40,7 @@
 				</div>
 				<label class="label-subhead control-label">Display your email?</label>
 
-				<div class="col-sm-6">
+				<div class="col-xs-6">
 					<input type="checkbox" id="displayEmail1" name="displayEmail"
 					       ng-model="ctrl.BreederProfileEdit.IsShowEmail"/> Yes
 				</div>
@@ -59,7 +59,7 @@
 		</div>
 
 		<div class="row">
-			<div class="form-group has-feedback col-sm-6" ng-class="{'has-error':form.phone.$invalid}">
+			<div class="form-group has-feedback col-xs-6" ng-class="{'has-error':form.phone.$invalid}">
 				<label for="phone" class="label-subhead control-label">Phone:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="phone" name="phone" class="form-control"
@@ -73,7 +73,7 @@
 			<div class="form-group">
 				<label class="label-subhead control-label">Display your phone?</label>
 
-				<div class="col-sm-6">
+				<div class="col-xs-6">
 					<input type="checkbox" id="displayPhone1" name="displayPhone"
 					       ng-model="ctrl.BreederProfileEdit.IsShowPhone"> Yes
 				</div>
@@ -83,10 +83,10 @@
 	<br/>
 
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-xs-8">
 			<h4 class="italic">LOCATION</h4>
 		</div>
-		<div class="col-sm-2 pull-right">
+		<div class="col-xs-2 pull-right">
 			<button class="btn pull-right btn-save"
 			        ng-click="ctrl.SaveLocation();  location.$setPristine();"
 			        ng-disabled="(location.city.$pristine  && location.zip.$pristine && location.state.$pristine)
@@ -136,10 +136,10 @@
 	<br/>
 
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-xs-8">
 			<h4 class="italic">SPECIFICS</h4>
 		</div>
-		<div class="col-sm-2 pull-right">
+		<div class="col-xs-2 pull-right">
 			<button class="btn pull-right btn-save"
 			        ng-click="ctrl.SaveSpecifics(); specifics.$setPristine();"
 			        ng-disabled="specifics.$pristine || saved">

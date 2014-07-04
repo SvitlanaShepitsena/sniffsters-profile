@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="row" ng-show="testimonials.FeedbacksNew.length>0">
-		<div class="col-sm-12">
+		<div class="col-xs-12">
 			<ul class="list-unstyled">
 				<li ng-repeat="f in testimonials.FeedbacksNew" class="bouncy-slide-down">
 					<feedback-info f="f"></feedback-info>
@@ -18,7 +18,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-12">
+		<div class="col-xs-12">
 			<h3 class="italic">WHAT DO YOUR CLIENTS SAY?</h3>
 			<hr/>
 		</div>
@@ -26,7 +26,7 @@
 	<ul class="list-unstyled">
 		<li ng-repeat="f in testimonials.Feedbacks">
 			<div class="row pull-right">
-				<div class="col-sm-12">
+				<div class="col-xs-12">
 					<a class="light-gray" ui-sref="profile.testimonials5.edit({id:$index})">
 						<i class="fa fa-pencil"></i>
 					</a>
