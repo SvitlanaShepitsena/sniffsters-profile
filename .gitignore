@@ -3,13 +3,11 @@ dist
 .tmp
 .js
 !Gruntfile.js
+!app/bower_components/angular-bootstrap/ui-bootstrap-custom-tpls-0.10.0.min.js
 .css
 .css.map
 .sass-cache
-!app/bower_components/angular-bootstrap/ui-bootstrap-custom-tpls-0.10.0.min.js
 app/bower_components/*
 app/imgdir
 .idea
-!Gruntfile.js
-.js
-.css
+
