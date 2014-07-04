@@ -33,29 +33,31 @@ class DataService {
 
     getLitters<T>() {
         var d = this.$q.defer<T[]>();
-
-        this.$http.get('http://localhost:44300/BreederPersonal/GetLitters').success((result:T[]) => {
-
-            d.resolve(result);
-        }).error((data, error) => {
-            // console.log(data)
-            // console.log(error)
-            d.reject();
-        });
+//        this.$http.get('http://localhost:44300/BreederPersonal/GetLitters').success((result:T[]) => {
+        var litters : ILitter[]=[];
+        litters.push(new Litter());
+        d.resolve(litters);
+//        }).error((data, error) => {
+//            // console.log(data)
+//            // console.log(error)
+//            d.reject();
+//        });
         return d.promise;
     }
 
     getFeedbacks<T>() {
         var d = this.$q.defer<T[]>();
 
-        this.$http.get('http://localhost:44300/BreederPersonal/GetFeedbacks').success((result:T[]) => {
+        //  this.$http.get('http://localhost:44300/BreederPersonal/GetFeedbacks').success((result:T[]) => {
+        var feedbacks:IFeedback[] = [];
+        feedbacks.push(new Feedback());
 
-            d.resolve(result);
-        }).error((data, error) => {
-            // console.log(data)
-            // console.log(error)
-            d.reject();
-        });
+        d.resolve(feedbacks);
+//        }).error((data, error) => {
+//            // console.log(data)
+//            // console.log(error)
+//            d.reject();
+//        });
         return d.promise;
     }
 
@@ -271,27 +273,36 @@ class DataService {
     deleteFeedback(id:number) {
         var d = this.$q.defer();
 
-        this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
-            feedbackId: id
-        })
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
+//        this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
+//            feedbackId: id
+//        })
+//            .success(() => {
+        d.resolve();
+//            }).error(() => {
+//                d.reject();
+//            });
         return d.promise;
     }
 
     getGalleries<T>() {
         var d = this.$q.defer<T[]>();
+        var galleries:IGallery[] = [];
 
-        this.$http.get('http://localhost:44300/BreederPersonal/GetGalleries').success((result:T[]) => {
-            d.resolve(result);
-        }).error((data, error) => {
-            // console.log(data)
-            // console.log(error)
-            d.reject();
-        });
+        var gallery1 = new Gallery();
+        gallery1.Title = "Gallery1";
+        gallery1.Id = 3;
+        gallery1.IsActive = true;
+        gallery1.Photos = [new Photo()]
+        galleries.push(gallery1);
+
+
+//        this.$http.get('http://localhost:44300/BreederPersonal/GetGalleries').success((result:T[]) => {
+        d.resolve(galleries);
+//        }).error((data, error) => {
+        // console.log(data)
+        // console.log(error)
+//            d.reject();
+//        });
         return d.promise;
 
     }

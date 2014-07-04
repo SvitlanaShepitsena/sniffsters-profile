@@ -1,5 +1,5 @@
 var PuppiesCtrl = (function () {
-    function PuppiesCtrl($scope, $modal, litters, $state, toastr, DataService, CopyProfileService) {
+    function PuppiesCtrl($scope, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
         this.$modal = $modal;
@@ -12,7 +12,9 @@ var PuppiesCtrl = (function () {
 
         this.LittersNew = [];
         $scope.puppies = this;
-        this.Litters = litters;
+        DataService.getLitters().then(function (litters) {
+            _this.Litters = litters;
+        });
 
         $scope.$watch("puppies.LittersNew", function () {
             for (var i = 0; i < _this.LittersNew.length; i++) {

@@ -27,22 +27,21 @@ var DataService = (function () {
     DataService.prototype.getLitters = function () {
         var d = this.$q.defer();
 
-        this.$http.get('http://localhost:44300/BreederPersonal/GetLitters').success(function (result) {
-            d.resolve(result);
-        }).error(function (data, error) {
-            d.reject();
-        });
+        var litters = [];
+        litters.push(new Litter());
+        d.resolve(litters);
+
         return d.promise;
     };
 
     DataService.prototype.getFeedbacks = function () {
         var d = this.$q.defer();
 
-        this.$http.get('http://localhost:44300/BreederPersonal/GetFeedbacks').success(function (result) {
-            d.resolve(result);
-        }).error(function (data, error) {
-            d.reject();
-        });
+        var feedbacks = [];
+        feedbacks.push(new Feedback());
+
+        d.resolve(feedbacks);
+
         return d.promise;
     };
 
@@ -234,24 +233,24 @@ var DataService = (function () {
     DataService.prototype.deleteFeedback = function (id) {
         var d = this.$q.defer();
 
-        this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
-            feedbackId: id
-        }).success(function () {
-            d.resolve();
-        }).error(function () {
-            d.reject();
-        });
+        d.resolve();
+
         return d.promise;
     };
 
     DataService.prototype.getGalleries = function () {
         var d = this.$q.defer();
+        var galleries = [];
 
-        this.$http.get('http://localhost:44300/BreederPersonal/GetGalleries').success(function (result) {
-            d.resolve(result);
-        }).error(function (data, error) {
-            d.reject();
-        });
+        var gallery1 = new Gallery();
+        gallery1.Title = "Gallery1";
+        gallery1.Id = 3;
+        gallery1.IsActive = true;
+        gallery1.Photos = [new Photo()];
+        galleries.push(gallery1);
+
+        d.resolve(galleries);
+
         return d.promise;
     };
 

@@ -81,11 +81,6 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("profile.puppies3", {
         url: "/puppies",
         controller: "PuppiesCtrl",
-        resolve: {
-            litters: function (DataService) {
-                return DataService.getLitters();
-            }
-        },
         templateUrl: "../views/profile-puppies.html"
     }).state("profile.puppies3.litter", {
         url: "/litter/:id",
@@ -101,11 +96,6 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-detailsEdit.html"
     }).state("profile.testimonials5", {
         url: "/testimonials",
-        resolve: {
-            feedbacks: function (DataService) {
-                return DataService.getFeedbacks();
-            }
-        },
         controller: "TestimonialsCtrl",
         templateUrl: "../views/profile-testimonials.html"
     }).state("profile.testimonials5.edit", {
