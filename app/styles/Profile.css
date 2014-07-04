@@ -1756,6 +1756,10 @@
 /*************************
   BOOTSTRAP CUSTOM STYLES
 **************************/
+.container {
+    width: 1200px !important;
+}
+
 .btn {
     margin: 3px !important;
 }
@@ -1821,6 +1825,24 @@ h5 {
 /**********************
      Profile Form
 ***********************/
+<
+<
+<
+<
+<
+<
+<
+HEAD
+.profileSideMenu {
+    padding-top: 25px;
+
+=
+=
+=
+=
+=
+=
+=
 .profileContWrapper {
     margin-top: 20px;
 }
@@ -1839,6 +1861,7 @@ h5 {
 
 .profileSideMenu {
     padding-top: 90px;
+> > > > > > > origin / master
 }
 
 .form-editPersonal {
