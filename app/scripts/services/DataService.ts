@@ -4,15 +4,23 @@ class DataService {
 
     getProfile<T>(id:string) {
         var d = this.$q.defer<T>();
+        var b = new BreederProfile();
+        b.Email = "breeder1@gmail.com";
+        b.FirstName = "Boris";
+        b.LastName = "Boris";
 
-        this.$http.post('http://localhost:44300/BreederPersonal/GetProfile', {id: id}).success((result:T) => {
 
-            d.resolve(result);
-        }).error((data, error) => {
-            // console.log(data)
-            // console.log(error)
-            d.reject();
-        });
+
+
+//        d.resolve(n)
+//        this.$http.post('http://localhost:44300/BreederPersonal/GetProfile', {id: id}).success((result:T) => {
+//
+//            d.resolve(result);
+//        }).error((data, error) => {
+//            // console.log(data)
+//            // console.log(error)
+//            d.reject();
+//        });
         return d.promise;
     }
 

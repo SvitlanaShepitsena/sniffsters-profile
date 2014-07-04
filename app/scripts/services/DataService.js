@@ -5,12 +5,11 @@ var DataService = (function () {
     }
     DataService.prototype.getProfile = function (id) {
         var d = this.$q.defer();
+        var b = new BreederProfile();
+        b.Email = "breeder1@gmail.com";
+        b.FirstName = "Boris";
+        b.LastName = "Boris";
 
-        this.$http.post('http://localhost:44300/BreederPersonal/GetProfile', { id: id }).success(function (result) {
-            d.resolve(result);
-        }).error(function (data, error) {
-            d.reject();
-        });
         return d.promise;
     };
 
