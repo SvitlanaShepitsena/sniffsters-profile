@@ -1,4 +1,4 @@
-/**********************
+﻿/**********************
        IMPORTS
 ***********************/
 /*---------------------------------------------------
@@ -20,9 +20,12 @@
         PUPPIES
 ***********************/
 .jumbotron .textLitter p {
-  line-height: .7em;
-  font-size: 12px;
+    line-height: .7em;
+    font-size: 12px;
 }
+
 .litterWrapper {
-  margin: 15px;
+    margin: 15px;
 }
+
+/*# sourceMappingURL=puppies.css.map */
