@@ -11,7 +11,8 @@
     "bootstrap": "*",
     "toastr": "*",
     "angular-animate": "*",
-    "angular-ui-router": "0.2.10"
+    "angular-ui-router": "0.2.10",
+    "ng-file-upload": "~1.4.0"
   },
   "devDependencies": {
     "angular-mocks": "*",
