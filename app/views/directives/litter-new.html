@@ -1,0 +1,120 @@
+<div>
+	<h3>New Litter</h3>
+
+	<form role="form" name="newLitterForm" id="newLitterForm" novalidate>
+		<div class="form-group">
+			<label for="title">Title:</label>&nbsp<span class="textMuted">Required</span>
+			<span ng-show="newLitterForm.title.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
+			<input type="text" class="form-control" id="title" name="title"
+			       placeholder="title"
+			       ng-class="{inputEmpty:!l.Title}"
+			       ng-model="l.Title"
+			       ng-maxlength="250"
+			       required>
+		</div>
+
+		<div class="form-group">
+			<label for="date">Date of Birth:</label>&nbsp<span class="textMuted">Required</span>
+
+			<p class="input-group">
+				<input type="text" id="date" name="date" class="form-control"
+				       placeholder="Date of Birth"
+				       ng-class="{inputEmpty:!l.DateOfBirth}"
+				       ng-required="true"
+				       ng-model="l.DateOfBirth"
+				       ng-model="dt"
+				       datepicker-popup='MM.dd.yyyy'
+				       is-open="opened"
+				       datepicker-options="dateOptions"
+				       date-disabled="disabled(date, mode)"
+				       close-text="Close"
+						/>
+              <span class="input-group-btn">
+                <button type="button"
+                        class="btn btn-default"
+                        ng-click="open($event)">
+	                <i class="fa fa-calendar"></i>
+                </button>
+              </span>
+			</p>
+		</div>
+
+		<div class="form-group">
+			<label for="puppies">Number of puppies and sex:</label>&nbsp<span class="textMuted">Required</span>
+			<span ng-show="newLitterForm.puppies.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
+			<input type="text" class="form-control" id="puppies" name="puppies"
+			       placeholder="Number of puppies and sex"
+			       ng-model="l.Puppies"
+			       ng-class="{inputEmpty:!l.Puppies}"
+			       ng-maxlength="250"
+			       required>
+		</div>
+		<div class="form-group">
+			<label for="colors">Colors:</label>&nbsp<span class="textMuted">Required</span>
+			<span ng-show="newLitterForm.colors.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
+			<input type="text" class="form-control" id="colors" name="colors"
+			       placeholder="Color"
+			       ng-model="l.Colors"
+			       ng-class="{inputEmpty:!l.Colors}"
+			       ng-maxlength="250"
+			       required>
+		</div>
+
+		<div class="row">
+			<ul class="list-unstyled ">
+				<li class="col-xs-12 shuffle-animation" ng-repeat="p in l.Photos">
+					<button class="btn pull-right btn-del-pic"
+					        data-toggle="tooltip" data-placement="left" title="Delete this photo."
+					        ng-click="deleteLitterPhoto(l.Id, p.Id,$index)"><i
+							class="fa fa-trash-o"></i>
+					</button>
+					<div class="thumbnail">
+						<img class="puppyPic"
+						     ng-src="{{('imgdir/'+userName+'/litters/'+l.Id+'/'+p.FilePath) | spacesToDashes}}">
+
+						<div class="row">
+							<div class="col-xs-12">
+								<input type="text" class="form-control" ng-model="p.Caption">
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="panel panel-default panel-file-upload">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="text-muted">Photo 3MB max JPG, PNG, GIF</div>
+					<div class="text-center dropFilesHere"
+					     ng-file-drop="onFileNewSelect($files)"
+					     ng-file-drag-over-class="optional-css-class"
+					     ng-show="dropSupported">
+						<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">
+
+						<p class="">Drag photos here</p>
+					</div>
+				</div>
+			</div>
+			<br/>
+
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<div ng-file-drop-available="dropSupported=true"
+					     ng-show="!dropSupported">HTML5 Drop File is not supported!
+					</div>
+					<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer">
+						<button class="btn btn-primary btn-choose"
+						        ng-disabled="newLitterForm.$invalid">Choose Files
+						</button>
+						<input class="chooseFilesButton" type="file"
+						       ng-file-select="onNewFileSelect($files)" multiple/>
+					</label>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

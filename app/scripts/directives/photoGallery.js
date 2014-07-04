@@ -4,9 +4,14 @@ var photoGallery = function () {
         restrict: 'E',
         templateUrl: 'views/directives/photo-gallery.html',
         replace: true,
-        controller: function ($scope, $modal, DataService, $stateParams, $state) {
+        controller: function ($scope, $modal, DataService, $stateParams, $state, toastr) {
             $scope.tempPhoto = [];
             var index = 0;
+
+            if ($scope.photosCtrl.SelectedGallery == undefined) {
+                var id = $stateParams.id;
+                $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
+            }
 
             $scope.photosCtrl.SelectedGallery.Photos.forEach(function (photo) {
                 $scope.tempPhoto.push(photo);
@@ -16,6 +21,13 @@ var photoGallery = function () {
             $scope.tempPhoto.forEach(function (photo) {
                 $scope.photosCtrl.SelectedGallery.Photos.push(photo);
             });
+            $scope.shareGallery = function () {
+                DataService.shareGallery($scope.photosCtrl.SelectedGallery.Id).then(function () {
+                    $scope.photosCtrl.SelectedGallery.IsShared = true;
+                    toastr.success('This gallery is shared.');
+                }, function () {
+                });
+            };
 
             $scope.delGallery = function () {
                 var modalInstance = $modal.open({

@@ -1,0 +1,30 @@
+<div class="litterWrapper">
+	<a ng-click="puppies.setSelectedLitter(l.Id)" class="cursor-p">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="thumbnail">
+					<img class="puppyPic"
+					     ng-src="{{('imgdir/'+userName+'/litters/'+l.Id+'/'+l.Photos[0].FilePath) | spacesToDashes}}">
+				</div>
+			</div>
+			<div class="col-md-8 textLitter">
+				<h4 class="">
+					{{l.Title}}
+				</h4>
+
+				<p>
+					{{l.DateOfBirth|date:'MM.dd.yyyy'}}
+				</p>
+
+				<p>
+					{{l.Puppies}}
+				</p>
+
+				<p>
+					{{l.Colors}}
+				</p>
+			</div>
+		</div>
+	</a>
+</div>
+

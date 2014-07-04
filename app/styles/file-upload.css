@@ -1,4 +1,4 @@
-/*---------------------------------------------------
+﻿/*---------------------------------------------------
     LESS Elements 0.9
   ---------------------------------------------------
     A set of useful LESS mixins
@@ -17,48 +17,60 @@
   FILE UPLOAD BUTTON
 ***********************/
 .fileContainer {
-  overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    position: relative;
 }
+
 .fileContainer [type=file] {
-  display: block;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  cursor: pointer;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
 }
+
 .chooseFilesButton {
-  margin-left: 5px;
-  width: 110px;
-  height: 40px;
+    margin-left: 5px;
+    width: 110px;
+    height: 40px;
 }
+
 /**********************
    ADD NEW GALLERY
 ***********************/
 .panel-file-upload {
-  padding: 1.7em;
+    padding: 1.7em;
 }
+
 .dropFilesHere {
-  border: 2px #c3c3c3 dashed;
-  min-height: 100px;
+    border: 2px #c3c3c3 dashed;
+    min-height: 100px;
 }
+
 .dragPhotosImg {
-  margin-top: 2.5em;
-  margin-bottom: 1.4em;
+    margin-top: 2.5em;
+    margin-bottom: 1.4em;
 }
+
 .addNewGalleryLink {
-  padding: 1.1em 1.1em 1.2em;
+    padding: 1.1em 1.1em 1.2em;
 }
+
 .h4-addNewGallery {
-  color: #444444;
+    color: #6e6e6e;
 }
+
 .inputEmpty {
-  border: 1px solid red !important;
+    border: 1px solid red !important;
 }
+
 .inputEmpty {
-  border: 1px solid red !important;
+    border: 1px solid red !important;
 }
+
 .fa-browse-btn {
-  margin-right: 5px;
+    margin-right: 5px;
 }
+
+/*# sourceMappingURL=file-upload.css.map */

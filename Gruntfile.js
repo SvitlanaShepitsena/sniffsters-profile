@@ -276,9 +276,7 @@ module.exports = function (grunt) {
                 dest: 'app/styles/',
                 ext: '.min.css'
             }
-        }
-
-        ,
+        },
         // Put files not handled in other tasks here
         copy: {
             dist: {
@@ -375,7 +373,22 @@ module.exports = function (grunt) {
                 src: ['vs/{,*/}*.js' ],
                 dest: 'app/profile.js'
             }
+        },
+        ftp: {
+            options: {
+                host: "waws-prod-ch1-001.ftp.azurewebsites.windows.net",
+                user: "sniffsters\\elenasearcy",
+                pass: "3z&YXF7eNrvf",
+                port: 21
+            },
+            upload: {
+                files: [
+                    {"site/wwwroot/Scripts/app/profile/": 'profile.js'},
+                    {"site/wwwroot/Scripts/app/profile/": 'templates.cshtml'}
+                ]
+            }
         }
+
 
 
 
@@ -433,6 +446,7 @@ module.exports = function (grunt) {
             }
         }
 
+
         var dirFolder = 'app/views/directives';
 
         grunt.file.recurse(dirFolder, function (file) {
@@ -456,13 +470,13 @@ module.exports = function (grunt) {
 
         grunt.task.run('cssmin');
         var tempFile = grunt.file.read('templates.cshtml');
-        var cssFile = '<style>'+grunt.file.read('app/styles/profile.min.css')+'</style>';
+        var cssFile = '<style>' + grunt.file.read('app/styles/Profile.min.css') + '</style>';
 
         var fileContent = tempFile + cssFile;
 
 
-        fileContent= fileContent.replace(/imgdir\//g, '/Scripts/app/profile/app/imgdir/');
-        fileContent= fileContent.replace(/..\/..\/img\//g, '/Scripts/app/profile/app/img/');
+        fileContent = fileContent.replace(/imgdir\//g, '/Scripts/app/profile/app/imgdir/');
+        fileContent = fileContent.replace(/..\/..\/img\//g, '/Scripts/app/profile/app/img/');
 
         grunt.file.write('templates.cshtml', fileContent);
 
@@ -487,6 +501,7 @@ module.exports = function (grunt) {
         grunt.task.run(['templates']);
         grunt.task.run(['addcss']);
         grunt.task.run(['clean']);
+        grunt.task.run(['ftp']);
 
     });
 

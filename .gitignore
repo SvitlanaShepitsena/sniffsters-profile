@@ -1,6 +1,10 @@
 node_modules
 dist
 .tmp
+.js
+!Gruntfile.js
+.css
+.css.map
 .sass-cache
 !app/bower_components/angular-bootstrap/ui-bootstrap-custom-tpls-0.10.0.min.js
 app/bower_components/*

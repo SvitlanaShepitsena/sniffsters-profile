@@ -12,12 +12,10 @@ var breederDetails:() => ng.IDirective = () => {
     return{
         restrict: 'E',
         templateUrl: 'views/directives/breeder-details.html',
-        transclude: true,
         // replace directive tag with template info
         replace: true,
         scope: {
             ctrl: '=',
-
             text: '@',
             func: '&'
         },
@@ -32,12 +30,11 @@ var breederDetails:() => ng.IDirective = () => {
             }
 
             scope.Cancel = () => {
-
                 scope.IsEdit = false;
             }
 
             scope.Save = () => {
-                scope.Save();
+                scope.ctrl.Save(scope.ctrl.BreederProfileCopy);
                 scope.IsEdit = false;
             }
         }

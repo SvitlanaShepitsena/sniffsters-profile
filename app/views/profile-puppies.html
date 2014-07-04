@@ -1,3 +1,39 @@
-<div ui-view>
-	<puppies-info  ctrl="puppies"></puppies-info>
+<div ui-view="">
+	<div class="row">
+		<div class="col-xs-3 pull-right">
+			<button class="btn btn-link"
+			        ng-click="puppies.addNewLitter()">
+				Add New Litter
+			</button>
+		</div>
+		<div class="col-sm-xs-3 pull-right">
+			<button class="btn btn-link"
+			        ng-show="puppies.LittersNew.length"
+			        ng-disabled="isOk"
+			        ng-click="puppies.saveNewLitters()">Save
+			</button>
+		</div>
+
+	</div>
+	<div ng-show="puppies.LittersNew.length>0">
+		<ul class="list-unstyled">
+			<li ng-repeat="l in puppies.LittersNew" class="bouncy-slide-down">
+				<litter-new l="l" user-name="{{index.Id}}"></litter-new>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<h3>Current Litters</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<ul class="list-unstyled list-inline">
+			<li class="col-md-6" ng-repeat="l in puppies.Litters">
+				<litter-info puppies="puppies" l="l" user-name="{{index.Id}}"></litter-info>
+			</li>
+		</ul>
+	</div>
+	<!-- PUT DIRECTIVES BELOW -->
 </div>

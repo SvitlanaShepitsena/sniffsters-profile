@@ -9,15 +9,36 @@ var IndexCtrl = (function () {
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
         this.url = 'about';
+
         $scope.navigate = function (menuIndex) {
+            $scope.slide = _this.animationDirection(menuIndex);
+
+            if (menuIndex == 1) {
+                _this.menuIndex = 1;
+                $location.url('/profile/about');
+            }
+
             if (menuIndex == 2) {
-                $scope.slide = 'slide-left';
+                _this.menuIndex = 2;
                 $location.url('/profile/photos');
             }
 
-            if (menuIndex == 1) {
-                $scope.slide = 'slide-right';
-                $location.url('/profile/about');
+            if (menuIndex == 3) {
+                _this.url = 'puppies';
+                _this.menuIndex = 3;
+                $location.url('/profile/puppies');
+            }
+
+            if (menuIndex == 4) {
+                _this.url = 'details';
+                _this.menuIndex = 4;
+                $location.url('/profile/details');
+            }
+
+            if (menuIndex == 5) {
+                _this.url = 'testimonials';
+                _this.menuIndex = 5;
+                $location.url('/profile/testimonials');
             }
         };
 
@@ -36,13 +57,16 @@ var IndexCtrl = (function () {
 
         $scope.index = this;
         this.spinner = true;
+        this.BreederId = this.GetBreederId();
 
-        var promiseT = this.DataService.getProfile();
+        var promiseT = this.DataService.getProfile(this.BreederId);
         promiseT.then(function (breederProfile) {
             _this.error = false;
             _this.BreederProfile = breederProfile;
 
             _this.Id = breederProfile.Email;
+
+            _this.isOwner = _this.Ownership();
 
             _this.CopyProfileService.SetProfile(breederProfile);
             _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
@@ -53,6 +77,38 @@ var IndexCtrl = (function () {
             _this.spinner = false;
         });
     }
+    IndexCtrl.prototype.animationDirection = function (menuIndex) {
+        if (menuIndex > this.menuIndex)
+            return 'slide-left';
+        else
+            return 'slide-right';
+    };
+
+    IndexCtrl.prototype.GetBreederId = function () {
+        var browsedUser = angular.element('#breeder-public');
+        if (browsedUser == null) {
+            return null;
+        }
+
+        console.log(browsedUser.text());
+        return browsedUser.text().trim();
+    };
+
+    IndexCtrl.prototype.Ownership = function () {
+        var loggedUser = angular.element('#loggedUser');
+        if (loggedUser == null) {
+            return false;
+        }
+        var loggedUserTxt = loggedUser.text();
+
+        var start = loggedUserTxt.indexOf(',') + 1;
+        var finish = loggedUserTxt.indexOf('!');
+
+        var userName = loggedUserTxt.substr(start, finish - start).trim();
+
+        return this.Id === userName;
+    };
+
     IndexCtrl.prototype.SaveKennelName = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 
@@ -61,21 +117,30 @@ var IndexCtrl = (function () {
         this.Save(breederProfileOriginal);
     };
 
-    IndexCtrl.prototype.SaveAboutParents = function () {
+    IndexCtrl.prototype.SavePersonalInfo = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 
-        breederProfileOriginal.Parents = this.BreederProfileEdit.Parents;
-        breederProfileOriginal.Girls = this.BreederProfileEdit.Girls;
-        breederProfileOriginal.Boys = this.BreederProfileEdit.Boys;
-        console.log(breederProfileOriginal);
-
+        breederProfileOriginal.KennelName = this.BreederProfileEdit.KennelName;
+        breederProfileOriginal.Website = this.BreederProfileEdit.Website;
+        breederProfileOriginal.Email = this.BreederProfileEdit.Email;
+        breederProfileOriginal.Phone = this.BreederProfileEdit.Phone;
         this.Save(breederProfileOriginal);
     };
 
-    IndexCtrl.prototype.SaveAddInfo = function () {
+    IndexCtrl.prototype.SaveLocation = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
-        breederProfileOriginal.AddInfo = this.BreederProfileEdit.AddInfo;
 
+        breederProfileOriginal.City = this.BreederProfileEdit.City;
+        breederProfileOriginal.Zip = this.BreederProfileEdit.Zip;
+        breederProfileOriginal.State = this.BreederProfileEdit.State;
+        this.Save(breederProfileOriginal);
+    };
+
+    IndexCtrl.prototype.SaveSpecifics = function () {
+        var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
+
+        breederProfileOriginal.Certifications = this.BreederProfileEdit.Certifications;
+        breederProfileOriginal.Insurances = this.BreederProfileEdit.Insurances;
         this.Save(breederProfileOriginal);
     };
 

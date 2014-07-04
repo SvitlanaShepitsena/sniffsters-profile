@@ -3,9 +3,10 @@
 
 interface IDetailsInfoEdit extends ng.IScope {
     test:string;
-    ResetFields: () => void;
+    ResetAllFields: () => void;
     SaveKennelName: () => void;
     ctrl:IndexCtrl;
+    form:HTMLFormElement;
 }
 
 var detailsInfoEdit:() => ng.IDirective = () => {
@@ -24,9 +25,20 @@ var detailsInfoEdit:() => ng.IDirective = () => {
         },
         link: (scope:IDetailsInfoEdit, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 
-            scope.ResetFields = () => {
-                console.log('reset');
-                scope.ctrl.BreederProfileEdit = new BreederProfile();
+            scope.ResetAllFields = () => {
+                scope.ctrl.BreederProfileEdit.KennelName = '';
+                scope.ctrl.BreederProfileEdit.Website = '';
+                scope.ctrl.BreederProfileEdit.Email = '';
+                scope.ctrl.BreederProfileEdit.Phone = '';
+                scope.ctrl.BreederProfileEdit.Location = '';
+                scope.ctrl.BreederProfileEdit.State = '';
+                scope.ctrl.BreederProfileEdit.Zip = "";
+                scope.ctrl.BreederProfileEdit.City = "";
+                scope.ctrl.BreederProfileEdit.Shipping = false;
+
+
+                /*                console.log('reset');
+                 scope.ctrl.BreederProfileEdit = new BreederProfile();*/
             }
 
             scope.SaveKennelName = () => {

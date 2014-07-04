@@ -1,3 +1,43 @@
 <div ui-view>
-	<testimonials-info ctrl="testimonials"></testimonials-info>
+	<div class=" form-group text-right">
+		<button class="btn btn-link"
+		        ng-disabled="isOk"
+		        ng-show="testimonials.FeedbacksNew.length>0"
+		        ng-click="testimonials.saveNewTestimonials()">Save All
+		</button>
+		<button class="btn btn-link" ng-click="testimonials.addNewTestimonial()">Add New</button>
+	</div>
+
+	<div class="row" ng-show="testimonials.FeedbacksNew.length>0">
+		<div class="col-sm-12">
+			<ul class="list-unstyled">
+				<li ng-repeat="f in testimonials.FeedbacksNew" class="bouncy-slide-down">
+					<feedback-info f="f"></feedback-info>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h3 class="italic">WHAT DO YOUR CLIENTS SAY?</h3>
+			<hr/>
+		</div>
+	</div>
+	<ul class="list-unstyled">
+		<li ng-repeat="f in testimonials.Feedbacks">
+			<div class="row pull-right">
+				<div class="col-sm-12">
+					<a class="light-gray" ui-sref="profile.testimonials5.edit({id:$index})">
+						<i class="fa fa-pencil"></i>
+					</a>
+					<button class="btn btn-link text-muted"
+					        ng-click="testimonials.deleteFeedback(f, $index)">
+						<i class="fa fa-times light-gray"></i>
+					</button>
+				</div>
+			</div>
+			<feedback f="f"></feedback>
+
+		</li>
+	</ul>
 </div>

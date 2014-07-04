@@ -1,28 +1,41 @@
 <div class="row">
-	<div class="col-sm-6">
-		<ul class="nav nav-pills">
-			<li ng-class="{'active':index.url=='about'}">
-				<a class='btn btn-link' ng-click="navigate(1)">About</a>
-			</li>
-			<li ng-class="{'active':index.url=='photos'}">
-				<a class='btn btn-link' ng-click="navigate(2)">Photos</a>
-			</li>
-			<!--<li ng-class="{'active':index.url=='puppies'}"><a ui-sref="profile.puppies">Puppies</a></li>-->
-			<!--<li ng-class="{'active':index.url=='details'}"><a ui-sref="profile.details">Details</a></li>-->
-			<!--<li ng-class="{'active':index.url=='testimonials'}"><a ui-sref="profile.testimonials">Testimonials</a></li>-->
-		</ul>
+	<div class="col-sm-8">
 
-		<br/>
+		<div class="row">
+			<div class="col-sm-9 pull-right">
+			<ul class="nav nav-pills navProfileWrapper">
+					<li ng-class="{'active':index.url=='about'}">
+						<a class='btn btn-link' ng-click="navigate(1)">About</a>
+					</li>
+					<li ng-class="{'active':index.url=='photos'}">
+						<a class='btn btn-link' ng-click="navigate(2)">Photos</a>
+					</li>
 
-		<div class="cont">
-			<div ng-class="slide" ui-view></div>
+					<li ng-class="{'active':index.url=='puppies'}">
+						<a class='btn btn-link' ng-click="navigate(3)">Puppies</a>
+					</li>
+
+					<li ng-class="{'active':index.url=='details'}">
+						<a class='btn btn-link' ng-click="navigate(4)">Details</a>
+					</li>
+
+					<li ng-class="{'active':index.url=='testimonials'}">
+						<a class='btn btn-link' ng-click="navigate(5)">Testimonials</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class=" jumbotron jumbo-custom" ng-class="slide" ui-view></div>
+			</div>
 		</div>
 		<!--		 ng-hide="index.spinner"
 				<spin-div ng-show="index.spinner"></spin-div>-->
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-4 myContWrapper">
 		<breeder-details ctrl="index"></breeder-details>
-		<litters>Litters</litters>
 		<previous-puppies>Our Previous Puppies</previous-puppies>
 	</div>
 </div>

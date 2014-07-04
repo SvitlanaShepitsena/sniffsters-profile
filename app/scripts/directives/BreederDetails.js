@@ -1,9 +1,7 @@
-
 var breederDetails = function () {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/breeder-details.html',
-        transclude: true,
         replace: true,
         scope: {
             ctrl: '=',
@@ -23,7 +21,7 @@ var breederDetails = function () {
             };
 
             scope.Save = function () {
-                scope.Save();
+                scope.ctrl.Save(scope.ctrl.BreederProfileCopy);
                 scope.IsEdit = false;
             };
         }

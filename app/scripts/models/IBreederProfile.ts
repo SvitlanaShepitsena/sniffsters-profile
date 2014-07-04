@@ -1,4 +1,4 @@
-interface IBreederProfile{
+interface IBreederProfile {
     Id:string;
     FirstName:string;
     LastName:string;
@@ -12,29 +12,56 @@ interface IBreederProfile{
     Boys:string;
     Girls:string;
     AddInfo:string;
-
+    City:string;
+    Zip:string;
+    State:string;
     Certifications:string[];
     VetServices:boolean;
     Insurances:string[];
     Shipping:boolean;
+}
+interface IFeedback {
+    Id:number;
+    ClientName:string;
+    FeedbackBody:string;
+}
+class Feedback implements IFeedback {
+    Id:number;
+    ClientName:string;
+    FeedbackBody:string;
+
+    constructor() {
+        this.ClientName = "";
+        this.FeedbackBody = "";
+    }
 }
 interface IPhoto {
     Id:number;
     Caption:string;
     FilePath:string;
 }
-interface IGallery{
+interface IGallery {
     Id:number;
     Title:string;
+    IsActive:Boolean;
     Photos:IPhoto[]
 }
-class Gallery implements  IGallery
-{
+class Gallery implements IGallery {
     Id:number;
     Title:string;
+    IsActive:Boolean;
     Photos:IPhoto[];
+
+    constructor() {
+        this.Photos = [];
+    }
 }
-class BreederProfile implements IBreederProfile{
+class BreederProfile implements IBreederProfile {
+    City:string;
+    Zip:string;
+    State:string;
+    IsShowEmail:boolean;
+    IsShowPhoneNumber:boolean;
     Id:string;
     FirstName:string;
     LastName:string;
@@ -53,5 +80,28 @@ class BreederProfile implements IBreederProfile{
     Insurances:string[];
     Shipping:boolean;
 
-constructor(){}
+    constructor() {
+    }
+}
+
+interface ILitter {
+    Id:number;
+    Title:string;
+    DateOfBirth:string;
+    Puppies:string;
+    Colors:string;
+    Photos:IPhoto[];
+}
+
+class Litter implements ILitter {
+    Id:number;
+    Title:string;
+    DateOfBirth:string;
+    Puppies:string;
+    Colors:string;
+    Photos:IPhoto[];
+
+    constructor() {
+        this.Photos = [];
+    }
 }

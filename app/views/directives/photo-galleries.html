@@ -1,10 +1,13 @@
-<div class="well">
+<div class="">
 	<h3>Current Galleries</h3>
+
 
 	<div class="row">
 		<div class="col-xs-12">
+			<h4 class="subheader">Shared</h4>
 			<ul class="list-unstyled list-inline">
-				<li class="col-xs-12 col-md-4 shuffle-animation" ng-repeat="g in photosCtrl.Galleries">
+				<li class="col-md-3 col-xs-6 shuffle-animation"
+				    ng-repeat="g in photosCtrl.Galleries | galleryActive:true">
 					<div class="thumbnail">
 						<div class="text-primary text-center caption">
 							<h5 class="">
@@ -12,20 +15,52 @@
 							</h5>
 						</div>
 
-						<a ng-click="photosCtrl.setSelectedGallery($index)" class="cursor-p">
+						<a ng-click="photosCtrl.setSelectedGallery(g.Id)" class="cursor-p">
 							<img ng-src="{{('imgdir/'+index.Id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}">
 							<!--Click-->
 						</a>
 					</div>
-				<!--<li>-->
+					<!--<li>-->
 					<!--<a class="thumbnail addNewGalleryLink" href="">-->
-						<!--<h4 class="h4-addNewGallery">-->
-							<!--Add new gallery-->
-						<!--</h4>-->
-						<!--<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">-->
+					<!--<h4 class="h4-addNewGallery">-->
+					<!--Add new gallery-->
+					<!--</h4>-->
+					<!--<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">-->
 
 					<!--</a>-->
-				<!--</li>-->
+					<!--</li>-->
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12" ng-show="(photosCtrl.Galleries|galleryActive:false).length>0">
+
+			<h4>Un-Shared</h4>
+			<ul class="list-unstyled list-inline">
+				<li class="col-md-3 col-xs-6 shuffle-animation"
+				    ng-repeat="g in photosCtrl.Galleries | galleryActive:false">
+					<div class="thumbnail">
+						<div class="text-primary text-center caption">
+							<h5 class="">
+								{{g.Title | titleLength:15}}
+							</h5>
+						</div>
+
+						<a ng-click="photosCtrl.setSelectedGallery(g.Id)" class="cursor-p">
+							<img ng-src="{{('imgdir/'+index.Id+'/'+g.Id+'/'+g.Photos[0].FilePath) | spacesToDashes}}">
+							<!--Click-->
+						</a>
+					</div>
+					<!--<li>-->
+					<!--<a class="thumbnail addNewGalleryLink" href="">-->
+					<!--<h4 class="h4-addNewGallery">-->
+					<!--Add new gallery-->
+					<!--</h4>-->
+					<!--<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="">-->
+
+					<!--</a>-->
+					<!--</li>-->
 				</li>
 			</ul>
 		</div>

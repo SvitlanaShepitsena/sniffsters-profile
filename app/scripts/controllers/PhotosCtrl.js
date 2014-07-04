@@ -1,5 +1,5 @@
 var PhotosCtrl = (function () {
-    function PhotosCtrl($scope, $state, toastr, DataService, CopyProfileService) {
+    function PhotosCtrl($scope, $state, data, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
         this.$state = $state;
@@ -8,24 +8,47 @@ var PhotosCtrl = (function () {
         this.CopyProfileService = CopyProfileService;
         $scope.index.menuIndex = 2;
 
+        $scope.$watch("photosCtrl.GalleriesNew", function () {
+            for (var i = 0; i < _this.GalleriesNew.length; i++) {
+                var gallery = _this.GalleriesNew[i];
+                if (!(typeof (gallery.Title) != 'undefined' && gallery.Title.length < 250 && gallery.Photos.length > 0)) {
+                    _this.$scope.isOk = true;
+
+                    break;
+                } else {
+                    _this.$scope.isOk = false;
+                }
+            }
+        }, true);
+
         var newGallery = new Gallery();
         this.GalleriesNew = new Array(newGallery);
 
         $scope.photosCtrl = this;
 
         $scope.index.url = "photos";
-        $scope.index.spinner = true;
-        DataService.getGalleries().then(function (data) {
-            _this.Galleries = data;
-        }, function () {
-            _this.ShowError('Error in getting Photo Galleries from the server');
-        }).finally(function () {
-            $scope.index.spinner = false;
-        });
+
+        this.Galleries = data;
     }
+
     PhotosCtrl.prototype.saveNewGalleries = function () {
+        var _this = this;
         var index = 0;
-        this.updateGallery(this.GalleriesNew, index);
+        var newGalleries = [];
+
+        this.GalleriesNew.forEach(function (gallery) {
+            newGalleries.push(gallery.Id);
+        });
+
+        this.DataService.convertNewGalleries(newGalleries).then(function () {
+            _this.GalleriesNew.forEach(function (gallery) {
+                gallery.IsActive = true;
+                _this.Galleries.push(gallery);
+            });
+            _this.GalleriesNew = [];
+            _this.GalleriesNew.push(new Gallery());
+            _this.ShowSuccess("Galleries have been saved to Db");
+        });
     };
 
     PhotosCtrl.prototype.updateGallery = function (galleries, index) {
@@ -50,7 +73,16 @@ var PhotosCtrl = (function () {
         this.GalleriesNew.push(new Gallery());
     };
 
-    PhotosCtrl.prototype.setSelectedGallery = function (galid) {
+    PhotosCtrl.prototype.setSelectedGallery = function (galleryId) {
+        var galid = 0;
+        var index = 0;
+        this.Galleries.forEach(function (gallery) {
+            if (gallery.Id === galleryId) {
+                galid = index;
+                return false;
+            }
+            index++;
+        });
         this.SelectedGallery = this.Galleries[galid];
         this.$state.go('profile.photos2.galleries', { 'id': galid });
     };

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "file": "puppies.css",
+    "sources": [
+        "puppies.less"
+    ],
+    "names": [],
+    "mappings": ";;;;;;;;;;;;;;;;;;;;;AASA,UAAW,YACT;EACE,iBAAA;EACA,eAAA"
+}

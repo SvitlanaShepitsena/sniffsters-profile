@@ -4,6 +4,7 @@
 interface IPhotosScope extends IMainScope {
     photosCtrl:PhotosCtrl;
     index:IndexCtrl;
+    isOk:boolean;
 }
 class PhotosCtrl {
     public GalleriesNew:IGallery[];
@@ -12,8 +13,24 @@ class PhotosCtrl {
     public SelectedGallery:IGallery;
     public SelectedGalleryEdit:IGallery;
 
-    constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-        $scope.index.menuIndex=2;
+    constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, data, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+        $scope.index.menuIndex = 2;
+
+        $scope.$watch("photosCtrl.GalleriesNew", () => {
+            for (var i = 0; i < this.GalleriesNew.length; i++) {
+                var gallery:IGallery = this.GalleriesNew[i];
+                if (!(
+                    typeof(gallery.Title) != 'undefined' && gallery.Title.length < 250 && gallery.Photos.length > 0
+                    )) {
+                    this.$scope.isOk = true;
+//                console.log($scope.isOk);
+                    break;
+                } else {
+
+                    this.$scope.isOk = false;
+                }
+            }
+        }, true);
 
 
         var newGallery = new Gallery();
@@ -22,26 +39,35 @@ class PhotosCtrl {
         $scope.photosCtrl = this;
 
         $scope.index.url = "photos";
-        $scope.index.spinner = true;
-        DataService.getGalleries<IGallery>().then((data) => {
-//            Success
-            this.Galleries = data;
-        }, () => {
-//            Error
-            this.ShowError('Error in getting Photo Galleries from the server');
-        }).finally(() => {
 
-            $scope.index.spinner = false;
-        })
+        this.Galleries = data;
     }
 
     saveNewGalleries() {
         var index = 0;
-        this.updateGallery(this.GalleriesNew, index);
+        var newGalleries:number[] = [];
+
+        this.GalleriesNew.forEach((gallery:IGallery) => {
+            newGalleries.push(gallery.Id);
+        });
+
+        this.DataService.convertNewGalleries(newGalleries).then(() => {
+
+            this.GalleriesNew.forEach((gallery:IGallery) => {
+                gallery.IsActive = true;
+                this.Galleries.push(gallery);
+            });
+            this.GalleriesNew = [];
+            this.GalleriesNew.push(new Gallery());
+            this.ShowSuccess("Galleries have been saved to Db");
+
+        })
+
+
     }
 
     updateGallery(galleries:IGallery[], index:number) {
-        if (galleries.length==0) {
+        if (galleries.length == 0) {
             if (this.GalleriesNew.length == 0) {
                 this.GalleriesNew.push(new Gallery());
             }
@@ -62,7 +88,16 @@ class PhotosCtrl {
         this.GalleriesNew.push(new Gallery());
     }
 
-    setSelectedGallery(galid:number) {
+    setSelectedGallery(galleryId:number) {
+        var galid:number = 0;
+        var index:number = 0;
+        this.Galleries.forEach((gallery:IGallery) => {
+            if (gallery.Id === galleryId) {
+                galid = index;
+                return false;
+            }
+            index++;
+        });
         this.SelectedGallery = this.Galleries[galid];
         this.$state.go('profile.photos2.galleries', {'id': galid});
 //        console.log(this.SelectedGallery);
