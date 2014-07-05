@@ -118,7 +118,7 @@ class IndexCtrl {
 
         var loggedUser = angular.element('#loggedUser');
         if (loggedUser == null) {
-            return false;
+            return '';
         }
         var loggedUserTxt:string = loggedUser.text();
 
@@ -147,9 +147,8 @@ class IndexCtrl {
 //        var userName = loggedUserTxt.substr(start, finish - start).trim();
 
 //        return this.Id === userName;
-    return true;
+        return true;
     }
-
 
 
     SaveKennelName() {
@@ -216,8 +215,7 @@ class IndexCtrl {
 
     Save(breederProfile:IBreederProfile) {
 //Run Service UpdateProfile Method and get promise back
-        var promise:ng.IPromise<IBreederProfile> = this.DataService.updateProfile<IBreederProfile>(breederProfile);
-        promise.then(
+        this.DataService.updateProfile(breederProfile).then(
             () => {
                 // Success
                 this.CopyProfileService.SetProfile(breederProfile);

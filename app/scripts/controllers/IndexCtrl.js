@@ -77,6 +77,7 @@ var IndexCtrl = (function () {
             _this.spinner = false;
         });
     }
+
     IndexCtrl.prototype.animationDirection = function (menuIndex) {
         if (menuIndex > this.menuIndex)
             return 'slide-left';
@@ -87,7 +88,7 @@ var IndexCtrl = (function () {
     IndexCtrl.prototype.GetBreederName = function () {
         var loggedUser = angular.element('#loggedUser');
         if (loggedUser == null) {
-            return false;
+            return '';
         }
         var loggedUserTxt = loggedUser.text();
 
@@ -164,8 +165,7 @@ var IndexCtrl = (function () {
 
     IndexCtrl.prototype.Save = function (breederProfile) {
         var _this = this;
-        var promise = this.DataService.updateProfile(breederProfile);
-        promise.then(function () {
+        this.DataService.updateProfile(breederProfile).then(function () {
             _this.CopyProfileService.SetProfile(breederProfile);
 
             _this.UpdateBreederProfile(breederProfile);

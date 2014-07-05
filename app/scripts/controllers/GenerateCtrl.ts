@@ -17,7 +17,7 @@ class GenerateCtrl {
         breeders.forEach((breeder:IBreederProfile)=> {
             var key:string = breeder.Email.replace(/\./g, '(p)');
 
-            $scope.breeders[key] = breeder;
+            $scope.breeders[key] = {profile: breeder};
             $scope.breeders.$save();
         })
     }
