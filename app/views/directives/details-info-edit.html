@@ -1,7 +1,7 @@
 <div>
 	<div class="row">
 		<div class="col-xs-8">
-			<h4 class="italic">PERSONAL INFO</h4>
+			<h3>PERSONAL INFO</h3>
 		</div>
 		<div class="col-xs-2 pull-right">
 			<button class="btn pull-right btn-save"
@@ -16,7 +16,7 @@
 
 	<form class="form" name="form" novalidate>
 		<div class="form-group has-feedback" ng-class="{'has-error':form.kennel.$invalid}">
-			<label for="kennel" class="label-subhead">Kennel Name:</label>
+			<label for="kennel" class="sniff-subhead">Kennel Name:</label>
 			<span class="textMuted">Required</span>
 			<span ng-show="form.kennel.$error.maxlength"
 			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
@@ -31,14 +31,14 @@
 		<div class="form-group">
 			<div class="row">
 				<div class="col-xs-6">
-					<label for="website" class="label-subhead control-label">Website:</label>
+					<label for="website" class="sniff-subhead control-label">Website:</label>
 					<span ng-show="form.website.$error.maxlength"
 					      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 					<input type="text" id="website" name="website" class="form-control"
 					       ng-model="ctrl.BreederProfileEdit.Website"
 					       ng-maxlength="250"/>
 				</div>
-				<label class="label-subhead control-label">Display your email?</label>
+				<label class="sniff-subhead control-label">Display your email?</label>
 
 				<div class="col-xs-6">
 					<input type="checkbox" id="displayEmail1" name="displayEmail"
@@ -48,7 +48,7 @@
 		</div>
 
 		<div class="form-group has-feedback" ng-class="{'has-error':form.email.$invalid}">
-			<label for="email" class="label-subhead control-label">Email:</label>
+			<label for="email" class="sniff-subhead control-label">Email:</label>
 			<span class="textMuted">Required</span>
 			<input type="text" id="email" name="email" class="form-control"
 			       ng-model="ctrl.BreederProfileEdit.Email"
@@ -60,7 +60,7 @@
 
 		<div class="row">
 			<div class="form-group has-feedback col-xs-6" ng-class="{'has-error':form.phone.$invalid}">
-				<label for="phone" class="label-subhead control-label">Phone:</label>
+				<label for="phone" class="sniff-subhead control-label">Phone:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="phone" name="phone" class="form-control"
 				       ng-model="ctrl.BreederProfileEdit.Phone"
@@ -71,7 +71,7 @@
 			</div>
 
 			<div class="form-group">
-				<label class="label-subhead control-label">Display your phone?</label>
+				<label class="sniff-subhead control-label">Display your phone?</label>
 
 				<div class="col-xs-6">
 					<input type="checkbox" id="displayPhone1" name="displayPhone"
@@ -84,7 +84,7 @@
 
 	<div class="row">
 		<div class="col-xs-8">
-			<h4 class="italic">LOCATION</h4>
+			<h3>LOCATION</h3>
 		</div>
 		<div class="col-xs-2 pull-right">
 			<button class="btn pull-right btn-save"
@@ -100,7 +100,7 @@
 		<div class="row">
 			<div class="col-xs-6 form-group has-feedback" ng-class="{'has-error':location.city.$invalid}">
 
-				<label for="city" class="label-subhead control-label">City:</label>
+				<label for="city" class="sniff-subhead control-label">City:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="city" name="city" class="form-control"
 				       ng-model="ctrl.BreederProfileEdit.City"
@@ -110,7 +110,7 @@
 			</div>
 
 			<div class="form-group col-xs-6 has-feedback" ng-class="{'has-error':location.zip.$invalid}">
-				<label for="zip" class="label-subhead control-label">ZIP:</label>
+				<label for="zip" class="sniff-subhead control-label">ZIP:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="zip" name="zip" class="form-control"
 				       ng-model="ctrl.BreederProfileEdit.Zip"
@@ -122,7 +122,7 @@
 		<div class="row">
 			<div class="col-xs-6 form-group has-feedback" ng-class="{'has-error':location.state.$invalid}">
 
-				<label for="state" class="label-subhead control-label">State:</label>
+				<label for="state" class="sniff-subhead control-label">State:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="state" name="state" class="form-control"
 				       ng-model="ctrl.BreederProfileEdit.State"
@@ -137,7 +137,7 @@
 
 	<div class="row">
 		<div class="col-xs-8">
-			<h4 class="italic">SPECIFICS</h4>
+			<h3>Specifics</h3>
 		</div>
 		<div class="col-xs-2 pull-right">
 			<button class="btn pull-right btn-save"
@@ -149,7 +149,7 @@
 	</div>
 
 	<form class="form" name="specifics">
-		<h5 class="label-subhead control-label bold">Certifications:</h5>
+		<h5 class="sniff-subhead control-label bold">Certifications:</h5>
 		<ul class="list-unstyled">
 			<li ng-repeat="c in ctrl.BreederProfileEdit.Certifications">
 				{{c.Title}} - <input type="checkbox" ng-model='c.isActive'>
@@ -172,7 +172,7 @@
 		<br/>
 
 		<div class="form-group">
-			<h5 class="label-subhead control-label">Insurance:</h5>
+			<h5 class="sniff-subhead control-label">Insurance:</h5>
 			<ul class="list-unstyled">
 				<li ng-repeat="c in ctrl.BreederProfileEdit.Insurances">
 					{{c.Title}} - <input type="checkbox" ng-model='c.isActive'>
@@ -180,7 +180,7 @@
 			</ul>
 		</div>
 		<div class="form-group">
-			<label class="label-subhead control-label">Shipping:</label>
+			<label class="sniff-subhead control-label">Shipping:</label>
 			<input type="checkbox" id="shipping1" name="shipping" ng-model="ctrl.BreederProfileEdit.shipping"> Yes
 		</div>
 		<div class="form-group  profileSave text-center">
