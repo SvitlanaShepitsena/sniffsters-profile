@@ -1567,9 +1567,14 @@
     padding: 1.7em;
 }
 
+.panel-file-upload label {
+    margin-right: 0px;
+}
+
 .dropFilesHere {
     border: 2px #c3c3c3 dashed;
     min-height: 100px;
+    padding-bottom: 20px;
 }
 
 .dragPhotosImg {
@@ -1595,6 +1600,11 @@
 
 .fa-browse-btn {
     margin-right: 5px;
+}
+
+.drag-photos {
+    font-size: 18px;
+    color: #bababa;
 }
 
 /**********************
@@ -1884,6 +1894,10 @@ h4 {
 .form-control {
     font-size: 12px !important;
     font-family: arial, sans-serif;
+}
+
+input {
+    margin-top: 5px;
 }
 
 textarea {
