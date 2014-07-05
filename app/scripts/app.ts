@@ -26,7 +26,7 @@
 /// <reference path="controllers/GenerateCtrl.ts" />
 //#ref
 
-var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls']);
+var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
 profile.filter('boolString', () => {
     return (value:boolean):string => {
