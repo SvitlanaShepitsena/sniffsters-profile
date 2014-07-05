@@ -1,0 +1,190 @@
+/**********************
+       IMPORTS
+***********************/
+@import "LessComponents/elements";
+@import "LessComponents/Functions";
+@import "animate";
+@import "animate-view";
+@import "ng-animation";
+@import "file-upload";
+@import "mydetails";
+@import "photos";
+@import "puppies";
+
+/*************************
+  BOOTSTRAP CUSTOM STYLES
+**************************/
+
+.container {
+  width: 1200px !important;
+}
+
+.main-content {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.btn-primary {
+  .gradient(#2279c1, #2279c1, #498cc6);
+  //  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#498cc6), to(#2779c1));
+
+  &:hover {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+  }
+
+  &:active {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+  }
+}
+
+.cursor-p {
+  cursor: pointer;
+}
+
+.container .jumbo-custom {
+  min-height: 1300px;
+  background-color: #f6f6f6 !important;
+  border: 1px #ebebeb solid !important;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+hr {
+  border-top-color: @colorFontDimmedL !important;
+}
+
+h5 {
+  font-weight: bold;
+}
+
+.right {
+  text-align: right;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.fa-fw {
+  font-size: .9em !important;
+}
+
+.light-gray {
+  color: @colorFontDimmed;
+}
+
+.no-l-pad {
+  padding-left: 0px;
+}
+
+/**********************
+     Profile Form
+***********************/
+
+.profileContWrapper {
+  //  margin-top: 20px;
+}
+
+.navProfileWrapper {
+  //  margin-top: 20px;
+}
+
+.myContWrapper {
+  //  margin-top: 20px;
+}
+
+.navProfileWrapper {
+  //  margin-top: 20px;
+}
+
+.profileSideMenu {
+  padding-top: 25px;
+}
+
+.form-editPersonal {
+  margin-left: 5px !important;
+}
+
+.textMuted {
+  font-size: .9em;
+  color: @colorFontDimmedL;
+}
+
+.maxSymb {
+  font-size: .9em;
+}
+
+.label-subhead {
+  margin-right: 15px;
+}
+
+.custom-col {
+  margin-right: 15px;
+}
+
+.h5Custom {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.2em;
+  margin-bottom: 5px;
+}
+
+.jumbotron p {
+  font-size: 14px;
+}
+
+/**********************
+ search bar
+***********************/
+.search-bar {
+  padding: 25px;
+  background-color: slategray;
+}
+
+.quick-search {
+  .h-sniffsters();
+  font-size: 18px;
+  color: whitesmoke;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn-fetch {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navbar-sniffsters {
+  margin-bottom: 0px;
+}
+
+.search-bar-form {
+  width: 1100px;
+  margin: 0px auto;
+}
+
+.btn-group-fetch {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn-search-drop {
+  width: 250px;
+  text-align: left;
+}
+
+/**********************
+ footer
+***********************/
+.footer-container {
+  padding: 15px;
+  background-color: #c0c0c0;
+  .nav > li > a {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+}
