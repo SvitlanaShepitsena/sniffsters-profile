@@ -20,7 +20,7 @@ class DataService {
     }
 
 
-    updateProfile<T>(t:T) {
+    updateProfile(t:IBreederProfile) {
         var d = this.$q.defer();
 
         var key:string = t.Email.replace(/\./g, '(p)');

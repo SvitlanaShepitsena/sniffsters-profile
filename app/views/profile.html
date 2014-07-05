@@ -1,30 +1,28 @@
 <div class="row">
 	<div class="col-xs-8">
+		<div class="pull-right">
+			<ul class="nav nav-pills navProfileWrapper ">
+				<li ng-class="{'active':index.url=='about'}">
+					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(1)">About</a>
+				</li>
+				<li ng-class="{'active':index.url=='photos'}">
+					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(2)">Photos</a>
+				</li>
 
-		<div class="row">
-			<div class="col-xs-9 pull-right">
-			<ul class="nav nav-pills navProfileWrapper">
-					<li ng-class="{'active':index.url=='about'}">
-						<a class='btn btn-link' ng-click="navigate(1)">About</a>
-					</li>
-					<li ng-class="{'active':index.url=='photos'}">
-						<a class='btn btn-link' ng-click="navigate(2)">Photos</a>
-					</li>
+				<li ng-class="{'active':index.url=='puppies'}">
+					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(3)">Puppies</a>
+				</li>
 
-					<li ng-class="{'active':index.url=='puppies'}">
-						<a class='btn btn-link' ng-click="navigate(3)">Puppies</a>
-					</li>
+				<li ng-class="{'active':index.url=='details'}">
+					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(4)">Details</a>
+				</li>
 
-					<li ng-class="{'active':index.url=='details'}">
-						<a class='btn btn-link' ng-click="navigate(4)">Details</a>
-					</li>
-
-					<li ng-class="{'active':index.url=='testimonials'}">
-						<a class='btn btn-link' ng-click="navigate(5)">Testimonials</a>
-					</li>
-				</ul>
-			</div>
+				<li ng-class="{'active':index.url=='testimonials'}">
+					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(5)">Testimonials</a>
+				</li>
+			</ul>
 		</div>
+
 
 		<div class="row">
 			<div class="col-xs-12">
@@ -35,7 +33,7 @@
 				<spin-div ng-show="index.spinner"></spin-div>-->
 	</div>
 	<div class="col-xs-4 myContWrapper">
-	<breeder-details ctrl="index"></breeder-details>
+		<breeder-details ctrl="index"></breeder-details>
 		<previous-puppies>Our Previous Puppies</previous-puppies>
 	</div>
 </div>
