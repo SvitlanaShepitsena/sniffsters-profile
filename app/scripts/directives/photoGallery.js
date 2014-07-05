@@ -1,3 +1,4 @@
+
 var photoGallery = function () {
     return {
         restrict: 'E',
@@ -16,14 +17,6 @@ var photoGallery = function () {
                 });
             }
 
-            $scope.photosCtrl.SelectedGallery.Photos.forEach(function (photo) {
-                $scope.tempPhoto.push(photo);
-                $scope.photosCtrl.SelectedGallery.Photos.splice(index++, 1);
-            });
-
-            $scope.tempPhoto.forEach(function (photo) {
-                $scope.photosCtrl.SelectedGallery.Photos.push(photo);
-            });
             $scope.shareGallery = function () {
                 DataService.shareGallery($scope.photosCtrl.SelectedGallery.Id).then(function () {
                     $scope.photosCtrl.SelectedGallery.IsShared = true;
