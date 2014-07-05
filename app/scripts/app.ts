@@ -107,7 +107,7 @@ profile.config(
                 url: "/photos",
                 resolve: {
                     data: (DataService:DataService) => {
-                        return DataService.getGalleries<IGallery>();
+                        return DataService.getGalleries();
                     }
                 },
 
@@ -153,7 +153,7 @@ profile.config(
                 url: "/edit/:id",
                 resolve: {
                     feedbacks: (DataService:DataService) => {
-                        return DataService.getFeedbacks<IFeedback>();
+                        return DataService.getFeedbacks();
                     }
                 },
                 template: "<feedback-edit></feedback-edit>"

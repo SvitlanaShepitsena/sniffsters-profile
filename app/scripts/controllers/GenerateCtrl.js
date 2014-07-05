@@ -6,7 +6,6 @@ var GenerateCtrl = (function () {
         this.DataService = DataService;
         $scope.generate = this;
     }
-
     GenerateCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

@@ -19,7 +19,7 @@ var DataService = (function () {
         b.Location = "Chicago,IL";
         b.Website = "www.bestdogs.com";
         b.Phone = "773-123-45-67";
-        b.Certifications = [];
+        b.Certifications = ['Test'];
 
         return d.promise;
     };

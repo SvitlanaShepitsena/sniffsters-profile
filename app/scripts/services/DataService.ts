@@ -2,9 +2,9 @@ class DataService {
     constructor(public $http:ng.IHttpService, public $q:ng.IQService) {
     }
 
-    getProfile<T>(id:string) {
-        var d = this.$q.defer<T>();
-        var b = new BreederProfile();
+    getProfile(id:string) {
+        var d = this.$q.defer();
+        var b:IBreederProfile = new BreederProfile();
         b.Email = "breeder1@gmail.com";
         b.FirstName = "Boris";
         b.LastName = "Oberman";
@@ -18,7 +18,7 @@ class DataService {
         b.Location = "Chicago,IL";
         b.Website = "www.bestdogs.com";
         b.Phone = "773-123-45-67";
-        b.Certifications = []
+        b.Certifications = ['Test']
 //        d.resolve(n)
 //        this.$http.post('http://localhost:44300/BreederPersonal/GetProfile', {id: id}).success((result:T) => {
 //
@@ -31,8 +31,8 @@ class DataService {
         return d.promise;
     }
 
-    getLitters<T>() {
-        var d = this.$q.defer<T[]>();
+    getLitters() {
+        var d = this.$q.defer();
 //        this.$http.get('http://localhost:44300/BreederPersonal/GetLitters').success((result:T[]) => {
         var litters : ILitter[]=[];
         litters.push(new Litter());
@@ -45,8 +45,9 @@ class DataService {
         return d.promise;
     }
 
-    getFeedbacks<T>() {
-        var d = this.$q.defer<T[]>();
+    getFeedbacks() {
+
+        var d = this.$q.defer();
 
         //  this.$http.get('http://localhost:44300/BreederPersonal/GetFeedbacks').success((result:T[]) => {
         var feedbacks:IFeedback[] = [];
@@ -284,8 +285,8 @@ class DataService {
         return d.promise;
     }
 
-    getGalleries<T>() {
-        var d = this.$q.defer<T[]>();
+    getGalleries() {
+        var d = this.$q.defer();
         var galleries:IGallery[] = [];
 
         var gallery1 = new Gallery();

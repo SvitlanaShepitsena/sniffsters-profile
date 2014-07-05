@@ -89,7 +89,7 @@ class IndexCtrl {
         this.spinner = true;
         this.BreederId = this.GetBreederId();
 
-        var promiseT = this.DataService.getProfile<IBreederProfile>(this.BreederId);
+        var promiseT = this.DataService.getProfile(this.BreederId);
         promiseT.then((breederProfile:IBreederProfile) => {
             //Success
             this.error = false;

@@ -17,7 +17,7 @@ class PuppiesCtrl {
 
         this.LittersNew = [];
         $scope.puppies = this;
-        DataService.getLitters<ILitter>().then((litters)=> {
+        DataService.getLitters().then((litters:ILitter[])=> {
         this.Litters = litters;
 
         })

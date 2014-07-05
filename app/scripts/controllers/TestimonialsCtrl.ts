@@ -13,7 +13,7 @@ class TestimonialsCtrl {
         $scope.isOk = false;
         this.FeedbacksNew = [];
         $scope.testimonials = this;
-       DataService.getFeedbacks().then((feedbacks)=> {
+        DataService.getFeedbacks().then((feedbacks:IFeedback[])=> {
 
         this.Feedbacks = feedbacks;
        })
