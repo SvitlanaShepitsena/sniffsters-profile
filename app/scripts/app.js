@@ -46,6 +46,7 @@ profile.directive("breederDetails", breederDetails);
 profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
 profile.controller("TestimonialsCtrl", TestimonialsCtrl);
+profile.controller("GenerateCtrl", GenerateCtrl);
 
 profile.value("toastr", toastr);
 profile.service("DataService", DataService);
@@ -107,5 +108,9 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
             }
         },
         template: "<feedback-edit></feedback-edit>"
+    }).state("generate", {
+        url: "/generate",
+        controller: "GenerateCtrl",
+        templateUrl: "../views/generate.html"
     });
 });

@@ -8,6 +8,7 @@ class GenerateCtrl {
 
     constructor(public $scope:IGenerateScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.generate = this;
+
     }
 
 
