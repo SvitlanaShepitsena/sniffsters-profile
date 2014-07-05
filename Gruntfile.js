@@ -526,11 +526,6 @@ module.exports = function (grunt) {
 
 ////////////////
 
-//     Specs   //
-        var sd = 'test/spec/controllers/';
-        var st = 'CtrlSpec.ts';
-        var spec = grunt.file.read('templates/spec.tpl');
-        var specr = spec.replace(/#name#/g, name).replace(/#lname#/g, lname);
 
 ////////////////
 
@@ -582,7 +577,6 @@ module.exports = function (grunt) {
             grunt.file.delete(tpath);
         } else {
             grunt.file.write(d + name + t, ctrlr);
-            grunt.file.write(sd + name + st, specr);
             grunt.file.write(tpath, grunt.file.read("templates/ctrl-template.tpl"));
         }
         grunt.file.write(apath, app);
@@ -611,13 +605,6 @@ module.exports = function (grunt) {
 
 ////////////////
 
-//     Specs   //
-        var sd = 'test/spec/services/';
-        var st = 'ServiceSpec.ts';
-        var specserv = grunt.file.read('templates/spec-serv.tpl');
-        var specrserv = specserv.replace(/#name#/g, name).replace(/#lname#/g, lname);
-
-////////////////
 
         // register
         var ref = '/// <reference path="services/' + name + 'Service.ts" />\r\n';
@@ -659,7 +646,6 @@ module.exports = function (grunt) {
 
         } else {
             grunt.file.write(d + name + t, servr);
-            grunt.file.write(sd + name + st, specrserv);
         }
         grunt.file.write(apath, app);
         grunt.file.write(ipath, indf);
@@ -686,11 +672,6 @@ module.exports = function (grunt) {
 
 ////////////////
 
-//     Specs   //
-        var sd = 'test/spec/filters/';
-        var st = 'Spec.ts';
-        var filtspec = grunt.file.read('templates/spec-filt.tpl');
-        var filtspecr = filtspec.replace(/#name#/g, name);
 
 ////////////////
 
@@ -736,7 +717,6 @@ module.exports = function (grunt) {
 
         } else {
             grunt.file.write(d + name + t, filtr);
-            grunt.file.write(sd + name + st, filtspecr);
         }
         grunt.file.write(apath, app);
         grunt.file.write(ipath, indf);
@@ -793,13 +773,6 @@ module.exports = function (grunt) {
         var reg = 'profile.directive("' + jname + '", ' + jname + ');\r\n';
 ////////////////
 
-//     Specs   //
-//        var sd = 'test/spec/directive/';
-//        var st = 'Spec.ts';
-//        var spec = grunt.file.read('templates/spec.tpl');
-//        var specr = spec.replace(/#name#/g, name).replace(/#lname#/g, lname);
-
-////////////////
 
         // register
         var ref = '/// <reference path="directives/' + jname + '.ts" />\r\n';
