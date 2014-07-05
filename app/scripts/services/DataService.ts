@@ -8,7 +8,7 @@ class DataService {
     getProfile(id:string) {
 
         var key:string = id.replace(/\./g, '(p)');
-        this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key));
+        this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/profile"));
         this.fb.$on('value', (snapshot:any)=> {
             var breeder = snapshot.snapshot.value;
             d.resolve(breeder);
@@ -26,7 +26,7 @@ class DataService {
         var key:string = t.Email.replace(/\./g, '(p)');
 
         this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/"));
-        this.fb[key] = t;
+        this.fb[key] = {profile: t};
         this.fb.$save(key);
         d.resolve();
         return d.promise;

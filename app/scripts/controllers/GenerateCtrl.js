@@ -12,10 +12,11 @@ var GenerateCtrl = (function () {
         breeders.forEach(function (breeder) {
             var key = breeder.Email.replace(/\./g, '(p)');
 
-            $scope.breeders[key] = breeder;
+            $scope.breeders[key] = { profile: breeder };
             $scope.breeders.$save();
         });
     }
+
     GenerateCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
