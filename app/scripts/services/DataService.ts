@@ -13,7 +13,6 @@ class DataService {
             var breeder = snapshot.snapshot.value;
             d.resolve(breeder);
         })
-//        console.log(bp);
         var d = this.$q.defer();
 
         return d.promise;
@@ -29,6 +28,22 @@ class DataService {
         this.fb[key] = {profile: t};
         this.fb.$save(key);
         d.resolve();
+        return d.promise;
+    }
+
+
+    getGalleries(id:string) {
+
+        var key:string = id.replace(/\./g, '(p)');
+        var fireGalleries = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/galleries"));
+        //console.log(fireGalleries);
+
+        fireGalleries.$on('value', (snapshot:any)=> {
+            var galleries = snapshot.snapshot.value;
+            d.resolve(galleries);
+        })
+        var d = this.$q.defer();
+
         return d.promise;
     }
 
@@ -273,28 +288,6 @@ class DataService {
         return d.promise;
     }
 
-    getGalleries() {
-        var d = this.$q.defer();
-        var galleries:IGallery[] = [];
-
-        var gallery1 = new Gallery();
-        gallery1.Title = "Gallery1";
-        gallery1.Id = 3;
-        gallery1.IsActive = true;
-        gallery1.Photos = [new Photo()]
-        galleries.push(gallery1);
-
-
-//        this.$http.get('http://localhost:44300/BreederPersonal/GetGalleries').success((result:T[]) => {
-        d.resolve(galleries);
-//        }).error((data, error) => {
-        // console.log(data)
-        // console.log(error)
-//            d.reject();
-//        });
-        return d.promise;
-
-    }
 
     updateGalleries<T>(t:T[]) {
         var d = this.$q.defer<T>();

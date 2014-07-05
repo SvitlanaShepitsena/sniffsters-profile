@@ -91,7 +91,6 @@ profile.config(
         $stateProvider
             .state("profile", {
                 abstract: true,
-                controller: IndexCtrl,
                 url: "/profile",
                 templateUrl: "../views/profile.html"
             })
@@ -105,12 +104,6 @@ profile.config(
             })
             .state("profile.photos2", {
                 url: "/photos",
-                resolve: {
-                    data: (DataService:DataService) => {
-                        return DataService.getGalleries();
-                    }
-                },
-
                 controller: "PhotosCtrl",
                 templateUrl: "../views/profile-photos.html"
             })

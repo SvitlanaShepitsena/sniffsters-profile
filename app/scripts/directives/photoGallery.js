@@ -1,4 +1,3 @@
-
 var photoGallery = function () {
     return {
         restrict: 'E',
@@ -10,7 +9,11 @@ var photoGallery = function () {
 
             if ($scope.photosCtrl.SelectedGallery == undefined) {
                 var id = $stateParams.id;
-                $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
+                DataService.getGalleries($scope.index.BreederName).then(function (galleries) {
+                    $scope.photosCtrl.Galleries = galleries;
+                    console.log(galleries);
+                    $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
+                });
             }
 
             $scope.photosCtrl.SelectedGallery.Photos.forEach(function (photo) {

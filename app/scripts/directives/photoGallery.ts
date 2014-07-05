@@ -18,7 +18,11 @@ var photoGallery:(data) => ng.IDirective = () => {
 
             if ($scope.photosCtrl.SelectedGallery == undefined) {
                 var id = $stateParams.id;
+                DataService.getGalleries($scope.index.BreederName).then((galleries:IGallery[])=> {
+                    $scope.photosCtrl.Galleries = galleries;
+                    console.log(galleries);
                 $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
+                })
             }
 
             //iterating over arrey of photos of selected gallery

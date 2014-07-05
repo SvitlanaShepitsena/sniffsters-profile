@@ -13,17 +13,16 @@ class PhotosCtrl {
     public SelectedGallery:IGallery;
     public SelectedGalleryEdit:IGallery;
 
-    constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, data, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index.menuIndex = 2;
 
         $scope.$watch("photosCtrl.GalleriesNew", () => {
             for (var i = 0; i < this.GalleriesNew.length; i++) {
                 var gallery:IGallery = this.GalleriesNew[i];
                 if (!(
-                    typeof(gallery.Title) != 'undefined' && gallery.Title.length < 250 && gallery.Photos.length > 0
+                    typeof(gallery.Title) != 'undefined' && gallery.Title.length < 250
                     )) {
                     this.$scope.isOk = true;
-//                console.log($scope.isOk);
                     break;
                 } else {
 
@@ -40,7 +39,9 @@ class PhotosCtrl {
 
         $scope.index.url = "photos";
 
-        this.Galleries = data;
+        DataService.getGalleries($scope.index.BreederName).then((galleries:IGallery[])=> {
+            this.Galleries = galleries;
+        })
     }
 
     saveNewGalleries() {

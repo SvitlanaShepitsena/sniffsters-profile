@@ -58,13 +58,12 @@ var IndexCtrl = (function () {
         $scope.index = this;
         this.spinner = true;
         this.BreederName = this.GetBreederName();
+        this.Id = this.GetBreederName();
 
         var promiseT = this.DataService.getProfile(this.BreederName);
         promiseT.then(function (breederProfile) {
             _this.error = false;
             _this.BreederProfile = breederProfile;
-
-            _this.Id = breederProfile.Email;
 
             _this.isOwner = _this.Ownership();
 

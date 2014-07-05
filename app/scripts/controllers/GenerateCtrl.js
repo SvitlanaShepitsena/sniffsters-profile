@@ -1,6 +1,8 @@
 var GenerateCtrl = (function () {
     function GenerateCtrl($scope, $firebase, $state, toastr, DataService) {
+        var _this = this;
         this.$scope = $scope;
+        this.$firebase = $firebase;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
@@ -8,13 +10,24 @@ var GenerateCtrl = (function () {
         $scope.breeders = $firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders"));
 
         var breeders = this.GenerateBreeders();
-
         breeders.forEach(function (breeder) {
             var key = breeder.Email.replace(/\./g, '(p)');
-
             $scope.breeders[key] = { profile: breeder };
             $scope.breeders.$save();
+
+            var breederRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key));
+            var galleriesRef = breederRef.$child('galleries');
+
+            var galleries = _this.GenerateGalleries();
+            var index = 0;
+            galleries.forEach(function (gallery) {
+                galleriesRef[index++] = gallery;
+                galleriesRef.$save();
+            });
+            breederRef.$save();
         });
+
+        $scope.breeders.$save();
     }
 
     GenerateCtrl.prototype.ShowSuccess = function (note) {
@@ -23,6 +36,33 @@ var GenerateCtrl = (function () {
 
     GenerateCtrl.prototype.ShowError = function (note) {
         this.toastr.error(note);
+    };
+
+    GenerateCtrl.prototype.GenerateGalleries = function () {
+        var galleries = [];
+        var gallery1 = new Gallery();
+        gallery1.Id = 1;
+        gallery1.Title = "Gallery 1";
+        gallery1.IsActive = true;
+
+        var photo1 = new Photo();
+        photo1.Id = 1;
+        photo1.Caption = "My Dogs";
+        photo1.FilePath = 'Picture1.jpg';
+
+        var photo2 = new Photo();
+        photo2.Id = 2;
+        photo2.Caption = "My Dogs 2";
+        photo2.FilePath = 'Picture2.jpg';
+        var photos = [];
+        photos.push(photo1);
+        photos.push(photo2);
+
+        gallery1.Photos = photos;
+
+        galleries.push((gallery1));
+
+        return galleries;
     };
 
     GenerateCtrl.prototype.GenerateBreeders = function () {

@@ -88,6 +88,7 @@ class IndexCtrl {
         $scope.index = this;
         this.spinner = true;
         this.BreederName = this.GetBreederName();
+        this.Id = this.GetBreederName();
 
         var promiseT = this.DataService.getProfile(this.BreederName);
         promiseT.then((breederProfile:IBreederProfile) => {
@@ -95,7 +96,7 @@ class IndexCtrl {
             this.error = false;
             this.BreederProfile = breederProfile;
 
-            this.Id = breederProfile.Email;
+//            this.Id = breederProfile.Email;
 //            Put a received BreederProfile to CopyProfileService, using it like container
 //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
             this.isOwner = this.Ownership();

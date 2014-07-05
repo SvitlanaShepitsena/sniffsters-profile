@@ -12,7 +12,6 @@ var DataService = (function () {
             var breeder = snapshot.snapshot.value;
             d.resolve(breeder);
         });
-
         var d = this.$q.defer();
 
         return d.promise;
@@ -27,6 +26,19 @@ var DataService = (function () {
         this.fb[key] = { profile: t };
         this.fb.$save(key);
         d.resolve();
+        return d.promise;
+    };
+
+    DataService.prototype.getGalleries = function (id) {
+        var key = id.replace(/\./g, '(p)');
+        var fireGalleries = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/galleries"));
+
+        fireGalleries.$on('value', function (snapshot) {
+            var galleries = snapshot.snapshot.value;
+            d.resolve(galleries);
+        });
+        var d = this.$q.defer();
+
         return d.promise;
     };
 
@@ -229,22 +241,6 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         d.resolve();
-
-        return d.promise;
-    };
-
-    DataService.prototype.getGalleries = function () {
-        var d = this.$q.defer();
-        var galleries = [];
-
-        var gallery1 = new Gallery();
-        gallery1.Title = "Gallery1";
-        gallery1.Id = 3;
-        gallery1.IsActive = true;
-        gallery1.Photos = [new Photo()];
-        galleries.push(gallery1);
-
-        d.resolve(galleries);
 
         return d.promise;
     };

@@ -8,18 +8,31 @@ interface IGenerateScope extends IMainScope {
 }
 class GenerateCtrl {
 
-    constructor(public $scope:IGenerateScope, $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope:IGenerateScope, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.generate = this;
         $scope.breeders = $firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders"));
 
         var breeders:IBreederProfile[] = this.GenerateBreeders();
-
         breeders.forEach((breeder:IBreederProfile)=> {
             var key:string = breeder.Email.replace(/\./g, '(p)');
-
             $scope.breeders[key] = {profile: breeder};
             $scope.breeders.$save();
+
+            var breederRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key));
+            var galleriesRef = breederRef.$child('galleries');
+
+            var galleries:IGallery[] = this.GenerateGalleries();
+            var index:number = 0;
+            galleries.forEach((gallery:IGallery)=> {
+                galleriesRef[index++] = gallery;
+                galleriesRef.$save();
+            })
+            breederRef.$save();
+
         })
+
+
+        $scope.breeders.$save();
     }
 
 
@@ -30,6 +43,34 @@ class GenerateCtrl {
 
     ShowError(note:string) {
         this.toastr.error(note);
+    }
+
+    GenerateGalleries():IGallery[] {
+        var galleries:IGallery[] = [];
+        var gallery1 = new Gallery();
+        gallery1.Id = 1;
+        gallery1.Title = "Gallery 1";
+        gallery1.IsActive = true;
+
+        var photo1 = new Photo();
+        photo1.Id = 1;
+        photo1.Caption = "My Dogs";
+        photo1.FilePath = 'Picture1.jpg';
+
+        var photo2 = new Photo();
+        photo2.Id = 2;
+        photo2.Caption = "My Dogs 2";
+        photo2.FilePath = 'Picture2.jpg';
+        var photos:IPhoto[] = [];
+        photos.push(photo1);
+        photos.push(photo2);
+
+        gallery1.Photos = photos;
+
+        galleries.push((gallery1));
+
+        return galleries;
+
     }
 
     GenerateBreeders():IBreederProfile[] {

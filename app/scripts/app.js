@@ -56,7 +56,6 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state("profile", {
         abstract: true,
-        controller: IndexCtrl,
         url: "/profile",
         templateUrl: "../views/profile.html"
     }).state("profile.about1", {
@@ -67,11 +66,6 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-about-edit.html"
     }).state("profile.photos2", {
         url: "/photos",
-        resolve: {
-            data: function (DataService) {
-                return DataService.getGalleries();
-            }
-        },
         controller: "PhotosCtrl",
         templateUrl: "../views/profile-photos.html"
     }).state("profile.photos2.galleries", {
