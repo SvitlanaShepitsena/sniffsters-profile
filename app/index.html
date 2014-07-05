@@ -37,7 +37,7 @@
 <![endif]-->
 
 
-<div class="navbar navbar-default">
+<div class="navbar navbar-default navbar-sniffsters">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -77,17 +77,15 @@
 
 <div class="search-bar-wrapper">
 	<div class="container">
-		<div class="search-bar">
-			<form action="/Breeders-Search-Result" class="form-inline search-bar-form text-center" method="get"
+		<div class="search-bar text-center">
+			<form action="/Breeders-Search-Result"
+			      class="form-inline search-bar-form"
+			      method="get"
 			      role="form">
+				<span class="quick-search">QUICK SEARCH</span>
 
-                                <span class="quickSearch searchAgain">
-                                    QUICK SEARCH
-                                </span>
-
-
-				<div class="btn-group">
-					<button type="button" class="btn btn-default">Breed</button>
+				<div class="btn-group btn-group-fetch">
+					<button type="button" class="btn btn-default btn-search-drop">Breed</button>
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 						<span class="caret"></span>
 						<span class="sr-only">Toggle Dropdown</span>
@@ -102,8 +100,9 @@
 				</div>
 
 
-				<div class="btn-group">
-					<button type="button" class="btn btn-default">Location</button>
+				<div class="btn-group btn-group-fetch">
+
+					<button type="button" class="btn btn-default btn-search-drop">Location</button>
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 						<span class="caret"></span>
 						<span class="sr-only">Toggle Dropdown</span>
@@ -117,7 +116,7 @@
 					</ul>
 				</div>
 				<div class="form-group">
-					<button class="btn btn-primary" value="Fetch">Fetch</button>
+					<button class="btn btn-primary btn-fetch" value="Fetch">Fetch</button>
 				</div>
 			</form>
 		</div>
@@ -126,7 +125,7 @@
 
 
 <div class="container body-content">
-	<div class="mainContent">
+	<div class="main-content">
 		<div class="row">
 			<div>
 				<div class="col-xs-2">
