@@ -1,23 +1,21 @@
-
 var photoGalleryEdit = function () {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/photo-gallery-edit.html',
         replace: true,
         controller: function ($scope, $stateParams, $upload, $modal, DataService, toastr) {
-            $scope.photosCtrl.CreateSelectedGalleryClone();
-
             $scope.tempPhoto = [];
             var index = 0;
 
-            $scope.photosCtrl.SelectedGalleryEdit.Photos.forEach(function (photo) {
-                $scope.tempPhoto.push(photo);
-                $scope.photosCtrl.SelectedGalleryEdit.Photos.splice(index++, 1);
-            });
+            if ($scope.photosCtrl.SelectedGallery == undefined) {
+                var id = $stateParams.id;
+                DataService.getGalleries($scope.index.BreederName).then(function (galleries) {
+                    $scope.photosCtrl.Galleries = galleries;
 
-            $scope.tempPhoto.forEach(function (photo) {
-                $scope.photosCtrl.SelectedGalleryEdit.Photos.push(photo);
-            });
+                    $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
+                    $scope.photosCtrl.CreateSelectedGalleryClone();
+                });
+            }
 
             var index = $stateParams.id;
 

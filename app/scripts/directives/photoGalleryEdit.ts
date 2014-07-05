@@ -13,20 +13,20 @@ var photoGalleryEdit:() => ng.IDirective = () => {
         replace: true,
 
         controller: ($scope, $stateParams, $upload, $modal, DataService:DataService, toastr:Toastr) => {
-            $scope.photosCtrl.CreateSelectedGalleryClone();
 
             $scope.tempPhoto = [];
             var index = 0;
             //iterating over arrey of photos of selected gallery
-            $scope.photosCtrl.SelectedGalleryEdit.Photos.forEach((photo) => {
-                //move photo from main ctrl to temp empty arrey
-                $scope.tempPhoto.push(photo);
-                $scope.photosCtrl.SelectedGalleryEdit.Photos.splice(index++, 1);
-            });
 
-            $scope.tempPhoto.forEach((photo) => {
-                $scope.photosCtrl.SelectedGalleryEdit.Photos.push(photo);
-            })
+            if ($scope.photosCtrl.SelectedGallery == undefined) {
+                var id = $stateParams.id;
+                DataService.getGalleries($scope.index.BreederName).then((galleries:IGallery[])=> {
+                    $scope.photosCtrl.Galleries = galleries;
+//                    console.log(galleries);
+                    $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
+                    $scope.photosCtrl.CreateSelectedGalleryClone();
+                })
+            }
 
 
             var index:number = $stateParams.id;

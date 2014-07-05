@@ -31,6 +31,7 @@ var PhotosCtrl = (function () {
             _this.Galleries = galleries;
         });
     }
+
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var _this = this;
         var index = 0;
@@ -74,6 +75,7 @@ var PhotosCtrl = (function () {
     };
 
     PhotosCtrl.prototype.setSelectedGallery = function (galleryId) {
+        console.log(galleryId);
         var galid = 0;
         var index = 0;
         this.Galleries.forEach(function (gallery) {

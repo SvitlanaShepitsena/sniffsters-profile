@@ -20,7 +20,7 @@ var photoGallery:(data) => ng.IDirective = () => {
                 var id = $stateParams.id;
                 DataService.getGalleries($scope.index.BreederName).then((galleries:IGallery[])=> {
                     $scope.photosCtrl.Galleries = galleries;
-                    console.log(galleries);
+//                    console.log(galleries);
                 $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
                 })
             }

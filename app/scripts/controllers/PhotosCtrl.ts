@@ -90,6 +90,7 @@ class PhotosCtrl {
     }
 
     setSelectedGallery(galleryId:number) {
+        console.log(galleryId);
         var galid:number = 0;
         var index:number = 0;
         this.Galleries.forEach((gallery:IGallery) => {
