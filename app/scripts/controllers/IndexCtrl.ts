@@ -20,7 +20,7 @@ class IndexCtrl {
     spinner:boolean;
     menuIndex:number;
     isOwner:boolean;
-    BreederId:string;
+    BreederName:string;
 
     animationDirection(menuIndex:number):string {
 
@@ -87,9 +87,9 @@ class IndexCtrl {
 
         $scope.index = this;
         this.spinner = true;
-        this.BreederId = this.GetBreederId();
+        this.BreederName = this.GetBreederName();
 
-        var promiseT = this.DataService.getProfile(this.BreederId);
+        var promiseT = this.DataService.getProfile(this.BreederName);
         promiseT.then((breederProfile:IBreederProfile) => {
             //Success
             this.error = false;
@@ -103,6 +103,8 @@ class IndexCtrl {
 
             this.CopyProfileService.SetProfile(breederProfile);
             this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+//            console.log(this.BreederProfileEdit);
+
         }, () => {
             //Error
             this.error = true;
@@ -112,15 +114,21 @@ class IndexCtrl {
         })
     }
 
-    GetBreederId() {
+    GetBreederName() {
 
-        var browsedUser = angular.element('#breeder-public');
-        if (browsedUser == null) {
-            return null;
+        var loggedUser = angular.element('#loggedUser');
+        if (loggedUser == null) {
+            return false;
         }
+        var loggedUserTxt:string = loggedUser.text();
 
-//        console.log(browsedUser.text());
-        return browsedUser.text().trim();
+        var start = loggedUserTxt.indexOf(',') + 1;
+        var finish = loggedUserTxt.indexOf('!');
+
+
+        var userName = loggedUserTxt.substr(start, finish - start).trim();
+
+        return userName;
 
 
     }
