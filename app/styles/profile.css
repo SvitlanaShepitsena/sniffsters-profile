@@ -1760,13 +1760,9 @@
     width: 1200px !important;
 }
 
-.search-bar-form {
-    width: 900px;
-    margin: 0px auto;
-}
-
-.btn {
-    margin: 3px !important;
+.main-content {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .btn-primary {
@@ -1864,4 +1860,54 @@ h5 {
 
 .jumbotron p {
     font-size: 14px;
+}
+
+/**********************
+ search bar
+***********************/
+.search-bar {
+    padding: 25px;
+    background-color: slategray;
+}
+
+.quick-search {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+    color: whitesmoke;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn-fetch {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navbar-sniffsters {
+    margin-bottom: 0px;
+}
+
+.search-bar-form {
+    width: 1100px;
+    margin: 0px auto;
+}
+
+.btn-group-fetch {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn-search-drop {
+    width: 250px;
+    text-align: left;
+}
+
+/**********************
+ footer
+***********************/
+.footer-container {
+    padding: 15px;
 }

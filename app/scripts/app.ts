@@ -23,6 +23,7 @@
 /// <reference path="directives/feedbackInfo.ts" />
 /// <reference path="directives/litterInfo.ts" />
 /// <reference path="directives/feedbackEdit.ts" />
+/// <reference path="controllers/GenerateCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls']);
@@ -76,6 +77,7 @@ profile.directive("breederDetails", breederDetails);
 profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
 profile.controller("TestimonialsCtrl", TestimonialsCtrl);
+profile.controller("GenerateCtrl", GenerateCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -156,6 +158,11 @@ profile.config(
 				},
 				template: "<feedback-edit></feedback-edit>"
 			})
+            .state("generate", {
+                url: "/profile/generate",
+                controller: "GenerateCtrl",
+                templateUrl: "../views/profile-generate.html"
+            })
 //#state
 	});
 
