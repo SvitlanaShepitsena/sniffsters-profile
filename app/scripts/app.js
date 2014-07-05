@@ -55,6 +55,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state("profile", {
         abstract: true,
+        controller: IndexCtrl,
         url: "/profile",
         templateUrl: "../views/profile.html"
     }).state("profile.about1", {

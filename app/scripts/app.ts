@@ -89,6 +89,7 @@ profile.config(
 		$stateProvider
 			.state("profile", {
 				abstract: true,
+                controller: IndexCtrl,
 				url: "/profile",
 				templateUrl: "../views/profile.html"
 			})
