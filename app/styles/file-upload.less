@@ -1,6 +1,10 @@
 @import "LessComponents/elements";
 @import "LessComponents/Functions";
 
+.form-upload-photos {
+
+}
+
 /**********************
   FILE UPLOAD BUTTON
 ***********************/
@@ -28,14 +32,17 @@
 /**********************
    ADD NEW GALLERY
 ***********************/
-
 .panel-file-upload {
   padding: 1.7em;
+  label {
+    margin-right: 0px;
+  }
 }
 
 .dropFilesHere {
   border: 2px @colorLineDimmed dashed;
   min-height: 100px;
+  padding-bottom: 20px;
 }
 
 .dragPhotosImg {
@@ -62,3 +69,7 @@
   margin-right: 5px;
 }
 
+.drag-photos {
+  font-size: 18px;
+  color: @colorFontDimmedL;
+}

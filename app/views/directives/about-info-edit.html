@@ -1,7 +1,7 @@
 <div>
 	<div class="row">
 		<div class="col-xs-8">
-			<h4 class="italic">ABOUT</h4>
+			<h4 class="sniff-head-info">ABOUT</h4>
 		</div>
 		<div class="col-xs-2 pull-right">
 			<button class="btn pull-right btn-link"
@@ -45,12 +45,12 @@
 
 		<div class="row">
 			<div class="col-xs-12">
-				<h4 class="italic">PARENTS</h4>
+				<h3 class="italic">PARENTS</h4>
 			</div>
 		</div>
 
 		<div class="form-group" ng-class="{'has-error':form.parents.$invalid}">
-			<label class="label-subhead">About Parents:</label>
+			<label class="sniff-subhead">About Parents:</label>
 			<span class="textMuted">Required</span>
 			<span ng-show="form.parents.$error.maxlength"
 			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
@@ -62,7 +62,7 @@
 			</textarea>
 		</div>
 		<div class="form-group">
-			<label>Boys:</label>
+			<label class="sniff-subhead">Boys:</label>
 			<span ng-show="form.boys.$error.maxlength"
 			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			<textarea rows="5" cols="30" name="boys" class="form-control"
@@ -73,7 +73,7 @@
 		</div>
 
 		<div class="form-group">
-			<label>Girls:</label>
+			<label class="sniff-subhead">Girls:</label>
 			<span ng-show="form.girls.$invalid" class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			<textarea rows="5" cols="30" name="girls" class="form-control"
 			          ng-maxlength="250"
@@ -84,7 +84,7 @@
 
 		<div class="row">
 			<div class="col-xs-12">
-				<h4 class="italic">ADDITIONAL INFO</h4>
+				<h3 class="italic">ADDITIONAL INFO</h3>
 				<span ng-show="form.info.$error.maxlength"
 				      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			</div>

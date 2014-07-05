@@ -86,7 +86,7 @@
 			<span class="col-xs-7 spanCertif">
 				<ul class="list-unstyled">
 					<li ng-show="!IsEdit" ng-repeat="c in ctrl.BreederProfile.Certifications">
-						{{c.Title}} - {{c.isActive | boolString}}
+						{{c.Title}} {{c.isActive | boolString}}
 					</li>
 
 					<li ng-show="IsEdit" ng-repeat="c in ctrl.BreederProfileCopy.Certifications">

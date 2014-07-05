@@ -1567,9 +1567,14 @@
     padding: 1.7em;
 }
 
+.panel-file-upload label {
+    margin-right: 0px;
+}
+
 .dropFilesHere {
     border: 2px #c3c3c3 dashed;
     min-height: 100px;
+    padding-bottom: 20px;
 }
 
 .dragPhotosImg {
@@ -1595,6 +1600,11 @@
 
 .fa-browse-btn {
     margin-right: 5px;
+}
+
+.drag-photos {
+    font-size: 18px;
+    color: #bababa;
 }
 
 /**********************
@@ -1827,10 +1837,14 @@ hr {
     border-top-color: #bababa !important;
 }
 
-h5 {
-    font-weight: bold;
+label {
+    margin-bottom: 0px;
+    margin-right: 5px;
 }
 
+/**********************
+ Font Styles
+***********************/
 .sniff-profile-menu {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 18px;
@@ -1838,6 +1852,20 @@ h5 {
 }
 
 .sniff-head {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px;
+    color: #3a3a3a;
+    font-weight: normal;
+}
+
+.label-subhead {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 20px;
+    color: #3a3a3a;
+    font-weight: normal;
+}
+
+h3 {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 22px;
     color: #3a3a3a;
@@ -1849,11 +1877,32 @@ h5 {
     color: #217ac8;
 }
 
+h4 {
+    font-family: arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #3a3a3a;
+}
+
 .sniff-subhead {
     font-family: arial, sans-serif;
     font-weight: 700;
     font-size: 14px;
     color: #3a3a3a;
+}
+
+.form-control {
+    font-size: 12px !important;
+    font-family: arial, sans-serif;
+}
+
+input {
+    margin-top: 5px;
+}
+
+textarea {
+    font-size: 12px !important;
+    font-family: arial, sans-serif;
 }
 
 .right {
@@ -1888,16 +1937,12 @@ h5 {
 }
 
 .textMuted {
-    font-size: .9em;
+    font-size: 12px;
     color: #bababa;
 }
 
 .maxSymb {
     font-size: .9em;
-}
-
-.label-subhead {
-    margin-right: 15px;
 }
 
 .custom-col {

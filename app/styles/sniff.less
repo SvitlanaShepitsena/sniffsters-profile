@@ -74,10 +74,14 @@ hr {
   border-top-color: @colorFontDimmedL !important;
 }
 
-h5 {
-  font-weight: bold;
+label {
+  margin-bottom: 0px;
+  margin-right: 5px;
 }
 
+/**********************
+ Font Styles
+***********************/
 .sniff-profile-menu {
   font-family: @font-sniff;
   font-size: 18px;
@@ -85,6 +89,20 @@ h5 {
 }
 
 .sniff-head {
+  font-family: @font-sniff;
+  font-size: 22px;
+  color: @color-subhead;
+  font-weight: normal;
+}
+
+.label-subhead {
+  font-family: @font-sniff;
+  font-size: 20px;
+  color: @color-subhead;
+  font-weight: normal;
+}
+
+h3 {
   font-family: @font-sniff;
   font-size: 22px;
   color: @color-subhead;
@@ -96,8 +114,26 @@ h5 {
   color: @color-head;
 }
 
+h4 {
+  .subheader-style();
+}
+
 .sniff-subhead {
   .subheader-style();
+}
+
+.form-control {
+  font-size: 12px !important;
+  font-family: arial, sans-serif;
+}
+
+input {
+  margin-top: 5px;
+}
+
+textarea {
+  font-size: 12px !important;
+  font-family: arial, sans-serif;
 }
 
 .right {
@@ -149,16 +185,12 @@ h5 {
 }
 
 .textMuted {
-  font-size: .9em;
+  font-size: 12px;
   color: @colorFontDimmedL;
 }
 
 .maxSymb {
   font-size: .9em;
-}
-
-.label-subhead {
-  margin-right: 15px;
 }
 
 .custom-col {

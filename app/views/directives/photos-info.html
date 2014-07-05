@@ -1,52 +1,43 @@
 <div panel panel-info>
-	<form name="form" novalidate>
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="form-group">
-					<label>Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
+	<form name="form" novalidate class="form-upload-photos">
+		<div class="form-group">
+			<label class="sniff-subhead">Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
 					<span ng-show="form.galleryTitle.$error.maxlength"
-					      class="text text-danger pull-right  maxsymb">Max 250 symbols!
+					      class="text text-danger pull-right maxsymb">Max 250 symbols!
 					</span>
+			<input type="text"
+			       placeholder="Gallery Title"
+			       name="galleryTitle"
+			       class="form-control text-placeholder"
+			       ng-class="{inputEmpty:!newGallery.Title}"
+			       ng-maxlength="250"
+			       ng-model="newGallery.Title" required>
 
-					<div class="row">
-						<div class="col-xs-12">
-							<input type="text"
-							       placeholder="Gallery Title"
-							       name="galleryTitle"
-							       class="form-control"
-							       ng-class="{inputEmpty:!newGallery.Title}"
-							       ng-maxlength="250"
-							       ng-model="newGallery.Title" required>
-						</div>
-					</div>
-					<div class="row">
-						<ul class="list-unstyled ">
-							<li class="col-xs-4" ng-repeat="p in newGallery.Photos">
-								<div class="thumbnail">
-									<button class="btn pull-right btn-del-pic" data-toggle="tooltip"
-									        data-placement="left"
-									        title="Delete this picture" ng-click="delete(p,$index)"><i
-											class="fa fa-trash-o"></i>
-									</button>
-									<img class="puppyPic img-responsive"
-									     ng-src="{{('imgdir/'+userName+'/'+newGallery.Id+'/'+p.FilePath) | spacesToDashes}}">
+			<div class="row">
+				<ul class="list-unstyled ">
+					<li class="col-xs-4" ng-repeat="p in newGallery.Photos">
+						<div class="thumbnail">
+							<button class="btn pull-right btn-del-pic" data-toggle="tooltip"
+							        data-placement="left"
+							        title="Delete this picture" ng-click="delete(p,$index)"><i
+									class="fa fa-trash-o"></i>
+							</button>
+							<img class="puppyPic img-responsive"
+							     ng-src="{{('imgdir/'+userName+'/'+newGallery.Id+'/'+p.FilePath) | spacesToDashes}}">
 
-									<div class="row">
-										<div class="col-xs-12">
-											<input type="text" class="form-control" ng-model="p.Caption">
-										</div>
-									</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<input type="text" class="form-control" ng-model="p.Caption">
 								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
+							</div>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</div>
-		<div>
-			<b>Uploaded photos({{pnumbers}})</b><span>Optional</span>
-		</div>
-		<div class="text-muted">Photo 3MB max JPG, PNG, GIF</div>
+
+
+		<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
 
 		<div class="panel panel-default panel-file-upload">
 			<div class="text-center dropFilesHere"
@@ -55,12 +46,9 @@
 			     ng-file-drag-over-class="optional-css-class"
 			     ng-show="dropSupported">
 				<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="" ng-disabled="!newGallery.Title">
-
-				<p>
-					Drag photos here
-				</p>
+				<h5 class="drag-photos"> drag photos here </h5>
 			</div>
-			<h4 class="text-center">or</h4>
+			<h5 class="text-center drag-photos">or</h5>
 
 			<div class="text-center">
 				<div ng-file-drop-available="dropSupported=true"
