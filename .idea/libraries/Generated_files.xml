@@ -2,26 +2,19 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/BreederDetails.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/services/CopyProfileService.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/filters/BoolString.js" />
-        <item url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/photosInfo.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfo.js" />
-        <item url="file://$PROJECT_DIR$/test/spec/controllers/PhotosCtrlSpec.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfo.js" />
-        <item url="file://$PROJECT_DIR$/test/spec/controllers/TestimonialsCtrlSpec.js" />
-        <item url="file://$PROJECT_DIR$/test/spec/controllers/DetailsEditCtrlSpec.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/models/IBreederProfile.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfoEdit.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfoEdit.js" />
-        <item url="file://$PROJECT_DIR$/test/spec/controllers/PhotosEditCtrlSpec.js" />
-        <item url="file://$PROJECT_DIR$/app/scripts/models/IFeedback.js" />
         <item url="file://$PROJECT_DIR$/app/scripts/app.js" />
-        <item url="file://$PROJECT_DIR$/test/spec/controllers/EditCtrlSpec.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/filters/BoolString.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfoEdit.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/photosInfo.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfoEdit.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/BreederDetails.js" />
+        <item url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfo.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -144,28 +137,28 @@
       <root url="file://$PROJECT_DIR$/test/spec/controllers/PuppiesEditCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/directives/profileButtons.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/TestimonialsEditCtrlSpec.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/BreederDetails.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/services/CopyProfileService.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosCtrl.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/filters/BoolString.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/IndexCtrlSpec.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/controllers/TestimonialsCtrl.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/photosInfo.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfo.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PuppiesCtrl.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/PhotosCtrlSpec.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfo.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/TestimonialsCtrlSpec.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/models/IBreederProfile.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/DetailsEditCtrlSpec.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfoEdit.js" />
-      <root url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfoEdit.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/models/IFeedback.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/PhotosEditCtrlSpec.js" />
       <root url="file://$PROJECT_DIR$/test/spec/controllers/EditCtrlSpec.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PhotosCtrl.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/services/CopyProfileService.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/TestimonialsCtrl.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/IndexCtrl.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/controllers/PuppiesCtrl.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfo.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/models/IBreederProfile.js" />
       <root url="file://$PROJECT_DIR$/app/scripts/app.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/services/DataService.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/filters/BoolString.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/aboutInfoEdit.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/photosInfo.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfoEdit.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/BreederDetails.js" />
+      <root url="file://$PROJECT_DIR$/app/scripts/directives/detailsInfo.js" />
     </CLASSES>
     <SOURCES />
   </library>

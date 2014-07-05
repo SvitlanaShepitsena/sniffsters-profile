@@ -1,5 +1,4 @@
 interface IBreederProfile {
-    Id:string;
     FirstName:string;
     LastName:string;
     Location:string;
@@ -41,15 +40,16 @@ interface IPhoto {
     FilePath:string;
 }
 
-class Photo implements IPhoto{
+class Photo implements IPhoto {
     Id:number;
     Caption:string;
     FilePath:string;
-constructor(){
-    this.Id=1;
-    this.Caption="My Dogs";
-    this.FilePath="Picture1.jpg";
-}
+
+    constructor() {
+        this.Id = 1;
+        this.Caption = "My Dogs";
+        this.FilePath = "Picture1.jpg";
+    }
 }
 interface IGallery {
     Id:number;
@@ -113,9 +113,9 @@ class Litter implements ILitter {
     Photos:IPhoto[];
 
     constructor() {
-     this.Id = 1;
+        this.Id = 1;
         this.Title = "Best Litter";
-        this.DateOfBirth= "05.01.2014";
+        this.DateOfBirth = "05.01.2014";
         this.Puppies = "My Best Puppies";
         this.Colors = "Black & WHite";
 
