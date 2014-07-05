@@ -96,10 +96,10 @@
 .slide-left.ng-enter {
     z-index: 100;
     left: 100%;
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
-    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.9s ease-in-out;
+    -moz-transition: 0.9s ease-in-out;
+    -o-transition: 0.9s ease-in-out;
+    transition: 0.9s ease-in-out;
     position: absolute;
     width: 100%;
 }
@@ -112,10 +112,10 @@
 .slide-left.ng-leave {
     z-index: 101;
     left: 0;
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
-    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.9s ease-in-out;
+    -moz-transition: 0.9s ease-in-out;
+    -o-transition: 0.9s ease-in-out;
+    transition: 0.9s ease-in-out;
     position: absolute;
     width: 100%;
 }
@@ -127,10 +127,10 @@
 .slide-right.ng-enter {
     z-index: 100;
     left: -100%;
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
-    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.9s ease-in-out;
+    -moz-transition: 0.9s ease-in-out;
+    -o-transition: 0.9s ease-in-out;
+    transition: 0.9s ease-in-out;
     position: absolute;
     width: 100%;
 }
@@ -142,10 +142,10 @@
 .slide-right.ng-leave {
     z-index: 101;
     left: 0;
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
-    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.9s ease-in-out;
+    -moz-transition: 0.9s ease-in-out;
+    -o-transition: 0.9s ease-in-out;
+    transition: 0.9s ease-in-out;
     position: absolute;
     width: 100%;
 }
@@ -1607,6 +1607,10 @@
     margin-bottom: 30px;
 }
 
+.myDetailsContWrapper span {
+    font-size: 12px;
+}
+
 .myDetailsContWrapper .form-group {
     margin-left: 0px;
     margin-bottom: 5px;
@@ -1665,6 +1669,10 @@
 }
 
 .labelMyDetails {
+    font-family: arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #3a3a3a;
     margin-right: 5px;
 }
 
@@ -1756,21 +1764,25 @@
 /*************************
   BOOTSTRAP CUSTOM STYLES
 **************************/
+body {
+    background: url("../img/grass_texture.png") repeat;
+    font-family: arial, sans-serif !important;
+    font-size: 12pt !important;
+    color: #3a3a3a;
+}
+
 .container {
     width: 1200px !important;
 }
 
 .main-content {
+    min-height: 1100px;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
 .body-content {
-    background-color: floralwhite;
-}
-
-body {
-    background: url("../img/grass_texture.png") repeat;
+    background-color: white;
 }
 
 .btn-primary {
@@ -1797,11 +1809,18 @@ body {
 }
 
 .container .jumbo-custom {
-    min-height: 1000px;
-    background-color: #f6f6f6 !important;
+    min-height: 900px;
+    background-color: white !important;
     border: 1px #ebebeb solid !important;
     padding: 20px;
     margin-top: 20px;
+    overflow: hidden;
+}
+
+.jumbotron p {
+    font-family: arial, sans-serif !important;
+    font-size: 12px !important;
+    color: #3a3a3a !important;
 }
 
 hr {
@@ -1812,12 +1831,33 @@ h5 {
     font-weight: bold;
 }
 
-.right {
-    text-align: right;
+.sniff-profile-menu {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 18px;
+    color: #3a3a3a;
 }
 
-.italic {
-    font-style: italic;
+.sniff-head {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px;
+    color: #3a3a3a;
+}
+
+.sniff-head-info {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px;
+    color: #217ac8;
+}
+
+.sniff-subhead {
+    font-family: arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #3a3a3a;
+}
+
+.right {
+    text-align: right;
 }
 
 .fa-fw {
@@ -1835,6 +1875,10 @@ h5 {
 /**********************
      Profile Form
 ***********************/
+.myContWrapper {
+    overflow: hidden;
+}
+
 .profileSideMenu {
     padding-top: 25px;
 }
@@ -1867,26 +1911,20 @@ h5 {
     margin-bottom: 5px;
 }
 
-.jumbotron p {
-    font-size: 14px;
-}
-
 /**********************
  search bar
 ***********************/
 .search-bar {
     padding: 25px;
-    background-color: slategray;
 }
 
 .search-bar-content {
-    background-color: slategray;
+    background-color: #3d3d3b;
 }
 
 .quick-search {
-    font-weight: bold;
-    font-style: italic;
-    font-size: 18px;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px;
     color: whitesmoke;
     margin-left: 10px;
     margin-right: 10px;
@@ -1900,7 +1938,7 @@ h5 {
 }
 
 .navbar-sniff-content {
-    background-color: floralwhite;
+    background-color: white;
 }
 
 .navbar-sniff {
@@ -1917,9 +1955,27 @@ h5 {
     margin-right: 10px;
 }
 
-.btn-search-drop {
+.quick-search-toggle {
+    border-color: #a9a7a7;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b6b5b5), to(#8a8888));
+}
+
+.btn-search-drop,
+.btn-search-drop:hover,
+.btn-search-drop:active,
+.btn-search-drop:focus {
+    font-family: arial, sans-serif;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b6b5b5), to(#8a8888));
+    border-color: #a9a7a7;
+    color: whitesmoke;
+    font-style: 14px;
+    font-weight: 700;
     width: 250px;
     text-align: left;
+}
+
+.search-dropdown {
+    width: 250px !important;
 }
 
 /**********************

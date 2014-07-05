@@ -14,22 +14,23 @@
 /*************************
   BOOTSTRAP CUSTOM STYLES
 **************************/
+body {
+  background: url("../img/grass_texture.png") repeat;
+  .body-style();
+}
 
 .container {
   width: 1200px !important;
 }
 
 .main-content {
+  min-height: 1100px;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
 .body-content {
-  background-color: floralwhite;
-}
-
-body {
-  background: url("../img/grass_texture.png") repeat;
+  background-color: white;
 }
 
 .btn-primary {
@@ -52,11 +53,21 @@ body {
 }
 
 .container .jumbo-custom {
-  min-height: 1000px;
-  background-color: #f6f6f6 !important;
+  min-height: 900px;
+  background-color: white !important;
   border: 1px #ebebeb solid !important;
   padding: 20px;
   margin-top: 20px;
+  overflow: hidden;
+}
+
+.jumbotron {
+
+  p {
+    font-family: arial, sans-serif !important;
+    font-size: 12px !important;
+    color: @color-subhead !important;
+  }
 }
 
 hr {
@@ -67,12 +78,33 @@ h5 {
   font-weight: bold;
 }
 
+.sniff-profile-menu {
+  font-family: @font-sniff;
+  font-size: 18px;
+  color: #3a3a3a;
+}
+
+.sniff-head {
+  font-family: @font-sniff;
+  font-size: 22px;
+  color: @color-subhead;
+}
+
+.sniff-head-info {
+  font-family: @font-sniff;
+  font-size: 22px;
+  color: @color-head;
+}
+
+.sniff-subhead {
+  .subheader-style();
+}
+
 .right {
   text-align: right;
 }
 
 .italic {
-  font-style: italic;
 }
 
 .fa-fw {
@@ -100,6 +132,7 @@ h5 {
 }
 
 .myContWrapper {
+  overflow: hidden;
   //  margin-top: 20px;
 }
 
@@ -139,25 +172,20 @@ h5 {
   margin-bottom: 5px;
 }
 
-.jumbotron p {
-  font-size: 14px;
-}
-
 /**********************
  search bar
 ***********************/
 .search-bar {
   padding: 25px;
-  background-color: slategray;
 }
 
 .search-bar-content {
-  background-color: slategray;
+  background-color: #3d3d3b;
 }
 
 .quick-search {
-  .h-sniffsters();
-  font-size: 18px;
+  font-family: @font-sniff;
+  font-size: 22px;
   color: whitesmoke;
   margin-left: 10px;
   margin-right: 10px;
@@ -171,7 +199,7 @@ h5 {
 }
 
 .navbar-sniff-content {
-  background-color: floralwhite;
+  background-color: white;
 }
 
 .navbar-sniff {
@@ -188,9 +216,24 @@ h5 {
   margin-right: 10px;
 }
 
-.btn-search-drop {
+.quick-search-toggle {
+  border-color: #a9a7a7;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b6b5b5), to(#8a8888));
+}
+
+.btn-search-drop, .btn-search-drop:hover, .btn-search-drop:active, .btn-search-drop:focus {
+  font-family: arial, sans-serif;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b6b5b5), to(#8a8888));
+  border-color: #a9a7a7;
+  color: whitesmoke;
+  font-style: 14px;
+  font-weight: 700;
   width: 250px;
   text-align: left;
+}
+
+.search-dropdown {
+  width: 250px !important;
 }
 
 /**********************
