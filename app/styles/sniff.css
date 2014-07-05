@@ -1827,10 +1827,9 @@ hr {
     border-top-color: #bababa !important;
 }
 
-h5 {
-    font-weight: bold;
-}
-
+/**********************
+ Font Styles
+***********************/
 .sniff-profile-menu {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 18px;
@@ -1838,6 +1837,20 @@ h5 {
 }
 
 .sniff-head {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px;
+    color: #3a3a3a;
+    font-weight: normal;
+}
+
+.label-subhead {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 20px;
+    color: #3a3a3a;
+    font-weight: normal;
+}
+
+h3 {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 22px;
     color: #3a3a3a;
@@ -1849,7 +1862,7 @@ h5 {
     color: #217ac8;
 }
 
-.sniff-subhead {
+h4 {
     font-family: arial, sans-serif;
     font-weight: 700;
     font-size: 14px;
@@ -1894,10 +1907,6 @@ h5 {
 
 .maxSymb {
     font-size: .9em;
-}
-
-.label-subhead {
-    margin-right: 15px;
 }
 
 .custom-col {
