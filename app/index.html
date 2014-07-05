@@ -18,6 +18,9 @@
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="bower_components/toastr/toastr.min.css">
 	<link rel="stylesheet" href="styles/sniff.css">
+	<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://help.typekit.com/customer/portal/articles/6780-adding-fonts-to-your-site">
+
 
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
@@ -87,12 +90,13 @@
 
 				<div class="btn-group btn-group-fetch">
 					<button type="button" class="btn btn-default btn-search-drop">Breed</button>
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
+					<button type="button" class="btn btn-default dropdown-toggle quick-search-toggle"
+					        data-toggle="dropdown">
+					<span class="caret"></span>
 						<span class="sr-only">Toggle Dropdown</span>
 					</button>
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">Action</a></li>
+					<ul class="dropdown-menu search-dropdown" role="menu">
+					<li><a href="#">Action</a></li>
 						<li><a href="#">Another action</a></li>
 						<li><a href="#">Something else here</a></li>
 						<li class="divider"></li>
@@ -104,8 +108,9 @@
 				<div class="btn-group btn-group-fetch">
 
 					<button type="button" class="btn btn-default btn-search-drop">Location</button>
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
+					<button type="button" class="btn btn-default dropdown-toggle quick-search-toggle"
+					        data-toggle="dropdown">
+					<span class="caret"></span>
 						<span class="sr-only">Toggle Dropdown</span>
 					</button>
 					<ul class="dropdown-menu" role="menu">
@@ -136,13 +141,9 @@
 					</ul>
 
 				</div>
-
-
 				<div class="col-xs-10">
-
 					<div ng-controller="IndexCtrl as index" ui-view>
 					</div>
-
 					<!--<div ng-show="index.error" class="panel panel-default">Error in Database request. Check-->
 					<!--Internet Connection-->
 					<!--</div>-->
