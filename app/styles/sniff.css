@@ -1827,6 +1827,11 @@ hr {
     border-top-color: #bababa !important;
 }
 
+label {
+    margin-bottom: 0px;
+    margin-right: 5px;
+}
+
 /**********************
  Font Styles
 ***********************/
@@ -1869,6 +1874,23 @@ h4 {
     color: #3a3a3a;
 }
 
+.sniff-subhead {
+    font-family: arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #3a3a3a;
+}
+
+.form-control {
+    font-size: 12px !important;
+    font-family: arial, sans-serif;
+}
+
+textarea {
+    font-size: 12px !important;
+    font-family: arial, sans-serif;
+}
+
 .right {
     text-align: right;
 }
@@ -1901,7 +1923,7 @@ h4 {
 }
 
 .textMuted {
-    font-size: .9em;
+    font-size: 12px;
     color: #bababa;
 }
 
