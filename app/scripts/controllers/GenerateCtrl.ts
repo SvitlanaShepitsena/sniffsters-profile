@@ -6,7 +6,7 @@ interface IGenerateScope extends IMainScope {
 }
 class GenerateCtrl {
 
-    constructor(public $scope:IGenerateScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope:IGenerateScope, $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.generate = this;
 
     }
