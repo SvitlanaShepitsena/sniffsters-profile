@@ -24,6 +24,7 @@
 /// <reference path="directives/litterInfo.ts" />
 /// <reference path="directives/feedbackEdit.ts" />
 /// <reference path="controllers/GenerateCtrl.ts" />
+/// <reference path="controllers/HomeCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -78,6 +79,7 @@ profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
 profile.controller("TestimonialsCtrl", TestimonialsCtrl);
 profile.controller("GenerateCtrl", GenerateCtrl);
+profile.controller("HomeCtrl", HomeCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -155,6 +157,11 @@ profile.config(
                 url: "/generate",
                 controller: "GenerateCtrl",
                 templateUrl: "../views/generate.html"
+            })
+            .state("home", {
+                url: "/",
+                controller: "HomeCtrl",
+                templateUrl: "../views/index.html"
             })
 //#state
     });
