@@ -12,7 +12,7 @@ var PuppiesCtrl = (function () {
 
         this.LittersNew = [];
         $scope.puppies = this;
-        DataService.getLitters().then(function (litters) {
+        DataService.getLitters($scope.index.IdFire).then(function (litters) {
             _this.Litters = litters;
         });
 
@@ -29,6 +29,7 @@ var PuppiesCtrl = (function () {
             }
         }, true);
     }
+
     PuppiesCtrl.prototype.setSelectedLitter = function (litterId) {
         var litid = 0;
         var index = 0;

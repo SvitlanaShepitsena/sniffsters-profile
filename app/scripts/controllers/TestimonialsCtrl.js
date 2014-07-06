@@ -11,7 +11,7 @@ var TestimonialsCtrl = (function () {
         $scope.isOk = false;
         this.FeedbacksNew = [];
         $scope.testimonials = this;
-        DataService.getFeedbacks().then(function (feedbacks) {
+        DataService.getFeedbacks($scope.index.IdFire).then(function (feedbacks) {
             _this.Feedbacks = feedbacks;
         });
 
@@ -27,6 +27,7 @@ var TestimonialsCtrl = (function () {
             }
         }, true);
     }
+
     TestimonialsCtrl.prototype.addNewTestimonial = function () {
         this.FeedbacksNew.unshift(new Feedback());
     };

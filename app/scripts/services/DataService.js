@@ -1,8 +1,9 @@
 var DataService = (function () {
-    function DataService($http, $q, $firebase) {
+    function DataService($http, $q, $firebase, underscore) {
         this.$http = $http;
         this.$q = $q;
         this.$firebase = $firebase;
+        this.underscore = underscore;
     }
 
     DataService.prototype.getProfile = function (id) {
@@ -45,23 +46,24 @@ var DataService = (function () {
     DataService.prototype.getLitters = function (userName) {
         var d = this.$q.defer();
 
-        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/litters"));
+        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/litters"));
 
         fireLitters.$on('value', function (snapshot) {
-            var galleries = snapshot.snapshot.value;
-            d.resolve(galleries);
+            var litters = snapshot.snapshot.value;
+            d.resolve(litters);
         });
         return d.promise;
     };
 
-    DataService.prototype.getFeedbacks = function () {
+    DataService.prototype.getFeedbacks = function (userName) {
         var d = this.$q.defer();
 
-        var feedbacks = [];
-        feedbacks.push(new Feedback());
+        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/feedbacks"));
 
-        d.resolve(feedbacks);
-
+        fireLitters.$on('value', function (snapshot) {
+            var feedbacks = snapshot.snapshot.value;
+            d.resolve(feedbacks);
+        });
         return d.promise;
     };
 
@@ -76,16 +78,10 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.saveNewLitters = function (litters) {
+    DataService.prototype.saveNewLitters = function (userName, litters) {
         var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/SaveNewLitters', {
-            litters: litters
-        }).success(function () {
-            d.resolve();
-        }).error(function () {
-            d.reject();
-        });
+        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/litters"));
+        var keys = fireLitters.$getIndex();
         return d.promise;
     };
 

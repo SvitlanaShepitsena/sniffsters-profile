@@ -1,7 +1,7 @@
 class DataService {
     fb:AngularFire;
 
-    constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase) {
+    constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase, public underscore) {
 
     }
 
@@ -50,7 +50,7 @@ class DataService {
     getLitters(userName:string) {
         var d = this.$q.defer();
 
-        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/litters"));
+        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/litters"));
 
         fireLitters.$on('value', (snapshot:any)=> {
             var litters = snapshot.snapshot.value;
@@ -63,7 +63,7 @@ class DataService {
 
         var d = this.$q.defer();
 
-        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/feedbacks"));
+        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/feedbacks"));
 
         fireLitters.$on('value', (snapshot:any)=> {
             var feedbacks = snapshot.snapshot.value;

@@ -13,10 +13,11 @@ class TestimonialsCtrl {
         $scope.isOk = false;
         this.FeedbacksNew = [];
         $scope.testimonials = this;
-        DataService.getFeedbacks().then((feedbacks:IFeedback[])=> {
+        DataService.getFeedbacks($scope.index.IdFire).then((feedbacks:IFeedback[])=> {
 
         this.Feedbacks = feedbacks;
-       })
+
+        })
 
         $scope.$watch("testimonials.FeedbacksNew", () => {
             for (var i = 0; i < this.FeedbacksNew.length; i++) {
