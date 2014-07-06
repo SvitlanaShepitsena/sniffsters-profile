@@ -1,3 +1,4 @@
+
 var photoGalleryEdit = function () {
     return {
         restrict: 'E',

@@ -17,6 +17,7 @@
 body {
   background: url("../img/grass_texture.png") repeat;
   .body-style();
+  color: @color-subhead;
 }
 
 .container {
@@ -25,7 +26,6 @@ body {
 
 .main-content {
   min-height: 1100px;
-  padding-top: 15px;
   padding-bottom: 15px;
 }
 
@@ -34,6 +34,7 @@ body {
 }
 
 .btn-primary {
+  font-weight: 700 !important;
   .gradient(#2279c1, #2279c1, #498cc6);
   //  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#498cc6), to(#2779c1));
 
@@ -46,6 +47,15 @@ body {
     background-color: #4b95d6 !important;
     border-color: #4389cf !important;
   }
+  &:focus {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+  }
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  background-color: #4b95d6 !important;
+  border-color: #4389cf !important;
 }
 
 .cursor-p {
@@ -69,7 +79,6 @@ body {
   overflow: hidden;
 }
 
-
 hr {
   border-top-color: @colorFontDimmedL !important;
 }
@@ -85,7 +94,7 @@ label {
 .sniff-menu {
   font-family: @font-sniff;
   font-size: 18px;
-  color: #3a3a3a !important;
+  color: @color-subhead !important;
   &:hover {
     color: @color-info !important;
   }
@@ -97,10 +106,10 @@ label {
   }
 }
 
-.sniff-profile-menu, {
+.sniff-profile-menu {
   font-family: @font-sniff;
   font-size: 18px;
-  color: #3a3a3a;
+  color: @color-subhead;
 }
 
 .hello-user {
@@ -111,27 +120,28 @@ label {
 .sniff-head {
   font-family: @font-sniff;
   font-size: 22px;
-  color: @color-subhead;
+  color: @color-subhead !important;
   font-weight: normal;
 }
 
 .sniff-head-sm {
   font-family: @font-sniff;
   font-size: 18px;
-  color: @color-subhead;
+  color: @color-subhead !important;
   font-weight: normal;
 }
 
 h3 {
   font-family: @font-sniff;
   font-size: 22px;
-  color: @color-subhead;
+  color: @color-subhead !important;
 }
 
 .sniff-head-info {
   font-family: @font-sniff;
+  font-weight: normal !important;
   font-size: 22px;
-  color: @color-info;
+  color: @color-info !important;
 }
 
 h4 {
@@ -177,6 +187,15 @@ textarea {
 }
 
 /**********************
+ user profile
+***********************/
+.nav-profile-wrapper {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: @colorLightShadow;
+}
+
+/**********************
      Profile Form
 ***********************/
 
@@ -184,16 +203,8 @@ textarea {
   //  margin-top: 20px;
 }
 
-.navProfileWrapper {
-  //  margin-top: 20px;
-}
-
 .myContWrapper {
   overflow: hidden;
-  //  margin-top: 20px;
-}
-
-.navProfileWrapper {
   //  margin-top: 20px;
 }
 
@@ -271,12 +282,13 @@ textarea {
 
 .quick-search-toggle {
   border-color: #a9a7a7;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b6b5b5), to(#8a8888));
+  .gradient(#b6b5b5, #8a8888, #b6b5b5);
 }
 
 .btn-search-drop, .btn-search-drop:hover, .btn-search-drop:active, .btn-search-drop:focus {
   font-family: arial, sans-serif;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b6b5b5), to(#8a8888));
+
+  .gradient(#b6b5b5, #8a8888, #b6b5b5);
   border-color: #a9a7a7;
   color: whitesmoke;
   font-style: 14px;
@@ -289,17 +301,43 @@ textarea {
   width: 250px !important;
 }
 
+.caret {
+  color: whitesmoke;
+}
+
+.btn-default {
+  font-weight: 700 !important;
+  border-color: #a9a7a7;
+  .gradient(#b6b5b5, #8a8888, #b6b5b5);
+  color: whitesmoke;
+  font-weight: 600;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+  .gradient(#b6b5b5, #a7a6a6, #b6b5b5);
+}
+
 /**********************
  footer
 ***********************/
 .footer-content {
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   .nav > li > a {
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
   }
 }
 
 .footer-container {
-  background-color: #c0c0c0;
+  background-color: #3d3d3b;
+  color: whitesmoke;
+  font-size: 14px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  a {
+    color: whitesmoke;
+  }
+  .nav > li > a:hover, .nav > li > a:focus {
+    color: @color-subhead;
+  }
 }

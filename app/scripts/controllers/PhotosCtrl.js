@@ -31,7 +31,6 @@ var PhotosCtrl = (function () {
             _this.Galleries = galleries;
         });
     }
-
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var _this = this;
         var index = 0;

@@ -24,6 +24,14 @@
 /// <reference path="directives/litterInfo.ts" />
 /// <reference path="directives/feedbackEdit.ts" />
 /// <reference path="controllers/GenerateCtrl.ts" />
+/// <reference path="controllers/HomeCtrl.ts" />
+/// <reference path="controllers/AboutCtrl.ts" />
+/// <reference path="controllers/BreedersCtrl.ts" />
+/// <reference path="controllers/DogsCtrl.ts" />
+/// <reference path="controllers/ExploreCtrl.ts" />
+/// <reference path="controllers/AdvertiseCtrl.ts" />
+/// <reference path="controllers/TermsCtrl.ts" />
+/// <reference path="controllers/ContactCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -78,6 +86,14 @@ profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
 profile.controller("TestimonialsCtrl", TestimonialsCtrl);
 profile.controller("GenerateCtrl", GenerateCtrl);
+profile.controller("HomeCtrl", HomeCtrl);
+profile.controller("AboutCtrl", AboutCtrl);
+profile.controller("BreedersCtrl", BreedersCtrl);
+profile.controller("DogsCtrl", DogsCtrl);
+profile.controller("ExploreCtrl", ExploreCtrl);
+profile.controller("AdvertiseCtrl", AdvertiseCtrl);
+profile.controller("TermsCtrl", TermsCtrl);
+profile.controller("ContactCtrl", ContactCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -86,7 +102,7 @@ profile.service("DataService", DataService);
 
 profile.config(
     ($stateProvider, $urlRouterProvider) => {
-        $urlRouterProvider.otherwise("/profile/about");
+        $urlRouterProvider.otherwise("/");
 
         $stateProvider
             .state("profile", {
@@ -96,7 +112,7 @@ profile.config(
             })
             .state("profile.about1", {
                 url: "/about",
-                templateUrl: "../views/profile-about.html"
+                templateUrl: "../views/about.html"
             })
             .state("profile.about1.edit", {
                 url: "/edit",
@@ -155,6 +171,46 @@ profile.config(
                 url: "/generate",
                 controller: "GenerateCtrl",
                 templateUrl: "../views/generate.html"
+            })
+            .state("home", {
+                url: "/",
+                controller: "HomeCtrl",
+                templateUrl: "../views/home.html"
+            })
+            .state("about", {
+                url: "/about",
+                controller: "AboutCtrl",
+                templateUrl: "../views/about.html"
+            })
+            .state("breeders", {
+                url: "/breeders",
+                controller: "BreedersCtrl",
+                templateUrl: "../views/breeders.html"
+            })
+            .state("dogs", {
+                url: "/dogs",
+                controller: "DogsCtrl",
+                templateUrl: "../views/dogs.html"
+            })
+            .state("explore", {
+                url: "/explore",
+                controller: "ExploreCtrl",
+                templateUrl: "../views/explore.html"
+            })
+            .state("advertise", {
+                url: "/advertise",
+                controller: "AdvertiseCtrl",
+                templateUrl: "../views/advertise.html"
+            })
+            .state("terms", {
+                url: "/terms",
+                controller: "TermsCtrl",
+                templateUrl: "../views/terms.html"
+            })
+            .state("contact", {
+                url: "/contact",
+                controller: "ContactCtrl",
+                templateUrl: "../views/contact.html"
             })
 //#state
     });

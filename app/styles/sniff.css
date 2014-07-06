@@ -1638,7 +1638,7 @@
     background-color: #faf9ee;
     border-color: #FFFFFF;
     color: #6e6e6e;
-    box-shadow: 0px -3px 5px #cccaca;
+    box-shadow: 0px -3px 5px #eae7e7;
 }
 
 .myDetailsFont {
@@ -1762,12 +1762,12 @@
 /**********************
         PUPPIES
 ***********************/
-.jumbotron .textLitter p {
+.jumbotron .text-litter p {
     line-height: .7em;
     font-size: 12px;
 }
 
-.litterWrapper {
+.litter-wrapper {
     margin: 15px;
 }
 
@@ -1787,7 +1787,6 @@ body {
 
 .main-content {
     min-height: 1100px;
-    padding-top: 15px;
     padding-bottom: 15px;
 }
 
@@ -1796,6 +1795,7 @@ body {
 }
 
 .btn-primary {
+    font-weight: 700 !important;
     background: #2279c1;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2279c1), color-stop(1, #498cc6));
     background: -ms-linear-gradient(bottom, #2279c1, #498cc6);
@@ -1810,6 +1810,20 @@ body {
 }
 
 .btn-primary:active {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+}
+
+.btn-primary:focus {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
     background-color: #4b95d6 !important;
     border-color: #4389cf !important;
 }
@@ -1877,27 +1891,28 @@ label {
 .sniff-head {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 22px;
-    color: #3a3a3a;
+    color: #3a3a3a !important;
     font-weight: normal;
 }
 
 .sniff-head-sm {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 18px;
-    color: #3a3a3a;
+    color: #3a3a3a !important;
     font-weight: normal;
 }
 
 h3 {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 22px;
-    color: #3a3a3a;
+    color: #3a3a3a !important;
 }
 
 .sniff-head-info {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-weight: normal !important;
     font-size: 22px;
-    color: #217ac8;
+    color: #217ac8 !important;
 }
 
 h4 {
@@ -1943,6 +1958,15 @@ textarea {
 
 .no-l-pad {
     padding-left: 0px;
+}
+
+/**********************
+ user profile
+***********************/
+.nav-profile-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eae7e7;
 }
 
 /**********************
@@ -2026,7 +2050,12 @@ textarea {
 
 .quick-search-toggle {
     border-color: #a9a7a7;
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b6b5b5), to(#8a8888));
+    background: #b6b5b5;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #8a8888), color-stop(1, #b6b5b5));
+    background: -ms-linear-gradient(bottom, #8a8888, #b6b5b5);
+    background: -moz-linear-gradient(center bottom, #8a8888 0%, #b6b5b5 100%);
+    background: -o-linear-gradient(#b6b5b5, #8a8888);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#8a8888', GradientType=0);
 }
 
 .btn-search-drop,
@@ -2034,7 +2063,12 @@ textarea {
 .btn-search-drop:active,
 .btn-search-drop:focus {
     font-family: arial, sans-serif;
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b6b5b5), to(#8a8888));
+    background: #b6b5b5;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #8a8888), color-stop(1, #b6b5b5));
+    background: -ms-linear-gradient(bottom, #8a8888, #b6b5b5);
+    background: -moz-linear-gradient(center bottom, #8a8888 0%, #b6b5b5 100%);
+    background: -o-linear-gradient(#b6b5b5, #8a8888);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#8a8888', GradientType=0);
     border-color: #a9a7a7;
     color: whitesmoke;
     font-style: 14px;
@@ -2047,18 +2081,61 @@ textarea {
     width: 250px !important;
 }
 
+.caret {
+    color: whitesmoke;
+}
+
+.btn-default {
+    font-weight: 700 !important;
+    border-color: #a9a7a7;
+    background: #b6b5b5;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #8a8888), color-stop(1, #b6b5b5));
+    background: -ms-linear-gradient(bottom, #8a8888, #b6b5b5);
+    background: -moz-linear-gradient(center bottom, #8a8888 0%, #b6b5b5 100%);
+    background: -o-linear-gradient(#b6b5b5, #8a8888);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#8a8888', GradientType=0);
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+    background: #b6b5b5;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #a7a6a6), color-stop(1, #b6b5b5));
+    background: -ms-linear-gradient(bottom, #a7a6a6, #b6b5b5);
+    background: -moz-linear-gradient(center bottom, #a7a6a6 0%, #b6b5b5 100%);
+    background: -o-linear-gradient(#b6b5b5, #a7a6a6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#a7a6a6', GradientType=0);
+}
+
 /**********************
  footer
 ***********************/
 .footer-content {
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .footer-content .nav > li > a {
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .footer-container {
-    background-color: #c0c0c0;
+    background-color: #3d3d3b;
+    color: whitesmoke;
+    font-size: 14px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.footer-container a {
+    color: whitesmoke;
+}
+
+.footer-container .nav > li > a:hover,
+.footer-container .nav > li > a:focus {
+    color: #3a3a3a;
 }

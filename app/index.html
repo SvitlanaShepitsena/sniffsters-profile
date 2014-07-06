@@ -55,11 +55,11 @@
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li><a class="sniff-menu" href="/">HOME</a></li>
-				<li><a class="sniff-menu" href="/About-Sniffsters">ABOUT</a></li>
-				<li><a class="sniff-menu" href="/Breeders">BREEDERS</a></li>
-				<li><a class="sniff-menu" href="/Dogs-Puppies-Litters">DOGS</a></li>
-				<li><a class="sniff-menu" href="/Explore">EXPLORE</a></li>
+				<li><a class="sniff-menu" ui-sref="home">HOME</a></li>
+				<li><a class="sniff-menu" ui-sref="about">ABOUT</a></li>
+				<li><a class="sniff-menu" ui-sref="breeders">BREEDERS</a></li>
+				<li><a class="sniff-menu" ui-sref="dogs">DOGS</a></li>
+				<li><a class="sniff-menu" ui-sref="explore">EXPLORE</a></li>
 			</ul>
 
 
@@ -68,10 +68,10 @@
 				       value="koBKD8pqxTZehrwXkqoZWDeh73un6DPJuSSbequ4qkzqy61jWNrLNhvb6Q9j-rp4uFK24oEtPpx0rr553w63E-G9PaKT_uQ6GRBEZbKfvriMmUm1siNpjvoA_nB4j25Qn6zzl2a_X-2Sz2YIXF_NEQ2"/>
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a class="hello-user" href="/Breeder-Profile" id="loggedUser">Hello, breeder1@gmail.com!</a>
+						<a class="hello-user" ui-sref="profile.about1" id="loggedUser">Hello, breeder1@gmail.com!</a>
 					</li>
 					<li>
-						<a class="sniff-menu" href="/Breeder-Profile">MY PROFILE</a></li>
+						<a class="sniff-menu" ui-sref="profile.about1">MY PROFILE</a></li>
 					<li><a class="sniff-menu" href="javascript:document.getElementById('logoutForm').submit()">LOG
 						OUT</a></li>
 				</ul>
@@ -135,22 +135,14 @@
 <div class="container body-content">
 	<div class="main-content">
 		<div class="row">
-			<div>
-				<div class="col-xs-2">
-					<ul class="nav nav-stacked">
-						<li><a class="sniff-menu" href="/Breeder-Profile">My Profile</a></li>
-						<li><a class="sniff-menu" href="/Messages/Index">Messages</a></li>
-					</ul>
-
-				</div>
-				<div class="col-xs-10">
+				<div class="col-xs-12">
 					<div ng-controller="IndexCtrl as index" ui-view>
 					</div>
 					<!--<div ng-show="index.error" class="panel panel-default">Error in Database request. Check-->
 					<!--Internet Connection-->
 					<!--</div>-->
 				</div>
-			</div>
+
 		</div>
 	</div>
 </div>
@@ -170,6 +162,8 @@
 </div>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/toastr/toastr.js"></script>
 
@@ -226,6 +220,14 @@
 <script src="scripts/directives/litter.js"></script>
 <script src="scripts/directives/litterNew.js"></script>
 <script src="scripts/controllers/GenerateCtrl.js"></script>
+<script src="scripts/controllers/HomeCtrl.js"></script>
+<script src="scripts/controllers/AboutCtrl.js"></script>
+<script src="scripts/controllers/BreedersCtrl.js"></script>
+<script src="scripts/controllers/DogsCtrl.js"></script>
+<script src="scripts/controllers/ExploreCtrl.js"></script>
+<script src="scripts/controllers/AdvertiseCtrl.js"></script>
+<script src="scripts/controllers/TermsCtrl.js"></script>
+<script src="scripts/controllers/ContactCtrl.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>
@@ -235,4 +237,3 @@
 
 
 </body>
-</html>
