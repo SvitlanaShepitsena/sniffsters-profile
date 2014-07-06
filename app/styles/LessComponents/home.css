@@ -1,0 +1,74 @@
+/**********************
+       IMPORTS
+***********************/
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+/**********************
+       CONSTANTS
+***********************/
+/*********************************
+   OPERATIONS & COLOR FUNCTIONS
+**********************************/
+/**********************
+        MIXINS
+***********************/
+/**********************
+        STYLES
+***********************/
+.btn-looking {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px !important;
+    color: whitesmoke !important;
+    font-style: normal !important;
+}
+
+.btn-group-great {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.let {
+    font-weight: bold !important;
+    font-style: italic !important;
+    font-size: 13px !important;
+    margin-bottom: 5px !important;
+}
+
+.letTop {
+    margin-top: 20px !important;
+}
+
+.letTopHome {
+    margin-top: 90px !important;
+}
+
+.findOut {
+    font-weight: bold !important;
+    font-style: italic !important;
+    font-size: 13px !important;
+}
+
+.greatForm {
+    margin-top: 20px !important;
+}
+
+.welc-text {
+    font-size: 42px !important;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    text-align: center;
+}
+
+.welcomeCont {
+    margin-top: 110px !important;
+    min-width: 320px;
+    display: block;
+}
+
+.homeJumbo {
+    height: 435px !important;
+    padding-bottom: 30px !important;
+}

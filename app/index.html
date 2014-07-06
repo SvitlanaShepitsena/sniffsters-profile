@@ -6,7 +6,7 @@
 <!--[if IE 8]>
 <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<html ng-app="profile" class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -26,7 +26,7 @@
 
 	<!-- endbuild -->
 </head>
-<body ng-app="profile">
+<body ng-controller="HomeCtrl as home">
 
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
@@ -49,8 +49,8 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a ui-sref="generate">
-				<img src="img/Sniffsters-Log.png" alt="...">
+			<a ui-sref="home">
+			<img src="img/Sniffsters-Log.png" alt="...">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse">
@@ -81,8 +81,8 @@
 	</div>
 </div>
 
-<div class="search-bar-wrapper">
-	<div class="container search-bar-content">
+<div class="search-bar-wrapper" ng-hide="home.IsSearchHidden">
+<div class="container search-bar-content">
 		<div class="search-bar text-center">
 			<form action="/Breeders-Search-Result"
 			      class="form-inline search-bar-form"
@@ -136,7 +136,7 @@
 	<div class="main-content-wrapper">
 
 
-		<div ng-controller="IndexCtrl as index" ui-view>
+		<div ui-view>
 		</div>
 		<!--<div ng-show="index.error" class="panel panel-default">Error in Database request. Check-->
 		<!--Internet Connection-->
@@ -228,6 +228,8 @@
 <script src="scripts/controllers/AdvertiseCtrl.js"></script>
 <script src="scripts/controllers/TermsCtrl.js"></script>
 <script src="scripts/controllers/ContactCtrl.js"></script>
+<script src="scripts/controllers/LookingForDogCtrl.js"></script>
+<script src="scripts/controllers/ForBreedersCtrl.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>

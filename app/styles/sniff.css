@@ -17,6 +17,66 @@
         MIXINS
 ***********************/
 /**********************
+       IMPORTS
+***********************/
+/**********************
+        STYLES
+***********************/
+.btn-looking {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px !important;
+    color: whitesmoke !important;
+    font-style: normal !important;
+}
+
+.btn-group-great {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.let {
+    font-weight: bold !important;
+    font-style: italic !important;
+    font-size: 13px !important;
+    margin-bottom: 5px !important;
+}
+
+.letTop {
+    margin-top: 20px !important;
+}
+
+.letTopHome {
+    margin-top: 90px !important;
+}
+
+.findOut {
+    font-weight: bold !important;
+    font-style: italic !important;
+    font-size: 13px !important;
+}
+
+.greatForm {
+    margin-top: 20px !important;
+}
+
+.welc-text {
+    font-size: 42px !important;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    text-align: center;
+}
+
+.welcomeCont {
+    margin-top: 110px !important;
+    min-width: 320px;
+    display: block;
+}
+
+.homeJumbo {
+    height: 435px !important;
+    padding-bottom: 30px !important;
+}
+
+/**********************
         SHUFFLE
 ***********************/
 .shuffle-animation.ng-enter,
@@ -1782,7 +1842,7 @@ body {
 }
 
 .body-content {
-    background-color: white;
+    background-color: floralwhite;
 }
 
 .container {
@@ -1790,12 +1850,16 @@ body {
 }
 
 .main-content-wrapper {
-    min-height: 1100px;
+    min-height: 1400px;
     padding-bottom: 15px;
 }
 
+.sniff-content-wrapper {
+    padding-top: 15px;
+    font-size: 14px !important;
+}
+
 .btn-primary {
-    font-weight: 700 !important;
     background: #2279c1;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2279c1), color-stop(1, #498cc6));
     background: -ms-linear-gradient(bottom, #2279c1, #498cc6);
@@ -1897,9 +1961,9 @@ label {
 
 .sniff-head-sm {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
-    font-size: 18px;
+    font-size: 18px !important;
     color: #3a3a3a !important;
-    font-weight: normal;
+    font-weight: normal !important;
 }
 
 h3 {
@@ -2109,6 +2173,20 @@ textarea {
     background: -moz-linear-gradient(center bottom, #a7a6a6 0%, #b6b5b5 100%);
     background: -o-linear-gradient(#b6b5b5, #a7a6a6);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#a7a6a6', GradientType=0);
+}
+
+/**********************
+ sidebar
+***********************/
+.monthName {
+    font-weight: 700;
+    font-size: 58px !important;
+    font-family: 'Georgia', 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
+}
+
+.meet-ups {
+    font-size: 18px !important;
+    font-family: 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
 }
 
 /**********************

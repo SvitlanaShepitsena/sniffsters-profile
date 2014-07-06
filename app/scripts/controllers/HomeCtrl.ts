@@ -8,8 +8,11 @@ class HomeCtrl {
 
     constructor(public $scope:IHomeScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
+        this.IsSearchHidden = true;
+
     }
 
+    IsSearchHidden:boolean;
 
     ShowSuccess(note:string) {
 

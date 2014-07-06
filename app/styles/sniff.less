@@ -3,6 +3,7 @@
 ***********************/
 @import "LessComponents/elements";
 @import "LessComponents/Functions";
+@import "LessComponents/home";
 @import "animate";
 @import "animate-view";
 @import "ng-animation";
@@ -14,27 +15,37 @@
 /*************************
   BOOTSTRAP CUSTOM STYLES
 **************************/
+
 body {
   background: url("../img/grass_texture.png") repeat;
-  .body-style();
-  color: @color-subhead;
+  font-family: arial, sans-serif !important;
+  font-size: 12pt !important;
+  color: #3a3a3a;
+}
+
+.body-content {
+  background-color: floralwhite;
 }
 
 .container {
   width: 1200px !important;
 }
 
-.main-content {
-  min-height: 1100px;
+.main-content-wrapper {
+  min-height: 1400px;
   padding-bottom: 15px;
 }
 
-.body-content {
-  background-color: white;
+.sniff-content-wrapper {
+  padding-top: 15px;
+  font-size: 14px !important;
+}
+
+.sniff-main-content {
+
 }
 
 .btn-primary {
-  font-weight: 700 !important;
   .gradient(#2279c1, #2279c1, #498cc6);
   //  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#498cc6), to(#2779c1));
 
@@ -126,11 +137,10 @@ label {
 
 .sniff-head-sm {
   font-family: @font-sniff;
-  font-size: 18px;
+  font-size: 18px !important;
   color: @color-subhead !important;
-  font-weight: normal;
+  font-weight: normal !important;
 }
-
 h3 {
   font-family: @font-sniff;
   font-size: 22px;
@@ -315,6 +325,20 @@ textarea {
 
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
   .gradient(#b6b5b5, #a7a6a6, #b6b5b5);
+}
+
+/**********************
+ sidebar
+***********************/
+.monthName {
+  font-weight: 700;
+  font-size: 58px !important;
+  font-family: 'Georgia', 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
+}
+
+.meet-ups {
+  font-size: 18px !important;
+  font-family: 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
 }
 
 /**********************

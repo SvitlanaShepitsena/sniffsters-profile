@@ -1,0 +1,111 @@
+<div class="row">
+	<div class="col-md-8 mainContentWrapper">
+		<div class="row">
+			<div class="col-sm-12">
+				@Html.ViewHeader("Benefits")
+				<hr/>
+
+				<ul class="ulBenefits">
+					<li>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+						semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+						tellus.
+					</li>
+
+					<li>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+						semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+						tellus.
+					</li>
+					<li>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+						semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+						tellus.
+					</li>
+					<li>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+						semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+						tellus.
+					</li>
+					<li>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+						semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+						tellus.
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				@Html.ViewHeader("Compare Plans")
+				<br/>
+
+				<table class="table table-bordered table-responsive table-plans">
+					<thead>
+					<tr>
+						<th></th>
+						@foreach (var memb in Model)
+						{
+						<th>
+							@memb.MembershipName
+							<hr/>
+
+							@memb.Price
+						</th>
+						}
+					</tr>
+					</thead>
+
+					<tbody>
+					@foreach (var f in @features)
+					{
+					<tr>
+						<th>
+							@f.Title
+
+						</th>
+
+						@foreach (var membership in Model)
+						{
+						if (membership.MembershipFeatures == null)
+						{
+						continue;
+						}
+						<td>
+							@foreach (var memberfeature in @membership.MembershipFeatures)
+							{
+							if (f.Id == memberfeature.Id)
+							{
+							<span class="glyphicon glyphicon-ok"></span>
+							}
+							}
+						</td>
+						}
+					</tr>
+					}
+
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+		<br/>
+		<br/>
+	</div>
+
+	<aside class="col-sm-4 ">
+
+		<div class="well">
+			<h3 class="hCreateAccount">
+				Create a Breeder Account
+			</h3>
+			<br/>
+
+			<p>
+				@Html.ActionLink("REGISTER", "Register", "Account", routeValues: null, htmlAttributes: new { @class =
+				"btn btn-default btn-lg btn-block", id = "registerLink" })
+			</p>
+		</div>
+	</aside>
+</div>

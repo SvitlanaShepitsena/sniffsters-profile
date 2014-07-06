@@ -5,7 +5,9 @@ var HomeCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.home = this;
+        this.IsSearchHidden = true;
     }
+
     HomeCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
