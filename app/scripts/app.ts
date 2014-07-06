@@ -160,11 +160,6 @@ profile.config(
             })
             .state("profile.testimonials5.edit", {
                 url: "/edit/:id",
-                resolve: {
-                    feedbacks: (DataService:DataService) => {
-                        return DataService.getFeedbacks();
-                    }
-                },
                 template: "<feedback-edit></feedback-edit>"
             })
             .state("generate", {
