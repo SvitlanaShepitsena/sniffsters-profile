@@ -112,7 +112,7 @@ profile.config(
             })
             .state("profile.about1", {
                 url: "/about",
-                templateUrl: "../views/about.html"
+                templateUrl: "../views/profile-about.html"
             })
             .state("profile.about1.edit", {
                 url: "/edit",
@@ -172,42 +172,52 @@ profile.config(
                 controller: "GenerateCtrl",
                 templateUrl: "../views/generate.html"
             })
+
+        /**********************
+         Home Menu
+         ***********************/
+
             .state("home", {
                 url: "/",
                 controller: "HomeCtrl",
                 templateUrl: "../views/home.html"
             })
-            .state("about", {
+
+            .state("sniff", {
+                abstract: true,
+                templateUrl: "../views/sniff.html"
+            })
+            .state("sniff.about", {
                 url: "/about",
                 controller: "AboutCtrl",
                 templateUrl: "../views/about.html"
             })
-            .state("breeders", {
+            .state("sniff.breeders", {
                 url: "/breeders",
                 controller: "BreedersCtrl",
                 templateUrl: "../views/breeders.html"
             })
-            .state("dogs", {
+            .state("sniff.dogs", {
                 url: "/dogs",
                 controller: "DogsCtrl",
                 templateUrl: "../views/dogs.html"
             })
-            .state("explore", {
+            .state("sniff.explore", {
                 url: "/explore",
                 controller: "ExploreCtrl",
                 templateUrl: "../views/explore.html"
             })
-            .state("advertise", {
+            .state("sniff.advertise", {
                 url: "/advertise",
                 controller: "AdvertiseCtrl",
                 templateUrl: "../views/advertise.html"
             })
-            .state("terms", {
+            .state("sniff.terms", {
                 url: "/terms",
                 controller: "TermsCtrl",
                 templateUrl: "../views/terms.html"
             })
-            .state("contact", {
+            .state("sniff.contact", {
                 url: "/contact",
                 controller: "ContactCtrl",
                 templateUrl: "../views/contact.html"
