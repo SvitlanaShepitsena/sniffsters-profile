@@ -1,25 +1,26 @@
 {
-  "name": "profile",
-  "app": "profile",
-  "version": "0.0.0",
-  "dependencies": {
-    "angular": "*",
-    "json3": "*",
-    "jquery": "*",
-    "angular-bootstrap": "*",
-    "es5-shim": "*",
-    "bootstrap": "*",
-    "toastr": "*",
-    "angular-animate": "*",
-    "angular-ui-router": "0.2.10",
-      "ng-file-upload": "~1.4.0",
-      "firebase": "~1.0.17",
-      "firebase-simple-login": "~1.6.1",
-      "angularfire": "~0.7.1"
-  },
-  "devDependencies": {
-    "angular-mocks": "*",
-    "angular-scenario": "*",
-    "DefinitelyTyped": "*"
-  }
+    "name": "profile",
+    "app": "profile",
+    "version": "0.0.0",
+    "dependencies": {
+        "angular": "*",
+        "json3": "*",
+        "jquery": "*",
+        "angular-bootstrap": "*",
+        "es5-shim": "*",
+        "bootstrap": "*",
+        "toastr": "*",
+        "angular-animate": "*",
+        "angular-ui-router": "0.2.10",
+        "ng-file-upload": "~1.4.0",
+        "firebase": "~1.0.17",
+        "firebase-simple-login": "~1.6.1",
+        "angularfire": "~0.7.1",
+        "underscore": "~1.6.0"
+    },
+    "devDependencies": {
+        "angular-mocks": "*",
+        "angular-scenario": "*",
+        "DefinitelyTyped": "*"
+    }
 }

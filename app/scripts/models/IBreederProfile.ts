@@ -29,10 +29,6 @@ class Feedback implements IFeedback {
     ClientName:string;
     FeedbackBody:string;
 
-    constructor() {
-        this.ClientName = "Client 1";
-        this.FeedbackBody = "Best Breeder";
-    }
 }
 interface IPhoto {
     Id:number;
@@ -45,11 +41,7 @@ class Photo implements IPhoto {
     Caption:string;
     FilePath:string;
 
-    constructor() {
-        this.Id = 1;
-        this.Caption = "My Dogs";
-        this.FilePath = "Picture1.jpg";
-    }
+
 }
 interface IGallery {
     Id:number;
@@ -112,13 +104,4 @@ class Litter implements ILitter {
     Colors:string;
     Photos:IPhoto[];
 
-    constructor() {
-        this.Id = 1;
-        this.Title = "Best Litter";
-        this.DateOfBirth = "05.01.2014";
-        this.Puppies = "My Best Puppies";
-        this.Colors = "Black & WHite";
-
-        this.Photos = [new Photo()];
-    }
 }

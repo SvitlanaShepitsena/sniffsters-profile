@@ -1,4 +1,3 @@
-
 var photosInfo = function () {
     return {
         restrict: 'E',
@@ -14,7 +13,7 @@ var photosInfo = function () {
             $scope.newGallery.Photos = [];
 
             $scope.delete = function (p, index) {
-                DataService.deletePhoto($scope.newGallery.Id, p.Id).then(function () {
+                DataService.deletePhoto($scope.newGallery.Id, p.Id, userName).then(function () {
                     $scope.newGallery.Photos.splice(index, 1);
                 });
             };

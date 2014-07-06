@@ -4,9 +4,6 @@ var photoGalleryEdit = function () {
         templateUrl: 'views/directives/photo-gallery-edit.html',
         replace: true,
         controller: function ($scope, $stateParams, $upload, $modal, DataService, toastr) {
-            $scope.tempPhoto = [];
-            var index = 0;
-
             if ($scope.photosCtrl.SelectedGallery == undefined) {
                 var id = $stateParams.id;
                 DataService.getGalleries($scope.index.BreederName).then(function (galleries) {
@@ -20,7 +17,7 @@ var photoGalleryEdit = function () {
 
             var index = $stateParams.id;
 
-            $scope.delete = function (p, index) {
+            $scope.delete = function (p, index, userName) {
                 var modalInstance = $modal.open({
                     template: "<div><div class=\"modal-body\"> Delete image from your gallery?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
                     size: 'sm',
@@ -36,7 +33,7 @@ var photoGalleryEdit = function () {
                 });
                 modalInstance.result.then(function (confirmation) {
                     if (confirmation) {
-                        DataService.deletePhoto($scope.photosCtrl.SelectedGallery.Id, p.Id).then(function () {
+                        DataService.deletePhoto($scope.photosCtrl.SelectedGallery.Id, p.Id, userName).then(function () {
                             $scope.photosCtrl.SelectedGallery.Photos.splice(index, 1);
                         });
                     }

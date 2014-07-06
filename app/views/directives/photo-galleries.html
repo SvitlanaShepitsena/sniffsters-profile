@@ -10,12 +10,12 @@
 					<div class="thumbnail">
 						<div class="text-primary text-center caption">
 							<h4 class="">
-							{{g.Title | titleLength:15}}
+								{{g.Title | titleLength:15}}
 							</h4>
 						</div>
 
 						<a ng-click="photosCtrl.setSelectedGallery(g.Id)" class="cursor-p">
-							<img ng-src="{{('imgdir/'+index.Id+'/'+g.Id+'/'+g.Photos[1].FilePath) | spacesToDashes}}">
+							<img ng-src="{{('imgdir/'+index.Id+'/'+g.Id+'/'+(g.Photos| orderByPriority)[0].FilePath) | spacesToDashes}}">
 							<!--Click-->
 						</a>
 					</div>

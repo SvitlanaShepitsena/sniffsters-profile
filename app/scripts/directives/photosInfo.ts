@@ -24,7 +24,7 @@ var photosInfo:() => ng.IDirective = () => {
             $scope.newGallery.Photos = [];
 
             $scope.delete = (p:IPhoto, index:number) => {
-                DataService.deletePhoto($scope.newGallery.Id, p.Id).then(() => {
+                DataService.deletePhoto($scope.newGallery.Id, p.Id, userName).then(() => {
                     $scope.newGallery.Photos.splice(index, 1);
                 })
             }

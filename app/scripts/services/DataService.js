@@ -42,13 +42,15 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.getLitters = function () {
+    DataService.prototype.getLitters = function (userName) {
         var d = this.$q.defer();
 
-        var litters = [];
-        litters.push(new Litter());
-        d.resolve(litters);
+        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/litters"));
 
+        fireLitters.$on('value', function (snapshot) {
+            var galleries = snapshot.snapshot.value;
+            d.resolve(galleries);
+        });
         return d.promise;
     };
 
@@ -63,17 +65,14 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.deletePhoto = function (galleryId, photoId) {
+    DataService.prototype.deletePhoto = function (galleryId, photoId, userName) {
         var d = this.$q.defer();
+        var fireGalleriesPhotos = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/galleries/" + galleryId + "/Photos/" + photoId));
 
-        this.$http.post('http://localhost:44300/BreederPersonal/DeletePhoto', { deletePhoto: {
-            GalleryId: galleryId,
-            PhotoId: photoId
-        } }).success(function () {
+        fireGalleriesPhotos.$remove().then(function () {
             d.resolve();
-        }).error(function () {
-            d.reject();
         });
+
         return d.promise;
     };
 

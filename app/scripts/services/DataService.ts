@@ -47,67 +47,49 @@ class DataService {
         return d.promise;
     }
 
-    getLitters() {
-        var d = this.$q.defer();
-//        this.$http.get('http://localhost:44300/BreederPersonal/GetLitters').success((result:T[]) => {
-        var litters:ILitter[] = [];
-        litters.push(new Litter());
-        d.resolve(litters);
-//        }).error((data, error) => {
-//            // console.log(data)
-//            // console.log(error)
-//            d.reject();
-//        });
-        return d.promise;
-    }
-
-    getFeedbacks() {
-
+    getLitters(userName:string) {
         var d = this.$q.defer();
 
-        //  this.$http.get('http://localhost:44300/BreederPersonal/GetFeedbacks').success((result:T[]) => {
-        var feedbacks:IFeedback[] = [];
-        feedbacks.push(new Feedback());
+        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/litters"));
 
-        d.resolve(feedbacks);
-//        }).error((data, error) => {
-//            // console.log(data)
-//            // console.log(error)
-//            d.reject();
-//        });
-        return d.promise;
-    }
-
-
-    deletePhoto(galleryId:number, photoId:number) {
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/DeletePhoto', {
-            deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            }})
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
-        return d.promise;
-    }
-
-    saveNewLitters<T>(litters:Litter[]) {
-
-        var d = this.$q.defer<T[]>();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/SaveNewLitters', {
-            litters: litters
-
+        fireLitters.$on('value', (snapshot:any)=> {
+            var litters = snapshot.snapshot.value;
+            d.resolve(litters);
         })
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
+        return d.promise;
+    }
+
+    getFeedbacks(userName:string) {
+
+        var d = this.$q.defer();
+
+        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/feedbacks"));
+
+        fireLitters.$on('value', (snapshot:any)=> {
+            var feedbacks = snapshot.snapshot.value;
+            d.resolve(feedbacks);
+        })
+        return d.promise;
+    }
+
+
+    deletePhoto(galleryId:number, photoId:number, userName:string) {
+        var d = this.$q.defer();
+        var fireGalleriesPhotos = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/galleries/" + galleryId +
+            "/Photos/" + photoId));
+
+        fireGalleriesPhotos.$remove().then(() => {
+            d.resolve();
+        })
+
+        return d.promise;
+    }
+
+    saveNewLitters(userName:string, litters:Litter[]) {
+
+        var d = this.$q.defer();
+        var fireLitters:AngularFire = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/litters"));
+        var keys = fireLitters.$getIndex();
         return d.promise;
     }
 
