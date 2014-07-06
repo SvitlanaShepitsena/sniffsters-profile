@@ -3,7 +3,7 @@
 		<div class="col-xs-1 pull-right">
 			<button class="right"
 			        ng-disabled="(litter.$pristine)
-					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.invalid || saved)"
+					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
 			        ng-click="saveLitter();litter.$setPristine();">
 				<i class="fa fa-save"></i>
 			</button>
@@ -97,7 +97,7 @@
 		</div>
 		<a ui-sref="^" class="btn btn-default">Cancel</a>
 		<button class="btn btn-info"
-		        ng-disabled="litter.$pristine();"
+		        ng-disabled="litter.$pristine"
 		        ng-click="saveLitter(); litter.$setPristine(); ">Save
 		</button>
 	</form>

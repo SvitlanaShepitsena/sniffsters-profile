@@ -9,6 +9,8 @@
     <orderEntry type="library" name="angular-ui-DefinitelyTyped" level="project" />
     <orderEntry type="library" name="toastr-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="angular-ui-bootstrap-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="underscore-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angularfire-DefinitelyTyped" level="application" />
   </component>
 </module>
 

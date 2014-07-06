@@ -1,8 +1,9 @@
 var DataService = (function () {
-    function DataService($http, $q, $firebase) {
+    function DataService($http, $q, $firebase, $filter) {
         this.$http = $http;
         this.$q = $q;
         this.$firebase = $firebase;
+        this.$filter = $filter;
     }
 
     DataService.prototype.getProfile = function (id) {
@@ -43,13 +44,19 @@ var DataService = (function () {
     };
 
     DataService.prototype.getLitters = function (userName) {
+        var _this = this;
         var d = this.$q.defer();
 
         var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/litters"));
 
         fireLitters.$on('value', function (snapshot) {
             var litters = snapshot.snapshot.value;
-            d.resolve(litters);
+            var arrLitters = _.rest(_this.$filter('orderByPriority')(litters));
+            arrLitters.forEach(function (litter) {
+                litter.Photos = _.rest(litter.Photos);
+            });
+
+            d.resolve(arrLitters);
         });
         return d.promise;
     };
@@ -190,16 +197,15 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.updateLitter = function (litter) {
+    DataService.prototype.updateLitter = function (litter, userName) {
         var d = this.$q.defer();
+        var unp = userName.replace(/\./g, '(p)');
 
-        this.$http.post('http://localhost:44300/BreederPersonal/SaveLitter', {
-            litter: litter
-        }).success(function () {
-            d.resolve();
-        }).error(function () {
-            d.reject();
-        });
+        var fbLitter = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + unp + "/litters/" + litter.Id));
+        fbLitter[litter.Id] = litter;
+        fbLitter.$save(litter.Id);
+
+        d.resolve();
         return d.promise;
     };
 

@@ -1,7 +1,7 @@
 class DataService {
     fb:AngularFire;
 
-    constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase) {
+    constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase, public $filter) {
 
     }
 
@@ -21,6 +21,7 @@ class DataService {
 
     updateProfile(t:IBreederProfile) {
         var d = this.$q.defer();
+
 
         var key:string = t.Email.replace(/\./g, '(p)');
 
@@ -54,7 +55,14 @@ class DataService {
 
         fireLitters.$on('value', (snapshot:any)=> {
             var litters = snapshot.snapshot.value;
-            d.resolve(litters);
+
+            var arrLitters = _.rest(this.$filter('orderByPriority')(litters));
+            arrLitters.forEach((litter:ILitter)=> {
+                litter.Photos = _.rest(litter.Photos);
+            })
+
+
+            d.resolve(arrLitters);
         })
         return d.promise;
     }
@@ -211,17 +219,15 @@ class DataService {
         return d.promise;
     }
 
-    updateLitter(litter:ILitter) {
+    updateLitter(litter:ILitter, userName) {
         var d = this.$q.defer();
+        var unp:string = userName.replace(/\./g, '(p)');
 
-        this.$http.post('http://localhost:44300/BreederPersonal/SaveLitter', {
-            litter: litter
-        })
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
+        var fbLitter = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + unp + "/litters/" + litter.Id));
+        fbLitter [litter.Id] = litter;
+        fbLitter.$save(litter.Id);
+
+        d.resolve();
         return d.promise;
     }
 
