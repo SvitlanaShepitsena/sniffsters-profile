@@ -1781,17 +1781,17 @@ body {
     color: #3a3a3a;
 }
 
+.body-content {
+    background-color: white;
+}
+
 .container {
     width: 1200px !important;
 }
 
-.main-content {
+.main-content-wrapper {
     min-height: 1100px;
     padding-bottom: 15px;
-}
-
-.body-content {
-    background-color: white;
 }
 
 .btn-primary {
