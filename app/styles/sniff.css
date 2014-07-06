@@ -17,6 +17,70 @@
         MIXINS
 ***********************/
 /**********************
+       IMPORTS
+***********************/
+/**********************
+        STYLES
+***********************/
+.btn-looking {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px !important;
+    color: whitesmoke !important;
+    font-weight: normal !important;
+}
+
+.let {
+    font-weight: bold !important;
+    font-style: italic !important;
+    font-size: 13px !important;
+    margin-bottom: 5px !important;
+}
+
+.letTop {
+    margin-top: 20px !important;
+}
+
+.letTopHome {
+    margin-top: 90px !important;
+}
+
+.findOut {
+    font-weight: bold !important;
+    font-style: italic !important;
+    font-size: 13px !important;
+}
+
+.greatForm {
+    margin-top: 20px !important;
+}
+
+.howText {
+    font-style: italic !important;
+    text-align: center !important;
+}
+
+.welcText {
+    font-style: italic !important;
+    text-align: center !important;
+    font-size: 42px !important;
+}
+
+.welcomeCont {
+    margin-top: 110px !important;
+    min-width: 320px;
+    display: block;
+}
+
+.welcomeGrid {
+    min-width: 320px !important;
+}
+
+.homeJumbo {
+    min-height: 435px !important;
+    padding-bottom: 30px !important;
+}
+
+/**********************
         SHUFFLE
 ***********************/
 .shuffle-animation.ng-enter,
@@ -1782,7 +1846,7 @@ body {
 }
 
 .body-content {
-    background-color: white;
+    background-color: floralwhite;
 }
 
 .container {
@@ -1790,8 +1854,12 @@ body {
 }
 
 .main-content-wrapper {
-    min-height: 1100px;
+    min-height: 1400px;
     padding-bottom: 15px;
+}
+
+.sniff-content-wrapper {
+    padding-top: 15px;
 }
 
 .btn-primary {
@@ -1897,9 +1965,9 @@ label {
 
 .sniff-head-sm {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
-    font-size: 18px;
+    font-size: 18px !important;
     color: #3a3a3a !important;
-    font-weight: normal;
+    font-weight: normal !important;
 }
 
 h3 {
@@ -2109,6 +2177,19 @@ textarea {
     background: -moz-linear-gradient(center bottom, #a7a6a6 0%, #b6b5b5 100%);
     background: -o-linear-gradient(#b6b5b5, #a7a6a6);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#a7a6a6', GradientType=0);
+}
+
+/**********************
+ sidebar
+***********************/
+.monthName {
+    font-size: 58px !important;
+    font-family: 'Georgia', 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
+}
+
+.meet-ups {
+    font-size: 24px !important;
+    font-family: 'Buxton Sketch', 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
 }
 
 /**********************

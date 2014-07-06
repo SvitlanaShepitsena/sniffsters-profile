@@ -1,0 +1,48 @@
+<div class="container welcomeCont">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 welcomeGrid">
+
+			<div class="jumbotron homeJumbo">
+				<h2 class="welcText">GREAT,</h2>
+
+				<h3 class="howText">LET'S FIND YOUR PUPPY!</h3>
+
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						@using (Html.BeginRouteForm("BreederSearch", null, FormMethod.Get, new { @class = "text-center
+						greatForm" }))
+						{
+						<fieldset class="text-center">
+							<section class="">
+
+								<div class="form-group">
+									@Html.DropDownList("Breeds", "Breeds")
+								</div>
+
+								<div class="form-group">
+									@Html.DropDownList("Locations", "Locations")
+								</div>
+
+
+								<div>
+									<input class="btn btn-default btn-great" type="submit" value="Search"/>
+								</div>
+
+							</section>
+						</fieldset>
+						}
+					</div>
+				</div>
+
+				<p class="lead let letTop">ARE YOU A BREEDER?</p>
+
+				<p class="findOut">
+					@Html.RouteLink("FIND OUT HOW WE CAN HELP", "ForBreeders", null, new{@class = ""})
+				</p>
+				@*
+				<p class="let"><a href="" class="">FIND OUT HOW WE CAN HELP&raquo;</a></p>
+				*@
+			</div>
+		</div>
+	</div>
+</div>

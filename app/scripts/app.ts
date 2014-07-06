@@ -32,6 +32,8 @@
 /// <reference path="controllers/AdvertiseCtrl.ts" />
 /// <reference path="controllers/TermsCtrl.ts" />
 /// <reference path="controllers/ContactCtrl.ts" />
+/// <reference path="controllers/LookingForDogCtrl.ts" />
+/// <reference path="controllers/ForBreedersCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -94,6 +96,8 @@ profile.controller("ExploreCtrl", ExploreCtrl);
 profile.controller("AdvertiseCtrl", AdvertiseCtrl);
 profile.controller("TermsCtrl", TermsCtrl);
 profile.controller("ContactCtrl", ContactCtrl);
+profile.controller("LookingForDogCtrl", LookingForDogCtrl);
+profile.controller("ForBreedersCtrl", ForBreedersCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -216,6 +220,16 @@ profile.config(
                 url: "/contact",
                 controller: "ContactCtrl",
                 templateUrl: "../views/contact.html"
+            })
+            .state("lookingForDog", {
+                url: "/looking-for-a-dog",
+                controller: "LookingForDogCtrl",
+                templateUrl: "../views/looking-for-dog.html"
+            })
+            .state("forBreeders", {
+                url: "/profile/forBreeders",
+                controller: "ForBreedersCtrl",
+                templateUrl: "../views/profile-forBreeders.html"
             })
 //#state
     });
