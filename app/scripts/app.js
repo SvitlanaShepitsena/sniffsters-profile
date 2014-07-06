@@ -47,12 +47,20 @@ profile.controller("PhotosCtrl", PhotosCtrl);
 profile.controller("PuppiesCtrl", PuppiesCtrl);
 profile.controller("TestimonialsCtrl", TestimonialsCtrl);
 profile.controller("GenerateCtrl", GenerateCtrl);
+profile.controller("HomeCtrl", HomeCtrl);
+profile.controller("AboutCtrl", AboutCtrl);
+profile.controller("BreedersCtrl", BreedersCtrl);
+profile.controller("DogsCtrl", DogsCtrl);
+profile.controller("ExploreCtrl", ExploreCtrl);
+profile.controller("AdvertiseCtrl", AdvertiseCtrl);
+profile.controller("TermsCtrl", TermsCtrl);
+profile.controller("ContactCtrl", ContactCtrl);
 
 profile.value("toastr", toastr);
 profile.service("DataService", DataService);
 
 profile.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/profile/about");
+    $urlRouterProvider.otherwise("/");
 
     $stateProvider.state("profile", {
         abstract: true,
@@ -60,7 +68,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile.html"
     }).state("profile.about1", {
         url: "/about",
-        templateUrl: "../views/profile-about.html"
+        templateUrl: "../views/about.html"
     }).state("profile.about1.edit", {
         url: "/edit",
         templateUrl: "../views/profile-about-edit.html"
@@ -106,5 +114,37 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/generate",
         controller: "GenerateCtrl",
         templateUrl: "../views/generate.html"
+    }).state("home", {
+        url: "/",
+        controller: "HomeCtrl",
+        templateUrl: "../views/home.html"
+    }).state("about", {
+        url: "/about",
+        controller: "AboutCtrl",
+        templateUrl: "../views/about.html"
+    }).state("breeders", {
+        url: "/breeders",
+        controller: "BreedersCtrl",
+        templateUrl: "../views/breeders.html"
+    }).state("dogs", {
+        url: "/dogs",
+        controller: "DogsCtrl",
+        templateUrl: "../views/dogs.html"
+    }).state("explore", {
+        url: "/explore",
+        controller: "ExploreCtrl",
+        templateUrl: "../views/explore.html"
+    }).state("advertise", {
+        url: "/advertise",
+        controller: "AdvertiseCtrl",
+        templateUrl: "../views/advertise.html"
+    }).state("terms", {
+        url: "/terms",
+        controller: "TermsCtrl",
+        templateUrl: "../views/terms.html"
+    }).state("contact", {
+        url: "/contact",
+        controller: "ContactCtrl",
+        templateUrl: "../views/contact.html"
     });
 });

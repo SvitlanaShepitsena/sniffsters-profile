@@ -1,7 +1,10 @@
-<div class="row">
-	<div class="col-xs-8">
+<div class="row nav-profile-wrapper">
+	<div class="col-xs-2">
+
+	</div>
+	<div class="col-xs-6">
 		<div class="pull-right">
-			<ul class="nav nav-pills navProfileWrapper ">
+			<ul class="nav nav-pills ul-nav-profile">
 				<li ng-class="{'active':index.url=='about'}">
 					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(1)">About</a>
 				</li>
@@ -22,13 +25,20 @@
 				</li>
 			</ul>
 		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2">
+		<ul class="nav nav-stacked">
+			<li><a class="sniff-menu" href="/Breeder-Profile">My Profile</a></li>
+			<li><a class="sniff-menu" href="/Messages/Index">Messages</a></li>
+		</ul>
+
+	</div>
+	<div class="col-xs-6">
+		<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
 
 
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
-			</div>
-		</div>
 		<!--		 ng-hide="index.spinner"
 				<spin-div ng-show="index.spinner"></spin-div>-->
 	</div>
