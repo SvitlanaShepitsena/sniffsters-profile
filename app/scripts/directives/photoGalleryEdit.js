@@ -49,7 +49,7 @@ var photoGalleryEdit = function () {
             };
 
             $scope.updateTitle = function (newTitle) {
-                DataService.updateTitle($scope.photosCtrl.SelectedGallery.Id, newTitle).then(function () {
+                DataService.updateTitle($scope.photosCtrl.SelectedGallery.Id, newTitle, $scope.index.IdFire).then(function () {
                     toastr.success('Changes have been successfully saved to Db');
                 });
             };

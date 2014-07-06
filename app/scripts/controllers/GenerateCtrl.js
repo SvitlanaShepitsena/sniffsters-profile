@@ -19,9 +19,8 @@ var GenerateCtrl = (function () {
             var galleriesRef = breederRef.$child('galleries');
 
             var galleries = _this.GenerateGalleries();
-            var index = 0;
             galleries.forEach(function (gallery) {
-                galleriesRef[index++] = gallery;
+                galleriesRef[gallery.Id] = gallery;
                 galleriesRef.$save();
             });
             breederRef.$save();
@@ -29,6 +28,7 @@ var GenerateCtrl = (function () {
 
         $scope.breeders.$save();
     }
+
     GenerateCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
@@ -54,12 +54,12 @@ var GenerateCtrl = (function () {
         photo2.Caption = "My Dogs 2";
         photo2.FilePath = 'Picture2.jpg';
         var photos = [];
-        photos.push(photo1);
-        photos.push(photo2);
+        photos[photo1.Id] = photo1;
+        photos[photo2.Id] = photo2;
 
         gallery1.Photos = photos;
 
-        galleries.push((gallery1));
+        galleries[gallery1.Id] = (gallery1);
 
         return galleries;
     };

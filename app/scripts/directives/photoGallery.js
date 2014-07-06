@@ -11,7 +11,6 @@ var photoGallery = function () {
                 var id = $stateParams.id;
                 DataService.getGalleries($scope.index.BreederName).then(function (galleries) {
                     $scope.photosCtrl.Galleries = galleries;
-
                     $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
                 });
             }

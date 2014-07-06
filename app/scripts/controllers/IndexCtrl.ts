@@ -16,6 +16,7 @@ class IndexCtrl {
     BreederProfileCopy:IBreederProfile;
     error:boolean;
     Id:string;
+    IdFire:string;
     url:string;
     spinner:boolean;
     menuIndex:number;
@@ -89,6 +90,7 @@ class IndexCtrl {
         this.spinner = true;
         this.BreederName = this.GetBreederName();
         this.Id = this.GetBreederName();
+        this.IdFire = this.Id.replace(/\./g, '(p)');
 
         var promiseT = this.DataService.getProfile(this.BreederName);
         promiseT.then((breederProfile:IBreederProfile) => {

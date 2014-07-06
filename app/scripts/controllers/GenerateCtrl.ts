@@ -21,10 +21,10 @@ class GenerateCtrl {
             var breederRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key));
             var galleriesRef = breederRef.$child('galleries');
 
+
             var galleries:IGallery[] = this.GenerateGalleries();
-            var index:number = 0;
             galleries.forEach((gallery:IGallery)=> {
-                galleriesRef[index++] = gallery;
+                galleriesRef[gallery.Id] = gallery;
                 galleriesRef.$save();
             })
             breederRef.$save();
@@ -62,12 +62,12 @@ class GenerateCtrl {
         photo2.Caption = "My Dogs 2";
         photo2.FilePath = 'Picture2.jpg';
         var photos:IPhoto[] = [];
-        photos.push(photo1);
-        photos.push(photo2);
+        photos[photo1.Id] = photo1;
+        photos[photo2.Id] = photo2;
 
         gallery1.Photos = photos;
 
-        galleries.push((gallery1));
+        galleries[gallery1.Id] = (gallery1);
 
         return galleries;
 

@@ -4,6 +4,7 @@ var DataService = (function () {
         this.$q = $q;
         this.$firebase = $firebase;
     }
+
     DataService.prototype.getProfile = function (id) {
         var key = id.replace(/\./g, '(p)');
         this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/profile"));
@@ -66,9 +67,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeletePhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -106,9 +107,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -120,10 +121,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-                GalleryId: galleryId,
-                PhotoId: photoId,
-                Caption: caption
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId,
+            Caption: caption
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -131,17 +132,15 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.updateTitle = function (galleryId, title) {
+    DataService.prototype.updateTitle = function (galleryId, title, userName) {
         var d = this.$q.defer();
 
-        this.$http.post('http://localhost:44300/BreederPersonal/UpdateTitle', { galleryTitle: {
-                GalleryId: galleryId,
-                Title: title
-            } }).success(function () {
+        var fireGallery = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/galleries/" + galleryId));
+        console.log(fireGallery);
+        fireGallery.$update({ Title: title }).then(function () {
             d.resolve();
-        }).error(function () {
-            d.reject();
         });
+
         return d.promise;
     };
 

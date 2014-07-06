@@ -65,7 +65,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
 
 
             $scope.updateTitle = (newTitle:string) => {
-                DataService.updateTitle($scope.photosCtrl.SelectedGallery.Id, newTitle).then(() => {
+                DataService.updateTitle($scope.photosCtrl.SelectedGallery.Id, newTitle, $scope.index.IdFire).then(() => {
                     toastr.success('Changes have been successfully saved to Db');
                 });
             }

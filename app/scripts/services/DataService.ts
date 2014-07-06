@@ -159,19 +159,16 @@ class DataService {
         return d.promise;
     }
 
-    updateTitle(galleryId:number, title:string) {
+    updateTitle(galleryId:number, title:string, userName:string) {
         var d = this.$q.defer();
 
-        this.$http.post('http://localhost:44300/BreederPersonal/UpdateTitle', {
-            galleryTitle: {
-                GalleryId: galleryId,
-                Title: title
-            }})
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
+        var fireGallery = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/galleries/" + galleryId));
+        console.log(fireGallery);
+        fireGallery.$update({Title: title}).then(() => {
+            d.resolve();
+        })
+//        fireGallery.$save();
+
         return d.promise;
     }
 

@@ -1,9 +1,9 @@
 <div class="well">
 	<div class="row">
 		<div class="col-xs-9">
-			<h4 class="sniff-head-sm">
-				{{photosCtrl.SelectedGallery.Title}}
-			</h4>
+			<h3 class="content text-center">
+				{{photosCtrl.SelectedGallery.Title | uppercase}}
+			</h3>
 		</div>
 		<div class="col-xs-1" ng-show="!photosCtrl.SelectedGallery.IsActive">
 			<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"
@@ -27,8 +27,10 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<ul class="list-unstyled list-inline">
-				<li class="col-xs-12 shuffle-animation" ng-repeat="p in photosCtrl.SelectedGallery.Photos">
-					<div class="thumbnail">
+				<li class="col-xs-12 shuffle-animation"
+				    ng-repeat="p in photosCtrl.SelectedGallery.Photos | limitTo:-(photosCtrl.SelectedGallery.Photos.length-1)">
+				<div class="thumbnail">
+
 						<img ng-src="{{('imgdir/'+index.Id+'/'+photosCtrl.SelectedGallery.Id+'/'+p.FilePath) | spacesToDashes}}">
 
 						<div class="caption">

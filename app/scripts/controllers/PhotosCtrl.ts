@@ -90,18 +90,9 @@ class PhotosCtrl {
     }
 
     setSelectedGallery(galleryId:number) {
-        console.log(galleryId);
-        var galid:number = 0;
-        var index:number = 0;
-        this.Galleries.forEach((gallery:IGallery) => {
-            if (gallery.Id === galleryId) {
-                galid = index;
-                return false;
-            }
-            index++;
-        });
-        this.SelectedGallery = this.Galleries[galid];
-        this.$state.go('profile.photos2.galleries', {'id': galid});
+
+        this.SelectedGallery = this.Galleries[galleryId];
+        this.$state.go('profile.photos2.galleries', {'id': galleryId});
 //        console.log(this.SelectedGallery);
     }
 

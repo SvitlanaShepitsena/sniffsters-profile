@@ -59,6 +59,7 @@ var IndexCtrl = (function () {
         this.spinner = true;
         this.BreederName = this.GetBreederName();
         this.Id = this.GetBreederName();
+        this.IdFire = this.Id.replace(/\./g, '(p)');
 
         var promiseT = this.DataService.getProfile(this.BreederName);
         promiseT.then(function (breederProfile) {
@@ -76,6 +77,7 @@ var IndexCtrl = (function () {
             _this.spinner = false;
         });
     }
+
     IndexCtrl.prototype.animationDirection = function (menuIndex) {
         if (menuIndex > this.menuIndex)
             return 'slide-left';
