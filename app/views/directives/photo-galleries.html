@@ -1,18 +1,17 @@
 <div class="">
-	<h3>Current Galleries</h3>
-
+	<h3 class="sniff-head-info">Current Galleries</h3>
 
 	<div class="row">
 		<div class="col-xs-12">
-			<h4 class="subheader">Shared</h4>
+			<h4 class="sniff-head-sm">Shared</h4>
 			<ul class="list-unstyled list-inline">
 				<li class="col-xs-3 shuffle-animation"
 				    ng-repeat="g in photosCtrl.Galleries | galleryActive:true">
 					<div class="thumbnail">
 						<div class="text-primary text-center caption">
-							<h5 class="">
-								{{g.Title | titleLength:15}}
-							</h5>
+							<h4 class="">
+							{{g.Title | titleLength:15}}
+							</h4>
 						</div>
 
 						<a ng-click="photosCtrl.setSelectedGallery(g.Id)" class="cursor-p">

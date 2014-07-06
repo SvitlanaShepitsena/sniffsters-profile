@@ -1858,6 +1858,13 @@ label {
     font-weight: normal;
 }
 
+.sniff-head-sm {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 18px;
+    color: #3a3a3a;
+    font-weight: normal;
+}
+
 .label-subhead {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 20px;
@@ -1902,6 +1909,7 @@ input {
 
 textarea {
     font-size: 12px !important;
+    margin-top: 5px;
     font-family: arial, sans-serif;
 }
 
