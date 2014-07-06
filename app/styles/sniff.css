@@ -1877,27 +1877,28 @@ label {
 .sniff-head {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 22px;
-    color: #3a3a3a;
+    color: #3a3a3a !important;
     font-weight: normal;
 }
 
 .sniff-head-sm {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 18px;
-    color: #3a3a3a;
+    color: #3a3a3a !important;
     font-weight: normal;
 }
 
 h3 {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 22px;
-    color: #3a3a3a;
+    color: #3a3a3a !important;
 }
 
 .sniff-head-info {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-weight: normal !important;
     font-size: 22px;
-    color: #217ac8;
+    color: #217ac8 !important;
 }
 
 h4 {

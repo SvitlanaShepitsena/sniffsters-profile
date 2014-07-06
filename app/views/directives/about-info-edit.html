@@ -14,7 +14,7 @@
 	<form role="form" class="form" name="form" id="form" novalidate>
 		<div class="form-group has-feedback"
 		     ng-class="{'has-error':form.kennel.$invalid}">
-			<label for="kennel" class="sniff-head-sm">Kennel Name:</label>
+			<label for="kennel" class="sniff-subhead">Kennel Name:</label>
 			<span class="textMuted">Required</span>
 			<span ng-show="form.kennel.$error.maxlength"
 			      class="text text-danger pull-right maxSymb">Max 250 symbols!</span>
@@ -32,7 +32,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{'has-error':form.story.$invalid}">
-			<label for="story" class="sniff-head-sm">Your Story:</label>
+			<label for="story" class="sniff-subhead">Your Story:</label>
 			<span class="textMuted">Required</span>
 			<span ng-show="form.story.$invalid" class="text text-danger pull-right  maxsymb">Max 1000 symbols!</span>
 			<textarea id="story" name="story" rows="5" cols="30" class="form-control"
@@ -45,7 +45,7 @@
 
 		<div class="row">
 			<div class="col-xs-12">
-				<h3 class="italic">PARENTS</h4>
+				<h3 class="sniff-head-info">PARENTS</h3>
 			</div>
 		</div>
 
@@ -84,7 +84,7 @@
 
 		<div class="row">
 			<div class="col-xs-12">
-				<h3 class="italic">ADDITIONAL INFO</h3>
+				<h3 class="sniff-head-info">ADDITIONAL INFO</h3>
 				<span ng-show="form.info.$error.maxlength"
 				      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			</div>

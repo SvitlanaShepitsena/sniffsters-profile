@@ -17,6 +17,7 @@
 body {
   background: url("../img/grass_texture.png") repeat;
   .body-style();
+  color: @color-subhead;
 }
 
 .container {
@@ -69,7 +70,6 @@ body {
   overflow: hidden;
 }
 
-
 hr {
   border-top-color: @colorFontDimmedL !important;
 }
@@ -85,7 +85,7 @@ label {
 .sniff-menu {
   font-family: @font-sniff;
   font-size: 18px;
-  color: #3a3a3a !important;
+  color: @color-subhead !important;
   &:hover {
     color: @color-info !important;
   }
@@ -97,10 +97,10 @@ label {
   }
 }
 
-.sniff-profile-menu, {
+.sniff-profile-menu {
   font-family: @font-sniff;
   font-size: 18px;
-  color: #3a3a3a;
+  color: @color-subhead;
 }
 
 .hello-user {
@@ -111,27 +111,28 @@ label {
 .sniff-head {
   font-family: @font-sniff;
   font-size: 22px;
-  color: @color-subhead;
+  color: @color-subhead !important;
   font-weight: normal;
 }
 
 .sniff-head-sm {
   font-family: @font-sniff;
   font-size: 18px;
-  color: @color-subhead;
+  color: @color-subhead !important;
   font-weight: normal;
 }
 
 h3 {
   font-family: @font-sniff;
   font-size: 22px;
-  color: @color-subhead;
+  color: @color-subhead !important;
 }
 
 .sniff-head-info {
   font-family: @font-sniff;
+  font-weight: normal !important;
   font-size: 22px;
-  color: @color-info;
+  color: @color-info !important;
 }
 
 h4 {
@@ -181,10 +182,6 @@ textarea {
 ***********************/
 
 .profileContWrapper {
-  //  margin-top: 20px;
-}
-
-.navProfileWrapper {
   //  margin-top: 20px;
 }
 
