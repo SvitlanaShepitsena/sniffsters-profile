@@ -67,6 +67,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider.state("profile", {
         abstract: true,
         url: "/profile",
+        controller: IndexCtrl,
         templateUrl: "../views/profile.html"
     }).state("profile.about1", {
         url: "/about",
@@ -151,8 +152,8 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         controller: "LookingForDogCtrl",
         templateUrl: "../views/looking-for-dog.html"
     }).state("forBreeders", {
-        url: "/profile/forBreeders",
+        url: "/for-breeders",
         controller: "ForBreedersCtrl",
-        templateUrl: "../views/profile-forBreeders.html"
+        templateUrl: "../views/for-breeders.html"
     });
 });

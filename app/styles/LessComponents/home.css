@@ -23,7 +23,12 @@
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 22px !important;
     color: whitesmoke !important;
-    font-weight: normal !important;
+    font-style: normal !important;
+}
+
+.btn-group-great {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .let {
@@ -51,15 +56,10 @@
     margin-top: 20px !important;
 }
 
-.howText {
-    font-style: italic !important;
-    text-align: center !important;
-}
-
-.welcText {
-    font-style: italic !important;
-    text-align: center !important;
+.welc-text {
     font-size: 42px !important;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    text-align: center;
 }
 
 .welcomeCont {
@@ -68,11 +68,7 @@
     display: block;
 }
 
-.welcomeGrid {
-    min-width: 320px !important;
-}
-
 .homeJumbo {
-    min-height: 435px !important;
+    height: 435px !important;
     padding-bottom: 30px !important;
 }

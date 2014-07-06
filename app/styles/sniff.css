@@ -26,7 +26,12 @@
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 22px !important;
     color: whitesmoke !important;
-    font-weight: normal !important;
+    font-style: normal !important;
+}
+
+.btn-group-great {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .let {
@@ -54,15 +59,10 @@
     margin-top: 20px !important;
 }
 
-.howText {
-    font-style: italic !important;
-    text-align: center !important;
-}
-
-.welcText {
-    font-style: italic !important;
-    text-align: center !important;
+.welc-text {
     font-size: 42px !important;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    text-align: center;
 }
 
 .welcomeCont {
@@ -71,12 +71,8 @@
     display: block;
 }
 
-.welcomeGrid {
-    min-width: 320px !important;
-}
-
 .homeJumbo {
-    min-height: 435px !important;
+    height: 435px !important;
     padding-bottom: 30px !important;
 }
 
@@ -1860,10 +1856,10 @@ body {
 
 .sniff-content-wrapper {
     padding-top: 15px;
+    font-size: 14px !important;
 }
 
 .btn-primary {
-    font-weight: 700 !important;
     background: #2279c1;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2279c1), color-stop(1, #498cc6));
     background: -ms-linear-gradient(bottom, #2279c1, #498cc6);
@@ -2183,13 +2179,14 @@ textarea {
  sidebar
 ***********************/
 .monthName {
+    font-weight: 700;
     font-size: 58px !important;
     font-family: 'Georgia', 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
 }
 
 .meet-ups {
-    font-size: 24px !important;
-    font-family: 'Buxton Sketch', 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
+    font-size: 18px !important;
+    font-family: 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
 }
 
 /**********************

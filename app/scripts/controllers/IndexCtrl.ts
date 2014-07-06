@@ -33,7 +33,7 @@ class IndexCtrl {
 
 
     constructor(public $scope, $location, public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-
+        $scope.home.IsSearchHidden = false;
         this.url = 'about';
 
         $scope.navigate = (menuIndex:number) => {

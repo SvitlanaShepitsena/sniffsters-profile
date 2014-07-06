@@ -8,6 +8,7 @@ var IndexCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        $scope.home.IsSearchHidden = false;
         this.url = 'about';
 
         $scope.navigate = function (menuIndex) {
@@ -77,6 +78,7 @@ var IndexCtrl = (function () {
             _this.spinner = false;
         });
     }
+
     IndexCtrl.prototype.animationDirection = function (menuIndex) {
         if (menuIndex > this.menuIndex)
             return 'slide-left';
