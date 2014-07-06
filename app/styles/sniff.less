@@ -35,6 +35,7 @@ body {
 }
 
 .btn-primary {
+  font-weight: 700 !important;
   .gradient(#2279c1, #2279c1, #498cc6);
   //  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#498cc6), to(#2779c1));
 
@@ -47,6 +48,15 @@ body {
     background-color: #4b95d6 !important;
     border-color: #4389cf !important;
   }
+  &:focus {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+  }
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  background-color: #4b95d6 !important;
+  border-color: #4389cf !important;
 }
 
 .cursor-p {
@@ -268,12 +278,13 @@ textarea {
 
 .quick-search-toggle {
   border-color: #a9a7a7;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b6b5b5), to(#8a8888));
+  .gradient(#b6b5b5, #8a8888, #b6b5b5);
 }
 
 .btn-search-drop, .btn-search-drop:hover, .btn-search-drop:active, .btn-search-drop:focus {
   font-family: arial, sans-serif;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b6b5b5), to(#8a8888));
+
+  .gradient(#b6b5b5, #8a8888, #b6b5b5);
   border-color: #a9a7a7;
   color: whitesmoke;
   font-style: 14px;
@@ -284,6 +295,22 @@ textarea {
 
 .search-dropdown {
   width: 250px !important;
+}
+
+.caret {
+  color: whitesmoke;
+}
+
+.btn-default {
+  font-weight: 700 !important;
+  border-color: #a9a7a7;
+  .gradient(#b6b5b5, #8a8888, #b6b5b5);
+  color: whitesmoke;
+  font-weight: 600;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+  .gradient(#b6b5b5, #a7a6a6, #b6b5b5);
 }
 
 /**********************
