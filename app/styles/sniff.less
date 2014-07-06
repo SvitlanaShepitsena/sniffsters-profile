@@ -52,6 +52,14 @@ body {
   cursor: pointer;
 }
 
+.jumbotron {
+  p {
+    font-family: arial, sans-serif !important;
+    font-size: 12px !important;
+    color: @color-subhead !important;
+  }
+}
+
 .container .jumbo-custom {
   min-height: 900px;
   background-color: white !important;
@@ -61,14 +69,6 @@ body {
   overflow: hidden;
 }
 
-.jumbotron {
-
-  p {
-    font-family: arial, sans-serif !important;
-    font-size: 12px !important;
-    color: @color-subhead !important;
-  }
-}
 
 hr {
   border-top-color: @colorFontDimmedL !important;
@@ -82,18 +82,18 @@ label {
 /**********************
  Font Styles
 ***********************/
-.sniff-menu, {
+.sniff-menu {
   font-family: @font-sniff;
   font-size: 18px;
-  color: #3a3a3a;
+  color: #3a3a3a !important;
   &:hover {
-    color: @color-head !important;
+    color: @color-info !important;
   }
   &:active {
-    color: @color-head !important;
+    color: @color-info !important;
   }
   &:focus {
-    color: @color-head !important;
+    color: @color-info !important;
   }
 }
 
@@ -101,6 +101,11 @@ label {
   font-family: @font-sniff;
   font-size: 18px;
   color: #3a3a3a;
+}
+
+.hello-user {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .sniff-head {
@@ -117,13 +122,6 @@ label {
   font-weight: normal;
 }
 
-.label-subhead {
-  font-family: @font-sniff;
-  font-size: 20px;
-  color: @color-subhead;
-  font-weight: normal;
-}
-
 h3 {
   font-family: @font-sniff;
   font-size: 22px;
@@ -133,7 +131,7 @@ h3 {
 .sniff-head-info {
   font-family: @font-sniff;
   font-size: 22px;
-  color: @color-head;
+  color: @color-info;
 }
 
 h4 {

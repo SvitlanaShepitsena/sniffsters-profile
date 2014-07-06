@@ -1818,6 +1818,12 @@ body {
     cursor: pointer;
 }
 
+.jumbotron p {
+    font-family: arial, sans-serif !important;
+    font-size: 12px !important;
+    color: #3a3a3a !important;
+}
+
 .container .jumbo-custom {
     min-height: 900px;
     background-color: white !important;
@@ -1825,12 +1831,6 @@ body {
     padding: 20px;
     margin-top: 20px;
     overflow: hidden;
-}
-
-.jumbotron p {
-    font-family: arial, sans-serif !important;
-    font-size: 12px !important;
-    color: #3a3a3a !important;
 }
 
 hr {
@@ -1848,7 +1848,7 @@ label {
 .sniff-menu {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 18px;
-    color: #3a3a3a;
+    color: #3a3a3a !important;
 }
 
 .sniff-menu:hover {
@@ -1869,6 +1869,11 @@ label {
     color: #3a3a3a;
 }
 
+.hello-user {
+    font-weight: bold;
+    font-size: 14px;
+}
+
 .sniff-head {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 22px;
@@ -1879,13 +1884,6 @@ label {
 .sniff-head-sm {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 18px;
-    color: #3a3a3a;
-    font-weight: normal;
-}
-
-.label-subhead {
-    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
-    font-size: 20px;
     color: #3a3a3a;
     font-weight: normal;
 }
