@@ -1,9 +1,8 @@
 var DataService = (function () {
-    function DataService($http, $q, $firebase, underscore) {
+    function DataService($http, $q, $firebase) {
         this.$http = $http;
         this.$q = $q;
         this.$firebase = $firebase;
-        this.underscore = underscore;
     }
 
     DataService.prototype.getProfile = function (id) {

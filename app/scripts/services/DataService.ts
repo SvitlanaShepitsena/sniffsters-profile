@@ -1,7 +1,7 @@
 class DataService {
     fb:AngularFire;
 
-    constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase, public underscore) {
+    constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase) {
 
     }
 

@@ -104,11 +104,6 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-testimonials.html"
     }).state("profile.testimonials5.edit", {
         url: "/edit/:id",
-        resolve: {
-            feedbacks: function (DataService) {
-                return DataService.getFeedbacks();
-            }
-        },
         template: "<feedback-edit></feedback-edit>"
     }).state("generate", {
         url: "/generate",
