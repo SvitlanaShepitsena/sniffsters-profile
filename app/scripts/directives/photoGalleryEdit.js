@@ -16,6 +16,7 @@ var photoGalleryEdit = function () {
                     $scope.photosCtrl.CreateSelectedGalleryClone();
                 });
             }
+            $scope.photosCtrl.CreateSelectedGalleryClone();
 
             var index = $stateParams.id;
 

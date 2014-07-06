@@ -27,6 +27,7 @@ var photoGalleryEdit:() => ng.IDirective = () => {
                     $scope.photosCtrl.CreateSelectedGalleryClone();
                 })
             }
+            $scope.photosCtrl.CreateSelectedGalleryClone();
 
 
             var index:number = $stateParams.id;
