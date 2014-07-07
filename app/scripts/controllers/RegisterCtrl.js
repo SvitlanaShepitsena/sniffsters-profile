@@ -6,7 +6,6 @@ var RegisterCtrl = (function () {
         this.DataService = DataService;
         $scope.register = this;
     }
-
     RegisterCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

@@ -18,6 +18,10 @@ class HomeCtrl {
 
     }
 
+    Logout() {
+//        this.$scope.auth.logout();
+    }
+
     IsSearchHidden:boolean;
 
     ShowSuccess(note:string) {

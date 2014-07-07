@@ -11,7 +11,6 @@ var LoginCtrl = (function () {
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
     }
-
     LoginCtrl.prototype.Signin = function (email, pass) {
         console.log('ddd');
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
@@ -19,13 +18,10 @@ var LoginCtrl = (function () {
             if (error) {
                 alert(error);
             } else if (user) {
-                $state.go('home');
+                alert('User ID: ' + user.id + ', Provider: ' + user.provider);
             } else {
             }
         });
-
-//        email = '<' + email + '>';
-//        pass = '<' + pass + '>';
 
         auth.login('password', {
             email: email,

@@ -33,10 +33,6 @@ class LoginCtrl {
         });
 
 
-        email = '<' + email + '>';
-        pass = '<' + pass + '>';
-
-
         auth.login('password', {
             email: email,
             password: pass,

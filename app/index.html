@@ -74,8 +74,9 @@
 						<a class="sniff-menu" ui-sref="profile.about1">MY PROFILE</a>
 					</li>
 					<li>
-						<a ng-show="auth.user" class="sniff-menu"
-						   href="javascript:document.getElementById('logoutForm').submit()">LOG OUT</a>
+						<button ng-show="auth.user" class="sniff-menu btn btn-link"
+						        ng-click="home.Logout()">LOG OUT
+						</button>
 						<a ng-hide="auth.user" class="sniff-menu"
 						   ui-sref="login">LOG IN</a>
 

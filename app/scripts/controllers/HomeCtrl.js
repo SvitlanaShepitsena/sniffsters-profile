@@ -11,6 +11,9 @@ var HomeCtrl = (function () {
         console.log($scope.auth);
         this.IsSearchHidden = true;
     }
+    HomeCtrl.prototype.Logout = function () {
+    };
+
     HomeCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
