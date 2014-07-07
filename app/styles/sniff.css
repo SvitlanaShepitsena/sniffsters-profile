@@ -2003,7 +2003,7 @@ label {
 .sniff-profile-menu {
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-size: 18px;
-    color: #3a3a3a;
+    color: #3a3a3a !important;
 }
 
 .hello-user {
@@ -2276,4 +2276,29 @@ textarea {
 .footer-container .nav > li > a:hover,
 .footer-container .nav > li > a:focus {
     color: #3a3a3a;
+}
+
+/**********************
+ Authentication
+***********************/
+.h-sign-up {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: #217ac8;
+}
+
+.btn-facebook-login {
+    text-align: center;
+    font-weight: bold;
+}
+
+.fa-facebook {
+    margin-right: 5px;
+}
+
+.btn-logout {
+    margin-top: 25px !important;
+    padding-bottom: 15px !important;
+    border: 0px;
 }

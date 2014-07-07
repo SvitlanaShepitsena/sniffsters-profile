@@ -29,6 +29,7 @@ var HomeCtrl = (function () {
             password: pass
         });
     };
+
     HomeCtrl.prototype.Logout = function () {
         this.$scope.authAction.logout();
 
