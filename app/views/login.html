@@ -1,5 +1,47 @@
-<div>
-	<input type="email" name="email" id="email" ng-model="login.email">
-	<input type="password" name="pass" id="pass" ng-model="login.pass">
-	<button ng-click="login.Signin(login.email, login.pass)">Login</button>
+<div class="row">
+	<div class="col-xs-6 mainContentWrapper">
+		<div class="well">
+			<form role="form">
+				<div class="form-group">
+					<label for="email">Email address</label>
+					<input type="email"
+					       class="form-control"
+					       id="email"
+					       name="email"
+					       placeholder="Enter email"
+					       ng-model="login.email">
+				</div>
+				<div class="form-group">
+					<label for="pass">Password</label>
+					<input type="password"
+					       class="form-control"
+					       id="pass"
+					       placeholder="Password"
+					       ng-model="login.pass">
+				</div>
+				<button ng-click="login.Signin(login.email, login.pass)">Login</button>
+			</form>
+		</div>
+	</div>
+	<div class="col-xs-6 mainContentWrapper">
+		<div class="well">
+			<h4>Login to Sniffsters with Facebook</h4>
+			<section id="socialLoginForm">
+				@Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl =
+				ViewBag.ReturnUrl })
+			</section>
+		</div>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-xs-12">
+
+		<p class="text-center">
+			@Html.ActionLink("Login", "Login", null, new { @class = " btn btn-default" }) If you already have Sniffsters
+			Account.
+		</p>
+
+	</div>
 </div>

@@ -117,7 +117,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("home", {
         url: "/",
         templateUrl: "../views/home.html"
-    }).state("login", {
+    }).state("sniff.login", {
         url: "/login",
         controller: "LoginCtrl",
         templateUrl: "../views/login.html"
