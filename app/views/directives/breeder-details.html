@@ -1,5 +1,5 @@
 <div class="myDetailsContWrapper">
-	<div ng-show="ctrl.isOwner">
+	<div ng-show="ctrl.isOwner" class="aside-header-wrapper">
 		<h3 class="text-center sniff-head-info">MY DETAILS
 			<button class="btn btn-save-details right"
 			        ng-show="!IsEdit"
@@ -12,29 +12,26 @@
 			</button>
 		</h3>
 	</div>
-	<div ng-hide="ctrl.isOwner" class="row">
-		<div class="col-xs-12">
-			<div class="alert alert-warning sniff-alert">
-				<ul class="list-inline text-center ulMyDetailsUsers">
-					<li>
-						<a href="">FOLLOW</a>
-					</li>
-					<li>
-						<a href="">SHARE</a>
-					</li>
-					<li>
-						<a href="">CONTACT</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+	<div ng-hide="ctrl.isOwner" class="aside-header-wrapper">
+		<ul class="list-inline text-center">
+			<li>
+				<a class="sniff-head-sm" href="">follow</a>
+			</li>
+			<li>
+				<a class="sniff-head-sm" href="">share</a>
+			</li>
+			<li>
+				<a class="sniff-head-sm" href="">CONTACT</a>
+			</li>
+		</ul>
 	</div>
 
-	<form role="form" class="myDetailsForm form-horizontal" name="myDetailsForm" id="myDetailsForm" novalidate>
+	<form role="form" class="alert alert-warning sniff-alert form-horizontal" name="myDetailsForm" id="myDetailsForm"
+	      novalidate>
 		<div class="form-group" ng-show="ctrl.isOwner">
 			<label for="locationInput" class="labelMyDetails">Location:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Location}}</span>
-			<input id="locationInput" name="locaionInput" type="text" class="form-control"
+			<input id="locationInput" name="locationInput" type="text" class="form-control"
 			       ng-model="ctrl.BreederProfileCopy.Location"
 			       ng-show="IsEdit">
 		</div>
