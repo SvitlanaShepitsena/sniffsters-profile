@@ -13,13 +13,14 @@ var LoginCtrl = (function () {
     }
 
     LoginCtrl.prototype.Signin = function (email, pass) {
+        var _this = this;
         console.log('ddd');
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
         var auth = new FirebaseSimpleLogin(fref, function (error, user) {
             if (error) {
-                alert(error);
+                _this.ShowError(error.toString());
             } else if (user) {
-                alert('User ID: ' + user.id + ', Provider: ' + user.provider);
+                _this.ShowSuccess('Welcome to Sniffsters.com');
             } else {
             }
         });

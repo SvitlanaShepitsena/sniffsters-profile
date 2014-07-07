@@ -13,13 +13,27 @@ class HomeCtrl {
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
         $scope.auth = $firebaseSimpleLogin(fref);
 
-        console.log($scope.auth);
         this.IsSearchHidden = true;
 
     }
 
     Logout() {
-//        this.$scope.auth.logout();
+//        console.log('Test');
+
+        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
+        var auth = new FirebaseSimpleLogin(fref, (error, user) => {
+            if (error) {
+                // an error occurred while attempting login
+                alert(error);
+            } else if (user) {
+                // user authenticated with Firebase
+//                alert('User ID: ' + user.id + ', Provider: ' + user.provider);
+            } else {
+                // user is logged out
+                this.ShowSuccess('You were successfully logged out');
+            }
+        });
+        auth.logout();
     }
 
     IsSearchHidden:boolean;

@@ -8,10 +8,20 @@ var HomeCtrl = (function () {
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
         $scope.auth = $firebaseSimpleLogin(fref);
 
-        console.log($scope.auth);
         this.IsSearchHidden = true;
     }
     HomeCtrl.prototype.Logout = function () {
+        var _this = this;
+        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
+        var auth = new FirebaseSimpleLogin(fref, function (error, user) {
+            if (error) {
+                alert(error);
+            } else if (user) {
+            } else {
+                _this.ShowSuccess('You were successfully logged out');
+            }
+        });
+        auth.logout();
     };
 
     HomeCtrl.prototype.ShowSuccess = function (note) {

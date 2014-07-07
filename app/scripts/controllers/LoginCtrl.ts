@@ -23,10 +23,10 @@ class LoginCtrl {
         var auth = new FirebaseSimpleLogin(fref, (error, user) => {
             if (error) {
                 // an error occurred while attempting login
-                alert(error);
+                this.ShowError(error.toString());
             } else if (user) {
                 // user authenticated with Firebase
-                alert('User ID: ' + user.id + ', Provider: ' + user.provider);
+                this.ShowSuccess('Welcome to Sniffsters.com')
             } else {
                 // user is logged out
             }
