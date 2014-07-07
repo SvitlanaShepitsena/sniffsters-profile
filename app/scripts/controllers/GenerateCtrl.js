@@ -39,6 +39,20 @@ var GenerateCtrl = (function () {
                 galleriesRef[gallery.Id] = gallery;
                 galleriesRef.$save();
             });
+
+            var messagesRef0 = breederRef.$child('messages');
+            messagesRef0.$save();
+
+            var breederMessagesRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
+            var messages = _this.GenerateMessages();
+            var sender = messages[0].Sender.replace(/\./g, '(p)');
+            ;
+            var senderRef = breederMessagesRef.$child(sender);
+            messages.forEach(function (message) {
+                senderRef.$add(message.Body);
+            });
+            senderRef.$save();
+
             breederRef.$save();
         });
 
@@ -98,6 +112,31 @@ var GenerateCtrl = (function () {
         feedbacks[feedback2.Id] = feedback2;
 
         return feedbacks;
+    };
+    GenerateCtrl.prototype.GenerateMessages = function () {
+        var messages = [];
+        var message1 = new Message();
+        message1.Sender = "breeder2@gmail.com";
+        message1.Body = "Hello Breeder 1. Hope everything is well.";
+
+        var message2 = new Message();
+        message2.Sender = "breeder2@gmail.com";
+        message2.Body = "Hello Breeder 1. Hope everything is well.";
+
+        var message3 = new Message();
+        message3.Sender = "breeder2@gmail.com";
+        message3.Body = "Hello Breeder 1. Hope everything is well.";
+
+        var message4 = new Message();
+        message4.Sender = "breeder2@gmail.com";
+        message4.Body = "Hello Breeder 1. Hope everything is well.";
+
+        messages.push(message1);
+        messages.push(message2);
+        messages.push(message3);
+        messages.push(message4);
+
+        return messages;
     };
 
     GenerateCtrl.prototype.GenerateGalleries = function () {

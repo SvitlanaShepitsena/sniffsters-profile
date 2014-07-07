@@ -49,6 +49,41 @@ class DataService {
         return d.promise;
     }
 
+    getMessages(id:string) {
+
+        var key:string = id.replace(/\./g, '(p)');
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
+        //console.log(fireGalleries);
+        var messagesArr:IMessage[] = [];
+        var message = new Message();
+        message.Sender = "breder2@gmail.com";
+        message.Body = "Hello Breeder 2";
+        messagesArr.push(message);
+
+//        var keys = fireMessages.$getIndex();
+//        keys.forEach((key)=> {
+//            var sender = key.replace('(p)', /\./g);
+//
+//            var messBodies = fireMessages[key];
+//            var messageKeys = messBodies.$getIndex();
+//
+//            messageKeys.forEach((kBody)=> {
+//                var body = messBodies[kBody];
+//                var message = new Message();
+//                message.Sender = sender;
+//                message.Body = body;
+//                messagesArr.push(message);
+//            })
+//
+//
+//            d.resolve(messagesArr);
+//        })
+        d.resolve(messagesArr);
+        var d = this.$q.defer();
+
+        return d.promise;
+    }
+
     getLitters(userName:string) {
         var d = this.$q.defer();
 
@@ -59,7 +94,7 @@ class DataService {
 
             var arrLitters = _.rest(this.$filter('orderByPriority')(litters));
             arrLitters.forEach((litter:ILitter)=> {
-                litter.Photos = _.rest(litter.Photos);
+                litter.Photos = _.rest(this.$filter('orderByPriority')(litter.Photos));
             })
 
 

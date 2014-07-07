@@ -10,7 +10,6 @@ var LoginCtrl = (function () {
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
     }
-
     LoginCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
