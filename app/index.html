@@ -67,13 +67,22 @@
 				<input name="__RequestVerificationToken" type="hidden"
 				       value="koBKD8pqxTZehrwXkqoZWDeh73un6DPJuSSbequ4qkzqy61jWNrLNhvb6Q9j-rp4uFK24oEtPpx0rr553w63E-G9PaKT_uQ6GRBEZbKfvriMmUm1siNpjvoA_nB4j25Qn6zzl2a_X-2Sz2YIXF_NEQ2"/>
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="hello-user" ui-sref="profile.about1" id="loggedUser">Hello, breeder1@gmail.com!</a>
+					<li ng-show="auth.user">
+					<a class="hello-user" ui-sref="profile.about1" id="loggedUser">Hello, breeder1@gmail.com!</a>
+					</li>
+					<li ng-show="auth.user">
+						<a class="sniff-menu" ui-sref="profile.about1">MY PROFILE</a>
 					</li>
 					<li>
-						<a class="sniff-menu" ui-sref="profile.about1">MY PROFILE</a></li>
-					<li><a class="sniff-menu" href="javascript:document.getElementById('logoutForm').submit()">LOG
-						OUT</a></li>
+						<a ng-show="auth.user" class="sniff-menu"
+						   href="javascript:document.getElementById('logoutForm').submit()">LOG OUT</a>
+						<a ng-hide="auth.user" class="sniff-menu"
+						   href="javascript:document.getElementById('logoutForm').submit()">LOG IN</a>
+
+					</li>
+					<li ng-hide="auth.user">
+						<a class="sniff-menu" ui-sref="profile.about1">REGISTER</a>
+					</li>
 				</ul>
 
 			</form>
@@ -171,6 +180,7 @@
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/firebase/firebase.js"></script>
 <script src="bower_components/angularfire/angularfire.js"></script>
+<script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
 <!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>-->
 <!--<script src="bower_components/angular-bootstrap/ui-bootstrap-custom-tpls-0.10.0.min.js"></script>-->
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
@@ -230,6 +240,8 @@
 <script src="scripts/controllers/ContactCtrl.js"></script>
 <script src="scripts/controllers/LookingForDogCtrl.js"></script>
 <script src="scripts/controllers/ForBreedersCtrl.js"></script>
+<script src="scripts/controllers/LoginCtrl.js"></script>
+<script src="scripts/controllers/RegisterCtrl.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>

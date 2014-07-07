@@ -11,6 +11,8 @@
     <orderEntry type="library" name="angular-ui-bootstrap-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="underscore-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="angularfire-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="firebase-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="Generated files" level="project" />
   </component>
 </module>
 

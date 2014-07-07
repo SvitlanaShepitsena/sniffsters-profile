@@ -6,7 +6,6 @@ var ForBreedersCtrl = (function () {
         this.DataService = DataService;
         $scope.forBreeders = this;
     }
-
     ForBreedersCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

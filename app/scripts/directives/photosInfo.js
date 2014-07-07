@@ -1,3 +1,4 @@
+
 var photosInfo = function () {
     return {
         restrict: 'E',

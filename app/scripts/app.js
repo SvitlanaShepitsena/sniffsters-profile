@@ -57,6 +57,8 @@ profile.controller("TermsCtrl", TermsCtrl);
 profile.controller("ContactCtrl", ContactCtrl);
 profile.controller("LookingForDogCtrl", LookingForDogCtrl);
 profile.controller("ForBreedersCtrl", ForBreedersCtrl);
+profile.controller("LoginCtrl", LoginCtrl);
+profile.controller("RegisterCtrl", RegisterCtrl);
 
 profile.value("toastr", toastr);
 profile.service("DataService", DataService);
@@ -154,5 +156,13 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/for-breeders",
         controller: "ForBreedersCtrl",
         templateUrl: "../views/for-breeders.html"
+    }).state("login", {
+        url: "/profile/login",
+        controller: "LoginCtrl",
+        templateUrl: "../views/profile-login.html"
+    }).state("register", {
+        url: "/profile/register",
+        controller: "RegisterCtrl",
+        templateUrl: "../views/profile-register.html"
     });
 });
