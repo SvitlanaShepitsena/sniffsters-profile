@@ -1,6 +1,10 @@
 <div class="row">
-	<div class="col-xs-6 mainContentWrapper">
+	<div class="col-xs-6 col-xs-offset-3">
 		<div class="well">
+			<h4 class="text-center sniff-head-info">Already has a n account?</h4>
+
+			<h3 class="text-center sniff-head">Log In to Sniffsters</h3>
+			<hr/>
 			<form role="form">
 				<div class="form-group">
 					<label for="email">Email address</label>
@@ -19,12 +23,15 @@
 					       placeholder="Password"
 					       ng-model="login.pass">
 				</div>
-				<button ng-click="login.Signin(login.email, login.pass)">Login</button>
+				<button class="btn btn-primary" ng-click="login.Signin(login.email, login.pass)">Login</button>
 			</form>
 		</div>
 	</div>
-	<div class="col-xs-6 mainContentWrapper">
-		<div class="well">
+</div>
+
+<div class="row">
+	<div class="col-xs-6 col-xs-offset-3">
+	<div class="well">
 			<h4>Login to Sniffsters with Facebook</h4>
 			<section id="socialLoginForm">
 				@Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl =
