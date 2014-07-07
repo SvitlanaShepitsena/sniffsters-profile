@@ -191,7 +191,7 @@ profile.config(
                 controller: "LoginCtrl",
                 templateUrl: "../views/login.html"
             })
-            .state("register", {
+            .state("sniff.register", {
                 url: "/register",
                 controller: "RegisterCtrl",
                 templateUrl: "../views/register.html"
