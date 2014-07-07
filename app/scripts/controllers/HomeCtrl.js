@@ -1,27 +1,38 @@
 var HomeCtrl = (function () {
     function HomeCtrl($scope, $firebase, $firebaseSimpleLogin, $state, toastr, DataService) {
+        var _this = this;
         this.$scope = $scope;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.home = this;
+
+        this.email = "breeder1@gmail.com";
+        this.pass = "123456";
+
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
         $scope.auth = $firebaseSimpleLogin(fref);
-
-        this.IsSearchHidden = true;
-    }
-    HomeCtrl.prototype.Logout = function () {
-        var _this = this;
-        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
-        var auth = new FirebaseSimpleLogin(fref, function (error, user) {
+        $scope.authAction = new FirebaseSimpleLogin(fref, function (error, user) {
             if (error) {
-                alert(error);
+                _this.ShowError(error.toString());
             } else if (user) {
+                _this.ShowSuccess('Welcome to Sniffsters.com');
+                _this.$state.go('home');
             } else {
-                _this.ShowSuccess('You were successfully logged out');
             }
         });
-        auth.logout();
+        this.IsSearchHidden = true;
+    }
+    HomeCtrl.prototype.Signin = function (email, pass) {
+        this.$scope.authAction.login('password', {
+            email: email,
+            password: pass
+        });
+    };
+    HomeCtrl.prototype.Logout = function () {
+        this.$scope.authAction.logout();
+
+        this.ShowSuccess('You were successfully logged out');
     };
 
     HomeCtrl.prototype.ShowSuccess = function (note) {

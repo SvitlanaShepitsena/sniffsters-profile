@@ -50,7 +50,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a ui-sref="home">
-			<img src="img/Sniffsters-Log.png" alt="...">
+				<img src="img/Sniffsters-Log.png" alt="...">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse">
@@ -63,36 +63,32 @@
 			</ul>
 
 
-			<form action="/Log-Off" class="navbar-right" id="logoutForm" method="post">
-				<input name="__RequestVerificationToken" type="hidden"
-				       value="koBKD8pqxTZehrwXkqoZWDeh73un6DPJuSSbequ4qkzqy61jWNrLNhvb6Q9j-rp4uFK24oEtPpx0rr553w63E-G9PaKT_uQ6GRBEZbKfvriMmUm1siNpjvoA_nB4j25Qn6zzl2a_X-2Sz2YIXF_NEQ2"/>
-				<ul class="nav navbar-nav navbar-right">
-					<li ng-show="auth.user">
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-show="auth.user">
 					<a class="hello-user" ui-sref="profile.about1" id="loggedUser">Hello, breeder1@gmail.com!</a>
-					</li>
-					<li ng-show="auth.user">
-						<a class="sniff-menu" ui-sref="profile.about1">MY PROFILE</a>
-					</li>
-					<li>
-						<button ng-show="auth.user" class="sniff-menu btn btn-link"
-						        ng-click="home.Logout()">LOG OUT
-						</button>
-						<a ng-hide="auth.user" class="sniff-menu"
-						   ui-sref="sniff.login">LOG IN</a>
+				</li>
+				<li ng-show="auth.user">
+					<a class="sniff-menu" ui-sref="profile.about1">MY PROFILE</a>
+				</li>
+				<li>
+					<button ng-show="auth.user" class="sniff-menu btn btn-link"
+					        ng-click="home.Logout()">LOG OUT
+					</button>
+					<a ng-hide="auth.user" class="sniff-menu"
+					   ui-sref="sniff.login">LOG IN</a>
 
-					</li>
-					<li ng-hide="auth.user">
-						<a class="sniff-menu" ui-sref="register">REGISTER</a>
-					</li>
-				</ul>
+				</li>
+				<li ng-hide="auth.user">
+					<a class="sniff-menu" ui-sref="register">REGISTER</a>
+				</li>
+			</ul>
 
-			</form>
 		</div>
 	</div>
 </div>
 
 <div class="search-bar-wrapper" ng-hide="home.IsSearchHidden">
-<div class="container search-bar-content">
+	<div class="container search-bar-content">
 		<div class="search-bar text-center">
 			<form action="/Breeders-Search-Result"
 			      class="form-inline search-bar-form"
