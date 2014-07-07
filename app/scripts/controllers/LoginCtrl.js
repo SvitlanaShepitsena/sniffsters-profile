@@ -11,6 +11,7 @@ var LoginCtrl = (function () {
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
     }
+
     LoginCtrl.prototype.Signin = function (email, pass) {
         console.log('ddd');
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
