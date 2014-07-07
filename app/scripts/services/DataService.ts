@@ -1,3 +1,4 @@
+/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 class DataService {
     fb:AngularFire;
 

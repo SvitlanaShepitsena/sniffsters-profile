@@ -1,4 +1,5 @@
 /// <reference path="IndexCtrl.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
 
 interface IHomeScope extends IMainScope {
     home:HomeCtrl;

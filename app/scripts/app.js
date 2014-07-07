@@ -117,6 +117,14 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("home", {
         url: "/",
         templateUrl: "../views/home.html"
+    }).state("login", {
+        url: "/login",
+        controller: "LoginCtrl",
+        templateUrl: "../views/login.html"
+    }).state("register", {
+        url: "/register",
+        controller: "RegisterCtrl",
+        templateUrl: "../views/register.html"
     }).state("looking-for-dog", {
         url: "/looking-for-a-dog",
         controller: "LookingForDogCtrl",
@@ -156,13 +164,5 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/for-breeders",
         controller: "ForBreedersCtrl",
         templateUrl: "../views/for-breeders.html"
-    }).state("login", {
-        url: "/profile/login",
-        controller: "LoginCtrl",
-        templateUrl: "../views/profile-login.html"
-    }).state("register", {
-        url: "/profile/register",
-        controller: "RegisterCtrl",
-        templateUrl: "../views/profile-register.html"
     });
 });

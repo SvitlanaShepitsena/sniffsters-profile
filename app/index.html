@@ -77,11 +77,11 @@
 						<a ng-show="auth.user" class="sniff-menu"
 						   href="javascript:document.getElementById('logoutForm').submit()">LOG OUT</a>
 						<a ng-hide="auth.user" class="sniff-menu"
-						   href="javascript:document.getElementById('logoutForm').submit()">LOG IN</a>
+						   ui-sref="login">LOG IN</a>
 
 					</li>
 					<li ng-hide="auth.user">
-						<a class="sniff-menu" ui-sref="profile.about1">REGISTER</a>
+						<a class="sniff-menu" ui-sref="register">REGISTER</a>
 					</li>
 				</ul>
 

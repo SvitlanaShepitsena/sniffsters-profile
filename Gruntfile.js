@@ -533,13 +533,13 @@ module.exports = function (grunt) {
         var ref = '/// <reference path="controllers/' + name + 'Ctrl.ts" />\r\n';
         var reg = 'profile.controller("' + name + 'Ctrl", ' + name + 'Ctrl);\r\n';
         var state = '\t\t\t\t.state("' + lname + '", {\r\n' +
-            '\t\t\t\t\turl: "/profile/' + lname + '", \r\n' +
+            '\t\t\t\t\turl: "/' + lname + '", \r\n' +
             '\t\t\t\t\tcontroller:"' + name + 'Ctrl",\r\n' +
-            '\t\t\t\t\ttemplateUrl: "../views/profile-' + lname + '.html"\r\n' +
+            '\t\t\t\t\ttemplateUrl: "../views/' + lname + '.html"\r\n' +
             '\t\t\t\t})\r\n';
 
         var apath = 'app/scripts/app.ts';
-        var tpath = 'app/views/profile-' + lname + '.html';
+        var tpath = 'app/views/' + lname + '.html';
         var app = grunt.file.read(apath);
         if (rm) {
             app = removeFromInside(app, ref);
@@ -569,10 +569,8 @@ module.exports = function (grunt) {
 
         if (rm) {
             var file = d + name + t;
-            var sfile = sd + name + st;
 
             delFileDep(file);
-            delFileDep(sfile);
 
             grunt.file.delete(tpath);
         } else {
