@@ -102,7 +102,7 @@ var IndexCtrl = (function () {
     };
 
     IndexCtrl.prototype.Ownership = function () {
-        return false;
+        return true;
     };
 
     IndexCtrl.prototype.SaveKennelName = function () {
