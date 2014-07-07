@@ -28,21 +28,24 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-2">
+	<div class="col-xs-2 content-wrapper" ng-show="isOwner">
 		<ul class="nav nav-stacked">
-			<li><a class="sniff-menu" ui-sref="profile.about1">My Profile</a></li>
+			<li><a class="sniff-menu" href="/Breeder-Profile">My Profile</a></li>
 			<li><a class="sniff-menu" href="/Messages/Index">Messages</a></li>
 		</ul>
-
 	</div>
-	<div class="col-xs-6">
+
+	<div class="col-xs-8" ng-hide="isOwner">
 		<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
-
-
 		<!--		 ng-hide="index.spinner"
 				<spin-div ng-show="index.spinner"></spin-div>-->
 	</div>
-	<div class="col-xs-4 myContWrapper">
+	<div class="col-xs-6" ng-show="isOwner">
+		<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
+		<!--		 ng-hide="index.spinner"
+				<spin-div ng-show="index.spinner"></spin-div>-->
+	</div>
+	<div class="col-xs-4 content-wrapper profile-aside">
 		<breeder-details ctrl="index"></breeder-details>
 		<previous-puppies>Our Previous Puppies</previous-puppies>
 	</div>

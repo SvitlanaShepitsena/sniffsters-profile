@@ -57,8 +57,12 @@
     margin-bottom: 0em;
 }
 
-.myDetailsForm {
-    line-height: 1.1em;
+.sniff-alert {
+    color: #3a3a3a;
+}
+
+.th-pic {
+    margin: -16px -16px 0px -16px;
 }
 
 .myDetailsHeader {
@@ -103,11 +107,7 @@
     padding: 2px 5px;
 }
 
-.ulMyDetailsUsers {
-    font-style: italic;
-    font-weight: bold;
-}
-
-.ulMyDetailsUsers a {
-    color: #6e6e6e;
+.aside-header-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

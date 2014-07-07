@@ -150,7 +150,7 @@ class IndexCtrl {
 //        var userName = loggedUserTxt.substr(start, finish - start).trim();
 
 //        return this.Id === userName;
-        return true;
+        return false;
     }
 
 
