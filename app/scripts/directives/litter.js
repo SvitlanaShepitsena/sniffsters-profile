@@ -11,7 +11,7 @@ var litter = function () {
         controller: function ($scope, DataService, $modal, $upload, toastr) {
             $scope.saveLitter = function () {
                 DataService.updateLitter($scope.l, $scope.userName).then(function () {
-                    toastr.success("Your changes have been saved to the Db.");
+                    toastr.success("Your changes have been saved to Db!");
                 });
             };
             $scope.onFileSelect = function ($files) {

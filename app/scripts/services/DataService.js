@@ -51,6 +51,7 @@ var DataService = (function () {
 
         fireLitters.$on('value', function (snapshot) {
             var litters = snapshot.snapshot.value;
+
             var arrLitters = _.rest(_this.$filter('orderByPriority')(litters));
             arrLitters.forEach(function (litter) {
                 litter.Photos = _.rest(litter.Photos);

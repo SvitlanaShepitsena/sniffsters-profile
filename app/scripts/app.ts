@@ -179,10 +179,13 @@ profile.config(
 
             .state("home", {
                 url: "/",
-                controller: "HomeCtrl",
                 templateUrl: "../views/home.html"
             })
-
+            .state("looking-for-dog", {
+                url: "/looking-for-a-dog",
+                controller: "LookingForDogCtrl",
+                templateUrl: "../views/looking-for-dog.html"
+            })
             .state("sniff", {
                 abstract: true,
                 templateUrl: "../views/sniff.html"
@@ -222,12 +225,7 @@ profile.config(
                 controller: "ContactCtrl",
                 templateUrl: "../views/contact.html"
             })
-            .state("lookingForDog", {
-                url: "/looking-for-a-dog",
-                controller: "LookingForDogCtrl",
-                templateUrl: "../views/looking-for-dog.html"
-            })
-            .state("forBreeders", {
+            .state("sniff.forBreeders", {
                 url: "/for-breeders",
                 controller: "ForBreedersCtrl",
                 templateUrl: "../views/for-breeders.html"

@@ -1,93 +1,36 @@
-<div class="row">
-	<div class="col-sm-12">
-		@Html.ViewHeader("Benefits")
-		<hr/>
+<h2 class="sniff-head"> Hi & Welcome!</h2>
 
-		<ul class="ulBenefits">
-			<li>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
-				semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
-				tellus.
-			</li>
 
-			<li>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
-				semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
-				tellus.
-			</li>
-			<li>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
-				semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
-				tellus.
-			</li>
-			<li>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
-				semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
-				tellus.
-				</lir
-			<li>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
-				semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
-				tellus.
-			</li>
-		</ul>
-	</div>
-</div>
+<p class="">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+	semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+	tellus.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+	semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+	tellus.
+</p>
 
-<div class="row">
-	<div class="col-md-12">
-		@Html.ViewHeader("Compare Plans")
-		<br/>
+<h2 class="sniff-head">Paragraph about current demand & benefits for breeders</h2>
 
-		<table class="table table-bordered table-responsive table-plans">
-			<thead>
-			<tr>
-				<th></th>
-				@foreach (var memb in Model)
-				{
-				<th>
-					@memb.MembershipName
-					<hr/>
+<p class="">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+	semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+	tellus.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+	semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+	tellus.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+	semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+	tellus.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada
+	semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium
+	tellus.
+</p>
 
-					@memb.Price
-				</th>
-				}
-			</tr>
-			</thead>
 
-			<tbody>
-			@foreach (var f in @features)
-			{
-			<tr>
-				<th>
-					@f.Title
+<span class="label label-warning sniff-label-warning">We will help you to find a home for your puppies</span>
 
-				</th>
 
-				@foreach (var membership in Model)
-				{
-				if (membership.MembershipFeatures == null)
-				{
-				continue;
-				}
-				<td>
-					@foreach (var memberfeature in @membership.MembershipFeatures)
-					{
-					if (f.Id == memberfeature.Id)
-					{
-					<span class="glyphicon glyphicon-ok"></span>
-					}
-					}
-				</td>
-				}
-			</tr>
-			}
-
-			</tbody>
-		</table>
-
-	</div>
-</div>
 <br/>
 <br/>
 

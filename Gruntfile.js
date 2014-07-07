@@ -79,10 +79,10 @@ module.exports = function (grunt) {
                 files: ['test/spec/{,*/}*.coffee'],
                 tasks: ['coffee:test']
             },
-//            typescript: {
-//                files: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
-//                tasks: ['typescript:same']
-//            },
+            typescript: {
+                files: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
+                tasks: ['typescript:same']
+            },
             livereload: {
                 options: {
                     livereload: LIVERELOAD_PORT
@@ -307,8 +307,8 @@ module.exports = function (grunt) {
         },
         concurrent: {
             server: [
-//                'coffee:dist',
-//                'typescript:same'
+                'coffee:dist',
+                'typescript:same'
             ],
             test: [
                 'coffee',
@@ -316,7 +316,7 @@ module.exports = function (grunt) {
             ],
             dist: [
                 'coffee',
-//                'typescript:same',
+                'typescript:same',
                 'typescript:tf',
                 'imagemin',
                 'svgmin',

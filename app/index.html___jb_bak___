@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="bower_components/toastr/toastr.min.css">
 	<link rel="stylesheet" href="styles/sniff.css">
 	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="http://help.typekit.com/customer/portal/articles/6780-adding-fonts-to-your-site">
+	<link rel="stylesheet" href="https://help.typekit.com/customer/portal/articles/6780-adding-fonts-to-your-site">
 
 
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">

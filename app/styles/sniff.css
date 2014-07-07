@@ -1838,6 +1838,20 @@
     margin: 15px;
 }
 
+/**********************
+       IMPORTS
+***********************/
+/**********************
+    For Breeders Page
+***********************/
+.sniff-label-warning {
+    padding: 10px 50px !important;
+    border-radius: 0px !important;
+    font-size: 26px !important;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+    font-weight: normal !important;
+}
+
 /*************************
   BOOTSTRAP CUSTOM STYLES
 **************************/
