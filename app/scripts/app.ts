@@ -36,6 +36,9 @@
 /// <reference path="controllers/ForBreedersCtrl.ts" />
 /// <reference path="controllers/LoginCtrl.ts" />
 /// <reference path="controllers/RegisterCtrl.ts" />
+/// <reference path="controllers/MessagesCtrl.ts" />
+/// <reference path="controllers/CreateMessageCtrl.ts" />
+/// <reference path="controllers/TrashCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -102,6 +105,9 @@ profile.controller("LookingForDogCtrl", LookingForDogCtrl);
 profile.controller("ForBreedersCtrl", ForBreedersCtrl);
 profile.controller("LoginCtrl", LoginCtrl);
 profile.controller("RegisterCtrl", RegisterCtrl);
+profile.controller("MessagesCtrl", MessagesCtrl);
+profile.controller("CreateMessageCtrl", CreateMessageCtrl);
+profile.controller("TrashCtrl", TrashCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -246,8 +252,25 @@ profile.config(
                 controller: "ForBreedersCtrl",
                 templateUrl: "../views/for-breeders.html"
             })
+        /**********************
+         * Messages
+         ***********************/
 
-
+            .state("messages", {
+                url: "/messages",
+                controller: "MessagesCtrl",
+                templateUrl: "../views/messages.html"
+            })
+            .state("createMessage", {
+                url: "/createMessage",
+                controller: "CreateMessageCtrl",
+                templateUrl: "../views/createMessage.html"
+            })
+            .state("trash", {
+                url: "/trash",
+                controller: "TrashCtrl",
+                templateUrl: "../views/trash.html"
+            })
 //#state
     });
 
