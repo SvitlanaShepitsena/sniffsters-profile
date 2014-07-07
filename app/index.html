@@ -71,12 +71,11 @@
 					<a class="sniff-menu" ui-sref="profile.about1">MY PROFILE</a>
 				</li>
 				<li>
-					<button ng-show="auth.user" class="sniff-menu btn btn-link"
+					<a ng-show="auth.user" class="sniff-menu"
 					        ng-click="home.Logout()">LOG OUT
-					</button>
+					</a>
 					<a ng-hide="auth.user" class="sniff-menu"
 					   ui-sref="sniff.login">LOG IN</a>
-
 				</li>
 				<li ng-hide="auth.user">
 					<a class="sniff-menu" ui-sref="sniff.register">REGISTER</a>
