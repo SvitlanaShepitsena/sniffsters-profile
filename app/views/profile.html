@@ -29,25 +29,25 @@
 </div>
 <div class="row">
 	<div class="col-xs-2 content-wrapper" ng-show="index.isOwner">
-	<ul class="nav nav-stacked">
+		<ul class="nav nav-stacked">
 			<li><a class="sniff-menu" href="/Breeder-Profile">My Profile</a></li>
-		<li><a class="sniff-menu" href="/Breeder-Profile">Manage Account</a></li>
-		<li><a class="sniff-menu" href="/Messages/Index">Messages</a></li>
-		<li><a class="sniff-menu" href="/Messages/Index">Upgrade</a></li>
-		<li><a class="sniff-menu" href="/Messages/Index">Following</a></li>
-		<li><a class="sniff-menu" href="/Messages/Index">Followers</a></li>
-		<li><a class="sniff-menu" href="/Messages/Index">Verifications</a></li>
-		<li><a class="sniff-menu" href="/Messages/Index">View My Page</a></li>
-	</ul>
+			<li><a class="sniff-menu" href="/Breeder-Profile">Manage Account</a></li>
+			<li><a class="sniff-menu" href="/Messages/Index">Messages</a></li>
+			<li><a class="sniff-menu" href="/Messages/Index">Upgrade</a></li>
+			<li><a class="sniff-menu" href="/Messages/Index">Following</a></li>
+			<li><a class="sniff-menu" href="/Messages/Index">Followers</a></li>
+			<li><a class="sniff-menu" href="/Messages/Index">Verifications</a></li>
+			<li><a class="sniff-menu" href="/Messages/Index">View My Page</a></li>
+		</ul>
 	</div>
 
 	<div class="col-xs-8" ng-hide="index.isOwner">
-	<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
+		<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
 		<!--		 ng-hide="index.spinner"
 				<spin-div ng-show="index.spinner"></spin-div>-->
 	</div>
 	<div class="col-xs-6" ng-show="index.isOwner">
-	<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
+		<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
 		<!--		 ng-hide="index.spinner"
 				<spin-div ng-show="index.spinner"></spin-div>-->
 	</div>
