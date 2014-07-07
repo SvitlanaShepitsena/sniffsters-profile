@@ -19,6 +19,17 @@ interface IBreederProfile {
     Insurances:string[];
     Shipping:boolean;
 }
+
+interface IMessage {
+    Sender:string;
+    Body:string;
+}
+
+class Message implements IMessage {
+    Sender:string;
+    Body:string;
+}
+
 interface IFeedback {
     Id:number;
     ClientName:string;
@@ -93,7 +104,7 @@ interface ILitter {
     DateOfBirth:string;
     Puppies:string;
     Colors:string;
-    Photos:IPhoto[];
+    Photos:any[];
 }
 
 class Litter implements ILitter {
@@ -102,6 +113,6 @@ class Litter implements ILitter {
     DateOfBirth:string;
     Puppies:string;
     Colors:string;
-    Photos:IPhoto[];
+    Photos:any[];
 
 }

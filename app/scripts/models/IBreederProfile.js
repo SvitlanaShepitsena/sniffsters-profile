@@ -1,3 +1,9 @@
+var Message = (function () {
+    function Message() {
+    }
+    return Message;
+})();
+
 var Feedback = (function () {
     function Feedback() {
     }

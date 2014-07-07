@@ -2,7 +2,6 @@
 'use strict';
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
-var minify = require('html-minify').minify;
 
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
@@ -243,18 +242,18 @@ module.exports = function (grunt) {
                 dirs: ['<%= yeoman.dist %>']
             }
         },
-        imagemin: {
-            dist: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= yeoman.app %>/images',
-                        src: '{,*/}*.{png,jpg,jpeg}',
-                        dest: '<%= yeoman.dist %>/images'
-                    }
-                ]
-            }
-        },
+//        imagemin: {
+//            dist: {
+//                files: [
+//                    {
+//                        expand: true,
+//                        cwd: '<%= yeoman.app %>/images',
+//                        src: '{,*/}*.{png,jpg,jpeg}',
+//                        dest: '<%= yeoman.dist %>/images'
+//                    }
+//                ]
+//            }
+//        },
         svgmin: {
             dist: {
                 files: [
@@ -318,7 +317,7 @@ module.exports = function (grunt) {
                 'coffee',
                 'typescript:same',
                 'typescript:tf',
-                'imagemin',
+//                'imagemin',
                 'svgmin',
                 'htmlmin'
             ]

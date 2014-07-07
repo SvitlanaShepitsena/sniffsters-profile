@@ -1,4 +1,23 @@
-<div>
+<div class="row">
+	<div class="col-md-12 mainContentWrapper">
+		<div ng-hide="selectedUserMessages">
+			<p class="well well-sm">You do not have any messages. </p>
+		</div>
+		<div class="col-xs-3 aside-messages">
+			<corr-users-panel ng-show="selectedUserMessages" logged-user='loggedUser' user-messages='userMessages'
+			                  is-active='isActive(userMessage)' set-selected-user="setSelectedUser(userMessage)"/>
+		</div>
+		<div class="col-xs-9">
+			@* Transferring parameteters from directive scope like objects*@
+			<selected-user-messages-view view-height="messagesScrollBar" selected-user-messages='selectedUserMessages'
+			                             logged-user='loggedUser'></selected-user-messages-view>
+			<div class="row">
+				<div class="col-sm-12">
 
-	<!-- PUT DIRECTIVES BELOW -->
+					<reply-delete ng-show="selectedUserMessages" trash-conversation='trashConversation()'
+					              save-reply="saveReply()" user-reply="userReply"></reply-delete>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

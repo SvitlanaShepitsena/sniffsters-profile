@@ -42,6 +42,22 @@ var DataService = (function () {
         return d.promise;
     };
 
+    DataService.prototype.getMessages = function (id) {
+        var key = id.replace(/\./g, '(p)');
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
+
+        var messagesArr = [];
+        var message = new Message();
+        message.Sender = "breder2@gmail.com";
+        message.Body = "Hello Breeder 2";
+        messagesArr.push(message);
+
+        d.resolve(messagesArr);
+        var d = this.$q.defer();
+
+        return d.promise;
+    };
+
     DataService.prototype.getLitters = function (userName) {
         var _this = this;
         var d = this.$q.defer();
@@ -53,7 +69,7 @@ var DataService = (function () {
 
             var arrLitters = _.rest(_this.$filter('orderByPriority')(litters));
             arrLitters.forEach(function (litter) {
-                litter.Photos = _.rest(litter.Photos);
+                litter.Photos = _.rest(_this.$filter('orderByPriority')(litter.Photos));
             });
 
             d.resolve(arrLitters);
