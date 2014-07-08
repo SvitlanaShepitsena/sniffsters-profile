@@ -13,8 +13,14 @@ class MessagesCtrl {
     fireMessages;
 
     corrUsers:string[];
-    selectedUserMessages:INote[];
+    corrUsersFire:string[];
+
     selectedUser:string;
+    selectedUserFire:string;
+
+    selectedUserIndex:number;
+
+    selectedUserMessages:INote[];
 
     constructor(public $scope:IMessagesScope, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.messages = this;
@@ -23,14 +29,30 @@ class MessagesCtrl {
             this.fireMessages = messages;
 
             var inbox = messages.Inbox;
-            this.corrUsers = _.map(_.keys(inbox), (userFire) => {
+            this.corrUsersFire = _.keys(inbox);
+
+            this.corrUsers = _.map(this.corrUsersFire, (userFire) => {
                 return userFire.toString().replace(/\(p\)/g, '.');
             });
-            this.selectedUser = this.corrUsers[0];
+
+            if (this.selectedUser == null) {
+                this.selectedUserIndex = 0;
+                this.SetSelectedUser(this.selectedUserIndex);
+            }
+
 
         })
     }
 
+    SetSelectedUser(arrIndex:number) {
+        this.selectedUserIndex = arrIndex;
+        console.log(arrIndex);
+
+        this.selectedUserFire = this.corrUsersFire[this.selectedUserIndex];
+        this.selectedUser = this.corrUsers[this.selectedUserIndex];
+
+        this.selectedUserMessages = _(this.fireMessages.Inbox[this.selectedUserFire]).values();
+    }
 
     ShowSuccess(note:string) {
 

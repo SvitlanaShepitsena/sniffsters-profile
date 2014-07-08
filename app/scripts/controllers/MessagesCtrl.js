@@ -11,12 +11,28 @@ var MessagesCtrl = (function () {
             _this.fireMessages = messages;
 
             var inbox = messages.Inbox;
-            _this.corrUsers = _.map(_.keys(inbox), function (userFire) {
+            _this.corrUsersFire = _.keys(inbox);
+
+            _this.corrUsers = _.map(_this.corrUsersFire, function (userFire) {
                 return userFire.toString().replace(/\(p\)/g, '.');
             });
-            _this.selectedUser = _this.corrUsers[0];
+
+            if (_this.selectedUser == null) {
+                _this.selectedUserIndex = 0;
+                _this.SetSelectedUser(_this.selectedUserIndex);
+            }
         });
     }
+    MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {
+        this.selectedUserIndex = arrIndex;
+        console.log(arrIndex);
+
+        this.selectedUserFire = this.corrUsersFire[this.selectedUserIndex];
+        this.selectedUser = this.corrUsers[this.selectedUserIndex];
+
+        this.selectedUserMessages = _(this.fireMessages.Inbox[this.selectedUserFire]).values();
+    };
+
     MessagesCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

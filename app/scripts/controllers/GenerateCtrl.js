@@ -50,13 +50,24 @@ var GenerateCtrl = (function () {
             var breederMessagesRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages/Inbox"));
 
             var messages = _this.GenerateMessages();
+            var messages2 = _this.GenerateMessages();
+
             var sender = messages[0].Sender.replace(/\./g, '(p)');
+            var sender2 = "breeder3@gmail(p)com";
 
             var senderRef = breederMessagesRef.$child(sender);
             messages.forEach(function (message) {
                 senderRef.$add({
-                    amISender: false,
+                    amISender: (Math.random() < 0.5),
                     body: message.Body });
+            });
+            senderRef.$save();
+
+            var senderRef = breederMessagesRef.$child(sender2);
+            messages2.forEach(function (message) {
+                senderRef.$add({
+                    amISender: (Math.random() < 0.5),
+                    body: "Breeder 3 writing" });
             });
             senderRef.$save();
 
@@ -125,7 +136,7 @@ var GenerateCtrl = (function () {
         var messages = [];
         var message1 = new Message();
         message1.Sender = "breeder2@gmail.com";
-        message1.Body = "Hello Breeder 1. Hope everything is well.";
+        message1.Body = "Hello Breeder 1 from Breeder 2";
 
         var message2 = new Message();
         message2.Sender = "breeder2@gmail.com";
@@ -133,11 +144,11 @@ var GenerateCtrl = (function () {
 
         var message3 = new Message();
         message3.Sender = "breeder2@gmail.com";
-        message3.Body = "Hello Breeder 1. Hope everything is well.";
+        message3.Body = "Hello Breeder 1. How are your dogs?";
 
         var message4 = new Message();
         message4.Sender = "breeder2@gmail.com";
-        message4.Body = "Hello Breeder 1. Hope everything is well.";
+        message4.Body = "Where have you been?";
 
         messages.push(message1);
         messages.push(message2);

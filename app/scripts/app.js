@@ -171,11 +171,11 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/messages",
         controller: "MessagesCtrl",
         templateUrl: "../views/messages.html"
-    }).state("createMessage", {
+    }).state("messages.create", {
         url: "/createMessage",
         controller: "CreateMessageCtrl",
         templateUrl: "../views/createMessage.html"
-    }).state("trash", {
+    }).state("messages.trash", {
         url: "/trash",
         controller: "TrashCtrl",
         templateUrl: "../views/trash.html"
