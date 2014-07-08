@@ -8,7 +8,6 @@ var HomeCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.home = this;
-        this.IsSearchHidden = true;
 
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
@@ -22,7 +21,7 @@ var HomeCtrl = (function () {
             } else if (user) {
                 // user authenticated with Firebase
                 //                this.ShowSuccess('Welcome to Sniffsters.com')
-                _this.$state.go('messages');
+                /*                this.$state.go('messages');*/
             } else {
             }
         });

@@ -46,6 +46,7 @@ body {
 .sniff-row {
   margin-left: 0px;
   margin-right: 0px;
+  margin-bottom: -100px;
 }
 
 .sniff-content-wrapper {
@@ -129,6 +130,7 @@ label {
     color: @color-info !important;
   }
 }
+
 .sniff-profile-menu {
   font-family: @font-sniff;
   font-weight: normal !important;
@@ -363,10 +365,14 @@ textarea {
 /**********************
  footer
 ***********************/
+.home-background {
+}
+
 .sniff-footer-menu {
   font-family: @font-sniff;
   font-size: 18px;
   color: whitesmoke;
+  font-weight: normal !important;
   &:hover {
     color: @color-info !important;
   }
@@ -388,6 +394,8 @@ textarea {
 }
 
 .footer-container {
+  padding-left: 7px;
+  padding-right: 7px;
   color: whitesmoke;
   font-size: 14px;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -399,11 +407,22 @@ textarea {
   }
 }
 
+.footer-text-container {
+  margin-top: 47px;
+}
+
+.footer-background {
+  position: relative;
+  height: 100px;
+  background: url("../img/footer-pattern.png") repeat-x;
+}
+
 .copyright {
   color: whitesmoke;
   font-family: @font-sniff;
   font-size: 18px;
   font-weight: normal !important;
+  padding-left: 20px;
 }
 
 /**********************

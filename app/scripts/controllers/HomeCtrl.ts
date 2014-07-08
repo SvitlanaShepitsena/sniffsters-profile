@@ -11,11 +11,11 @@ class HomeCtrl {
 
     Id:string;
     IdFire:string;
+    IsHome:boolean;
 
 
     constructor(public $scope:IHomeScope, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
-        this.IsSearchHidden = true;
 
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
@@ -30,7 +30,7 @@ class HomeCtrl {
             } else if (user) {
                 // user authenticated with Firebase
 //                this.ShowSuccess('Welcome to Sniffsters.com')
-                this.$state.go('messages');
+                /*                this.$state.go('messages');*/
             } else {
             }
 
