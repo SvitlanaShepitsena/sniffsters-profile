@@ -50,37 +50,18 @@ class DataService {
     }
 
     getMessages(id:string) {
+        var d = this.$q.defer();
 
         var key:string = id.replace(/\./g, '(p)');
         var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
-        //console.log(fireGalleries);
         var messagesArr:IMessage[] = [];
-        var message = new Message();
-        message.Sender = "breder2@gmail.com";
-        message.Body = "Hello Breeder 2";
-        messagesArr.push(message);
 
-//        var keys = fireMessages.$getIndex();
-//        keys.forEach((key)=> {
-//            var sender = key.replace('(p)', /\./g);
-//
-//            var messBodies = fireMessages[key];
-//            var messageKeys = messBodies.$getIndex();
-//
-//            messageKeys.forEach((kBody)=> {
-//                var body = messBodies[kBody];
-//                var message = new Message();
-//                message.Sender = sender;
-//                message.Body = body;
-//                messagesArr.push(message);
-//            })
-//
-//
-//            d.resolve(messagesArr);
-//        })
-        d.resolve(messagesArr);
-        var d = this.$q.defer();
+        fireMessages.$on('value', (snapshot:any)=> {
+            var messages = snapshot.snapshot.value;
 
+            var arrMessages = _.rest(this.$filter('orderByPriority')(messages));
+            d.resolve(arrMessages);
+        });
         return d.promise;
     }
 

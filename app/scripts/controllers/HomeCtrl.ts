@@ -9,6 +9,11 @@ interface IHomeScope extends IMainScope {
 }
 class HomeCtrl {
 
+    Id:string;
+    IdFire:string;
+
+
+
     constructor(public $scope:IHomeScope, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
 
@@ -24,7 +29,7 @@ class HomeCtrl {
                 this.ShowError(error.toString());
             } else if (user) {
                 // user authenticated with Firebase
-                this.ShowSuccess('Welcome to Sniffsters.com')
+//                this.ShowSuccess('Welcome to Sniffsters.com')
                 this.$state.go('home');
             } else {
             }
@@ -32,6 +37,8 @@ class HomeCtrl {
         });
         this.IsSearchHidden = true;
 
+        this.Id = this.GetBreederName();
+        this.IdFire = this.Id.replace(/\./g, '(p)');
     }
 
 
@@ -65,4 +72,22 @@ class HomeCtrl {
         this.toastr.error(note);
     }
 
+    GetBreederName() {
+
+        var loggedUser = angular.element('#loggedUser');
+        if (loggedUser == null) {
+            return '';
+        }
+        var loggedUserTxt:string = loggedUser.text();
+
+        var start = loggedUserTxt.indexOf(',') + 1;
+        var finish = loggedUserTxt.indexOf('!');
+
+
+        var userName = loggedUserTxt.substr(start, finish - start).trim();
+
+        return userName;
+
+
+    }
 }

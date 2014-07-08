@@ -67,7 +67,7 @@ profile.value("toastr", toastr);
 profile.service("DataService", DataService);
 
 profile.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/messages");
 
     $stateProvider.state("profile", {
         abstract: true,

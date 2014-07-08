@@ -6,7 +6,6 @@ var TrashCtrl = (function () {
         this.DataService = DataService;
         $scope.trash = this;
     }
-
     TrashCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

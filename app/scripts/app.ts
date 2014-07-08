@@ -116,7 +116,7 @@ profile.service("DataService", DataService);
 
 profile.config(
     ($stateProvider, $urlRouterProvider) => {
-        $urlRouterProvider.otherwise("/");
+        $urlRouterProvider.otherwise("/messages");
 
         $stateProvider
             .state("profile", {
