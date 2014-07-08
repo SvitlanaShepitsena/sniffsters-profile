@@ -9,11 +9,30 @@ var DataService = (function () {
         this.$firebase = $firebase;
         this.$filter = $filter;
     }
-    DataService.prototype.sendNewMessage = function (from, to, body) {
-        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages"));
+    DataService.prototype.FireProcess = function (userName) {
+        return userName.replace(/\./g, '(p)');
+    };
 
-        fireMessages.child(to).once('value', function (snapshot) {
-            var exists = (snapshot.val() !== null);
+    DataService.prototype.sendNewMessage = function (from, to, body) {
+        var _this = this;
+        to = this.FireProcess(to);
+        var inboxUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages/Inbox/";
+        var userUrl = inboxUrl + "/" + to;
+
+        var userRef = this.$firebase(new Firebase(userUrl));
+
+        userRef.$on('value', function (snapshot) {
+            var user = snapshot.snapshot.value;
+            if (user.length === 0) {
+                var inboxRef = _this.$firebase(new Firebase(inboxUrl));
+                inboxRef.$child(to);
+                inboxRef.$save();
+                userRef = _this.$firebase(new Firebase(userUrl));
+            }
+            userRef.$add({
+                amISender: true,
+                body: body
+            });
         });
     };
 
