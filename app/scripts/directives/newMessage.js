@@ -1,6 +1,3 @@
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-/// <reference path="../services/DataService.ts" />
-
 var newMessage = function () {
     return {
         restrict: 'E',

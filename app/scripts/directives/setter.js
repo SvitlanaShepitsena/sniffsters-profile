@@ -1,5 +1,3 @@
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-
 var setter = function () {
     return {
         restrict: 'E',

@@ -1,10 +1,7 @@
-/// <reference path="../app.ts" />
-
 var breederDetails = function () {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/breeder-details.html',
-        // replace directive tag with template info
         replace: true,
         scope: {
             ctrl: '=',
@@ -12,7 +9,6 @@ var breederDetails = function () {
             func: '&'
         },
         link: function (scope, element, attrs) {
-            //            SCOPE (USE just {{test}} . )
             scope.IsEdit = false;
 
             scope.Edit = function () {

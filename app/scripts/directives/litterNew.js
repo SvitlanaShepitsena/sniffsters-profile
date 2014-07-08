@@ -1,11 +1,8 @@
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-
 var litterNew = function () {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/litter-new.html',
         transclude: true,
-        // replace directive tag with template info
         replace: true,
         scope: {
             l: '=',
@@ -15,10 +12,7 @@ var litterNew = function () {
         },
         controller: function ($scope, $q, DataService, $modal, $upload) {
             $scope.onNewFileSelect = function ($files) {
-                //$files: an array of files selected, each file has name, size, and type.
-                //                 var file = $files[0];
                 $scope.up($files, 0);
-                //                $scope.up($files, 0);
             };
             $scope.up = function ($files, index) {
                 if (index == $files.length) {
@@ -35,9 +29,7 @@ var litterNew = function () {
                     },
                     file: file
                 }).progress(function (evt) {
-                    //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                 }).success(function (data, status, headers, config) {
-                    //                    console.log(data);
                     var photo = {
                         Id: data.PhotoId,
                         Caption: 'Picture',

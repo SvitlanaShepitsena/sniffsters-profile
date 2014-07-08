@@ -1,11 +1,7 @@
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-/// <reference path="../services/DataService.ts" />
-
 var photoGallery = function () {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/photo-gallery.html',
-        // replace directive tag with template info
         replace: true,
         controller: function ($scope, $modal, DataService, $stateParams, $state, toastr) {
             $scope.tempPhoto = [];
@@ -16,17 +12,14 @@ var photoGallery = function () {
                 DataService.getGalleries($scope.index.BreederName).then(function (galleries) {
                     $scope.photosCtrl.Galleries = galleries;
                     $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
-                    //                    console.log($scope.photosCtrl.SelectedGallery.Photos.length)
                 });
             }
 
             $scope.shareGallery = function () {
                 DataService.shareGallery($scope.photosCtrl.SelectedGallery.Id).then(function () {
-                    //Success
                     $scope.photosCtrl.SelectedGallery.IsShared = true;
                     toastr.success('This gallery is shared.');
                 }, function () {
-                    //error
                 });
             };
 
@@ -47,12 +40,9 @@ var photoGallery = function () {
                 modalInstance.result.then(function (confirmation) {
                     if (confirmation) {
                         DataService.deleteGallery($scope.photosCtrl.SelectedGallery.Id).then(function () {
-                            //                        Success
-                            //                        1. Delete Gallery from Array
                             var id = $stateParams.id;
                             $scope.photosCtrl.Galleries.splice(id, 1);
 
-                            //                        2. Navigate to List of Galleries
                             $state.go('profile.photos2', {});
                         });
                     }

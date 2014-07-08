@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 var TestimonialsCtrl = (function () {
     function TestimonialsCtrl($scope, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
@@ -28,6 +27,7 @@ var TestimonialsCtrl = (function () {
             }
         }, true);
     }
+
     TestimonialsCtrl.prototype.addNewTestimonial = function () {
         this.FeedbacksNew.unshift(new Feedback());
     };

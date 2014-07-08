@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 var BreedersCtrl = (function () {
     function BreedersCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;
@@ -8,6 +7,7 @@ var BreedersCtrl = (function () {
         $scope.home.IsSearchHidden = false;
         $scope.breeders = this;
     }
+
     BreedersCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
