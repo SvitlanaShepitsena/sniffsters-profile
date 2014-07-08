@@ -15,4 +15,3 @@ var ForBreedersCtrl = (function () {
     };
     return ForBreedersCtrl;
 })();
-//# sourceMappingURL=ForBreedersCtrl.js.map

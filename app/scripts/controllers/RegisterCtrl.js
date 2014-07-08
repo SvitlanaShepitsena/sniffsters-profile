@@ -16,4 +16,3 @@ var RegisterCtrl = (function () {
     };
     return RegisterCtrl;
 })();
-//# sourceMappingURL=RegisterCtrl.js.map

@@ -99,4 +99,3 @@ var PuppiesCtrl = (function () {
     };
     return PuppiesCtrl;
 })();
-//# sourceMappingURL=PuppiesCtrl.js.map

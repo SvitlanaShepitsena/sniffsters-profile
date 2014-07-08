@@ -16,4 +16,3 @@ var GalleryActive = (function () {
     };
     return GalleryActive;
 })();
-//# sourceMappingURL=GalleryActive.js.map

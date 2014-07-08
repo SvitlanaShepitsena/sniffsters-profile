@@ -96,4 +96,3 @@ var PhotosCtrl = (function () {
     };
     return PhotosCtrl;
 })();
-//# sourceMappingURL=PhotosCtrl.js.map

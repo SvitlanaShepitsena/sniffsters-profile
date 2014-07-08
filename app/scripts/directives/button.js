@@ -13,4 +13,3 @@ var button = function () {
         }
     };
 };
-//# sourceMappingURL=button.js.map

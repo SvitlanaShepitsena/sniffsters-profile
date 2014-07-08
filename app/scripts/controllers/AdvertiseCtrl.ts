@@ -1,4 +1,4 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 
 interface IAdvertiseScope extends IMainScope {
     advertise:AdvertiseCtrl;

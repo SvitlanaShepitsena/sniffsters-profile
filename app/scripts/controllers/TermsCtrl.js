@@ -16,4 +16,3 @@ var TermsCtrl = (function () {
     };
     return TermsCtrl;
 })();
-//# sourceMappingURL=TermsCtrl.js.map

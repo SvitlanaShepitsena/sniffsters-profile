@@ -15,4 +15,3 @@ var TrashCtrl = (function () {
     };
     return TrashCtrl;
 })();
-//# sourceMappingURL=TrashCtrl.js.map

@@ -90,4 +90,3 @@ var litterNew = function () {
         }
     };
 };
-//# sourceMappingURL=litterNew.js.map

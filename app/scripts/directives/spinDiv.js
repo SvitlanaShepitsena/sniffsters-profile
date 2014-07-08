@@ -14,4 +14,3 @@ var spinDiv = function () {
         }
     };
 };
-//# sourceMappingURL=spinDiv.js.map

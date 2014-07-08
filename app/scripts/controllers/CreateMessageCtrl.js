@@ -15,4 +15,3 @@ var CreateMessageCtrl = (function () {
     };
     return CreateMessageCtrl;
 })();
-//# sourceMappingURL=CreateMessageCtrl.js.map

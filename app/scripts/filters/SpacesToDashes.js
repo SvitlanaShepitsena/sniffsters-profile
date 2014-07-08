@@ -6,4 +6,3 @@ var SpacesToDashes = (function () {
     };
     return SpacesToDashes;
 })();
-//# sourceMappingURL=SpacesToDashes.js.map

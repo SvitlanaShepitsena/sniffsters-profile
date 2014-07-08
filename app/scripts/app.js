@@ -181,4 +181,3 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/trash.html"
     });
 });
-//# sourceMappingURL=app.js.map

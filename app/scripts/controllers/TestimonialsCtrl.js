@@ -84,4 +84,3 @@ var TestimonialsCtrl = (function () {
     };
     return TestimonialsCtrl;
 })();
-//# sourceMappingURL=TestimonialsCtrl.js.map

@@ -17,4 +17,3 @@ var PuppiesLitterCtrl = (function () {
     };
     return PuppiesLitterCtrl;
 })();
-//# sourceMappingURL=PuppiesLitterCtrl.js.map

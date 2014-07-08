@@ -16,4 +16,3 @@ var BreedersCtrl = (function () {
     };
     return BreedersCtrl;
 })();
-//# sourceMappingURL=BreedersCtrl.js.map

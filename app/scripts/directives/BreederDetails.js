@@ -28,4 +28,3 @@ var breederDetails = function () {
         }
     };
 };
-//# sourceMappingURL=BreederDetails.js.map
