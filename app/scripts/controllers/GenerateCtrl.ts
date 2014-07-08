@@ -50,12 +50,19 @@ class GenerateCtrl {
             messagesRef0.$save();
 
             var breederMessagesRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
+            breederMessagesRef.$child('Inbox');
+            breederMessagesRef.$save();
+
+            var breederMessagesRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages/Inbox"));
+
             var messages:IMessage[] = this.GenerateMessages();
             var sender = messages[0].Sender.replace(/\./g, '(p)');
-            ;
+
             var senderRef = breederMessagesRef.$child(sender);
             messages.forEach((message:IMessage)=> {
-                senderRef.$add(message.Body);
+                senderRef.$add({
+                    amISender: false,
+                    body: message.Body});
             })
             senderRef.$save();
 

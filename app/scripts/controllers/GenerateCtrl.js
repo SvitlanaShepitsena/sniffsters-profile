@@ -44,12 +44,19 @@ var GenerateCtrl = (function () {
             messagesRef0.$save();
 
             var breederMessagesRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
+            breederMessagesRef.$child('Inbox');
+            breederMessagesRef.$save();
+
+            var breederMessagesRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages/Inbox"));
+
             var messages = _this.GenerateMessages();
             var sender = messages[0].Sender.replace(/\./g, '(p)');
-            ;
+
             var senderRef = breederMessagesRef.$child(sender);
             messages.forEach(function (message) {
-                senderRef.$add(message.Body);
+                senderRef.$add({
+                    amISender: false,
+                    body: message.Body });
             });
             senderRef.$save();
 
