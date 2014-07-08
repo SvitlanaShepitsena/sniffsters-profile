@@ -9,6 +9,14 @@ var DataService = (function () {
         this.$firebase = $firebase;
         this.$filter = $filter;
     }
+    DataService.prototype.sendNewMessage = function (from, to, body) {
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages"));
+
+        fireMessages.child(to).once('value', function (snapshot) {
+            var exists = (snapshot.val() !== null);
+        });
+    };
+
     DataService.prototype.getProfile = function (id) {
         var key = id.replace(/\./g, '(p)');
         this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/profile"));

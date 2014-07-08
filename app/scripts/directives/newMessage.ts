@@ -1,7 +1,10 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../services/DataService.ts" />
 
 interface INewMessage extends ng.IScope {
     test:string;
+    note:{}
+    Send:(to:string, body:string) => void;
 }
 
 var newMessage:() => ng.IDirective = () => {

@@ -9,6 +9,16 @@ class DataService {
 
     }
 
+    sendNewMessage(from:string, to:string, body:string) {
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages"));
+
+        fireMessages.child(to).once('value', function (snapshot) {
+            var exists = (snapshot.val() !== null);
+
+        });
+
+    }
+
     getProfile(id:string) {
 
         var key:string = id.replace(/\./g, '(p)');
