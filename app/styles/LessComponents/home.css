@@ -20,62 +20,51 @@
         STYLES
 ***********************/
 .btn-looking {
-    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
-    font-size: 22px !important;
-    color: whitesmoke !important;
-    font-style: normal !important;
+  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+  font-size: 22px !important;
+  color: whitesmoke !important;
+  font-style: normal !important;
 }
-
 .btn-group-great {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
-
 .home-btn-wrapper {
-    height: 180px;
+  height: 180px;
 }
-
 .home-btn {
-    padding-top: 40px;
+  padding-top: 40px;
 }
-
 .form-great-search {
-    padding-top: 20px;
+  padding-top: 20px;
 }
-
 .let-top {
-    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
-    font-size: 16px !important;
-    color: #3a3a3a;
+  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+  font-size: 16px !important;
+  color: #3a3a3a;
 }
-
 .find-out {
-    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
-    color: #217ac8;
-    font-size: 16px !important;
+  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+  color: #217ac8;
+  font-size: 16px !important;
 }
-
 .p-home {
-    margin-top: 5px;
+  margin-top: 5px;
 }
-
 .greatForm {
-    margin-top: 20px !important;
+  margin-top: 20px !important;
 }
-
 .welc-text {
-    font-size: 42px !important;
-    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
-    text-align: center;
+  font-size: 42px !important;
+  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+  text-align: center;
 }
-
-.welcomeCont {
-    margin-top: 110px !important;
-    min-width: 320px;
-    display: block;
+.home-wrapper {
+  background: url("../../img/grass_texture.png") repeat;
+  padding-top: 130px !important;
+  padding-bottom: 130px !important;
 }
-
 .homeJumbo {
-    height: 435px !important;
-    padding-bottom: 30px !important;
+  height: 435px !important;
+  padding-bottom: 30px !important;
 }

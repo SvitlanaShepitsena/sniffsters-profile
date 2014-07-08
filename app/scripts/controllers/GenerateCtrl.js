@@ -113,6 +113,7 @@ var GenerateCtrl = (function () {
 
         return feedbacks;
     };
+
     GenerateCtrl.prototype.GenerateMessages = function () {
         var messages = [];
         var message1 = new Message();

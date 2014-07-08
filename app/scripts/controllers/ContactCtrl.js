@@ -5,6 +5,7 @@ var ContactCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.contact = this;
+        $scope.home.IsSearchHidden = false;
     }
     ContactCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

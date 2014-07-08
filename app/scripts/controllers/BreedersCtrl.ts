@@ -3,10 +3,12 @@
 interface IBreedersScope extends IMainScope {
     breeders:BreedersCtrl;
     ctrl:IndexCtrl;
+    home:HomeCtrl;
 }
 class BreedersCtrl {
 
     constructor(public $scope:IBreedersScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+        $scope.home.IsSearchHidden = false;
         $scope.breeders = this;
     }
 

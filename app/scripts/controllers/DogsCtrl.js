@@ -5,6 +5,7 @@ var DogsCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.dogs = this;
+        $scope.home.IsSearchHidden = false;
     }
     DogsCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

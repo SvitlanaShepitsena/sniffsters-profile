@@ -18,32 +18,44 @@
 **************************/
 
 body {
-  background: url("../img/grass_texture.png") repeat;
   font-family: arial, sans-serif !important;
   font-size: 12pt !important;
   color: #3a3a3a;
 }
 
+.left-side {
+  background: url("../img/left-grass-pattern.png") repeat-y;
+  height: 1400px;
+}
+
+.right-side {
+  background: url("../img/right-grass-pattern.png") repeat-y;
+  height: 1400px;
+}
+
 .body-content {
   background-color: white;
+  padding: 0px;
 }
 
 .container {
   width: 1200px !important;
+
 }
 
-.main-content-wrapper {
-  min-height: 1400px;
-  padding-bottom: 15px;
+.sniff-row {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .sniff-content-wrapper {
+  min-height: 1400px;
   padding-top: 15px;
+  padding-bottom: 15px;
   font-size: 14px !important;
 }
 
 .sniff-main-content {
-  padding-left: 20px;
 }
 
 .btn-primary {
@@ -209,7 +221,7 @@ textarea {
 
 .profile-aside {
   background-color: @colorLightBackground;
-  min-height: 1400px;
+  min-height: 1333px;
 }
 
 .content-wrapper {
@@ -275,6 +287,7 @@ textarea {
 }
 
 .navbar-sniff {
+  background-color: #FFFFFF;
   margin-bottom: 0px;
 }
 

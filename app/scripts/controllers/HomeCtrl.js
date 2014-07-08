@@ -6,6 +6,7 @@ var HomeCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.home = this;
+        this.IsSearchHidden = true;
 
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
@@ -16,12 +17,10 @@ var HomeCtrl = (function () {
             if (error) {
                 _this.ShowError(error.toString());
             } else if (user) {
-                _this.ShowSuccess('Welcome to Sniffsters.com');
                 _this.$state.go('home');
             } else {
             }
         });
-        this.IsSearchHidden = true;
     }
     HomeCtrl.prototype.Signin = function (email, pass) {
         this.$scope.authAction.login('password', {

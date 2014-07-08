@@ -3,11 +3,13 @@
 interface IExploreScope extends IMainScope {
     explore:ExploreCtrl;
     ctrl:IndexCtrl;
+    home:HomeCtrl;
 }
 class ExploreCtrl {
 
     constructor(public $scope:IExploreScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.explore = this;
+        $scope.home.IsSearchHidden = false;
     }
 
 

@@ -5,6 +5,7 @@ var ExploreCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.explore = this;
+        $scope.home.IsSearchHidden = false;
     }
     ExploreCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

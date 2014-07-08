@@ -5,6 +5,7 @@ var RegisterCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.register = this;
+        $scope.home.IsSearchHidden = false;
     }
     RegisterCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

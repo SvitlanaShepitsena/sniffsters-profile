@@ -3,11 +3,13 @@
 interface IDogsScope extends IMainScope {
     dogs:DogsCtrl;
     ctrl:IndexCtrl;
+    home:HomeCtrl;
 }
 class DogsCtrl {
 
     constructor(public $scope:IDogsScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.dogs = this;
+        $scope.home.IsSearchHidden = false;
     }
 
 

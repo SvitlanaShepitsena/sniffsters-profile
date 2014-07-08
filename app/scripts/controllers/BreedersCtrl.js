@@ -4,6 +4,7 @@ var BreedersCtrl = (function () {
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
+        $scope.home.IsSearchHidden = false;
         $scope.breeders = this;
     }
     BreedersCtrl.prototype.ShowSuccess = function (note) {

@@ -3,11 +3,14 @@
 interface IAboutScope extends IMainScope {
     about:AboutCtrl;
     ctrl:IndexCtrl;
+    home:HomeCtrl;
 }
 class AboutCtrl {
 
     constructor(public $scope:IAboutScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+        $scope.home.IsSearchHidden = false;
         $scope.about = this;
+
     }
 
 

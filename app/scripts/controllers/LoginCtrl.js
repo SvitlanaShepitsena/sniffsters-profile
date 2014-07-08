@@ -9,6 +9,7 @@ var LoginCtrl = (function () {
         $scope.login = this;
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
+        $scope.home.IsSearchHidden = false;
     }
     LoginCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
