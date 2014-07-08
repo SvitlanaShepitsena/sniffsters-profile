@@ -29,6 +29,7 @@ var HomeCtrl = (function () {
         this.Id = this.GetBreederName();
         this.IdFire = this.Id.replace(/\./g, '(p)');
     }
+
     HomeCtrl.prototype.Signin = function (email, pass) {
         this.$scope.authAction.login('password', {
             email: email,

@@ -20,10 +20,9 @@
         PUPPIES
 ***********************/
 .jumbotron .text-litter p {
-    line-height: .7em;
-    font-size: 12px;
+  line-height: .7em;
+  font-size: 12px;
 }
-
 .litter-wrapper {
-    margin: 15px;
+  margin: 15px;
 }

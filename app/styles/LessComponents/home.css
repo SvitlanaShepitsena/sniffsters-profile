@@ -20,77 +20,65 @@
         STYLES
 ***********************/
 .btn-looking {
-    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
-    font-size: 22px !important;
-    color: whitesmoke !important;
-    font-style: normal !important;
+  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+  font-size: 22px !important;
+  color: whitesmoke !important;
+  font-style: normal !important;
 }
-
 .btn-group-great {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
-
 .home-btn-wrapper {
-    height: 150px;
+  height: 150px;
 }
-
 .home-btn {
-    padding-top: 20px;
+  padding-top: 20px;
 }
-
 .form-great-search {
-    padding-top: 20px;
+  padding-top: 20px;
 }
-
 .let-top {
-    margin-left: 30px;
-    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
-    font-size: 16px !important;
-    color: #3a3a3a;
+  margin-left: 30px;
+  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+  font-size: 16px !important;
+  color: #3a3a3a;
 }
-
 .find-out {
-    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
-    color: #217ac8;
-    font-size: 16px !important;
+  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+  color: #217ac8;
+  font-size: 16px !important;
 }
-
 .p-home {
-    margin-left: 30px;
+  margin-left: 30px;
 }
-
 .greatForm {
-    margin-top: 20px !important;
+  margin-top: 20px !important;
 }
-
 .welc-text {
-    font-size: 46px !important;
-    font-weight: bold;
-    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
-    text-align: center;
-    margin-top: 60px !important;
-    margin-bottom: 5px;
-    color: #472d1e;
+  font-size: 46px !important;
+  font-weight: bold;
+  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+  text-align: center;
+  margin-top: 60px !important;
+  margin-bottom: 5px;
+  color: #472d1e;
 }
-
 .help-text {
-    color: #472d1e !important;
-    font-weight: bold;
-    font-size: 32px;
-    margin-top: 0px;
+  color: #472d1e !important;
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: 0px;
 }
-
 .home-wrapper {
-    background: url("../../img/Landing_background.png") no-repeat;
-    width: 1200px;
-    padding-top: 70px !important;
-    padding-bottom: 230px !important;
-    margin-bottom: -84px;
+  background: url("../../img/Landing_background.png") no-repeat;
+  width: 1200px;
+  padding-top: 70px !important;
+  padding-bottom: 230px !important;
+  margin-bottom: -84px;
 }
-
 .homeJumbo {
-    height: 486px !important;
-    padding-bottom: 30px !important;
-    background: url("../../img/jumbotron-background.png") no-repeat;
+  height: 486px !important;
+  padding-bottom: 30px !important;
+  background: url("../../img/jumbotron-background.png") no-repeat;
 }
