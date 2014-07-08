@@ -1,3 +1,4 @@
+/// <reference path="IndexCtrl.ts" />
 var TrashCtrl = (function () {
     function TrashCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;
@@ -6,7 +7,6 @@ var TrashCtrl = (function () {
         this.DataService = DataService;
         $scope.trash = this;
     }
-
     TrashCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

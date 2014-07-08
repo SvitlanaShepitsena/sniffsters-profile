@@ -1,14 +1,19 @@
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+
 var photoGalleryEdit = function () {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/photo-gallery-edit.html',
+        // replace directive tag with template info
         replace: true,
         controller: function ($scope, $stateParams, $upload, $modal, DataService, toastr) {
+            //iterating over arrey of photos of selected gallery
             if ($scope.photosCtrl.SelectedGallery == undefined) {
                 var id = $stateParams.id;
                 DataService.getGalleries($scope.index.BreederName).then(function (galleries) {
                     $scope.photosCtrl.Galleries = galleries;
 
+                    //                    console.log(galleries);
                     $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
                     $scope.photosCtrl.CreateSelectedGalleryClone();
                 });
@@ -58,12 +63,22 @@ var photoGalleryEdit = function () {
 
                     $scope.upload = $upload.upload({
                         url: 'http://localhost:44300/BreederPersonal/AddPicture',
+                        // method: 'POST' or 'PUT',
+                        // headers: {'header-key': 'header-value'},
+                        // withCredentials: true,
                         data: { gallery: $scope.photosCtrl.SelectedGallery.Id },
                         file: file
                     }).progress(function (evt) {
+                        //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                     }).success(function (data, status, headers, config) {
+                        // file is uploaded successfully
                         $scope.photosCtrl.SelectedGallery.Photos.push(data);
+                        //                        $scope.myModelObj = {};
+                        //                        alert(data);
                     });
+                    //.error(...)
+                    //.then(success, error, progress);
+                    //.xhr(function(xhr){xhr.upload.addEventListener(...)})// access and attach any event listener to XMLHttpRequest.
                 }
             };
         }

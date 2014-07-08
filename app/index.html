@@ -157,14 +157,16 @@
 </div>
 
 <footer>
-	<div class="container footer-container">
-		<div class="footer-content">
-			<span class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</span>
-			<ul class="nav nav-pills navbar-right nav-footer">
-				<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
-				<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
-				<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
-			</ul>
+	<div class="container footer-container ">
+		<div class="footer-content" ng-class="{'footer-background':!home.IsHome}">
+			<div class="footer-text-container">
+				<span class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</span>
+				<ul class="nav nav-pills navbar-right nav-footer">
+					<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
+					<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
+					<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </footer>

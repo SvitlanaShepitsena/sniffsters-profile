@@ -1,3 +1,4 @@
+/// <reference path="IndexCtrl.ts" />
 var RegisterCtrl = (function () {
     function RegisterCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;
@@ -7,7 +8,6 @@ var RegisterCtrl = (function () {
         $scope.register = this;
         $scope.home.IsSearchHidden = false;
     }
-
     RegisterCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
