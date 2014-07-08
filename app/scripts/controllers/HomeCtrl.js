@@ -21,6 +21,9 @@ var HomeCtrl = (function () {
             } else {
             }
         });
+
+        this.Id = this.GetBreederName();
+        this.IdFire = this.Id.replace(/\./g, '(p)');
     }
     HomeCtrl.prototype.Signin = function (email, pass) {
         this.$scope.authAction.login('password', {
@@ -41,6 +44,21 @@ var HomeCtrl = (function () {
 
     HomeCtrl.prototype.ShowError = function (note) {
         this.toastr.error(note);
+    };
+
+    HomeCtrl.prototype.GetBreederName = function () {
+        var loggedUser = angular.element('#loggedUser');
+        if (loggedUser == null) {
+            return '';
+        }
+        var loggedUserTxt = loggedUser.text();
+
+        var start = loggedUserTxt.indexOf(',') + 1;
+        var finish = loggedUserTxt.indexOf('!');
+
+        var userName = loggedUserTxt.substr(start, finish - start).trim();
+
+        return userName;
     };
     return HomeCtrl;
 })();
