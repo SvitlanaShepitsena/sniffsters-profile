@@ -32,11 +32,11 @@
 }
 
 .home-btn-wrapper {
-    height: 180px;
+    height: 150px;
 }
 
 .home-btn {
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .form-great-search {
@@ -44,6 +44,7 @@
 }
 
 .let-top {
+    margin-left: 30px;
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
     font-size: 16px !important;
     color: #3a3a3a;
@@ -56,7 +57,7 @@
 }
 
 .p-home {
-    margin-top: 5px;
+    margin-left: 30px;
 }
 
 .greatForm {
@@ -64,16 +65,27 @@
 }
 
 .welc-text {
-    font-size: 42px !important;
+    font-size: 46px !important;
+    font-weight: bold;
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     text-align: center;
+    margin-top: 60px !important;
+    margin-bottom: 5px;
+    color: #472d1e;
+}
+
+.help-text {
+    color: #472d1e !important;
+    font-weight: bold;
+    font-size: 32px;
+    margin-top: 0px;
 }
 
 .home-wrapper {
     background: url("../../img/Landing_background.png") no-repeat;
     width: 1200px;
-    padding-top: 150px !important;
-    padding-bottom: 150px !important;
+    padding-top: 70px !important;
+    padding-bottom: 230px !important;
     margin-bottom: -84px;
 }
 

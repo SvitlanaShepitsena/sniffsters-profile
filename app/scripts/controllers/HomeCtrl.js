@@ -1,3 +1,5 @@
+/// <reference path="IndexCtrl.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
 var HomeCtrl = (function () {
     function HomeCtrl($scope, $firebase, $firebaseSimpleLogin, $state, toastr, DataService) {
         var _this = this;
@@ -6,7 +8,6 @@ var HomeCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.home = this;
-        this.IsSearchHidden = true;
 
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
@@ -15,9 +16,12 @@ var HomeCtrl = (function () {
         $scope.auth = $firebaseSimpleLogin(fref);
         $scope.authAction = new FirebaseSimpleLogin(fref, function (error, user) {
             if (error) {
+                // an error occurred while attempting login
                 _this.ShowError(error.toString());
             } else if (user) {
-                _this.$state.go('messages');
+                // user authenticated with Firebase
+                //                this.ShowSuccess('Welcome to Sniffsters.com')
+                /*                this.$state.go('messages');*/
             } else {
             }
         });
@@ -33,7 +37,9 @@ var HomeCtrl = (function () {
     };
 
     HomeCtrl.prototype.Logout = function () {
+        //        console.log('Test');
         this.$scope.authAction.logout();
+        //        this.ShowSuccess('You were successfully logged out');
     };
 
     HomeCtrl.prototype.ShowSuccess = function (note) {

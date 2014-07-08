@@ -39,6 +39,7 @@
 /// <reference path="controllers/MessagesCtrl.ts" />
 /// <reference path="controllers/CreateMessageCtrl.ts" />
 /// <reference path="controllers/TrashCtrl.ts" />
+/// <reference path="directives/setter.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -85,6 +86,7 @@ profile.directive("feedback", feedback);
 profile.directive("feedbackInfo", feedbackInfo);
 profile.directive("litterInfo", litterInfo);
 profile.directive("feedbackEdit", feedbackEdit);
+profile.directive("setter", setter);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
