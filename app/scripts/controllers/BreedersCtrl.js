@@ -1,3 +1,4 @@
+/// <reference path="IndexCtrl.ts" />
 var BreedersCtrl = (function () {
     function BreedersCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;

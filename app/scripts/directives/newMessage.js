@@ -1,16 +1,19 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
-var detailsInfo = function () {
+var newMessage = function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/directives/details-info.html',
+        templateUrl: 'views/directives/new-message.html',
         replace: true,
         scope: {
             ctrl: '=',
             text: '@',
             func: '&'
         },
-        link: function (scope, element, attrs) {
+        controller: function (scope, $state, DataService) {
+            scope.note = {};
+            scope.Send = function (to, body) {
+            };
         }
     };
 };

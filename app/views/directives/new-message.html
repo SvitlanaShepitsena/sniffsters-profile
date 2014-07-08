@@ -1,0 +1,11 @@
+<div class="well well-sm">
+	<h4>New Message</h4>
+
+	<div><input type="text" id="to" name="to" ng-model="note.to"></div>
+	<div><textarea name="body" id="body" cols="30" rows="10" ng-model="note.body">{{body}}</textarea></div>
+	<div>
+		<button ng-click="Send(note.to,note.body);">Send</button>
+	</div>
+
+
+</div>
