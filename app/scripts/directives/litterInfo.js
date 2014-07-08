@@ -18,3 +18,4 @@ var litterInfo = function () {
         }
     };
 };
+//# sourceMappingURL=litterInfo.js.map

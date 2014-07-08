@@ -45,3 +45,4 @@ var photosInfo = function () {
         }
     };
 };
+//# sourceMappingURL=photosInfo.js.map

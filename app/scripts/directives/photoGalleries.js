@@ -6,3 +6,4 @@ var photoGalleries = function () {
         replace: true
     };
 };
+//# sourceMappingURL=photoGalleries.js.map

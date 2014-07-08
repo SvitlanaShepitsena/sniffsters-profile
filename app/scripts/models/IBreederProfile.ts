@@ -19,6 +19,15 @@ interface IBreederProfile {
     Insurances:string[];
     Shipping:boolean;
 }
+interface INote {
+    amISender:boolean;
+    body:string;
+}
+class Note implements INote {
+    amISender:boolean;
+    body:string;
+
+}
 
 interface IMessage {
     Sender:string;

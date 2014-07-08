@@ -192,10 +192,10 @@ module.exports = function (grunt) {
                 options: {
                     module: 'amd', //or commonjs
                     target: 'es5', //or es3/es5
-                    basePath: '<%= yeoman.app %>/scripts'
-                    // sourcemap: true,
-                    // fullSourceMapPath: true,
-                    // declaration: true,
+                    basePath: '<%= yeoman.app %>/scripts',
+                    sourcemap: true,
+                    fullSourceMapPath: true,
+                    declaration: true
                 }
             },
             same: {
@@ -205,9 +205,9 @@ module.exports = function (grunt) {
                     module: 'amd', //or commonjs
                     target: 'es5', //or es3/es5
                     basePath: '<%= yeoman.app %>/scripts',
-                    sourcemap: false,
-                    fullSourceMapPath: false
-                    // declaration: true,
+                    sourceMap: false
+//                    fullSourceMapPath: true,
+//                    declaration: true
                 }
             }
 
@@ -307,7 +307,7 @@ module.exports = function (grunt) {
         concurrent: {
             server: [
                 'coffee:dist',
-                'typescript:same'
+//                'typescript:same'
             ],
             test: [
                 'coffee',
@@ -315,8 +315,8 @@ module.exports = function (grunt) {
             ],
             dist: [
                 'coffee',
-                'typescript:same',
-                'typescript:tf',
+//                'typescript:same',
+//                'typescript:tf',
 //                'imagemin',
                 'svgmin',
                 'htmlmin'

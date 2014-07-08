@@ -13,3 +13,4 @@ var detailsInfo = function () {
         }
     };
 };
+//# sourceMappingURL=detailsInfo.js.map

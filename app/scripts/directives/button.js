@@ -1,4 +1,3 @@
-
 var button = function () {
     return {
         restrict: 'E',
@@ -14,3 +13,4 @@ var button = function () {
         }
     };
 };
+//# sourceMappingURL=button.js.map

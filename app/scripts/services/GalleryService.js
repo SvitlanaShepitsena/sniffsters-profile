@@ -16,3 +16,4 @@ var GalleryService = (function () {
     };
     return GalleryService;
 })();
+//# sourceMappingURL=GalleryService.js.map

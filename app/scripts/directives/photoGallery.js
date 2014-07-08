@@ -54,3 +54,4 @@ var photoGallery = function () {
         }
     };
 };
+//# sourceMappingURL=photoGallery.js.map

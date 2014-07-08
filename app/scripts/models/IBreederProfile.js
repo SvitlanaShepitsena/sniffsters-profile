@@ -1,3 +1,9 @@
+var Note = (function () {
+    function Note() {
+    }
+    return Note;
+})();
+
 var Message = (function () {
     function Message() {
     }

@@ -13,7 +13,6 @@ class HomeCtrl {
     IdFire:string;
 
 
-
     constructor(public $scope:IHomeScope, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
         this.IsSearchHidden = true;
@@ -31,7 +30,7 @@ class HomeCtrl {
             } else if (user) {
                 // user authenticated with Firebase
 //                this.ShowSuccess('Welcome to Sniffsters.com')
-                this.$state.go('home');
+                this.$state.go('messages');
             } else {
             }
 
@@ -58,7 +57,7 @@ class HomeCtrl {
 
         this.$scope.authAction.logout();
 
-        this.ShowSuccess('You were successfully logged out');
+//        this.ShowSuccess('You were successfully logged out');
     }
 
     IsSearchHidden:boolean;

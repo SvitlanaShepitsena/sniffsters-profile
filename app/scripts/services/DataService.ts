@@ -1,4 +1,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../models/IBreederProfile.ts" />
 class DataService {
     fb:AngularFire;
 
@@ -52,15 +55,12 @@ class DataService {
     getMessages(id:string) {
         var d = this.$q.defer();
 
-        var key:string = id.replace(/\./g, '(p)');
-        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
-        var messagesArr:IMessage[] = [];
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + id + "/messages"));
 
         fireMessages.$on('value', (snapshot:any)=> {
             var messages = snapshot.snapshot.value;
 
-            var arrMessages = _.rest(this.$filter('orderByPriority')(messages));
-            d.resolve(arrMessages);
+            d.resolve(messages);
         });
         return d.promise;
     }
