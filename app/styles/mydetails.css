@@ -1,0 +1,113 @@
+/**********************
+       IMPORTS
+***********************/
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+/**********************
+       CONSTANTS
+***********************/
+/*********************************
+   OPERATIONS & COLOR FUNCTIONS
+**********************************/
+/**********************
+        MIXINS
+***********************/
+/**********************
+    MY DETAILS
+***********************/
+.myDetailsContWrapper {
+    margin-bottom: 30px;
+}
+
+.myDetailsContWrapper span {
+    font-size: 12px;
+}
+
+.myDetailsContWrapper .form-group {
+    margin-left: 0px;
+    margin-bottom: 5px;
+}
+
+.myDetailsContWrapper .form-control {
+    width: auto;
+    display: inline-block;
+    padding: 2px 5px;
+    line-height: 16px;
+    height: 28px;
+}
+
+.myDetails-alert {
+    background-color: #faf9ee;
+    border-color: #FFFFFF;
+    color: #6e6e6e;
+    box-shadow: 0px -3px 5px #eae7e7;
+}
+
+.myDetailsFont {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.myDetailsFormGroup {
+    margin-left: 5px !important;
+    margin-bottom: 0em;
+}
+
+.sniff-alert {
+    color: #3a3a3a;
+}
+
+.th-pic {
+    margin: -16px -16px 0px -16px;
+}
+
+.myDetailsHeader {
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+.myDetailsInput {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+.profileSave {
+    margin-top: 10px;
+}
+
+.dl-horizontal dt {
+    text-align: left;
+    width: 70px;
+}
+
+.dl-horizontal dd {
+    margin-left: 150px !important;
+}
+
+.labelMyDetails {
+    font-family: arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #3a3a3a;
+    margin-right: 5px;
+}
+
+.spanCertif {
+    padding-left: 0px;
+}
+
+.btn-save-details {
+    margin-top: 4px !important;
+    margin-bottom: 5px !important;
+    margin-right: 0px !important;
+    padding: 2px 5px;
+}
+
+.aside-header-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

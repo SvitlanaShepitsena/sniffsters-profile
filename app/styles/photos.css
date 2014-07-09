@@ -1,0 +1,58 @@
+/**********************
+       IMPORTS
+***********************/
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+/**********************
+       CONSTANTS
+***********************/
+/*********************************
+   OPERATIONS & COLOR FUNCTIONS
+**********************************/
+/**********************
+        MIXINS
+***********************/
+/**********************
+        Photos
+***********************/
+.puppyPic {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.puppyPicWrapper {
+  padding-top: 10px !important;
+}
+.btn-del {
+  margin-top: 3px !important;
+  margin-bottom: 5px !important;
+  margin-right: 5px !important;
+  padding: 1px 7px;
+}
+.btn-share {
+  margin-top: 3px !important;
+  margin-bottom: 5px !important;
+  margin-right: 5px !important;
+  padding: 1px 7px;
+}
+.btn-del-pic {
+  margin-top: 10px !important;
+  margin-bottom: 5px !important;
+  margin-right: 5px !important;
+  padding: 3px 7px;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+}
+.btn-edit {
+  padding: 1px 7px;
+}
+.btn-save {
+  margin-top: 4px !important;
+  margin-bottom: 5px !important;
+  margin-right: 0px !important;
+  padding: 1px 7px;
+}
