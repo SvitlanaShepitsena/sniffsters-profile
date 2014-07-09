@@ -1,4 +1,3 @@
-/// <reference path="../models/IBreederProfile.ts" />
 var GalleryService = (function () {
     function GalleryService() {
     }

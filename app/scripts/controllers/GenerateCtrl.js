@@ -1,5 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
-/// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
 var GenerateCtrl = (function () {
     function GenerateCtrl($scope, $firebase, $state, toastr, DataService) {
         var _this = this;
@@ -57,7 +55,6 @@ var GenerateCtrl = (function () {
             var sender = messages[0].Sender.replace(/\./g, '(p)');
             var sender2 = "breeder3@gmail(p)com";
 
-            ///////////////////////
             var senderRef = breederMessagesRef.$child(sender);
             messages.forEach(function (message) {
                 senderRef.$add({
@@ -66,8 +63,6 @@ var GenerateCtrl = (function () {
             });
             senderRef.$save();
 
-            //////////////////////
-            ///////////////////////
             var senderRef = breederMessagesRef.$child(sender2);
             messages2.forEach(function (message) {
                 senderRef.$add({
@@ -76,7 +71,6 @@ var GenerateCtrl = (function () {
             });
             senderRef.$save();
 
-            //////////////////////
             breederRef.$save();
         });
 
