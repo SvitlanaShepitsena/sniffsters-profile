@@ -1,3 +1,4 @@
+/// <reference path="IndexCtrl.ts" />
 var ContactCtrl = (function () {
     function ContactCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;
@@ -7,6 +8,7 @@ var ContactCtrl = (function () {
         $scope.contact = this;
         $scope.home.IsSearchHidden = false;
     }
+
     ContactCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

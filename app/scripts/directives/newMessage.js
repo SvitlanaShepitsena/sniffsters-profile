@@ -1,3 +1,7 @@
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
+/// <reference path="../services/DataService.ts" />
+/// <reference path="../controllers/HomeCtrl.ts" />
 
 var newMessage = function () {
     return {

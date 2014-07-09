@@ -1,3 +1,4 @@
+/// <reference path="IndexCtrl.ts" />
 var LoginCtrl = (function () {
     function LoginCtrl($scope, $firebase, $firebaseSimpleLogin, $state, toastr, DataService) {
         this.$scope = $scope;
@@ -11,6 +12,7 @@ var LoginCtrl = (function () {
         this.pass = "123456";
         $scope.home.IsSearchHidden = false;
     }
+
     LoginCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

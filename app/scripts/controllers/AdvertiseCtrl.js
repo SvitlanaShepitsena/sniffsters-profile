@@ -1,3 +1,4 @@
+/// <reference path="HomeCtrl.ts" />
 var AdvertiseCtrl = (function () {
     function AdvertiseCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;
@@ -7,6 +8,7 @@ var AdvertiseCtrl = (function () {
         $scope.advertise = this;
         $scope.home.IsSearchHidden = false;
     }
+
     AdvertiseCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

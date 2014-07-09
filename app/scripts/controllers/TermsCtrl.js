@@ -1,3 +1,4 @@
+/// <reference path="IndexCtrl.ts" />
 var TermsCtrl = (function () {
     function TermsCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;
@@ -7,6 +8,7 @@ var TermsCtrl = (function () {
         $scope.terms = this;
         $scope.home.IsSearchHidden = false;
     }
+
     TermsCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

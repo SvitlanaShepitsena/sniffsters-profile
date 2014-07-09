@@ -1929,6 +1929,262 @@
     width: 100px;
 }
 
+/**********************
+       IMPORTS
+***********************/
+/**********************
+  Messages Animate
+***********************/
+.sp {
+    left: 40%;
+    top: 100px;
+    position: relative;
+    color: #428bca;
+    font-size: 2em;
+}
+
+#messages-div {
+    position: relative;
+}
+
+.animate-list.ng-enter {
+    transition: 0.9s linear all;
+    opacity: 0;
+}
+
+.animate-list.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.view-animate.ng-enter {
+    transition: 0.4s linear all;
+    opacity: 0;
+}
+
+.view-animate.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+/**********************
+  Messages Nav Panel
+***********************/
+.error {
+    border-color: #fe0e0e;
+}
+
+.bactive {
+    color: red !important;
+    background-color: #58B3F0 !important;
+}
+
+.bnonactive {
+    color: green !important;
+    background-color: AppWorkspace !important;
+}
+
+.btn-newMessage {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.fluid-messages {
+    background-color: #fbf8ee;
+}
+
+.a-nav-text {
+    color: InfoText;
+    font-weight: bold;
+}
+
+.sniff-alert {
+    box-shadow: 2px 2px 2px #cccaca;
+    background-color: #faf9ee;
+    border-color: #FFFFFF;
+}
+
+.btn-message {
+    font-weight: 800;
+    font-size: 14px;
+    color: #6e6e6e;
+    background-color: #faf9ee;
+    border-color: #FFFFFF;
+}
+
+.btn {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.fa {
+    margin-right: 3px;
+}
+
+.fa-fw {
+    height: 10px !important;
+}
+
+.fa-lg {
+    vertical-align: -20% !important;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active {
+    background-color: #f6f4e1;
+    box-shadow: #edece0 1px 2px 2px;
+    outline-color: #faf9ee;
+}
+
+/**********************
+  Messages Aside
+***********************/
+.displayMessageSender {
+    text-align: center;
+}
+
+.userMessageActive,
+.userMessageHover {
+    background-color: #ffffff;
+}
+
+.aside-messages {
+    padding-right: 1px;
+    padding-left: 1px !important;
+}
+
+.messageUserList {
+    background-color: #F5F5F5;
+    min-height: 760px;
+    min-width: 218px;
+    margin-bottom: 1px;
+}
+
+.scrollBarAside {
+    overflow: auto !important;
+    width: 100% !important;
+    height: 745px;
+}
+
+.scrollBoxAside {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: auto !important;
+}
+
+.scrollContentAside {
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    width: auto;
+}
+
+/**********************
+  Messages Main Content
+***********************/
+.messagesScrollBar {
+    overflow: auto !important;
+    width: 100% !important;
+    height: 360px;
+}
+
+.messagesScrollBarTrash {
+    overflow: auto !important;
+    width: 100% !important;
+    height: 620px;
+}
+
+.messagesScrollBox {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: auto !important;
+}
+
+.messagesScrollContent {
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    width: auto;
+}
+
+.messageBody {
+    padding: 20px;
+}
+
+.userName {
+    color: #2c77ba;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+.userMessage {
+    background-color: #e7e7e7;
+}
+
+.message.ng-enter {
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 0;
+}
+
+.message.ng-enter.active {
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 1;
+}
+
+/**********************
+  Message Reply Section
+***********************/
+.h4-reply {
+    margin-top: 1px;
+}
+
+.txtarea-write-reply {
+    max-width: none;
+}
+
+.form-group-reply {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.btn-send-container {
+    margin-top: 10px;
+}
+
+.btn-send {
+    margin-left: 5px;
+    padding-left: 35px;
+    padding-right: 40px;
+}
+
+.btn-del {
+    padding-left: 35px;
+    padding-right: 40px;
+}
+
+.replyBackground {
+    background-color: #e8e8e8;
+}
+
+/**********************
+ Cteate a Message
+***********************/
+textarea {
+    max-width: none;
+}
+
+input {
+    max-width: none;
+}
+
 /*************************
   BOOTSTRAP CUSTOM STYLES
 **************************/

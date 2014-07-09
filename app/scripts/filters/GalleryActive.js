@@ -1,6 +1,8 @@
+/// <reference path="../models/IBreederProfile.ts" />
 var GalleryActive = (function () {
     function GalleryActive() {
     }
+
     GalleryActive.filter = function (Galleries, isActive) {
         var finalArray = [];
 
