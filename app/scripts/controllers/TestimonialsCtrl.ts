@@ -1,15 +1,11 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 
-interface ITestimonialsScope extends IMainScope {
-    testimonials:TestimonialsCtrl;
-    ctrl:IndexCtrl;
-}
 class TestimonialsCtrl {
     Feedbacks:IFeedback[];
     FeedbacksNew:IFeedback[];
 
     constructor(public $scope, public $modal,  public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-        $scope.index.url = "testimonials";
+        $scope.home.url = "testimonials";
         $scope.isOk = false;
         this.FeedbacksNew = [];
         $scope.testimonials = this;

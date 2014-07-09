@@ -14,18 +14,58 @@ class HomeCtrl {
     IdFire:string;
     IsHome:boolean;
 
+    url:string;
+    menuIndex:number;
     isOwner:boolean;
 
-    constructor(public $scope:IHomeScope, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, $location, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
         this.isOwner = this.Ownership();
 
-
+        this.menuIndex = 1;
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
 
+        $scope.navigate = (menuIndex:number) => {
+            $scope.slide = this.animationDirection(menuIndex);
+
+
+            if (menuIndex == 1) {
+                this.menuIndex = 1;
+                $state.go("user.profile.about1");
+            }
+
+
+            if (menuIndex == 2) {
+                this.menuIndex = 2;
+                $location.url('/profile/photos');
+            }
+
+
+            if (menuIndex == 3) {
+                this.url = 'puppies';
+                this.menuIndex = 3;
+                $location.url('/profile/puppies');
+            }
+
+
+            if (menuIndex == 4) {
+                this.url = 'details';
+                this.menuIndex = 4;
+                $location.url('/profile/details');
+            }
+
+
+            if (menuIndex == 5) {
+                this.url = 'testimonials';
+                this.menuIndex = 5;
+                $location.url('/profile/testimonials');
+            }
+
+        }
 
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
+
         $scope.auth = $firebaseSimpleLogin(fref);
         $scope.authAction = new FirebaseSimpleLogin(fref, (error, user) => {
             if (error) {
@@ -48,6 +88,13 @@ class HomeCtrl {
     email:string;
     pass:string;
 
+    animationDirection(menuIndex:number):string {
+
+        if (menuIndex > this.menuIndex)
+            return 'slide-left';
+        else
+            return 'slide-right';
+    }
     Signin(email:string, pass:string) {
 
         this.$scope.authAction.login('password', {

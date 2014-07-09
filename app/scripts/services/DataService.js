@@ -1,7 +1,3 @@
-/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
-/// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-/// <reference path="../models/IBreederProfile.ts" />
 var DataService = (function () {
     function DataService($http, $q, $firebase, $filter) {
         this.$http = $http;
@@ -9,6 +5,7 @@ var DataService = (function () {
         this.$firebase = $firebase;
         this.$filter = $filter;
     }
+
     DataService.prototype.FireProcess = function (userName) {
         return userName.replace(/\./g, '(p)');
     };
@@ -65,7 +62,6 @@ var DataService = (function () {
         var key = id.replace(/\./g, '(p)');
         var fireGalleries = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/galleries"));
 
-        //console.log(fireGalleries);
         fireGalleries.$on('value', function (snapshot) {
             var galleries = snapshot.snapshot.value;
             d.resolve(galleries);
@@ -154,9 +150,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -168,10 +164,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-                GalleryId: galleryId,
-                PhotoId: photoId,
-                Caption: caption
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId,
+            Caption: caption
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -188,7 +184,6 @@ var DataService = (function () {
             d.resolve();
         });
 
-        //        fireGallery.$save();
         return d.promise;
     };
 
@@ -285,15 +280,8 @@ var DataService = (function () {
     DataService.prototype.deleteFeedback = function (id) {
         var d = this.$q.defer();
 
-        //        this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
-        //            feedbackId: id
-        //        })
-        //            .success(() => {
         d.resolve();
 
-        //            }).error(() => {
-        //                d.reject();
-        //            });
         return d.promise;
     };
 
@@ -303,8 +291,6 @@ var DataService = (function () {
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateGalleries', { Galleries: t }).success(function () {
             d.resolve();
         }).error(function (data, error) {
-            // console.log(data)
-            // console.log(error)
             d.reject();
         });
         return d.promise;

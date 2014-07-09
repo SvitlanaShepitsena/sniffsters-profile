@@ -1,9 +1,9 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 
 interface IPhotosScope extends IMainScope {
     photosCtrl:PhotosCtrl;
-    index:IndexCtrl;
+    home:HomeCtrl;
     isOk:boolean;
 }
 class PhotosCtrl {
@@ -14,7 +14,7 @@ class PhotosCtrl {
     public SelectedGalleryEdit:IGallery;
 
     constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-        $scope.index.menuIndex = 2;
+        $scope.home.menuIndex = 2;
 
         $scope.$watch("photosCtrl.GalleriesNew", () => {
             for (var i = 0; i < this.GalleriesNew.length; i++) {

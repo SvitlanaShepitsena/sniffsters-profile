@@ -13,12 +13,6 @@ var breederProfileNav:() => ng.IDirective = () => {
         templateUrl: 'views/directives/breeder-profile-nav.html',
         // replace directive tag with template info
         replace: true,
-        scope: {
-            ctrl: '=',
-
-            text: '@',
-            func: '&'
-        },
         link: (scope:IBreederProfileNav, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 
         }

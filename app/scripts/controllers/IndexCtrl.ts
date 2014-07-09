@@ -16,63 +16,17 @@ class IndexCtrl {
     error:boolean;
     Id:string;
     IdFire:string;
-    url:string;
+    state:string;
     spinner:boolean;
-    menuIndex:number;
     BreederName:string;
-
-    animationDirection(menuIndex:number):string {
-
-        if (menuIndex > this.menuIndex)
-            return 'slide-left';
-        else
-            return 'slide-right';
-    }
+    url:string;
 
 
     constructor(public $scope, $location, public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.home.IsSearchHidden = false;
-        this.url = 'about';
-
-        $scope.navigate = (menuIndex:number) => {
-            $scope.slide = this.animationDirection(menuIndex);
+        $scope.home.url = 'about';
 
 
-            if (menuIndex == 1) {
-                this.menuIndex = 1;
-                $location.url('/profile/about');
-            }
-
-
-            if (menuIndex == 2) {
-                this.menuIndex = 2;
-                $location.url('/profile/photos');
-            }
-
-
-            if (menuIndex == 3) {
-                this.url = 'puppies';
-                this.menuIndex = 3;
-                $location.url('/profile/puppies');
-            }
-
-
-            if (menuIndex == 4) {
-                this.url = 'details';
-                this.menuIndex = 4;
-                $location.url('/profile/details');
-            }
-
-
-            if (menuIndex == 5) {
-                this.url = 'testimonials';
-                this.menuIndex = 5;
-                $location.url('/profile/testimonials');
-            }
-
-        }
-
-        this.menuIndex = 1;
         $scope.slide = '';
 
         $rootScope.back = () => {
