@@ -24,7 +24,6 @@ var IndexCtrl = (function () {
         };
 
         $scope.index = this;
-        this.ProfileNavShow = true;
         this.spinner = true;
         this.BreederName = this.GetBreederName();
         this.Id = this.GetBreederName();
@@ -44,6 +43,7 @@ var IndexCtrl = (function () {
             _this.spinner = false;
         });
     }
+
     IndexCtrl.prototype.GetBreederName = function () {
         var loggedUser = angular.element('#loggedUser');
         if (loggedUser == null) {

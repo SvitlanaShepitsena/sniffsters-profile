@@ -76,6 +76,7 @@ var GenerateCtrl = (function () {
 
         $scope.breeders.$save();
     }
+
     GenerateCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

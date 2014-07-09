@@ -20,7 +20,6 @@ class IndexCtrl {
     spinner:boolean;
     BreederName:string;
     url:string;
-    ProfileNavShow:boolean;
 
 
     constructor(public $scope, $location, public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
@@ -40,7 +39,6 @@ class IndexCtrl {
         }
 
         $scope.index = this;
-        this.ProfileNavShow = true;
         this.spinner = true;
         this.BreederName = this.GetBreederName();
         this.Id = this.GetBreederName();
