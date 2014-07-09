@@ -17,3 +17,5 @@ app/scripts/services/*.js
 
 app/styles/*.css
 
+
+app/styles/sniff.css

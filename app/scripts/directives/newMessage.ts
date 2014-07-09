@@ -8,6 +8,7 @@ interface INewMessage extends IHomeScope {
     note:{
         to:string;
         body:string;
+
     };
     home:HomeCtrl;
     Send:(to:string, body:string) => void;
