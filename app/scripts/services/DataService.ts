@@ -53,6 +53,26 @@ class DataService {
         return d.promise;
     }
 
+    getAllProfiles(userNameFire:string, userName:string) {
+
+        this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/"));
+        this.fb.$on('value', (snapshot:any)=> {
+
+            var breeders = snapshot.snapshot.value;
+            if (userName.length > 0) {
+
+                breeders = _.reject(breeders, (breeder:any)=> {
+                    return breeder.profile.Email === userName;
+                });
+            }
+
+            d.resolve(this.$filter('orderByPriority')(breeders));
+        })
+        var d = this.$q.defer();
+
+        return d.promise;
+    }
+
 
     updateProfile(t:IBreederProfile) {
         var d = this.$q.defer();

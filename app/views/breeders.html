@@ -1,28 +1,13 @@
 <div>
 	<h2 class="sniff-head-info">Breeders</h2>
 
-	<div class="row">
-		<div class="col-xs-3">
+	<ul>
+		<li ng-repeat="b in breedersCtrl.breeders">
+			{{b.profile.FirstName}}<br/>
+			{{b.profile.LastName}}<br/>
+			{{b.profile.Email}}<br/>
 
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id
-			sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
-
-		</div>
-		<div class="col-xs-3">
-
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id
-			sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
-		</div>
-		<div class="col-xs-3">
-
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id
-			sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
-		</div>
-		<div class="col-xs-3">
-
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id
-			sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
-		</div>
-	</div>
+		</li>
+	</ul>
 	<!-- PUT DIRECTIVES BELOW -->
 </div>

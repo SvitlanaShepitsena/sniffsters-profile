@@ -1,15 +1,19 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 
 interface IBreedersScope extends IMainScope {
-    breeders:BreedersCtrl;
+    breedersCtrl:BreedersCtrl;
     ctrl:IndexCtrl;
     home:HomeCtrl;
 }
 class BreedersCtrl {
-
+    breeders:IBreederProfile[];
     constructor(public $scope:IBreedersScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home.IsSearchHidden = false;
-        $scope.breeders = this;
+        $scope.breedersCtrl = this;
+        DataService.getAllProfiles($scope.home.IdFire, $scope.home.Id).then((breedersArr:IBreederProfile[])=> {
+
+            this.breeders = _.values(breedersArr);
+        });
     }
 
 
