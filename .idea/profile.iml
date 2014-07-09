@@ -8,10 +8,6 @@
     <orderEntry type="library" name="angular-ui-bootstrap-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="underscore-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="sniffsters-profile node_modules" level="project" />
-    <orderEntry type="library" name="Generated files" level="project" />
-    <orderEntry type="library" name="angularjs-DefinitelyTyped" level="project" />
-    <orderEntry type="library" name="profile node_modules" level="project" />
-    <orderEntry type="library" name="angular-ui-DefinitelyTyped" level="project" />
   </component>
 </module>
 
