@@ -72,6 +72,7 @@ profile.filter('galleryActive', () => {
     }
 });
 
+
 //#filt
 
 profile.service("CopyProfileService", CopyProfileService);
