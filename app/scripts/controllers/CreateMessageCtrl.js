@@ -1,3 +1,4 @@
+/// <reference path="IndexCtrl.ts" />
 var CreateMessageCtrl = (function () {
     function CreateMessageCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;

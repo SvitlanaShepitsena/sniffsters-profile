@@ -1,9 +1,11 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
-var detailsInfo = function () {
+var messageNavMenu = function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/directives/details-info.html',
+        templateUrl: 'views/directives/message-nav-menu.html',
+        transclude: true,
+        // replace directive tag with template info
         replace: true,
         scope: {
             ctrl: '=',

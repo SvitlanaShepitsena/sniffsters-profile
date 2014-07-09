@@ -1,49 +1,43 @@
-<div>
-	<ul class="list-inline">
-		<li>
-			<a ui-sref="messages">Inbox</a>
-		</li>
-		<li>
-			<a ui-sref="messages.create">Create</a>
-		</li>
+<div class="row sniff-row">
+	<div class="col-xs-1 left-side"></div>
+	<div class="col-xs-10">
+		<message-nav-menu></message-nav-menu>
 
-		<li>
-			<a ui-sref="messages.trash">Trash</a>
-		</li>
-	</ul>
-</div>
-<navigation-menu></navigation-menu>
-<div class="row" ui-view>
+		<div class="row" ui-view>
 
-	<div class="col-md-12 mainContentWrapper">
-		<div ng-show="messages.corrUsers.length==0">
-			<p class="well well-sm">You do not have any messages. </p>
-		</div>
-		<div class="col-xs-3 aside-messages">
-			<ul>
-				<li class="cursor-p" ng-click="messages.SetSelectedUser($index)" ng-repeat="u in messages.corrUsers">
-					{{u}}
-				</li>
-			</ul>
-		</div>
-		<div class="col-xs-9">
-			<ul class="list-unstyled">
-				<li ng-repeat="m in messages.selectedUserMessages">
+			<div class="col-md-12 mainContentWrapper">
+				<div ng-show="messages.corrUsers.length==0">
+					<p class="well well-sm">You do not have any messages. </p>
+				</div>
+				<div class="col-xs-3 aside-messages">
+					<ul>
+						<li class="cursor-p" ng-click="messages.SetSelectedUser($index)"
+						    ng-repeat="u in messages.corrUsers">
+							{{u}}
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-9">
+					<ul class="list-unstyled">
+						<li ng-repeat="m in messages.selectedUserMessages">
 
-					<div ng-hide="m.amISender">
-						{{messages.selectedUser}}
-					</div>
+							<div ng-hide="m.amISender">
+								{{messages.selectedUser}}
+							</div>
 
-					<div ng-show="m.amISender">
-						Me
-					</div>
+							<div ng-show="m.amISender">
+								Me
+							</div>
 
-					<p>
-						{{m.body}}
-					</p>
-					<hr/>
-				</li>
-			</ul>
+							<p>
+								{{m.body}}
+							</p>
+							<hr/>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
+	<div class="col-xs-1 right-side"></div>
 </div>
