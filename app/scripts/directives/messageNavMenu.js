@@ -1,3 +1,4 @@
+
 var messageNavMenu = function () {
     return {
         restrict: 'E',

@@ -1,3 +1,4 @@
+
 var newMessage = function () {
     return {
         restrict: 'E',

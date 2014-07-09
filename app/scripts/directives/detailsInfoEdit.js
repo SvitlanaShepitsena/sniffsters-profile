@@ -1,3 +1,4 @@
+
 var detailsInfoEdit = function () {
     return {
         restrict: 'E',
