@@ -8,7 +8,6 @@ app/bower_components/*
 app/imgdir
 .idea
 
-
 app/scripts/app.js
 app/scripts/controllers/*.js
 app/scripts/directives/*.js
@@ -18,4 +17,3 @@ app/scripts/services/*.js
 
 app/styles/*.css
 
-app/scripts/app.js
