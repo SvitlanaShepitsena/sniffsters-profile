@@ -11,3 +11,6 @@ app/bower_components/*
 app/imgdir
 .idea
 
+
+app/scripts/app.js
+app/scripts/controllers/AboutCtrl.js
