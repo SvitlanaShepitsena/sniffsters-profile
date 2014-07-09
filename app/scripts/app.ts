@@ -55,6 +55,7 @@ profile.filter('boolString', () => {
     }
 });
 
+
 profile.filter('spacesToDashes', () => {
     return (value:string):string => {
         return SpacesToDashes.filter(value);
