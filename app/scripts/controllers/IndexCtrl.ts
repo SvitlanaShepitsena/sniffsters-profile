@@ -5,7 +5,6 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
 
-
 interface IMainScope extends ng.IScope {
     index:IndexCtrl;
 }
