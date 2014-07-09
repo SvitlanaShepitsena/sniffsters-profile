@@ -20,7 +20,6 @@ class IndexCtrl {
     url:string;
     spinner:boolean;
     menuIndex:number;
-    isOwner:boolean;
     BreederName:string;
 
     animationDirection(menuIndex:number):string {
@@ -101,7 +100,6 @@ class IndexCtrl {
 //            this.Id = breederProfile.Email;
 //            Put a received BreederProfile to CopyProfileService, using it like container
 //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
-            this.isOwner = this.Ownership();
 
 
             this.CopyProfileService.SetProfile(breederProfile);
@@ -134,23 +132,6 @@ class IndexCtrl {
         return userName;
 
 
-    }
-
-    Ownership() {
-//        var loggedUser = angular.element('#loggedUser');
-//        if (loggedUser == null) {
-//            return false;
-//        }
-//        var loggedUserTxt:string = loggedUser.text();
-//
-//        var start = loggedUserTxt.indexOf(',') + 1;
-//        var finish = loggedUserTxt.indexOf('!');
-//
-//
-//        var userName = loggedUserTxt.substr(start, finish - start).trim();
-
-//        return this.Id === userName;
-        return true;
     }
 
 

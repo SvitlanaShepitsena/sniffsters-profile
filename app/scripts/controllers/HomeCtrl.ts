@@ -13,9 +13,11 @@ class HomeCtrl {
     IdFire:string;
     IsHome:boolean;
 
+    isOwner:boolean;
 
     constructor(public $scope:IHomeScope, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
+        this.isOwner = this.Ownership();
 
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
@@ -88,5 +90,22 @@ class HomeCtrl {
         return userName;
 
 
+    }
+
+    Ownership() {
+//        var loggedUser = angular.element('#loggedUser');
+//        if (loggedUser == null) {
+//            return false;
+//        }
+//        var loggedUserTxt:string = loggedUser.text();
+//
+//        var start = loggedUserTxt.indexOf(',') + 1;
+//        var finish = loggedUserTxt.indexOf('!');
+//
+//
+//        var userName = loggedUserTxt.substr(start, finish - start).trim();
+
+//        return this.Id === userName;
+        return true;
     }
 }

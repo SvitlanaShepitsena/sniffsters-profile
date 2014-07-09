@@ -65,10 +65,10 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-show="auth.user">
-					<a class="hello-user" ui-sref="profile.about1" id="loggedUser">Hello, breeder1@gmail.com!</a>
+					<a class="hello-user" ui-sref="user.profile.about1" id="loggedUser">Hello, breeder1@gmail.com!</a>
 				</li>
 				<li ng-show="auth.user">
-					<a class="sniff-menu" ui-sref="profile.about1">MY PROFILE</a>
+					<a class="sniff-menu" ui-sref="user.profile.about1">MY PROFILE</a>
 				</li>
 				<li>
 					<a ng-show="auth.user" class="sniff-menu btn-logout"
@@ -253,6 +253,7 @@
 <script src="scripts/directives/setterIshome.js"></script>
 <script src="scripts/directives/messageNavMenu.js"></script>
 <script src="scripts/directives/userProfileNav.js"></script>
+<script src="scripts/directives/breederProfileNav.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>

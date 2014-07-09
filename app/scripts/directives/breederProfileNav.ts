@@ -1,16 +1,16 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../controllers/HomeCtrl.ts" />
 
-interface IUserProfileNav extends IHomeScope {
+interface IBreederProfileNav extends IHomeScope {
     test:string;
     home:HomeCtrl;
 }
 
-var userProfileNav:() => ng.IDirective = () => {
+var breederProfileNav:() => ng.IDirective = () => {
 
     return{
         restrict: 'E',
-        templateUrl: 'views/directives/user-profile-nav.html',
+        templateUrl: 'views/directives/breeder-profile-nav.html',
         // replace directive tag with template info
         replace: true,
         scope: {
@@ -19,8 +19,7 @@ var userProfileNav:() => ng.IDirective = () => {
             text: '@',
             func: '&'
         },
-        link: (scope:IUserProfileNav, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
+        link: (scope:IBreederProfileNav, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 
         }
     }

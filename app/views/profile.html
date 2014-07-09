@@ -1,57 +1,17 @@
-<div class="row sniff-row">
-	<div class="col-xs-1 left-side"></div>
-	<div class="col-xs-10">
-		<div class="row nav-profile-wrapper">
-			<div class="col-xs-2">
-			</div>
-			<div class="col-xs-6">
-				<div class="pull-right">
-					<ul class="nav nav-pills ul-nav-profile">
-						<li ng-class="{'active':index.url=='about'}">
-							<a class='btn btn-link sniff-profile-menu' ng-click="navigate(1)">About</a>
-						</li>
-						<li ng-class="{'active':index.url=='photos'}">
-							<a class='btn btn-link sniff-profile-menu' ng-click="navigate(2)">Photos</a>
-						</li>
-
-						<li ng-class="{'active':index.url=='puppies'}">
-							<a class='btn btn-link sniff-profile-menu' ng-click="navigate(3)">Puppies</a>
-						</li>
-
-						<li ng-class="{'active':index.url=='details'}">
-							<a class='btn btn-link sniff-profile-menu' ng-click="navigate(4)">Details</a>
-						</li>
-
-						<li ng-class="{'active':index.url=='testimonials'}">
-							<a class='btn btn-link sniff-profile-menu' ng-click="navigate(5)">Testimonials</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-2 content-wrapper" ng-show="index.isOwner">
-				<user-profile-nav></user-profile-nav>
-			</div>
-
-			<div class="col-xs-8" ng-hide="index.isOwner">
-				<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
-				<!--		 ng-hide="index.spinner"
-						<spin-div ng-show="index.spinner"></spin-div>-->
-			</div>
-			<div class="col-xs-6" ng-show="index.isOwner">
-				<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
-				<!--		 ng-hide="index.spinner"
-						<spin-div ng-show="index.spinner"></spin-div>-->
-			</div>
-			<div class="col-xs-4 content-wrapper profile-aside">
-				<breeder-details ctrl="index"></breeder-details>
-				<previous-puppies>Our Previous Puppies</previous-puppies>
-			</div>
-		</div>
-
+<div>
+	<div class="" ng-hide="index.isOwner">
+		<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
+		<!--		 ng-hide="index.spinner"
+				<spin-div ng-show="index.spinner"></spin-div>-->
 	</div>
-
-	<div class="col-xs-1 right-side"></div>
+	<div class="" ng-show="index.isOwner">
+		<div class="jumbotron jumbo-custom" ng-class="slide" ui-view></div>
+		<!--		 ng-hide="index.spinner"
+				<spin-div ng-show="index.spinner"></spin-div>-->
+	</div>
 </div>
+
+
+
+
 
