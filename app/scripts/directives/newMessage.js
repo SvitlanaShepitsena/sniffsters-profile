@@ -4,12 +4,14 @@ var newMessage = function () {
         restrict: 'E',
         templateUrl: 'views/directives/new-message.html',
         replace: true,
-        controller: function ($scope, $state, DataService) {
+        controller: function ($scope, $state, DataService, toastr) {
             $scope.Send = function (to, body) {
                 DataService.sendNewMessage($scope.home.IdFire, to, body).then(function () {
                     $scope.note.to = "";
                     $scope.note.body = "";
-                    console.log('Message has been sent');
+                    toastr.success('Your message has been sent');
+
+                    $state.go('^');
                 });
             };
         }

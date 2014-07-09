@@ -46,7 +46,6 @@ class MessagesCtrl {
 
     SetSelectedUser(arrIndex:number) {
         this.selectedUserIndex = arrIndex;
-        console.log(arrIndex);
 
         this.selectedUserFire = this.corrUsersFire[this.selectedUserIndex];
         this.selectedUser = this.corrUsers[this.selectedUserIndex];

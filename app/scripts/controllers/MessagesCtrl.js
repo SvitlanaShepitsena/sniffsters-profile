@@ -25,7 +25,6 @@ var MessagesCtrl = (function () {
     }
     MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {
         this.selectedUserIndex = arrIndex;
-        console.log(arrIndex);
 
         this.selectedUserFire = this.corrUsersFire[this.selectedUserIndex];
         this.selectedUser = this.corrUsers[this.selectedUserIndex];
