@@ -24,24 +24,20 @@ class DataService {
 
         userRef.$on('value', (snapshot:any)=> {
             var user = snapshot.snapshot.value;
-            if (user.length === 0) {
-
+            if (_.isEmpty(user)) {
                 var inboxRef = this.$firebase(new Firebase(inboxUrl));
                 inboxRef.$child(to);
                 inboxRef.$save();
-                userRef = this.$firebase(new Firebase(userUrl));
             }
-            userRef.$add(
-                {
-                    amISender: true,
-                    body: body
-                }
-            )
-            userRef.$save();
-
         });
-
-
+        userRef = this.$firebase(new Firebase(userUrl));
+        userRef.$add(
+            {
+                amISender: true,
+                body: body
+            }
+        )
+        return userRef.$save();
     }
 
     getProfile(id:string) {

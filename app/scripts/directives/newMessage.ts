@@ -4,7 +4,10 @@
 
 interface INewMessage extends IHomeScope {
     test:string;
-    note:{};
+    note:{
+        to:string;
+        body:string;
+    };
     home:HomeCtrl;
     Send:(to:string, body:string) => void;
 }
@@ -17,9 +20,13 @@ var newMessage:() => ng.IDirective = () => {
         replace: true,
 
         controller: ($scope:INewMessage, $state, DataService:DataService) => {
-            $scope.note = {};
+
             $scope.Send = (to:string, body:string)=> {
-                DataService.sendNewMessage($scope.home.IdFire, to, body);
+                DataService.sendNewMessage($scope.home.IdFire, to, body).then(() => {
+                    $scope.note.to = "";
+                    $scope.note.body = "";
+                    console.log('Message has been sent');
+                })
             }
         }
     }

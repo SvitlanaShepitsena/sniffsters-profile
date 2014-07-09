@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 var DogsCtrl = (function () {
     function DogsCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;

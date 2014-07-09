@@ -1,4 +1,3 @@
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 var detailsInfo = function () {
     return {
