@@ -1,6 +1,6 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-
-interface ISetterIshome extends ng.HomeScope {
+/// <reference path="../controllers/HomeCtrl.ts" />
+interface ISetterIshome extends IHomeScope {
     test:string;
     home:HomeCtrl;
 }

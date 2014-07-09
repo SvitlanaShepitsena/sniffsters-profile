@@ -1,3 +1,7 @@
+/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../models/IBreederProfile.ts" />
 var DataService = (function () {
     function DataService($http, $q, $firebase, $filter) {
         this.$http = $http;
@@ -5,11 +9,31 @@ var DataService = (function () {
         this.$firebase = $firebase;
         this.$filter = $filter;
     }
-    DataService.prototype.sendNewMessage = function (from, to, body) {
-        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages"));
+    DataService.prototype.FireProcess = function (userName) {
+        return userName.replace(/\./g, '(p)');
+    };
 
-        fireMessages.child(to).once('value', function (snapshot) {
-            var exists = (snapshot.val() !== null);
+    DataService.prototype.sendNewMessage = function (from, to, body) {
+        var _this = this;
+        to = this.FireProcess(to);
+        var inboxUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages/Inbox/";
+        var userUrl = inboxUrl + "/" + to;
+
+        var userRef = this.$firebase(new Firebase(userUrl));
+
+        userRef.$on('value', function (snapshot) {
+            var user = snapshot.snapshot.value;
+            if (user.length === 0) {
+                var inboxRef = _this.$firebase(new Firebase(inboxUrl));
+                inboxRef.$child(to);
+                inboxRef.$save();
+                userRef = _this.$firebase(new Firebase(userUrl));
+            }
+            userRef.$add({
+                amISender: true,
+                body: body
+            });
+            userRef.$save();
         });
     };
 
@@ -41,6 +65,7 @@ var DataService = (function () {
         var key = id.replace(/\./g, '(p)');
         var fireGalleries = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/galleries"));
 
+        //console.log(fireGalleries);
         fireGalleries.$on('value', function (snapshot) {
             var galleries = snapshot.snapshot.value;
             d.resolve(galleries);
@@ -163,6 +188,7 @@ var DataService = (function () {
             d.resolve();
         });
 
+        //        fireGallery.$save();
         return d.promise;
     };
 
@@ -259,8 +285,15 @@ var DataService = (function () {
     DataService.prototype.deleteFeedback = function (id) {
         var d = this.$q.defer();
 
+        //        this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
+        //            feedbackId: id
+        //        })
+        //            .success(() => {
         d.resolve();
 
+        //            }).error(() => {
+        //                d.reject();
+        //            });
         return d.promise;
     };
 
@@ -270,6 +303,8 @@ var DataService = (function () {
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateGalleries', { Galleries: t }).success(function () {
             d.resolve();
         }).error(function (data, error) {
+            // console.log(data)
+            // console.log(error)
             d.reject();
         });
         return d.promise;

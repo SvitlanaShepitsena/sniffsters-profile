@@ -1,3 +1,4 @@
+/// <reference path="IndexCtrl.ts" />
 var TestimonialsCtrl = (function () {
     function TestimonialsCtrl($scope, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;

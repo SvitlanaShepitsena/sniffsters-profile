@@ -9,13 +9,38 @@ class DataService {
 
     }
 
-    sendNewMessage(from:string, to:string, body:string) {
-        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages"));
+    FireProcess(userName:string) {
+        return userName.replace(/\./g, '(p)');
+    }
 
-        fireMessages.child(to).once('value', function (snapshot) {
-            var exists = (snapshot.val() !== null);
+    sendNewMessage(from:string, to:string, body:string) {
+
+        to = this.FireProcess(to);
+        var inboxUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages/Inbox/";
+        var userUrl = inboxUrl + "/" + to;
+
+        var userRef = this.$firebase(new Firebase(userUrl));
+
+
+        userRef.$on('value', (snapshot:any)=> {
+            var user = snapshot.snapshot.value;
+            if (user.length === 0) {
+
+                var inboxRef = this.$firebase(new Firebase(inboxUrl));
+                inboxRef.$child(to);
+                inboxRef.$save();
+                userRef = this.$firebase(new Firebase(userUrl));
+            }
+            userRef.$add(
+                {
+                    amISender: true,
+                    body: body
+                }
+            )
+            userRef.$save();
 
         });
+
 
     }
 
