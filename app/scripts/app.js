@@ -42,6 +42,7 @@ profile.directive("feedbackEdit", feedbackEdit);
 profile.directive("newMessage", newMessage);
 profile.directive("setter", setter);
 profile.directive("setterIshome", setterIshome);
+profile.directive("navigationMenu", navigationMenu);
 
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);

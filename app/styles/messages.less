@@ -1,0 +1,245 @@
+/**********************
+       IMPORTS
+***********************/
+@import "LessComponents/elements";
+@import "LessComponents/Functions";
+@import "animate";
+@import "ng-animation";
+
+/**********************
+  Messages Animate
+***********************/
+.sp {
+  left: 40%;
+  top: 100px;
+  position: relative;
+  color: #428bca;
+  font-size: 2em;
+}
+
+#messages-div {
+
+  position: relative;
+}
+
+.animate-list.ng-enter {
+  transition: 0.9s linear all;
+  opacity: 0;
+}
+
+.animate-list.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.view-animate.ng-enter {
+  transition: 0.4s linear all;
+  opacity: 0;
+}
+
+.view-animate.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+/**********************
+  Messages Nav Panel
+***********************/
+.error {
+  border-color: #fe0e0e;
+}
+
+.bactive {
+  color: red !important;
+  background-color: #58B3F0 !important;
+}
+
+.bnonactive {
+  color: green !important;
+  background-color: AppWorkspace !important;
+}
+
+.btn-newMessage {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.fluid-messages {
+  background-color: #fbf8ee;
+}
+
+.a-nav-text {
+  color: InfoText;
+  font-weight: bold;
+}
+
+.sniff-alert {
+  box-shadow: 2px 2px 2px #cccaca;
+  .panel-tan;
+}
+
+.btn-message {
+  font-weight: 800;
+  font-size: 14px;
+  color: @colorFontDimmed;
+  .panel-tan;
+}
+
+.btn {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fa {
+  margin-right: 3px;
+}
+
+.fa-fw {
+  height: 10px !important;
+}
+
+.fa-lg {
+  vertical-align: -20% !important;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
+  background-color: #f6f4e1;
+  box-shadow: #edece0 1px 2px 2px;
+  outline-color: #faf9ee;
+}
+
+/**********************
+  Messages Aside
+***********************/
+
+.displayMessageSender {
+  text-align: center;
+}
+
+.userMessageActive, .userMessageHover {
+  &:extend(.nav-pills > li.active > a, .nav-pills > li.active >);
+  background-color: #ffffff;
+}
+
+.aside-messages {
+  padding-right: 1px;
+  padding-left: 1px !important;
+}
+
+.messageUserList {
+  background-color: #F5F5F5;
+  min-height: 760px;
+  min-width: 218px;
+  margin-bottom: 1px;
+}
+
+.scrollBarAside {
+  .scrollBar();
+  //constrain the height of section
+  height: 745px;
+}
+
+.scrollBoxAside {
+  .scroll();
+}
+
+.scrollContentAside {
+  .scrollContent();
+}
+
+/**********************
+  Messages Main Content
+***********************/
+
+.messagesScrollBar {
+  .scrollBar();
+  //constrain the height of section
+  height: 360px;
+}
+
+.messagesScrollBarTrash {
+  .scrollBar();
+  //constrain the height of section
+  height: 620px;
+}
+
+.messagesScrollBox {
+  .scroll();
+}
+
+.messagesScrollContent {
+  .scrollContent();
+}
+
+.messageBody {
+  padding: 20px;
+}
+
+.userName {
+  color: #2c77ba;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+.userMessage {
+  &:extend(.nav-pills > li.active > a, .nav-pills > );
+  background-color: #e7e7e7;
+}
+
+.message.ng-enter {
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+}
+
+.message.ng-enter.active {
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 1;
+}
+
+/**********************
+  Message Reply Section
+***********************/
+.h4-reply {
+  margin-top: 1px;
+}
+
+.txtarea-write-reply {
+  max-width: none;
+}
+
+.form-group-reply {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.btn-send-container {
+  margin-top: 10px;
+}
+
+.btn-send {
+  margin-left: 5px;
+  .btn-custom-padding();
+}
+
+.btn-del {
+  .btn-custom-padding();
+}
+
+.replyBackground {
+  background-color: #e8e8e8;
+}
+
+/**********************
+ Cteate a Message
+***********************/
+textarea {
+  max-width: none;
+}
+
+input {
+  max-width: none;
+}

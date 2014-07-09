@@ -42,6 +42,7 @@
 /// <reference path="directives/newMessage.ts" />
 /// <reference path="directives/setter.ts" />
 /// <reference path="directives/setterIshome.ts" />
+/// <reference path="directives/navigationMenu.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -91,6 +92,7 @@ profile.directive("feedbackEdit", feedbackEdit);
 profile.directive("newMessage", newMessage);
 profile.directive("setter", setter);
 profile.directive("setterIshome", setterIshome);
+profile.directive("navigationMenu", navigationMenu);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
