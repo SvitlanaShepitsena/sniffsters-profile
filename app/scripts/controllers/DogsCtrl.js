@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 var DogsCtrl = (function () {
     function DogsCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;
@@ -8,7 +7,6 @@ var DogsCtrl = (function () {
         $scope.dogs = this;
         $scope.home.IsSearchHidden = false;
     }
-
     DogsCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

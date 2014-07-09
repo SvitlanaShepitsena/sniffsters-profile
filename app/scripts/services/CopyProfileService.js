@@ -1,9 +1,7 @@
-/// <reference path="../models/IBreederProfile.ts" />
 var CopyProfileService = (function () {
     function CopyProfileService() {
         this.BreederProfile = new BreederProfile();
     }
-
     CopyProfileService.prototype.GetProfileClone = function () {
         var dolly = new BreederProfile();
         for (var key in this.BreederProfile) {
