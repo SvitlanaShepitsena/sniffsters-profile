@@ -1,4 +1,5 @@
 <setter></setter>
+<setter-ishome></setter-ishome>
 <div class="home-wrapper">
 	<div class="welcomeCont">
 		<div class="row">
@@ -8,10 +9,19 @@
 
 					<h3 class="text-center help-text">HOW CAN WE HELP YOU?</h3>
 
-					<div class="home-btn-wrapper">
-						<div class="btn-group btn-group-justified home-btn">
-							<a class="btn btn-primary btn-looking" ui-sref="looking-for-dog">I'm looking for a dog</a>
-							<a class="btn btn-danger btn-looking" ui-sref="sniff.forBreeders">I'm a breeder</a>
+					<div class="home-buttons">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="btn btn-looking-wrapper">
+									<a class="btn-looking" ui-sref="looking-for-dog">I'm looking for <br/> <span
+											class="text-span"> a dog</span></a>
+								</div>
+							</div>
+							<div class=" col-xs-6">
+								<div class="btn btn-breeder-wrapper">
+									<a class=" btn-breeder" ui-sref="sniff.forBreeders">I'm a breeder</a>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="home-links">

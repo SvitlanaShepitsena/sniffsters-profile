@@ -1,11 +1,9 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../services/DataService.ts" />
-/// <reference path="../controllers/HomeCtrl.ts" />
 
-interface INewMessage extends IHomeScope {
+interface INewMessage extends ng.IScope {
     test:string;
-    note:{};
-    home:HomeCtrl;
+    note:{}
     Send:(to:string, body:string) => void;
 }
 
@@ -15,11 +13,16 @@ var newMessage:() => ng.IDirective = () => {
         restrict: 'E',
         templateUrl: 'views/directives/new-message.html',
         replace: true,
+        scope: {
+            ctrl: '=',
 
-        controller: ($scope:INewMessage, $state, DataService:DataService) => {
-            $scope.note = {};
-            $scope.Send = (to:string, body:string)=> {
-                DataService.sendNewMessage($scope.home.IdFire, to, body);
+            text: '@',
+            func: '&'
+        },
+        controller: (scope:INewMessage, $state, DataService:DataService) => {
+            scope.note = {};
+            scope.Send = (to:string, body:string)=> {
+
             }
         }
     }

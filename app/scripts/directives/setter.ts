@@ -13,7 +13,6 @@ var setter:() => ng.IDirective = () => {
 
         link: (scope:ISetter, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
             scope.home.IsHome = true;
-            scope.home.IsSearchHidden = true;
         }
     }
 }

@@ -19,21 +19,43 @@
 /**********************
         STYLES
 ***********************/
-.btn-looking {
+.home-buttons {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  margin-left: 20px;
+  margin-right: auto;
+  width: 400px;
+}
+.btn-looking-wrapper {
+  height: 76px;
+  width: 210px;
+  background: url("../../img/Buttons2.png") no-repeat;
   font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
-  font-size: 22px !important;
+}
+.btn-breeder-wrapper {
+  height: 78px;
+  width: 215px;
+  background: url("../../img/red-button.png") no-repeat;
+  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+}
+.btn-looking {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 20px !important;
+  line-height: 20px;
+  color: whitesmoke !important;
+  font-style: normal !important;
+}
+.btn-breeder {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 20px !important;
   color: whitesmoke !important;
   font-style: normal !important;
 }
 .btn-group-great {
   margin-top: 5px;
   margin-bottom: 5px;
-}
-.home-btn-wrapper {
-  height: 150px;
-}
-.home-btn {
-  padding-top: 20px;
 }
 .form-great-search {
   padding-top: 20px;
@@ -75,7 +97,7 @@
   width: 1200px;
   padding-top: 70px !important;
   padding-bottom: 230px !important;
-  margin-bottom: -84px;
+  margin-bottom: -134px;
 }
 .homeJumbo {
   height: 486px !important;
