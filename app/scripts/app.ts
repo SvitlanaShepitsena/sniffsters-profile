@@ -266,6 +266,7 @@ profile.config(
          * Messages
          ***********************/
 
+
             .state("messages", {
                 url: "/messages",
                 controller: "MessagesCtrl",
