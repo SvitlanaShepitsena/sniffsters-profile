@@ -26,7 +26,7 @@ class IndexCtrl {
     constructor(public $scope, $location, public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
-
+        $scope.home.hideMenu = false;
         $scope.slide = '';
 
         $rootScope.back = () => {

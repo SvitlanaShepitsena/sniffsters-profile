@@ -17,17 +17,18 @@ class HomeCtrl {
     url:string;
     menuIndex:number;
     isOwner:boolean;
+    hideMenu:boolean;
 
     constructor(public $scope, $location, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
         this.isOwner = this.Ownership();
-
         this.menuIndex = 1;
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
-
+        this.hideMenu = true;
         $scope.navigate = (menuIndex:number) => {
             $scope.slide = this.animationDirection(menuIndex);
+            this.hideMenu = false;
 
 
             if (menuIndex == 1) {
@@ -95,6 +96,7 @@ class HomeCtrl {
         else
             return 'slide-right';
     }
+
     Signin(email:string, pass:string) {
 
         this.$scope.authAction.login('password', {

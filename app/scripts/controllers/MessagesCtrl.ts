@@ -25,6 +25,8 @@ class MessagesCtrl {
     constructor(public $scope:IMessagesScope, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.messages = this;
 
+        $scope.home.hideMenu = true;
+
         DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
             this.fireMessages = messages;
 

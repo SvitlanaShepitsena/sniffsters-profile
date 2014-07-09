@@ -45,6 +45,7 @@
 /// <reference path="directives/messageNavMenu.ts" />
 /// <reference path="directives/userProfileNav.ts" />
 /// <reference path="directives/breederProfileNav.ts" />
+/// <reference path="controllers/NavCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -123,6 +124,7 @@ profile.controller("RegisterCtrl", RegisterCtrl);
 profile.controller("user.messagesCtrl", MessagesCtrl);
 profile.controller("CreateMessageCtrl", CreateMessageCtrl);
 profile.controller("TrashCtrl", TrashCtrl);
+profile.controller("NavCtrl", NavCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -290,6 +292,11 @@ profile.config(
                 url: "/trash",
                 controller: "TrashCtrl",
                 templateUrl: "../views/trash.html"
+            })
+            .state("Nav", {
+                url: "/Nav",
+                controller: "NavCtrl",
+                templateUrl: "../views/Nav.html"
             })
 //#state
     });
