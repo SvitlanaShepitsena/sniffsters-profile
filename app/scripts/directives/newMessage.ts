@@ -21,7 +21,7 @@ var newMessage:() => ng.IDirective = () => {
         replace: true,
 
         controller: ($scope:INewMessage, $state:ng.ui.IStateService, DataService:DataService, toastr:Toastr) => {
-
+            $scope.note = {to: "", body: ""};
             $scope.Send = (to:string, body:string)=> {
                 DataService.sendNewMessage($scope.home.IdFire, to, body).then(() => {
                     $scope.note.to = "";
