@@ -7,6 +7,8 @@ var MessagesCtrl = (function () {
         this.DataService = DataService;
         $scope.messages = this;
 
+        $scope.home.hideMenu = true;
+
         DataService.getMessages($scope.home.IdFire).then(function (messages) {
             _this.fireMessages = messages;
 

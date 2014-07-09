@@ -10,7 +10,7 @@ var IndexCtrl = (function () {
         this.CopyProfileService = CopyProfileService;
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
-
+        $scope.home.hideMenu = false;
         $scope.slide = '';
 
         $rootScope.back = function () {
