@@ -12,6 +12,7 @@ app/imgdir
 .idea
 
 
+
 app/scripts/app.js
 app/scripts/controllers/*.js
 app/scripts/directives/*.js

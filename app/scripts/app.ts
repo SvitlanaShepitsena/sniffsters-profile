@@ -44,6 +44,7 @@
 /// <reference path="directives/setterIshome.ts" />
 /// <reference path="directives/messageNavMenu.ts" />
 /// <reference path="directives/userProfileNav.ts" />
+/// <reference path="directives/breederProfileNav.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -95,6 +96,7 @@ profile.directive("setter", setter);
 profile.directive("setterIshome", setterIshome);
 profile.directive("messageNavMenu", messageNavMenu);
 profile.directive("userProfileNav", userProfileNav);
+profile.directive("breederProfileNav", breederProfileNav);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -115,7 +117,7 @@ profile.controller("LookingForDogCtrl", LookingForDogCtrl);
 profile.controller("ForBreedersCtrl", ForBreedersCtrl);
 profile.controller("LoginCtrl", LoginCtrl);
 profile.controller("RegisterCtrl", RegisterCtrl);
-profile.controller("MessagesCtrl", MessagesCtrl);
+profile.controller("user.messagesCtrl", MessagesCtrl);
 profile.controller("CreateMessageCtrl", CreateMessageCtrl);
 profile.controller("TrashCtrl", TrashCtrl);
 //#ctrl
@@ -129,61 +131,65 @@ profile.config(
         $urlRouterProvider.otherwise("/messages");
 
         $stateProvider
-            .state("profile", {
+            .state("user", {
+                abstract: true,
+                templateUrl: "../views/profile-side-bar.html"
+            })
+            .state("user.profile", {
                 abstract: true,
                 url: "/profile",
                 controller: IndexCtrl,
                 templateUrl: "../views/profile.html"
             })
-            .state("profile.about1", {
+            .state("user.profile.about1", {
                 url: "/about",
                 templateUrl: "../views/profile-about.html"
             })
-            .state("profile.about1.edit", {
+            .state("user.profile.about1.edit", {
                 url: "/edit",
                 templateUrl: "../views/profile-about-edit.html"
             })
-            .state("profile.photos2", {
+            .state("user.profile.photos2", {
                 url: "/photos",
                 controller: "PhotosCtrl",
                 templateUrl: "../views/profile-photos.html"
             })
-            .state("profile.photos2.galleries", {
+            .state("user.profile.photos2.galleries", {
                 url: "/gallery/:id",
                 template: "<div ui-view><photo-gallery></photo-gallery></div>"
             })
-            .state("profile.photos2.galleries.edit", {
+            .state("user.profile.photos2.galleries.edit", {
                 url: "/edit",
                 template: "<photo-gallery-edit></photo-gallery-edit>"
             })
-            .state("profile.puppies3", {
+            .state("user.profile.puppies3", {
                 url: "/puppies",
                 controller: "PuppiesCtrl",
 
                 templateUrl: "../views/profile-puppies.html"
             })
-            .state("profile.puppies3.litter", {
+            .state("user.profile.puppies3.litter", {
                 url: "/litter/:id",
                 templateUrl: "../views/profile-puppiesLitter.html"
             })
-            .state("profile.puppies3.litter.edit", {
+            .state("user.profile.puppies3.litter.edit", {
                 url: "/edit",
                 template: "<litter l='puppies.SelectedLitter' user-name='{{index.Id}}'></litter>"
             })
-            .state("profile.details4", {
+            .state("user.profile.details4", {
                 url: "/details",
                 templateUrl: "../views/profile-details.html"
             })
-            .state("profile.details4.edit", {
+            .state("user.profile.details4.edit", {
                 url: "/edit",
                 templateUrl: "../views/profile-detailsEdit.html"
             })
-            .state("profile.testimonials5", {
+            .state("user.profile.testimonials5", {
                 url: "/testimonials",
                 controller: "TestimonialsCtrl",
                 templateUrl: "../views/profile-testimonials.html"
             })
-            .state("profile.testimonials5.edit", {
+            .state("user.profile.testimonials5.edit", {
                 url: "/edit/:id",
                 template: "<feedback-edit></feedback-edit>"
             })
@@ -265,17 +271,18 @@ profile.config(
         /**********************
          * Messages
          ***********************/
-            .state("messages", {
+
+            .state("user.messages", {
                 url: "/messages",
-                controller: "MessagesCtrl",
+                controller: "user.messagesCtrl",
                 templateUrl: "../views/messages.html"
             })
-            .state("messages.create", {
+            .state("user.messages.create", {
                 url: "/createMessage",
                 controller: "CreateMessageCtrl",
                 templateUrl: "../views/createMessage.html"
             })
-            .state("messages.trash", {
+            .state("user.messages.trash", {
                 url: "/trash",
                 controller: "TrashCtrl",
                 templateUrl: "../views/trash.html"

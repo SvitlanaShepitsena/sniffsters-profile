@@ -19,6 +19,7 @@ class HomeCtrl {
         $scope.home = this;
         this.isOwner = this.Ownership();
 
+
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
 
