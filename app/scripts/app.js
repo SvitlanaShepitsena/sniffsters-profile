@@ -69,7 +69,6 @@ profile.controller("RegisterCtrl", RegisterCtrl);
 profile.controller("user.messagesCtrl", MessagesCtrl);
 profile.controller("CreateMessageCtrl", CreateMessageCtrl);
 profile.controller("TrashCtrl", TrashCtrl);
-profile.controller("NavCtrl", NavCtrl);
 
 profile.value("toastr", toastr);
 profile.service("DataService", DataService);
