@@ -1,4 +1,4 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 
 interface IPuppiesScope extends IMainScope {
     puppies:PuppiesCtrl;
@@ -12,7 +12,7 @@ class PuppiesCtrl {
     SelectedLitterEdit:ILitter;
 
     constructor(public $scope, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-        $scope.index.url = 'puppies';
+        $scope.home.url = 'puppies';
         $scope.isOk = false;
 
         this.LittersNew = [];

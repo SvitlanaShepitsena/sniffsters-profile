@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 var TestimonialsCtrl = (function () {
     function TestimonialsCtrl($scope, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
@@ -8,7 +7,7 @@ var TestimonialsCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
-        $scope.index.url = "testimonials";
+        $scope.home.url = "testimonials";
         $scope.isOk = false;
         this.FeedbacksNew = [];
         $scope.testimonials = this;

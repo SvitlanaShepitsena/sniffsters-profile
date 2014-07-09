@@ -1,7 +1,6 @@
 var GalleryService = (function () {
     function GalleryService() {
     }
-
     GalleryService.prototype.GetGalleryClone = function () {
         var dolly = new Gallery();
         for (var key in this.Gallery) {

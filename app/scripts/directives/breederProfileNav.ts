@@ -4,6 +4,7 @@
 interface IBreederProfileNav extends IHomeScope {
     test:string;
     home:HomeCtrl;
+    showMenu:boolean;
 }
 
 var breederProfileNav:() => ng.IDirective = () => {
@@ -14,7 +15,7 @@ var breederProfileNav:() => ng.IDirective = () => {
         // replace directive tag with template info
         replace: true,
         link: (scope:IBreederProfileNav, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
+            scope.showMenu = true;
         }
     }
 }

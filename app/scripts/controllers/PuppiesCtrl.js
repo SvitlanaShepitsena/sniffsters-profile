@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 var PuppiesCtrl = (function () {
     function PuppiesCtrl($scope, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
@@ -8,7 +7,7 @@ var PuppiesCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
-        $scope.index.url = 'puppies';
+        $scope.home.url = 'puppies';
         $scope.isOk = false;
 
         this.LittersNew = [];
@@ -43,7 +42,6 @@ var PuppiesCtrl = (function () {
         });
         this.SelectedLitter = this.Litters[litid];
         this.$state.go('profile.puppies3.litter', { 'id': litid });
-        //        console.log("Hello");
     };
 
     PuppiesCtrl.prototype.addNewLitter = function () {

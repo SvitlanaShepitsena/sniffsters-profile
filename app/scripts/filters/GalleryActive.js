@@ -1,4 +1,3 @@
-/// <reference path="../models/IBreederProfile.ts" />
 var GalleryActive = (function () {
     function GalleryActive() {
     }

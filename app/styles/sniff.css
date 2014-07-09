@@ -17,6 +17,116 @@
         MIXINS
 ***********************/
 /**********************
+       IMPORTS
+***********************/
+/**********************
+        STYLES
+***********************/
+.home-buttons {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    margin-left: 20px;
+    margin-right: auto;
+    width: 400px;
+}
+
+.home-btn-wrapper {
+    padding-bottom: 10px;
+}
+
+.btn-looking-wrapper {
+    height: 76px;
+    width: 210px;
+    background: url("../../img/Buttons2.png") no-repeat;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+}
+
+.btn-breeder-wrapper {
+    height: 78px;
+    width: 215px;
+    background: url("../../img/red-button.png") no-repeat;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+}
+
+.btn-looking {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 20px !important;
+    line-height: 20px;
+    color: whitesmoke !important;
+    font-style: normal !important;
+}
+
+.btn-breeder {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 20px !important;
+    color: whitesmoke !important;
+    font-style: normal !important;
+}
+
+.btn-group-great {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.form-great-search {
+    padding-top: 5px;
+}
+
+.let-top {
+    margin-left: 30px;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+    font-size: 16px !important;
+    color: #3a3a3a;
+}
+
+.find-out {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+    color: #217ac8;
+    font-size: 16px !important;
+}
+
+.p-home {
+    margin-left: 30px;
+}
+
+.greatForm {
+    margin-top: 20px !important;
+}
+
+.welc-text {
+    font-size: 46px !important;
+    font-weight: bold;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    text-align: center;
+    margin-top: 60px !important;
+    margin-bottom: 5px;
+    color: #472d1e;
+}
+
+.help-text {
+    color: #472d1e !important;
+    font-weight: bold;
+    font-size: 32px;
+    margin-top: 0px;
+}
+
+.home-wrapper {
+    background: url("../../img/Landing_background.png") no-repeat;
+    width: 1200px;
+    padding-top: 70px !important;
+    padding-bottom: 230px !important;
+    margin-bottom: -134px;
+}
+
+.homeJumbo {
+    height: 486px !important;
+    padding-bottom: 30px !important;
+    background: url("../../img/jumbotron-background.png") no-repeat;
+}
+
+/**********************
         SHUFFLE
 ***********************/
 .shuffle-animation.ng-enter,
@@ -85,6 +195,73 @@
     position: relative;
     color: #5bc0de;
     font-size: 2em;
+}
+
+/**********************
+      MIXINS
+***********************/
+/**********************
+       STYLES
+***********************/
+.slide-left.ng-enter {
+    z-index: 100;
+    left: 100%;
+    -webkit-transition: 0.9s ease-in-out;
+    -moz-transition: 0.9s ease-in-out;
+    -o-transition: 0.9s ease-in-out;
+    transition: 0.9s ease-in-out;
+    position: absolute;
+    width: 100%;
+}
+
+.slide-left.ng-enter.ng-enter-active {
+    left: 0;
+    right: 0;
+}
+
+.slide-left.ng-leave {
+    z-index: 101;
+    left: 0;
+    -webkit-transition: 0.9s ease-in-out;
+    -moz-transition: 0.9s ease-in-out;
+    -o-transition: 0.9s ease-in-out;
+    transition: 0.9s ease-in-out;
+    position: absolute;
+    width: 100%;
+}
+
+.slide-left.ng-leave.ng-leave-active {
+    left: -100%;
+}
+
+.slide-right.ng-enter {
+    z-index: 100;
+    left: -100%;
+    -webkit-transition: 0.9s ease-in-out;
+    -moz-transition: 0.9s ease-in-out;
+    -o-transition: 0.9s ease-in-out;
+    transition: 0.9s ease-in-out;
+    position: absolute;
+    width: 100%;
+}
+
+.slide-right.ng-enter.ng-enter-active {
+    left: 0;
+}
+
+.slide-right.ng-leave {
+    z-index: 101;
+    left: 0;
+    -webkit-transition: 0.9s ease-in-out;
+    -moz-transition: 0.9s ease-in-out;
+    -o-transition: 0.9s ease-in-out;
+    transition: 0.9s ease-in-out;
+    position: absolute;
+    width: 100%;
+}
+
+.slide-right.ng-leave.ng-leave-active {
+    left: 100%;
 }
 
 /* ------------------------------------------- */
@@ -1471,6 +1648,291 @@
 }
 
 /**********************
+  FILE UPLOAD BUTTON
+***********************/
+.fileContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.fileContainer [type=file] {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.chooseFilesButton {
+    margin-left: 5px;
+    width: 110px;
+    height: 40px;
+}
+
+/**********************
+   ADD NEW GALLERY
+***********************/
+.panel-file-upload {
+    padding: 1.7em;
+}
+
+.panel-file-upload label {
+    margin-right: 0px;
+}
+
+.dropFilesHere {
+    border: 2px #c3c3c3 dashed;
+    min-height: 100px;
+    padding-bottom: 20px;
+}
+
+.dragPhotosImg {
+    margin-top: 2.5em;
+    margin-bottom: 1.4em;
+}
+
+.addNewGalleryLink {
+    padding: 1.1em 1.1em 1.2em;
+}
+
+.h4-addNewGallery {
+    color: #6e6e6e;
+}
+
+.inputEmpty {
+    border: 1px solid red !important;
+}
+
+.inputEmpty {
+    border: 1px solid red !important;
+}
+
+.fa-browse-btn {
+    margin-right: 5px;
+}
+
+.drag-photos {
+    font-size: 18px;
+    color: #bababa;
+}
+
+/**********************
+       IMPORTS
+***********************/
+/**********************
+    MY DETAILS
+***********************/
+.myDetailsContWrapper {
+    margin-bottom: 30px;
+}
+
+.myDetailsContWrapper span {
+    font-size: 12px;
+}
+
+.myDetailsContWrapper .form-group {
+    margin-left: 0px;
+    margin-bottom: 5px;
+}
+
+.myDetailsContWrapper .form-control {
+    width: auto;
+    display: inline-block;
+    padding: 2px 5px;
+    line-height: 16px;
+    height: 28px;
+}
+
+.myDetails-alert {
+    background-color: #faf9ee;
+    border-color: #FFFFFF;
+    color: #6e6e6e;
+    box-shadow: 0px -3px 5px #eae7e7;
+}
+
+.myDetailsFont {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.myDetailsFormGroup {
+    margin-left: 5px !important;
+    margin-bottom: 0em;
+}
+
+.sniff-alert {
+    color: #3a3a3a;
+}
+
+.th-pic {
+    margin: -16px -16px 0px -16px;
+}
+
+.myDetailsHeader {
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+.myDetailsInput {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+.profileSave {
+    margin-top: 10px;
+}
+
+.dl-horizontal dt {
+    text-align: left;
+    width: 70px;
+}
+
+.dl-horizontal dd {
+    margin-left: 150px !important;
+}
+
+.labelMyDetails {
+    font-family: arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #3a3a3a;
+    margin-right: 5px;
+}
+
+.spanCertif {
+    padding-left: 0px;
+}
+
+.btn-save-details {
+    margin-top: 4px !important;
+    margin-bottom: 5px !important;
+    margin-right: 0px !important;
+    padding: 2px 5px;
+}
+
+.aside-header-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/**********************
+       IMPORTS
+***********************/
+/**********************
+        Photos
+***********************/
+.puppyPic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.puppyPicWrapper {
+    padding-top: 10px !important;
+}
+
+.btn-del {
+    margin-top: 3px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+    padding: 1px 7px;
+}
+
+.btn-share {
+    margin-top: 3px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+    padding: 1px 7px;
+}
+
+.btn-del-pic {
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+    padding: 3px 7px;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+}
+
+.btn-edit {
+    padding: 1px 7px;
+}
+
+.btn-save {
+    margin-top: 4px !important;
+    margin-bottom: 5px !important;
+    margin-right: 0px !important;
+    padding: 1px 7px;
+}
+
+/**********************
+       IMPORTS
+***********************/
+/**********************
+        PUPPIES
+***********************/
+.jumbotron .text-litter p {
+    line-height: .7em;
+    font-size: 12px;
+}
+
+.litter-wrapper {
+    margin: 15px;
+}
+
+/**********************
+       IMPORTS
+***********************/
+/**********************
+    For Breeders Page
+***********************/
+.sniff-label-warning {
+    padding: 5px !important;
+    width: 700px;
+    display: inline-block;
+    border-radius: 2px !important;
+    font-size: 26px !important;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+    font-weight: normal !important;
+    background-color: orange;
+}
+
+.label-wrapper {
+    margin-top: 25px !important;
+    margin-bottom: 25px;
+}
+
+.text-info {
+    color: #217ac8;
+}
+
+.text-warning {
+    color: orange !important;
+}
+
+.th-plans-table {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 20px;
+    font-weight: normal !important;
+}
+
+.table-for-breeders p {
+    margin-bottom: 0px;
+    color: #bababa;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.btn-tryit {
+    width: 100px;
+}
+
+/**********************
+       IMPORTS
+***********************/
+/**********************
   Messages Animate
 ***********************/
 .sp {
@@ -1728,4 +2190,477 @@ textarea {
 
 input {
     max-width: none;
+}
+
+/*************************
+  BOOTSTRAP CUSTOM STYLES
+**************************/
+body {
+    font-family: arial, sans-serif !important;
+    font-size: 12pt !important;
+    color: #3a3a3a;
+}
+
+.left-side {
+    background: url("../img/left-grass-pattern.png") repeat-y;
+    height: 2000px;
+}
+
+.right-side {
+    background: url("../img/right-grass-pattern.png") repeat-y;
+    height: 2000px;
+}
+
+.body-content {
+    background-color: white;
+    padding: 0px;
+}
+
+.container {
+    width: 1200px !important;
+}
+
+.sniff-row {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: -100px;
+}
+
+.sniff-content-wrapper {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 14px !important;
+}
+
+.btn-primary {
+    background: #2279c1;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2279c1), color-stop(1, #498cc6));
+    background: -ms-linear-gradient(bottom, #2279c1, #498cc6);
+    background: -moz-linear-gradient(center bottom, #2279c1 0%, #498cc6 100%);
+    background: -o-linear-gradient(#498cc6, #2279c1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#498cc6', endColorstr='#2279c1', GradientType=0);
+}
+
+.btn-primary:hover {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+}
+
+.btn-primary:active {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+}
+
+.btn-primary:focus {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    background-color: #4b95d6 !important;
+    border-color: #4389cf !important;
+}
+
+.cursor-p {
+    cursor: pointer;
+}
+
+.jumbotron p {
+    font-family: arial, sans-serif !important;
+    font-size: 12px !important;
+    color: #3a3a3a !important;
+}
+
+.container .jumbo-custom {
+    background-color: white !important;
+    border: 1px #ebebeb solid !important;
+    padding: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+hr {
+    border-top-color: #bababa !important;
+}
+
+label {
+    margin-bottom: 0px;
+    margin-right: 5px;
+}
+
+/**********************
+ Font Styles
+***********************/
+.sniff-menu {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 18px;
+    color: #3a3a3a !important;
+}
+
+.sniff-menu:hover {
+    color: #217ac8 !important;
+}
+
+.sniff-menu:active {
+    color: #217ac8 !important;
+}
+
+.sniff-menu:focus {
+    color: #217ac8 !important;
+}
+
+.sniff-profile-menu {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-weight: normal !important;
+    font-size: 18px;
+    color: #3a3a3a;
+}
+
+.hello-user {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sniff-head {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px;
+    color: #3a3a3a !important;
+    font-weight: normal;
+}
+
+.sniff-head-sm {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 18px !important;
+    color: #3a3a3a !important;
+    font-weight: normal !important;
+}
+
+h3 {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px;
+    color: #3a3a3a !important;
+}
+
+.sniff-head-info {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-weight: normal !important;
+    font-size: 22px;
+    color: #217ac8 !important;
+}
+
+h4 {
+    font-family: arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #3a3a3a;
+}
+
+.sniff-subhead {
+    font-family: arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #3a3a3a;
+}
+
+.form-control {
+    font-size: 12px !important;
+    font-family: arial, sans-serif;
+}
+
+input {
+    margin-top: 5px;
+}
+
+textarea {
+    font-size: 12px !important;
+    margin-top: 5px;
+    font-family: arial, sans-serif;
+}
+
+.right {
+    text-align: right;
+}
+
+.fa-fw {
+    font-size: .9em !important;
+}
+
+.light-gray {
+    color: #6e6e6e;
+}
+
+.no-l-pad {
+    padding-left: 0px;
+}
+
+/**********************
+ user profile
+***********************/
+.nav-profile-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eae7e7;
+}
+
+.profile-aside {
+    background-color: #fcf9f9;
+}
+
+.content-wrapper {
+    padding-top: 20px;
+}
+
+/**********************
+     =Profile Form
+***********************/
+.a-profile-nav {
+    padding-right: 0px !important;
+}
+
+.form-editPersonal {
+    margin-left: 5px !important;
+}
+
+.textMuted {
+    font-size: 12px;
+    color: #bababa;
+}
+
+.maxSymb {
+    font-size: .9em;
+}
+
+.custom-col {
+    margin-right: 15px;
+}
+
+.h5Custom {
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.2em;
+    margin-bottom: 5px;
+}
+
+.collar {
+    height: 68px;
+    background: url("../img/collar.png") no-repeat;
+    margin-top: -12px;
+    margin-bottom: -12px;
+}
+
+/**********************
+ search bar
+***********************/
+.search-bar {
+    padding: 25px;
+    height: 68px;
+}
+
+.search-bar-content {
+    background-color: #3d3d3b;
+}
+
+.quick-search {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 22px;
+    color: whitesmoke;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn-fetch {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navbar-sniff-content {
+    background-color: white;
+}
+
+.navbar-sniff {
+    background-color: #FFFFFF;
+    margin-bottom: 0px;
+}
+
+.search-bar-form {
+    width: 1100px;
+    margin: 0px auto;
+}
+
+.btn-group-fetch {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.quick-search-toggle {
+    border-color: #a9a7a7;
+    background: #b6b5b5;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #8a8888), color-stop(1, #b6b5b5));
+    background: -ms-linear-gradient(bottom, #8a8888, #b6b5b5);
+    background: -moz-linear-gradient(center bottom, #8a8888 0%, #b6b5b5 100%);
+    background: -o-linear-gradient(#b6b5b5, #8a8888);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#8a8888', GradientType=0);
+}
+
+.btn-search-drop,
+.btn-search-drop:hover,
+.btn-search-drop:active,
+.btn-search-drop:focus {
+    font-family: arial, sans-serif;
+    background: #b6b5b5;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #8a8888), color-stop(1, #b6b5b5));
+    background: -ms-linear-gradient(bottom, #8a8888, #b6b5b5);
+    background: -moz-linear-gradient(center bottom, #8a8888 0%, #b6b5b5 100%);
+    background: -o-linear-gradient(#b6b5b5, #8a8888);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#8a8888', GradientType=0);
+    border-color: #a9a7a7;
+    color: whitesmoke;
+    font-style: 14px;
+    font-weight: 700;
+    width: 250px;
+    text-align: left;
+}
+
+.search-dropdown {
+    width: 250px !important;
+}
+
+.caret {
+    color: whitesmoke;
+}
+
+.btn-default {
+    font-weight: 700 !important;
+    border-color: #a9a7a7;
+    background: #b6b5b5;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #8a8888), color-stop(1, #b6b5b5));
+    background: -ms-linear-gradient(bottom, #8a8888, #b6b5b5);
+    background: -moz-linear-gradient(center bottom, #8a8888 0%, #b6b5b5 100%);
+    background: -o-linear-gradient(#b6b5b5, #8a8888);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#8a8888', GradientType=0);
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+    background: #b6b5b5;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #a7a6a6), color-stop(1, #b6b5b5));
+    background: -ms-linear-gradient(bottom, #a7a6a6, #b6b5b5);
+    background: -moz-linear-gradient(center bottom, #a7a6a6 0%, #b6b5b5 100%);
+    background: -o-linear-gradient(#b6b5b5, #a7a6a6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#a7a6a6', GradientType=0);
+}
+
+/**********************
+ sidebar
+***********************/
+.monthName {
+    font-weight: 700;
+    font-size: 58px !important;
+    font-family: 'Georgia', 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
+}
+
+.meet-ups {
+    font-size: 18px !important;
+    font-family: 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
+}
+
+/**********************
+ footer
+***********************/
+.sniff-footer-menu {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 18px;
+    color: whitesmoke;
+    font-weight: normal !important;
+}
+
+.sniff-footer-menu:hover {
+    color: #217ac8 !important;
+}
+
+.sniff-footer-menu:active {
+    color: #217ac8 !important;
+}
+
+.sniff-footer-menu:focus {
+    color: #217ac8 !important;
+}
+
+.footer-content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.footer-content .nav > li > a {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.footer-container {
+    padding-left: 7px;
+    padding-right: 7px;
+    color: whitesmoke;
+    font-size: 14px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.footer-container a {
+    color: whitesmoke;
+}
+
+.footer-container .nav > li > a:hover,
+.footer-container .nav > li > a:focus {
+    color: #3a3a3a;
+}
+
+.footer-text-container {
+    margin-top: 47px;
+}
+
+.footer-background {
+    position: relative;
+    height: 100px;
+    background: url("../img/footer-pattern.png") repeat-x;
+}
+
+.copyright {
+    color: whitesmoke;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 18px;
+    font-weight: normal !important;
+    padding-left: 20px;
+}
+
+/**********************
+ Authentication
+***********************/
+.h-sign-up {
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: #217ac8;
+}
+
+.btn-facebook-login {
+    text-align: center;
+    font-weight: bold;
+}
+
+.fa-facebook {
+    margin-right: 5px;
+}
+
+.btn-logout {
+    cursor: pointer;
 }

@@ -1,5 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
-/// <reference path="../models/IBreederProfile.ts" />
 var PhotosCtrl = (function () {
     function PhotosCtrl($scope, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
@@ -8,7 +6,7 @@ var PhotosCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
-        $scope.index.menuIndex = 2;
+        $scope.home.menuIndex = 2;
 
         $scope.$watch("photosCtrl.GalleriesNew", function () {
             for (var i = 0; i < _this.GalleriesNew.length; i++) {
@@ -78,7 +76,6 @@ var PhotosCtrl = (function () {
     PhotosCtrl.prototype.setSelectedGallery = function (galleryId) {
         this.SelectedGallery = this.Galleries[galleryId];
         this.$state.go('profile.photos2.galleries', { 'id': galleryId });
-        //        console.log(this.SelectedGallery);
     };
 
     PhotosCtrl.prototype.ShowSuccess = function (note) {
@@ -96,9 +93,6 @@ var PhotosCtrl = (function () {
                 this.SelectedGalleryEdit[key] = this.SelectedGallery[key];
             }
         }
-        //        console.log(this.SelectedGalleryEdit);
-        //        console.log(this.SelectedGallery);
-        //        return dolly;
     };
     return PhotosCtrl;
 })();
