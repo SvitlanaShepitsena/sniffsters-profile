@@ -11,3 +11,10 @@ app/bower_components/*
 app/imgdir
 .idea
 
+
+app/scripts/app.js
+app/scripts/controllers/*.js
+app/scripts/directives/*.js
+app/scripts/filters/*.js
+app/scripts/models/*.js
+app/scripts/services/*.js
