@@ -235,6 +235,72 @@ class GenerateCtrl {
 
         breeders.push(breeder1);
 
+        var breeder2 = new BreederProfile();
+        breeder2.FirstName = "Jon";
+        breeder2.LastName = "Doe";
+        breeder2.Website = "www.dogs.com";
+        breeder2.Email = "breeder2@gmail.com";
+        breeder2.Phone = "773-123-45-67";
+        breeder2.KennelName = "Dogs Paradise";
+        breeder2.Story = "My Dogs Story";
+        breeder2.Parents = "Great parents";
+        breeder2.Boys = "3 pupies";
+        breeder2.Girls = "2 puppies";
+        breeder2.AddInfo = "Add Info about dogs";
+        breeder2.City = "Chicago";
+        breeder2.Zip = "60630";
+        breeder2.State = "IL";
+        breeder2.Certifications = ["Cenrtification 1"];
+        breeder2.VetServices = true;
+        breeder2.Insurances = ["Insurance 1"];
+        breeder2.Shipping = false;
+
+        breeders.push(breeder2);
+
+        var breeder3 = new BreederProfile();
+        breeder3.FirstName = "Jon";
+        breeder3.LastName = "Doe";
+        breeder3.Website = "www.dogs.com";
+        breeder3.Email = "breeder3@gmail.com";
+        breeder3.Phone = "773-123-45-67";
+        breeder3.KennelName = "Dogs Paradise";
+        breeder3.Story = "My Dogs Story";
+        breeder3.Parents = "Great parents";
+        breeder3.Boys = "3 pupies";
+        breeder3.Girls = "2 puppies";
+        breeder3.AddInfo = "Add Info about dogs";
+        breeder3.City = "Chicago";
+        breeder3.Zip = "60630";
+        breeder3.State = "IL";
+        breeder3.Certifications = ["Cenrtification 1"];
+        breeder3.VetServices = true;
+        breeder3.Insurances = ["Insurance 1"];
+        breeder3.Shipping = false;
+
+        breeders.push(breeder3);
+
+        var breeder4 = new BreederProfile();
+        breeder4.FirstName = "Jon";
+        breeder4.LastName = "Doe";
+        breeder4.Website = "www.dogs.com";
+        breeder4.Email = "breeder4@gmail.com";
+        breeder4.Phone = "773-123-45-67";
+        breeder4.KennelName = "Dogs Paradise";
+        breeder4.Story = "My Dogs Story";
+        breeder4.Parents = "Great parents";
+        breeder4.Boys = "3 pupies";
+        breeder4.Girls = "2 puppies";
+        breeder4.AddInfo = "Add Info about dogs";
+        breeder4.City = "Chicago";
+        breeder4.Zip = "60630";
+        breeder4.State = "IL";
+        breeder4.Certifications = ["Cenrtification 1"];
+        breeder4.VetServices = true;
+        breeder4.Insurances = ["Insurance 1"];
+        breeder4.Shipping = false;
+
+        breeders.push(breeder4);
+
         return breeders;
     }
 }
