@@ -39,7 +39,6 @@ class IndexCtrl {
         $scope.navigate = (menuIndex:number) => {
             $scope.slide = this.animationDirection(menuIndex);
 
-
             if (menuIndex == 1) {
                 this.menuIndex = 1;
                 $location.url('/profile/about');
