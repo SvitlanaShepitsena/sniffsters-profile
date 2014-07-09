@@ -21,3 +21,4 @@ app/scripts/models/*.js
 app/scripts/services/*.js
 
 app/styles/*.css
+app/scripts/app.js
