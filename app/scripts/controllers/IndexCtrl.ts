@@ -22,21 +22,15 @@ class IndexCtrl {
     url:string;
 
 
-    constructor(public $scope, $location, public $rootScope, public $window, public $state:ng.ui.IStateService, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
         $scope.home.hideMenu = false;
         $scope.slide = '';
 
-        $rootScope.back = () => {
-            $scope.slide = 'slide-left';
-            $window.history.back();
-        }
 
-        $rootScope.forward = () => {
-            $scope.slide = 'slide-right';
-            $window.history.forward();
-        }
+        $scope.home.Ownership();
 
         $scope.index = this;
         this.spinner = true;
@@ -124,10 +118,6 @@ class IndexCtrl {
         breederProfileOriginal.Certifications = this.BreederProfileEdit.Certifications;
         breederProfileOriginal.Insurances = this.BreederProfileEdit.Insurances;
         this.Save(breederProfileOriginal);
-    }
-
-    Next(state:string) {
-        this.$state.go(state);
     }
 
     ShowError(errorMessage:string) {

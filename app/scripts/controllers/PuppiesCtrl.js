@@ -1,4 +1,3 @@
-/// <reference path="HomeCtrl.ts" />
 var PuppiesCtrl = (function () {
     function PuppiesCtrl($scope, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
@@ -43,7 +42,6 @@ var PuppiesCtrl = (function () {
         });
         this.SelectedLitter = this.Litters[litid];
         this.$state.go('profile.puppies3.litter', { 'id': litid });
-        //        console.log("Hello");
     };
 
     PuppiesCtrl.prototype.addNewLitter = function () {

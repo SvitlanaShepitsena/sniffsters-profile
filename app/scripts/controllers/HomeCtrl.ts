@@ -10,6 +10,8 @@ interface IHomeScope extends IMainScope {
 }
 class HomeCtrl {
 
+    FireUname:string;
+
     Id:string;
     IdFire:string;
     IsHome:boolean;
@@ -19,7 +21,7 @@ class HomeCtrl {
     isOwner:boolean;
     hideMenu:boolean;
 
-    constructor(public $scope, $location, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, $location, public $stateParams, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
         this.isOwner = this.Ownership();
         this.menuIndex = 1;
@@ -73,9 +75,8 @@ class HomeCtrl {
                 // an error occurred while attempting login
                 this.ShowError(error.toString());
             } else if (user) {
-                // user authenticated with Firebase
-//                this.ShowSuccess('Welcome to Sniffsters.com')
-                /*                this.$state.go('messages');*/
+//                this.FireUname = user.email;
+//
             } else {
             }
 
@@ -136,27 +137,26 @@ class HomeCtrl {
         var finish = loggedUserTxt.indexOf('!');
 
 
-        var userName = loggedUserTxt.substr(start, finish - start).trim();
-
-        return userName;
-
+        return loggedUserTxt.substr(start, finish - start).trim();
+//        returddn this.Id;
 
     }
 
     Ownership() {
-//        var loggedUser = angular.element('#loggedUser');
-//        if (loggedUser == null) {
-//            return false;
-//        }
-//        var loggedUserTxt:string = loggedUser.text();
-//
-//        var start = loggedUserTxt.indexOf(',') + 1;
-//        var finish = loggedUserTxt.indexOf('!');
-//
-//
-//        var userName = loggedUserTxt.substr(start, finish - start).trim();
+        var breederUserName:string = this.$stateParams.uname;
+        console.log(breederUserName);
+        var userName = this.GetBreederName();
 
-//        return this.Id === userName;
-        return true;
+        if (_.isUndefined(breederUserName) || _.isNull(breederUserName)) {
+            console.log("tttt");
+            this.isOwner = true;
+            return true;
+        }
+
+
+        console.log("fff");
+
+        this.isOwner = false;
+        return false;
     }
 }

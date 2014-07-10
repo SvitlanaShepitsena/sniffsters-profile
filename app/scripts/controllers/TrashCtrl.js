@@ -1,4 +1,3 @@
-/// <reference path="IndexCtrl.ts" />
 var TrashCtrl = (function () {
     function TrashCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;

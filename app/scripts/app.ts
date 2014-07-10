@@ -135,7 +135,7 @@ profile.service("DataService", DataService);
 
 profile.config(
     ($stateProvider, $urlRouterProvider) => {
-        $urlRouterProvider.otherwise("/messages");
+//        $urlRouterProvider.otherwise("/messages");
 
         $stateProvider
             .state("user", {
@@ -149,7 +149,7 @@ profile.config(
                 templateUrl: "../views/profile.html"
             })
             .state("user.profile.about1", {
-                url: "/about/:uname",
+                url: "/about/{uname:(?:/[^/]+)?}",
                 templateUrl: "../views/profile-about.html"
             })
             .state("user.profile.about1.edit", {
