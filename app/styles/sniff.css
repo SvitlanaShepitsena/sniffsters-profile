@@ -2203,6 +2203,12 @@ input {
 /*************************
   BOOTSTRAP CUSTOM STYLES
 **************************/
+.logo-wrapper {
+    position: relative;
+    margin-bottom: -97px;
+    z-index: 99999;
+}
+
 body {
     font-family: arial, sans-serif !important;
     font-size: 12pt !important;
