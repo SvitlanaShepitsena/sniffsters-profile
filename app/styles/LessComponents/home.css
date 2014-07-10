@@ -120,3 +120,13 @@
     padding-bottom: 30px !important;
     background: url("../../img/jumbotron-background.png") no-repeat;
 }
+
+.social-media-container {
+    margin-left: 90px;
+    margin-top: 10px;
+}
+
+.sm-home {
+    display: inline-block;
+    margin-left: 5px;
+}
