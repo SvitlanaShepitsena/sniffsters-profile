@@ -47,6 +47,7 @@ profile.directive("messageNavMenu", messageNavMenu);
 profile.directive("userProfileNav", userProfileNav);
 profile.directive("breederProfileNav", breederProfileNav);
 profile.directive("events", events);
+profile.directive("currentLitters", currentLitters);
 
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
