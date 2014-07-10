@@ -179,21 +179,17 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/for-breeders",
         controller: "ForBreedersCtrl",
         templateUrl: "../views/for-breeders.html"
-    }).state("user.messages", {
+    }).state("user.profile.messages", {
         url: "/messages",
         controller: "user.messagesCtrl",
         templateUrl: "../views/messages.html"
-    }).state("user.messages.create", {
-        url: "/createMessage",
+    }).state("user.profile.messages.create", {
+        url: "/create-message",
         controller: "CreateMessageCtrl",
         templateUrl: "../views/createMessage.html"
-    }).state("user.messages.trash", {
+    }).state("user.profile.messages.trash", {
         url: "/trash",
         controller: "TrashCtrl",
         templateUrl: "../views/trash.html"
-    }).state("Nav", {
-        url: "/Nav",
-        controller: "NavCtrl",
-        templateUrl: "../views/Nav.html"
     });
 });

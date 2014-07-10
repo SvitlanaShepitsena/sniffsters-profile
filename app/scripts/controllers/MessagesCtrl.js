@@ -1,5 +1,5 @@
 var MessagesCtrl = (function () {
-    function MessagesCtrl($scope, $modal, $state, toastr, DataService) {
+    function MessagesCtrl($scope, $firebaseSimpleLogin, $modal, $state, toastr, DataService) {
         var _this = this;
         this.$scope = $scope;
         this.$state = $state;
@@ -9,22 +9,32 @@ var MessagesCtrl = (function () {
 
         $scope.home.hideMenu = true;
 
-        DataService.getMessages($scope.home.IdFire).then(function (messages) {
-            _this.fireMessages = messages;
+        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
+        $scope.auth = $firebaseSimpleLogin(fref);
+        $scope.authAction = new FirebaseSimpleLogin(fref, function (error, user) {
+            if (error) {
+                _this.ShowError(error.toString());
+            } else if (user) {
+                DataService.getMessages($scope.home.IdFire).then(function (messages) {
+                    _this.fireMessages = messages;
 
-            var inbox = messages.Inbox;
-            _this.corrUsersFire = _.keys(inbox);
+                    var inbox = messages.Inbox;
+                    _this.corrUsersFire = _.keys(inbox);
 
-            _this.corrUsers = _.map(_this.corrUsersFire, function (userFire) {
-                return userFire.toString().replace(/\(p\)/g, '.');
-            });
+                    _this.corrUsers = _.map(_this.corrUsersFire, function (userFire) {
+                        return userFire.toString().replace(/\(p\)/g, '.');
+                    });
 
-            if (_this.selectedUser == null) {
-                _this.selectedUserIndex = 0;
-                _this.SetSelectedUser(_this.selectedUserIndex);
+                    if (_this.selectedUser == null) {
+                        _this.selectedUserIndex = 0;
+                        _this.SetSelectedUser(_this.selectedUserIndex);
+                    }
+                });
+            } else {
             }
         });
     }
+
     MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {
         this.selectedUserIndex = arrIndex;
 

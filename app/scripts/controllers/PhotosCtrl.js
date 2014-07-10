@@ -25,12 +25,13 @@ var PhotosCtrl = (function () {
 
         $scope.photosCtrl = this;
 
-        $scope.index.url = "photos";
+        $scope.home.url = "photos";
 
         DataService.getGalleries($scope.index.BreederName).then(function (galleries) {
             _this.Galleries = galleries;
         });
     }
+
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var _this = this;
         var index = 0;

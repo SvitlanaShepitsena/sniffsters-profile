@@ -2,23 +2,23 @@
 	<div class="col-xs-9 text-right">
 		<div class="pull-right">
 			<ul class="nav nav-pills ul-nav-profile">
-				<li ng-class="{'active':index.url=='about'}">
-					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(1)">About</a>
+				<li ng-class="{'active':home.url=='about'}">
+					<a class='btn btn-link sniff-profile-menu' ng-click="home.navigate(1)">About</a>
 				</li>
-				<li ng-class="{'active':index.url=='photos'}">
-					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(2)">Photos</a>
-				</li>
-
-				<li ng-class="{'active':index.url=='puppies'}">
-					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(3)">Puppies</a>
+				<li ng-class="{'active':home.url=='photos'}">
+					<a class='btn btn-link sniff-profile-menu' ng-click="home.navigate(2)">Photos</a>
 				</li>
 
-				<li ng-class="{'active':index.url=='details'}">
-					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(4)">Details</a>
+				<li ng-class="{'active':home.url=='puppies'}">
+					<a class='btn btn-link sniff-profile-menu' ng-click="home.navigate(3)">Puppies</a>
 				</li>
 
-				<li ng-class="{'active':index.url=='testimonials'}">
-					<a class='btn btn-link sniff-profile-menu' ng-click="navigate(5)">Testimonials</a>
+				<li ng-class="{'active':home.url=='details'}">
+					<a class='btn btn-link sniff-profile-menu' ng-click="home.navigate(4)">Details</a>
+				</li>
+
+				<li ng-class="{'active':home.url=='testimonials'}">
+					<a class='btn btn-link sniff-profile-menu' ng-click="home.navigate(5)">Testimonials</a>
 				</li>
 			</ul>
 		</div>

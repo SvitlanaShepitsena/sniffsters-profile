@@ -7,6 +7,8 @@ var IndexCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        $scope.index = this;
+
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
         $scope.home.hideMenu = false;
@@ -14,7 +16,6 @@ var IndexCtrl = (function () {
 
         $scope.home.Ownership();
 
-        $scope.index = this;
         this.spinner = true;
         this.BreederName = this.GetBreederName();
         this.Id = this.GetBreederName();

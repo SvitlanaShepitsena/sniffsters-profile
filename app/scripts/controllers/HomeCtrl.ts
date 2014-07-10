@@ -11,7 +11,7 @@ interface IHomeScope extends IMainScope {
 class HomeCtrl {
 
     FireUname:string;
-
+    Auth:FirebaseSimpleLogin;
     Id:string;
     IdFire:string;
     IsHome:boolean;
@@ -27,44 +27,7 @@ class HomeCtrl {
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
         this.hideMenu = true;
-        $scope.navigate = (menuIndex:number) => {
-            $scope.slide = this.animationDirection(menuIndex);
-            this.hideMenu = false;
 
-
-            if (menuIndex == 1) {
-                this.menuIndex = 1;
-                $state.go("user.profile.about1");
-            }
-
-
-            if (menuIndex == 2) {
-                this.menuIndex = 2;
-                $state.go('user.profile.photos2');
-            }
-
-
-            if (menuIndex == 3) {
-                this.url = 'puppies';
-                this.menuIndex = 3;
-                $state.go('user.profile.puppies3');
-            }
-
-
-            if (menuIndex == 4) {
-                this.url = 'details';
-                this.menuIndex = 4;
-                $state.go('user.profile.details4');
-            }
-
-
-            if (menuIndex == 5) {
-                this.url = 'testimonials';
-                this.menuIndex = 5;
-                $state.go('user.profile.testimonials5');
-            }
-
-        }
 
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
 
@@ -90,6 +53,46 @@ class HomeCtrl {
 
     email:string;
     pass:string;
+
+
+    navigate(menuIndex:number) {
+        this.$scope.slide = this.animationDirection(menuIndex);
+        this.hideMenu = false;
+
+
+        if (menuIndex == 1) {
+            this.menuIndex = 1;
+            this.$state.go("user.profile.about1");
+        }
+
+
+        if (menuIndex == 2) {
+            this.menuIndex = 2;
+            this.$state.go('user.profile.photos2');
+        }
+
+
+        if (menuIndex == 3) {
+            this.url = 'puppies';
+            this.menuIndex = 3;
+            this.$state.go('user.profile.puppies3');
+        }
+
+
+        if (menuIndex == 4) {
+            this.url = 'details';
+            this.menuIndex = 4;
+            this.$state.go('user.profile.details4');
+        }
+
+
+        if (menuIndex == 5) {
+            this.url = 'testimonials';
+            this.menuIndex = 5;
+            this.$state.go('user.profile.testimonials5');
+        }
+
+    }
 
     animationDirection(menuIndex:number):string {
 

@@ -3,6 +3,7 @@
 interface IAboutInfo extends ng.IScope {
     test:string;
     ctrl:IndexCtrl;
+    home:HomeCtrl;
 }
 
 var aboutInfo:() => ng.IDirective = () => {
@@ -13,15 +14,9 @@ var aboutInfo:() => ng.IDirective = () => {
 
         // replace directive tag with template info
         replace: true,
-        scope: {
-            ctrl: '=',
-
-            text: '@',
-            func: '&'
-        },
         link: (scope:IAboutInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
-            scope.ctrl.url = 'about';
+            scope.home.url = 'about';
         }
     }
 }

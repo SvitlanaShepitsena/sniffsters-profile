@@ -37,7 +37,7 @@ class PhotosCtrl {
 
         $scope.photosCtrl = this;
 
-        $scope.index.url = "photos";
+        $scope.home.url = "photos";
 
         DataService.getGalleries($scope.index.BreederName).then((galleries:IGallery[])=> {
             this.Galleries = galleries;

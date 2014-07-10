@@ -22,28 +22,45 @@ class MessagesCtrl {
 
     selectedUserMessages:INote[];
 
-    constructor(public $scope:IMessagesScope, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope:IMessagesScope, $firebaseSimpleLogin, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.messages = this;
 
         $scope.home.hideMenu = true;
 
-        DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
-            this.fireMessages = messages;
+        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
+        $scope.auth = $firebaseSimpleLogin(fref);
+        $scope.authAction = new FirebaseSimpleLogin(fref, (error, user) => {
+            if (error) {
+                // an error occurred while attempting login
+                this.ShowError(error.toString());
+            } else if (user) {
 
-            var inbox = messages.Inbox;
-            this.corrUsersFire = _.keys(inbox);
 
-            this.corrUsers = _.map(this.corrUsersFire, (userFire) => {
-                return userFire.toString().replace(/\(p\)/g, '.');
-            });
+                DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
+                    this.fireMessages = messages;
 
-            if (this.selectedUser == null) {
-                this.selectedUserIndex = 0;
-                this.SetSelectedUser(this.selectedUserIndex);
+                    var inbox = messages.Inbox;
+                    this.corrUsersFire = _.keys(inbox);
+
+                    this.corrUsers = _.map(this.corrUsersFire, (userFire) => {
+                        return userFire.toString().replace(/\(p\)/g, '.');
+                    });
+
+                    if (this.selectedUser == null) {
+                        this.selectedUserIndex = 0;
+                        this.SetSelectedUser(this.selectedUserIndex);
+                    }
+
+
+                })
+
+//
+            } else {
             }
 
+        });
 
-        })
+
     }
 
     SetSelectedUser(arrIndex:number) {

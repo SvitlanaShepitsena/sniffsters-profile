@@ -1,44 +1,48 @@
 <div class="row content-wrapper messages-container">
-	<div ng-show="messages.corrUsers.length==0">
-		<p class="well well-sm">You do not have any messages. </p>
-	</div>
-	<div class="col-xs-4 aside-messages">
-		<div class="scrollBarAside">
-			<div class="scrollBoxAside">
-				<ul class="nav nav-pills nav-stacked messageUserList">
-					<li class="cursor-p" ng-click="messages.SetSelectedUser($index)"
-					    ng-repeat="u in messages.corrUsers">
-						<a href="" class="displayMessageSender"><i class="fa fa-user fa-md"></i>
-							{{u}}
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="col-xs-8">
-		<div class="messagesScrollBar">
-			<div class="messagesScrollBox">
-				<div class="messagesContent">
-					<ul class="list-unstyled">
-						<li class="shuffle-animation" ng-repeat="m in messages.selectedUserMessages">
 
-							<div class="row">
-								<div class="col-xs-2 userName" ng-hide="m.amISender">{{messages.selectedUser}}</div>
-								<div class="col-xs-2 userName" ng-show="m.amISender">Me</div>
-								<div class="col-xs-2 pull-right ">
-									<div class="messageDate text-muted">
-										<i class="fa fa-calendar fa-md "></i>
-										{{message.SentDateTime | date: 'mediumDate'}}
-									</div>
-								</div>
-							</div>
-							<p>
-								{{m.body}}
-							</p>
-							<hr/>
+	<message-nav-menu></message-nav-menu>
+	<div ui-view>
+		<div ng-show="messages.corrUsers.length==0">
+			<p class="well well-sm">You do not have any messages. </p>
+		</div>
+		<div class="col-xs-4 aside-messages">
+			<div class="scrollBarAside">
+				<div class="scrollBoxAside">
+					<ul class="nav nav-pills nav-stacked messageUserList">
+						<li class="cursor-p" ng-click="messages.SetSelectedUser($index)"
+						    ng-repeat="u in messages.corrUsers">
+							<a href="" class="displayMessageSender"><i class="fa fa-user fa-md"></i>
+								{{u}}
+							</a>
 						</li>
 					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-8">
+			<div class="messagesScrollBar">
+				<div class="messagesScrollBox">
+					<div class="messagesContent">
+						<ul class="list-unstyled">
+							<li class="shuffle-animation" ng-repeat="m in messages.selectedUserMessages">
+
+								<div class="row">
+									<div class="col-xs-2 userName" ng-hide="m.amISender">{{messages.selectedUser}}</div>
+									<div class="col-xs-2 userName" ng-show="m.amISender">Me</div>
+									<div class="col-xs-2 pull-right ">
+										<div class="messageDate text-muted">
+											<i class="fa fa-calendar fa-md "></i>
+											{{message.SentDateTime | date: 'mediumDate'}}
+										</div>
+									</div>
+								</div>
+								<p>
+									{{m.body}}
+								</p>
+								<hr/>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>

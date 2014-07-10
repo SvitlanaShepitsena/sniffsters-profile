@@ -20,19 +20,19 @@ class IndexCtrl {
     spinner:boolean;
     BreederName:string;
     url:string;
+    isOwner:boolean;
 
 
     constructor(public $scope, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+        $scope.index = this;
 
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
         $scope.home.hideMenu = false;
         $scope.slide = '';
 
-
         $scope.home.Ownership();
 
-        $scope.index = this;
         this.spinner = true;
         this.BreederName = this.GetBreederName();
         this.Id = this.GetBreederName();
@@ -43,7 +43,6 @@ class IndexCtrl {
             //Success
             this.error = false;
             this.BreederProfile = breederProfile;
-
 //            this.Id = breederProfile.Email;
 //            Put a received BreederProfile to CopyProfileService, using it like container
 //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
