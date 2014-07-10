@@ -1,5 +1,5 @@
 <div class="row sniff-row">
-<div class="col-xs-1 left-side"></div>
+	<div class="col-xs-1 left-side"></div>
 	<div class="col-xs-7 sniff-content-wrapper">
 		<div class="sniff-main-content" ui-view></div>
 	</div>
@@ -44,36 +44,23 @@
 		<br/>
 
 		<div class="thumbnail thPicture text-center">
-			<img src="img/pow.png" alt="...">
+			<a href="#">
+				<img src="../img/avatar-lg.png" alt="...">
+			</a>
 			<br/>
 		</div>
 		<div class="caption">
 			<h4 class="text-primary text-right">
-				<a class="alert alert-warning alert-galleryButton" href="http://">
-					gallery
+				<a class="alert alert-warning alert-galleryButton" ui-sref="user.profile.photos2">
+				gallery
 				</a>
 			</h4>
 		</div>
 		<br/>
 
+		<events></events>
+
 		<br/>
-
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<h3 class="panel-title text-center">----</h3>
-			</div>
-			<div class="panel-body text-center panelMonth">
-				<br/>
-				<span class="monthName">April</span>
-
-				<p class="meet-ups">
-					<a href="#">
-						Meet ups in your area >>
-					</a>
-				</p>
-				<br/>
-			</div>
-		</div>
 	</div>
 
 	<div class="col-xs-1 right-side"></div>

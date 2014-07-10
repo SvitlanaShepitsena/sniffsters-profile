@@ -1,13 +1,180 @@
 <div>
 	<h2 class="sniff-head-info">Breeders</h2>
+	<hr/>
+	<h4>Search result for:</h4>
 
-	<ul>
+	<p class="searchResult">Breed, Location</p>
+
+	<div class="btn-group sortBy">
+		<button type="button" class="btn btn-default">Sort by</button>
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<span class="caret"></span>
+			<span class="sr-only">Toggle Dropdown</span>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">Recent Litters</a></li>
+			<li><a href="#">Expecting Litters</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Top Rated</a></li>
+		</ul>
+	</div>
+
+	<!-- PUT DIRECTIVES BELOW -->
+</div>
+
+<div class="searchBreederDescription">
+	<ul class="list-unstyled">
 		<li ng-repeat="b in breedersCtrl.breeders">
-			{{b.profile.FirstName}}<br/>
-			{{b.profile.LastName}}<br/>
-			{{b.profile.Email}}<br/>
+			<hr/>
+			<div class="row ">
+				<div class="col-md-3">
+					<div class="thumbnail thPictureSmall">
+						<a href="#">
+							<img src="../img/avatar-md.png" alt="">
+						</a>
+					</div>
 
+					<ul class="list-inline text-center">
+						<li class="bone">
+							<img src="../img/raiting-info.png" alt="altText">
+						</li>
+						<li class="bone">
+							<img src="../img/raiting-info.png" alt="altText">
+						</li>
+						<li class="bone">
+							<img src="../img/raiting-info.png" alt="altText">
+						</li>
+						<li class="bone">
+							<img src="../img/raiting.png" alt="altText">
+						</li>
+						<li class="bone">
+							<img src="../img/raiting.png" alt="altText">
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-md-5">
+					<div class="">
+						<h3 class="text-info breederName">
+							<a href="#">
+								{{b.profile.FirstName}} {{b.profile.LastName}}
+							</a>
+						</h3>
+
+						<h4 class="hBreederWebsite">
+							<a class="text-muted" href="#">
+								{{b.profile.Website}}
+							</a>
+						</h4>
+
+						<ul class="list-unstyled ulBreederCard">
+							<li class="className">
+								<strong>Certifications:</strong>
+
+								<!--								<ul class="list-inline">
+																	@foreach (var c in profile.Certifications)
+																	{
+																	<li>
+																		<h6>@c.Title - </h6>
+
+																		@if (c.isActive)
+																		{
+																		<span>Yes</span>
+																		}
+																		else
+																		{
+																		<span>No</span>
+																		}
+																	</li>
+																	}
+																</ul>-->
+							</li>
+							<li>
+								<strong>Pricing:</strong> Lorem
+							</li>
+							<li>
+								<strong>Available litters:</strong> Lorem
+							</li>
+							<li>
+								<strong>Puppies:</strong> Lorem
+							</li>
+							<li>
+								<strong>Colors:</strong> Lorem
+							</li>
+							<li>
+								<strong>Vet services:</strong>
+
+								<div>
+									<!--									@if ((bool) Model.VetServices)
+																		{
+																		<div>Yes</div>
+																		}
+																		else
+																		{
+																		<div>No</div>
+																		}-->
+								</div>
+							</li>
+							<li>
+								<strong>Shipping:</strong>
+
+								<!--								<div>
+																	@if ((bool) Model.Shipping)
+																	{
+																	<div>Yes</div>
+																	}
+																	else
+																	{
+																	<div>No</div>
+																	}
+																</div>-->
+							</li>
+						</ul>
+						<br/>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+
+					<ul class="list-unstyled ulBreederCard text-right">
+						<li class="cityState">
+							{{b.profile.City}}, {{b.profile.State}}
+						</li>
+						<li>
+							{{b.profile.Phone}}
+						</li>
+						<li>
+							{{b.profile.Email}}
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-3">
+					<p class="text-center">
+						<a href="#" class="btn btn-default" role="button">
+							Follow +
+						</a>
+					</p>
+				</div>
+
+				<div class="col-sm-5">
+					<p>
+						<a href="#" class="btn btn-default" role="button">
+							Contact
+						</a>
+					</p>
+				</div>
+
+				<div class="col-sm-4">
+					<p class="text-right">
+						<a href="#" class="btn btn-default" role="button">
+							Share
+						</a>
+					</p>
+				</div>
+			</div>
 		</li>
 	</ul>
-	<!-- PUT DIRECTIVES BELOW -->
 </div>

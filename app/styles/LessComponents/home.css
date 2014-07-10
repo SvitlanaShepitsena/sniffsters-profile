@@ -34,30 +34,28 @@
 .btn-looking-wrapper {
     height: 76px;
     width: 210px;
-    background: url("../../img/Buttons2.png") no-repeat;
+    background: url("../../img/button-left.png") no-repeat;
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+}
+
+.btn-looking-wrapper:hover {
+    background: url("../../img/button-left-hover.png") no-repeat;
 }
 
 .btn-breeder-wrapper {
     height: 78px;
     width: 215px;
-    background: url("../../img/red-button.png") no-repeat;
+    background: url("../../img/button-right.png") no-repeat;
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
 }
 
-.btn-looking {
-    display: inline-block;
-    margin-top: 15px;
-    font-size: 20px !important;
-    line-height: 20px;
-    color: whitesmoke !important;
-    font-style: normal !important;
+.btn-breeder-wrapper:hover {
+    background: url("../../img/button-right-hover.png") no-repeat;
 }
 
-.btn-breeder {
-    display: inline-block;
-    margin-top: 10px;
+.btn-home {
     font-size: 20px !important;
+    line-height: 20px;
     color: whitesmoke !important;
     font-style: normal !important;
 }

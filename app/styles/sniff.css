@@ -37,30 +37,28 @@
 .btn-looking-wrapper {
     height: 76px;
     width: 210px;
-    background: url("../../img/Buttons2.png") no-repeat;
+    background: url("../../img/button-left.png") no-repeat;
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+}
+
+.btn-looking-wrapper:hover {
+    background: url("../../img/button-left-hover.png") no-repeat;
 }
 
 .btn-breeder-wrapper {
     height: 78px;
     width: 215px;
-    background: url("../../img/red-button.png") no-repeat;
+    background: url("../../img/button-right.png") no-repeat;
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
 }
 
-.btn-looking {
-    display: inline-block;
-    margin-top: 15px;
-    font-size: 20px !important;
-    line-height: 20px;
-    color: whitesmoke !important;
-    font-style: normal !important;
+.btn-breeder-wrapper:hover {
+    background: url("../../img/button-right-hover.png") no-repeat;
 }
 
-.btn-breeder {
-    display: inline-block;
-    margin-top: 10px;
+.btn-home {
     font-size: 20px !important;
+    line-height: 20px;
     color: whitesmoke !important;
     font-style: normal !important;
 }
@@ -2203,12 +2201,12 @@ body {
 
 .left-side {
     background: url("../img/left-grass-pattern.png") repeat-y;
-    height: 2000px;
+    height: 1800px;
 }
 
 .right-side {
     background: url("../img/right-grass-pattern.png") repeat-y;
-    height: 2000px;
+    height: 1800px;
 }
 
 .body-content {
@@ -2456,8 +2454,7 @@ textarea {
  search bar
 ***********************/
 .search-bar {
-    padding: 25px;
-    height: 68px;
+    padding: 20px;
 }
 
 .search-bar-content {
@@ -2521,7 +2518,6 @@ textarea {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b6b5b5', endColorstr='#8a8888', GradientType=0);
     border-color: #a9a7a7;
     color: whitesmoke;
-    font-style: 14px;
     font-weight: 700;
     width: 250px;
     text-align: left;
@@ -2663,4 +2659,38 @@ textarea {
 
 .btn-logout {
     cursor: pointer;
+}
+
+/**********************
+    =SearchResult
+***********************/
+/*#region =Search Result*/
+.searchResult {
+    font-weight: bold;
+}
+
+.sortBy {
+    margin-bottom: 10px;
+}
+
+.breederName {
+    margin-top: 0px !important;
+}
+
+.bone {
+    padding: 1px !important;
+}
+
+.thPictureSmall {
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.textMuted {
+    font-size: .9em;
+    color: #bababa;
 }

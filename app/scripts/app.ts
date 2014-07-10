@@ -45,6 +45,7 @@
 /// <reference path="directives/messageNavMenu.ts" />
 /// <reference path="directives/userProfileNav.ts" />
 /// <reference path="directives/breederProfileNav.ts" />
+/// <reference path="directives/events.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -100,6 +101,7 @@ profile.directive("setterIshome", setterIshome);
 profile.directive("messageNavMenu", messageNavMenu);
 profile.directive("userProfileNav", userProfileNav);
 profile.directive("breederProfileNav", breederProfileNav);
+profile.directive("events", events);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);

@@ -1,12 +1,17 @@
 var BreedersCtrl = (function () {
     function BreedersCtrl($scope, $state, toastr, DataService) {
+        var _this = this;
         this.$scope = $scope;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.home.IsSearchHidden = false;
-        $scope.breeders = this;
+        $scope.breedersCtrl = this;
+        DataService.getAllProfiles($scope.home.IdFire, $scope.home.Id).then(function (breedersArr) {
+            _this.breeders = _.values(breedersArr);
+        });
     }
+
     BreedersCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
