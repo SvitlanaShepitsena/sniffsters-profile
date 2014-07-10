@@ -149,7 +149,7 @@ profile.config(
                 templateUrl: "../views/profile.html"
             })
             .state("user.profile.about1", {
-                url: "/about",
+                url: "/about/:uname",
                 templateUrl: "../views/profile-about.html"
             })
             .state("user.profile.about1.edit", {

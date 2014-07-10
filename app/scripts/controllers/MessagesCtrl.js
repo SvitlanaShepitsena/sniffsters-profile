@@ -1,3 +1,6 @@
+/// <reference path="HomeCtrl.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 var MessagesCtrl = (function () {
     function MessagesCtrl($scope, $modal, $state, toastr, DataService) {
         var _this = this;

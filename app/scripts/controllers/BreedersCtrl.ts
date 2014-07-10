@@ -7,12 +7,15 @@ interface IBreedersScope extends IMainScope {
 }
 class BreedersCtrl {
     breeders:IBreederProfile[];
+
     constructor(public $scope:IBreedersScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
+
         DataService.getAllProfiles($scope.home.IdFire, $scope.home.Id).then((breedersArr:IBreederProfile[])=> {
 
             this.breeders = _.values(breedersArr);
+
         });
     }
 

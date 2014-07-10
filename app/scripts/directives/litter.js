@@ -1,8 +1,10 @@
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 var litter = function () {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/litter.html',
         transclude: true,
+        // replace directive tag with template info
         replace: true,
         scope: {
             l: '=',
@@ -20,12 +22,22 @@ var litter = function () {
 
                     $scope.upload = $upload.upload({
                         url: 'http://localhost:44300/BreederPersonal/AddLitterPicture',
+                        // method: 'POST' or 'PUT',
+                        // headers: {'header-key': 'header-value'},
+                        // withCredentials: true,
                         data: { gallery: $scope.l.Id },
                         file: file
                     }).progress(function (evt) {
+                        //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                     }).success(function (data, status, headers, config) {
+                        // file is uploaded successfully
                         $scope.l.Photos.push(data);
+                        //                        $scope.myModelObj = {};
+                        //                        alert(data);
                     });
+                    //.error(...)
+                    //.then(success, error, progress);
+                    //.xhr(function(xhr){xhr.upload.addEventListener(...)})// access and attach any event listener to XMLHttpRequest.
                 }
             };
 
