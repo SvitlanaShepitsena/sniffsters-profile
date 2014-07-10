@@ -144,12 +144,12 @@ profile.config(
             })
             .state("user.profile", {
                 abstract: true,
-                url: "/profile",
+                url: "/profile/:uname",
                 controller: IndexCtrl,
                 templateUrl: "../views/profile.html"
             })
             .state("user.profile.about1", {
-                url: "/about/{uname:(?:/[^/]+)?}",
+                url: "/about",
                 templateUrl: "../views/profile-about.html"
             })
             .state("user.profile.about1.edit", {

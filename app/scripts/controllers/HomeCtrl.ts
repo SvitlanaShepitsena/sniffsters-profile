@@ -41,28 +41,28 @@ class HomeCtrl {
 
             if (menuIndex == 2) {
                 this.menuIndex = 2;
-                $location.url('/profile/photos');
+                $state.go('user.profile.photos2');
             }
 
 
             if (menuIndex == 3) {
                 this.url = 'puppies';
                 this.menuIndex = 3;
-                $location.url('/profile/puppies');
+                $state.go('user.profile.puppies3');
             }
 
 
             if (menuIndex == 4) {
                 this.url = 'details';
                 this.menuIndex = 4;
-                $location.url('/profile/details');
+                $state.go('user.profile.details4');
             }
 
 
             if (menuIndex == 5) {
                 this.url = 'testimonials';
                 this.menuIndex = 5;
-                $location.url('/profile/testimonials');
+                $state.go('user.profile.testimonials5');
             }
 
         }
