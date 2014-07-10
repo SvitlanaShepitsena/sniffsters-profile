@@ -12,7 +12,8 @@ class BreedersCtrl {
         $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
 
-        DataService.getAllProfiles($scope.home.IdFire, $scope.home.Id).then((breedersArr:IBreederProfile[])=> {
+
+        DataService.getAllProfiles().then((breedersArr:IBreederProfile[])=> {
 
             this.breeders = _.values(breedersArr);
 

@@ -8,10 +8,11 @@ var BreedersCtrl = (function () {
         $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
 
-        DataService.getAllProfiles($scope.home.IdFire, $scope.home.Id).then(function (breedersArr) {
+        DataService.getAllProfiles().then(function (breedersArr) {
             _this.breeders = _.values(breedersArr);
         });
     }
+
     BreedersCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

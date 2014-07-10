@@ -5,6 +5,7 @@ var DataService = (function () {
         this.$firebase = $firebase;
         this.$filter = $filter;
     }
+
     DataService.prototype.FireProcess = function (userName) {
         return userName.replace(/\./g, '(p)');
     };
@@ -45,18 +46,13 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.getAllProfiles = function (userNameFire, userName) {
+    DataService.prototype.getAllProfiles = function () {
         var _this = this;
         this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/"));
         this.fb.$on('value', function (snapshot) {
             var breeders = snapshot.snapshot.value;
-            if (userName.length > 0) {
-                breeders = _.reject(breeders, function (breeder) {
-                    return breeder.profile.Email === userName;
-                });
-            }
 
-            d.resolve(_this.$filter('orderByPriority')(breeders));
+            d.resolve((_this.$filter('orderByPriority')(breeders)));
         });
         var d = this.$q.defer();
 
@@ -167,9 +163,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -181,10 +177,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-                GalleryId: galleryId,
-                PhotoId: photoId,
-                Caption: caption
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId,
+            Caption: caption
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();

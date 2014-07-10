@@ -23,7 +23,6 @@ class HomeCtrl {
 
     constructor(public $scope, $location, public $stateParams, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
-        this.isOwner = this.Ownership();
         this.menuIndex = 1;
         this.email = "breeder1@gmail.com";
         this.pass = "123456";
@@ -75,15 +74,17 @@ class HomeCtrl {
                 // an error occurred while attempting login
                 this.ShowError(error.toString());
             } else if (user) {
-//                this.FireUname = user.email;
+                this.FireUname = user.email;
+
+                this.isOwner = this.Ownership();
+                this.Id = this.GetBreederName();
+                this.IdFire = this.Id.replace(/\./g, '(p)');
 //
             } else {
             }
 
         });
 
-        this.Id = this.GetBreederName();
-        this.IdFire = this.Id.replace(/\./g, '(p)');
     }
 
 
@@ -127,17 +128,19 @@ class HomeCtrl {
 
     GetBreederName() {
 
-        var loggedUser = angular.element('#loggedUser');
-        if (loggedUser == null) {
-            return '22';
-        }
-        var loggedUserTxt:string = loggedUser.text();
+//        var loggedUser = angular.element('#loggedUser');
+//        if (loggedUser == null) {
+//            return '22';
+//        }
+//        var loggedUserTxt:string = loggedUser.text();
+//
+//        var start = loggedUserTxt.indexOf(',') + 1;
+//        var finish = loggedUserTxt.indexOf('!');
+        var user = this.FireUname;
 
-        var start = loggedUserTxt.indexOf(',') + 1;
-        var finish = loggedUserTxt.indexOf('!');
+        return this.FireUname;
+//        return loggedUserTxt.substr(start, finish - start).trim();
 
-
-        return loggedUserTxt.substr(start, finish - start).trim();
     }
 
     Ownership() {
@@ -145,7 +148,7 @@ class HomeCtrl {
 
         var userName = this.GetBreederName();
 //        console.log(breederUserName);
-        console.log(userName);
+//        console.log(userName);
 
         this.isOwner = (breederUserName === userName);
         return this.isOwner;

@@ -76,6 +76,8 @@ profile.value("toastr", toastr);
 profile.service("DataService", DataService);
 
 profile.config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/");
+
     $stateProvider.state("user", {
         abstract: true,
         templateUrl: "../views/profile-side-bar.html"

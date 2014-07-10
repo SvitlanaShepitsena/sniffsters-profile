@@ -20,7 +20,7 @@ var IndexCtrl = (function () {
         this.Id = this.GetBreederName();
         this.IdFire = this.Id.replace(/\./g, '(p)');
 
-        var promiseT = this.DataService.getProfile(this.BreederName);
+        var promiseT = this.DataService.getProfile($stateParams.uname);
         promiseT.then(function (breederProfile) {
             _this.error = false;
             _this.BreederProfile = breederProfile;
@@ -34,6 +34,7 @@ var IndexCtrl = (function () {
             _this.spinner = false;
         });
     }
+
     IndexCtrl.prototype.GetBreederName = function () {
         var loggedUser = angular.element('#loggedUser');
         if (loggedUser == null) {

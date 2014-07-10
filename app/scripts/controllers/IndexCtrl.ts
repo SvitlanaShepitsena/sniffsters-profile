@@ -38,7 +38,7 @@ class IndexCtrl {
         this.Id = this.GetBreederName();
         this.IdFire = this.Id.replace(/\./g, '(p)');
 
-        var promiseT = this.DataService.getProfile(this.BreederName);
+        var promiseT = this.DataService.getProfile($stateParams.uname);
         promiseT.then((breederProfile:IBreederProfile) => {
             //Success
             this.error = false;
