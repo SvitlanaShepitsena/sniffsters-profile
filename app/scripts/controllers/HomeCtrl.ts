@@ -129,7 +129,7 @@ class HomeCtrl {
 
         var loggedUser = angular.element('#loggedUser');
         if (loggedUser == null) {
-            return '';
+            return '22';
         }
         var loggedUserTxt:string = loggedUser.text();
 
@@ -138,25 +138,16 @@ class HomeCtrl {
 
 
         return loggedUserTxt.substr(start, finish - start).trim();
-//        returddn this.Id;
-
     }
 
     Ownership() {
         var breederUserName:string = this.$stateParams.uname;
-        console.log(breederUserName);
+
         var userName = this.GetBreederName();
+//        console.log(breederUserName);
+        console.log(userName);
 
-        if (_.isUndefined(breederUserName) || _.isNull(breederUserName)) {
-            console.log("tttt");
-            this.isOwner = true;
-            return true;
-        }
-
-
-        console.log("fff");
-
-        this.isOwner = false;
-        return false;
+        this.isOwner = (breederUserName === userName);
+        return this.isOwner;
     }
 }

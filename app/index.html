@@ -76,10 +76,11 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-show="auth.user">
-					<a class="hello-user" ui-sref="user.profile.about1" id="loggedUser">Hello, breeder1@gmail.com!</a>
+					<a class="hello-user" ui-sref="user.profile.about1({uname:auth.user.email})" id="loggedUser">Hello,
+						{{auth.user.email}}</a>
 				</li>
 				<li ng-show="auth.user">
-					<a class="sniff-menu" ui-sref="user.profile.about1">MY PROFILE</a>
+					<a class="sniff-menu" ui-sref="user.profile.about1({uname:auth.user.email})">MY PROFILE</a>
 				</li>
 				<li>
 					<a ng-show="auth.user" class="sniff-menu btn-logout"
