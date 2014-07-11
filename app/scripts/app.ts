@@ -297,6 +297,10 @@ profile.config(
                 controller: "TrashCtrl",
                 templateUrl: "../views/trash.html"
             })
+            .state("user.profile.followings", {
+                url: "/followings",
+                templateUrl: "../views/followings.html"
+            })
 
 //#state
     });

@@ -1,5 +1,5 @@
 <div class="myDetailsContWrapper">
-	<div ng-show="isOwner" class="aside-header-wrapper">
+	<div ng-show="home.isOwner" class="aside-header-wrapper">
 	<h3 class="text-center sniff-head-info">MY DETAILS
 			<button class="btn btn-save-details right"
 			        ng-show="!IsEdit"
@@ -12,10 +12,21 @@
 			</button>
 		</h3>
 	</div>
-	<div ng-hide="isOwner" class="aside-header-wrapper">
-	<ul class="list-inline text-center">
+	<div ng-hide="home.isOwner" class="aside-header-wrapper">
+		<ul class="list-inline text-center">
 			<li>
-				<a class="sniff-head-sm" href="#">follow</a>
+				<p class="text-center" ng-show="home.FireUname">
+					<button class="btn btn-default" ng-hide="home.Followings.indexOf(ctrl.BreederProfile.Email)>-1"
+					        role="button" ng-click="home.followUser(home.FireUname,ctrl.BreederProfile.Email)">
+						Follow +
+					</button>
+
+					<button class="btn btn-default" ng-show="home.Followings.indexOf(ctrl.BreederProfile.Email)>-1"
+					        role="button" ng-click="home.unFollowUser(home.FireUname,ctrl.BreederProfile.Email)">
+						UnFollow -
+					</button>
+
+				</p>
 			</li>
 			<li>
 				<a class="sniff-head-sm" href="#">share</a>
@@ -28,31 +39,31 @@
 
 	<form role="form" class="alert alert-warning sniff-alert form-horizontal" name="myDetailsForm" id="myDetailsForm"
 	      novalidate>
-		<div class="form-group" ng-show="isOwner">
+		<div class="form-group" ng-show="home.isOwner">
 		<label for="locationInput" class="labelMyDetails">Location:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Location}}</span>
 			<input id="locationInput" name="locationInput" type="text" class="form-control"
 			       ng-model="ctrl.BreederProfileCopy.Location"
 			       ng-show="IsEdit">
 		</div>
-		<div class="form-group" ng-show="!isOwner">
+		<div class="form-group" ng-show="!home.isOwner">
 		<label for="locationInput" class="labelMyDetails">Location:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Location}}</span>
 		</div>
 
-		<div class="form-group" ng-show="isOwner">
+		<div class="form-group" ng-show="home.isOwner">
 		<label class="labelMyDetails">Website:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Website}}</span>
 			<input type="text" class="form-control"
 			       ng-model="ctrl.BreederProfileCopy.Website"
 			       ng-show="IsEdit">
 		</div>
-		<div class="form-group" ng-show="!isOwner">
+		<div class="form-group" ng-show="!home.isOwner">
 		<label class="labelMyDetails">Website:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Website}}</span>
 		</div>
 
-		<div class="form-group" ng-show="isOwner">
+		<div class="form-group" ng-show="home.isOwner">
 		<label class="labelMyDetails">Email:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Email}}</span>
 			<input type="text" class="form-control"
@@ -60,12 +71,12 @@
 			       ng-show="IsEdit">
 		</div>
 
-		<div class="form-group" ng-show="!isOwner">
+		<div class="form-group" ng-show="!home.isOwner">
 		<label class="labelMyDetails">Email:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Email}}</span>
 		</div>
 
-		<div class="form-group" ng-show="isOwner">
+		<div class="form-group" ng-show="home.isOwner">
 		<label class="labelMyDetails">Phone:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Phone}}</span>
 			<input type="text" class="form-control"
@@ -73,12 +84,12 @@
 			       ng-show="IsEdit">
 		</div>
 
-		<div class="form-group" ng-show="!isOwner">
+		<div class="form-group" ng-show="!home.isOwner">
 		<label class="labelMyDetails">Phone:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Phone}}</span>
 		</div>
 
-		<div class="form-group" ng-show="isOwner">
+		<div class="form-group" ng-show="home.isOwner">
 		<label class="col-xs-4 no-l-pad labelMyDetails">Certifications:</label>
 			<span class="col-xs-7 spanCertif">
 				<ul class="list-unstyled">
@@ -93,7 +104,7 @@
 			</span>
 		</div>
 
-		<div class="form-group" ng-show="!isOwner">
+		<div class="form-group" ng-show="!home.isOwner">
 		<label class="col-xs-4 no-l-pad labelMyDetails">Certifications:</label>
 			<span class="col-xs-7 spanCertif">
 				<ul class="list-unstyled">
@@ -104,7 +115,7 @@
 			</span>
 		</div>
 
-		<div class="form-group" ng-show="isOwner">
+		<div class="form-group" ng-show="home.isOwner">
 		<label class="labelMyDetails">Vet Services:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.VetServices|boolString}}</span>
 			<input type="checkbox"
@@ -112,12 +123,12 @@
 			       ng-show="IsEdit">
 		</div>
 
-		<div class="form-group" ng-show="!isOwner">
+		<div class="form-group" ng-show="!home.isOwner">
 		<label class="labelMyDetails">Vet Services:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.VetServices|boolString}}</span>
 		</div>
 
-		<div class="form-group" ng-show="isOwner">
+		<div class="form-group" ng-show="home.isOwner">
 		<label class="labelMyDetails">Shipping:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Shipping|boolString}}</span>
 			<input type="checkbox"
@@ -125,12 +136,12 @@
 			       ng-show="IsEdit">
 		</div>
 
-		<div class="form-group" ng-show="!isOwner">
+		<div class="form-group" ng-show="!home.isOwner">
 		<label class="labelMyDetails">Shipping:</label>
 			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Shipping|boolString}}</span>
 		</div>
 
-		<div class="form-group  profileSave text-center" ng-show="isOwner">
+		<div class="form-group  profileSave text-center" ng-show="home.isOwner">
 		<button ng-show="!IsEdit" class="btn btn-primary" ng-click="Edit()">Edit</button>
 			<div ng-show="IsEdit">
 				<button class="btn btn-primary"

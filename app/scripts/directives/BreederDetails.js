@@ -10,7 +10,7 @@ var breederDetails = function () {
             ctrl: '=',
             text: '@',
             func: '&',
-            isOwner: '='
+            home: '='
         },
         link: function (scope, element, attrs) {
             //            SCOPE (USE just {{test}} . )

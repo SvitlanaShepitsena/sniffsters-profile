@@ -24,13 +24,13 @@
 
 <div class="searchBreederDescription">
 	<ul class="list-unstyled">
-		<li ng-repeat="b in breedersCtrl.breeders">
+		<li ng-repeat="b in home.Followings">
 			<hr/>
 			<div class="row ">
 				<div class="col-md-3">
 					<div class="thumbnail thPictureSmall">
 						<a ui-sref="user.profile.about1({uname:b.profile.Email})">
-							<img ng-src="../imgdir/{{b.profile.Email}}/myimg/mainpic.jpg" alt="">
+							<img ng-src="../imgdir/{{b}}/myimg/mainpic.jpg" alt="">
 						</a>
 					</div>
 
@@ -118,14 +118,10 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<p class="text-center" ng-show="home.FireUname">
-						<button class="btn btn-default" ng-hide="home.Followings.indexOf(b.profile.Email)>-1"
-						        role="button" ng-click="home.followUser(home.FireUname,b.profile.Email)">
-						Follow +
-						</button>
 
-						<button class="btn btn-default" ng-show="home.Followings.indexOf(b.profile.Email)>-1"
-						        role="button" ng-click="home.unFollowUser(home.FireUname,b.profile.Email)">
-						UnFollow -
+						<button class="btn btn-default"
+						        role="button" ng-click="home.unFollowUser(home.FireUname,b)">
+							UnFollow -
 						</button>
 
 					</p>
@@ -134,7 +130,7 @@
 				<div class="col-sm-5">
 					<p>
 						<button class="btn btn-default" role="button">
-						Contact
+							Contact
 						</button>
 					</p>
 				</div>
@@ -142,7 +138,7 @@
 				<div class="col-sm-4">
 					<p class="text-right">
 						<button class="btn btn-default" role="button">
-						Share
+							Share
 						</button>
 					</p>
 				</div>

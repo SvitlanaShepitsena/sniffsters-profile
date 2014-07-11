@@ -18,7 +18,7 @@ var breederDetails:() => ng.IDirective = () => {
             ctrl: '=',
             text: '@',
             func: '&',
-            isOwner: '='
+            home: '='
         },
         link: (scope:IDBreederDetails, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )

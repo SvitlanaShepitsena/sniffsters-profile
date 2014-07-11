@@ -49,9 +49,9 @@ class HomeCtrl {
                 this.isOwner = this.Ownership();
                 this.Id = this.GetBreederName();
                 this.IdFire = this.Id.replace(/\./g, '(p)');
-                DataService.getMyFollowers(user.email).then((followers:string[])=> {
+                DataService.getMyFollowers(user.email).then((followings:string[])=> {
 
-                    this.Followers = followers;
+                    this.Followings = followings
 
                 })
 //
@@ -66,6 +66,18 @@ class HomeCtrl {
     email:string;
     pass:string;
 
+    followUser(loggedUser:string, follower:string) {
+        this.DataService.followUser(loggedUser, follower).then(()=> {
+
+            this.$scope.home.AddToFollowings(follower);
+        })
+    }
+
+    unFollowUser(loggedUser:string, follower:string) {
+        this.DataService.unFollowUser(loggedUser, follower).then(()=> {
+            this.$scope.home.RemoveFromFollowings(follower);
+        })
+    }
 
     navigate(menuIndex:number) {
         this.$scope.slide = this.animationDirection(menuIndex);
@@ -106,13 +118,13 @@ class HomeCtrl {
 
     }
 
-    AddToFollowers(userName:string) {
-        this.Followers.push(this.FireUnProcess(userName));
+    AddToFollowings(userName:string) {
+        this.Followings.push(this.FireUnProcess(userName));
     }
 
-    RemoveFromFollowers(userName:string) {
-        var index = this.Followers.indexOf(this.FireUnProcess(userName))
-        this.Followers.splice(index, 1);
+    RemoveFromFollowings(userName:string) {
+        var index = this.Followings.indexOf(this.FireUnProcess(userName))
+        this.Followings.splice(index, 1);
     }
 
     FireProcess(userName:string) {

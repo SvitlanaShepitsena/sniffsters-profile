@@ -42,7 +42,7 @@ class IndexCtrl {
         new FirebaseSimpleLogin(fref, () => {
 
 
-            var promiseT = this.DataService.getProfile($scope.home.Uname);
+            var promiseT = this.DataService.getProfile($stateParams.uname);
             promiseT.then((breederProfile:IBreederProfile) => {
                 //Success
                 this.error = false;

@@ -17,19 +17,6 @@ var BreedersCtrl = (function () {
         });
     }
 
-    BreedersCtrl.prototype.followUser = function (loggedUser, follower) {
-        var _this = this;
-        this.DataService.followUser(loggedUser, follower).then(function () {
-            _this.$scope.home.AddToFollowers(follower);
-        });
-    };
-
-    BreedersCtrl.prototype.unFollowUser = function (loggedUser, follower) {
-        var _this = this;
-        this.DataService.unFollowUser(loggedUser, follower).then(function () {
-            _this.$scope.home.RemoveFromFollowers(follower);
-        });
-    };
     BreedersCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

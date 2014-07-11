@@ -20,18 +20,6 @@ class BreedersCtrl {
         })
     }
 
-    followUser(loggedUser:string, follower:string) {
-        this.DataService.followUser(loggedUser, follower).then(()=> {
-
-            this.$scope.home.AddToFollowers(follower);
-        })
-    }
-
-    unFollowUser(loggedUser:string, follower:string) {
-        this.DataService.unFollowUser(loggedUser, follower).then(()=> {
-            this.$scope.home.RemoveFromFollowers(follower);
-        })
-    }
 
     ShowSuccess(note:string) {
 
