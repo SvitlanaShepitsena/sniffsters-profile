@@ -17,6 +17,7 @@ var BreedersCtrl = (function () {
             });
         });
     }
+
     BreedersCtrl.prototype.followUser = function (loggedUser, follower) {
         var _this = this;
         this.DataService.followUser(loggedUser, follower).then(function () {
