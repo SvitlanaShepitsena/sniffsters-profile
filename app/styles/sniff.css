@@ -2202,6 +2202,77 @@ input {
     max-width: none;
 }
 
+/**********************
+       IMPORTS
+***********************/
+/**********************
+     Cover
+***********************/
+.col-cover {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.cover-row {
+    height: 465px !important;
+}
+
+.profile-content {
+    margin-top: -100px !important;
+}
+
+.uploadCoverBtn {
+    position: absolute;
+    top: 290px;
+    left: 225px;
+}
+
+.coverWrapper {
+    height: 400px !important;
+}
+
+.profileMainPic {
+    position: absolute;
+    z-index: 99999;
+    top: 240px !important;
+    left: 30px;
+}
+
+.uploadMainPicBtn {
+    position: absolute !important;
+    top: 125px !important;
+    left: 25px !important;
+}
+
+.btnEditMainPic {
+    font-size: 13px;
+    padding: 4px 5px;
+}
+
+#profile-pic {
+    position: relative;
+}
+
+/**********************
+ Social Media
+***********************/
+.socialMediaSection {
+    background-color: whitesmoke;
+    position: absolute;
+    top: 190px;
+    left: -31px !important;
+    padding: 10px 5px 0px 7px;
+    border-top: 3px #dcdcdc solid;
+    border-left: 3px #dcdcdc solid;
+    border-bottom: 3px #dcdcdc solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.main-row {
+    margin-top: -45px;
+}
+
 /*************************
   BOOTSTRAP CUSTOM STYLES
 **************************/

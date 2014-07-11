@@ -47,6 +47,7 @@
 /// <reference path="directives/breederProfileNav.ts" />
 /// <reference path="directives/events.ts" />
 /// <reference path="directives/currentLitters.ts" />
+/// <reference path="directives/cover.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -104,6 +105,7 @@ profile.directive("userProfileNav", userProfileNav);
 profile.directive("breederProfileNav", breederProfileNav);
 profile.directive("events", events);
 profile.directive("currentLitters", currentLitters);
+profile.directive("cover", cover);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);

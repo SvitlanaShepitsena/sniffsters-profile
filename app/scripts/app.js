@@ -100,6 +100,7 @@ profile.directive("userProfileNav", userProfileNav);
 profile.directive("breederProfileNav", breederProfileNav);
 profile.directive("events", events);
 profile.directive("currentLitters", currentLitters);
+profile.directive("cover", cover);
 
 //#dir
 profile.directive("aboutInfo", aboutInfo);
