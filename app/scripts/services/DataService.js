@@ -111,8 +111,9 @@ var DataService = (function () {
         this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/"));
         this.fb.$on('value', function (snapshot) {
             var breeders = snapshot.snapshot.value;
+            var breedersArr = (_this.$filter('orderByPriority')(breeders));
 
-            d.resolve((_this.$filter('orderByPriority')(breeders)));
+            d.resolve((breedersArr));
         });
         var d = this.$q.defer();
 

@@ -117,8 +117,9 @@ class DataService {
         this.fb.$on('value', (snapshot:any)=> {
 
             var breeders = snapshot.snapshot.value;
+            var breedersArr = (this.$filter('orderByPriority')(breeders));
 
-            d.resolve((this.$filter('orderByPriority')(breeders)));
+            d.resolve((breedersArr));
         })
         var d = this.$q.defer();
 

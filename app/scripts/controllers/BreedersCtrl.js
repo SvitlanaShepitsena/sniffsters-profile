@@ -13,6 +13,7 @@ var BreedersCtrl = (function () {
         new FirebaseSimpleLogin(fref, function () {
             DataService.getAllProfiles().then(function (breedersArr) {
                 _this.breeders = _.values(breedersArr);
+                console.log(breedersArr);
             });
         });
     }
@@ -22,6 +23,7 @@ var BreedersCtrl = (function () {
             _this.$scope.home.AddToFollowers(follower);
         });
     };
+
     BreedersCtrl.prototype.unFollowUser = function (loggedUser, follower) {
         var _this = this;
         this.DataService.unFollowUser(loggedUser, follower).then(function () {

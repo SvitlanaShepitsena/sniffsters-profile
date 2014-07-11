@@ -16,6 +16,7 @@ class BreedersCtrl {
         new FirebaseSimpleLogin(fref, () => {
             DataService.getAllProfiles().then((breedersArr:IBreederProfile[])=> {
                 this.breeders = _.values(breedersArr);
+                console.log(breedersArr);
             });
         })
     }
