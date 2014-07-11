@@ -38,7 +38,6 @@ class HomeCtrl {
                 this.ShowError(error.toString());
             } else if (user) {
                 this.FireUname = user.email;
-
                 this.isOwner = this.Ownership();
                 this.Id = this.GetBreederName();
                 this.IdFire = this.Id.replace(/\./g, '(p)');

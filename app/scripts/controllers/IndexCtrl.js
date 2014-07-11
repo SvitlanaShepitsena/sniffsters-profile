@@ -1,3 +1,9 @@
+/// <reference path="../services/CopyProfileService.ts" />
+/// <reference path="../models/IBreederProfile.ts" />
+/// <reference path="../services/DataService.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
 var IndexCtrl = (function () {
     function IndexCtrl($scope, $stateParams, $rootScope, $window, toastr, DataService, CopyProfileService) {
         var _this = this;
@@ -23,19 +29,24 @@ var IndexCtrl = (function () {
 
         var promiseT = this.DataService.getProfile($stateParams.uname);
         promiseT.then(function (breederProfile) {
+            //Success
             _this.error = false;
             _this.BreederProfile = breederProfile;
 
+            //            this.Id = breederProfile.Email;
+            //            Put a received BreederProfile to CopyProfileService, using it like container
+            //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
             _this.CopyProfileService.SetProfile(breederProfile);
             _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+            //            console.log(this.BreederProfileEdit);
         }, function () {
+            //Error
             _this.error = true;
             _this.ShowError("Error in Db Connection");
         }).finally(function () {
             _this.spinner = false;
         });
     }
-
     IndexCtrl.prototype.GetBreederName = function () {
         var loggedUser = angular.element('#loggedUser');
         if (loggedUser == null) {
@@ -59,6 +70,7 @@ var IndexCtrl = (function () {
         this.Save(breederProfileOriginal);
     };
 
+    /* =DETAILS*/
     IndexCtrl.prototype.SavePersonalInfo = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 
@@ -108,13 +120,17 @@ var IndexCtrl = (function () {
 
     IndexCtrl.prototype.Save = function (breederProfile) {
         var _this = this;
+        //Run Service UpdateProfile Method and get promise back
         this.DataService.updateProfile(breederProfile).then(function () {
+            // Success
             _this.CopyProfileService.SetProfile(breederProfile);
 
+            //                Update scope on IndexCtrl.
             _this.UpdateBreederProfile(breederProfile);
 
             _this.ShowSuccess('Successfully Saved');
         }, function () {
+            // Error
             _this.ShowError('Db Connection Problem');
         });
     };

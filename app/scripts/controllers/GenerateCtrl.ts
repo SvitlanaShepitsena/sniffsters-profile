@@ -83,8 +83,13 @@ class GenerateCtrl {
             //////////////////////
 
 
-            breederRef.$save();
+            var followersRef = breederRef.$child('followers');
+            var followingsRef = breederRef.$child('followings');
+            followersRef.$save();
+            followingsRef.$save();
 
+
+            breederRef.$save();
         })
 
 

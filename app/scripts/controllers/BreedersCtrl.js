@@ -12,7 +12,6 @@ var BreedersCtrl = (function () {
             _this.breeders = _.values(breedersArr);
         });
     }
-
     BreedersCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
