@@ -1543,7 +1543,9 @@
 }
 
 .sniff-alert {
+    color: #3a3a3a;
     box-shadow: 2px 2px 2px #cccaca;
+    margin-bottom: 0px;
     background-color: #faf9ee;
     border-color: #FFFFFF;
 }

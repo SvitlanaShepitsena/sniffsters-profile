@@ -1773,10 +1773,6 @@
     margin-bottom: 0em;
 }
 
-.sniff-alert {
-    color: #3a3a3a;
-}
-
 .th-pic {
     margin: -16px -16px 0px -16px;
 }
@@ -2017,7 +2013,9 @@
 }
 
 .sniff-alert {
+    color: #3a3a3a;
     box-shadow: 2px 2px 2px #cccaca;
+    margin-bottom: 0px;
     background-color: #faf9ee;
     border-color: #FFFFFF;
 }
@@ -2364,6 +2362,7 @@ h3 {
 }
 
 .sniff-head-info {
+    margin-top: 5px;
     font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
     font-weight: normal !important;
     font-size: 22px;
@@ -2424,12 +2423,30 @@ textarea {
     background-color: #eae7e7;
 }
 
+.sidebar-width {
+    margin-right: -15px;
+}
+
 .profile-aside {
     background-color: #fcf9f9;
+    padding-top: 20px;
+}
+
+.profile-content {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.user-content {
+    margin-top: 15px;
+}
+
+.user-container {
+    padding-left: 15px !important;
 }
 
 .content-wrapper {
-    padding-top: 20px;
+    margin-left: -15px;
 }
 
 /**********************

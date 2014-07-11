@@ -1,6 +1,6 @@
 <div ui-view="">
-	<div class="row">
-		<div class="col-xs-3 pull-right">
+	<div class="row" ng-show="home.isOwner">
+	<div class="col-xs-3 pull-right">
 			<button class="btn btn-link"
 			        ng-click="puppies.addNewLitter()">
 				Add New Litter

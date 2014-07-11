@@ -1,4 +1,3 @@
-
 var breederDetails = function () {
     return {
         restrict: 'E',
@@ -7,7 +6,8 @@ var breederDetails = function () {
         scope: {
             ctrl: '=',
             text: '@',
-            func: '&'
+            func: '&',
+            isOwner: '='
         },
         link: function (scope, element, attrs) {
             scope.IsEdit = false;
