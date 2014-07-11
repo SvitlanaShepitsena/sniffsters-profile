@@ -4,7 +4,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
-
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
 interface IMainScope extends ng.IScope {
     index:IndexCtrl;
 }
@@ -38,27 +38,32 @@ class IndexCtrl {
         this.Id = this.GetBreederName();
         this.IdFire = this.Id.replace(/\./g, '(p)');
 
-        var promiseT = this.DataService.getProfile($stateParams.uname);
-        promiseT.then((breederProfile:IBreederProfile) => {
-            //Success
-            this.error = false;
-            this.BreederProfile = breederProfile;
+        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
+        new FirebaseSimpleLogin(fref, () => {
+
+
+            var promiseT = this.DataService.getProfile($scope.home.Uname);
+            promiseT.then((breederProfile:IBreederProfile) => {
+                //Success
+                this.error = false;
+                this.BreederProfile = breederProfile;
 //            this.Id = breederProfile.Email;
 //            Put a received BreederProfile to CopyProfileService, using it like container
 //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
 
 
-            this.CopyProfileService.SetProfile(breederProfile);
-            this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+                this.CopyProfileService.SetProfile(breederProfile);
+                this.BreederProfileEdit = CopyProfileService.GetProfileClone();
 //            console.log(this.BreederProfileEdit);
 
-        }, () => {
-            //Error
-            this.error = true;
-            this.ShowError("Error in Db Connection")
-        }).finally(() => {
-            this.spinner = false;
-        })
+            }, () => {
+                //Error
+                this.error = true;
+                this.ShowError("Error in Db Connection")
+            }).finally(() => {
+                this.spinner = false;
+            })
+        });
     }
 
     GetBreederName() {

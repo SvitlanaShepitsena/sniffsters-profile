@@ -16,7 +16,6 @@ class BreedersCtrl {
         new FirebaseSimpleLogin(fref, () => {
             DataService.getAllProfiles().then((breedersArr:IBreederProfile[])=> {
                 this.breeders = _.values(breedersArr);
-                console.log(breedersArr);
             });
         })
     }
@@ -33,6 +32,7 @@ class BreedersCtrl {
             this.$scope.home.RemoveFromFollowers(follower);
         })
     }
+
     ShowSuccess(note:string) {
 
         this.toastr.info(note);

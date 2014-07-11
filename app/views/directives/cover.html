@@ -20,7 +20,7 @@
 		</ul>
 	</div>
 	<div id="cover">
-		<div class="uploadCoverBtn">
+		<div class="uploadCoverBtn" ng-show="home.isOwner">
 			<label id="labelCover" class="fileContainer">
 				<button class="btn btn-primary btnEditMainPic">
 					<i class="fa fa-camera fa-fw"></i>
@@ -33,7 +33,7 @@
 	</div>
 
 	<div id="profile-picture" class="profileMainPic">
-		<label id="labelMainPic" class="fileContainer uploadMainPicBtn">
+		<label id="labelMainPic" class="fileContainer uploadMainPicBtn" ng-show="home.isOwner">
 			<button class="btn btn-primary btnEditMainPic">
 				<i class="fa fa-camera fa-fw"></i>
 				Edit Picture

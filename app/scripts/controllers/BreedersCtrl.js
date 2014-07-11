@@ -13,7 +13,6 @@ var BreedersCtrl = (function () {
         new FirebaseSimpleLogin(fref, function () {
             DataService.getAllProfiles().then(function (breedersArr) {
                 _this.breeders = _.values(breedersArr);
-                console.log(breedersArr);
             });
         });
     }

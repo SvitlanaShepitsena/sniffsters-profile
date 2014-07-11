@@ -4,6 +4,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
 var IndexCtrl = (function () {
     function IndexCtrl($scope, $stateParams, $rootScope, $window, toastr, DataService, CopyProfileService) {
         var _this = this;
@@ -27,26 +28,30 @@ var IndexCtrl = (function () {
         this.Id = this.GetBreederName();
         this.IdFire = this.Id.replace(/\./g, '(p)');
 
-        var promiseT = this.DataService.getProfile($stateParams.uname);
-        promiseT.then(function (breederProfile) {
-            //Success
-            _this.error = false;
-            _this.BreederProfile = breederProfile;
+        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
+        new FirebaseSimpleLogin(fref, function () {
+            var promiseT = _this.DataService.getProfile($scope.home.Uname);
+            promiseT.then(function (breederProfile) {
+                //Success
+                _this.error = false;
+                _this.BreederProfile = breederProfile;
 
-            //            this.Id = breederProfile.Email;
-            //            Put a received BreederProfile to CopyProfileService, using it like container
-            //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
-            _this.CopyProfileService.SetProfile(breederProfile);
-            _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
-            //            console.log(this.BreederProfileEdit);
-        }, function () {
-            //Error
-            _this.error = true;
-            _this.ShowError("Error in Db Connection");
-        }).finally(function () {
-            _this.spinner = false;
+                //            this.Id = breederProfile.Email;
+                //            Put a received BreederProfile to CopyProfileService, using it like container
+                //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
+                _this.CopyProfileService.SetProfile(breederProfile);
+                _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+                //            console.log(this.BreederProfileEdit);
+            }, function () {
+                //Error
+                _this.error = true;
+                _this.ShowError("Error in Db Connection");
+            }).finally(function () {
+                _this.spinner = false;
+            });
         });
     }
+
     IndexCtrl.prototype.GetBreederName = function () {
         var loggedUser = angular.element('#loggedUser');
         if (loggedUser == null) {

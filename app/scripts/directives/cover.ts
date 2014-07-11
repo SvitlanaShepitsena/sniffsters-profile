@@ -9,18 +9,9 @@ var cover:() => ng.IDirective = () => {
     return{
         restrict: 'E',
         templateUrl: 'views/directives/cover.html',
-        transclude: true,
         // replace directive tag with template info
         replace: true,
-        scope: {
-            ctrl: '=',
-
-            text: '@',
-            func: '&'
-        },
         link: (scope:ICover, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
-
         }
     }
 }
