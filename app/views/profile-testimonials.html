@@ -12,7 +12,7 @@
 		<div class="col-xs-12">
 			<ul class="list-unstyled">
 				<li ng-repeat="f in testimonials.FeedbacksNew" class="bouncy-slide-down">
-					<feedback-info f="f"></feedback-info>
+					<feedback-info is-owner="home.isOwner" f="f"></feedback-info>
 				</li>
 			</ul>
 		</div>
@@ -37,7 +37,6 @@
 				</div>
 			</div>
 			<feedback f="f"></feedback>
-
 		</li>
 	</ul>
 </div>

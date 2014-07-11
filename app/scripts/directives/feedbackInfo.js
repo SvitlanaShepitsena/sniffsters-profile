@@ -9,6 +9,7 @@ var feedbackInfo = function () {
         replace: true,
         scope: {
             f: '=',
+            isOwner: '=',
             text: '@',
             func: '&'
         },

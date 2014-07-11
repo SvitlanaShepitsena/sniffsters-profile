@@ -10,11 +10,7 @@ var detailsInfo:() => ng.IDirective = () => {
         restrict: 'E',
         templateUrl: 'views/directives/details-info.html',
         replace: true,
-        scope: {
-            ctrl: '=',
-            text: '@',
-            func: '&'
-        },
+
         link: (scope:IDetailsInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
         }
     }

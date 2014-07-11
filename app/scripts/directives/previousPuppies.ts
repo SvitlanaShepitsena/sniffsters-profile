@@ -12,15 +12,8 @@ var previousPuppies:() => ng.IDirective = () => {
         transclude: true,
         // replace directive tag with template info
         replace: true,
-        scope: {
-            ctrl: '=',
 
-            text: '@',
-            func: '&'
-        },
         link: (scope:IPreviousPuppies, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
-
 
         }
     }
