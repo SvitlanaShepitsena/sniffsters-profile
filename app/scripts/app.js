@@ -47,6 +47,7 @@
 /// <reference path="directives/breederProfileNav.ts" />
 /// <reference path="directives/events.ts" />
 /// <reference path="directives/currentLitters.ts" />
+/// <reference path="directives/cover.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
@@ -180,7 +181,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-testimonials.html"
     }).state("user.profile.testimonials5.edit", {
         url: "/edit/:id",
-        template: "<feedback-edit></feedback-edit>"
+        template: "<feedback-edit is-owner='home.isOwner' ></feedback-edit>"
     }).state("generate", {
         url: "/generate",
         controller: "GenerateCtrl",

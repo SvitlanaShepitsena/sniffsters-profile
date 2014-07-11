@@ -9,6 +9,7 @@ var aboutInfoEdit = function () {
         replace: true,
         scope: {
             ctrl: '=',
+            isOwner: '=',
             text: '@',
             func: '&'
         },

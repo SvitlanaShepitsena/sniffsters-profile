@@ -10,6 +10,7 @@ var detailsInfoEdit = function () {
         replace: true,
         scope: {
             ctrl: '=',
+            isOwner: '=',
             text: '@',
             func: '&'
         },
@@ -25,7 +26,7 @@ var detailsInfoEdit = function () {
                 scope.ctrl.BreederProfileEdit.City = "";
                 scope.ctrl.BreederProfileEdit.Shipping = false;
                 /*                console.log('reset');
-                scope.ctrl.BreederProfileEdit = new BreederProfile();*/
+                 scope.ctrl.BreederProfileEdit = new BreederProfile();*/
             };
 
             scope.SaveKennelName = function () {

@@ -22,7 +22,7 @@ var aboutInfoEdit:() => ng.IDirective = () => {
         replace: true,
         scope: {
             ctrl: '=',
-
+            isOwner: '=',
             text: '@',
             func: '&'
         },

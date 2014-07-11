@@ -7,6 +7,9 @@ var feedbackEdit = function () {
         transclude: true,
         // replace directive tag with template info
         replace: true,
+        scope: {
+            isOwner: '='
+        },
         controller: function ($scope, $stateParams) {
             var index = $stateParams.id;
             $scope.SelectedFeedback = $scope.testimonials.Feedbacks[index];

@@ -200,7 +200,7 @@ profile.config(
             })
             .state("user.profile.testimonials5.edit", {
                 url: "/edit/:id",
-                template: "<feedback-edit></feedback-edit>"
+                template: "<feedback-edit is-owner='home.isOwner' ></feedback-edit>"
             })
             .state("generate", {
                 url: "/generate",
