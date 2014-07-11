@@ -40,9 +40,12 @@ class IndexCtrl {
 
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
         new FirebaseSimpleLogin(fref, () => {
+            var requestEmail = $stateParams.uname;
 
-
-            var promiseT = this.DataService.getProfile($stateParams.uname);
+            if (requestEmail == "public") {
+                requestEmail = $scope.home.Uname;
+            }
+            var promiseT = this.DataService.getProfile(requestEmail);
             promiseT.then((breederProfile:IBreederProfile) => {
                 //Success
                 this.error = false;

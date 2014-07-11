@@ -16,7 +16,6 @@ var BreedersCtrl = (function () {
             });
         });
     }
-
     BreedersCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

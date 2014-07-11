@@ -30,7 +30,12 @@ var IndexCtrl = (function () {
 
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
         new FirebaseSimpleLogin(fref, function () {
-            var promiseT = _this.DataService.getProfile($stateParams.uname);
+            var requestEmail = $stateParams.uname;
+
+            if (requestEmail == "public") {
+                requestEmail = $scope.home.Uname;
+            }
+            var promiseT = _this.DataService.getProfile(requestEmail);
             promiseT.then(function (breederProfile) {
                 //Success
                 _this.error = false;
@@ -51,7 +56,6 @@ var IndexCtrl = (function () {
             });
         });
     }
-
     IndexCtrl.prototype.GetBreederName = function () {
         var loggedUser = angular.element('#loggedUser');
         if (loggedUser == null) {
