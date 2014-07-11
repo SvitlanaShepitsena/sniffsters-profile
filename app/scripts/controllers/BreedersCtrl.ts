@@ -12,15 +12,26 @@ class BreedersCtrl {
         $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
 
-
-        DataService.getAllProfiles().then((breedersArr:IBreederProfile[])=> {
-
-            this.breeders = _.values(breedersArr);
-
-        });
+        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
+        new FirebaseSimpleLogin(fref, () => {
+            DataService.getAllProfiles().then((breedersArr:IBreederProfile[])=> {
+                this.breeders = _.values(breedersArr);
+            });
+        })
     }
 
+    followUser(loggedUser:string, follower:string) {
+        this.DataService.followUser(loggedUser, follower).then(()=> {
 
+            this.$scope.home.AddToFollowers(follower);
+        })
+    }
+
+    unFollowUser(loggedUser:string, follower:string) {
+        this.DataService.unFollowUser(loggedUser, follower).then(()=> {
+            this.$scope.home.RemoveFromFollowers(follower);
+        })
+    }
     ShowSuccess(note:string) {
 
         this.toastr.info(note);

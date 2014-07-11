@@ -71,23 +71,6 @@
 							<li class="className">
 								<strong>Certifications:</strong>
 
-								<!--								<ul class="list-inline">
-																	@foreach (var c in profile.Certifications)
-																	{
-																	<li>
-																		<h6>@c.Title - </h6>
-
-																		@if (c.isActive)
-																		{
-																		<span>Yes</span>
-																		}
-																		else
-																		{
-																		<span>No</span>
-																		}
-																	</li>
-																	}
-																</ul>-->
 							</li>
 							<li>
 								<strong>Pricing:</strong> Lorem
@@ -105,29 +88,11 @@
 								<strong>Vet services:</strong>
 
 								<div>
-									<!--									@if ((bool) Model.VetServices)
-																		{
-																		<div>Yes</div>
-																		}
-																		else
-																		{
-																		<div>No</div>
-																		}-->
 								</div>
 							</li>
 							<li>
 								<strong>Shipping:</strong>
 
-								<!--								<div>
-																	@if ((bool) Model.Shipping)
-																	{
-																	<div>Yes</div>
-																	}
-																	else
-																	{
-																	<div>No</div>
-																	}
-																</div>-->
 							</li>
 						</ul>
 						<br/>
@@ -152,26 +117,33 @@
 
 			<div class="row">
 				<div class="col-sm-3">
-					<p class="text-center">
-						<a href="#" class="btn btn-default" role="button">
-							Follow +
-						</a>
+					<p class="text-center" ng-show="home.FireUname">
+						<button class="btn btn-default" ng-hide="home.Followers.indexOf(b.profile.Email)>-1"
+						        role="button" ng-click="breedersCtrl.followUser(home.FireUname,b.profile.Email)">
+						Follow +
+						</button>
+
+						<button class="btn btn-default" ng-show="home.Followers.indexOf(b.profile.Email)>-1"
+						        role="button" ng-click="breedersCtrl.unFollowUser(home.FireUname,b.profile.Email)">
+							UnFollow -
+						</button>
+
 					</p>
 				</div>
 
 				<div class="col-sm-5">
 					<p>
-						<a href="#" class="btn btn-default" role="button">
-							Contact
-						</a>
+						<button class="btn btn-default" role="button">
+						Contact
+						</button>
 					</p>
 				</div>
 
 				<div class="col-sm-4">
 					<p class="text-right">
-						<a href="#" class="btn btn-default" role="button">
-							Share
-						</a>
+						<button class="btn btn-default" role="button">
+						Share
+						</button>
 					</p>
 				</div>
 			</div>

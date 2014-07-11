@@ -1,3 +1,53 @@
+/// <reference path="directives/BreederDetails.ts" />
+/// <reference path="filters/BoolString.ts" />
+/// <reference path="directives/aboutInfo.ts" />
+/// <reference path="directives/aboutInfoEdit.ts" />
+/// <reference path="directives/detailsInfo.ts" />
+/// <reference path="directives/detailsInfoEdit.ts" />
+/// <reference path="directives/previousPuppies.ts" />
+/// <reference path="directives/photosInfo.ts" />
+/// <reference path="controllers/PhotosCtrl.ts" />
+/// <reference path="directives/photoGalleries.ts" />
+/// <reference path="filters/SpacesToDashes.ts" />
+/// <reference path="directives/photoGallery.ts" />
+/// <reference path="directives/photoGalleryEdit.ts" />
+/// <reference path="services/GalleryService.ts" />
+/// <reference path="filters/TitleLength.ts" />
+/// <reference path="directives/spinDiv.ts" />
+/// <reference path="filters/GalleryActive.ts" />
+/// <reference path="controllers/PuppiesCtrl.ts" />
+/// <reference path="directives/litter.ts" />
+/// <reference path="directives/litterNew.ts" />
+/// <reference path="controllers/TestimonialsCtrl.ts" />
+/// <reference path="directives/feedback.ts" />
+/// <reference path="directives/feedbackInfo.ts" />
+/// <reference path="directives/litterInfo.ts" />
+/// <reference path="directives/feedbackEdit.ts" />
+/// <reference path="controllers/GenerateCtrl.ts" />
+/// <reference path="controllers/HomeCtrl.ts" />
+/// <reference path="controllers/AboutCtrl.ts" />
+/// <reference path="controllers/BreedersCtrl.ts" />
+/// <reference path="controllers/DogsCtrl.ts" />
+/// <reference path="controllers/ExploreCtrl.ts" />
+/// <reference path="controllers/AdvertiseCtrl.ts" />
+/// <reference path="controllers/TermsCtrl.ts" />
+/// <reference path="controllers/ContactCtrl.ts" />
+/// <reference path="controllers/LookingForDogCtrl.ts" />
+/// <reference path="controllers/ForBreedersCtrl.ts" />
+/// <reference path="controllers/LoginCtrl.ts" />
+/// <reference path="controllers/RegisterCtrl.ts" />
+/// <reference path="controllers/MessagesCtrl.ts" />
+/// <reference path="controllers/CreateMessageCtrl.ts" />
+/// <reference path="controllers/TrashCtrl.ts" />
+/// <reference path="directives/newMessage.ts" />
+/// <reference path="directives/setter.ts" />
+/// <reference path="directives/setterIshome.ts" />
+/// <reference path="directives/messageNavMenu.ts" />
+/// <reference path="directives/userProfileNav.ts" />
+/// <reference path="directives/breederProfileNav.ts" />
+/// <reference path="directives/events.ts" />
+/// <reference path="directives/currentLitters.ts" />
+//#ref
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
 profile.filter('boolString', function () {
@@ -22,9 +72,11 @@ profile.filter('galleryActive', function () {
     };
 });
 
+//#filt
 profile.service("CopyProfileService", CopyProfileService);
 profile.service("GalleryService", GalleryService);
 
+//#serv
 profile.directive("aboutInfoEdit", aboutInfoEdit);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("detailsInfoEdit", detailsInfoEdit);
@@ -49,6 +101,7 @@ profile.directive("breederProfileNav", breederProfileNav);
 profile.directive("events", events);
 profile.directive("currentLitters", currentLitters);
 
+//#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
 
@@ -72,12 +125,13 @@ profile.controller("user.messagesCtrl", MessagesCtrl);
 profile.controller("CreateMessageCtrl", CreateMessageCtrl);
 profile.controller("TrashCtrl", TrashCtrl);
 
+//#ctrl
+// TODO: Implement filter
 profile.value("toastr", toastr);
 profile.service("DataService", DataService);
 
 profile.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/");
-
+    //        $urlRouterProvider.otherwise("/");
     $stateProvider.state("user", {
         abstract: true,
         templateUrl: "../views/profile-side-bar.html"
@@ -192,4 +246,5 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         controller: "TrashCtrl",
         templateUrl: "../views/trash.html"
     });
+    //#state
 });

@@ -1,3 +1,6 @@
+/// <reference path="HomeCtrl.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 var MessagesCtrl = (function () {
     function MessagesCtrl($scope, $firebaseSimpleLogin, $modal, $state, toastr, DataService) {
         var _this = this;
@@ -13,6 +16,7 @@ var MessagesCtrl = (function () {
         $scope.auth = $firebaseSimpleLogin(fref);
         $scope.authAction = new FirebaseSimpleLogin(fref, function (error, user) {
             if (error) {
+                // an error occurred while attempting login
                 _this.ShowError(error.toString());
             } else if (user) {
                 DataService.getMessages($scope.home.IdFire).then(function (messages) {
@@ -30,11 +34,11 @@ var MessagesCtrl = (function () {
                         _this.SetSelectedUser(_this.selectedUserIndex);
                     }
                 });
+                //
             } else {
             }
         });
     }
-
     MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {
         this.selectedUserIndex = arrIndex;
 

@@ -79,8 +79,12 @@ var GenerateCtrl = (function () {
             //////////////////////
             var followersRef = breederRef.$child('followers');
             var followingsRef = breederRef.$child('followings');
-            followersRef.$save();
-            followingsRef.$save();
+
+            var followerRef = followersRef.$child("breeder1@gmail(p)com");
+            var followingRef = followingsRef.$child("breeder2@gmail(p)com");
+
+            followerRef.$add('1');
+            followingRef.$add('1');
 
             breederRef.$save();
         });

@@ -1,3 +1,4 @@
+/// <reference path="IndexCtrl.ts" />
 var RegisterCtrl = (function () {
     function RegisterCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;

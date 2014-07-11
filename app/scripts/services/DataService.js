@@ -13,6 +13,61 @@ var DataService = (function () {
         return userName.replace(/\./g, '(p)');
     };
 
+    DataService.prototype.FireUnProcess = function (userName) {
+        return userName.replace(/\(p\)/g, '.');
+    };
+
+    DataService.prototype.getMyFollowers = function (userName) {
+        var _this = this;
+        userName = this.FireProcess(userName);
+
+        var d = this.$q.defer();
+
+        var followersUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followers";
+        var followersRef = this.$firebase(new Firebase(followersUrl));
+
+        followersRef.$on('value', function (snapshot) {
+            var followers = snapshot.snapshot.value;
+            var followersArr = _.map(_.keys(followers), function (value) {
+                return _this.FireUnProcess(value);
+            });
+
+            d.resolve(followersArr);
+        });
+        return d.promise;
+    };
+
+    DataService.prototype.followUser = function (userName, followerName) {
+        userName = this.FireProcess(userName);
+        followerName = this.FireProcess(followerName);
+        var d = this.$q.defer();
+
+        var followersUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followers";
+        var followersRef = this.$firebase(new Firebase(followersUrl));
+
+        var followerRef = followersRef.$child(followerName);
+        followerRef.$add(1);
+
+        followersRef.$save();
+        d.resolve();
+        return d.promise;
+    };
+
+    DataService.prototype.unFollowUser = function (userName, followerName) {
+        userName = this.FireProcess(userName);
+        followerName = this.FireProcess(followerName);
+        var d = this.$q.defer();
+
+        var followerUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followers/" + followerName;
+        var followerRef = this.$firebase(new Firebase(followerUrl));
+
+        followerRef.$remove();
+
+        followerRef.$save();
+        d.resolve();
+        return d.promise;
+    };
+
     DataService.prototype.sendNewMessage = function (from, to, body) {
         var _this = this;
         to = this.FireProcess(to);
@@ -51,6 +106,8 @@ var DataService = (function () {
 
     DataService.prototype.getAllProfiles = function () {
         var _this = this;
+        var d = this.$q.defer();
+
         this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/"));
         this.fb.$on('value', function (snapshot) {
             var breeders = snapshot.snapshot.value;

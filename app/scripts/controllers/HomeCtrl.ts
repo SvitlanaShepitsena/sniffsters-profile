@@ -11,12 +11,17 @@ interface IHomeScope extends IMainScope {
 class HomeCtrl {
 
     FireUname:string;
+    Uname:string;
+
     Auth:FirebaseSimpleLogin;
     Id:string;
     IdFire:string;
     IsHome:boolean;
 
     url:string;
+    Followers:string[];
+    Followings:string[];
+
     menuIndex:number;
     isOwner:boolean;
     hideMenu:boolean;
@@ -38,9 +43,17 @@ class HomeCtrl {
                 this.ShowError(error.toString());
             } else if (user) {
                 this.FireUname = user.email;
+                this.Uname = this.FireUname.replace(/(p)/g, '.');
+
+
                 this.isOwner = this.Ownership();
                 this.Id = this.GetBreederName();
                 this.IdFire = this.Id.replace(/\./g, '(p)');
+                DataService.getMyFollowers(user.email).then((followers:string[])=> {
+
+                    this.Followers = followers;
+
+                })
 //
             } else {
             }
@@ -93,6 +106,23 @@ class HomeCtrl {
 
     }
 
+    AddToFollowers(userName:string) {
+        this.Followers.push(this.FireUnProcess(userName));
+    }
+
+    RemoveFromFollowers(userName:string) {
+        var index = this.Followers.indexOf(this.FireUnProcess(userName))
+        this.Followers.splice(index, 1);
+    }
+
+    FireProcess(userName:string) {
+        return userName.replace(/\./g, '(p)');
+    }
+
+    FireUnProcess(userName:string) {
+        return userName.replace(/\(p\)/g, '.');
+
+    }
     animationDirection(menuIndex:number):string {
 
         if (menuIndex > this.menuIndex)

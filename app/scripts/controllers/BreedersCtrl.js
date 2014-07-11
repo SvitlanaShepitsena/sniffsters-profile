@@ -1,3 +1,4 @@
+/// <reference path="HomeCtrl.ts" />
 var BreedersCtrl = (function () {
     function BreedersCtrl($scope, $state, toastr, DataService) {
         var _this = this;
@@ -8,10 +9,25 @@ var BreedersCtrl = (function () {
         $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
 
-        DataService.getAllProfiles().then(function (breedersArr) {
-            _this.breeders = _.values(breedersArr);
+        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
+        new FirebaseSimpleLogin(fref, function () {
+            DataService.getAllProfiles().then(function (breedersArr) {
+                _this.breeders = _.values(breedersArr);
+            });
         });
     }
+    BreedersCtrl.prototype.followUser = function (loggedUser, follower) {
+        var _this = this;
+        this.DataService.followUser(loggedUser, follower).then(function () {
+            _this.$scope.home.AddToFollowers(follower);
+        });
+    };
+    BreedersCtrl.prototype.unFollowUser = function (loggedUser, follower) {
+        var _this = this;
+        this.DataService.unFollowUser(loggedUser, follower).then(function () {
+            _this.$scope.home.RemoveFromFollowers(follower);
+        });
+    };
     BreedersCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
