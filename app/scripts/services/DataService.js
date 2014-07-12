@@ -37,6 +37,7 @@ var DataService = (function () {
         });
         return d.promise;
     };
+
     DataService.prototype.getMyFollowers = function (userName) {
         var _this = this;
         userName = this.FireProcess(userName);
