@@ -9,6 +9,7 @@ var DataService = (function () {
         this.$firebase = $firebase;
         this.$filter = $filter;
     }
+
     DataService.prototype.FireProcess = function (userName) {
         return userName.replace(/\./g, '(p)');
     };
@@ -17,6 +18,25 @@ var DataService = (function () {
         return userName.replace(/\(p\)/g, '.');
     };
 
+    DataService.prototype.getMyFollowings = function (userName) {
+        var _this = this;
+        userName = this.FireProcess(userName);
+
+        var d = this.$q.defer();
+
+        var followingsUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followings";
+        var followingsRef = this.$firebase(new Firebase(followingsUrl));
+
+        followingsRef.$on('value', function (snapshot) {
+            var followings = snapshot.snapshot.value;
+            var followingssArr = _.map(_.keys(followings), function (value) {
+                return _this.FireUnProcess(value);
+            });
+
+            d.resolve(followingssArr);
+        });
+        return d.promise;
+    };
     DataService.prototype.getMyFollowers = function (userName) {
         var _this = this;
         userName = this.FireProcess(userName);
@@ -42,13 +62,22 @@ var DataService = (function () {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followersUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followers";
+        var followingsUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followings";
+        var followingsRef = this.$firebase(new Firebase(followingsUrl));
+
+        var followingRef = followingsRef.$child(followerName);
+        followingRef.$add(1);
+
+        followingsRef.$save();
+
+        var followersUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + followerName + "/followers";
         var followersRef = this.$firebase(new Firebase(followersUrl));
 
-        var followerRef = followersRef.$child(followerName);
+        var followerRef = followersRef.$child(userName);
         followerRef.$add(1);
 
         followersRef.$save();
+
         d.resolve();
         return d.promise;
     };
@@ -58,12 +87,18 @@ var DataService = (function () {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followerUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followers/" + followerName;
+        var followingUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followings/" + followerName;
+        var followingRef = this.$firebase(new Firebase(followingUrl));
+
+        followingRef.$remove();
+        followingRef.$save();
+
+        var followerUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + followerName + "/followers/" + userName;
         var followerRef = this.$firebase(new Firebase(followerUrl));
 
         followerRef.$remove();
-
         followerRef.$save();
+
         d.resolve();
         return d.promise;
     };
@@ -225,9 +260,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -239,10 +274,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-                GalleryId: galleryId,
-                PhotoId: photoId,
-                Caption: caption
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId,
+            Caption: caption
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();

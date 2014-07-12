@@ -48,6 +48,7 @@
 /// <reference path="directives/events.ts" />
 /// <reference path="directives/currentLitters.ts" />
 /// <reference path="directives/cover.ts" />
+/// <reference path="controllers/FollowersCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
@@ -126,6 +127,7 @@ profile.controller("RegisterCtrl", RegisterCtrl);
 profile.controller("user.messagesCtrl", MessagesCtrl);
 profile.controller("CreateMessageCtrl", CreateMessageCtrl);
 profile.controller("TrashCtrl", TrashCtrl);
+profile.controller("FollowersCtrl", FollowersCtrl);
 
 //#ctrl
 // TODO: Implement filter
@@ -251,6 +253,10 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("user.profile.followings", {
         url: "/followings",
         templateUrl: "../views/followings.html"
+    }).state("user.profile.followers", {
+        url: "/followers",
+        controller: "FollowersCtrl",
+        templateUrl: "../views/followers.html"
     });
     //#state
 });

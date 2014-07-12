@@ -87,10 +87,15 @@ class GenerateCtrl {
             var followingsRef = breederRef.$child('followings');
 
             var followerRef = followersRef.$child("breeder1@gmail(p)com");
-            var followingRef = followingsRef.$child("breeder2@gmail(p)com");
+            var follower2Ref = followersRef.$child("breeder2@gmail(p)com");
+            var follower3Ref = followersRef.$child("breeder3@gmail(p)com");
+
 
             followerRef.$add('1');
-            followingRef.$add('1');
+            follower2Ref.$add('1');
+            follower3Ref.$add('1');
+            followersRef.$save();
+            followingsRef.$add('1');
 
 
             breederRef.$save();

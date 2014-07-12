@@ -29,7 +29,7 @@ class HomeCtrl {
     constructor(public $scope, $location, public $stateParams, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
         this.menuIndex = 1;
-        this.email = "breeder1@gmail.com";
+        this.email = "breeder2@gmail.com";
         this.pass = "123456";
         this.hideMenu = true;
 
@@ -49,9 +49,9 @@ class HomeCtrl {
                 this.isOwner = this.Ownership();
                 this.Id = this.GetBreederName();
                 this.IdFire = this.Id.replace(/\./g, '(p)');
-                DataService.getMyFollowers(user.email).then((followings:string[])=> {
+                DataService.getMyFollowings(user.email).then((followings:string[])=> {
 
-                    this.Followings = followings
+                    this.Followings = followings;
 
                 })
 //
@@ -135,6 +135,7 @@ class HomeCtrl {
         return userName.replace(/\(p\)/g, '.');
 
     }
+
     animationDirection(menuIndex:number):string {
 
         if (menuIndex > this.menuIndex)

@@ -2,15 +2,13 @@
 
 <div class="searchBreederDescription">
 	<ul class="list-unstyled">
-		<li class="" ng-repeat="b in home.Followings">
+		<li class="" ng-repeat="b in home.Followers">
 			<hr/>
 			<div class="row ">
 				<div class="col-xs-3">
 					<div class="thumbnail no-b-margin">
 						<a ui-sref="user.profile.about1({uname:b.profile.Email})">
-							<!--<img ng-src="../imgdir/{{b}}/myimg/mainpic.jpg" alt="">-->
-							<img src="../imgdir/default/myimg/mainpic.jpg" alt="">
-
+							<img ng-src="../imgdir/{{b}}/myimg/mainpic.jpg" alt="">
 						</a>
 					</div>
 
