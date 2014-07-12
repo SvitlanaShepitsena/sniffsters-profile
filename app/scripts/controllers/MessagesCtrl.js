@@ -22,7 +22,7 @@ var MessagesCtrl = (function () {
                 DataService.getMessages($scope.home.IdFire).then(function (messages) {
                     _this.fireMessages = messages;
 
-                    var inbox = messages.Inbox;
+                    var inbox = messages.inbox;
                     _this.corrUsersFire = _.keys(inbox);
 
                     _this.corrUsers = _.map(_this.corrUsersFire, function (userFire) {
@@ -39,13 +39,30 @@ var MessagesCtrl = (function () {
             }
         });
     }
+    MessagesCtrl.prototype.Delete = function () {
+        var _this = this;
+        this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUserFire).then(function () {
+            _this.corrUsers.splice(_this.selectedUserIndex, 1);
+            _this.corrUsersFire.splice(_this.selectedUserIndex, 1);
+            _this.SetSelectedUser(0);
+        });
+    };
+
+    MessagesCtrl.prototype.Send = function () {
+        var _this = this;
+        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUserFire, this.reply.body).then(function () {
+            _this.selectedUserMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now().toString() });
+            _this.reply.body = "";
+        });
+    };
+
     MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {
         this.selectedUserIndex = arrIndex;
 
         this.selectedUserFire = this.corrUsersFire[this.selectedUserIndex];
         this.selectedUser = this.corrUsers[this.selectedUserIndex];
 
-        this.selectedUserMessages = _(this.fireMessages.Inbox[this.selectedUserFire]).values();
+        this.selectedUserMessages = _(this.fireMessages.inbox[this.selectedUserFire]).values();
     };
 
     MessagesCtrl.prototype.ShowSuccess = function (note) {

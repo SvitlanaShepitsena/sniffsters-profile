@@ -1,5 +1,4 @@
 /// <reference path="IndexCtrl.ts" />
-/// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
 var GenerateCtrl = (function () {
     function GenerateCtrl($scope, $firebase, $state, toastr, DataService) {
         var _this = this;
@@ -46,10 +45,10 @@ var GenerateCtrl = (function () {
             messagesRef0.$save();
 
             var breederMessagesRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
-            breederMessagesRef.$child('Inbox');
+            breederMessagesRef.$child('inbox');
             breederMessagesRef.$save();
 
-            var breederMessagesRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages/Inbox"));
+            var breederMessagesRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages/inbox"));
 
             var messages = _this.GenerateMessages();
             var messages2 = _this.GenerateMessages();
@@ -62,7 +61,9 @@ var GenerateCtrl = (function () {
             messages.forEach(function (message) {
                 senderRef.$add({
                     amISender: (Math.random() < 0.5),
-                    body: message.Body });
+                    body: message.Body,
+                    sent: Firebase.ServerValue.TIMESTAMP
+                });
             });
             senderRef.$save();
 
@@ -94,7 +95,6 @@ var GenerateCtrl = (function () {
 
         $scope.breeders.$save();
     }
-
     GenerateCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

@@ -22,10 +22,12 @@ interface IBreederProfile {
 interface INote {
     amISender:boolean;
     body:string;
+    sent:string;
 }
 class Note implements INote {
     amISender:boolean;
     body:string;
+    sent:string;
 
 }
 

@@ -1,5 +1,6 @@
 /// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 var DataService = (function () {
@@ -8,7 +9,59 @@ var DataService = (function () {
         this.$q = $q;
         this.$firebase = $firebase;
         this.$filter = $filter;
+        this.url = "https://torid-fire-6526.firebaseio.com/breeders/";
     }
+    DataService.prototype.sendReply = function (userName, corrUserName, reply) {
+        userName = this.FireProcess(userName);
+        corrUserName = this.FireProcess(corrUserName);
+
+        var d = this.$q.defer();
+
+        var corrUserUrl = this.url + userName + "/messages/inbox/" + corrUserName;
+        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
+
+        var note = new Note();
+        note.amISender = true;
+        note.sent = Date.now().toString();
+        note.body = reply;
+        corrUserRef.$add(note);
+
+        d.resolve();
+
+        return d.promise;
+    };
+
+    DataService.prototype.deleteConversation = function (userName, corrUserName) {
+        userName = this.FireProcess(userName);
+        corrUserName = this.FireProcess(corrUserName);
+
+        var d = this.$q.defer();
+        var messagesUrl = this.url + userName + "/messages";
+        var messagesRef = this.$firebase(new Firebase(messagesUrl));
+
+        var trashRef = messagesRef.$child('trash');
+        var trashUserRef = trashRef.$child(corrUserName);
+        trashUserRef.$save();
+
+        var corrUserUrl = this.url + userName + "/messages/inbox/" + corrUserName;
+        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
+
+        corrUserRef.$on('value', function (snapshot) {
+            var corrUserVal = snapshot.snapshot.value;
+            var keys = _.keys(corrUserVal);
+            var values = _.values(corrUserVal);
+
+            for (var i = 0; i < keys.length; i++) {
+                var value = values[i];
+                trashUserRef.$add(value);
+            }
+            corrUserRef.$remove();
+        });
+
+        d.resolve();
+
+        return d.promise;
+    };
 
     DataService.prototype.FireProcess = function (userName) {
         return userName.replace(/\./g, '(p)');
@@ -107,7 +160,7 @@ var DataService = (function () {
     DataService.prototype.sendNewMessage = function (from, to, body) {
         var _this = this;
         to = this.FireProcess(to);
-        var inboxUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages/Inbox/";
+        var inboxUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages/inbox/";
         var userUrl = inboxUrl + "/" + to;
 
         var userRef = this.$firebase(new Firebase(userUrl));
@@ -123,7 +176,8 @@ var DataService = (function () {
         userRef = this.$firebase(new Firebase(userUrl));
         userRef.$add({
             amISender: true,
-            body: body
+            body: body,
+            sent: Date.now()
         });
         return userRef.$save();
     };
@@ -261,9 +315,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-            GalleryId: galleryId,
-            PhotoId: photoId
-        } }).success(function () {
+                GalleryId: galleryId,
+                PhotoId: photoId
+            } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -275,10 +329,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-            GalleryId: galleryId,
-            PhotoId: photoId,
-            Caption: caption
-        } }).success(function () {
+                GalleryId: galleryId,
+                PhotoId: photoId,
+                Caption: caption
+            } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();

@@ -1,5 +1,4 @@
 /// <reference path="IndexCtrl.ts" />
-/// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
 interface IGenerateScope extends IMainScope {
     generate:GenerateCtrl;
     ctrl:IndexCtrl;
@@ -50,10 +49,10 @@ class GenerateCtrl {
             messagesRef0.$save();
 
             var breederMessagesRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
-            breederMessagesRef.$child('Inbox');
+            breederMessagesRef.$child('inbox');
             breederMessagesRef.$save();
 
-            var breederMessagesRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages/Inbox"));
+            var breederMessagesRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages/inbox"));
 
             var messages:IMessage[] = this.GenerateMessages();
             var messages2:IMessage[] = this.GenerateMessages();
@@ -66,7 +65,9 @@ class GenerateCtrl {
             messages.forEach((message:IMessage)=> {
                 senderRef.$add({
                     amISender: (Math.random() < 0.5),
-                    body: message.Body});
+                    body: message.Body,
+                    sent: Firebase.ServerValue.TIMESTAMP
+                });
             })
             senderRef.$save();
             //////////////////////

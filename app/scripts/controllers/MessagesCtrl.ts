@@ -11,7 +11,9 @@ interface IMessagesScope extends IHomeScope {
 class MessagesCtrl {
 
     fireMessages;
-
+    reply:{
+        body:string
+    }
     corrUsers:string[];
     corrUsersFire:string[];
 
@@ -39,7 +41,7 @@ class MessagesCtrl {
                 DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
                     this.fireMessages = messages;
 
-                    var inbox = messages.Inbox;
+                    var inbox = messages.inbox;
                     this.corrUsersFire = _.keys(inbox);
 
                     this.corrUsers = _.map(this.corrUsersFire, (userFire) => {
@@ -63,13 +65,29 @@ class MessagesCtrl {
 
     }
 
+    Delete() {
+        this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUserFire).then(() => {
+            this.corrUsers.splice(this.selectedUserIndex, 1);
+            this.corrUsersFire.splice(this.selectedUserIndex, 1);
+            this.SetSelectedUser(0);
+        })
+    }
+
+    Send() {
+        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUserFire, this.reply.body).then(() => {
+            this.selectedUserMessages.push({amISender: true, body: this.reply.body, sent: Date.now().toString()})
+            this.reply.body = "";
+        })
+    }
+
     SetSelectedUser(arrIndex:number) {
         this.selectedUserIndex = arrIndex;
 
         this.selectedUserFire = this.corrUsersFire[this.selectedUserIndex];
         this.selectedUser = this.corrUsers[this.selectedUserIndex];
 
-        this.selectedUserMessages = _(this.fireMessages.Inbox[this.selectedUserFire]).values();
+        this.selectedUserMessages = _(this.fireMessages.inbox[this.selectedUserFire]).values();
+
     }
 
     ShowSuccess(note:string) {

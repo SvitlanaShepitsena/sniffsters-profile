@@ -1,11 +1,72 @@
 /// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 class DataService {
     fb:AngularFire;
+    url:string;
 
     constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase, public $filter) {
+        this.url = "https://torid-fire-6526.firebaseio.com/breeders/";
+    }
+
+    sendReply(userName:string, corrUserName:string, reply:string) {
+        userName = this.FireProcess(userName);
+        corrUserName = this.FireProcess(corrUserName);
+
+        var d = this.$q.defer();
+
+
+        var corrUserUrl = this.url + userName + "/messages/inbox/" + corrUserName;
+        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
+
+        var note = new Note();
+        note.amISender = true;
+        note.sent = Date.now().toString();
+        note.body = reply;
+        corrUserRef.$add(note);
+
+        d.resolve();
+
+        return d.promise;
+
+
+    }
+
+    deleteConversation(userName:string, corrUserName:string) {
+        userName = this.FireProcess(userName);
+        corrUserName = this.FireProcess(corrUserName);
+
+        var d = this.$q.defer();
+        var messagesUrl = this.url + userName + "/messages";
+        var messagesRef = this.$firebase(new Firebase(messagesUrl));
+
+        var trashRef = messagesRef.$child('trash');
+        var trashUserRef = trashRef.$child(corrUserName);
+        trashUserRef.$save();
+
+        var corrUserUrl = this.url + userName + "/messages/inbox/" + corrUserName;
+        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
+
+        corrUserRef.$on('value', (snapshot:any)=> {
+            var corrUserVal = snapshot.snapshot.value;
+            var keys = _.keys(corrUserVal);
+            var values = _.values(corrUserVal);
+
+            for (var i = 0; i < keys.length; i++) {
+                var value = values[i];
+                trashUserRef.$add(value);
+            }
+            corrUserRef.$remove();
+
+        })
+
+
+        d.resolve();
+
+        return d.promise;
+
 
     }
 
@@ -112,7 +173,7 @@ class DataService {
     sendNewMessage(from:string, to:string, body:string) {
 
         to = this.FireProcess(to);
-        var inboxUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages/Inbox/";
+        var inboxUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages/inbox/";
         var userUrl = inboxUrl + "/" + to;
 
         var userRef = this.$firebase(new Firebase(userUrl));
@@ -130,11 +191,13 @@ class DataService {
         userRef.$add(
             {
                 amISender: true,
-                body: body
+                body: body,
+                sent: Date.now()
             }
         )
         return userRef.$save();
     }
+
 
     getProfile(id:string) {
 
