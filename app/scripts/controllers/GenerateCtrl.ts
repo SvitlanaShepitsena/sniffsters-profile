@@ -66,7 +66,7 @@ class GenerateCtrl {
                 senderRef.$add({
                     amISender: (Math.random() < 0.5),
                     body: message.Body,
-                    sent: Firebase.ServerValue.TIMESTAMP
+                    sent: Date.now()
                 });
             })
             senderRef.$save();
