@@ -1,8 +1,8 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 
-interface ITrashScope extends IMainScope {
+interface ITrashScope extends IHomeScope {
     trash:TrashCtrl;
-    ctrl:IndexCtrl;
+    home:HomeCtrl;
 }
 class TrashCtrl {
 

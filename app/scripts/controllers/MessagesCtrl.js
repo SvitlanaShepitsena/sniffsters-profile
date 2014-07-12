@@ -19,12 +19,10 @@ var MessagesCtrl = (function () {
                 // an error occurred while attempting login
                 _this.ShowError(error.toString());
             } else if (user) {
-                DataService.getMessages($scope.home.IdFire).then(function (messages) {
+                DataService.getMessages($scope.home.IdFire, true).then(function (messages) {
                     _this.fireMessages = messages;
 
-                    var inbox = messages.inbox;
-                    _this.corrUsersFire = _.keys(inbox);
-
+                    _this.corrUsersFire = _.keys(messages);
                     _this.corrUsers = _.map(_this.corrUsersFire, function (userFire) {
                         return userFire.toString().replace(/\(p\)/g, '.');
                     });

@@ -1,8 +1,8 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 
-interface I#name#Scope extends IMainScope {
+interface I#name#Scope extends IHomeScope {
     #lname#:#name#Ctrl;
-    ctrl:IndexCtrl;
+    home:HomeCtrl;
 }
 class #name#Ctrl {
 

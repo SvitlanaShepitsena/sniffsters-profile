@@ -236,10 +236,11 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.getMessages = function (id) {
+    DataService.prototype.getMessages = function (userName, isInbox) {
         var d = this.$q.defer();
+        var folder = isInbox ? 'inbox' : 'trash';
 
-        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + id + "/messages"));
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/messages/" + folder));
 
         fireMessages.$on('value', function (snapshot) {
             var messages = snapshot.snapshot.value;

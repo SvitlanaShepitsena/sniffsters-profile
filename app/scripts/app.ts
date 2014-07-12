@@ -38,7 +38,6 @@
 /// <reference path="controllers/RegisterCtrl.ts" />
 /// <reference path="controllers/MessagesCtrl.ts" />
 /// <reference path="controllers/CreateMessageCtrl.ts" />
-/// <reference path="controllers/TrashCtrl.ts" />
 /// <reference path="directives/newMessage.ts" />
 /// <reference path="directives/setter.ts" />
 /// <reference path="directives/setterIshome.ts" />
@@ -49,6 +48,7 @@
 /// <reference path="directives/currentLitters.ts" />
 /// <reference path="directives/cover.ts" />
 /// <reference path="controllers/FollowersCtrl.ts" />
+/// <reference path="controllers/TrashCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -129,8 +129,8 @@ profile.controller("LoginCtrl", LoginCtrl);
 profile.controller("RegisterCtrl", RegisterCtrl);
 profile.controller("user.messagesCtrl", MessagesCtrl);
 profile.controller("CreateMessageCtrl", CreateMessageCtrl);
-profile.controller("TrashCtrl", TrashCtrl);
 profile.controller("FollowersCtrl", FollowersCtrl);
+profile.controller("TrashCtrl", TrashCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -308,6 +308,11 @@ profile.config(
                 url: "/followers",
                 controller: "FollowersCtrl",
                 templateUrl: "../views/followers.html"
+            })
+            .state("trash", {
+                url: "/trash",
+                controller: "TrashCtrl",
+                templateUrl: "../views/trash.html"
             })
 //#state
     });

@@ -38,12 +38,10 @@ class MessagesCtrl {
             } else if (user) {
 
 
-                DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
+                DataService.getMessages($scope.home.IdFire, true).then((messages:any)=> {
                     this.fireMessages = messages;
 
-                    var inbox = messages.inbox;
-                    this.corrUsersFire = _.keys(inbox);
-
+                    this.corrUsersFire = _.keys(messages);
                     this.corrUsers = _.map(this.corrUsersFire, (userFire) => {
                         return userFire.toString().replace(/\(p\)/g, '.');
                     });
