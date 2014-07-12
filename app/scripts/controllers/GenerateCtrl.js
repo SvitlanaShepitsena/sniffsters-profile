@@ -89,7 +89,6 @@ var GenerateCtrl = (function () {
             follower3Ref.$add('1');
             followersRef.$save();
             followingsRef.$add('1');
-
             breederRef.$save();
         });
 
