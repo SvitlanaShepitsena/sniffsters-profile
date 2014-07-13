@@ -1593,6 +1593,8 @@
 ***********************/
 .displayMessageSender {
     text-align: center;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
 }
 
 .userMessageActive,
@@ -1640,6 +1642,21 @@
 /**********************
   Messages Main Content
 ***********************/
+.li-message-body {
+    padding-top: 10px;
+}
+
+.th-sender {
+    width: 70px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.p-message-body {
+    margin-top: 5px;
+}
+
 .col-messages {
     background-color: #fcf9f9;
     padding-bottom: 15px;
@@ -1666,10 +1683,16 @@
 }
 
 .messagesScrollBox {
+    font-size: 12px;
     max-width: 100%;
     overflow: hidden;
     position: relative;
     height: auto !important;
+}
+
+.messagesScrollBox hr {
+    margin-top: 10px;
+    margin-bottom: 0px;
 }
 
 .messagesScrollContent {
