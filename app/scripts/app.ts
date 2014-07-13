@@ -309,11 +309,8 @@ profile.config(
                 controller: "FollowersCtrl",
                 templateUrl: "../views/followers.html"
             })
-            .state("trash", {
-                url: "/trash",
-                controller: "TrashCtrl",
-                templateUrl: "../views/trash.html"
-            })
+
+
 //#state
     });
 

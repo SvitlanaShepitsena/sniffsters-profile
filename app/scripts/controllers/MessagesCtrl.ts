@@ -38,13 +38,9 @@ class MessagesCtrl {
             } else if (user) {
 
 
-                DataService.getMessages($scope.home.IdFire, true).then((messages:any)=> {
+                DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
                     this.fireMessages = messages;
 
-                    this.corrUsersFire = _.keys(messages);
-                    this.corrUsers = _.map(this.corrUsersFire, (userFire) => {
-                        return userFire.toString().replace(/\(p\)/g, '.');
-                    });
 
                     if (this.selectedUser == null) {
                         this.selectedUserIndex = 0;
@@ -72,10 +68,10 @@ class MessagesCtrl {
     }
 
     Send() {
-        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUserFire, this.reply.body).then(() => {
-            this.selectedUserMessages.push({amISender: true, body: this.reply.body, sent: Date.now().toString()})
-            this.reply.body = "";
-        })
+//        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUserFire, this.reply.body).then(() => {
+//            this.selectedUserMessages.push({amISender: true, body: this.reply.body, sent: Date.now().toString()})
+//            this.reply.body = "";
+//        })
     }
 
     SetSelectedUser(arrIndex:number) {

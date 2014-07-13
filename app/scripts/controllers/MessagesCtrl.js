@@ -19,13 +19,8 @@ var MessagesCtrl = (function () {
                 // an error occurred while attempting login
                 _this.ShowError(error.toString());
             } else if (user) {
-                DataService.getMessages($scope.home.IdFire, true).then(function (messages) {
+                DataService.getMessages($scope.home.IdFire).then(function (messages) {
                     _this.fireMessages = messages;
-
-                    _this.corrUsersFire = _.keys(messages);
-                    _this.corrUsers = _.map(_this.corrUsersFire, function (userFire) {
-                        return userFire.toString().replace(/\(p\)/g, '.');
-                    });
 
                     if (_this.selectedUser == null) {
                         _this.selectedUserIndex = 0;
@@ -37,7 +32,6 @@ var MessagesCtrl = (function () {
             }
         });
     }
-
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUserFire).then(function () {
@@ -48,11 +42,10 @@ var MessagesCtrl = (function () {
     };
 
     MessagesCtrl.prototype.Send = function () {
-        var _this = this;
-        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUserFire, this.reply.body).then(function () {
-            _this.selectedUserMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now().toString() });
-            _this.reply.body = "";
-        });
+        //        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUserFire, this.reply.body).then(() => {
+        //            this.selectedUserMessages.push({amISender: true, body: this.reply.body, sent: Date.now().toString()})
+        //            this.reply.body = "";
+        //        })
     };
 
     MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {

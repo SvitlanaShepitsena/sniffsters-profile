@@ -1,4 +1,5 @@
 /// <reference path="IndexCtrl.ts" />
+/// <reference path="../models/IBreederProfile.ts" />
 interface IGenerateScope extends IMainScope {
     generate:GenerateCtrl;
     ctrl:IndexCtrl;
@@ -45,44 +46,12 @@ class GenerateCtrl {
             })
 
 
-            var messagesRef0 = breederRef.$child('messages');
-            messagesRef0.$save();
+            var messagesRef = breederRef.$child('messages');
+            var notes:INote[] = this.GenerateMessages();
 
-            var breederMessagesRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
-            breederMessagesRef.$child('inbox');
-            breederMessagesRef.$save();
-
-            var breederMessagesRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages/inbox"));
-
-            var messages:IMessage[] = this.GenerateMessages();
-            var messages2:IMessage[] = this.GenerateMessages();
-
-            var sender = messages[0].Sender.replace(/\./g, '(p)');
-            var sender2 = "breeder3@gmail(p)com";
-
-            ///////////////////////
-            var senderRef = breederMessagesRef.$child(sender);
-            messages.forEach((message:IMessage)=> {
-                senderRef.$add({
-                    amISender: (Math.random() < 0.5),
-                    body: message.Body,
-                    sent: Date.now()
-                });
+            notes.forEach((note:INote)=> {
+                messagesRef.$add(note);
             })
-            senderRef.$save();
-            //////////////////////
-
-
-///////////////////////
-            var senderRef = breederMessagesRef.$child(sender2);
-            messages2.forEach((message:IMessage)=> {
-                senderRef.$add({
-                    amISender: (Math.random() < 0.5),
-                    body: "Breeder 3 writing"});
-            })
-            senderRef.$save();
-            //////////////////////
-
 
             var followersRef = breederRef.$child('followers');
             var followingsRef = breederRef.$child('followings');
@@ -167,31 +136,22 @@ class GenerateCtrl {
         return feedbacks;
     }
 
-    GenerateMessages():IMessage[] {
+    GenerateMessages():INote[] {
+        var notes:INote[] = [];
 
-        var messages:IMessage[] = [];
-        var message1 = new Message();
-        message1.Sender = "breeder2@gmail.com";
-        message1.Body = "Hello Breeder 1 from Breeder 2";
+        for (var i = 1; i <= 5; i++) {
 
-        var message2 = new Message();
-        message2.Sender = "breeder2@gmail.com";
-        message2.Body = "Hello Breeder 1. Hope everything is well.";
+            var note = new Note();
+            note.amISender = (Math.random() < 0.5);
+            note.isTrash = false;
+            note.userName = "breeder" + i + "gmail(p)com";
+            note.body = "Hello, This is breeder" + 1;
+            note.sent = Date.now();
+            notes.push(note);
+        }
 
-        var message3 = new Message();
-        message3.Sender = "breeder2@gmail.com";
-        message3.Body = "Hello Breeder 1. How are your dogs?";
+        return notes;
 
-        var message4 = new Message();
-        message4.Sender = "breeder2@gmail.com";
-        message4.Body = "Where have you been?";
-
-        messages.push(message1);
-        messages.push(message2);
-        messages.push(message3);
-        messages.push(message4);
-
-        return messages;
     }
 
 

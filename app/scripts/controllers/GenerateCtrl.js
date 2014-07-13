@@ -1,4 +1,5 @@
 /// <reference path="IndexCtrl.ts" />
+/// <reference path="../models/IBreederProfile.ts" />
 var GenerateCtrl = (function () {
     function GenerateCtrl($scope, $firebase, $state, toastr, DataService) {
         var _this = this;
@@ -41,43 +42,13 @@ var GenerateCtrl = (function () {
                 galleriesRef.$save();
             });
 
-            var messagesRef0 = breederRef.$child('messages');
-            messagesRef0.$save();
+            var messagesRef = breederRef.$child('messages');
+            var notes = _this.GenerateMessages();
 
-            var breederMessagesRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages"));
-            breederMessagesRef.$child('inbox');
-            breederMessagesRef.$save();
-
-            var breederMessagesRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/messages/inbox"));
-
-            var messages = _this.GenerateMessages();
-            var messages2 = _this.GenerateMessages();
-
-            var sender = messages[0].Sender.replace(/\./g, '(p)');
-            var sender2 = "breeder3@gmail(p)com";
-
-            ///////////////////////
-            var senderRef = breederMessagesRef.$child(sender);
-            messages.forEach(function (message) {
-                senderRef.$add({
-                    amISender: (Math.random() < 0.5),
-                    body: message.Body,
-                    sent: Date.now()
-                });
+            notes.forEach(function (note) {
+                messagesRef.$add(note);
             });
-            senderRef.$save();
 
-            //////////////////////
-            ///////////////////////
-            var senderRef = breederMessagesRef.$child(sender2);
-            messages2.forEach(function (message) {
-                senderRef.$add({
-                    amISender: (Math.random() < 0.5),
-                    body: "Breeder 3 writing" });
-            });
-            senderRef.$save();
-
-            //////////////////////
             var followersRef = breederRef.$child('followers');
             var followingsRef = breederRef.$child('followings');
 
@@ -152,29 +123,19 @@ var GenerateCtrl = (function () {
     };
 
     GenerateCtrl.prototype.GenerateMessages = function () {
-        var messages = [];
-        var message1 = new Message();
-        message1.Sender = "breeder2@gmail.com";
-        message1.Body = "Hello Breeder 1 from Breeder 2";
+        var notes = [];
 
-        var message2 = new Message();
-        message2.Sender = "breeder2@gmail.com";
-        message2.Body = "Hello Breeder 1. Hope everything is well.";
+        for (var i = 1; i <= 5; i++) {
+            var note = new Note();
+            note.amISender = (Math.random() < 0.5);
+            note.isTrash = false;
+            note.userName = "breeder" + i + "gmail(p)com";
+            note.body = "Hello, This is breeder" + 1;
+            note.sent = Date.now();
+            notes.push(note);
+        }
 
-        var message3 = new Message();
-        message3.Sender = "breeder2@gmail.com";
-        message3.Body = "Hello Breeder 1. How are your dogs?";
-
-        var message4 = new Message();
-        message4.Sender = "breeder2@gmail.com";
-        message4.Body = "Where have you been?";
-
-        messages.push(message1);
-        messages.push(message2);
-        messages.push(message3);
-        messages.push(message4);
-
-        return messages;
+        return notes;
     };
 
     GenerateCtrl.prototype.GenerateGalleries = function () {

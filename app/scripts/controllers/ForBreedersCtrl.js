@@ -8,7 +8,6 @@ var ForBreedersCtrl = (function () {
         $scope.forBreeders = this;
         $scope.home.hideMenu = false;
     }
-
     ForBreedersCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };

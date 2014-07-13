@@ -23,7 +23,7 @@ class DataService {
 
         var note = new Note();
         note.amISender = true;
-        note.sent = Date.now().toString();
+        note.sent = Date.now();
         note.body = reply;
         corrUserRef.$add(note);
 
@@ -53,15 +53,76 @@ class DataService {
             var corrUserVal = snapshot.snapshot.value;
             var keys = _.keys(corrUserVal);
             var values = _.values(corrUserVal);
-
             for (var i = 0; i < keys.length; i++) {
                 var value = values[i];
                 trashUserRef.$add(value);
+                d.resolve();
             }
             corrUserRef.$remove();
 
         })
 
+
+        return d.promise;
+
+
+    }
+
+    recoverConversation(userName:string, corrUserName:string) {
+        userName = this.FireProcess(userName);
+        corrUserName = this.FireProcess(corrUserName);
+
+        var d = this.$q.defer();
+
+
+        var corrUserUrl = this.url + userName + "/messages/trash/" + corrUserName;
+        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
+
+
+        var messagesUrl = this.url + userName + "/messages/inbox";
+        var messagesRef = this.$firebase(new Firebase(messagesUrl));
+        var inboxUserRef = messagesRef.$child(corrUserName);
+//
+//
+        var notes:INote[] = [];
+
+        corrUserRef.$on('value', (snapshot:any)=> {
+            var corrUserVal = snapshot.snapshot.value;
+            var keys = _.keys(corrUserVal);
+            var values = _.values(corrUserVal);
+
+            for (var i = 0; i < keys.length; i++) {
+                var value = values[i];
+                var key = keys[i];
+//            console.log(value);
+                var note = new Note();
+                note.amISender = value.amISender;
+                note.body = value.body;
+                note.sent = value.sent.toString();
+                inboxUserRef.$add(note);
+            }
+            d.resolve();
+        })
+
+
+        return d.promise;
+
+
+    }
+
+    deleteForever(userName:string, corrUserName:string) {
+        userName = this.FireProcess(userName);
+        corrUserName = this.FireProcess(corrUserName);
+
+        var d = this.$q.defer();
+        var messagesUrl = this.url + userName + "/messages";
+        var messagesRef = this.$firebase(new Firebase(messagesUrl));
+
+
+        var corrUserUrl = this.url + userName + "/messages/trash/" + corrUserName;
+        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
+
+        corrUserRef.$remove();
 
         d.resolve();
 
@@ -258,16 +319,15 @@ class DataService {
         return d.promise;
     }
 
-    getMessages(userName:string, isInbox:boolean) {
+    getMessages(userName:string) {
         var d = this.$q.defer();
-        var folder = isInbox ? 'inbox' : 'trash';
 
-        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/messages/" + folder));
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/messages"));
 
         fireMessages.$on('value', (snapshot:any)=> {
             var messages = snapshot.snapshot.value;
 
-            d.resolve(messages);
+            d.resolve(this.$filter('orderByPriority')(messages));
         });
         return d.promise;
     }

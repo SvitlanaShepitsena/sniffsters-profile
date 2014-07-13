@@ -2,17 +2,18 @@
 	<h3 class="h-messages">Inbox</h3>
 	<!--<message-nav-menu></message-nav-menu>-->
 	<div ui-view class="messages-wrapper">
-		<div ng-show="messages.corrUsers.length==0">
-			<p class="well well-sm">You do not have any messages. </p>
-		</div>
-		<div class="col-xs-4 aside-messages" ng-show="messages.corrUsers.length>0">
+		<!--<div ng-show="messages.corrUsers.length==0">-->
+		<!--<p class="well well-sm">You do not have any messages. </p>-->
+		<!--</div>-->
+		<div class="col-xs-4 aside-messages">
+			<!--<div class="col-xs-4 aside-messages" ng-show="messages.corrUsers.length>0">-->
 			<div class="scrollBarAside">
 			<div class="scrollBoxAside">
 					<ul class="nav nav-pills nav-stacked messageUserList">
 						<li class="cursor-p" ng-click="messages.SetSelectedUser($index)"
-						    ng-repeat="u in messages.corrUsers">
+						    ng-repeat="u in messages.fireMessages">
 							<a href="" class="displayMessageSender"><i class="fa fa-user fa-md"></i>
-								{{u}}
+								{{u.userName}}
 							</a>
 						</li>
 					</ul>

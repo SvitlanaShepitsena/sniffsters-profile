@@ -1,4 +1,50 @@
-<div>
+<div class="row content-wrapper messages-container">
+	<!--<message-nav-menu></message-nav-menu>-->
+	<div ui-view>
+		<div ng-show="trash.corrUsers.length==0">
+			<p class="well well-sm">You do not have any deleted conversations. </p>
+		</div>
+		<div class="col-xs-4 aside-messages" ng-show="trash.corrUsers.length>0">
+			<div class="scrollBarAside">
+				<div class="scrollBoxAside">
+					<ul class="nav nav-pills nav-stacked messageUserList">
+						<li class="cursor-p" ng-click="trash.SetSelectedUser($index)"
+						    ng-repeat="u in trash.corrUsers">
+							<a href="" class="displayMessageSender"><i class="fa fa-user fa-md"></i>
+								{{u}}
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-8">
 
-	<!-- PUT DIRECTIVES BELOW -->
+
+			<div class="messagesContent" ng-show="trash.selectedUserMessages.length>0">
+				<ul class="list-unstyled">
+					<li class="shuffle-animation" ng-repeat="m in trash.selectedUserMessages">
+
+						<div class="row">
+							<div class="col-xs-2 userName" ng-hide="m.amISender">{{trash.selectedUser}}</div>
+							<div class="col-xs-2 userName" ng-show="m.amISender">Me</div>
+							<div class="col-xs-4 pull-right ">
+								<div class="messageDate text-muted">
+									{{m.sent | date: 'mediumDate'}}
+								</div>
+							</div>
+						</div>
+						<p>
+							{{m.body}}
+						</p>
+						<hr/>
+					</li>
+				</ul>
+				<button ng-click="trash.Delete()">Delete Forever</button>
+				<button ng-click="trash.Recover()">Recover</button>
+			</div>
+		</div>
+	</div>
 </div>
+
+

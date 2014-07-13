@@ -21,13 +21,19 @@ interface IBreederProfile {
 }
 interface INote {
     amISender:boolean;
+    isTrash:boolean;
+    userName:string;
     body:string;
-    sent:string;
+    sent:number;
 }
+
 class Note implements INote {
+
     amISender:boolean;
+    isTrash:boolean;
+    userName:string;
     body:string;
-    sent:string;
+    sent:number;
 
 }
 
