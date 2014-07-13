@@ -48,10 +48,10 @@
 /// <reference path="directives/currentLitters.ts" />
 /// <reference path="directives/cover.ts" />
 /// <reference path="controllers/FollowersCtrl.ts" />
-/// <reference path="controllers/TrashCtrl.ts" />
 /// <reference path="filters/SelectUsers.ts" />
 /// <reference path="filters/SelectedUserMessages.ts" />
 /// <reference path="filters/Unfire.ts" />
+/// <reference path="directives/svMessages.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
@@ -122,6 +122,7 @@ profile.directive("breederProfileNav", breederProfileNav);
 profile.directive("events", events);
 profile.directive("currentLitters", currentLitters);
 profile.directive("cover", cover);
+profile.directive("svMessages", svMessages);
 
 //#dir
 profile.directive("aboutInfo", aboutInfo);
@@ -146,7 +147,6 @@ profile.controller("RegisterCtrl", RegisterCtrl);
 profile.controller("user.messagesCtrl", MessagesCtrl);
 profile.controller("CreateMessageCtrl", CreateMessageCtrl);
 profile.controller("FollowersCtrl", FollowersCtrl);
-profile.controller("TrashCtrl", TrashCtrl);
 
 //#ctrl
 // TODO: Implement filter
@@ -267,8 +267,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/createMessage.html"
     }).state("user.profile.messages.trash", {
         url: "/trash",
-        controller: "TrashCtrl",
-        templateUrl: "../views/trash.html"
+        templateUrl: "../views/messages-trash.html"
     }).state("user.profile.followings", {
         url: "/followings",
         templateUrl: "../views/followings.html"

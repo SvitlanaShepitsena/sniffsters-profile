@@ -51,6 +51,7 @@
 /// <reference path="filters/SelectUsers.ts" />
 /// <reference path="filters/SelectedUserMessages.ts" />
 /// <reference path="filters/Unfire.ts" />
+/// <reference path="directives/svMessages.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -124,6 +125,7 @@ profile.directive("breederProfileNav", breederProfileNav);
 profile.directive("events", events);
 profile.directive("currentLitters", currentLitters);
 profile.directive("cover", cover);
+profile.directive("svMessages", svMessages);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -312,8 +314,7 @@ profile.config(
             })
             .state("user.profile.messages.trash", {
                 url: "/trash",
-                controller: "TrashCtrl",
-                templateUrl: "../views/trash.html"
+                templateUrl: "../views/messages-trash.html"
             })
             .state("user.profile.followings", {
                 url: "/followings",

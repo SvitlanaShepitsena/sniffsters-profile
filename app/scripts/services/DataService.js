@@ -11,6 +11,7 @@ var DataService = (function () {
         this.$filter = $filter;
         this.url = "https://torid-fire-6526.firebaseio.com/breeders/";
     }
+
     DataService.prototype.sendReply = function (userName, corrUserName, reply) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
@@ -56,6 +57,7 @@ var DataService = (function () {
 
         return d.promise;
     };
+
     DataService.prototype.recoverConversation = function (userName, corrUserName) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
@@ -79,6 +81,7 @@ var DataService = (function () {
 
         return d.promise;
     };
+
     DataService.prototype.deleteForever = function (userName, corrUserName) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
@@ -93,14 +96,10 @@ var DataService = (function () {
             allNotes.push(notesRef[key]);
         });
         var notes = _.where(allNotes, { isTrash: true, userName: corrUserName });
-
         notes.$remove();
         notesRef.$save();
         d.resolve();
 
-        //        console.log(notes);
-        //        var messages:INote[] = (messagesUrl);
-        //        console.log(messages);
         return d.promise;
     };
 
@@ -357,9 +356,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -371,10 +370,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-                GalleryId: galleryId,
-                PhotoId: photoId,
-                Caption: caption
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId,
+            Caption: caption
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
