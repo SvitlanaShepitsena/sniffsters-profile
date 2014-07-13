@@ -1,5 +1,5 @@
 <div class="myDetailsContWrapper">
-	<div ng-show="home.isOwner" class="aside-header-wrapper">
+	<div ng-show="home.isOwner" class="aside-breeder-header">
 	<h3 class="text-center sniff-head-info">MY DETAILS
 			<button class="btn btn-save-details right"
 			        ng-show="!IsEdit"
@@ -12,27 +12,33 @@
 			</button>
 		</h3>
 	</div>
-	<div ng-hide="home.isOwner" class="aside-header-wrapper">
+	<div ng-hide="home.isOwner" class="aside-user-header">
 		<ul class="list-inline text-center">
 			<li>
 				<p class="text-center" ng-show="home.FireUname">
-					<button class="btn btn-default" ng-hide="home.Followings.indexOf(ctrl.BreederProfile.Email)>-1"
+					<button class="btn btn-link sniff-head-sm"
+					        ng-hide="home.Followings.indexOf(ctrl.BreederProfile.Email)>-1"
 					        role="button" ng-click="home.followUser(home.FireUname,ctrl.BreederProfile.Email)">
-						Follow +
+						Follow
 					</button>
 
-					<button class="btn btn-default" ng-show="home.Followings.indexOf(ctrl.BreederProfile.Email)>-1"
+					<button class="btn btn-link sniff-head-sm"
+					        ng-show="home.Followings.indexOf(ctrl.BreederProfile.Email)>-1"
 					        role="button" ng-click="home.unFollowUser(home.FireUname,ctrl.BreederProfile.Email)">
-						UnFollow -
+						UnFollow
 					</button>
 
 				</p>
 			</li>
 			<li>
-				<a class="sniff-head-sm" href="#">share</a>
+				<button class="btn btn-link sniff-head-sm">
+					Share
+				</button>
 			</li>
 			<li>
-				<a class="sniff-head-sm" href="#">CONTACT</a>
+				<button class="btn btn-link sniff-head-sm">
+					Contact
+				</button>
 			</li>
 		</ul>
 	</div>

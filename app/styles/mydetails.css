@@ -103,7 +103,11 @@
     padding: 2px 5px;
 }
 
-.aside-header-wrapper {
+.aside-breeder-header {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.aside-user-header {
+    padding-top: 10px;
 }
