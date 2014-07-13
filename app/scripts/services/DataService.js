@@ -24,6 +24,7 @@ var DataService = (function () {
         note.amISender = true;
         note.sent = Date.now();
         note.body = reply;
+
         note.isTrash = false;
         note.userName = corrUserName;
         corrUserRef.$add(note);
@@ -195,31 +196,6 @@ var DataService = (function () {
 
         d.resolve();
         return d.promise;
-    };
-
-    DataService.prototype.sendNewMessage = function (from, to, body) {
-        var _this = this;
-        to = this.FireProcess(to);
-        var inboxUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages/inbox/";
-        var userUrl = inboxUrl + "/" + to;
-
-        var userRef = this.$firebase(new Firebase(userUrl));
-
-        userRef.$on('value', function (snapshot) {
-            var user = snapshot.snapshot.value;
-            if (_.isEmpty(user)) {
-                var inboxRef = _this.$firebase(new Firebase(inboxUrl));
-                inboxRef.$child(to);
-                inboxRef.$save();
-            }
-        });
-        userRef = this.$firebase(new Firebase(userUrl));
-        userRef.$add({
-            amISender: true,
-            body: body,
-            sent: Date.now()
-        });
-        return userRef.$save();
     };
 
     DataService.prototype.getProfile = function (id) {

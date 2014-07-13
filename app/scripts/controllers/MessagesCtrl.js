@@ -51,7 +51,6 @@ var MessagesCtrl = (function () {
         var _this = this;
         this.DataService.deleteForever(this.$scope.home.FireUname, this.selectedUser).then(function () {
             _this.fireMessages = _.without(_this.fireMessages, _.findWhere(_this.fireMessages, { isTrash: true, userName: _this.selectedUser }));
-            _this.SetSelectedUser(0);
         });
     };
 
@@ -60,6 +59,15 @@ var MessagesCtrl = (function () {
         this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUser, this.reply.body).then(function () {
             _this.fireMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now(), isTrash: false, userName: _this.selectedUser });
             _this.reply.body = "";
+        });
+    };
+    MessagesCtrl.prototype.SendNewMessage = function (to, body) {
+        var _this = this;
+        this.DataService.sendReply(this.$scope.home.FireUname, to, body).then(function () {
+            _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, userName: _this.$scope.home.FireProcess(to) });
+            _this.$state.go('^');
+            _this.ShowSuccess('Your message has been sent!!');
+            //            this.reply.body = "";
         });
     };
 

@@ -64,7 +64,6 @@ class MessagesCtrl {
     DeleteForever() {
         this.DataService.deleteForever(this.$scope.home.FireUname, this.selectedUser).then(() => {
             this.fireMessages = _.without(this.fireMessages, _.findWhere(this.fireMessages, {isTrash: true, userName: this.selectedUser}));
-            this.SetSelectedUser(0);
         })
     }
 
@@ -72,6 +71,15 @@ class MessagesCtrl {
         this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUser, this.reply.body).then(() => {
             this.fireMessages.push({amISender: true, body: this.reply.body, sent: Date.now(), isTrash: false, userName: this.selectedUser});
             this.reply.body = "";
+        })
+    }
+
+    SendNewMessage(to:string, body:string) {
+        this.DataService.sendReply(this.$scope.home.FireUname, to, body).then(() => {
+            this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, userName: this.$scope.home.FireProcess(to)});
+            this.$state.go('^');
+            this.ShowSuccess('Your message has been sent!!');
+//            this.reply.body = "";
         })
     }
 

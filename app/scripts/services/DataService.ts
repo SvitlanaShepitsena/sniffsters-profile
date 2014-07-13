@@ -25,6 +25,7 @@ class DataService {
         note.amISender = true;
         note.sent = Date.now();
         note.body = reply;
+
         note.isTrash = false;
         note.userName = corrUserName;
         corrUserRef.$add(note);
@@ -213,33 +214,6 @@ class DataService {
         return d.promise;
     }
 
-    sendNewMessage(from:string, to:string, body:string) {
-
-        to = this.FireProcess(to);
-        var inboxUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + from + "/messages/inbox/";
-        var userUrl = inboxUrl + "/" + to;
-
-        var userRef = this.$firebase(new Firebase(userUrl));
-
-
-        userRef.$on('value', (snapshot:any)=> {
-            var user = snapshot.snapshot.value;
-            if (_.isEmpty(user)) {
-                var inboxRef = this.$firebase(new Firebase(inboxUrl));
-                inboxRef.$child(to);
-                inboxRef.$save();
-            }
-        });
-        userRef = this.$firebase(new Firebase(userUrl));
-        userRef.$add(
-            {
-                amISender: true,
-                body: body,
-                sent: Date.now()
-            }
-        )
-        return userRef.$save();
-    }
 
 
     getProfile(id:string) {
