@@ -28,6 +28,7 @@ var MessagesCtrl = (function () {
             }
         });
     }
+
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUser).then(function () {

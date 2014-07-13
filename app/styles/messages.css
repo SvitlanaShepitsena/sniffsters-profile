@@ -1673,7 +1673,9 @@
 .messagesScrollBar {
     overflow: auto !important;
     width: 100% !important;
-    height: 460px;
+    height: 440px;
+    margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 .messagesScrollBarTrash {
