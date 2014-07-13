@@ -155,6 +155,7 @@ profile.controller("FollowersCtrl", FollowersCtrl);
 profile.value("toastr", toastr)
 profile.service("DataService", DataService);
 
+
 profile.config(
     ($stateProvider, $urlRouterProvider) => {
         $urlRouterProvider.otherwise("/");

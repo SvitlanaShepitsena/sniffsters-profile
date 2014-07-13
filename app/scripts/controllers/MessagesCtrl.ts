@@ -14,7 +14,7 @@ class MessagesCtrl {
     reply:{
         body:string
     }
-
+    isTrash:boolean;
     selectedUser:string;
 
     selectedUserIndex:number;
@@ -35,11 +35,8 @@ class MessagesCtrl {
 
                 DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
                     this.fireMessages = messages;
+                    this.SetSelectedUser(0);
 
-                    if (this.selectedUser == null) {
-                        this.selectedUserIndex = 0;
-                        this.SetSelectedUser(this.selectedUserIndex);
-                    }
                 })
             } else {
             }
@@ -71,10 +68,14 @@ class MessagesCtrl {
         this.selectedUserIndex = arrIndex;
 
         var userNames:string[] = _.map(_.uniq(_.pluck(_.filter(this.fireMessages, (note:INote)=> {
-            return note.isTrash === false;
+            return note.isTrash === this.isTrash;
         }), "userName")), (userName:string)=> {
             return userName;
         });
+        console.log(userNames);
+        console.log(this.isTrash);
+
+
         this.selectedUser = userNames[this.selectedUserIndex];
     }
 
