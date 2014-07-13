@@ -9,14 +9,11 @@
 				<ul class="nav nav-pills nav-stacked messageUserList">
 					<li class="cursor-p text-center" ng-click="messages.SetSelectedUser($index)"
 					    ng-repeat="u in messages.fireMessages | selectUsers:isTrash">
-
-						<img class="thumbnail th-sender img-responsive" src="../../imgdir/default/myimg/mainpic.jpg"
-						     alt="">
-
 						<a href="" class="displayMessageSender">
-						{{u}}
+							<img class="thumbnail th-sender img-responsive" src="../../imgdir/default/myimg/mainpic.jpg"
+							     alt="">
+							{{u}}
 						</a>
-
 					</li>
 				</ul>
 			</div>
@@ -41,7 +38,7 @@
 							</li>
 						</ul>
 						<p class="p-message-body">
-						{{m.body}}
+							{{m.body}}
 						</p>
 						<hr/>
 					</li>
@@ -54,7 +51,7 @@
 		</div>
 		<div ng-hide="isTrash" class="">
 			<h4 class="h4-reply">
-			Write a reply....</h4>
+				Write a reply....</h4>
 
 			<form action="" role="form">
 
