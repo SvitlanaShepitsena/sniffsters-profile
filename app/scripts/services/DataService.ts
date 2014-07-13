@@ -102,7 +102,10 @@ class DataService {
             allNotes.push(notesRef[key]);
         })
         var notes = _.where(allNotes, {isTrash: true, userName: corrUserName});
-        notes.$remove();
+        notes.forEach((note)=> {
+            note.$remove();
+        })
+
         notesRef.$save();
         d.resolve();
 
