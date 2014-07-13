@@ -10,7 +10,8 @@
 					<li class="cursor-p text-center" ng-click="messages.SetSelectedUser($index)"
 					    ng-repeat="u in messages.fireMessages | selectUsers:isTrash">
 						<a href="" class="displayMessageSender">
-							<img class="thumbnail th-sender img-responsive" src="../../imgdir/default/myimg/mainpic.jpg"
+							<img class="thumbnail th-sender img-responsive"
+							     ng-src="../../imgdir/{{u}}/myimg/mainpic.jpg"
 							     alt="">
 							{{u}}
 						</a>

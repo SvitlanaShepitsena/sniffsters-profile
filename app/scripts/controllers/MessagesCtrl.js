@@ -62,6 +62,7 @@ var MessagesCtrl = (function () {
             _this.reply.body = "";
         });
     };
+
     MessagesCtrl.prototype.SendNewMessage = function (to, body) {
         var _this = this;
         this.DataService.sendReply(this.$scope.home.FireUname, to, body).then(function () {
