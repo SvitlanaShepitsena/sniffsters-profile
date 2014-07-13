@@ -90,13 +90,11 @@ var DataService = (function () {
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
         var keys = notesRef.$getIndex();
-        var allNotes = [];
         keys.forEach(function (key) {
-            allNotes.push(notesRef[key]);
-        });
-        var notes = _.where(allNotes, { isTrash: true, userName: corrUserName });
-        notes.forEach(function (note) {
-            note.$remove();
+            var value = notesRef[key];
+            if (value.isTrash === true && value.userName === corrUserName) {
+                notesRef.$remove(key);
+            }
         });
 
         notesRef.$save();

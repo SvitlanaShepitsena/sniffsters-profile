@@ -31,7 +31,19 @@ var MessagesCtrl = (function () {
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUser).then(function () {
-            _this.fireMessages = _.without(_this.fireMessages, _.findWhere(_this.fireMessages, { isTrash: false, userName: _this.selectedUser }));
+            _this.SetSelectedUser(0);
+            _.where(_this.fireMessages, { isTrash: false, userName: _this.selectedUser }).forEach(function (message) {
+                message.isTrash = true;
+            });
+        });
+    };
+
+    MessagesCtrl.prototype.Recover = function () {
+        var _this = this;
+        this.DataService.recoverConversation(this.$scope.home.FireUname, this.selectedUser).then(function () {
+            _.where(_this.fireMessages, { isTrash: true, userName: _this.selectedUser }).forEach(function (message) {
+                message.isTrash = false;
+            });
             _this.SetSelectedUser(0);
         });
     };
@@ -39,7 +51,7 @@ var MessagesCtrl = (function () {
     MessagesCtrl.prototype.DeleteForever = function () {
         var _this = this;
         this.DataService.deleteForever(this.$scope.home.FireUname, this.selectedUser).then(function () {
-            _this.fireMessages = _.without(_this.fireMessages, _.findWhere(_this.fireMessages, { isTrash: false, userName: _this.selectedUser }));
+            _this.fireMessages = _.without(_this.fireMessages, _.findWhere(_this.fireMessages, { isTrash: true, userName: _this.selectedUser }));
             _this.SetSelectedUser(0);
         });
     };
