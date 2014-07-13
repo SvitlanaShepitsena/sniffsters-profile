@@ -7,7 +7,8 @@
 		<div class="scrollBarAside">
 			<div class="scrollBoxAside">
 				<ul class="nav nav-pills nav-stacked messageUserList">
-					<li class="cursor-p text-center" ng-click="messages.SetSelectedUser($index)"
+					<li ng-class="{active:messages.selectedUserIndex==$index}" class="cursor-p text-center"
+					    ng-click="messages.SetSelectedUser($index)"
 					    ng-repeat="u in messages.fireMessages | selectUsers:isTrash">
 						<a href="" class="displayMessageSender">
 							<img class="thumbnail th-sender img-responsive"
@@ -25,10 +26,9 @@
 			<div class="messagesScrollBox">
 				<ul class="list-unstyled">
 					<li class="li-message-body"
-					    ng-repeat="m in messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser">
+					    ng-repeat="m in messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser|orderBy:'sent':true">
 						<ul class="list-inline">
-							<li class="userName" ng-hide="m.amISender">{{messages.selectedUser |
-								unfire}}
+							<li class="userName" ng-hide="m.amISender">{{messages.selectedUser | unfire}}
 							</li>
 							<li class="userName" ng-show="m.amISender">Me</li>
 							<li class="pull-right ">
