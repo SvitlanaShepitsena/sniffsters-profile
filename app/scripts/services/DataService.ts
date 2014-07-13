@@ -97,13 +97,11 @@ class DataService {
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
         var keys = notesRef.$getIndex();
-        var allNotes = [];
         keys.forEach((key)=> {
-            allNotes.push(notesRef[key]);
-        })
-        var notes = _.where(allNotes, {isTrash: true, userName: corrUserName});
-        notes.forEach((note)=> {
-            note.$remove();
+            var value = notesRef[key];
+            if (value.isTrash === true && value.userName === corrUserName) {
+                notesRef.$remove(key);
+            }
         })
 
         notesRef.$save();
@@ -304,6 +302,7 @@ class DataService {
     }
 
     getMessages(userName:string) {
+
         var d = this.$q.defer();
 
         var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/messages"));
