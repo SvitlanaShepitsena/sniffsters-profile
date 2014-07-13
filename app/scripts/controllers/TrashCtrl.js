@@ -45,6 +45,7 @@ var TrashCtrl = (function () {
             _this.SetSelectedUser(0);
         });
     };
+
     TrashCtrl.prototype.Recover = function () {
         var _this = this;
         this.DataService.recoverConversation(this.$scope.home.FireUname, this.selectedUserFire).then(function () {
