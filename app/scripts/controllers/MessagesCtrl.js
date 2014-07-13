@@ -22,11 +22,7 @@ var MessagesCtrl = (function () {
             } else if (user) {
                 DataService.getMessages($scope.home.IdFire).then(function (messages) {
                     _this.fireMessages = messages;
-
-                    if (_this.selectedUser == null) {
-                        _this.selectedUserIndex = 0;
-                        _this.SetSelectedUser(_this.selectedUserIndex);
-                    }
+                    _this.SetSelectedUser(0);
                 });
             } else {
             }
@@ -57,13 +53,17 @@ var MessagesCtrl = (function () {
     };
 
     MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {
+        var _this = this;
         this.selectedUserIndex = arrIndex;
 
         var userNames = _.map(_.uniq(_.pluck(_.filter(this.fireMessages, function (note) {
-            return note.isTrash === false;
+            return note.isTrash === _this.isTrash;
         }), "userName")), function (userName) {
             return userName;
         });
+        console.log(userNames);
+        console.log(this.isTrash);
+
         this.selectedUser = userNames[this.selectedUserIndex];
     };
 
