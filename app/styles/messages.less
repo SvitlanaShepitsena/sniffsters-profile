@@ -40,10 +40,12 @@
   opacity: 1;
 }
 
-.messages-container {
+.m-container {
+  margin-bottom: -15px;
   a {
     font-size: 12px !important;
   }
+
   p {
     font-size: 12px !important;
   }
@@ -130,13 +132,19 @@
   background-color: #ffffff;
 }
 
+.h-messages {
+  padding-left: 20px;
+  margin-top: 0px;
+  color: @color-info !important;
+}
+
 .aside-messages {
-  padding-right: 1px;
-  padding-left: 1px !important;
+  padding-right: 0px;
+  padding-left: 0px !important;
 }
 
 .messageUserList {
-  background-color: #F5F5F5;
+  background-color: @colorLightBackground;
   min-height: 760px;
   margin-bottom: 1px;
 }
@@ -158,11 +166,19 @@
 /**********************
   Messages Main Content
 ***********************/
+.col-messages {
+  background-color: @colorLightBackground;
+  padding-bottom: 15px;
+}
+
+.messages-wrapper {
+  border-top: 1px #ebebeb solid !important;
+}
 
 .messagesScrollBar {
   .scrollBar();
   //constrain the height of section
-  height: 360px;
+  height: 460px;
 }
 
 .messagesScrollBarTrash {
@@ -217,17 +233,13 @@
   margin-top: 1px;
 }
 
-.txtarea-write-reply {
-  max-width: none;
-}
-
 .form-group-reply {
   margin-top: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .btn-send-container {
-  margin-top: 10px;
+  padding-bottom: 10px;
 }
 
 .btn-send {
@@ -239,9 +251,6 @@
   .btn-custom-padding();
 }
 
-.replyBackground {
-  background-color: #e8e8e8;
-}
 
 /**********************
  Cteate a Message

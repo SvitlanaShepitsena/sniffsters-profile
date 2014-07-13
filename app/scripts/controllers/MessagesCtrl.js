@@ -37,6 +37,7 @@ var MessagesCtrl = (function () {
             }
         });
     }
+
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUserFire).then(function () {
@@ -60,7 +61,7 @@ var MessagesCtrl = (function () {
         this.selectedUserFire = this.corrUsersFire[this.selectedUserIndex];
         this.selectedUser = this.corrUsers[this.selectedUserIndex];
 
-        this.selectedUserMessages = _(this.fireMessages.inbox[this.selectedUserFire]).values();
+        this.selectedUserMessages = _(this.fireMessages[this.selectedUserFire]).values();
     };
 
     MessagesCtrl.prototype.ShowSuccess = function (note) {

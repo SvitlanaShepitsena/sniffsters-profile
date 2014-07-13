@@ -1,12 +1,13 @@
-<div class="row content-wrapper messages-container">
+<div class="row m-container">
+	<h3 class="h-messages">Inbox</h3>
 	<!--<message-nav-menu></message-nav-menu>-->
-	<div ui-view>
+	<div ui-view class="messages-wrapper">
 		<div ng-show="messages.corrUsers.length==0">
 			<p class="well well-sm">You do not have any messages. </p>
 		</div>
 		<div class="col-xs-4 aside-messages" ng-show="messages.corrUsers.length>0">
-		<div class="scrollBarAside">
-				<div class="scrollBoxAside">
+			<div class="scrollBarAside">
+			<div class="scrollBoxAside">
 					<ul class="nav nav-pills nav-stacked messageUserList">
 						<li class="cursor-p" ng-click="messages.SetSelectedUser($index)"
 						    ng-repeat="u in messages.corrUsers">
@@ -18,45 +19,57 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-8">
+		<div class="col-xs-8 col-messages">
+			<div class="messagesScrollBar" ng-show="messages.selectedUserMessages.length>0">
+				<div class="messagesScrollBox" id="messagesm">
+					<ul class="list-unstyled">
+						<li class="shuffle-animation" ng-repeat="m in messages.selectedUserMessages">
 
-
-			<div class="messagesContent" ng-show="messages.selectedUserMessages.length>0">
-				<ul class="list-unstyled">
-					<li class="shuffle-animation" ng-repeat="m in messages.selectedUserMessages">
-
-						<div class="row">
-							<div class="col-xs-2 userName" ng-hide="m.amISender">{{messages.selectedUser}}</div>
-							<div class="col-xs-2 userName" ng-show="m.amISender">Me</div>
-							<div class="col-xs-4 pull-right ">
-								<div class="messageDate text-muted">
-									{{m.sent | date: 'mediumDate'}}
+							<div class="row">
+								<div class="col-xs-2 userName" ng-hide="m.amISender">{{messages.selectedUser}}</div>
+								<div class="col-xs-2 userName" ng-show="m.amISender">Me</div>
+								<div class="col-xs-4 pull-right ">
+									<div class="messageDate text-muted">
+										{{m.sent | date: 'mediumDate'}}
+									</div>
 								</div>
 							</div>
-						</div>
-						<p>
-							{{m.body}}
-						</p>
-						<hr/>
-					</li>
-					<li>
-						<div>
-							Write a reply....
-						</div>
-						<textarea name="body" ng-model="messages.reply.body" id="body" cols="30" rows="10">
+							<p>
+								{{m.body}}
+							</p>
+							<hr/>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="">
+				<h4 class="h4-reply">
+					Write a reply....</h4>
+
+				<form action="" role="form">
+
+					<div class="form-group form-group-reply">
+						<textarea name="body" class="form-control" ng-model="messages.reply.body" id="body" cols="30"
+						          rows="10">
 
 							{{reply.body}}
 
 						</textarea>
-						<button ng-click="messages.Delete()">Delete Conversation</button>
-						<button ng-click="messages.Send()">Send</button>
-
-
-					</li>
-				</ul>
+					</div>
+					<div class="pull-right btn-send-container">
+						<button class="btn btn-danger" ng-click="messages.Delete()">Delete Conversation</button>
+						<button class="btn btn-primary btn-send" ng-click="messages.Send()">Send</button>
+					</div>
+				</form>
 			</div>
+
 		</div>
 	</div>
 </div>
 
+<script>
+
+
+</script>
 

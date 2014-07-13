@@ -84,7 +84,7 @@ class MessagesCtrl {
         this.selectedUserFire = this.corrUsersFire[this.selectedUserIndex];
         this.selectedUser = this.corrUsers[this.selectedUserIndex];
 
-        this.selectedUserMessages = _(this.fireMessages.inbox[this.selectedUserFire]).values();
+        this.selectedUserMessages = _(this.fireMessages[this.selectedUserFire]).values();
 
     }
 
