@@ -1645,6 +1645,10 @@
     padding-bottom: 15px;
 }
 
+.scroll-content {
+    margin-right: 15px;
+}
+
 .messages-wrapper {
     border-top: 1px #ebebeb solid !important;
 }

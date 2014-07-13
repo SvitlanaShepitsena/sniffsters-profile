@@ -66,6 +66,7 @@ var GenerateCtrl = (function () {
 
         $scope.breeders.$save();
     }
+
     GenerateCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
@@ -129,7 +130,7 @@ var GenerateCtrl = (function () {
             var note = new Note();
             note.amISender = (Math.random() < 0.5);
             note.isTrash = false;
-            note.userName = "breeder" + i + "gmail(p)com";
+            note.userName = "breeder" + i + "@gmail(p)com";
             note.body = "Hello, This is breeder" + 1;
             note.sent = Date.now();
             notes.push(note);

@@ -18,13 +18,15 @@ class DataService {
         var d = this.$q.defer();
 
 
-        var corrUserUrl = this.url + userName + "/messages/inbox/" + corrUserName;
+        var corrUserUrl = this.url + userName + "/messages";
         var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
 
         var note = new Note();
         note.amISender = true;
         note.sent = Date.now();
         note.body = reply;
+        note.isTrash = false;
+        note.userName = corrUserName;
         corrUserRef.$add(note);
 
         d.resolve();
@@ -40,28 +42,9 @@ class DataService {
 
         var d = this.$q.defer();
         var messagesUrl = this.url + userName + "/messages";
-        var messagesRef = this.$firebase(new Firebase(messagesUrl));
+//        var messages:INote[] = (messagesUrl);
 
-        var trashRef = messagesRef.$child('trash');
-        var trashUserRef = trashRef.$child(corrUserName);
-        trashUserRef.$save();
-
-        var corrUserUrl = this.url + userName + "/messages/inbox/" + corrUserName;
-        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
-
-        corrUserRef.$on('value', (snapshot:any)=> {
-            var corrUserVal = snapshot.snapshot.value;
-            var keys = _.keys(corrUserVal);
-            var values = _.values(corrUserVal);
-            for (var i = 0; i < keys.length; i++) {
-                var value = values[i];
-                trashUserRef.$add(value);
-                d.resolve();
-            }
-            corrUserRef.$remove();
-
-        })
-
+//        console.log(messages);
 
         return d.promise;
 

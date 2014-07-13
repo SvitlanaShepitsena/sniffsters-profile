@@ -24,7 +24,7 @@ class MessagesCtrl {
 
     selectedUserMessages:INote[];
 
-    constructor(public $scope:IMessagesScope, $firebaseSimpleLogin, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope:IMessagesScope, public $filter, public angularFireCollection, $firebaseSimpleLogin, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.messages = this;
 
         $scope.home.hideMenu = true;
@@ -46,17 +46,10 @@ class MessagesCtrl {
                         this.selectedUserIndex = 0;
                         this.SetSelectedUser(this.selectedUserIndex);
                     }
-
-
                 })
-
-//
             } else {
             }
-
         });
-
-
     }
 
     Delete() {
@@ -68,20 +61,21 @@ class MessagesCtrl {
     }
 
     Send() {
-//        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUserFire, this.reply.body).then(() => {
-//            this.selectedUserMessages.push({amISender: true, body: this.reply.body, sent: Date.now().toString()})
-//            this.reply.body = "";
-//        })
+        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUser, this.reply.body).then(() => {
+            this.fireMessages.push({amISender: true, body: this.reply.body, sent: Date.now(), isTrash: false, userName: this.selectedUser});
+            this.reply.body = "";
+        })
     }
 
     SetSelectedUser(arrIndex:number) {
         this.selectedUserIndex = arrIndex;
 
-        this.selectedUserFire = this.corrUsersFire[this.selectedUserIndex];
-        this.selectedUser = this.corrUsers[this.selectedUserIndex];
-
-        this.selectedUserMessages = _(this.fireMessages[this.selectedUserFire]).values();
-
+        var userNames:string[] = _.map(_.uniq(_.pluck(_.filter(this.fireMessages, (note:INote)=> {
+            return note.isTrash === false;
+        }), "userName")), (userName:string)=> {
+            return userName;
+        });
+        this.selectedUser = userNames[this.selectedUserIndex];
     }
 
     ShowSuccess(note:string) {
@@ -92,5 +86,4 @@ class MessagesCtrl {
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }

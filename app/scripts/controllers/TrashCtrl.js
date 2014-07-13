@@ -19,24 +19,27 @@ var TrashCtrl = (function () {
                 // an error occurred while attempting login
                 _this.ShowError(error.toString());
             } else if (user) {
-                DataService.getMessages($scope.home.IdFire, false).then(function (messages) {
-                    _this.fireMessages = messages;
-
-                    _this.corrUsersFire = _.keys(messages);
-                    _this.corrUsers = _.map(_this.corrUsersFire, function (userFire) {
-                        return userFire.toString().replace(/\(p\)/g, '.');
-                    });
-
-                    if (_this.selectedUser == null) {
-                        _this.selectedUserIndex = 0;
-                        _this.SetSelectedUser(_this.selectedUserIndex);
-                    }
-                });
+                //                DataService.getMessages($scope.home.IdFire, false).then((messages:any)=> {
+                //                    this.fireMessages = messages;
+                //
+                //                    this.corrUsersFire = _.keys(messages);
+                //                    this.corrUsers = _.map(this.corrUsersFire, (userFire) => {
+                //                        return userFire.toString().replace(/\(p\)/g, '.');
+                //                    });
+                //
+                //                    if (this.selectedUser == null) {
+                //                        this.selectedUserIndex = 0;
+                //                        this.SetSelectedUser(this.selectedUserIndex);
+                //                    }
+                //
+                //
+                //                })
                 //
             } else {
             }
         });
     }
+
     TrashCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteForever(this.$scope.home.FireUname, this.selectedUserFire).then(function () {
@@ -56,10 +59,9 @@ var TrashCtrl = (function () {
     };
 
     TrashCtrl.prototype.Send = function () {
-        var _this = this;
         this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUserFire, this.reply.body).then(function () {
-            _this.selectedUserMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now().toString() });
-            _this.reply.body = "";
+            //            this.selectedUserMessages.push({amISender: true, body: this.reply.body, sent: Date.now().toString()})
+            //            this.reply.body = "";
         });
     };
 

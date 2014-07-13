@@ -144,7 +144,7 @@ class GenerateCtrl {
             var note = new Note();
             note.amISender = (Math.random() < 0.5);
             note.isTrash = false;
-            note.userName = "breeder" + i + "gmail(p)com";
+            note.userName = "breeder" + i + "@gmail(p)com";
             note.body = "Hello, This is breeder" + 1;
             note.sent = Date.now();
             notes.push(note);

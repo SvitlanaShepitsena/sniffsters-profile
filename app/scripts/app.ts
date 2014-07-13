@@ -49,6 +49,9 @@
 /// <reference path="directives/cover.ts" />
 /// <reference path="controllers/FollowersCtrl.ts" />
 /// <reference path="controllers/TrashCtrl.ts" />
+/// <reference path="filters/SelectUsers.ts" />
+/// <reference path="filters/SelectedUserMessages.ts" />
+/// <reference path="filters/Unfire.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -77,6 +80,21 @@ profile.filter('galleryActive', () => {
 });
 
 
+profile.filter('selectUsers', () => {
+    return (notes:INote[], isTrash:boolean):string[] => {
+        return SelectUsers.filter(notes, isTrash);
+    }
+});
+profile.filter('selectedUserMessages', () => {
+    return (notes:INote[], isTrash:boolean, userName:string):INote[] => {
+        return SelectedUserMessages.filter(notes, isTrash, userName);
+    }
+});
+profile.filter('unfire', () => {
+    return (value:string):string => {
+        return Unfire.filter(value);
+    }
+});
 //#filt
 
 profile.service("CopyProfileService", CopyProfileService);

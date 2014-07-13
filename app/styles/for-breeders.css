@@ -20,37 +20,43 @@
     For Breeders Page
 ***********************/
 .sniff-label-warning {
-  padding: 5px !important;
-  width: 700px;
-  display: inline-block;
-  border-radius: 2px !important;
-  font-size: 26px !important;
-  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
-  font-weight: normal !important;
-  background-color: orange;
+    padding: 5px 0px !important;
+    width: 650px;
+    display: inline-block;
+    border-radius: 2px !important;
+    font-size: 26px !important;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+    font-weight: normal !important;
+    background-color: orange;
 }
+
 .label-wrapper {
-  margin-top: 25px !important;
-  margin-bottom: 25px;
+    margin-top: 25px !important;
+    margin-bottom: 25px;
 }
+
 .text-info {
-  color: #217ac8;
+    color: #217ac8;
 }
+
 .text-warning {
-  color: orange !important;
+    color: orange !important;
 }
+
 .th-plans-table {
-  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
-  font-size: 20px;
-  font-weight: normal !important;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    font-size: 20px;
+    font-weight: normal !important;
 }
+
 .table-for-breeders p {
-  margin-bottom: 0px;
-  color: #bababa;
-  font-size: 12px;
-  font-style: italic;
-  font-weight: bold;
+    margin-bottom: 0px;
+    color: #bababa;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
 }
+
 .btn-tryit {
-  width: 100px;
+    width: 100px;
 }

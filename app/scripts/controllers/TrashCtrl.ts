@@ -38,21 +38,21 @@ class TrashCtrl {
             } else if (user) {
 
 
-                DataService.getMessages($scope.home.IdFire, false).then((messages:any)=> {
-                    this.fireMessages = messages;
-
-                    this.corrUsersFire = _.keys(messages);
-                    this.corrUsers = _.map(this.corrUsersFire, (userFire) => {
-                        return userFire.toString().replace(/\(p\)/g, '.');
-                    });
-
-                    if (this.selectedUser == null) {
-                        this.selectedUserIndex = 0;
-                        this.SetSelectedUser(this.selectedUserIndex);
-                    }
-
-
-                })
+//                DataService.getMessages($scope.home.IdFire, false).then((messages:any)=> {
+//                    this.fireMessages = messages;
+//
+//                    this.corrUsersFire = _.keys(messages);
+//                    this.corrUsers = _.map(this.corrUsersFire, (userFire) => {
+//                        return userFire.toString().replace(/\(p\)/g, '.');
+//                    });
+//
+//                    if (this.selectedUser == null) {
+//                        this.selectedUserIndex = 0;
+//                        this.SetSelectedUser(this.selectedUserIndex);
+//                    }
+//
+//
+//                })
 
 //
             } else {
@@ -82,8 +82,8 @@ class TrashCtrl {
 
     Send() {
         this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUserFire, this.reply.body).then(() => {
-            this.selectedUserMessages.push({amISender: true, body: this.reply.body, sent: Date.now().toString()})
-            this.reply.body = "";
+//            this.selectedUserMessages.push({amISender: true, body: this.reply.body, sent: Date.now().toString()})
+//            this.reply.body = "";
         })
     }
 

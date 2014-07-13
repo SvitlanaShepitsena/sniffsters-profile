@@ -2,9 +2,11 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 var MessagesCtrl = (function () {
-    function MessagesCtrl($scope, $firebaseSimpleLogin, $modal, $state, toastr, DataService) {
+    function MessagesCtrl($scope, $filter, angularFireCollection, $firebaseSimpleLogin, $modal, $state, toastr, DataService) {
         var _this = this;
         this.$scope = $scope;
+        this.$filter = $filter;
+        this.angularFireCollection = angularFireCollection;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
@@ -27,11 +29,11 @@ var MessagesCtrl = (function () {
                         _this.SetSelectedUser(_this.selectedUserIndex);
                     }
                 });
-                //
             } else {
             }
         });
     }
+
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUserFire).then(function () {
@@ -42,19 +44,22 @@ var MessagesCtrl = (function () {
     };
 
     MessagesCtrl.prototype.Send = function () {
-        //        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUserFire, this.reply.body).then(() => {
-        //            this.selectedUserMessages.push({amISender: true, body: this.reply.body, sent: Date.now().toString()})
-        //            this.reply.body = "";
-        //        })
+        var _this = this;
+        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUser, this.reply.body).then(function () {
+            _this.fireMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now(), isTrash: false, userName: _this.selectedUser });
+            _this.reply.body = "";
+        });
     };
 
     MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {
         this.selectedUserIndex = arrIndex;
 
-        this.selectedUserFire = this.corrUsersFire[this.selectedUserIndex];
-        this.selectedUser = this.corrUsers[this.selectedUserIndex];
-
-        this.selectedUserMessages = _(this.fireMessages[this.selectedUserFire]).values();
+        var userNames = _.map(_.uniq(_.pluck(_.filter(this.fireMessages, function (note) {
+            return note.isTrash === false;
+        }), "userName")), function (userName) {
+            return userName;
+        });
+        this.selectedUser = userNames[this.selectedUserIndex];
     };
 
     MessagesCtrl.prototype.ShowSuccess = function (note) {
