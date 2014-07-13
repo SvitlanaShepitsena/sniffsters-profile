@@ -42,9 +42,12 @@
 				</ul>
 			</div>
 		</div>
-
-		<div class="">
-			<h4 class="h4-reply">
+		<div ng-show="isTrash" class="trash-buttons pull-right">
+			<button class="btn btn-danger" ng-click="messages.DeleteForever()">Delete Forever</button>
+			<button class="btn btn-success" ng-click="messages.Recover()">Recover</button>
+		</div>
+		<div ng-hide="isTrash" class="">
+		<h4 class="h4-reply">
 				Write a reply....</h4>
 
 			<form action="" role="form">
@@ -54,7 +57,6 @@
 					          rows="10">
 
 						{{reply.body}}
-
 
 					</textarea>
 				</div>
