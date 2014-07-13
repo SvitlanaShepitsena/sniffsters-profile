@@ -31,7 +31,6 @@ var MessagesCtrl = (function () {
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUser).then(function () {
-            _this.SetSelectedUser(0);
             _.where(_this.fireMessages, { isTrash: false, userName: _this.selectedUser }).forEach(function (message) {
                 message.isTrash = true;
             });
@@ -44,7 +43,7 @@ var MessagesCtrl = (function () {
             _.where(_this.fireMessages, { isTrash: true, userName: _this.selectedUser }).forEach(function (message) {
                 message.isTrash = false;
             });
-            _this.SetSelectedUser(0);
+            //            this.SetSelectedUser(0);
         });
     };
 
@@ -67,14 +66,13 @@ var MessagesCtrl = (function () {
     MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {
         var _this = this;
         this.selectedUserIndex = arrIndex;
+        console.log(arrIndex);
 
         var userNames = _.map(_.uniq(_.pluck(_.filter(this.fireMessages, function (note) {
             return note.isTrash === _this.isTrash;
         }), "userName")), function (userName) {
             return userName;
         });
-        console.log(userNames);
-        console.log(this.isTrash);
 
         this.selectedUser = userNames[this.selectedUserIndex];
     };

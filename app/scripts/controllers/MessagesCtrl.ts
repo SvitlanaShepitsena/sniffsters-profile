@@ -45,7 +45,6 @@ class MessagesCtrl {
 
     Delete() {
         this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUser).then(() => {
-            this.SetSelectedUser(0);
             _.where(this.fireMessages, {isTrash: false, userName: this.selectedUser}).forEach((message:INote)=> {
                 message.isTrash = true;
             })
@@ -58,7 +57,7 @@ class MessagesCtrl {
             _.where(this.fireMessages, {isTrash: true, userName: this.selectedUser}).forEach((message:INote)=> {
                 message.isTrash = false;
             })
-            this.SetSelectedUser(0);
+//            this.SetSelectedUser(0);
         })
     }
 
