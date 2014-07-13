@@ -39,66 +39,68 @@ var DataService = (function () {
 
         var d = this.$q.defer();
         var messagesUrl = this.url + userName + "/messages";
+        var notesRef = this.$firebase(new Firebase(messagesUrl));
 
-        //        var messages:INote[] = (messagesUrl);
-        //        console.log(messages);
+        var keys = notesRef.$getIndex();
+        var allNotes = [];
+        keys.forEach(function (key) {
+            allNotes.push(notesRef[key]);
+        });
+        var notes = _.where(allNotes, { isTrash: false, userName: corrUserName });
+
+        notes.forEach(function (note) {
+            note.isTrash = true;
+        });
+        notesRef.$save();
+        d.resolve();
+
         return d.promise;
     };
-
     DataService.prototype.recoverConversation = function (userName, corrUserName) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
+        var messagesUrl = this.url + userName + "/messages";
+        var notesRef = this.$firebase(new Firebase(messagesUrl));
 
-        var corrUserUrl = this.url + userName + "/messages/trash/" + corrUserName;
-        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
-
-        var messagesUrl = this.url + userName + "/messages/inbox";
-        var messagesRef = this.$firebase(new Firebase(messagesUrl));
-        var inboxUserRef = messagesRef.$child(corrUserName);
-
-        //
-        //
-        var notes = [];
-
-        corrUserRef.$on('value', function (snapshot) {
-            var corrUserVal = snapshot.snapshot.value;
-            var keys = _.keys(corrUserVal);
-            var values = _.values(corrUserVal);
-
-            for (var i = 0; i < keys.length; i++) {
-                var value = values[i];
-                var key = keys[i];
-
-                //            console.log(value);
-                var note = new Note();
-                note.amISender = value.amISender;
-                note.body = value.body;
-                note.sent = value.sent.toString();
-                inboxUserRef.$add(note);
-            }
-            d.resolve();
+        var keys = notesRef.$getIndex();
+        var allNotes = [];
+        keys.forEach(function (key) {
+            allNotes.push(notesRef[key]);
         });
+        var notes = _.where(allNotes, { isTrash: true, userName: corrUserName });
+
+        notes.forEach(function (note) {
+            note.isTrash = false;
+        });
+        notesRef.$save();
+        d.resolve();
 
         return d.promise;
     };
-
     DataService.prototype.deleteForever = function (userName, corrUserName) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
         var messagesUrl = this.url + userName + "/messages";
-        var messagesRef = this.$firebase(new Firebase(messagesUrl));
+        var notesRef = this.$firebase(new Firebase(messagesUrl));
 
-        var corrUserUrl = this.url + userName + "/messages/trash/" + corrUserName;
-        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
+        var keys = notesRef.$getIndex();
+        var allNotes = [];
+        keys.forEach(function (key) {
+            allNotes.push(notesRef[key]);
+        });
+        var notes = _.where(allNotes, { isTrash: true, userName: corrUserName });
 
-        corrUserRef.$remove();
-
+        notes.$remove();
+        notesRef.$save();
         d.resolve();
 
+        //        console.log(notes);
+        //        var messages:INote[] = (messagesUrl);
+        //        console.log(messages);
         return d.promise;
     };
 

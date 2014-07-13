@@ -2,11 +2,10 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 var MessagesCtrl = (function () {
-    function MessagesCtrl($scope, $filter, angularFireCollection, $firebaseSimpleLogin, $modal, $state, toastr, DataService) {
+    function MessagesCtrl($scope, $filter, $firebaseSimpleLogin, $modal, $state, toastr, DataService) {
         var _this = this;
         this.$scope = $scope;
         this.$filter = $filter;
-        this.angularFireCollection = angularFireCollection;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
@@ -33,12 +32,18 @@ var MessagesCtrl = (function () {
             }
         });
     }
-
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
-        this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUserFire).then(function () {
-            _this.corrUsers.splice(_this.selectedUserIndex, 1);
-            _this.corrUsersFire.splice(_this.selectedUserIndex, 1);
+        this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUser).then(function () {
+            _this.fireMessages = _.without(_this.fireMessages, _.findWhere(_this.fireMessages, { isTrash: false, userName: _this.selectedUser }));
+            _this.SetSelectedUser(0);
+        });
+    };
+
+    MessagesCtrl.prototype.DeleteForever = function () {
+        var _this = this;
+        this.DataService.deleteForever(this.$scope.home.FireUname, this.selectedUser).then(function () {
+            _this.fireMessages = _.without(_this.fireMessages, _.findWhere(_this.fireMessages, { isTrash: false, userName: _this.selectedUser }));
             _this.SetSelectedUser(0);
         });
     };

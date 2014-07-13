@@ -14,17 +14,13 @@ class MessagesCtrl {
     reply:{
         body:string
     }
-    corrUsers:string[];
-    corrUsersFire:string[];
 
     selectedUser:string;
-    selectedUserFire:string;
 
     selectedUserIndex:number;
-
     selectedUserMessages:INote[];
 
-    constructor(public $scope:IMessagesScope, public $filter, public angularFireCollection, $firebaseSimpleLogin, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope:IMessagesScope, public $filter, $firebaseSimpleLogin, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.messages = this;
 
         $scope.home.hideMenu = true;
@@ -37,10 +33,8 @@ class MessagesCtrl {
                 this.ShowError(error.toString());
             } else if (user) {
 
-
                 DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
                     this.fireMessages = messages;
-
 
                     if (this.selectedUser == null) {
                         this.selectedUserIndex = 0;
@@ -53,9 +47,15 @@ class MessagesCtrl {
     }
 
     Delete() {
-        this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUserFire).then(() => {
-            this.corrUsers.splice(this.selectedUserIndex, 1);
-            this.corrUsersFire.splice(this.selectedUserIndex, 1);
+        this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUser).then(() => {
+            this.fireMessages = _.without(this.fireMessages, _.findWhere(this.fireMessages, {isTrash: false, userName: this.selectedUser}));
+            this.SetSelectedUser(0);
+        })
+    }
+
+    DeleteForever() {
+        this.DataService.deleteForever(this.$scope.home.FireUname, this.selectedUser).then(() => {
+            this.fireMessages = _.without(this.fireMessages, _.findWhere(this.fireMessages, {isTrash: false, userName: this.selectedUser}));
             this.SetSelectedUser(0);
         })
     }

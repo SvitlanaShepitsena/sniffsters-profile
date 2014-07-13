@@ -48,7 +48,6 @@
 /// <reference path="directives/currentLitters.ts" />
 /// <reference path="directives/cover.ts" />
 /// <reference path="controllers/FollowersCtrl.ts" />
-/// <reference path="controllers/TrashCtrl.ts" />
 /// <reference path="filters/SelectUsers.ts" />
 /// <reference path="filters/SelectedUserMessages.ts" />
 /// <reference path="filters/Unfire.ts" />
@@ -148,7 +147,6 @@ profile.controller("RegisterCtrl", RegisterCtrl);
 profile.controller("user.messagesCtrl", MessagesCtrl);
 profile.controller("CreateMessageCtrl", CreateMessageCtrl);
 profile.controller("FollowersCtrl", FollowersCtrl);
-profile.controller("TrashCtrl", TrashCtrl);
 //#ctrl
 
 // TODO: Implement filter
