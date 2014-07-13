@@ -78,14 +78,13 @@ class MessagesCtrl {
 
     SetSelectedUser(arrIndex:number) {
         this.selectedUserIndex = arrIndex;
+        console.log(arrIndex);
 
         var userNames:string[] = _.map(_.uniq(_.pluck(_.filter(this.fireMessages, (note:INote)=> {
             return note.isTrash === this.isTrash;
         }), "userName")), (userName:string)=> {
             return userName;
         });
-        console.log(userNames);
-        console.log(this.isTrash);
 
 
         this.selectedUser = userNames[this.selectedUserIndex];
