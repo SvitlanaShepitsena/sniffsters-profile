@@ -1,4 +1,4 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 var LoginCtrl = (function () {
     function LoginCtrl($scope, $firebase, $firebaseSimpleLogin, $state, toastr, DataService) {
         this.$scope = $scope;
