@@ -8,7 +8,6 @@
         "jquery": "*",
         "angular-bootstrap": "*",
         "es5-shim": "*",
-        "bootstrap": "*",
         "toastr": "*",
         "angular-animate": "*",
         "angular-ui-router": "0.2.10",
@@ -16,7 +15,8 @@
         "firebase": "~1.0.17",
         "firebase-simple-login": "~1.6.1",
         "angularfire": "~0.7.1",
-        "underscore": "~1.6.0"
+        "underscore": "~1.6.0",
+        "bootstrap": "~3.2.0"
     },
     "devDependencies": {
         "angular-mocks": "*",

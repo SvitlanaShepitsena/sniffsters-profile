@@ -1,8 +1,55 @@
 <div>
-	<ul>
-		<li ng-repeat="b in management.breeders">
-			{{b.profile.Email}}
-		</li>
+	<ul class="nav nav-tabs" id="usersTab" role="tablist">
+		<li class="active"><a href="#breeders" role="tab" data-toggle="tab">Breeders</a></li>
+		<li class=""><a href="#lookers" role="tab" data-toggle="tab">Lookers</a></li>
 	</ul>
+	<div class="tab-content">
+		<div class="tab-pane fade active in" id="breeders">
+			<ul class="list-unstyled">
+				<li ng-repeat="b in management.breeders">
+					<ul class="list-inline">
+						<li>
+							{{b.profile.Email}}
+						</li>
+
+						<li>
+							<button class="btn btn-default">
+								Contact
+							</button>
+						</li>
+
+						<li>
+							<button class="btn btn-primary">
+								Manage Subscriptions
+							</button>
+						</li>
+
+						<li>
+							<button class="btn btn-warning">
+								Block
+							</button>
+						</li>
+
+						<li>
+							<button class="btn btn-danger">
+								Delete
+							</button>
+						</li>
+
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="tab-pane fade" id="lookers">
+			<p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+		</div>
+	</div>
 	<!-- PUT DIRECTIVES BELOW -->
 </div>
+
+<script>
+	$('#usersTab a').click(function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	})
+</script>
