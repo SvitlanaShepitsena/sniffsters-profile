@@ -9,7 +9,7 @@ interface IHomeScope extends IMainScope {
 
 }
 class HomeCtrl {
-
+    userName:any;
 
     MainRef:Firebase;
 
@@ -119,6 +119,20 @@ class HomeCtrl {
             return 'slide-right';
     }
 
+    FacebookSignin() {
+        this.auth.$login('facebook',
+            {rememberMe: true}
+        ).then((user)=> {
+                if (user) {
+                    this.userName = user.displayName;
+
+                } else {
+                    // user logout
+                }
+            }, (error)=> {
+                this.ShowError(error);
+            })
+    }
 
     Signin(email:string, pass:string) {
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
@@ -131,11 +145,7 @@ class HomeCtrl {
         }).then((user)=> {
 
             if (user) {
-
-                this.DataService.getMyFollowings(user.email).then((followings:string[])=> {
-                    this.Followings = followings;
-                })
-
+                this.userName = user.email;
             } else {
                 // user logout
 
