@@ -1,4 +1,4 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 
 interface ILoginScope extends IHomeScope {
     login:LoginCtrl;

@@ -78,21 +78,21 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li ng-show="auth.user">
-					<a class="hello-user" ui-sref="user.profile.about1({uname:auth.user.email})" id="loggedUser">Hello,
-						{{auth.user.email}}</a>
+				<li ng-show="home.auth.user">
+					<a class="hello-user" ui-sref="user.profile.about1({uname:home.auth.user.email})" id="loggedUser">Hello,
+						{{home.auth.user.email}}</a>
 				</li>
-				<li ng-show="auth.user">
-					<a class="sniff-menu" ui-sref="user.profile.about1({uname:auth.user.email})">MY PROFILE</a>
+				<li ng-show="home.auth.user">
+					<a class="sniff-menu" ui-sref="user.profile.about1({uname:home.auth.user.email})">MY PROFILE</a>
 				</li>
 				<li>
-					<a ng-show="auth.user" class="sniff-menu btn-logout"
+					<a ng-show="home.auth.user" class="sniff-menu btn-logout"
 					   ng-click="home.Logout()">LOG OUT
 					</a>
-					<a ng-hide="auth.user" class="sniff-menu"
+					<a ng-hide="home.auth.user" class="sniff-menu"
 					   ui-sref="sniff.login">LOG IN</a>
 				</li>
-				<li ng-hide="auth.user">
+				<li ng-hide="home.auth.user">
 					<a class="sniff-menu" ui-sref="sniff.register">REGISTER</a>
 				</li>
 			</ul>
@@ -132,7 +132,10 @@
 						<li><a href="#">Separated link</a></li>
 					</ul>
 				</div>
+
+
 				<div class="btn-group btn-group-fetch">
+
 					<button type="button" class="btn btn-default btn-search-drop">Location</button>
 					<button type="button" class="btn btn-default dropdown-toggle quick-search-toggle"
 					        data-toggle="dropdown">
@@ -273,9 +276,6 @@
 <script src="scripts/filters/SelectUsers.js"></script>
 <script src="scripts/filters/SelectedUserMessages.js"></script>
 <script src="scripts/filters/Unfire.js"></script>
-<script src="scripts/controllers/UserManagementCtrl.js"></script>
-<script src="scripts/controllers/AdminPanelCtrl.js"></script>
-<script src="scripts/controllers/SubscriptionsCtrl.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>
