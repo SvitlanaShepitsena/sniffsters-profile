@@ -11,7 +11,7 @@
 					       id="email"
 					       name="email"
 					       placeholder="Enter email"
-					       ng-model="home.email">
+					       ng-model="register.email">
 				</div>
 				<div class="form-group">
 					<label for="pass">Password</label>
@@ -19,7 +19,7 @@
 					       class="form-control"
 					       id="pass"
 					       placeholder="Password"
-					       ng-model="home.pass">
+					       ng-model="register.pass">
 				</div>
 				<div class="form-group">
 					<label for="pass">Confirm Password</label>
@@ -27,9 +27,11 @@
 					       class="form-control"
 					       id="confirm-pass"
 					       placeholder="Password"
-					       ng-model="home.pass">
+					       ng-model="register.confpass">
 				</div>
-				<button class="btn btn-default" ng-click="home.Signin(login.email, login.pass)">Register</button>
+				<button class="btn btn-default"
+				        ng-click="home.Register(register.email,register.pass,register.confpass)">Register
+				</button>
 			</form>
 			<hr/>
 			<h4 class="h-sign-up">Log In if You Already have a Sniffsters Account</h4>

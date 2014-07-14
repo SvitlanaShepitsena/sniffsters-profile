@@ -119,19 +119,25 @@ class HomeCtrl {
             return 'slide-right';
     }
 
-    FacebookSignin() {
-        this.auth.$login('facebook',
-            {rememberMe: true}
-        ).then((user)=> {
-                if (user) {
-                    this.userName = user.displayName;
+    Register(email:string, pass:string, confpass:string) {
 
-                } else {
-                    // user logout
-                }
-            }, (error)=> {
-                this.ShowError(error);
-            })
+
+        if (pass.length < 5) {
+            this.ShowError("Password should be not less than 5 symbols");
+            return;
+        }
+
+        if (pass !== confpass) {
+            this.ShowError("Passwords do not match");
+            return;
+        }
+
+        this.auth.$createUser(email, pass).then(() => {
+            this.ShowSuccess("Welcome to Sniffsters");
+            this.Signin(email, pass)
+        }, (error)=> {
+            this.ShowError(error);
+        })
     }
 
     Signin(email:string, pass:string) {
@@ -155,6 +161,21 @@ class HomeCtrl {
         }, (error)=> {
             this.ShowError(error);
         });
+    }
+
+    FacebookSignin() {
+        this.auth.$login('facebook',
+            {rememberMe: true}
+        ).then((user)=> {
+                if (user) {
+                    this.userName = user.displayName;
+
+                } else {
+                    // user logout
+                }
+            }, (error)=> {
+                this.ShowError(error);
+            })
     }
 
     Logout() {

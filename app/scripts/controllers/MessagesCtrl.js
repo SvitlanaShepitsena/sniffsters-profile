@@ -20,7 +20,6 @@ var MessagesCtrl = (function () {
             });
         });
     }
-
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteConversation(this.$scope.home.userName, this.selectedUser).then(function () {
