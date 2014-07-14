@@ -1,5 +1,7 @@
 /// <reference path="IndexCtrl.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
+/// <reference path="../models/ILookerProfile.ts" />
+
 interface IGenerateScope extends IMainScope {
     generate:GenerateCtrl;
     ctrl:IndexCtrl;
@@ -83,65 +85,29 @@ class GenerateCtrl {
         this.$scope.breeders = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers"));
 
 
-        var breeders:IBreederProfile[] = this.GenerateLookers();
-        breeders.forEach((breeder:IBreederProfile)=> {
-            var key:string = breeder.Email.replace(/\./g, '(p)');
-            this.$scope.breeders[key] = {profile: breeder};
-            this.$scope.breeders.$save();
+        var lookers:ILookerProfile[] = this.GenerateLookers();
+        lookers.forEach((looker:ILookerProfile)=> {
+            var key:string = looker.Email.replace(/\./g, '(p)');
+            this.$scope.lookers[key] = {profile: looker};
+            this.$scope.lookers.$save();
 
-            var breederRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + key));
-            var galleriesRef = breederRef.$child('galleries');
+            var lookerRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + key));
 
-            var littersRef = breederRef.$child('litters');
-            var litters:ILitter[] = this.GenerateLitters();
-
-            litters.forEach((litter:ILitter)=> {
-
-                littersRef[litter.Id] = litter;
-                littersRef.$save();
-            })
-
-            var feedbackRef = breederRef.$child('feedbacks');
-            var feedbacks:IFeedback[] = this.GenerateFeedbacks();
-
-            feedbacks.forEach((feedback:IFeedback)=> {
-
-                feedbackRef[feedback.Id] = feedback;
-                feedbackRef.$save();
-            })
-
-            var galleries:IGallery[] = this.GenerateGalleries();
-            galleries.forEach((gallery:IGallery)=> {
-                galleriesRef[gallery.Id] = gallery;
-                galleriesRef.$save();
-            })
-
-
-            var messagesRef = breederRef.$child('messages');
+            var messagesRef = lookerRef.$child('messages');
             var notes:INote[] = this.GenerateMessages();
 
             notes.forEach((note:INote)=> {
                 messagesRef.$add(note);
             })
 
-            var followersRef = breederRef.$child('followers');
-            var followingsRef = breederRef.$child('followings');
+            var followingsRef = lookerRef.$child('followings');
 
-            var followerRef = followersRef.$child("breeder1@gmail(p)com");
-            var follower2Ref = followersRef.$child("breeder2@gmail(p)com");
-            var follower3Ref = followersRef.$child("breeder3@gmail(p)com");
-
-
-            followerRef.$add('1');
-            follower2Ref.$add('1');
-            follower3Ref.$add('1');
-            followersRef.$save();
             followingsRef.$add('1');
-            breederRef.$save();
+            lookerRef.$save();
         })
 
 
-        this.$scope.breeders.$save();
+        this.$scope.lookers.$save();
     }
 
 
@@ -483,10 +449,10 @@ class GenerateCtrl {
         return breeders;
     }
 
-    GenerateLookers():IBreederProfile[] {
-        var lookers:IBreederProfile[] = [];
+    GenerateLookers():ILookerProfile[] {
+        var lookers:ILookerProfile[] = [];
 
-        var looker1 = new BreederProfile();
+        var looker1 = new LookerProfile();
         looker1.FirstName = "Jon";
         looker1.LastName = "Doe";
         looker1.Email = "looker1@gmail.com";
@@ -497,7 +463,7 @@ class GenerateCtrl {
 
         lookers.push(looker1);
 
-        var looker2 = new BreederProfile();
+        var looker2 = new LookerProfile();
         looker2.FirstName = "Jon";
         looker2.LastName = "Doe";
         looker2.Email = "looker2@gmail.com";
@@ -508,7 +474,7 @@ class GenerateCtrl {
 
         lookers.push(looker2);
 
-        var looker3 = new BreederProfile();
+        var looker3 = new LookerProfile();
         looker3.FirstName = "Jon";
         looker3.LastName = "Doe";
         looker3.Email = "looker3@gmail.com";
@@ -519,7 +485,7 @@ class GenerateCtrl {
 
         lookers.push(looker3);
 
-        var looker4 = new BreederProfile();
+        var looker4 = new LookerProfile();
         looker4.FirstName = "Jon";
         looker4.LastName = "Doe";
         looker4.Email = "looker4@gmail.com";
@@ -530,7 +496,7 @@ class GenerateCtrl {
 
         lookers.push(looker4);
 
-        var looker5 = new BreederProfile();
+        var looker5 = new LookerProfile();
         looker5.FirstName = "Jon";
         looker5.LastName = "Doe";
         looker5.Email = "looker5@gmail.com";
@@ -541,7 +507,7 @@ class GenerateCtrl {
 
         lookers.push(looker5);
 
-        var looker6 = new BreederProfile();
+        var looker6 = new LookerProfile();
         looker6.FirstName = "Jon";
         looker6.LastName = "Doe";
         looker6.Email = "looker6@gmail.com";
@@ -553,7 +519,7 @@ class GenerateCtrl {
         lookers.push(looker6);
 
 
-        var looker7 = new BreederProfile();
+        var looker7 = new LookerProfile();
         looker7.FirstName = "Jon";
         looker7.LastName = "Doe";
         looker7.Email = "looker7@gmail.com";
@@ -564,7 +530,7 @@ class GenerateCtrl {
 
         lookers.push(looker7);
 
-        var looker8 = new BreederProfile();
+        var looker8 = new LookerProfile();
         looker8.FirstName = "Jon";
         looker8.LastName = "Doe";
         looker8.Email = "looker8@gmail.com";
@@ -575,7 +541,7 @@ class GenerateCtrl {
 
         lookers.push(looker8);
 
-        var looker9 = new BreederProfile();
+        var looker9 = new LookerProfile();
         looker9.FirstName = "Jon";
         looker9.LastName = "Doe";
         looker9.Email = "looker9@gmail.com";
@@ -586,7 +552,7 @@ class GenerateCtrl {
 
         lookers.push(looker9);
 
-        var looker10 = new BreederProfile();
+        var looker10 = new LookerProfile();
         looker10.FirstName = "Jon";
         looker10.LastName = "Doe";
         looker10.Email = "looker10@gmail.com";

@@ -55,6 +55,7 @@
 /// <reference path="controllers/UserManagementCtrl.ts" />
 /// <reference path="controllers/AdminPanelCtrl.ts" />
 /// <reference path="controllers/SubscriptionsCtrl.ts" />
+/// <reference path="controllers/LookerProfileCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
@@ -153,6 +154,7 @@ profile.controller("FollowersCtrl", FollowersCtrl);
 profile.controller("UserManagementCtrl", UserManagementCtrl);
 profile.controller("AdminPanelCtrl", AdminPanelCtrl);
 profile.controller("SubscriptionsCtrl", SubscriptionsCtrl);
+profile.controller("LookerProfileCtrl", LookerProfileCtrl);
 
 //#ctrl
 // TODO: Implement filter
@@ -293,6 +295,10 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/subscriptions",
         controller: "SubscriptionsCtrl",
         templateUrl: "../views/subscriptions.html"
+    }).state("lookerProfile", {
+        url: "/lookerProfile",
+        controller: "LookerProfileCtrl",
+        templateUrl: "../views/lookerProfile.html"
     });
     //#state
 });
