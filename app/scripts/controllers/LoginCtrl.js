@@ -8,8 +8,8 @@ var LoginCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.login = this;
-        this.email = "breeder1@gmail.com";
-        this.pass = "123456";
+        this.email = "";
+        this.pass = "";
         $scope.home.IsSearchHidden = false;
     }
     LoginCtrl.prototype.ShowSuccess = function (note) {
