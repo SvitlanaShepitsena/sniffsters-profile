@@ -356,8 +356,12 @@ profile.config(
                 templateUrl: "../views/subscriptions.html"
             })
 
+
+        /**********************
+         * = Looker
+         ***********************/
             .state("lookerProfile", {
-                url: "/lookerProfile",
+                url: "/user-profile/:uname",
                 controller: "LookerProfileCtrl",
                 templateUrl: "../views/lookerProfile.html"
             })

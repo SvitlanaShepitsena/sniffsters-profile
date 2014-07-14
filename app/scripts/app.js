@@ -296,7 +296,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         controller: "SubscriptionsCtrl",
         templateUrl: "../views/subscriptions.html"
     }).state("lookerProfile", {
-        url: "/lookerProfile",
+        url: "/user-profile/:uname",
         controller: "LookerProfileCtrl",
         templateUrl: "../views/lookerProfile.html"
     });

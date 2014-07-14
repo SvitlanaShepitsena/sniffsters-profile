@@ -13,24 +13,17 @@ var MessagesCtrl = (function () {
 
         $scope.home.hideMenu = true;
 
-        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
-        $scope.auth = $firebaseSimpleLogin(fref);
-        $scope.authAction = new FirebaseSimpleLogin(fref, function (error, user) {
-            if (error) {
-                // an error occurred while attempting login
-                _this.ShowError(error.toString());
-            } else if (user) {
-                DataService.getMessages($scope.home.IdFire).then(function (messages) {
-                    _this.fireMessages = messages;
-                    _this.SetSelectedUser(0);
-                });
-            } else {
-            }
+        $scope.home.auth.then(function () {
+            DataService.getMessages($scope.home.IdFire).then(function (messages) {
+                _this.fireMessages = messages;
+                _this.SetSelectedUser(0);
+            });
         });
     }
+
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
-        this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUser).then(function () {
+        this.DataService.deleteConversation(this.$scope.home.userName, this.selectedUser).then(function () {
             _.where(_this.fireMessages, { isTrash: false, userName: _this.selectedUser }).forEach(function (message) {
                 message.isTrash = true;
             });
@@ -39,7 +32,7 @@ var MessagesCtrl = (function () {
 
     MessagesCtrl.prototype.Recover = function () {
         var _this = this;
-        this.DataService.recoverConversation(this.$scope.home.FireUname, this.selectedUser).then(function () {
+        this.DataService.recoverConversation(this.$scope.home.userName, this.selectedUser).then(function () {
             _.where(_this.fireMessages, { isTrash: true, userName: _this.selectedUser }).forEach(function (message) {
                 message.isTrash = false;
             });
@@ -49,14 +42,14 @@ var MessagesCtrl = (function () {
 
     MessagesCtrl.prototype.DeleteForever = function () {
         var _this = this;
-        this.DataService.deleteForever(this.$scope.home.FireUname, this.selectedUser).then(function () {
+        this.DataService.deleteForever(this.$scope.home.userName, this.selectedUser).then(function () {
             _this.fireMessages = _.without(_this.fireMessages, _.findWhere(_this.fireMessages, { isTrash: true, userName: _this.selectedUser }));
         });
     };
 
     MessagesCtrl.prototype.Send = function () {
         var _this = this;
-        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUser, this.reply.body).then(function () {
+        this.DataService.sendReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(function () {
             _this.fireMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now(), isTrash: false, userName: _this.selectedUser });
             _this.reply.body = "";
         });
@@ -64,7 +57,7 @@ var MessagesCtrl = (function () {
 
     MessagesCtrl.prototype.SendNewMessage = function (to, body) {
         var _this = this;
-        this.DataService.sendReply(this.$scope.home.FireUname, to, body).then(function () {
+        this.DataService.sendReply(this.$scope.home.userName, to, body).then(function () {
             _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, userName: _this.$scope.home.FireProcess(to) });
             _this.$state.go('^');
             _this.ShowSuccess('Your message has been sent!!');

@@ -1,13 +1,21 @@
 /// <reference path="HomeCtrl.ts" />
 
 interface ILookerProfileScope extends IHomeScope {
-    lookerProfile:LookerProfileCtrl;
+    lprofile:LookerProfileCtrl;
     home:HomeCtrl;
+    looker:AngularFire;
 }
 class LookerProfileCtrl {
+    lookersUrl:string;
 
-    constructor(public $scope:ILookerProfileScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
-        $scope.lookerProfile = this;
+    constructor(public $scope:ILookerProfileScope, public $firebase, public $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+        $scope.lprofile = this;
+        this.lookersUrl = "https://torid-fire-6526.firebaseio.com/lookers/";
+
+        var lookerEmail = this.$stateParams.uname;
+        var lookerUrl = this.lookersUrl + $scope.home.FireProcess(lookerEmail);
+        console.log(lookerUrl);
+        $scope.looker = $firebase(new Firebase(lookerUrl));
     }
 
 

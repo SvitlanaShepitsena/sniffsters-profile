@@ -12,7 +12,7 @@ class FollowersCtrl {
 
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
         new FirebaseSimpleLogin(fref, () => {
-            DataService.getMyFollowers($scope.home.Uname).then((breedersArr:IBreederProfile[])=> {
+            DataService.getMyFollowers($scope.home.userName).then((breedersArr:IBreederProfile[])=> {
                 $scope.home.Followers = _.values(breedersArr);
             });
         })

@@ -23,25 +23,17 @@ class MessagesCtrl {
 
         $scope.home.hideMenu = true;
 
-        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
-        $scope.auth = $firebaseSimpleLogin(fref);
-        $scope.authAction = new FirebaseSimpleLogin(fref, (error, user) => {
-            if (error) {
-                // an error occurred while attempting login
-                this.ShowError(error.toString());
-            } else if (user) {
+        $scope.home.auth.then(() => {
 
-                DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
-                    this.fireMessages = messages;
-                    this.SetSelectedUser(0);
-                })
-            } else {
-            }
-        });
+            DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
+                this.fireMessages = messages;
+                this.SetSelectedUser(0);
+            })
+        })
     }
 
     Delete() {
-        this.DataService.deleteConversation(this.$scope.home.FireUname, this.selectedUser).then(() => {
+        this.DataService.deleteConversation(this.$scope.home.userName, this.selectedUser).then(() => {
             _.where(this.fireMessages, {isTrash: false, userName: this.selectedUser}).forEach((message:INote)=> {
                 message.isTrash = true;
             })
@@ -49,7 +41,7 @@ class MessagesCtrl {
     }
 
     Recover() {
-        this.DataService.recoverConversation(this.$scope.home.FireUname, this.selectedUser).then(() => {
+        this.DataService.recoverConversation(this.$scope.home.userName, this.selectedUser).then(() => {
             _.where(this.fireMessages, {isTrash: true, userName: this.selectedUser}).forEach((message:INote)=> {
                 message.isTrash = false;
             })
@@ -58,20 +50,20 @@ class MessagesCtrl {
     }
 
     DeleteForever() {
-        this.DataService.deleteForever(this.$scope.home.FireUname, this.selectedUser).then(() => {
+        this.DataService.deleteForever(this.$scope.home.userName, this.selectedUser).then(() => {
             this.fireMessages = _.without(this.fireMessages, _.findWhere(this.fireMessages, {isTrash: true, userName: this.selectedUser}));
         })
     }
 
     Send() {
-        this.DataService.sendReply(this.$scope.home.FireUname, this.selectedUser, this.reply.body).then(() => {
+        this.DataService.sendReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(() => {
             this.fireMessages.push({amISender: true, body: this.reply.body, sent: Date.now(), isTrash: false, userName: this.selectedUser});
             this.reply.body = "";
         })
     }
 
     SendNewMessage(to:string, body:string) {
-        this.DataService.sendReply(this.$scope.home.FireUname, to, body).then(() => {
+        this.DataService.sendReply(this.$scope.home.userName, to, body).then(() => {
             this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, userName: this.$scope.home.FireProcess(to)});
             this.$state.go('^');
             this.ShowSuccess('Your message has been sent!!');
