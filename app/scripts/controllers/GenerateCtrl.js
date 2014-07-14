@@ -66,6 +66,7 @@ var GenerateCtrl = (function () {
 
         $scope.breeders.$save();
     }
+
     GenerateCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
@@ -256,6 +257,137 @@ var GenerateCtrl = (function () {
 
         breeders.push(breeder4);
 
+        var breeder5 = new BreederProfile();
+        breeder5.FirstName = "Jon";
+        breeder5.LastName = "Doe";
+        breeder5.Website = "www.dogs.com";
+        breeder5.Email = "breeder5@gmail.com";
+        breeder5.Phone = "773-123-45-67";
+        breeder5.KennelName = "Dogs Paradise";
+        breeder5.Story = "My Dogs Story";
+        breeder5.Parents = "Great parents";
+        breeder5.Boys = "3 pupies";
+        breeder5.Girls = "2 puppies";
+        breeder5.AddInfo = "Add Info about dogs";
+        breeder5.City = "Chicago";
+        breeder5.Zip = "60630";
+        breeder5.State = "IL";
+        breeder5.Certifications = ["Cenrtification 1"];
+        breeder5.VetServices = true;
+        breeder5.Insurances = ["Insurance 1"];
+        breeder5.Shipping = false;
+
+        breeders.push(breeder5);
+
+        var breeder6 = new BreederProfile();
+        breeder6.FirstName = "Jon";
+        breeder6.LastName = "Doe";
+        breeder6.Website = "www.dogs.com";
+        breeder6.Email = "breeder6@gmail.com";
+        breeder6.Phone = "773-123-45-67";
+        breeder6.KennelName = "Dogs Paradise";
+        breeder6.Story = "My Dogs Story";
+        breeder6.Parents = "Great parents";
+        breeder6.Boys = "3 pupies";
+        breeder6.Girls = "2 puppies";
+        breeder6.AddInfo = "Add Info about dogs";
+        breeder6.City = "Chicago";
+        breeder6.Zip = "60630";
+        breeder6.State = "IL";
+        breeder6.Certifications = ["Cenrtification 1"];
+        breeder6.VetServices = true;
+        breeder6.Insurances = ["Insurance 1"];
+        breeder6.Shipping = false;
+
+        breeders.push(breeder6);
+
+        var breeder7 = new BreederProfile();
+        breeder7.FirstName = "Jon";
+        breeder7.LastName = "Doe";
+        breeder7.Website = "www.dogs.com";
+        breeder7.Email = "breeder7@gmail.com";
+        breeder7.Phone = "773-123-45-67";
+        breeder7.KennelName = "Dogs Paradise";
+        breeder7.Story = "My Dogs Story";
+        breeder7.Parents = "Great parents";
+        breeder7.Boys = "3 pupies";
+        breeder7.Girls = "2 puppies";
+        breeder7.AddInfo = "Add Info about dogs";
+        breeder7.City = "Chicago";
+        breeder7.Zip = "60630";
+        breeder7.State = "IL";
+        breeder7.Certifications = ["Cenrtification 1"];
+        breeder7.VetServices = true;
+        breeder7.Insurances = ["Insurance 1"];
+        breeder7.Shipping = false;
+
+        breeders.push(breeder7);
+
+        var breeder8 = new BreederProfile();
+        breeder8.FirstName = "Jon";
+        breeder8.LastName = "Doe";
+        breeder8.Website = "www.dogs.com";
+        breeder8.Email = "breeder8@gmail.com";
+        breeder8.Phone = "773-123-45-67";
+        breeder8.KennelName = "Dogs Paradise";
+        breeder8.Story = "My Dogs Story";
+        breeder8.Parents = "Great parents";
+        breeder8.Boys = "3 pupies";
+        breeder8.Girls = "2 puppies";
+        breeder8.AddInfo = "Add Info about dogs";
+        breeder8.City = "Chicago";
+        breeder8.Zip = "60630";
+        breeder8.State = "IL";
+        breeder8.Certifications = ["Cenrtification 1"];
+        breeder8.VetServices = true;
+        breeder8.Insurances = ["Insurance 1"];
+        breeder8.Shipping = false;
+
+        breeders.push(breeder8);
+
+        var breeder9 = new BreederProfile();
+        breeder9.FirstName = "Jon";
+        breeder9.LastName = "Doe";
+        breeder9.Website = "www.dogs.com";
+        breeder9.Email = "breeder9@gmail.com";
+        breeder9.Phone = "773-123-45-67";
+        breeder9.KennelName = "Dogs Paradise";
+        breeder9.Story = "My Dogs Story";
+        breeder9.Parents = "Great parents";
+        breeder9.Boys = "3 pupies";
+        breeder9.Girls = "2 puppies";
+        breeder9.AddInfo = "Add Info about dogs";
+        breeder9.City = "Chicago";
+        breeder9.Zip = "60630";
+        breeder9.State = "IL";
+        breeder9.Certifications = ["Cenrtification 1"];
+        breeder9.VetServices = true;
+        breeder9.Insurances = ["Insurance 1"];
+        breeder9.Shipping = false;
+
+        breeders.push(breeder9);
+
+        var breeder10 = new BreederProfile();
+        breeder10.FirstName = "Jon";
+        breeder10.LastName = "Doe";
+        breeder10.Website = "www.dogs.com";
+        breeder10.Email = "breeder10@gmail.com";
+        breeder10.Phone = "773-123-45-67";
+        breeder10.KennelName = "Dogs Paradise";
+        breeder10.Story = "My Dogs Story";
+        breeder10.Parents = "Great parents";
+        breeder10.Boys = "3 pupies";
+        breeder10.Girls = "2 puppies";
+        breeder10.AddInfo = "Add Info about dogs";
+        breeder10.City = "Chicago";
+        breeder10.Zip = "60630";
+        breeder10.State = "IL";
+        breeder10.Certifications = ["Cenrtification 1"];
+        breeder10.VetServices = true;
+        breeder10.Insurances = ["Insurance 1"];
+        breeder10.Shipping = false;
+
+        breeders.push(breeder10);
         return breeders;
     };
     return GenerateCtrl;

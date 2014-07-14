@@ -52,6 +52,9 @@
 /// <reference path="filters/SelectedUserMessages.ts" />
 /// <reference path="filters/Unfire.ts" />
 /// <reference path="directives/svMessages.ts" />
+/// <reference path="controllers/UserManagementCtrl.ts" />
+/// <reference path="controllers/AdminPanelCtrl.ts" />
+/// <reference path="controllers/SubscriptionsCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
@@ -147,6 +150,9 @@ profile.controller("RegisterCtrl", RegisterCtrl);
 profile.controller("user.messagesCtrl", MessagesCtrl);
 profile.controller("CreateMessageCtrl", CreateMessageCtrl);
 profile.controller("FollowersCtrl", FollowersCtrl);
+profile.controller("UserManagementCtrl", UserManagementCtrl);
+profile.controller("AdminPanelCtrl", AdminPanelCtrl);
+profile.controller("SubscriptionsCtrl", SubscriptionsCtrl);
 
 //#ctrl
 // TODO: Implement filter
@@ -275,6 +281,18 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/followers",
         controller: "FollowersCtrl",
         templateUrl: "../views/followers.html"
+    }).state("admin", {
+        abstract: true,
+        controller: "AdminPanelCtrl",
+        templateUrl: "../views/adminPanel.html"
+    }).state("admin.management", {
+        url: "/user-management",
+        controller: "UserManagementCtrl",
+        templateUrl: "../views/userManagement.html"
+    }).state("admin.subscriptions", {
+        url: "/subscriptions",
+        controller: "SubscriptionsCtrl",
+        templateUrl: "../views/subscriptions.html"
     });
     //#state
 });

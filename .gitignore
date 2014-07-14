@@ -5,7 +5,6 @@ dist
 !app/bower_components/angular-bootstrap/ui-bootstrap-custom-tpls-0.10.0.min.js
 .sass-cache
 app/bower_components/*
-app/imgdir
 .idea
 
 app/scripts/app.js

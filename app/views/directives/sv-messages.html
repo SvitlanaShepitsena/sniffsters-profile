@@ -50,23 +50,22 @@
 			<button class="btn btn-danger" ng-click="messages.DeleteForever()">Delete Forever</button>
 			<button class="btn btn-success" ng-click="messages.Recover()">Recover</button>
 		</div>
-		<div ng-hide="isTrash" class="">
+		<div ng-hide="isTrash" class="reply-container">
 			<h4 class="h4-reply">
 				Write a reply....</h4>
 
-			<form action="" role="form">
-
+			<form action="" role="form" name="form" id="form">
 				<div class="form-group form-group-reply">
-					<textarea name="body" class="form-control" ng-model="messages.reply.body" id="body" cols="30"
-					          rows="10">
-
-						{{reply.body}}
-
+					<textarea name="body" class="form-control text-reply" ng-model="messages.reply.body" id="body">
+						{{keply.body}}
 					</textarea>
 				</div>
-				<div class="pull-right btn-send-container">
+				<div class="pull-right btn-send-container form-group">
 					<button class="btn btn-danger" ng-click="messages.Delete()">Delete Conversation</button>
-					<button class="btn btn-primary btn-send" ng-click="messages.Send()">Send</button>
+					<button class="btn btn-primary btn-send"
+					        ng-disabled="form.body.$pristine"
+					        ng-click="messages.Send()">Send
+					</button>
 				</div>
 			</form>
 		</div>

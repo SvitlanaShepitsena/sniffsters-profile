@@ -5,8 +5,6 @@
 interface IMessagesScope extends IHomeScope {
     messages:MessagesCtrl;
     home:HomeCtrl;
-
-
 }
 class MessagesCtrl {
 
@@ -36,7 +34,6 @@ class MessagesCtrl {
                 DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
                     this.fireMessages = messages;
                     this.SetSelectedUser(0);
-
                 })
             } else {
             }
@@ -48,7 +45,6 @@ class MessagesCtrl {
             _.where(this.fireMessages, {isTrash: false, userName: this.selectedUser}).forEach((message:INote)=> {
                 message.isTrash = true;
             })
-
         })
     }
 
@@ -92,13 +88,10 @@ class MessagesCtrl {
         }), "userName")), (userName:string)=> {
             return userName;
         });
-
-
         this.selectedUser = userNames[this.selectedUserIndex];
     }
 
     ShowSuccess(note:string) {
-
         this.toastr.info(note);
     }
 

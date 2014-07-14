@@ -147,7 +147,7 @@
 
 .messageUserList {
   background-color: @colorLightBackground;
-  min-height: 760px;
+  min-height: 761px;
   margin-bottom: 1px;
 }
 
@@ -155,14 +155,13 @@
   .scrollBar();
   //constrain the height of section
   height: 745px;
+  border-bottom-left-radius: 6px @colorLightBackground solid !important;
 }
 
 .scrollBoxAside {
+  background-color: @colorLightBackground;
+  border-bottom-left-radius: 6px @colorLightBackground solid !important;
   .scroll();
-}
-
-.scrollContentAside {
-  .scrollContent();
 }
 
 /**********************
@@ -185,16 +184,10 @@
 
 .col-messages {
   background-color: @colorLightBackground;
-  padding-bottom: 15px;
 }
 
 .scroll-content {
   margin-right: 15px;
-
-}
-
-.slimScrollBar {
-  //  height: 100px;
 }
 
 .messages-wrapper {
@@ -204,8 +197,7 @@
 .messagesScrollBar {
   .scrollBar();
   //constrain the height of section
-  height: 440px;
-  margin-bottom: 20px;
+  height: 452px;
   margin-top: 5px;
 }
 
@@ -263,6 +255,7 @@
   Message Reply Section
 ***********************/
 .h4-reply {
+  color: @color-subhead;
   margin-top: 1px;
 }
 
@@ -273,6 +266,7 @@
 
 .btn-send-container {
   padding-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .btn-send {
@@ -282,6 +276,21 @@
 
 .btn-del {
   .btn-custom-padding();
+}
+
+.reply-container {
+  background-color: #f4f1f1;
+  border-top: 1px #ebebeb solid;
+  border-bottom: 1px #f4f1f1 solid;
+  border-bottom-right-radius: 6px;
+  padding: 15px 15px 50px 15px;
+  margin-left: -15px;
+  margin-right: -15px !important;
+}
+
+.text-reply {
+  height: 170px !important;
+  width: 300px !important;
 }
 
 /**********************
