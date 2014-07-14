@@ -4,13 +4,16 @@ interface IGenerateScope extends IMainScope {
     generate:GenerateCtrl;
     ctrl:IndexCtrl;
     breeders:AngularFire;
+    lookers:any;
 
 }
 class GenerateCtrl {
 
     constructor(public $scope:IGenerateScope, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+
         $scope.generate = this;
         $scope.breeders = $firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders"));
+
 
         var breeders:IBreederProfile[] = this.GenerateBreeders();
         breeders.forEach((breeder:IBreederProfile)=> {
@@ -71,6 +74,74 @@ class GenerateCtrl {
 
 
         $scope.breeders.$save();
+        this.CreateLookers();
+    }
+
+    CreateLookers() {
+
+        this.$scope.generate = this;
+        this.$scope.breeders = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers"));
+
+
+        var breeders:IBreederProfile[] = this.GenerateLookers();
+        breeders.forEach((breeder:IBreederProfile)=> {
+            var key:string = breeder.Email.replace(/\./g, '(p)');
+            this.$scope.breeders[key] = {profile: breeder};
+            this.$scope.breeders.$save();
+
+            var breederRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + key));
+            var galleriesRef = breederRef.$child('galleries');
+
+            var littersRef = breederRef.$child('litters');
+            var litters:ILitter[] = this.GenerateLitters();
+
+            litters.forEach((litter:ILitter)=> {
+
+                littersRef[litter.Id] = litter;
+                littersRef.$save();
+            })
+
+            var feedbackRef = breederRef.$child('feedbacks');
+            var feedbacks:IFeedback[] = this.GenerateFeedbacks();
+
+            feedbacks.forEach((feedback:IFeedback)=> {
+
+                feedbackRef[feedback.Id] = feedback;
+                feedbackRef.$save();
+            })
+
+            var galleries:IGallery[] = this.GenerateGalleries();
+            galleries.forEach((gallery:IGallery)=> {
+                galleriesRef[gallery.Id] = gallery;
+                galleriesRef.$save();
+            })
+
+
+            var messagesRef = breederRef.$child('messages');
+            var notes:INote[] = this.GenerateMessages();
+
+            notes.forEach((note:INote)=> {
+                messagesRef.$add(note);
+            })
+
+            var followersRef = breederRef.$child('followers');
+            var followingsRef = breederRef.$child('followings');
+
+            var followerRef = followersRef.$child("breeder1@gmail(p)com");
+            var follower2Ref = followersRef.$child("breeder2@gmail(p)com");
+            var follower3Ref = followersRef.$child("breeder3@gmail(p)com");
+
+
+            followerRef.$add('1');
+            follower2Ref.$add('1');
+            follower3Ref.$add('1');
+            followersRef.$save();
+            followingsRef.$add('1');
+            breederRef.$save();
+        })
+
+
+        this.$scope.breeders.$save();
     }
 
 
@@ -411,4 +482,157 @@ class GenerateCtrl {
         breeders.push(breeder10);
         return breeders;
     }
+
+    GenerateLookers():IBreederProfile[] {
+        var lookers:IBreederProfile[] = [];
+
+        var looker1 = new BreederProfile();
+        looker1.FirstName = "Jon";
+        looker1.LastName = "Doe";
+        looker1.Email = "looker1@gmail.com";
+        looker1.Phone = "773-123-45-67";
+        looker1.City = "Chicago";
+        looker1.Zip = "60630";
+        looker1.State = "IL";
+
+        lookers.push(looker1);
+
+        var looker2 = new BreederProfile();
+        looker2.FirstName = "Jon";
+        looker2.LastName = "Doe";
+        looker2.Email = "looker2@gmail.com";
+        looker2.Phone = "773-123-45-67";
+        looker2.City = "Chicago";
+        looker2.Zip = "60630";
+        looker2.State = "IL";
+
+        lookers.push(looker2);
+
+        var looker3 = new BreederProfile();
+        looker3.FirstName = "Jon";
+        looker3.LastName = "Doe";
+        looker3.Email = "looker3@gmail.com";
+        looker3.Phone = "773-123-45-67";
+        looker3.City = "Chicago";
+        looker3.Zip = "60630";
+        looker3.State = "IL";
+
+        lookers.push(looker3);
+
+        var looker4 = new BreederProfile();
+        looker4.FirstName = "Jon";
+        looker4.LastName = "Doe";
+        looker4.Email = "looker4@gmail.com";
+        looker4.Phone = "773-123-45-67";
+        looker4.City = "Chicago";
+        looker4.Zip = "60630";
+        looker4.State = "IL";
+
+        lookers.push(looker4);
+
+        var looker5 = new BreederProfile();
+        looker5.FirstName = "Jon";
+        looker5.LastName = "Doe";
+        looker5.Email = "looker5@gmail.com";
+        looker5.Phone = "773-123-45-67";
+        looker5.City = "Chicago";
+        looker5.Zip = "60630";
+        looker5.State = "IL";
+
+        lookers.push(looker5);
+
+        var looker6 = new BreederProfile();
+        looker6.FirstName = "Jon";
+        looker6.LastName = "Doe";
+        looker6.Email = "looker6@gmail.com";
+        looker6.Phone = "773-123-45-67";
+        looker6.City = "Chicago";
+        looker6.Zip = "60630";
+        looker6.State = "IL";
+
+        lookers.push(looker6);
+
+
+        var looker7 = new BreederProfile();
+        looker7.FirstName = "Jon";
+        looker7.LastName = "Doe";
+        looker7.Email = "looker7@gmail.com";
+        looker7.Phone = "773-123-45-67";
+        looker7.City = "Chicago";
+        looker7.Zip = "60630";
+        looker7.State = "IL";
+
+        lookers.push(looker7);
+
+        var looker8 = new BreederProfile();
+        looker8.FirstName = "Jon";
+        looker8.LastName = "Doe";
+        looker8.Email = "looker8@gmail.com";
+        looker8.Phone = "773-123-45-67";
+        looker8.City = "Chicago";
+        looker8.Zip = "60630";
+        looker8.State = "IL";
+
+        lookers.push(looker8);
+
+        var looker9 = new BreederProfile();
+        looker9.FirstName = "Jon";
+        looker9.LastName = "Doe";
+        looker9.Email = "looker9@gmail.com";
+        looker9.Phone = "773-123-45-67";
+        looker9.City = "Chicago";
+        looker9.Zip = "60630";
+        looker9.State = "IL";
+
+        lookers.push(looker9);
+
+        var looker10 = new BreederProfile();
+        looker10.FirstName = "Jon";
+        looker10.LastName = "Doe";
+        looker10.Email = "looker10@gmail.com";
+        looker10.Phone = "773-123-45-67";
+        looker10.City = "Chicago";
+        looker10.Zip = "60630";
+        looker10.State = "IL";
+
+        lookers.push(looker10);
+
+        return lookers;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
