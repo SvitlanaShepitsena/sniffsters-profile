@@ -8,9 +8,9 @@ var LoginCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.login = this;
-        this.email = "";
-        this.pass = "";
         $scope.home.IsSearchHidden = false;
+        this.email = "";
+        this.pass = "123456";
     }
     LoginCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

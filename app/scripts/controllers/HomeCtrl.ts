@@ -1,19 +1,20 @@
 /// <reference path="IndexCtrl.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
 
 
 interface IHomeScope extends IMainScope {
     home:HomeCtrl;
     ctrl:IndexCtrl;
-    auth:FirebaseSimpleLogin
-    authAction:FirebaseSimpleLogin
+
 }
 class HomeCtrl {
 
-    FireUname:string;
-    Uname:string;
 
-    Auth:FirebaseSimpleLogin;
+    MainRef:Firebase;
+
+    auth:any;
+
     Id:string;
     IdFire:string;
     IsHome:boolean;
@@ -26,39 +27,13 @@ class HomeCtrl {
     isOwner:boolean;
     hideMenu:boolean;
 
-    constructor(public $scope, $location, public $stateParams, $firebase, $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public $stateParams, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
         this.menuIndex = 1;
-        this.email = "breeder2@gmail.com";
-        this.pass = "123456";
-        this.hideMenu = true;
 
+        this.MainRef = new Firebase("https://torid-fire-6526.firebaseio.com/");
 
-        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
-
-        $scope.auth = $firebaseSimpleLogin(fref);
-        $scope.authAction = new FirebaseSimpleLogin(fref, (error, user) => {
-            if (error) {
-                // an error occurred while attempting login
-                this.ShowError(error.toString());
-            } else if (user) {
-                this.FireUname = user.email;
-                this.Uname = this.FireUname.replace(/(p)/g, '.');
-
-
-                this.isOwner = this.Ownership();
-                this.Id = this.GetBreederName();
-                this.IdFire = this.Id.replace(/\./g, '(p)');
-                DataService.getMyFollowings(user.email).then((followings:string[])=> {
-
-                    this.Followings = followings;
-
-                })
-//
-            } else {
-            }
-
-        });
+        this.auth = this.$firebaseSimpleLogin(this.MainRef);
 
     }
 
@@ -144,20 +119,38 @@ class HomeCtrl {
             return 'slide-right';
     }
 
-    Signin(email:string, pass:string) {
 
-        this.$scope.authAction.login('password', {
+    Signin(email:string, pass:string) {
+        this.auth = this.$firebaseSimpleLogin(this.MainRef);
+
+        this.auth.$login('password', {
             email: email,
-            password: pass
+            password: pass,
+            rememberMe: true
+
+        }).then((user)=> {
+
+            if (user) {
+
+                this.DataService.getMyFollowings(user.email).then((followings:string[])=> {
+                    this.Followings = followings;
+                })
+
+            } else {
+                // user logout
+
+            }
+
+
+        }, (error)=> {
+            this.ShowError(error);
         });
     }
 
     Logout() {
-//        console.log('Test');
 
-        this.$scope.authAction.logout();
+        this.auth.$logout();
 
-//        this.ShowSuccess('You were successfully logged out');
     }
 
     IsSearchHidden:boolean;
@@ -171,31 +164,16 @@ class HomeCtrl {
         this.toastr.error(note);
     }
 
-    GetBreederName() {
-
-//        var loggedUser = angular.element('#loggedUser');
-//        if (loggedUser == null) {
-//            return '22';
-//        }
-//        var loggedUserTxt:string = loggedUser.text();
-//
-//        var start = loggedUserTxt.indexOf(',') + 1;
-//        var finish = loggedUserTxt.indexOf('!');
-        var user = this.FireUname;
-
-        return this.FireUname;
-//        return loggedUserTxt.substr(start, finish - start).trim();
-
-    }
 
     Ownership() {
         var breederUserName:string = this.$stateParams.uname;
 
-        var userName = this.GetBreederName();
-//        console.log(breederUserName);
-//        console.log(userName);
+        console.log(breederUserName);
+        console.log(this.auth.user.email);
 
-        this.isOwner = (breederUserName === userName);
+        if (this.auth.user === null)
+            return false;
+        this.isOwner = (breederUserName === this.auth.user.email);
         return this.isOwner;
     }
 }

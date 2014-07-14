@@ -31,12 +31,9 @@ class IndexCtrl {
         $scope.home.hideMenu = false;
         $scope.slide = '';
 
-        $scope.home.Ownership();
 
         this.spinner = true;
-        this.BreederName = this.GetBreederName();
-        this.Id = this.GetBreederName();
-        this.IdFire = this.Id.replace(/\./g, '(p)');
+
 
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
         new FirebaseSimpleLogin(fref, () => {
@@ -48,6 +45,7 @@ class IndexCtrl {
             var promiseT = this.DataService.getProfile(requestEmail);
             promiseT.then((breederProfile:IBreederProfile) => {
                 //Success
+                $scope.home.Ownership();
                 this.error = false;
                 this.BreederProfile = breederProfile;
 //            this.Id = breederProfile.Email;
@@ -67,25 +65,6 @@ class IndexCtrl {
                 this.spinner = false;
             })
         });
-    }
-
-    GetBreederName() {
-
-        var loggedUser = angular.element('#loggedUser');
-        if (loggedUser == null) {
-            return '';
-        }
-        var loggedUserTxt:string = loggedUser.text();
-
-        var start = loggedUserTxt.indexOf(',') + 1;
-        var finish = loggedUserTxt.indexOf('!');
-
-
-        var userName = loggedUserTxt.substr(start, finish - start).trim();
-
-        return userName;
-
-
     }
 
 

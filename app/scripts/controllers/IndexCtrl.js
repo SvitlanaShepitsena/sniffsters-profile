@@ -21,12 +21,7 @@ var IndexCtrl = (function () {
         $scope.home.hideMenu = false;
         $scope.slide = '';
 
-        $scope.home.Ownership();
-
         this.spinner = true;
-        this.BreederName = this.GetBreederName();
-        this.Id = this.GetBreederName();
-        this.IdFire = this.Id.replace(/\./g, '(p)');
 
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
         new FirebaseSimpleLogin(fref, function () {
@@ -38,6 +33,7 @@ var IndexCtrl = (function () {
             var promiseT = _this.DataService.getProfile(requestEmail);
             promiseT.then(function (breederProfile) {
                 //Success
+                $scope.home.Ownership();
                 _this.error = false;
                 _this.BreederProfile = breederProfile;
 
@@ -56,21 +52,6 @@ var IndexCtrl = (function () {
             });
         });
     }
-    IndexCtrl.prototype.GetBreederName = function () {
-        var loggedUser = angular.element('#loggedUser');
-        if (loggedUser == null) {
-            return '';
-        }
-        var loggedUserTxt = loggedUser.text();
-
-        var start = loggedUserTxt.indexOf(',') + 1;
-        var finish = loggedUserTxt.indexOf('!');
-
-        var userName = loggedUserTxt.substr(start, finish - start).trim();
-
-        return userName;
-    };
-
     IndexCtrl.prototype.SaveKennelName = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 

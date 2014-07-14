@@ -21,7 +21,6 @@
 	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="http://help.typekit.com/customer/portal/articles/6780-adding-fonts-to-your-site">
 
-
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 	<!-- endbuild -->
@@ -30,8 +29,9 @@
 
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
-	today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
-	experience this site.</p>
+                                                                                            today</a> or <a
+		href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
+                       experience this site.</p>
 <![endif]-->
 
 <!--[if lt IE 9]>
@@ -39,7 +39,6 @@
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
-
 
 <div class="navbar navbar-default navbar-sniff">
 	<div class="container navbar-sniff-content">
@@ -80,7 +79,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-show="home.auth.user">
 					<a class="hello-user" ui-sref="user.profile.about1({uname:home.auth.user.email})" id="loggedUser">Hello,
-						{{home.auth.user.email}}</a>
+					                                                                                                  {{home.auth.user.email}}</a>
 				</li>
 				<li ng-show="home.auth.user">
 					<a class="sniff-menu" ui-sref="user.profile.about1({uname:home.auth.user.email})">MY PROFILE</a>
@@ -133,7 +132,6 @@
 					</ul>
 				</div>
 
-
 				<div class="btn-group btn-group-fetch">
 
 					<button type="button" class="btn btn-default btn-search-drop">Location</button>
@@ -158,7 +156,6 @@
 	</div>
 </div>
 
-
 <div class="container body-content">
 	<div class="main-content-wrapper">
 		<div ui-view>
@@ -166,7 +163,6 @@
 		<!--<div ng-show="index.error" class="panel panel-default">Error in Database request. Check-->
 		<!--Internet Connection-->
 		<!--</div>-->
-
 
 	</div>
 </div>
@@ -256,12 +252,15 @@
 <script src="scripts/controllers/AdvertiseCtrl.js"></script>
 <script src="scripts/controllers/TermsCtrl.js"></script>
 <script src="scripts/controllers/ContactCtrl.js"></script>
+<script src="scripts/controllers/AdminPanelCtrl.js"></script>
+<script src="scripts/controllers/SubscriptionsCtrl.js"></script>
 <script src="scripts/controllers/LookingForDogCtrl.js"></script>
 <script src="scripts/controllers/ForBreedersCtrl.js"></script>
 <script src="scripts/controllers/LoginCtrl.js"></script>
 <script src="scripts/controllers/RegisterCtrl.js"></script>
 <script src="scripts/controllers/MessagesCtrl.js"></script>
 <script src="scripts/controllers/CreateMessageCtrl.js"></script>
+<script src="scripts/controllers/UserManagementCtrl.js"></script>
 <script src="scripts/directives/setter.js"></script>
 <script src="scripts/directives/newMessage.js"></script>
 <script src="scripts/directives/setterIshome.js"></script>
@@ -283,7 +282,6 @@
 <script src="scripts/app.js"></script>
 <script src="plugin/jquery.slimscroll.min.js"></script>
 <!-- endbuild -->
-
 
 </body>
 </html>
