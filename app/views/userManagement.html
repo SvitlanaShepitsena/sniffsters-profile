@@ -1,44 +1,59 @@
-<div>
+<div xmlns="http://www.w3.org/1999/html">
 	<ul class="nav nav-tabs" id="usersTab" role="tablist">
 		<li class="active"><a href="#breeders" role="tab" data-toggle="tab">Breeders</a></li>
 		<li class=""><a href="#lookers" role="tab" data-toggle="tab">Lookers</a></li>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade active in" id="breeders">
-			<ul class="list-unstyled">
-				<li ng-repeat="b in management.breeders">
-					<ul class="list-inline">
-						<li>
+			<div class="users-tab-content">
+				<table class="table-responsive table-striped user-table-content">
+					<tr ng-repeat="b in management.breeders">
+						<th>
+							{{b.profile.KennelName}}
+						</th>
+
+						<td>
+							{{b.profile.City}}, {{b.profile.State}}
+						</td>
+
+						<td>
+							{{b.profile.Phone}}
+						</td>
+
+						<td class="text-info">
 							{{b.profile.Email}}
-						</li>
+						</td>
 
-						<li>
-							<button class="btn btn-default">
-								Contact
+						<td class="text-muted">
+							{{b.profile.Website}}
+						</td>
+
+						<td class="admin-contact">
+							<button class="btn btn-default btn-sm">
+							Contact
 							</button>
-						</li>
+						</td>
 
-						<li>
-							<button class="btn btn-primary">
-								Manage Subscriptions
+						<td>
+							<button class="btn btn-primary btn-sm">
+								Subscriptions
 							</button>
-						</li>
+						</td>
 
-						<li>
-							<button class="btn btn-warning">
-								Block
+						<td>
+							<button class="btn btn-warning btn-sm">
+							Block
 							</button>
-						</li>
+						</td>
 
-						<li>
-							<button class="btn btn-danger">
-								Delete
+						<td>
+							<button class="btn btn-danger btn-sm">
+							Delete
 							</button>
-						</li>
-
-					</ul>
-				</li>
-			</ul>
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<div class="tab-pane fade" id="lookers">
 			<p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
