@@ -10,6 +10,7 @@ var DataService = (function () {
         this.$firebase = $firebase;
         this.$filter = $filter;
         this.url = "https://torid-fire-6526.firebaseio.com/breeders/";
+        this.urlLooker = "https://torid-fire-6526.firebaseio.com/looker/";
     }
     DataService.prototype.sendReply = function (userName, corrUserName, reply) {
         userName = this.FireProcess(userName);
@@ -18,6 +19,29 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         var corrUserUrl = this.url + userName + "/messages";
+        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
+
+        var note = new Note();
+        note.amISender = true;
+        note.sent = Date.now();
+        note.body = reply;
+
+        note.isTrash = false;
+        note.userName = corrUserName;
+        corrUserRef.$add(note);
+
+        d.resolve();
+
+        return d.promise;
+    };
+
+    DataService.prototype.sendLookerReply = function (userName, corrUserName, reply) {
+        userName = this.FireProcess(userName);
+        corrUserName = this.FireProcess(corrUserName);
+
+        var d = this.$q.defer();
+
+        var corrUserUrl = this.urlLooker + userName + "/messages";
         var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
 
         var note = new Note();
@@ -249,6 +273,21 @@ var DataService = (function () {
         });
         var d = this.$q.defer();
 
+        return d.promise;
+    };
+
+    DataService.prototype.getLookerMessages = function (userName) {
+        var _this = this;
+        userName = this.FireProcess(userName);
+        var d = this.$q.defer();
+
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/messages"));
+
+        fireMessages.$on('value', function (snapshot) {
+            var messages = snapshot.snapshot.value;
+
+            d.resolve(_this.$filter('orderByPriority')(messages));
+        });
         return d.promise;
     };
 

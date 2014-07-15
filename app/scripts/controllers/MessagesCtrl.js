@@ -14,10 +14,17 @@ var MessagesCtrl = (function () {
         $scope.home.hideMenu = true;
 
         $scope.home.auth.$getCurrentUser().then(function (user) {
-            DataService.getMessages(user.email).then(function (messages) {
-                _this.fireMessages = messages;
-                _this.SetSelectedUser(0);
-            });
+            if ($scope.home.isBreeder) {
+                DataService.getMessages(user.email).then(function (messages) {
+                    _this.fireMessages = messages;
+                    _this.SetSelectedUser(0);
+                });
+            } else {
+                DataService.getLookerMessages(user.email).then(function (messages) {
+                    _this.fireMessages = messages;
+                    _this.SetSelectedUser(0);
+                });
+            }
         });
     }
 
@@ -49,20 +56,36 @@ var MessagesCtrl = (function () {
 
     MessagesCtrl.prototype.Send = function () {
         var _this = this;
-        this.DataService.sendReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(function () {
-            _this.fireMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now(), isTrash: false, userName: _this.selectedUser });
-            _this.reply.body = "";
-        });
+        if (this.$scope.home.isBreeder) {
+            this.DataService.sendReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(function () {
+                _this.fireMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now(), isTrash: false, userName: _this.selectedUser });
+                _this.reply.body = "";
+            });
+        } else {
+            this.DataService.sendLookerReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(function () {
+                _this.fireMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now(), isTrash: false, userName: _this.selectedUser });
+                _this.reply.body = "";
+            });
+        }
     };
 
     MessagesCtrl.prototype.SendNewMessage = function (to, body) {
         var _this = this;
-        this.DataService.sendReply(this.$scope.home.userName, to, body).then(function () {
-            _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, userName: _this.$scope.home.FireProcess(to) });
-            _this.$state.go('^');
-            _this.ShowSuccess('Your message has been sent!!');
-            //            this.reply.body = "";
-        });
+        if (this.$scope.home.isBreeder) {
+            this.DataService.sendReply(this.$scope.home.userName, to, body).then(function () {
+                _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, userName: _this.$scope.home.FireProcess(to) });
+                _this.$state.go('^');
+                _this.ShowSuccess('Your message has been sent!!');
+                //            this.reply.body = "";
+            });
+        } else {
+            this.DataService.sendLookerReply(this.$scope.home.userName, to, body).then(function () {
+                _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, userName: _this.$scope.home.FireProcess(to) });
+                _this.$state.go('^');
+                _this.ShowSuccess('Your message has been sent!!');
+                //            this.reply.body = "";
+            });
+        }
     };
 
     MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {

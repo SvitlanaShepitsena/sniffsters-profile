@@ -6,9 +6,11 @@
 class DataService {
     fb:AngularFire;
     url:string;
+    urlLooker:string;
 
     constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase, public $filter) {
         this.url = "https://torid-fire-6526.firebaseio.com/breeders/";
+        this.urlLooker = "https://torid-fire-6526.firebaseio.com/looker/";
     }
 
     sendReply(userName:string, corrUserName:string, reply:string) {
@@ -33,8 +35,30 @@ class DataService {
         d.resolve();
 
         return d.promise;
+    }
+
+    sendLookerReply(userName:string, corrUserName:string, reply:string) {
+        userName = this.FireProcess(userName);
+        corrUserName = this.FireProcess(corrUserName);
+
+        var d = this.$q.defer();
 
 
+        var corrUserUrl = this.urlLooker + userName + "/messages";
+        var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
+
+        var note = new Note();
+        note.amISender = true;
+        note.sent = Date.now();
+        note.body = reply;
+
+        note.isTrash = false;
+        note.userName = corrUserName;
+        corrUserRef.$add(note);
+
+        d.resolve();
+
+        return d.promise;
     }
 
     deleteConversation(userName:string, corrUserName:string) {
@@ -215,7 +239,6 @@ class DataService {
     }
 
 
-
     getProfile(id:string) {
 
         var key:string = id.replace(/\./g, '(p)');
@@ -272,6 +295,20 @@ class DataService {
         })
         var d = this.$q.defer();
 
+        return d.promise;
+    }
+
+    getLookerMessages(userName:string) {
+        userName = this.FireProcess(userName);
+        var d = this.$q.defer();
+
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/messages"));
+
+        fireMessages.$on('value', (snapshot:any)=> {
+            var messages = snapshot.snapshot.value;
+
+            d.resolve(this.$filter('orderByPriority')(messages));
+        });
         return d.promise;
     }
 

@@ -29,9 +29,9 @@
 
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
-                                                                                            today</a> or <a
+	today</a> or <a
 		href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
-                       experience this site.</p>
+	experience this site.</p>
 <![endif]-->
 
 <!--[if lt IE 9]>
@@ -71,9 +71,6 @@
 				<li><a class="sniff-menu" ui-sref="sniff.explore">EXPLORE
 					<img src="img/pow.png" alt="">
 				</a></li>
-				<li><a class="sniff-menu" ui-sref="looker.account({uname:home.userName})">Looker/Demo
-					<img src="img/pow.png" alt="">
-				</a></li>
 				<li><a class="sniff-menu" ui-sref="admin.management">Admin
 					<img src="img/pow.png" alt="">
 				</a></li>
@@ -81,11 +78,16 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-show="home.auth.user">
-					<a class="hello-user" ui-sref="user.profile.about1({uname:home.auth.user.email})" id="loggedUser">Hello,
-					                                                                                                  {{home.userName}}</a>
+					<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})" ng-if="home.isBreeder">Hello,
+						{{home.userName}}</a>
+					<a class="hello-user" ui-sref="looker.account({uname:home.userName})" ng-if="!home.isBreeder">Hello,
+						{{home.userName}}</a>
 				</li>
 				<li ng-show="home.auth.user">
-					<a class="sniff-menu" ui-sref="user.profile.about1({uname:home.auth.user.email})">MY PROFILE</a>
+					<a class="sniff-menu" ng-if="home.isBreeder" ui-sref="user.profile.about1({uname:home.userName})">MY
+						PROFILE</a>
+					<a class="sniff-menu" ng-if="!home.isBreeder" ui-sref="looker.account({uname:home.userName})">MY
+						PROFILE</a>
 				</li>
 				<li>
 					<a ng-show="home.auth.user" class="sniff-menu btn-logout"

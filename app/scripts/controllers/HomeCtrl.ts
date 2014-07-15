@@ -13,9 +13,11 @@ interface IHomeScope extends IMainScope {
 }
 class HomeCtrl {
     userName:any;
+    userNameFire:string;
+
+    isBreeder:boolean;
 
     MainUrl:string;
-
     MainRef:Firebase;
 
     auth:any;
@@ -42,15 +44,35 @@ class HomeCtrl {
 
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
         this.auth.$getCurrentUser().then((user)=> {
+
             this.userName = user.email;
+            this.userNameFire = this.FireProcess(this.userName);
+            this.Breedership();
         });
 
 
     }
 
 
-    email:string;
-    pass:string;
+    Breedership() {
+        var breederUrl = this.MainUrl + "breeders/" + this.userNameFire;
+        var lookerUrl = this.MainUrl + "lookers/" + this.userNameFire;
+
+
+        var breederRef = this.$firebase(new Firebase(breederUrl));
+
+
+        breederRef.$on('value', (snapshot:any)=> {
+            var breeder = snapshot.snapshot.value;
+            if (breeder !== null) {
+                this.isBreeder = true;
+            } else {
+                this.isBreeder = false;
+            }
+        });
+
+
+    }
 
     followUser(loggedUser:string, follower:string) {
         this.DataService.followUser(loggedUser, follower).then(()=> {
@@ -65,44 +87,6 @@ class HomeCtrl {
         })
     }
 
-    navigate(menuIndex:number) {
-        this.$scope.slide = this.animationDirection(menuIndex);
-        this.hideMenu = false;
-
-
-        if (menuIndex == 1) {
-            this.menuIndex = 1;
-            this.$state.go("user.profile.about1");
-        }
-
-
-        if (menuIndex == 2) {
-            this.menuIndex = 2;
-            this.$state.go('user.profile.photos2');
-        }
-
-
-        if (menuIndex == 3) {
-            this.url = 'puppies';
-            this.menuIndex = 3;
-            this.$state.go('user.profile.puppies3');
-        }
-
-
-        if (menuIndex == 4) {
-            this.url = 'details';
-            this.menuIndex = 4;
-            this.$state.go('user.profile.details4');
-        }
-
-
-        if (menuIndex == 5) {
-            this.url = 'testimonials';
-            this.menuIndex = 5;
-            this.$state.go('user.profile.testimonials5');
-        }
-
-    }
 
     AddToFollowings(userName:string) {
         this.Followings.push(this.FireUnProcess(userName));
@@ -173,7 +157,10 @@ class HomeCtrl {
         }).then((user)=> {
 
             if (user) {
+
                 this.userName = user.email;
+                // User Sign In
+
             } else {
                 // user logout
 
@@ -227,4 +214,44 @@ class HomeCtrl {
         this.isOwner = (breederUserName === this.auth.user.email);
         return this.isOwner;
     }
+
+    navigate(menuIndex:number) {
+        this.$scope.slide = this.animationDirection(menuIndex);
+        this.hideMenu = false;
+
+
+        if (menuIndex == 1) {
+            this.menuIndex = 1;
+            this.$state.go("user.profile.about1");
+        }
+
+
+        if (menuIndex == 2) {
+            this.menuIndex = 2;
+            this.$state.go('user.profile.photos2');
+        }
+
+
+        if (menuIndex == 3) {
+            this.url = 'puppies';
+            this.menuIndex = 3;
+            this.$state.go('user.profile.puppies3');
+        }
+
+
+        if (menuIndex == 4) {
+            this.url = 'details';
+            this.menuIndex = 4;
+            this.$state.go('user.profile.details4');
+        }
+
+
+        if (menuIndex == 5) {
+            this.url = 'testimonials';
+            this.menuIndex = 5;
+            this.$state.go('user.profile.testimonials5');
+        }
+
+    }
+
 }

@@ -326,7 +326,7 @@ profile.config(
 
             .state("user.profile.messages", {
                 url: "/messages",
-                controller: "user.messagesCtrl",
+                controller: "MessagesCtrl",
                 templateUrl: "../views/messages.html"
             })
             .state("user.profile.messages.create", {
@@ -399,13 +399,17 @@ profile.config(
 
             .state("looker.messages", {
                 url: "/messages",
-                controller: "messagesCtrl",
+                controller: "MessagesCtrl",
                 templateUrl: "../views/messages.html"
             })
             .state("looker.messages.create", {
                 url: "/create-message",
                 controller: "CreateMessageCtrl",
                 templateUrl: "../views/createMessage.html"
+            })
+            .state("looker.messages.trash", {
+                url: "/trash",
+                templateUrl: "../views/messages-trash.html"
             })
 //#state
     });
