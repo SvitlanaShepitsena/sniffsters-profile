@@ -1,8 +1,10 @@
 /// <reference path="HomeCtrl.ts" />
+/// <reference path="MessagesCtrl.ts" />
 
 interface ILookerScope extends IHomeScope {
     looker:LookerCtrl;
     home:HomeCtrl;
+    messages:MessagesCtrl;
 }
 class LookerCtrl {
     lookersUrl:string;

@@ -320,7 +320,7 @@ profile.config(
                 templateUrl: "../views/for-breeders.html"
             })
         /**********************
-         * Messages
+         * =Messages Breeder Profile
          ***********************/
 
 
@@ -338,8 +338,8 @@ profile.config(
                 url: "/trash",
                 templateUrl: "../views/messages-trash.html"
             })
-            .state("user.profile.followings", {
-                url: "/followings",
+            .state("user.profile.following", {
+                url: "/following",
                 templateUrl: "../views/followings.html"
             })
 
@@ -386,6 +386,26 @@ profile.config(
             .state("looker.account.edit", {
                 url: "/edit",
                 templateUrl: "../views/looker-account-edit.html"
+            })
+            .state("looker.following", {
+                url: "/following",
+                templateUrl: "../views/followings.html"
+            })
+
+        /**********************
+         * =Messages Looker Profile
+         ***********************/
+
+
+            .state("looker.messages", {
+                url: "/messages",
+                controller: "messagesCtrl",
+                templateUrl: "../views/messages.html"
+            })
+            .state("looker.messages.create", {
+                url: "/create-message",
+                controller: "CreateMessageCtrl",
+                templateUrl: "../views/createMessage.html"
             })
 //#state
     });
