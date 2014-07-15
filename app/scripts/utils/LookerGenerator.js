@@ -16,8 +16,8 @@ var LookerGenerator = (function () {
         var profileRef = userRef.$child('profile');
 
         user.Email = email;
-        console.log(user);
 
+        //        console.log(user);
         profileRef.$set(user);
 
         usersRef.$save(email);

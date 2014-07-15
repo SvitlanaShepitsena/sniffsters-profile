@@ -15,7 +15,6 @@ var BreederGenerator = (function () {
         var profileRef = userRef.$child('profile');
 
         user.Email = email;
-        console.log(user);
 
         profileRef.$set(user);
 

@@ -8,6 +8,8 @@ var RegisterCtrl = (function () {
         $scope.register = this;
         $scope.home.IsSearchHidden = false;
 
+        this.isBreeder = false;
+
         this.email = "user_" + Math.random().toString(36).substring(13) + "@gmail.com";
         this.pass = "123456";
         this.confpass = "123456";
