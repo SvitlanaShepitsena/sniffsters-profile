@@ -28,7 +28,9 @@ var removeFromInside = function (target, remove) {
     return target;
 }
 
-
+var _ = require('underscore');
+_.str = require('underscore.string');
+_.str.include('Underscore.string', 'string');
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -531,14 +533,14 @@ module.exports = function (grunt) {
         // register
         var ref = '/// <reference path="controllers/' + name + 'Ctrl.ts" />\r\n';
         var reg = 'profile.controller("' + name + 'Ctrl", ' + name + 'Ctrl);\r\n';
-        var state = '\t\t\t\t.state("' + lname + '", {\r\n' +
-            '\t\t\t\t\turl: "/' + lname + '", \r\n' +
+        var state = '\t\t\t\t.state("' + _.str.dasherize(lname) + '", {\r\n' +
+            '\t\t\t\t\turl: "/' + _.str.dasherize(lname) + '", \r\n' +
             '\t\t\t\t\tcontroller:"' + name + 'Ctrl",\r\n' +
-            '\t\t\t\t\ttemplateUrl: "../views/' + lname + '.html"\r\n' +
+            '\t\t\t\t\ttemplateUrl: "../views/' + _.str.dasherize(lname) + '.html"\r\n' +
             '\t\t\t\t})\r\n';
 
         var apath = 'app/scripts/app.ts';
-        var tpath = 'app/views/' + lname + '.html';
+        var tpath = 'app/views/' + _.str.dasherize(lname) + '.html';
         var app = grunt.file.read(apath);
         if (rm) {
             app = removeFromInside(app, ref);
