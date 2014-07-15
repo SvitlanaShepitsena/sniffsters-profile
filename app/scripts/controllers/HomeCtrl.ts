@@ -12,6 +12,7 @@ interface IHomeScope extends IMainScope {
 }
 class HomeCtrl {
     userName:any;
+
     MainUrl:string;
 
     MainRef:Firebase;
@@ -37,7 +38,12 @@ class HomeCtrl {
         this.MainUrl = "https://torid-fire-6526.firebaseio.com/";
         this.MainRef = new Firebase(this.MainUrl);
 
+
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
+        this.auth.$getCurrentUser().then((user)=> {
+            this.userName = user.email;
+        });
+
 
     }
 
@@ -211,8 +217,6 @@ class HomeCtrl {
     Ownership() {
         var breederUserName:string = this.$stateParams.uname;
 
-        console.log(breederUserName);
-        console.log(this.auth.user.email);
 
         if (this.auth.user === null)
             return false;

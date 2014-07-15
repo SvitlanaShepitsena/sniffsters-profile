@@ -276,7 +276,7 @@ class DataService {
     }
 
     getMessages(userName:string) {
-
+        userName = this.FireProcess(userName);
         var d = this.$q.defer();
 
         var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/messages"));

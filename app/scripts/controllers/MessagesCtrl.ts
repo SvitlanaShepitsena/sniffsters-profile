@@ -23,9 +23,8 @@ class MessagesCtrl {
 
         $scope.home.hideMenu = true;
 
-        $scope.home.auth.then(() => {
-
-            DataService.getMessages($scope.home.IdFire).then((messages:any)=> {
+        $scope.home.auth.$getCurrentUser().then((user) => {
+            DataService.getMessages(user.email).then((messages:any)=> {
                 this.fireMessages = messages;
                 this.SetSelectedUser(0);
             })
@@ -73,7 +72,6 @@ class MessagesCtrl {
 
     SetSelectedUser(arrIndex:number) {
         this.selectedUserIndex = arrIndex;
-        console.log(arrIndex);
 
         var userNames:string[] = _.map(_.uniq(_.pluck(_.filter(this.fireMessages, (note:INote)=> {
             return note.isTrash === this.isTrash;

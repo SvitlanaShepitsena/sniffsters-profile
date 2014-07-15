@@ -13,13 +13,14 @@ var MessagesCtrl = (function () {
 
         $scope.home.hideMenu = true;
 
-        $scope.home.auth.then(function () {
-            DataService.getMessages($scope.home.IdFire).then(function (messages) {
+        $scope.home.auth.$getCurrentUser().then(function (user) {
+            DataService.getMessages(user.email).then(function (messages) {
                 _this.fireMessages = messages;
                 _this.SetSelectedUser(0);
             });
         });
     }
+
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteConversation(this.$scope.home.userName, this.selectedUser).then(function () {
@@ -67,7 +68,6 @@ var MessagesCtrl = (function () {
     MessagesCtrl.prototype.SetSelectedUser = function (arrIndex) {
         var _this = this;
         this.selectedUserIndex = arrIndex;
-        console.log(arrIndex);
 
         var userNames = _.map(_.uniq(_.pluck(_.filter(this.fireMessages, function (note) {
             return note.isTrash === _this.isTrash;

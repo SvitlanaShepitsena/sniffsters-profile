@@ -57,7 +57,53 @@
 		</div>
 		<div class="tab-pane fade" id="lookers">
 			<div class="users-tab-content">
-				<p class="text-success">Here will be a table for lookers</p>
+				<table class="table-responsive table-striped user-table-content">
+					<tr ng-repeat="l in management.lookers">
+						<th>
+							{{l.profile.FirstName}} {{l.profile.LastName}}
+						</th>
+
+						<td>
+							{{l.profile.City}}, {{l.profile.State}}
+						</td>
+
+						<td>
+							{{l.profile.Phone}}
+						</td>
+
+						<td class="text-info">
+							{{l.profile.Email}}
+						</td>
+
+						<td class="text-muted">
+							{{l.profile.Website}}
+						</td>
+
+						<td class="admin-contact">
+							<button class="btn btn-default btn-sm">
+								Contact
+							</button>
+						</td>
+
+						<td>
+							<button class="btn btn-primary btn-sm">
+								Subscriptions
+							</button>
+						</td>
+
+						<td>
+							<button class="btn btn-warning btn-sm">
+								Block
+							</button>
+						</td>
+
+						<td>
+							<button class="btn btn-danger btn-sm">
+								Delete
+							</button>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>
