@@ -58,6 +58,8 @@
 /// <reference path="controllers/LookerProfileCtrl.ts" />
 /// <reference path="controllers/LookerCtrl.ts" />
 /// <reference path="directives/lookerProfileNav.ts" />
+/// <reference path="directives/breedInfo.ts" />
+/// <reference path="directives/randomGallery.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -133,6 +135,8 @@ profile.directive("currentLitters", currentLitters);
 profile.directive("cover", cover);
 profile.directive("svMessages", svMessages);
 profile.directive("lookerProfileNav", lookerProfileNav);
+profile.directive("breedInfo", breedInfo);
+profile.directive("randomGallery", randomGallery);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
