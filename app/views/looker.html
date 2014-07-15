@@ -1,0 +1,20 @@
+<div class="row sniff-row">
+	<div class="col-xs-1 left-side"></div>
+	<div class="col-xs-10">
+		<message-nav-menu></message-nav-menu>
+		<div class="row sniff-content-wrapper" ng-show="home.isOwner">
+			<div class="col-xs-2">
+				<user-profile-nav></user-profile-nav>
+			</div>
+
+			<div class="col-xs-6 jumbo-custom jumbotron" ui-view>
+			</div>
+			<div class="col-xs-4">
+				<breeder-details home="home" ctrl="index"></breeder-details>
+				<current-litters></current-litters>
+				<previous-puppies>Our Previous Puppies</previous-puppies>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-1 right-side"></div>
+</div>

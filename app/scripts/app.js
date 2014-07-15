@@ -56,6 +56,8 @@
 /// <reference path="controllers/AdminPanelCtrl.ts" />
 /// <reference path="controllers/SubscriptionsCtrl.ts" />
 /// <reference path="controllers/LookerProfileCtrl.ts" />
+/// <reference path="controllers/LookerCtrl.ts" />
+/// <reference path="directives/lookerProfileNav.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
@@ -127,6 +129,7 @@ profile.directive("events", events);
 profile.directive("currentLitters", currentLitters);
 profile.directive("cover", cover);
 profile.directive("svMessages", svMessages);
+profile.directive("lookerProfileNav", lookerProfileNav);
 
 //#dir
 profile.directive("aboutInfo", aboutInfo);
@@ -155,6 +158,7 @@ profile.controller("UserManagementCtrl", UserManagementCtrl);
 profile.controller("AdminPanelCtrl", AdminPanelCtrl);
 profile.controller("SubscriptionsCtrl", SubscriptionsCtrl);
 profile.controller("LookerProfileCtrl", LookerProfileCtrl);
+profile.controller("LookerCtrl", LookerCtrl);
 
 //#ctrl
 // TODO: Implement filter
@@ -295,7 +299,10 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/subscriptions",
         controller: "SubscriptionsCtrl",
         templateUrl: "../views/subscriptions.html"
-    }).state("lookerProfile", {
+    }).state("looker", {
+        abstract: true,
+        templateUrl: "../views/looker.html"
+    }).state("looker.lookerProfile", {
         url: "/user-profile/:uname",
         controller: "LookerProfileCtrl",
         templateUrl: "../views/lookerProfile.html"
