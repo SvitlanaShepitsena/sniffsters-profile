@@ -77,18 +77,19 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li ng-show="home.auth.user">
-					<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})" ng-if="home.isBreeder">Hello,
-						{{home.userName}}</a>
-					<a class="hello-user" ui-sref="looker.account({uname:home.userName})" ng-if="!home.isBreeder">Hello,
-						{{home.userName}}</a>
+				<li ng-show="home.isBreeder!==undefined && home.isBreeder!==null">
+					<div ng-show="home.isBreeder">
+						<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})"
+						   ng-if="home.isBreeder">Hello,
+						                          {{home.userName}}</a>
+					</div>
+
+					<div ng-show="!home.isBreeder">
+						<a class="hello-user" ui-sref="looker.account({uname:home.userName})" ng-if="!home.isBreeder">Hello,
+						                                                                                              {{home.userName}}</a>
+					</div>
 				</li>
-				<li ng-show="home.auth.user">
-					<a class="sniff-menu" ng-if="home.isBreeder" ui-sref="user.profile.about1({uname:home.userName})">MY
-						PROFILE</a>
-					<a class="sniff-menu" ng-if="!home.isBreeder" ui-sref="looker.account({uname:home.userName})">MY
-						PROFILE</a>
-				</li>
+
 				<li>
 					<a ng-show="home.auth.user" class="sniff-menu btn-logout"
 					   ng-click="home.Logout()">LOG OUT
@@ -299,7 +300,4 @@
 <script src="scripts/utils/IUserGenerator.js"></script>
 <script src="scripts/models/ILookerProfile.js"></script>
 
-<!-- endbuild -->
-
-</body>
-</html>
+<!-- endbuil

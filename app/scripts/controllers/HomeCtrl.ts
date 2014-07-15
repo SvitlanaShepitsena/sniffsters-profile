@@ -44,7 +44,9 @@ class HomeCtrl {
 
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
         this.auth.$getCurrentUser().then((user)=> {
-
+            if (user === null) {
+                return;
+            }
             this.userName = user.email;
             this.userNameFire = this.FireProcess(this.userName);
             this.Breedership();
@@ -56,7 +58,6 @@ class HomeCtrl {
 
     Breedership() {
         var breederUrl = this.MainUrl + "breeders/" + this.userNameFire;
-        var lookerUrl = this.MainUrl + "lookers/" + this.userNameFire;
 
 
         var breederRef = this.$firebase(new Firebase(breederUrl));
@@ -69,6 +70,7 @@ class HomeCtrl {
             } else {
                 this.isBreeder = false;
             }
+            this.$scope.$apply();
         });
 
 
@@ -159,10 +161,22 @@ class HomeCtrl {
             if (user) {
 
                 this.userName = user.email;
-                // User Sign In
+                this.Breedership();
+
+
+//                // User Sign In
+//                if (this.isBreeder===true) {
+//                this.$state.go('user.profile.about1',{uname:user.email});
+//                }
+//
+//                if (this.isBreeder===false) {
+//                this.$state.go('looker.account',{uname:user.email});
+//                }
+
 
             } else {
                 // user logout
+                this.$state.go('home');
 
             }
 
@@ -188,9 +202,12 @@ class HomeCtrl {
     }
 
     Logout() {
+        this.userName = null;
+        this.isBreeder = null;
+        this.isOwner = null;
 
         this.auth.$logout();
-
+        this.$state.go('home');
     }
 
     IsSearchHidden:boolean;
