@@ -77,16 +77,32 @@ class HomeCtrl {
     }
 
     followUser(loggedUser:string, follower:string) {
-        this.DataService.followUser(loggedUser, follower).then(()=> {
+        if (this.$scope.home.isBreeder) {
+            this.DataService.followUser(loggedUser, follower).then(()=> {
 
-            this.$scope.home.AddToFollowings(follower);
-        })
+                this.$scope.home.AddToFollowings(follower);
+            })
+        }
+        else {
+            this.DataService.followLookerUser(loggedUser, follower).then(()=> {
+
+                this.$scope.home.AddToFollowings(follower);
+            })
+
+        }
     }
 
     unFollowUser(loggedUser:string, follower:string) {
-        this.DataService.unFollowUser(loggedUser, follower).then(()=> {
-            this.$scope.home.RemoveFromFollowings(follower);
-        })
+        if (this.$scope.home.isBreeder) {
+            this.DataService.unFollowUser(loggedUser, follower).then(()=> {
+                this.$scope.home.RemoveFromFollowings(follower);
+            })
+        }
+        else {
+            this.DataService.unFollowLookerUser(loggedUser, follower).then(()=> {
+                this.$scope.home.RemoveFromFollowings(follower);
+            })
+        }
     }
 
 

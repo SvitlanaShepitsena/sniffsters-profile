@@ -338,8 +338,8 @@ profile.config(
                 url: "/trash",
                 templateUrl: "../views/messages-trash.html"
             })
-            .state("user.profile.following", {
-                url: "/following",
+            .state("user.profile.followings", {
+                url: "/followings",
                 templateUrl: "../views/followings.html"
             })
 
@@ -387,8 +387,8 @@ profile.config(
                 url: "/edit",
                 templateUrl: "../views/looker-account-edit.html"
             })
-            .state("looker.following", {
-                url: "/following",
+            .state("looker.followings", {
+                url: "/followings",
                 templateUrl: "../views/followings.html"
             })
 

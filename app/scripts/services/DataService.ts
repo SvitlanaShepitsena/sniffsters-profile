@@ -147,6 +147,26 @@ class DataService {
 
     }
 
+    getMyLookerFollowings(userName:string) {
+
+        userName = this.FireProcess(userName);
+
+        var d = this.$q.defer();
+
+        var followingsUrl = "https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/followings";
+        var followingsRef = this.$firebase(new Firebase(followingsUrl));
+
+        followingsRef.$on('value', (snapshot:any)=> {
+            var followings = snapshot.snapshot.value;
+            var followingssArr = _.map(_.keys(followings), (value:string)=> {
+                return this.FireUnProcess(value);
+            });
+
+            d.resolve(followingssArr);
+
+        });
+        return d.promise;
+    }
     getMyFollowings(userName:string) {
 
         userName = this.FireProcess(userName);
@@ -189,6 +209,23 @@ class DataService {
         return d.promise;
     }
 
+    followLookerUser(userName:string, followerName:string) {
+        userName = this.FireProcess(userName);
+        followerName = this.FireProcess(followerName);
+        var d = this.$q.defer();
+
+        var followingsUrl = "https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/followings";
+        var followingsRef = this.$firebase(new Firebase(followingsUrl));
+
+        var followingRef = followingsRef.$child(followerName);
+        followingRef.$add(1);
+
+        followingsRef.$save();
+
+        d.resolve();
+        return d.promise;
+    }
+
     followUser(userName:string, followerName:string) {
         userName = this.FireProcess(userName);
         followerName = this.FireProcess(followerName);
@@ -210,6 +247,22 @@ class DataService {
 
         followersRef.$save();
 
+
+        d.resolve();
+        return d.promise;
+    }
+
+
+    unFollowLookerUser(userName:string, followerName:string) {
+        userName = this.FireProcess(userName);
+        followerName = this.FireProcess(followerName);
+        var d = this.$q.defer();
+
+        var followingUrl = "https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/followings/" + followerName;
+        var followingRef = this.$firebase(new Firebase(followingUrl));
+
+        followingRef.$remove();
+        followingRef.$save();
 
         d.resolve();
         return d.promise;

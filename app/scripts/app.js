@@ -286,8 +286,8 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("user.profile.messages.trash", {
         url: "/trash",
         templateUrl: "../views/messages-trash.html"
-    }).state("user.profile.following", {
-        url: "/following",
+    }).state("user.profile.followings", {
+        url: "/followings",
         templateUrl: "../views/followings.html"
     }).state("user.profile.followers", {
         url: "/followers",
@@ -316,8 +316,8 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("looker.account.edit", {
         url: "/edit",
         templateUrl: "../views/looker-account-edit.html"
-    }).state("looker.following", {
-        url: "/following",
+    }).state("looker.followings", {
+        url: "/followings",
         templateUrl: "../views/followings.html"
     }).state("looker.messages", {
         url: "/messages",
