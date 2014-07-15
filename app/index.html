@@ -29,9 +29,9 @@
 
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
-	today</a> or <a
+                                                                                            today</a> or <a
 		href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
-	experience this site.</p>
+                       experience this site.</p>
 <![endif]-->
 
 <!--[if lt IE 9]>
@@ -82,7 +82,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-show="home.auth.user">
 					<a class="hello-user" ui-sref="user.profile.about1({uname:home.auth.user.email})" id="loggedUser">Hello,
-						{{home.userName}}</a>
+					                                                                                                  {{home.userName}}</a>
 				</li>
 				<li ng-show="home.auth.user">
 					<a class="sniff-menu" ui-sref="user.profile.about1({uname:home.auth.user.email})">MY PROFILE</a>
@@ -290,6 +290,12 @@
 <script src="scripts/controllers/IndexCtrl.js"></script>
 <script src="scripts/app.js"></script>
 <script src="plugin/jquery.slimscroll.min.js"></script>
+
+<!--utils-->
+<script src="scripts/utils/BreederGenerator.js"></script>
+<script src="scripts/utils/IUserGenerator.js"></script>
+<script src="scripts/models/ILookerProfile.js"></script>
+
 <!-- endbuild -->
 
 </body>

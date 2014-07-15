@@ -1,4 +1,5 @@
-interface ILookerProfile {
+/// <reference path="IUser.ts" />
+interface ILookerProfile extends IUser {
     FirstName:string;
     LastName:string;
     Email:string;

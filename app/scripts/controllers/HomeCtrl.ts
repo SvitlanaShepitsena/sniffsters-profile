@@ -1,4 +1,6 @@
 /// <reference path="IndexCtrl.ts" />
+/// <reference path="../utils/IUserGenerator.ts" />
+/// <reference path="../utils/BreederGenerator.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
 
@@ -10,6 +12,7 @@ interface IHomeScope extends IMainScope {
 }
 class HomeCtrl {
     userName:any;
+    MainUrl:string;
 
     MainRef:Firebase;
 
@@ -31,7 +34,8 @@ class HomeCtrl {
         $scope.home = this;
         this.menuIndex = 1;
 
-        this.MainRef = new Firebase("https://torid-fire-6526.firebaseio.com/");
+        this.MainUrl = "https://torid-fire-6526.firebaseio.com/";
+        this.MainRef = new Firebase(this.MainUrl);
 
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
 
@@ -119,7 +123,7 @@ class HomeCtrl {
             return 'slide-right';
     }
 
-    Register(email:string, pass:string, confpass:string) {
+    Register(email:string, pass:string, confpass:string, isBreeder:boolean) {
 
 
         if (pass.length < 5) {
@@ -133,7 +137,15 @@ class HomeCtrl {
         }
 
         this.auth.$createUser(email, pass).then(() => {
-            this.ShowSuccess("Welcome to Sniffsters");
+            // User is created
+//            var userGenerator:IUserGenerator;
+
+            if (isBreeder) {
+                var userGenerator = new BreederGenerator();
+                userGenerator.create(this.FireProcess(email), this.MainUrl, this.$firebase);
+            }
+
+
             this.Signin(email, pass)
         }, (error)=> {
             this.ShowError(error);

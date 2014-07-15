@@ -1,3 +1,5 @@
+/// <reference path="IUser.ts" />
+
 var Note = (function () {
     function Note() {
     }
@@ -30,6 +32,27 @@ var Gallery = (function () {
 })();
 var BreederProfile = (function () {
     function BreederProfile() {
+        this.FirstName = "";
+        this.LastName = "";
+        this.Website = "";
+        this.Email = "";
+        this.Phone = "";
+        this.KennelName = "";
+        this.Story = "";
+        this.Parents = "";
+        this.Boys = "";
+        this.Girls = "";
+        this.AddInfo = "";
+        this.City = "";
+        this.Zip = "";
+        this.State = "";
+        this.Certifications = [];
+        this.VetServices = false;
+        this.Insurances = [];
+        this.Shipping = false;
+
+        this.IsShowEmail = true;
+        this.IsShowPhoneNumber = true;
     }
     return BreederProfile;
 })();
