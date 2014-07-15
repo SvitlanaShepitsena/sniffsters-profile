@@ -27,4 +27,12 @@ class LookerCtrl {
         this.toastr.error(note);
     }
 
+    Save = () => {
+
+    }
+
+    ResetAllFields = () => {
+
+    }
+
 }

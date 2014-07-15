@@ -17,10 +17,10 @@
 	<form class="form" name="form" novalidate>
 		<div class="row">
 			<div class="form-group has-feedback col-xs-6" ng-class="{'has-error':form.fname.$invalid}">
-				<label for="fnname" class="sniff-subhead control-label">First Name:</label>
+				<label for="fname" class="sniff-subhead control-label">First Name:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="fname" name="fname" class="form-control"
-				       ng-model="ctrl.BreederProfileEdit.Phone"
+				       ng-model="looker.profile.FirstName"
 				       required/>
 				<span ng-show="form.fname.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
 				<span ng-hide="form.fname.$invalid" class="fa custom-col fa-check form-control-feedback"></span>
@@ -30,7 +30,7 @@
 				<label for="lname" class="sniff-subhead control-label">Last Name:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="lname" name="lname" class="form-control"
-				       ng-model="ctrl.BreederProfileEdit.Email"
+				       ng-model="looker.profile.LastName"
 				       required/>
 				<span ng-show="form.lname.$invalid" class="fa fa-times form-control-feedback"></span>
 				<span ng-hide="form.lname.$invalid" class="fa fa-check form-control-feedback"></span>
@@ -41,7 +41,7 @@
 				<label for="phone" class="sniff-subhead control-label">Phone:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="phone" name="phone" class="form-control"
-				       ng-model="ctrl.BreederProfileEdit.Phone"
+				       ng-model="looker.profile.Phone"
 				       required/>
 				<span ng-show="form.phone.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
 				<span ng-hide="form.phone.$invalid" class="fa custom-col fa-check form-control-feedback"></span>
@@ -51,7 +51,7 @@
 				<label for="email" class="sniff-subhead control-label">Email:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="email" name="email" class="form-control"
-				       ng-model="ctrl.BreederProfileEdit.Email"
+				       ng-model="looker.profile.Email"
 				       required/>
 				<span ng-show="form.email.$invalid" class="fa fa-times form-control-feedback"></span>
 				<span ng-hide="form.email.$invalid" class="fa fa-check form-control-feedback"></span>
@@ -63,14 +63,6 @@
 			<div class="col-xs-8">
 				<h3 class="sniff-head-info">Address</h3>
 			</div>
-			<div class="col-xs-2 pull-right">
-				<button class="btn pull-right btn-save"
-				        ng-click="ctrl.SaveLocation();  form.$setPristine();"
-				        ng-disabled="(form.city.$pristine  && form.zip.$pristine && form.state.$pristine)
-						|| (form.city.$invalid || form.zip.$invalid  || form.state.$invalid)  || saved">
-					<i class="fa fa-save"></i>
-				</button>
-			</div>
 		</div>
 
 		<div class="row">
@@ -78,7 +70,7 @@
 				<label for="city" class="sniff-subhead control-label">City:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="city" name="city" class="form-control"
-				       ng-model="ctrl.BreederProfileEdit.City"
+				       ng-model="looker.profile.City"
 				       required/>
 				<span ng-show="form.city.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
 				<span ng-hide="form.city.$invalid" class="fa custom-col  fa-check form-control-feedback"></span>
@@ -88,7 +80,7 @@
 				<label for="zip" class="sniff-subhead control-label">ZIP:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="zip" name="zip" class="form-control"
-				       ng-model="ctrl.BreederProfileEdit.Zip"
+				       ng-model="looker.profile.Zip"
 				       required/>
 				<span ng-show="form.zip.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
 				<span ng-hide="form.zip.$invalid" class="fa custom-col  fa-check form-control-feedback"></span>
@@ -100,7 +92,7 @@
 				<label for="state" class="sniff-subhead control-label">State:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="state" name="state" class="form-control"
-				       ng-model="ctrl.BreederProfileEdit.State"
+				       ng-model="looker.profile.State"
 				       required/>
 				<span ng-show="form.state.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
 				<span ng-hide="form.state.$invalid" class="fa custom-col  fa-check form-control-feedback"></span>
@@ -110,7 +102,7 @@
 
 		<div class="form-group  profileSave text-center">
 			<a class="btn btn-default" ui-sref="profile.details4">Cancel</a>
-			<a class="btn btn-warning" ng-click="ResetAllFields();form.$setDirty()">Reset all fields</a>
+			<a class="btn btn-warning" ng-click="form.fname='';form.$setDirty()">Reset all fields</a>
 			<button class="btn btn-primary"
 			        ng-disabled="(form.$pristine) || (form.$invalid)"
 			        ng-click="ctrl.Save(ctrl.BreederProfileEdit); form.$setPristine();">
