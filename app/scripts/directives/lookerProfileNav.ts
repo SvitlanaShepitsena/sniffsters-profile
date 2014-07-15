@@ -1,9 +1,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-/// <reference path="../controllers/LookerProfileCtrl.ts" />
 
 interface ILookerProfileNav extends ng.IScope {
     test:string;
-    looker:LookerProfileCtrl;
 }
 
 var lookerProfileNav:() => ng.IDirective = () => {

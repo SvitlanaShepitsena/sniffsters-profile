@@ -55,14 +55,11 @@
 /// <reference path="controllers/UserManagementCtrl.ts" />
 /// <reference path="controllers/AdminPanelCtrl.ts" />
 /// <reference path="controllers/SubscriptionsCtrl.ts" />
-/// <reference path="controllers/LookerProfileCtrl.ts" />
 /// <reference path="controllers/LookerCtrl.ts" />
 /// <reference path="directives/lookerProfileNav.ts" />
 /// <reference path="directives/breedInfo.ts" />
 /// <reference path="directives/randomGallery.ts" />
 /// <reference path="controllers/LookerAccountCtrl.ts" />
-/// <reference path="directives/svLookerInfo.ts" />
-/// <reference path="directives/svLookerInfoEdit.ts" />
 /// <reference path="controllers/LookerAccountEditCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -138,8 +135,6 @@ profile.directive("svMessages", svMessages);
 profile.directive("lookerProfileNav", lookerProfileNav);
 profile.directive("breedInfo", breedInfo);
 profile.directive("randomGallery", randomGallery);
-profile.directive("svLookerInfo", svLookerInfo);
-profile.directive("svLookerInfoEdit", svLookerInfoEdit);
 
 //#dir
 profile.directive("aboutInfo", aboutInfo);
@@ -167,7 +162,6 @@ profile.controller("FollowersCtrl", FollowersCtrl);
 profile.controller("UserManagementCtrl", UserManagementCtrl);
 profile.controller("AdminPanelCtrl", AdminPanelCtrl);
 profile.controller("SubscriptionsCtrl", SubscriptionsCtrl);
-profile.controller("LookerProfileCtrl", LookerProfileCtrl);
 profile.controller("LookerCtrl", LookerCtrl);
 profile.controller("LookerAccountCtrl", LookerAccountCtrl);
 profile.controller("LookerAccountEditCtrl", LookerAccountEditCtrl);
@@ -313,18 +307,14 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/subscriptions.html"
     }).state("looker", {
         abstract: true,
+        controller: "LookerCtrl",
+        url: "/:uname",
         templateUrl: "../views/looker.html"
-    }).state("looker.lookerProfile", {
-        url: "/user-profile/:uname",
-        controller: "LookerProfileCtrl",
-        templateUrl: "../views/lookerProfile.html"
-    }).state("lookerAccount", {
-        url: "/lookerAccount",
-        controller: "LookerAccountCtrl",
+    }).state("looker.account", {
+        url: "/account",
         templateUrl: "../views/looker-account.html"
-    }).state("lookerAccountEdit", {
-        url: "/lookerAccountEdit",
-        controller: "LookerAccountEditCtrl",
+    }).state("looker.account.edit", {
+        url: "/edit",
         templateUrl: "../views/looker-account-edit.html"
     });
     //#state

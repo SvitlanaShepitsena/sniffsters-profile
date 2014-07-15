@@ -1,3 +1,23 @@
-<div class="" ui-view="">
+<div class="row sniff-row">
+	<div class="col-xs-1 left-side"></div>
+	<div class="col-xs-10">
+		<message-nav-menu></message-nav-menu>
+		<div class="row sniff-content-wrapper">
+			<div class="col-xs-2">
+				<looker-profile-nav></looker-profile-nav>
+			</div>
 
+			<div class="col-xs-6 jumbo-custom jumbotron" ui-view>
+			</div>
+			<div class="col-xs-4">
+				<breed-info></breed-info>
+				<br/>
+				<events></events>
+				<br/>
+				<random-gallery></random-gallery>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-1 right-side"></div>
 </div>
+
