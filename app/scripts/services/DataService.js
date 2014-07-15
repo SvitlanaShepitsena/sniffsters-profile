@@ -11,7 +11,6 @@ var DataService = (function () {
         this.$filter = $filter;
         this.url = "https://torid-fire-6526.firebaseio.com/breeders/";
     }
-
     DataService.prototype.sendReply = function (userName, corrUserName, reply) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
@@ -334,9 +333,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-            GalleryId: galleryId,
-            PhotoId: photoId
-        } }).success(function () {
+                GalleryId: galleryId,
+                PhotoId: photoId
+            } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -348,10 +347,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-            GalleryId: galleryId,
-            PhotoId: photoId,
-            Caption: caption
-        } }).success(function () {
+                GalleryId: galleryId,
+                PhotoId: photoId,
+                Caption: caption
+            } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();

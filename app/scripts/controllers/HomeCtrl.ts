@@ -1,6 +1,7 @@
 /// <reference path="IndexCtrl.ts" />
 /// <reference path="../utils/IUserGenerator.ts" />
 /// <reference path="../utils/BreederGenerator.ts" />
+/// <reference path="../utils/LookerGenerator.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
 
@@ -147,8 +148,11 @@ class HomeCtrl {
 //            var userGenerator:IUserGenerator;
 
             if (isBreeder) {
-                var userGenerator = new BreederGenerator();
-                userGenerator.create(this.FireProcess(email), this.MainUrl, this.$firebase);
+                var breederGenerator = new BreederGenerator();
+                breederGenerator.create(this.FireProcess(email), this.MainUrl, this.$firebase);
+            } else {
+                var lookerGenerator = new LookerGenerator();
+                lookerGenerator.create(this.FireProcess(email), this.MainUrl, this.$firebase);
             }
 
 

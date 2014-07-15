@@ -19,6 +19,13 @@ class LookerProfile implements ILookerProfile {
     State:string;
 
     constructor() {
+        this.FirstName = "";
+        this.LastName = "";
+        this.Email = "";
+        this.Phone = "";
+        this.City = "";
+        this.Zip = "";
+        this.State = "";
     }
 }
 
