@@ -185,6 +185,9 @@ profile.config(
         $urlRouterProvider.otherwise("/");
 
         $stateProvider
+        /**********************
+         =Breeder
+         ***********************/
             .state("user", {
                 abstract: true,
                 templateUrl: "../views/profile-side-bar.html"
