@@ -78,14 +78,14 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-show="home.isBreeder!==undefined && home.isBreeder!==null">
-					<div ng-show="home.isBreeder">
-						<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})"
+					<div ng-show="home.isBreeder===true">
+					<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})"
 						   ng-if="home.isBreeder">Hello,
 						                          {{home.userName}}</a>
 					</div>
 
-					<div ng-show="!home.isBreeder">
-						<a class="hello-user" ui-sref="looker.account({uname:home.userName})" ng-if="!home.isBreeder">Hello,
+					<div ng-show="home.isBreeder===false">
+					<a class="hello-user" ui-sref="looker.account({uname:home.userName})" ng-if="!home.isBreeder">Hello,
 						                                                                                              {{home.userName}}</a>
 					</div>
 				</li>

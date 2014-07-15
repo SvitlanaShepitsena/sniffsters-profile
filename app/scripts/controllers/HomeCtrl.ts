@@ -34,7 +34,7 @@ class HomeCtrl {
     isOwner:boolean;
     hideMenu:boolean;
 
-    constructor(public $scope, public $stateParams, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
         this.menuIndex = 1;
 
@@ -49,31 +49,44 @@ class HomeCtrl {
             }
             this.userName = user.email;
             this.userNameFire = this.FireProcess(this.userName);
-            this.Breedership();
-        });
 
+        });
 
     }
 
 
-    Breedership() {
-        var breederUrl = this.MainUrl + "breeders/" + this.userNameFire;
+    Breedership(email:string) {
+
+        var d = this.$q.defer();
+
+        var breederUrl = this.MainUrl + "breeders/" + email;
+        var lookerUrl = this.MainUrl + "lookers/" + email;
 
 
         var breederRef = this.$firebase(new Firebase(breederUrl));
+        var lookerRef = this.$firebase(new Firebase(lookerUrl));
 
 
         breederRef.$on('value', (snapshot:any)=> {
             var breeder = snapshot.snapshot.value;
             if (breeder !== null) {
                 this.isBreeder = true;
-            } else {
-                this.isBreeder = false;
+                d.resolve();
+
             }
-            this.$scope.$apply();
+
+        })
+
+        lookerRef.$on('value', (snapshot:any)=> {
+            var looker = snapshot.snapshot.value;
+            if (looker !== null) {
+                this.isBreeder = false;
+                d.resolve();
+            }
+
         });
 
-
+        return d.promise;
     }
 
     followUser(loggedUser:string, follower:string) {
@@ -169,37 +182,11 @@ class HomeCtrl {
 
         this.auth.$login('password', {
             email: email,
-            password: pass,
-            rememberMe: true
+            password: pass
 
-        }).then((user)=> {
-
-            if (user) {
-
-                this.userName = user.email;
-                this.Breedership();
-
-
-//                // User Sign In
-//                if (this.isBreeder===true) {
-//                this.$state.go('user.profile.about1',{uname:user.email});
-//                }
-//
-//                if (this.isBreeder===false) {
-//                this.$state.go('looker.account',{uname:user.email});
-//                }
-
-
-            } else {
-                // user logout
-                this.$state.go('home');
-
-            }
-
-
-        }, (error)=> {
-            this.ShowError(error);
+        }).then(()=> {
         });
+
     }
 
     FacebookSignin() {
@@ -216,9 +203,9 @@ class HomeCtrl {
                 this.ShowError(error);
             })
     }
-
     Logout() {
         this.userName = null;
+        this.userNameFire = null;
         this.isBreeder = null;
         this.isOwner = null;
 
