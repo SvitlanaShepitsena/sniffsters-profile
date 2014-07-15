@@ -60,6 +60,10 @@
 /// <reference path="directives/lookerProfileNav.ts" />
 /// <reference path="directives/breedInfo.ts" />
 /// <reference path="directives/randomGallery.ts" />
+/// <reference path="controllers/LookerAccountCtrl.ts" />
+/// <reference path="directives/svLookerInfo.ts" />
+/// <reference path="directives/svLookerInfoEdit.ts" />
+/// <reference path="controllers/LookerAccountEditCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -137,6 +141,8 @@ profile.directive("svMessages", svMessages);
 profile.directive("lookerProfileNav", lookerProfileNav);
 profile.directive("breedInfo", breedInfo);
 profile.directive("randomGallery", randomGallery);
+profile.directive("svLookerInfo", svLookerInfo);
+profile.directive("svLookerInfoEdit", svLookerInfoEdit);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -165,6 +171,8 @@ profile.controller("AdminPanelCtrl", AdminPanelCtrl);
 profile.controller("SubscriptionsCtrl", SubscriptionsCtrl);
 profile.controller("LookerProfileCtrl", LookerProfileCtrl);
 profile.controller("LookerCtrl", LookerCtrl);
+profile.controller("LookerAccountCtrl", LookerAccountCtrl);
+profile.controller("LookerAccountEditCtrl", LookerAccountEditCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -376,6 +384,16 @@ profile.config(
                 url: "/user-profile/:uname",
                 controller: "LookerProfileCtrl",
                 templateUrl: "../views/lookerProfile.html"
+            })
+            .state("lookerAccount", {
+                url: "/lookerAccount",
+                controller: "LookerAccountCtrl",
+                templateUrl: "../views/looker-account.html"
+            })
+            .state("lookerAccountEdit", {
+                url: "/lookerAccountEdit",
+                controller: "LookerAccountEditCtrl",
+                templateUrl: "../views/looker-account-edit.html"
             })
 //#state
     });

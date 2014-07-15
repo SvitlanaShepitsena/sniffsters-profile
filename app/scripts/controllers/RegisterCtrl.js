@@ -12,7 +12,6 @@ var RegisterCtrl = (function () {
         this.pass = "123456";
         this.confpass = "123456";
     }
-
     RegisterCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
