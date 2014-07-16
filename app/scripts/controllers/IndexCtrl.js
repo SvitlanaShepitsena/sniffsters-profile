@@ -37,12 +37,8 @@ var IndexCtrl = (function () {
                 _this.error = false;
                 _this.BreederProfile = breederProfile;
 
-                //            this.Id = breederProfile.Email;
-                //            Put a received BreederProfile to CopyProfileService, using it like container
-                //            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
                 _this.CopyProfileService.SetProfile(breederProfile);
                 _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
-                //            console.log(this.BreederProfileEdit);
             }, function () {
                 //Error
                 _this.error = true;
@@ -52,6 +48,7 @@ var IndexCtrl = (function () {
             });
         });
     }
+
     IndexCtrl.prototype.SaveKennelName = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 
