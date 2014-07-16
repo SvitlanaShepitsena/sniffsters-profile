@@ -48,14 +48,9 @@ class IndexCtrl {
                 $scope.home.Ownership();
                 this.error = false;
                 this.BreederProfile = breederProfile;
-//            this.Id = breederProfile.Email;
-//            Put a received BreederProfile to CopyProfileService, using it like container
-//            in order we can inject CopyProfileService in other Ctrls and have access to BreederProfile Data (SHaring data between controllers)
-
 
                 this.CopyProfileService.SetProfile(breederProfile);
                 this.BreederProfileEdit = CopyProfileService.GetProfileClone();
-//            console.log(this.BreederProfileEdit);
 
             }, () => {
                 //Error
