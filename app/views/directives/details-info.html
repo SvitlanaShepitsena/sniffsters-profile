@@ -10,55 +10,54 @@
 	</div>
 	<h4>Kennel Name</h4>
 
-	<p>{{ctrl.BreederProfile.KennelName}}</p>
+	<p>{{index.BreederProfile.KennelName}}</p>
 
 	<h4>Website</h4>
 
-	<p>{{ctrl.BreederProfile.Website}}</p>
+	<p>{{index.BreederProfile.Website}}</p>
 
 	<h4>Email</h4>
 
-	<p>{{ctrl.BreederProfile.Email}}</p>
+	<p>{{index.BreederProfile.Email}}</p>
 
 	<h4>Phone</h4>
 
-	<p>{{ctrl.BreederProfile.Phone}}</p>
+	<p>{{index.BreederProfile.Phone}}</p>
 
 	<h3 class="sniff-head-info">LOCATION</h3>
 
 	<h4>City</h4>
 
-	<p>{{ctrl.BreederProfile.City}}</p>
+	<p>{{index.BreederProfile.City}}</p>
 
 	<h4>Zip</h4>
 
-	<p>{{ctrl.BreederProfile.Zip}}</p>
+	<p>{{index.BreederProfile.Zip}}</p>
 
 	<h4>State</h4>
 
-	<p>{{ctrl.BreederProfile.State}}</p>
-
+	<p>{{index.BreederProfile.State}}</p>
 
 	<h3 class="sniff-head-info">SPECIFICS</h3>
 	<!--<div ui-view="info"></div>-->
 
 	<h4>Certifications</h4>
 
-	<p ng-repeat="c in ctrl.BreederProfile.Certifications">
+	<p ng-repeat="c in index.BreederProfile.Certifications">
 		{{c.Title}} - {{c.isActive | boolString}}
 	</p>
 
 	<h4>Vet Services</h4>
 
-	<p>{{ctrl.BreederProfile.VetServices|boolString}}</p>
+	<p>{{index.BreederProfile.VetServices|boolString}}</p>
 
 	<h4>Insurance</h4>
 
-	<p ng-repeat="c in ctrl.BreederProfile.Insurances">
+	<p ng-repeat="c in index.BreederProfile.Insurances">
 		{{c.Title}} - {{c.isActive | boolString}}
 	</p>
 
 	<h4>Shipping</h4>
 
-	<p>{{ctrl.BreederProfile.Shipping|boolString}}</p>
+	<p>{{index.BreederProfile.Shipping|boolString}}</p>
 </div>
