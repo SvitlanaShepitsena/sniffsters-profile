@@ -323,6 +323,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/looker-account-edit.html"
     }).state("looker.followings", {
         url: "/followings",
+        controller: "FollowingsCtrl",
         templateUrl: "../views/followings.html"
     }).state("looker.messages", {
         url: "/messages",

@@ -394,6 +394,7 @@ profile.config(
             })
             .state("looker.followings", {
                 url: "/followings",
+                controller: "FollowingsCtrl",
                 templateUrl: "../views/followings.html"
             })
 
