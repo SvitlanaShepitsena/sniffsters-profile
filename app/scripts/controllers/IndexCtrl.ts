@@ -31,7 +31,7 @@ class IndexCtrl {
         $scope.home.hideMenu = false;
         $scope.slide = '';
 
-
+        $scope.cover = {};
         this.spinner = true;
 
 
