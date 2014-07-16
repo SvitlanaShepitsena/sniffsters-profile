@@ -4,7 +4,7 @@ interface ISvImageUpload extends ng.IScope {
     test:string;
 }
 
-var svImageUpload:($firebase) => ng.IDirective = () => {
+var svImageUpload:() => ng.IDirective = () => {
 
     return{
         restrict: 'E',
@@ -19,6 +19,10 @@ var svImageUpload:($firebase) => ng.IDirective = () => {
         },
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
             scope.fileFirebase;
+
+            console.log(scope.mainRef);
+//            this.MainUrl = "https://torid-fire-6526.firebaseio.com/";
+//            this.MainRef = new Firebase(this.MainUrl);
 
             element.bind('change', (e:any)=> {
                 var file = e.target.files[0];
@@ -36,7 +40,6 @@ var svImageUpload:($firebase) => ng.IDirective = () => {
 //                    console.log(scope.fileFired);
                 }
                 reader.readAsDataURL(file);
-                console.log(file);
             })
             var reader = new FileReader();
 

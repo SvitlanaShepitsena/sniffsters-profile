@@ -18,6 +18,7 @@ class HomeCtrl {
 
     MainUrl:string;
     MainRef:Firebase;
+    MainRefFire:Firebase;
 
     auth:any;
 
@@ -43,6 +44,8 @@ class HomeCtrl {
 
         this.MainUrl = "https://torid-fire-6526.firebaseio.com/";
         this.MainRef = new Firebase(this.MainUrl);
+        this.MainRefFire = $firebase(new Firebase(this.MainUrl));
+
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
         this.auth.$getCurrentUser().then((user)=> {
             if (user === null) {
