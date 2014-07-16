@@ -77,28 +77,23 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li ng-show="home.isBreeder!==undefined && home.isBreeder!==null">
-					<div ng-show="home.isBreeder===true">
+				<li ng-show="home.isLoggedIn">
 					<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})"
-						   ng-if="home.isBreeder">Hello,
-						                          {{home.userName}}</a>
-					</div>
+					   ng-if="home.isBreeder===true">Hello, {{home.userName}}</a>
 
-					<div ng-show="home.isBreeder===false">
-					<a class="hello-user" ui-sref="looker.account({uname:home.userName})" ng-if="!home.isBreeder">Hello,
-						                                                                                              {{home.userName}}</a>
-					</div>
+					<a class="hello-user" ui-sref="looker.account({uname:home.userName})"
+					   ng-if="home.isBreeder===false">Hello, {{home.userName}}</a>
 				</li>
 
 				<li>
-					<a ng-show="home.auth.user" class="sniff-menu btn-logout"
+					<a ng-show="home.isLoggedIn" class="sniff-menu btn-logout"
 					   ng-click="home.Logout()">LOG OUT
 					</a>
-					<a ng-hide="home.auth.user" class="sniff-menu"
+					<a ng-hide="home.isLoggedIn" class="sniff-menu"
 					   ui-sref="sniff.login">LOG IN</a>
 				</li>
-				<li ng-hide="home.auth.user">
-					<a class="sniff-menu" ui-sref="sniff.register">REGISTER</a>
+				<li ng-hide="home.isLoggedIn">
+				<a class="sniff-menu" ui-sref="sniff.register">REGISTER</a>
 				</li>
 			</ul>
 
@@ -300,4 +295,6 @@
 <script src="scripts/utils/IUserGenerator.js"></script>
 <script src="scripts/models/ILookerProfile.js"></script>
 
-<!-- endbuil
+<!-- endbuil-->
+</body>
+</html>

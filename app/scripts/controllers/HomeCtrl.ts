@@ -34,6 +34,8 @@ class HomeCtrl {
     isOwner:boolean;
     hideMenu:boolean;
 
+    isLoggedIn:boolean = false;
+
     constructor(public $scope, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home = this;
         this.menuIndex = 1;
@@ -47,8 +49,40 @@ class HomeCtrl {
             if (user === null) {
                 return;
             }
+
+            this.Breedership(this.FireProcess(user.email)).then(() => {
+                this.userName = user.email;
+                this.isLoggedIn = true;
+
+                this.userNameFire = this.FireProcess(this.userName);
+            });
+        });
+    }
+
+    Signin(email:string, pass:string) {
+        this.auth = this.$firebaseSimpleLogin(this.MainRef);
+
+        this.auth.$login('password', {
+            email: email,
+            password: pass
+
+        }).then((user)=> {
+
             this.userName = user.email;
+            this.isLoggedIn = true;
+
             this.userNameFire = this.FireProcess(this.userName);
+
+            this.Breedership(this.FireProcess(user.email)).then(() => {
+                this.isLoggedIn = true;
+                if (this.isBreeder === true) {
+                    this.$state.go('user.profile.about1', {uname: user.email});
+                }
+
+                if (this.isBreeder === false) {
+                    this.$state.go('looker.account', {uname: user.email});
+                }
+            })
         });
     }
 
@@ -66,20 +100,22 @@ class HomeCtrl {
 
         breederRef.$on('value', (snapshot:any)=> {
             var breeder = snapshot.snapshot.value;
-            if (breeder !== null) {
+            if (!_.isNull(breeder)) {
                 this.isBreeder = true;
                 d.resolve();
+            } else {
+                lookerRef.$on('value', (snapshot:any)=> {
+                    var looker = snapshot.snapshot.value;
+                    if (!_.isNull(looker)) {
+                        this.isBreeder = false;
+                        d.resolve();
+                    }
+
+                });
             }
         });
 
-        lookerRef.$on('value', (snapshot:any)=> {
-            var looker = snapshot.snapshot.value;
-            if (looker !== null) {
-                this.isBreeder = false;
-                d.resolve();
-            }
 
-        });
         return d.promise;
     }
 
@@ -155,26 +191,6 @@ class HomeCtrl {
         })
     }
 
-    Signin(email:string, pass:string) {
-        this.auth = this.$firebaseSimpleLogin(this.MainRef);
-
-        this.auth.$login('password', {
-            email: email,
-            password: pass
-
-        }).then((user)=> {
-            this.Breedership(this.FireProcess(user.email)).then(() => {
-
-                if (this.isBreeder === true) {
-                    this.$state.go('user.profile.about1', {uname: user.email});
-                }
-
-                if (this.isBreeder === false) {
-                    this.$state.go('looker.account', {uname: user.email});
-                }
-            })
-        });
-    }
 
     FacebookSignin() {
         this.auth.$login('facebook',
@@ -192,10 +208,8 @@ class HomeCtrl {
     }
 
     Logout() {
-        this.userName = null;
-        this.userNameFire = null;
-        this.isBreeder = null;
-        this.isOwner = null;
+
+        this.isLoggedIn = false;
 
         this.auth.$logout();
         this.$state.go('home');
