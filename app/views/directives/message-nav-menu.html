@@ -3,13 +3,13 @@
 		<div class="alert alert-warning sniff-alert">
 			<div class="">
 				<a class="btn btn-default btn-message shuffle-animation"
-				   ng-if="home.isBreeder"
+				   ng-if="home.isBreeder===true"
 				   ui-sref="user.profile.messages"><i class="fa fa-envelope-o fa-fw fa-md "></i>
 					Inbox
 				</a>
 
 				<a class="btn btn-default btn-message shuffle-animation"
-				   ng-if="!home.isBreeder"
+				   ng-if="home.isBreeder===false"
 				   ui-sref="looker.messages"><i class="fa fa-envelope-o fa-fw fa-md "></i>
 					Inbox
 				</a>

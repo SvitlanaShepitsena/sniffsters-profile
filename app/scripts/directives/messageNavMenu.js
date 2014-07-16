@@ -7,11 +7,6 @@ var messageNavMenu = function () {
         templateUrl: 'views/directives/message-nav-menu.html',
         // replace directive tag with template info
         replace: true,
-        scope: {
-            ctrl: '=',
-            text: '@',
-            func: '&'
-        },
         link: function (scope, element, attrs) {
         }
     };

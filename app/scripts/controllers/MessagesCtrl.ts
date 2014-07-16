@@ -24,20 +24,22 @@ class MessagesCtrl {
         $scope.home.hideMenu = true;
 
         $scope.home.auth.$getCurrentUser().then((user) => {
-            if ($scope.home.isBreeder) {
+            $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
+                if ($scope.home.isBreeder) {
 
-                DataService.getMessages(user.email).then((messages:any)=> {
-                    this.fireMessages = messages;
-                    this.SetSelectedUser(0);
-                })
-            }
-            else {
-                DataService.getLookerMessages(user.email).then((messages:any)=> {
-                    this.fireMessages = messages;
-                    this.SetSelectedUser(0);
-                })
+                    DataService.getMessages(user.email).then((messages:any)=> {
+                        this.fireMessages = messages;
+                        this.SetSelectedUser(0);
+                    })
+                }
+                else {
+                    DataService.getLookerMessages(user.email).then((messages:any)=> {
+                        this.fireMessages = messages;
+                        this.SetSelectedUser(0);
+                    })
 
-            }
+                }
+            })
         })
     }
 

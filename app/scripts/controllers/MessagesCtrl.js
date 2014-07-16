@@ -14,19 +14,22 @@ var MessagesCtrl = (function () {
         $scope.home.hideMenu = true;
 
         $scope.home.auth.$getCurrentUser().then(function (user) {
-            if ($scope.home.isBreeder) {
-                DataService.getMessages(user.email).then(function (messages) {
-                    _this.fireMessages = messages;
-                    _this.SetSelectedUser(0);
-                });
-            } else {
-                DataService.getLookerMessages(user.email).then(function (messages) {
-                    _this.fireMessages = messages;
-                    _this.SetSelectedUser(0);
-                });
-            }
+            $scope.home.Breedership($scope.home.FireProcess(user.email)).then(function () {
+                if ($scope.home.isBreeder) {
+                    DataService.getMessages(user.email).then(function (messages) {
+                        _this.fireMessages = messages;
+                        _this.SetSelectedUser(0);
+                    });
+                } else {
+                    DataService.getLookerMessages(user.email).then(function (messages) {
+                        _this.fireMessages = messages;
+                        _this.SetSelectedUser(0);
+                    });
+                }
+            });
         });
     }
+
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteConversation(this.$scope.home.userName, this.selectedUser).then(function () {

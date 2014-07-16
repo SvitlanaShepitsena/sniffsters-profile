@@ -13,14 +13,7 @@ var messageNavMenu:() => ng.IDirective = () => {
         templateUrl: 'views/directives/message-nav-menu.html',
         // replace directive tag with template info
         replace: true,
-        scope: {
-            ctrl: '=',
-
-            text: '@',
-            func: '&'
-        },
         link: (scope:IMessageNavMenu, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
 
         }
     }
