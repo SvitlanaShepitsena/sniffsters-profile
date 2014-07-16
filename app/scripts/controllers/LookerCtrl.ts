@@ -16,7 +16,6 @@ class LookerCtrl {
 
         var lookerEmail = this.$stateParams.uname;
         var lookerUrl = this.lookersUrl + $scope.home.FireProcess(lookerEmail);
-        console.log(lookerUrl);
         $scope.looker = $firebase(new Firebase(lookerUrl));
     }
 

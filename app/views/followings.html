@@ -1,13 +1,13 @@
 <h2 class="sniff-head-info">Followings</h2>
 
-<div class="searchBreederDescription">
+<div class="searchBreederDescription" ng-cloak>
 	<ul class="list-unstyled">
-		<li class="shuffle-animation" ng-repeat="f in followings">
+		<li class="shuffle-animation" ng-repeat="f in followings|orderByPriority">
 			<hr/>
 			<div class="row ">
 				<div class="col-xs-3">
-					<div class="thumbnail no-b-margin">
-						<a ui-sref="user.profile.about1({uname:f.Email})">
+					<div class="thumbnail no-b-margin" ng-if="f.Email.length>0">
+					<a ui-sref="user.profile.about1({uname:f.Email})">
 							<img ng-src="../imgdir/{{f.Email}}/myimg/mainpic.jpg" alt="">
 						</a>
 					</div>
