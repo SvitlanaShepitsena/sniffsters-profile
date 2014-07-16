@@ -49,11 +49,8 @@ class HomeCtrl {
             }
             this.userName = user.email;
             this.userNameFire = this.FireProcess(this.userName);
-
         });
-
     }
-
 
     Breedership(email:string) {
 
@@ -72,10 +69,8 @@ class HomeCtrl {
             if (breeder !== null) {
                 this.isBreeder = true;
                 d.resolve();
-
             }
-
-        })
+        });
 
         lookerRef.$on('value', (snapshot:any)=> {
             var looker = snapshot.snapshot.value;
@@ -85,37 +80,20 @@ class HomeCtrl {
             }
 
         });
-
         return d.promise;
     }
 
     followUser(loggedUser:string, follower:string) {
-        if (this.$scope.home.isBreeder) {
-            this.DataService.followUser(loggedUser, follower).then(()=> {
+        this.DataService.followUser(loggedUser, follower).then(()=> {
 
-                this.$scope.home.AddToFollowings(follower);
-            })
-        }
-        else {
-            this.DataService.followLookerUser(loggedUser, follower).then(()=> {
-
-                this.$scope.home.AddToFollowings(follower);
-            })
-
-        }
+            this.$scope.home.AddToFollowings(follower);
+        })
     }
 
     unFollowUser(loggedUser:string, follower:string) {
-        if (this.$scope.home.isBreeder) {
-            this.DataService.unFollowUser(loggedUser, follower).then(()=> {
-                this.$scope.home.RemoveFromFollowings(follower);
-            })
-        }
-        else {
-            this.DataService.unFollowLookerUser(loggedUser, follower).then(()=> {
-                this.$scope.home.RemoveFromFollowings(follower);
-            })
-        }
+        this.DataService.unFollowUser(loggedUser, follower).then(()=> {
+            this.$scope.home.RemoveFromFollowings(follower);
+        })
     }
 
 
@@ -184,9 +162,18 @@ class HomeCtrl {
             email: email,
             password: pass
 
-        }).then(()=> {
-        });
+        }).then((user)=> {
+            this.Breedership(this.FireProcess(user.email)).then(() => {
 
+                if (this.isBreeder === true) {
+                    this.$state.go('user.profile.about1', {uname: user.email});
+                }
+
+                if (this.isBreeder === false) {
+                    this.$state.go('looker.account', {uname: user.email});
+                }
+            })
+        });
     }
 
     FacebookSignin() {
@@ -203,6 +190,7 @@ class HomeCtrl {
                 this.ShowError(error);
             })
     }
+
     Logout() {
         this.userName = null;
         this.userNameFire = null;
