@@ -1,20 +1,25 @@
 /// <reference path="HomeCtrl.ts" />
 
 interface IFollowersScope extends IMainScope {
-    followers:FollowersCtrl;
+    followersCtrl:FollowersCtrl;
     ctrl:IndexCtrl;
     home:HomeCtrl;
+    followers:any
+
 }
 class FollowersCtrl {
 
-    constructor(public $scope:IFollowersScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
-        $scope.followers = this;
+    constructor(public $scope:IFollowersScope, $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+        $scope.followersCtrl = this;
 
-        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
-        new FirebaseSimpleLogin(fref, () => {
-            DataService.getMyFollowers($scope.home.userName).then((breedersArr:IBreederProfile[])=> {
-                $scope.home.Followers = _.values(breedersArr);
-            });
+        $scope.home.auth.$getCurrentUser().then(() => {
+            $scope.home.Breedership($scope.home.userNameFire).then(() => {
+
+                var followersUrl = $scope.home.MainUrl;
+                followersUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
+                followersUrl += $scope.home.userNameFire + '/followers';
+                $scope.followers = $firebase(new Firebase(followersUrl));
+            })
         })
     }
 

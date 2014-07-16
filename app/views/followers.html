@@ -1,14 +1,13 @@
 <h2 class="sniff-head-info">Followers</h2>
-
 <div class="searchBreederDescription">
 	<ul class="list-unstyled">
-		<li class="shuffle-animation" ng-repeat="b in home.Followers">
+		<li class="shuffle-animation" ng-repeat="f in followers">
 			<hr/>
 			<div class="row ">
 				<div class="col-xs-3">
 					<div class="thumbnail no-b-margin">
-						<a ui-sref="user.profile.about1({uname:b.profile.Email})">
-							<img ng-src="../imgdir/{{b}}/myimg/mainpic.jpg" alt="">
+						<a ui-sref="user.profile.about1({uname:f.Email})">
+							<img ng-src="../imgdir/{{f.Email}}/myimg/mainpic.jpg" alt="">
 						</a>
 					</div>
 
@@ -40,22 +39,19 @@
 					<div class="">
 						<h3 class="breederName">
 							<a class="a-name" href="#">
-								{{b.profile.FirstName}} {{b.profile.LastName}}
-								Dogs Paradise
+								{{f.KennelName}}
 							</a>
 						</h3>
 
 						<h4 class="hBreederWebsite">
 							<a class="text-muted" href="#">
-								{{b.profile.City}} {{b.profile.State}}
-								www.dogparadise.com
+								{{f.Website}}
 							</a>
 						</h4>
 
 						<h4 class="hBreederWebsite">
 							<a class="text-muted" href="#">
-								{{b.profile.City}} {{b.profile.State}}
-								Chicago, IL
+								{{f.City}} {{f.State}}
 							</a>
 						</h4>
 						<br/>
@@ -65,13 +61,13 @@
 
 				<div class="col-xs-3 text-right">
 					<p class="text-right" ng-show="home.FireUname">
-						<button class="btn btn-tiny btn-default btn-follow" ng-hide="home.Followings.indexOf(b)>-1"
-						        role="button" ng-click="home.followUser(home.FireUname,b)">
+						<button class="btn btn-tiny btn-default btn-follow" ng-hide="home.Followings.indexOf(f)>-1"
+						        role="button" ng-click="home.followUser(home.FireUname,f)">
 							Follow
 						</button>
 
-						<button class="btn btn-default btn-tiny btn-follow" ng-show="home.Followings.indexOf(b)>-1"
-						        role="button" ng-click="home.unFollowUser(home.FireUname,b)">
+						<button class="btn btn-default btn-tiny btn-follow" ng-show="home.Followings.indexOf(f)>-1"
+						        role="button" ng-click="home.unFollowUser(home.FireUname,f)">
 							UnFollow
 						</button>
 

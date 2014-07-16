@@ -61,14 +61,68 @@ class GenerateCtrl {
             var followersRef = breederRef.$child('followers');
             var followingsRef = breederRef.$child('followings');
 
-            var followerRef = followersRef.$child("breeder1@gmail(p)com");
-            var follower2Ref = followersRef.$child("breeder2@gmail(p)com");
-            var follower3Ref = followersRef.$child("breeder3@gmail(p)com");
+
+            //=followings
+            followingsRef.$add({
+                KennelName: "Dogs Paradise",
+                Email: "breeder5@gmail.com",
+                City: "Chicago",
+                State: "IL",
+                Website: "www.dogsparadise.com",
+                Phone: '773-123-45-67'
+            });
+            followingsRef.$add({
+                KennelName: "Dogs Paradise",
+                Email: "breeder6@gmail.com",
+                City: "Chicago",
+                State: "IL",
+                Website: "www.dogsparadise.com",
+                Phone: '773-123-45-67'
+            });
+            followingsRef.$add({
+                KennelName: "Dogs Paradise",
+                Email: "breeder7@gmail.com",
+                City: "Chicago",
+                State: "IL",
+                Website: "www.dogsparadise.com",
+                Phone: '773-123-45-67'
+            });
+
+            //=followers
+            followersRef.$add({
+                KennelName: "Dogs Paradise",
+                Email: "breeder2@gmail.com",
+                City: "Chicago",
+                State: "IL",
+                Website: "www.dogsparadise.com",
+                Phone: '773-123-45-67'
+            });
+            followersRef.$add({
+                KennelName: "Dogs Paradise",
+                Email: "breeder3@gmail.com",
+                City: "Chicago",
+                State: "IL",
+                Website: "www.dogsparadise.com",
+                Phone: '773-123-45-67'
+            });
+            followersRef.$add({
+                KennelName: "Dogs Paradise",
+                Email: "breeder4@gmail.com",
+                City: "Chicago",
+                State: "IL",
+                Website: "www.dogsparadise.com",
+                Phone: '773-123-45-67'
+            });
+
+            followersRef.$add({
+                FirstName: "John",
+                LastName: "Doe",
+                City: "Chicago",
+                State: "IL"
+            });
 
 
-            followerRef.$add('1');
-            follower2Ref.$add('1');
-            follower3Ref.$add('1');
+            followingsRef.$save();
             followersRef.$save();
             followingsRef.$add('1');
             breederRef.$save();
@@ -82,7 +136,7 @@ class GenerateCtrl {
     CreateLookers() {
 
         this.$scope.generate = this;
-        this.$scope.breeders = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers"));
+        this.$scope.lookers = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers"));
 
 
         var lookers:ILookerProfile[] = this.GenerateLookers();

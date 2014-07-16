@@ -15,7 +15,6 @@ class HomeCtrl {
     userName:any;
     userNameFire:string;
 
-    isBreeder:boolean;
 
     MainUrl:string;
     MainRef:Firebase;
@@ -29,8 +28,9 @@ class HomeCtrl {
     url:string;
     Followers:string[];
     Followings:string[];
-
     menuIndex:number;
+
+    isBreeder:boolean;
     isOwner:boolean;
     hideMenu:boolean;
 

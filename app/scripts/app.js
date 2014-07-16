@@ -62,6 +62,7 @@
 /// <reference path="controllers/LookerAccountCtrl.ts" />
 /// <reference path="controllers/LookerAccountEditCtrl.ts" />
 /// <reference path="directives/subscriptionPlans.ts" />
+/// <reference path="controllers/FollowingsCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
@@ -167,6 +168,7 @@ profile.controller("SubscriptionsCtrl", SubscriptionsCtrl);
 profile.controller("LookerCtrl", LookerCtrl);
 profile.controller("LookerAccountCtrl", LookerAccountCtrl);
 profile.controller("LookerAccountEditCtrl", LookerAccountEditCtrl);
+profile.controller("FollowingsCtrl", FollowingsCtrl);
 
 //#ctrl
 // TODO: Implement filter
@@ -290,6 +292,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/messages-trash.html"
     }).state("user.profile.followings", {
         url: "/followings",
+        controller: "FollowingsCtrl",
         templateUrl: "../views/followings.html"
     }).state("user.profile.followers", {
         url: "/followers",

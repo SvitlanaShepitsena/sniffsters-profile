@@ -2,7 +2,7 @@
 /// <reference path="MessagesCtrl.ts" />
 
 interface ILookerScope extends IHomeScope {
-    looker:LookerCtrl;
+    lookerCtrl:LookerCtrl;
     home:HomeCtrl;
     messages:MessagesCtrl;
 }
@@ -10,7 +10,7 @@ class LookerCtrl {
     lookersUrl:string;
 
     constructor(public $scope:ILookerScope, public $firebase, public $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
-        $scope.looker = this;
+        $scope.lookerCtrl = this;
         this.lookersUrl = "https://torid-fire-6526.firebaseio.com/lookers/";
 
         var lookerEmail = this.$stateParams.uname;
