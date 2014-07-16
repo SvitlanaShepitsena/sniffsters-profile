@@ -101,8 +101,8 @@
 		<br/>
 
 		<div class="form-group  profileSave text-center">
-			<a class="btn btn-default" ui-sref="profile.details4">Cancel</a>
-			<a class="btn btn-warning" ng-click="form.fname='';form.$setDirty()">Reset all fields</a>
+			<a class="btn btn-default" ui-sref="looker.account">Cancel</a>
+			<a class="btn btn-warning" ng-click="ResetAllFields();form.$setDirty()">Reset all fields</a>
 			<button class="btn btn-primary"
 			        ng-disabled="(form.$pristine) || (form.$invalid)"
 			        ng-click="ctrl.Save(ctrl.BreederProfileEdit); form.$setPristine();">

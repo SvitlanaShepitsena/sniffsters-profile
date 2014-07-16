@@ -6,6 +6,7 @@ interface ILookerScope extends IHomeScope {
     looker:any
     home:HomeCtrl;
     messages:MessagesCtrl;
+    ResetAllFields: () => void;
 }
 class LookerCtrl {
     lookersUrl:string;
@@ -34,7 +35,6 @@ class LookerCtrl {
     }
 
     ResetAllFields = () => {
-
     }
 
 }
