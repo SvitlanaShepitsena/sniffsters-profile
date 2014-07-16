@@ -3,6 +3,7 @@
 
 interface ILookerScope extends IHomeScope {
     lookerCtrl:LookerCtrl;
+    looker:any
     home:HomeCtrl;
     messages:MessagesCtrl;
 }

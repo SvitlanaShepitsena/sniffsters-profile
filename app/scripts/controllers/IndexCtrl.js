@@ -48,7 +48,6 @@ var IndexCtrl = (function () {
             });
         });
     }
-
     IndexCtrl.prototype.SaveKennelName = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 
