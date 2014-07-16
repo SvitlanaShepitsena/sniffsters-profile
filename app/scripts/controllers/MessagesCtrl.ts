@@ -25,19 +25,18 @@ class MessagesCtrl {
 
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
-                if ($scope.home.isBreeder) {
+                if ($scope.home.isBreeder === true) {
 
                     DataService.getMessages(user.email).then((messages:any)=> {
                         this.fireMessages = messages;
                         this.SetSelectedUser(0);
                     })
                 }
-                else {
+                if ($scope.home.isBreeder === false) {
                     DataService.getLookerMessages(user.email).then((messages:any)=> {
                         this.fireMessages = messages;
                         this.SetSelectedUser(0);
                     })
-
                 }
             })
         })
@@ -67,38 +66,45 @@ class MessagesCtrl {
     }
 
     Send() {
-        if (this.$scope.home.isBreeder) {
-            this.DataService.sendReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(() => {
-                this.fireMessages.push({amISender: true, body: this.reply.body, sent: Date.now(), isTrash: false, userName: this.selectedUser});
-                this.reply.body = "";
+        this.$scope.home.auth.$getCurrentUser().then((user) => {
+            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
+                if (this.$scope.home.isBreeder) {
+                    this.DataService.sendReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(() => {
+                        this.fireMessages.push({amISender: true, body: this.reply.body, sent: Date.now(), isTrash: false, userName: this.selectedUser});
+                        this.reply.body = "";
+                    })
+                }
+                else {
+                    this.DataService.sendLookerReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(() => {
+                        this.fireMessages.push({amISender: true, body: this.reply.body, sent: Date.now(), isTrash: false, userName: this.selectedUser});
+                        this.reply.body = "";
+                    })
+                }
             })
-        }
-        else {
-            this.DataService.sendLookerReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(() => {
-                this.fireMessages.push({amISender: true, body: this.reply.body, sent: Date.now(), isTrash: false, userName: this.selectedUser});
-                this.reply.body = "";
-            })
-
-        }
+        })
     }
 
     SendNewMessage(to:string, body:string) {
-        if (this.$scope.home.isBreeder) {
-            this.DataService.sendReply(this.$scope.home.userName, to, body).then(() => {
-                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, userName: this.$scope.home.FireProcess(to)});
-                this.$state.go('^');
-                this.ShowSuccess('Your message has been sent!!');
+        this.$scope.home.auth.$getCurrentUser().then((user) => {
+            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
+                if (this.$scope.home.isBreeder) {
+                    this.DataService.sendReply(this.$scope.home.userName, to, body).then(() => {
+                        this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, userName: this.$scope.home.FireProcess(to)});
+                        this.$state.go('^');
+                        this.ShowSuccess('Your message has been sent!!');
 //            this.reply.body = "";
-            })
-        }
-        else {
-            this.DataService.sendLookerReply(this.$scope.home.userName, to, body).then(() => {
-                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, userName: this.$scope.home.FireProcess(to)});
-                this.$state.go('^');
-                this.ShowSuccess('Your message has been sent!!');
+                    })
+                }
+                else {
+                    this.DataService.sendLookerReply(this.$scope.home.userName, to, body).then(() => {
+                        this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, userName: this.$scope.home.FireProcess(to)});
+                        this.$state.go('^');
+                        this.ShowSuccess('Your message has been sent!!');
 //            this.reply.body = "";
+                    })
+                }
             })
-        }
+        })
     }
 
     SetSelectedUser(arrIndex:number) {
