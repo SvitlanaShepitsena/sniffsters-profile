@@ -11,12 +11,12 @@ class FollowingsCtrl {
     constructor(public $scope:IFollowingsScope, $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.followings = this;
 
-        $scope.home.auth.$getCurrentUser().then(() => {
-            $scope.home.Breedership($scope.home.userNameFire).then(() => {
+        $scope.home.auth.$getCurrentUser().then((user) => {
+            $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
 
                 var followingsUrl = $scope.home.MainUrl;
                 followingsUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
-                followingsUrl += $scope.home.userNameFire + '/followings';
+                followingsUrl += $scope.home.FireProcess(user.email) + '/followings';
                 $scope.followings = $firebase(new Firebase(followingsUrl));
             })
         })

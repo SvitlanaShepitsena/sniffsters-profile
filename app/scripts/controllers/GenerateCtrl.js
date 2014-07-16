@@ -105,22 +105,21 @@ var GenerateCtrl = (function () {
                 Phone: '773-123-45-67'
             });
 
-            followersRef.$add({
-                FirstName: "John",
-                LastName: "Doe",
-                City: "Chicago",
-                State: "IL"
-            });
-
+            //            followersRef.$add({
+            //                FirstName: "John",
+            //                LastName: "Doe",
+            //                City: "Chicago",
+            //                State: "IL"
+            //            });
             followingsRef.$save();
             followersRef.$save();
-            followingsRef.$add('1');
             breederRef.$save();
         });
 
         $scope.breeders.$save();
         this.CreateLookers();
     }
+
     GenerateCtrl.prototype.CreateLookers = function () {
         var _this = this;
         this.$scope.generate = this;
