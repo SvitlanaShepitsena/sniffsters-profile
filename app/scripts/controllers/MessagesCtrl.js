@@ -30,6 +30,7 @@ var MessagesCtrl = (function () {
             });
         });
     }
+
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
         this.DataService.deleteConversation(this.$scope.home.userName, this.selectedUser).then(function () {
@@ -60,12 +61,13 @@ var MessagesCtrl = (function () {
         var _this = this;
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
-                if (_this.$scope.home.isBreeder) {
+                if (_this.$scope.home.isBreeder === true) {
                     _this.DataService.sendReply(_this.$scope.home.userName, _this.selectedUser, _this.reply.body).then(function () {
                         _this.fireMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now(), isTrash: false, userName: _this.selectedUser });
                         _this.reply.body = "";
                     });
-                } else {
+                }
+                if (_this.$scope.home.isBreeder === false) {
                     _this.DataService.sendLookerReply(_this.$scope.home.userName, _this.selectedUser, _this.reply.body).then(function () {
                         _this.fireMessages.push({ amISender: true, body: _this.reply.body, sent: Date.now(), isTrash: false, userName: _this.selectedUser });
                         _this.reply.body = "";
@@ -79,14 +81,15 @@ var MessagesCtrl = (function () {
         var _this = this;
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
-                if (_this.$scope.home.isBreeder) {
+                if (_this.$scope.home.isBreeder === true) {
                     _this.DataService.sendReply(_this.$scope.home.userName, to, body).then(function () {
                         _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, userName: _this.$scope.home.FireProcess(to) });
                         _this.$state.go('^');
                         _this.ShowSuccess('Your message has been sent!!');
                         //            this.reply.body = "";
                     });
-                } else {
+                }
+                if (_this.$scope.home.isBreeder === false) {
                     _this.DataService.sendLookerReply(_this.$scope.home.userName, to, body).then(function () {
                         _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, userName: _this.$scope.home.FireProcess(to) });
                         _this.$state.go('^');

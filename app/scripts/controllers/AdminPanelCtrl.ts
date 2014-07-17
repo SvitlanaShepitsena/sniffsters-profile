@@ -7,6 +7,7 @@ interface IAdminPanelScope extends IHomeScope {
 class AdminPanelCtrl {
 
     constructor(public $scope:IAdminPanelScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+        $scope.home.IsSearchHidden = false;
         $scope.adminPanel = this;
     }
 

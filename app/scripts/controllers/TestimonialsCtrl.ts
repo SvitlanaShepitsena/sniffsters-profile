@@ -4,30 +4,15 @@ class TestimonialsCtrl {
     Feedbacks:IFeedback[];
     FeedbacksNew:IFeedback[];
 
-    constructor(public $scope, public $modal,  public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+        var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/feedbacks';
+        //binding to firebase
+        $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
+
         $scope.home.url = "testimonials";
-        $scope.isOk = false;
-        this.FeedbacksNew = [];
-        $scope.testimonials = this;
-        DataService.getFeedbacks($scope.index.IdFire).then((feedbacks:IFeedback[])=> {
+        var fireTestimonials = this.
+            $scope.testimonials = this;
 
-        this.Feedbacks = feedbacks;
-
-        })
-
-        $scope.$watch("testimonials.FeedbacksNew", () => {
-            for (var i = 0; i < this.FeedbacksNew.length; i++) {
-                var feedback:IFeedback = this.FeedbacksNew[i];
-                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0 &&
-                    feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
-                    this.$scope.isOk = true;
-                    break;
-                } else {
-
-                    this.$scope.isOk = false;
-                }
-            }
-        }, true);
     }
 
     addNewTestimonial() {
@@ -35,13 +20,13 @@ class TestimonialsCtrl {
     }
 
     saveNewTestimonials() {
-        this.DataService.saveNewTestimonials<IFeedback>(this.FeedbacksNew).then((feedbacks:IFeedback[]) => {
-            feedbacks.forEach((feedback)=> {
+        /*        this.DataService.saveNewTestimonials<IFeedback>(this.FeedbacksNew).then((feedbacks:IFeedback[]) => {
+         feedbacks.forEach((feedback)=> {
                 this.Feedbacks.unshift(feedback);
             })
             this.FeedbacksNew = [];
             this.ShowSuccess("Feedbacks have been successfully saved to Db");
-        })
+         })*/
     }
 
     ShowSuccess(note:string) {
@@ -66,7 +51,6 @@ class TestimonialsCtrl {
                     $modalInstance.close(false)
                 }
             }
-
         });
 
         modalInstance.result.then((confirmation:boolean) => {

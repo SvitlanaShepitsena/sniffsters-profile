@@ -9,12 +9,10 @@
 interface IHomeScope extends IMainScope {
     home:HomeCtrl;
     ctrl:IndexCtrl;
-
 }
 class HomeCtrl {
     userName:any;
     userNameFire:string;
-
 
     MainUrl:string;
     MainRef:Firebase;

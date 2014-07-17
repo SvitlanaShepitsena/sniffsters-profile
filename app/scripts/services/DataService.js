@@ -10,14 +10,15 @@ var DataService = (function () {
         this.$firebase = $firebase;
         this.$filter = $filter;
         this.url = "https://torid-fire-6526.firebaseio.com/breeders/";
-        this.urlLooker = "https://torid-fire-6526.firebaseio.com/looker/";
+        this.urlLooker = "https://torid-fire-6526.firebaseio.com/lookers/";
     }
+
+    // =Messages
     DataService.prototype.sendReply = function (userName, corrUserName, reply) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
-
         var corrUserUrl = this.url + userName + "/messages";
         var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
 
@@ -128,6 +129,37 @@ var DataService = (function () {
         return d.promise;
     };
 
+    DataService.prototype.getLookerMessages = function (userName) {
+        var _this = this;
+        userName = this.FireProcess(userName);
+        var d = this.$q.defer();
+        console.log('looker Messages');
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/messages"));
+
+        fireMessages.$on('value', function (snapshot) {
+            var messages = snapshot.snapshot.value;
+
+            d.resolve(_this.$filter('orderByPriority')(messages));
+        });
+        return d.promise;
+    };
+
+    DataService.prototype.getMessages = function (userName) {
+        var _this = this;
+        console.log('breeders Messages');
+        userName = this.FireProcess(userName);
+        var d = this.$q.defer();
+
+        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/messages"));
+
+        fireMessages.$on('value', function (snapshot) {
+            var messages = snapshot.snapshot.value;
+
+            d.resolve(_this.$filter('orderByPriority')(messages));
+        });
+        return d.promise;
+    };
+
     DataService.prototype.FireProcess = function (userName) {
         return userName.replace(/\./g, '(p)');
     };
@@ -136,6 +168,7 @@ var DataService = (function () {
         return userName.replace(/\(p\)/g, '.');
     };
 
+    // =Followeings
     DataService.prototype.getMyLookerFollowings = function (userName) {
         var _this = this;
         userName = this.FireProcess(userName);
@@ -274,6 +307,7 @@ var DataService = (function () {
         return d.promise;
     };
 
+    //=Profile
     DataService.prototype.getProfile = function (id) {
         var key = id.replace(/\./g, '(p)');
         this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/profile"));
@@ -314,6 +348,7 @@ var DataService = (function () {
         return d.promise;
     };
 
+    //=Photo Galleries
     DataService.prototype.getGalleries = function (id) {
         var key = id.replace(/\./g, '(p)');
         var fireGalleries = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/galleries"));
@@ -325,37 +360,6 @@ var DataService = (function () {
         });
         var d = this.$q.defer();
 
-        return d.promise;
-    };
-
-    DataService.prototype.getLookerMessages = function (userName) {
-        var _this = this;
-        userName = this.FireProcess(userName);
-        var d = this.$q.defer();
-        console.log('looker Messages');
-        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/messages"));
-
-        fireMessages.$on('value', function (snapshot) {
-            var messages = snapshot.snapshot.value;
-
-            d.resolve(_this.$filter('orderByPriority')(messages));
-        });
-        return d.promise;
-    };
-
-    DataService.prototype.getMessages = function (userName) {
-        var _this = this;
-        console.log('breeders Messages');
-        userName = this.FireProcess(userName);
-        var d = this.$q.defer();
-
-        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/messages"));
-
-        fireMessages.$on('value', function (snapshot) {
-            var messages = snapshot.snapshot.value;
-
-            d.resolve(_this.$filter('orderByPriority')(messages));
-        });
         return d.promise;
     };
 
@@ -378,15 +382,59 @@ var DataService = (function () {
         return d.promise;
     };
 
+    //=Testimonials
+    DataService.prototype.saveNewTestimonials = function (feedbacks, userName) {
+        var d = this.$q.defer();
+        console.log(feedbacks);
+        var fireTestimonials = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/testimonials"));
+        var keys = fireTestimonials.$getIndex();
+        return d.promise;
+    };
+
     DataService.prototype.getFeedbacks = function (userName) {
         var d = this.$q.defer();
 
-        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/feedbacks"));
+        var fireFeedbacks = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/feedbacks"));
 
-        fireLitters.$on('value', function (snapshot) {
+        fireFeedbacks.$on('value', function (snapshot) {
             var feedbacks = snapshot.snapshot.value;
             d.resolve(feedbacks);
         });
+        return d.promise;
+    };
+
+    DataService.prototype.updateFeedback = function (feedback) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/UpdateFeedback', {
+            feedback: feedback
+        }).success(function () {
+            d.resolve();
+        }).error(function () {
+            d.reject();
+        });
+        return d.promise;
+    };
+
+    DataService.prototype.deleteFeedback = function (id) {
+        var d = this.$q.defer();
+
+        //        this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
+        //            feedbackId: id
+        //        })
+        //            .success(() => {
+        d.resolve();
+
+        //            }).error(() => {
+        //                d.reject();
+        //            });
+        return d.promise;
+    };
+
+    DataService.prototype.saveNewLitters = function (userName, litters) {
+        var d = this.$q.defer();
+        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/litters"));
+        var keys = fireLitters.$getIndex();
         return d.promise;
     };
 
@@ -401,33 +449,13 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.saveNewLitters = function (userName, litters) {
-        var d = this.$q.defer();
-        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/litters"));
-        var keys = fireLitters.$getIndex();
-        return d.promise;
-    };
-
-    DataService.prototype.saveNewTestimonials = function (feedbacks) {
-        var d = this.$q.defer();
-        console.log(feedbacks);
-        this.$http.post('http://localhost:44300/BreederPersonal/SaveNewFeedbacks', {
-            feedbacks: feedbacks
-        }).success(function (result) {
-            d.resolve(result);
-        }).error(function () {
-            d.reject();
-        });
-        return d.promise;
-    };
-
     DataService.prototype.deleteLitterPhoto = function (galleryId, photoId) {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -439,10 +467,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-                GalleryId: galleryId,
-                PhotoId: photoId,
-                Caption: caption
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId,
+            Caption: caption
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -463,6 +491,7 @@ var DataService = (function () {
         return d.promise;
     };
 
+    //=Galleries
     DataService.prototype.deleteGallery = function (galleryId) {
         var d = this.$q.defer();
 
@@ -515,6 +544,19 @@ var DataService = (function () {
         return d.promise;
     };
 
+    DataService.prototype.updateGalleries = function (t) {
+        var d = this.$q.defer();
+
+        this.$http.post('http://localhost:44300/BreederPersonal/UpdateGalleries', { Galleries: t }).success(function () {
+            d.resolve();
+        }).error(function (data, error) {
+            // console.log(data)
+            // console.log(error)
+            d.reject();
+        });
+        return d.promise;
+    };
+
     DataService.prototype.updateLitter = function (litter, userName) {
         var d = this.$q.defer();
         var unp = userName.replace(/\./g, '(p)');
@@ -527,19 +569,6 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.updateFeedback = function (feedback) {
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/UpdateFeedback', {
-            feedback: feedback
-        }).success(function () {
-            d.resolve();
-        }).error(function () {
-            d.reject();
-        });
-        return d.promise;
-    };
-
     DataService.prototype.deleteLitter = function (id) {
         var d = this.$q.defer();
 
@@ -548,34 +577,6 @@ var DataService = (function () {
         }).success(function () {
             d.resolve();
         }).error(function () {
-            d.reject();
-        });
-        return d.promise;
-    };
-
-    DataService.prototype.deleteFeedback = function (id) {
-        var d = this.$q.defer();
-
-        //        this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
-        //            feedbackId: id
-        //        })
-        //            .success(() => {
-        d.resolve();
-
-        //            }).error(() => {
-        //                d.reject();
-        //            });
-        return d.promise;
-    };
-
-    DataService.prototype.updateGalleries = function (t) {
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/UpdateGalleries', { Galleries: t }).success(function () {
-            d.resolve();
-        }).error(function (data, error) {
-            // console.log(data)
-            // console.log(error)
             d.reject();
         });
         return d.promise;

@@ -12,6 +12,7 @@ class LookerCtrl {
     lookersUrl:string;
 
     constructor(public $scope:ILookerScope, public $firebase, public $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+        $scope.home.IsSearchHidden = false;
         $scope.lookerCtrl = this;
         this.lookersUrl = "https://torid-fire-6526.firebaseio.com/lookers/";
 
@@ -35,6 +36,7 @@ class LookerCtrl {
     }
 
     ResetAllFields = () => {
+        this.$scope.looker = "";
     }
 
 }

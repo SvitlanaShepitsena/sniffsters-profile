@@ -68,13 +68,13 @@ class MessagesCtrl {
     Send() {
         this.$scope.home.auth.$getCurrentUser().then((user) => {
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
-                if (this.$scope.home.isBreeder) {
+                if (this.$scope.home.isBreeder === true) {
                     this.DataService.sendReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(() => {
                         this.fireMessages.push({amISender: true, body: this.reply.body, sent: Date.now(), isTrash: false, userName: this.selectedUser});
                         this.reply.body = "";
                     })
                 }
-                else {
+                if (this.$scope.home.isBreeder === false) {
                     this.DataService.sendLookerReply(this.$scope.home.userName, this.selectedUser, this.reply.body).then(() => {
                         this.fireMessages.push({amISender: true, body: this.reply.body, sent: Date.now(), isTrash: false, userName: this.selectedUser});
                         this.reply.body = "";
@@ -87,7 +87,7 @@ class MessagesCtrl {
     SendNewMessage(to:string, body:string) {
         this.$scope.home.auth.$getCurrentUser().then((user) => {
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
-                if (this.$scope.home.isBreeder) {
+                if (this.$scope.home.isBreeder === true) {
                     this.DataService.sendReply(this.$scope.home.userName, to, body).then(() => {
                         this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, userName: this.$scope.home.FireProcess(to)});
                         this.$state.go('^');
@@ -95,7 +95,7 @@ class MessagesCtrl {
 //            this.reply.body = "";
                     })
                 }
-                else {
+                if (this.$scope.home.isBreeder === false) {
                     this.DataService.sendLookerReply(this.$scope.home.userName, to, body).then(() => {
                         this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, userName: this.$scope.home.FireProcess(to)});
                         this.$state.go('^');

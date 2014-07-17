@@ -1,46 +1,34 @@
 /// <reference path="HomeCtrl.ts" />
 var TestimonialsCtrl = (function () {
-    function TestimonialsCtrl($scope, $modal, $state, toastr, DataService, CopyProfileService) {
-        var _this = this;
+    function TestimonialsCtrl($scope, $firebase, $modal, $state, toastr, DataService, CopyProfileService) {
         this.$scope = $scope;
+        this.$firebase = $firebase;
         this.$modal = $modal;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
-        $scope.home.url = "testimonials";
-        $scope.isOk = false;
-        this.FeedbacksNew = [];
-        $scope.testimonials = this;
-        DataService.getFeedbacks($scope.index.IdFire).then(function (feedbacks) {
-            _this.Feedbacks = feedbacks;
-        });
+        var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/feedbacks';
 
-        $scope.$watch("testimonials.FeedbacksNew", function () {
-            for (var i = 0; i < _this.FeedbacksNew.length; i++) {
-                var feedback = _this.FeedbacksNew[i];
-                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0 && feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500)) {
-                    _this.$scope.isOk = true;
-                    break;
-                } else {
-                    _this.$scope.isOk = false;
-                }
-            }
-        }, true);
+        //binding to firebase
+        $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
+
+        $scope.home.url = "testimonials";
+        var fireTestimonials = this.$scope.testimonials = this;
     }
+
     TestimonialsCtrl.prototype.addNewTestimonial = function () {
         this.FeedbacksNew.unshift(new Feedback());
     };
 
     TestimonialsCtrl.prototype.saveNewTestimonials = function () {
-        var _this = this;
-        this.DataService.saveNewTestimonials(this.FeedbacksNew).then(function (feedbacks) {
-            feedbacks.forEach(function (feedback) {
-                _this.Feedbacks.unshift(feedback);
-            });
-            _this.FeedbacksNew = [];
-            _this.ShowSuccess("Feedbacks have been successfully saved to Db");
-        });
+        /*        this.DataService.saveNewTestimonials<IFeedback>(this.FeedbacksNew).then((feedbacks:IFeedback[]) => {
+         feedbacks.forEach((feedback)=> {
+         this.Feedbacks.unshift(feedback);
+         })
+         this.FeedbacksNew = [];
+         this.ShowSuccess("Feedbacks have been successfully saved to Db");
+         })*/
     };
 
     TestimonialsCtrl.prototype.ShowSuccess = function (note) {
