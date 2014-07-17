@@ -22,8 +22,8 @@ var PuppiesCtrl = (function () {
         $scope.isOk = false;
 
         /*        DataService.getLitters($scope.index.IdFire).then((litters:ILitter[])=> {
-         this.Litters = litters;
-         })*/
+        this.Litters = litters;
+        })*/
         $scope.$watch("puppies.LittersNew", function () {
             for (var i = 0; i < _this.LittersNew.length; i++) {
                 var litter = _this.LittersNew[i];
@@ -37,7 +37,6 @@ var PuppiesCtrl = (function () {
             }
         }, true);
     }
-
     PuppiesCtrl.prototype.addNewLitter = function () {
         this.LittersNew.unshift(new Litter());
     };

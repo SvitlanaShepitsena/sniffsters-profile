@@ -1,4 +1,5 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 
 interface ILitterInfo extends ng.IScope {
     test:string;
@@ -14,7 +15,10 @@ var litterInfo:() => ng.IDirective = () => {
         replace: true,
         controller: ($scope, $stateParams) => {
             var id = $stateParams.id;
+            if (!_.isUndefined(_.values($scope.l.photos)[0])) {
             $scope.frontSrc = _.values($scope.l.photos)[0].file64;
+
+            }
         },
 
         link: (scope:ILitterInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {

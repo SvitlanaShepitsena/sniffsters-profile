@@ -84,8 +84,8 @@
 				</li>
 			</ul>
 		</div>
-		<div>
-			<ul class="list-unstyled">
+		<div ng-if="tempPhotos.length>0">
+		<ul class="list-unstyled">
 				<li ng-repeat="t in tempPhotos">
 
 					<img ng-if="t" ng-src={{t}} alt=""/>

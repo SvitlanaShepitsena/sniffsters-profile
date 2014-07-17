@@ -1,4 +1,5 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 
 var litterInfo = function () {
     return {
@@ -9,7 +10,9 @@ var litterInfo = function () {
         replace: true,
         controller: function ($scope, $stateParams) {
             var id = $stateParams.id;
-            $scope.frontSrc = _.values($scope.l.photos)[0].file64;
+            if (!_.isUndefined(_.values($scope.l.photos)[0])) {
+                $scope.frontSrc = _.values($scope.l.photos)[0].file64;
+            }
         },
         link: function (scope, element, attrs) {
         }
