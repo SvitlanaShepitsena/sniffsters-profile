@@ -3,6 +3,7 @@ dist
 .tmp
 !Gruntfile.js
 !app/bower_components/angular-bootstrap/ui-bootstrap-custom-tpls-0.10.0.min.js
+!app/bower_components/angular-image-crop/image-crop.js
 .sass-cache
 app/bower_components/*
 .idea

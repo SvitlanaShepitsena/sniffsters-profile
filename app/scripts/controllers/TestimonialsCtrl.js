@@ -33,7 +33,6 @@ var TestimonialsCtrl = (function () {
             }
         }, true);
     }
-
     TestimonialsCtrl.prototype.addNewTestimonial = function () {
         this.FeedbacksNew.unshift(new Feedback());
     };

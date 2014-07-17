@@ -39,10 +39,19 @@ var svImageUpload = ($firebase) => {
 //            });
             element.bind('change', (e:any)=> {
                 var file = e.target.files[0];
+
+                var image = new Image(file);
+                image.onload = () => {
+                    console.log('ddd');
+                }
+//                console.log(file);
+
                 reader = new FileReader();
 
                 reader.onload = (loadEvent)=> {
                     scope.fileFired = loadEvent.target.result;
+                    console.log(scope.fileFired);
+
                     var child = scope.mainRef.$remove("images");
 
                     var child = scope.mainRef.$child("images");
@@ -52,11 +61,6 @@ var svImageUpload = ($firebase) => {
                         f.once('value', function (snap) {
                             var payload = snap.val();
                             scope.cover = _.values(payload)[0];
-                            if (payload != null) {
-//                                angular.element("#pano").src = payload;
-                            } else {
-                                $('#body').append("Not found");
-                            }
                         });
                     });
 //                    console.log(scope.fileFired);

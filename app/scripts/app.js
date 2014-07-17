@@ -65,7 +65,7 @@
 /// <reference path="controllers/FollowingsCtrl.ts" />
 /// <reference path="directives/svImageUpload.ts" />
 //#ref
-var profile = angular.module("profile", ['ui.router', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
+var profile = angular.module("profile", ['ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
 profile.filter('boolString', function () {
     return function (value) {

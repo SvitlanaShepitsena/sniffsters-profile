@@ -1,3 +1,23 @@
 <h2 class="sniff-head-info">About</h2>
 <hr/>
-<sv-image-upload main-ref="home.MainRefFire"></sv-image-upload>
+<p ng-hide="imageCropResult||imageCropStep!=1">Let's get started &rarr; <a
+		ng-click="showImageCropper=true;imageCropStep=1">Crop Image</a></p>
+<p ng-show="imageCropResult">Wanna start over? &rarr; <a ng-click="imageCropResult=null;imageCropStep=1">Reset</a></p>
+<image-crop
+		data-width="796"
+		data-height="276"
+		data-shape="square"
+		data-step="imageCropStep"
+		data-result="imageCropResult"
+		ng-show="showImageCropper"
+		></image-crop>
+<hr>
+<h2>Result</h2>
+<div ng-show="imageCropResult">
+	<img ng-src="{{ imageCropResult }}" alt="The Cropped Image">
+
+	<p>And this is the actual data uri which represents the cropped image, which you'll then upload to your server:</p>
+	<textarea class="result-datauri">{{ imageCropResult }}</textarea>
+</div>
+
+<p ng-hide="imageCropResult">Not cropped yet</p>
