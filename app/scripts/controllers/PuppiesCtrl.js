@@ -1,22 +1,29 @@
 /// <reference path="HomeCtrl.ts" />
 var PuppiesCtrl = (function () {
-    function PuppiesCtrl($scope, $modal, $state, toastr, DataService, CopyProfileService) {
+    function PuppiesCtrl($scope, $firebase, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
+        this.$firebase = $firebase;
         this.$modal = $modal;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        this.$scope.home.auth.$getCurrentUser().then(function (user) {
+            _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
+                var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/litters';
+                $scope.litters = $firebase(new Firebase(litterUrl));
+            });
+        });
+        this.LittersNew = [];
         $scope.home.url = 'puppies';
+        $scope.puppies = this;
+
         $scope.isOk = false;
 
-        this.LittersNew = [];
-        $scope.puppies = this;
-        DataService.getLitters($scope.index.IdFire).then(function (litters) {
-            _this.Litters = litters;
-        });
-
+        /*        DataService.getLitters($scope.index.IdFire).then((litters:ILitter[])=> {
+         this.Litters = litters;
+         })*/
         $scope.$watch("puppies.LittersNew", function () {
             for (var i = 0; i < _this.LittersNew.length; i++) {
                 var litter = _this.LittersNew[i];
@@ -30,6 +37,7 @@ var PuppiesCtrl = (function () {
             }
         }, true);
     }
+
     PuppiesCtrl.prototype.setSelectedLitter = function (litterId) {
         var litid = 0;
         var index = 0;
@@ -42,7 +50,7 @@ var PuppiesCtrl = (function () {
             index++;
         });
         this.SelectedLitter = this.Litters[litid];
-        this.$state.go('profile.puppies3.litter', { 'id': litid });
+        this.$state.go('user.profile.puppies3.litter', { 'id': litid });
         //        console.log("Hello");
     };
 

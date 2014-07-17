@@ -14,8 +14,7 @@ class TestimonialsCtrl {
         })
         this.FeedbacksNew = [];
         $scope.home.url = "testimonials";
-        var fireTestimonials = this.
-            $scope.testimonials = this;
+        $scope.testimonials = this;
 
         $scope.$watch("testimonials.FeedbacksNew", () => {
             for (var i = 0; i < this.FeedbacksNew.length; i++) {

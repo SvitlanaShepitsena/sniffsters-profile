@@ -23,10 +23,17 @@ var GenerateCtrl = (function () {
 
             var littersRef = breederRef.$child('litters');
             var litters = _this.GenerateLitters();
-
+            var littersUrl = $scope.home.MainUrl + 'breeders/' + key + '/litters/';
+            console.log(littersUrl);
             litters.forEach(function (litter) {
-                littersRef[litter.Id] = litter;
-                littersRef.$save();
+                var newLitter = _.omit(litter, 'Photos');
+                littersRef.$add(newLitter).then(function (keyChild) {
+                    var litterRef = _this.$firebase(new Firebase(littersUrl + keyChild.name()));
+                    var photosRef = litterRef.$child('photos');
+                    litter.Photos.forEach(function (photo) {
+                        photosRef.$add(photo);
+                    });
+                });
             });
 
             var feedbackRef = breederRef.$child('feedbacks');
@@ -185,28 +192,24 @@ var GenerateCtrl = (function () {
         var litters = [];
 
         var litter1 = new Litter();
-        litter1.Id = 1;
         litter1.Title = "My First Litters";
-
         var photo1 = new Photo();
-        photo1.Id = 1;
         photo1.Caption = "My Dogs.Litter1";
         photo1.FilePath = 'Picture1.jpg';
 
         var photo2 = new Photo();
-        photo2.Id = 2;
         photo2.Caption = "My Dogs 2.Litter2";
         photo2.FilePath = 'Picture2.jpg';
 
         var photos = [];
-        photos[photo1.Id] = photo1;
-        photos[photo2.Id] = photo2;
+        photos.push(photo1);
+        photos.push(photo2);
 
         litter1.Colors = "Black & White";
         litter1.DateOfBirth = "03.23.2014";
         litter1.Photos = photos;
 
-        litters[litter1.Id] = litter1;
+        litters.push(litter1);
 
         return litters;
     };
@@ -251,17 +254,15 @@ var GenerateCtrl = (function () {
         gallery1.IsActive = true;
 
         var photo1 = new Photo();
-        photo1.Id = 1;
         photo1.Caption = "My Dogs";
         photo1.FilePath = 'Picture1.jpg';
 
         var photo2 = new Photo();
-        photo2.Id = 2;
         photo2.Caption = "My Dogs 2";
         photo2.FilePath = 'Picture2.jpg';
         var photos = [];
-        photos[photo1.Id] = photo1;
-        photos[photo2.Id] = photo2;
+        photos.push(photo1);
+        photos.push(photo2);
 
         gallery1.Photos = photos;
 

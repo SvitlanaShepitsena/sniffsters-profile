@@ -7,14 +7,8 @@ var litterInfo = function () {
         transclude: true,
         // replace directive tag with template info
         replace: true,
-        scope: {
-            l: '=',
-            puppies: '=',
-            userName: '@'
-        },
         controller: function ($scope, $stateParams) {
             var id = $stateParams.id;
-            $scope.puppies.SelectedLitter = $scope.puppies.Litters[id];
         },
         link: function (scope, element, attrs) {
         }

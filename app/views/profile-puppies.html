@@ -30,8 +30,8 @@
 
 	<div class="row">
 		<ul class="list-unstyled list-inline">
-			<li class="col-xs-6" ng-repeat="l in puppies.Litters">
-				<litter-info puppies="puppies" l="l" user-name="{{index.Id}}"></litter-info>
+			<li class="col-xs-6" ng-repeat="(id,l) in litters">
+				<litter-info l="l"></litter-info>
 			</li>
 		</ul>
 	</div>

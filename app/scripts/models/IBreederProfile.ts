@@ -58,13 +58,11 @@ class Feedback implements IFeedback {
 
 }
 interface IPhoto {
-    Id:number;
     Caption:string;
     FilePath:string;
 }
 
 class Photo implements IPhoto {
-    Id:number;
     Caption:string;
     FilePath:string;
 

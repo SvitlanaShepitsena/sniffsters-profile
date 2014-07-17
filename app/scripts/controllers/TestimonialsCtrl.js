@@ -19,7 +19,7 @@ var TestimonialsCtrl = (function () {
         });
         this.FeedbacksNew = [];
         $scope.home.url = "testimonials";
-        var fireTestimonials = this.$scope.testimonials = this;
+        $scope.testimonials = this;
 
         $scope.$watch("testimonials.FeedbacksNew", function () {
             for (var i = 0; i < _this.FeedbacksNew.length; i++) {

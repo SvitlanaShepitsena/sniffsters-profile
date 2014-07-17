@@ -11,18 +11,22 @@ class PuppiesCtrl {
     SelectedLitter:ILitter;
     SelectedLitterEdit:ILitter;
 
-    constructor(public $scope, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-        $scope.home.url = 'puppies';
-        $scope.isOk = false;
+    constructor(public $scope, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
 
-        this.LittersNew = [];
-        $scope.puppies = this;
-        DataService.getLitters($scope.index.IdFire).then((litters:ILitter[])=> {
-        this.Litters = litters;
-
+        this.$scope.home.auth.$getCurrentUser().then((user) => {
+            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
+                var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/litters';
+                $scope.litters = $firebase(new Firebase(litterUrl));
+            })
         })
+        this.LittersNew = [];
+        $scope.home.url = 'puppies';
+        $scope.puppies = this;
 
-
+        $scope.isOk = false;
+        /*        DataService.getLitters($scope.index.IdFire).then((litters:ILitter[])=> {
+         this.Litters = litters;
+         })*/
 
         $scope.$watch("puppies.LittersNew", () => {
             for (var i = 0; i < this.LittersNew.length; i++) {
@@ -38,7 +42,6 @@ class PuppiesCtrl {
 //                console.log($scope.isOk);
                     break;
                 } else {
-
                     this.$scope.isOk = false;
                 }
             }
@@ -58,7 +61,7 @@ class PuppiesCtrl {
             index++;
         });
         this.SelectedLitter = this.Litters[litid];
-        this.$state.go('profile.puppies3.litter', {'id': litid});
+        this.$state.go('user.profile.puppies3.litter', {'id': litid});
 //        console.log("Hello");
     }
 

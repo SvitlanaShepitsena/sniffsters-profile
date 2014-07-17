@@ -11,11 +11,9 @@ interface IGenerateScope extends IMainScope {
 }
 class GenerateCtrl {
 
-    constructor(public $scope:IGenerateScope, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
-
+    constructor(public $scope, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.generate = this;
         $scope.breeders = $firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders"));
-
 
         var breeders:IBreederProfile[] = this.GenerateBreeders();
         breeders.forEach((breeder:IBreederProfile)=> {
@@ -28,11 +26,17 @@ class GenerateCtrl {
 
             var littersRef = breederRef.$child('litters');
             var litters:ILitter[] = this.GenerateLitters();
-
+            var littersUrl = $scope.home.MainUrl + 'breeders/' + key + '/litters/';
+            console.log(littersUrl);
             litters.forEach((litter:ILitter)=> {
-
-                littersRef[litter.Id] = litter;
-                littersRef.$save();
+                var newLitter = _.omit(litter, 'Photos');
+                littersRef.$add(newLitter).then((keyChild) => {
+                    var litterRef = this.$firebase(new Firebase(littersUrl + keyChild.name()));
+                    var photosRef = litterRef.$child('photos');
+                    litter.Photos.forEach((photo)=> {
+                        photosRef.$add(photo)
+                    })
+                });
             })
 
             var feedbackRef = breederRef.$child('feedbacks');
@@ -200,34 +204,27 @@ class GenerateCtrl {
 
 
     GenerateLitters():ILitter[] {
-
         var litters = [];
 
         var litter1 = new Litter();
-        litter1.Id = 1;
         litter1.Title = "My First Litters";
-
-
         var photo1 = new Photo();
-        photo1.Id = 1;
         photo1.Caption = "My Dogs.Litter1";
         photo1.FilePath = 'Picture1.jpg';
 
         var photo2 = new Photo();
-        photo2.Id = 2;
         photo2.Caption = "My Dogs 2.Litter2";
         photo2.FilePath = 'Picture2.jpg';
 
         var photos:IPhoto[] = [];
-        photos[photo1.Id] = photo1;
-        photos[photo2.Id] = photo2;
-
+        photos.push(photo1);
+        photos.push(photo2);
 
         litter1.Colors = "Black & White";
         litter1.DateOfBirth = "03.23.2014";
         litter1.Photos = photos;
 
-        litters[litter1.Id] = litter1;
+        litters.push(litter1);
 
         return litters;
     }
@@ -276,17 +273,15 @@ class GenerateCtrl {
         gallery1.IsActive = true;
 
         var photo1 = new Photo();
-        photo1.Id = 1;
         photo1.Caption = "My Dogs";
         photo1.FilePath = 'Picture1.jpg';
 
         var photo2 = new Photo();
-        photo2.Id = 2;
         photo2.Caption = "My Dogs 2";
         photo2.FilePath = 'Picture2.jpg';
         var photos:IPhoto[] = [];
-        photos[photo1.Id] = photo1;
-        photos[photo2.Id] = photo2;
+        photos.push(photo1);
+        photos.push(photo2);
 
         gallery1.Photos = photos;
 
