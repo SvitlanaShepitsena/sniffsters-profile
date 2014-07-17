@@ -5,13 +5,32 @@ class TestimonialsCtrl {
     FeedbacksNew:IFeedback[];
 
     constructor(public $scope, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-        var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/feedbacks';
-        //binding to firebase
-        $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
-
+        $scope.home.auth.$getCurrentUser().then((user) => {
+            $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
+                var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
+                //binding to firebase
+                $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
+            })
+        })
+        this.FeedbacksNew = [];
         $scope.home.url = "testimonials";
         var fireTestimonials = this.
             $scope.testimonials = this;
+
+        $scope.$watch("testimonials.FeedbacksNew", () => {
+            for (var i = 0; i < this.FeedbacksNew.length; i++) {
+                var feedback:IFeedback = this.FeedbacksNew[i];
+                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0 &&
+                    feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
+                    this.$scope.isOk = true;
+                    break;
+                } else {
+
+                    this.$scope.isOk = false;
+                }
+            }
+        }, true);
+
 
     }
 
@@ -20,21 +39,11 @@ class TestimonialsCtrl {
     }
 
     saveNewTestimonials() {
-        /*        this.DataService.saveNewTestimonials<IFeedback>(this.FeedbacksNew).then((feedbacks:IFeedback[]) => {
-         feedbacks.forEach((feedback)=> {
-                this.Feedbacks.unshift(feedback);
-            })
-            this.FeedbacksNew = [];
-            this.ShowSuccess("Feedbacks have been successfully saved to Db");
-         })*/
-    }
-
-    ShowSuccess(note:string) {
-        this.toastr.info(note);
-    }
-
-    ShowError(note:string) {
-        this.toastr.error(note);
+        this.FeedbacksNew.forEach((feedback:IFeedback)=> {
+            this.$scope.feedbacks.$add({})
+        });
+        this.FeedbacksNew = [];
+        this.ShowSuccess("Feedbacks have been successfully saved to Db");
     }
 
     deleteFeedback(feedback:IFeedback, index:number) {
@@ -69,4 +78,13 @@ class TestimonialsCtrl {
             this.$state.go('^');
         })
     }
+
+    ShowSuccess(note:string) {
+        this.toastr.info(note);
+    }
+
+    ShowError(note:string) {
+        this.toastr.error(note);
+    }
+
 }

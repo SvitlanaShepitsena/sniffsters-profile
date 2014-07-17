@@ -49,12 +49,10 @@ class Message implements IMessage {
 }
 
 interface IFeedback {
-    Id:number;
     ClientName:string;
     FeedbackBody:string;
 }
 class Feedback implements IFeedback {
-    Id:number;
     ClientName:string;
     FeedbackBody:string;
 
@@ -137,8 +135,8 @@ class BreederProfile implements IBreederProfile {
 
         this.IsShowEmail = true;
         this.IsShowPhoneNumber = true;
-        
-        
+
+
     }
 }
 
