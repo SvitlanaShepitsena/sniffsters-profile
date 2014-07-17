@@ -25,13 +25,11 @@ var feedbackEdit:() => ng.IDirective = () => {
                 feedbackNew.ClientName = clientName;
                 feedbackNew.FeedbackBody = body;
 
-
                 $scope.feedback.$set(
                     {ClientName: clientName,
                         FeedbackBody: body}).then(() => {
                         $state.go('^');
                     });
-
             }
         }
     }

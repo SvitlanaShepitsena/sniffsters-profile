@@ -391,18 +391,20 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.getFeedbacks = function (userName) {
-        var d = this.$q.defer();
+    /*
+     getFeedbacks(userName:string) {
 
-        var fireFeedbacks = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/feedbacks"));
+     var d = this.$q.defer();
 
-        fireFeedbacks.$on('value', function (snapshot) {
-            var feedbacks = snapshot.snapshot.value;
-            d.resolve(feedbacks);
-        });
-        return d.promise;
-    };
+     var fireFeedbacks = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/feedbacks"));
 
+     fireFeedbacks.$on('value', (snapshot:any)=> {
+     var feedbacks = snapshot.snapshot.value;
+     d.resolve(feedbacks);
+     })
+     return d.promise;
+     }
+     */
     DataService.prototype.updateFeedback = function (feedback) {
         var d = this.$q.defer();
 
@@ -413,21 +415,6 @@ var DataService = (function () {
         }).error(function () {
             d.reject();
         });
-        return d.promise;
-    };
-
-    DataService.prototype.deleteFeedback = function (id) {
-        var d = this.$q.defer();
-
-        //        this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
-        //            feedbackId: id
-        //        })
-        //            .success(() => {
-        d.resolve();
-
-        //            }).error(() => {
-        //                d.reject();
-        //            });
         return d.promise;
     };
 

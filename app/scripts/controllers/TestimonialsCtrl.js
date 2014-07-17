@@ -11,10 +11,10 @@ var TestimonialsCtrl = (function () {
         this.CopyProfileService = CopyProfileService;
         $scope.home.auth.$getCurrentUser().then(function (user) {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(function () {
-                var feedbacksUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
+                var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
 
                 //binding to firebase
-                $scope.feedbacks = $firebase(new Firebase(feedbacksUrl));
+                $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
             });
         });
         this.FeedbacksNew = [];

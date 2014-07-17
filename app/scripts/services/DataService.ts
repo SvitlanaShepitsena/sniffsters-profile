@@ -406,7 +406,8 @@ class DataService {
         return d.promise;
     }
 
-    getFeedbacks(userName:string) {
+    /*
+     getFeedbacks(userName:string) {
 
         var d = this.$q.defer();
 
@@ -418,6 +419,7 @@ class DataService {
         })
         return d.promise;
     }
+     */
 
     updateFeedback(feedback:IFeedback) {
         var d = this.$q.defer();
@@ -430,20 +432,6 @@ class DataService {
             }).error(() => {
                 d.reject();
             });
-        return d.promise;
-    }
-
-    deleteFeedback(id:number) {
-        var d = this.$q.defer();
-
-//        this.$http.post('http://localhost:44300/BreederPersonal/DeleteFeedback', {
-//            feedbackId: id
-//        })
-//            .success(() => {
-        d.resolve();
-//            }).error(() => {
-//                d.reject();
-//            });
         return d.promise;
     }
 

@@ -7,9 +7,9 @@ class TestimonialsCtrl {
     constructor(public $scope, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
-                var feedbacksUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
+                var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
                 //binding to firebase
-                $scope.feedbacks = $firebase(new Firebase(feedbacksUrl));
+                $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
             })
         })
         this.FeedbacksNew = [];
@@ -30,8 +30,6 @@ class TestimonialsCtrl {
                 }
             }
         }, true);
-
-
     }
 
     addNewTestimonial() {
