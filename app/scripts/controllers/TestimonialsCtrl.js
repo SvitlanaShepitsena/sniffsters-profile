@@ -11,10 +11,10 @@ var TestimonialsCtrl = (function () {
         this.CopyProfileService = CopyProfileService;
         $scope.home.auth.$getCurrentUser().then(function (user) {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(function () {
-                var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
+                var feedbacksUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
 
                 //binding to firebase
-                $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
+                $scope.feedbacks = $firebase(new Firebase(feedbacksUrl));
             });
         });
         this.FeedbacksNew = [];
@@ -41,13 +41,13 @@ var TestimonialsCtrl = (function () {
     TestimonialsCtrl.prototype.saveNewTestimonials = function () {
         var _this = this;
         this.FeedbacksNew.forEach(function (feedback) {
-            _this.$scope.feedbacks.$add({});
+            _this.$scope.feedbacks.$add(feedback);
         });
         this.FeedbacksNew = [];
         this.ShowSuccess("Feedbacks have been successfully saved to Db");
     };
 
-    TestimonialsCtrl.prototype.deleteFeedback = function (feedback, index) {
+    TestimonialsCtrl.prototype.deleteFeedback = function (id) {
         var _this = this;
         var modalInstance = this.$modal.open({
             template: "<div><div class=\"modal-body\">Delete this Feedback?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
@@ -65,9 +65,7 @@ var TestimonialsCtrl = (function () {
 
         modalInstance.result.then(function (confirmation) {
             if (confirmation) {
-                _this.DataService.deleteFeedback(feedback.Id).then(function () {
-                    _this.Feedbacks.splice(index, 1);
-                });
+                _this.$scope.feedbacks.$remove(id);
             }
         });
     };

@@ -7,9 +7,9 @@ class TestimonialsCtrl {
     constructor(public $scope, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
-                var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
+                var feedbacksUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
                 //binding to firebase
-                $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
+                $scope.feedbacks = $firebase(new Firebase(feedbacksUrl));
             })
         })
         this.FeedbacksNew = [];
@@ -40,13 +40,13 @@ class TestimonialsCtrl {
 
     saveNewTestimonials() {
         this.FeedbacksNew.forEach((feedback:IFeedback)=> {
-            this.$scope.feedbacks.$add({})
+            this.$scope.feedbacks.$add(feedback);
         });
         this.FeedbacksNew = [];
         this.ShowSuccess("Feedbacks have been successfully saved to Db");
     }
 
-    deleteFeedback(feedback:IFeedback, index:number) {
+    deleteFeedback(id:string) {
 
         var modalInstance = this.$modal.open({
             template: "<div><div class=\"modal-body\">Delete this Feedback?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
@@ -65,9 +65,7 @@ class TestimonialsCtrl {
         modalInstance.result.then((confirmation:boolean) => {
             if (confirmation) {
 
-                this.DataService.deleteFeedback(feedback.Id).then(() => {
-                    this.Feedbacks.splice(index, 1);
-                })
+                this.$scope.feedbacks.$remove(id);
             }
         })
     }

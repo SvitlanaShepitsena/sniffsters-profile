@@ -1,12 +1,12 @@
-<div ng-show="isOwner">
-<form role="form" name="formTestimonials" id="formTestimonials">
+<div ng-show="home.isOwner">
+	<form role="form" name="formTestimonials" id="formTestimonials">
 		<div class="form-group">
 			<label for="clientName"
 			       class="sniff-subhead control-label">Client Name:</label>
 					<span ng-show="formTestimonials.clientName.$error.maxlength"
 					      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
 			<input type="text" id="clientName" name="clientName" class="form-control"
-			       ng-model="SelectedFeedback.ClientName"
+			       ng-model="feedback.ClientName"
 			       ng-class="{inputEmpty:!formTestimonials.clientName}"
 			       ng-maxlength="250"/>
 		</div>
@@ -15,7 +15,7 @@
 			       class="sniff-subhead control-label">Feedback:</label>
 			<span ng-show="formTestimonials.feedbackBody.$invalid" class="text text-danger pull-right  maxsymb">Max 3000 symbols!</span>
 			<textarea rows="5" cols="30" name="feedbackBody" id="feedbackBody" class="form-control"
-			          ng-model="SelectedFeedback.FeedbackBody"
+			          ng-model="feedback.FeedbackBody"
 			          ng-class="{inputEmpty:!formTestimonials.feedbackBody}"
 			          ng-maxlength="3000">
 			</textarea>
@@ -27,7 +27,8 @@
 			<button class="btn btn-primary"
 			        data-toggle="tooltip" data-placement="left" title="Save Feedback Title"
 			        ng-disabled="formTestimonials.$invalid || formTestimonials.$pristine"
-			        ng-click="testimonials.updateFeedBack(SelectedFeedback)">Save
+			        ng-click="updateFeedback(feedback.ClientName,feedback.FeedbackBody)">
+				Save
 			</button>
 		</div>
 	</form>

@@ -24,15 +24,15 @@
 		</div>
 	</div>
 	<ul class="list-unstyled">
-		<li ng-repeat="f in feedbacks">
-		<div class="row pull-right">
+		<li ng-repeat="(id,f) in feedbacks">
+			<div class="row pull-right">
 				<div class="col-xs-12">
-					<a class="light-gray" ui-sref="profile.testimonials5.edit({id:$index})">
-						<i class="fa fa-pencil"></i>
+					<a class="light-gray" ui-sref="user.profile.testimonials5.edit({id:id})">
+					<i class="fa fa-pencil"></i>
 					</a>
 					<button class="btn btn-link text-muted"
-					        ng-click="testimonials.deleteFeedback(f, $index)">
-						<i class="fa fa-times light-gray"></i>
+					        ng-click="testimonials.deleteFeedback(id)">
+					<i class="fa fa-times light-gray"></i>
 					</button>
 				</div>
 			</div>

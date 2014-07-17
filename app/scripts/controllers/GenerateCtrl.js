@@ -33,7 +33,8 @@ var GenerateCtrl = (function () {
             var feedbacks = _this.GenerateFeedbacks();
 
             feedbacks.forEach(function (feedback) {
-                feedbackRef[feedback.Id] = feedback;
+                feedbackRef.$add(feedback);
+
                 feedbackRef.$save();
             });
 
@@ -119,6 +120,7 @@ var GenerateCtrl = (function () {
         $scope.breeders.$save();
         this.CreateLookers();
     }
+
     GenerateCtrl.prototype.CreateLookers = function () {
         var _this = this;
         this.$scope.generate = this;
@@ -213,17 +215,15 @@ var GenerateCtrl = (function () {
     GenerateCtrl.prototype.GenerateFeedbacks = function () {
         var feedbacks = [];
         var feedback1 = new Feedback();
-        feedback1.Id = 1;
         feedback1.ClientName = "Dog looker 1";
         feedback1.FeedbackBody = "The best breeder I ever had. Lovely dogs!";
 
         var feedback2 = new Feedback();
-        feedback2.Id = 2;
         feedback2.ClientName = "Dog looker 2";
         feedback2.FeedbackBody = "Excellent Service. Fast response. Thank you! A++";
 
-        feedbacks[feedback1.Id] = feedback1;
-        feedbacks[feedback2.Id] = feedback2;
+        feedbacks.push(feedback1);
+        feedbacks.push(feedback2);
 
         return feedbacks;
     };

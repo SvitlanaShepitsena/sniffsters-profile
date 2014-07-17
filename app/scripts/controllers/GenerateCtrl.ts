@@ -40,7 +40,8 @@ class GenerateCtrl {
 
             feedbacks.forEach((feedback:IFeedback)=> {
 
-                feedbackRef[feedback.Id] = feedback;
+                feedbackRef.$add(feedback);
+
                 feedbackRef.$save();
             })
 
@@ -235,17 +236,15 @@ class GenerateCtrl {
 
         var feedbacks:IFeedback[] = [];
         var feedback1 = new Feedback();
-        feedback1.Id = 1;
         feedback1.ClientName = "Dog looker 1";
         feedback1.FeedbackBody = "The best breeder I ever had. Lovely dogs!";
 
         var feedback2 = new Feedback();
-        feedback2.Id = 2;
         feedback2.ClientName = "Dog looker 2";
         feedback2.FeedbackBody = "Excellent Service. Fast response. Thank you! A++";
 
-        feedbacks[feedback1.Id] = feedback1;
-        feedbacks[feedback2.Id] = feedback2;
+        feedbacks.push(feedback1);
+        feedbacks.push(feedback2);
 
         return feedbacks;
     }
