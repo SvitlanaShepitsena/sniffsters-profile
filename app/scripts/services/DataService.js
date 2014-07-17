@@ -12,6 +12,7 @@ var DataService = (function () {
         this.url = "https://torid-fire-6526.firebaseio.com/breeders/";
         this.urlLooker = "https://torid-fire-6526.firebaseio.com/lookers/";
     }
+
     // =Messages
     DataService.prototype.sendReply = function (userName, corrUserName, reply) {
         userName = this.FireProcess(userName);
@@ -415,9 +416,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -429,10 +430,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-                GalleryId: galleryId,
-                PhotoId: photoId,
-                Caption: caption
-            } }).success(function () {
+            GalleryId: galleryId,
+            PhotoId: photoId,
+            Caption: caption
+        } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -453,18 +454,17 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.updateLitter = function (litter, userName) {
-        var d = this.$q.defer();
-        var unp = userName.replace(/\./g, '(p)');
-
-        var fbLitter = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + unp + "/litters/" + litter.Id));
-        fbLitter[litter.Id] = litter;
-        fbLitter.$save(litter.Id);
-
-        d.resolve();
-        return d.promise;
-    };
-
+    //    updateLitter(litter:ILitter, userName) {
+    //        var d = this.$q.defer();
+    //        var unp:string = userName.replace(/\./g, '(p)');
+    //
+    //        var fbLitter = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + unp + "/litters/" + litter.Id));
+    //        fbLitter [litter.Id] = litter;
+    //        fbLitter.$save(litter.Id);
+    //
+    //        d.resolve();
+    //        return d.promise;
+    //    }
     DataService.prototype.deleteLitter = function (id) {
         var d = this.$q.defer();
 

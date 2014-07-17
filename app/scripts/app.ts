@@ -5,7 +5,6 @@
 /// <reference path="directives/detailsInfo.ts" />
 /// <reference path="directives/detailsInfoEdit.ts" />
 /// <reference path="directives/previousPuppies.ts" />
-/// <reference path="directives/photosInfo.ts" />
 /// <reference path="controllers/PhotosCtrl.ts" />
 /// <reference path="directives/photoGalleries.ts" />
 /// <reference path="filters/SpacesToDashes.ts" />
@@ -64,6 +63,7 @@
 /// <reference path="directives/subscriptionPlans.ts" />
 /// <reference path="controllers/FollowingsCtrl.ts" />
 /// <reference path="directives/svImageUpload.ts" />
+/// <reference path="controllers/LitterInfoCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -117,7 +117,6 @@ profile.directive("aboutInfoEdit", aboutInfoEdit);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("detailsInfoEdit", detailsInfoEdit);
 profile.directive("previousPuppies", previousPuppies);
-profile.directive("photosInfo", photosInfo);
 profile.directive("photoGalleries", photoGalleries);
 profile.directive("photoGallery", photoGallery);
 profile.directive("photoGalleryEdit", photoGalleryEdit);
@@ -173,6 +172,7 @@ profile.controller("LookerCtrl", LookerCtrl);
 profile.controller("LookerAccountCtrl", LookerAccountCtrl);
 profile.controller("LookerAccountEditCtrl", LookerAccountEditCtrl);
 profile.controller("FollowingsCtrl", FollowingsCtrl);
+profile.controller("LitterInfoCtrl", LitterInfoCtrl);
 //#ctrl
 
 // TODO: Implement filter
@@ -227,7 +227,9 @@ profile.config(
             })
             .state("user.profile.puppies3.litter", {
                 url: "/litter/:id",
-                templateUrl: "../views/profile-puppiesLitter.html"
+
+                controller: "LitterInfoCtrl",
+                templateUrl: "../views/profile-puppies-litter.html"
             })
             .state("user.profile.puppies3.litter.edit", {
                 url: "/edit",

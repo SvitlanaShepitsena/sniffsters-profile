@@ -14,6 +14,7 @@ var litterInfo:() => ng.IDirective = () => {
         replace: true,
         controller: ($scope, $stateParams) => {
             var id = $stateParams.id;
+            $scope.frontSrc = _.values($scope.l.photos)[0].file64;
         },
 
         link: (scope:ILitterInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {

@@ -84,7 +84,15 @@
 				</li>
 			</ul>
 		</div>
+		<div>
+			<ul class="list-unstyled">
+				<li ng-repeat="t in tempPhotos">
 
+					<img ng-if="t" ng-src={{t}} alt=""/>
+				</li>
+			</ul>
+
+		</div>
 		<div class="panel panel-default panel-file-upload">
 			<div class="row">
 				<div class="col-xs-12">
@@ -108,8 +116,9 @@
 					     ng-show="!dropSupported">HTML5 Drop File is not supported!
 					</div>
 					<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer">
-						<button class="btn btn-primary btn-choose"
-						        ng-disabled="newLitterForm.$invalid">Choose Files
+						<button class="btn btn-primary btn-choose">
+							<!--ng-disabled="newLitterForm.$invalid"-->
+							Choose Files
 						</button>
 						<input class="chooseFilesButton" type="file"
 						       ng-file-select="onNewFileSelect($files)" multiple/>

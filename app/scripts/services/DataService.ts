@@ -477,17 +477,17 @@ class DataService {
         return d.promise;
     }
 
-    updateLitter(litter:ILitter, userName) {
-        var d = this.$q.defer();
-        var unp:string = userName.replace(/\./g, '(p)');
-
-        var fbLitter = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + unp + "/litters/" + litter.Id));
-        fbLitter [litter.Id] = litter;
-        fbLitter.$save(litter.Id);
-
-        d.resolve();
-        return d.promise;
-    }
+//    updateLitter(litter:ILitter, userName) {
+//        var d = this.$q.defer();
+//        var unp:string = userName.replace(/\./g, '(p)');
+//
+//        var fbLitter = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + unp + "/litters/" + litter.Id));
+//        fbLitter [litter.Id] = litter;
+//        fbLitter.$save(litter.Id);
+//
+//        d.resolve();
+//        return d.promise;
+//    }
 
 
     deleteLitter(id:number) {

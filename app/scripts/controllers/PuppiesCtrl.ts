@@ -48,22 +48,6 @@ class PuppiesCtrl {
         }, true);
     }
 
-    setSelectedLitter(litterId:number) {
-        var litid:number = 0;
-        var index:number = 0;
-
-        this.Litters.forEach((litter:ILitter) => {
-
-            if (litter.Id === litterId) {
-                litid = index;
-                return false;
-            }
-            index++;
-        });
-        this.SelectedLitter = this.Litters[litid];
-        this.$state.go('user.profile.puppies3.litter', {'id': litid});
-//        console.log("Hello");
-    }
 
     addNewLitter() {
         this.LittersNew.unshift(new Litter());
@@ -99,17 +83,6 @@ class PuppiesCtrl {
         modalInstance.result.then((confirmation:boolean) => {
             if (confirmation) {
 
-                this.DataService.deleteLitter(this.SelectedLitter.Id).then(() => {
-                    var index:number = 0;
-                    this.Litters.forEach((litter:ILitter) => {
-                        if (litter.Id === this.SelectedLitter.Id) {
-                            this.Litters.splice(index, 1);
-                            return false;
-                        }
-                        index++;
-                    })
-                    this.$state.go('^');
-                })
             }
         })
     }

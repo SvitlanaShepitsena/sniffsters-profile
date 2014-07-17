@@ -1,4 +1,5 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../services/DataService.ts" />
 
 var litter:() => ng.IDirective = () => {
 
@@ -14,12 +15,7 @@ var litter:() => ng.IDirective = () => {
         },
 
         controller: ($scope, DataService:DataService, $modal, $upload, toastr)=> {
-            $scope.saveLitter = () => {
-                DataService.updateLitter($scope.l, $scope.userName).then(() => {
-                    toastr.success("Your changes have been saved to Db!");
 
-                })
-            }
             $scope.onFileSelect = ($files) => {
                 //$files: an array of files selected, each file has name, size, and type.
                 for (var i = 0; i < $files.length; i++) {

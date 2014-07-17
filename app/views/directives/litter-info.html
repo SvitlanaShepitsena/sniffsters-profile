@@ -1,12 +1,10 @@
 <div class="litter-wrapper">
-	<a ng-click="puppies.setSelectedLitter(id,l)" class="cursor-p">
+	<a ui-sref="user.profile.puppies3.litter({id:id})" class="cursor-p">
 		<div class="row">
 			<div class="col-xs-5">
 				<div class="thumbnail">
-					<img class="img-responsive" src="../../img/avatar-md.png" alt="">
+					<img class="img-responsive" ng-src={{frontSrc}} alt="">
 
-					<!--<img class="puppyPic"-->
-					<!--ng-src="{{('imgdir/'+userName+'/litters/'+l.Id+'/'+l.Photos[0].FilePath) | spacesToDashes}}">-->
 				</div>
 			</div>
 			<div class="col-xs-7 text-litter">

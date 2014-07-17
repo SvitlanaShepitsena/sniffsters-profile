@@ -9,6 +9,7 @@ var litterInfo = function () {
         replace: true,
         controller: function ($scope, $stateParams) {
             var id = $stateParams.id;
+            $scope.frontSrc = _.values($scope.l.photos)[0].file64;
         },
         link: function (scope, element, attrs) {
         }

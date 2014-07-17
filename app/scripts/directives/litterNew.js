@@ -1,51 +1,58 @@
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../services/DataService.ts" />
 
 var litterNew = function () {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/litter-new.html',
-        transclude: true,
         // replace directive tag with template info
         replace: true,
-        scope: {
-            l: '=',
-            userName: '@',
-            text: '@',
-            func: '&'
-        },
-        controller: function ($scope, $q, DataService, $modal, $upload) {
+        controller: function ($scope, $firebase, $q, DataService, $modal, $upload) {
+            $scope.l = {};
+            $scope.tempPhotos = [];
             $scope.onNewFileSelect = function ($files) {
                 //$files: an array of files selected, each file has name, size, and type.
                 //                 var file = $files[0];
                 $scope.up($files, 0);
-                //                $scope.up($files, 0);
             };
             $scope.up = function ($files, index) {
                 if (index == $files.length) {
                     return;
                 }
-                var file = $files[index];
-                $upload.upload({
-                    url: 'http://localhost:44300/BreederPersonal/AddPictureNewLitter',
-                    data: {
-                        Title: $scope.l.Title,
-                        Puppies: $scope.l.Puppies,
-                        Colors: $scope.l.Colors,
-                        DateOfBirth: $scope.l.DateOfBirth
-                    },
-                    file: file
-                }).progress(function (evt) {
-                    //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-                }).success(function (data, status, headers, config) {
-                    //                    console.log(data);
-                    var photo = {
-                        Id: data.PhotoId,
-                        Caption: 'Picture',
-                        FilePath: data.FileName
+                var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters/';
+                var littersRef = $firebase(new Firebase(littersUrl));
+                var litter = new Litter();
+                litter.Title = $scope.l.Title;
+                litter.DateOfBirth = $scope.l.DateOfBirth;
+                litter.Puppies = $scope.l.Puppies;
+                litter.Colors = $scope.l.Colors;
+                litter.isTemp = true;
+
+                littersRef.$add(litter).then(function (keyChild) {
+                    var litterRef = $firebase(new Firebase(littersUrl + keyChild.name()));
+                    var photosRef = litterRef.$child('photos');
+
+                    $files.forEach(function (file) {
+                        var reader = new FileReader();
+                        reader.onload = function (loadEvent) {
+                            var image = loadEvent.target.result;
+                            $scope.tempPhotos.push(image);
+                            photosRef.$add({
+                                caption: 'picture1',
+                                file64: image
+                            });
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                });
+
+                console.log($scope.l);
+                $files.forEach(function (file) {
+                    var reader = new FileReader();
+                    reader.onload = function (loadEvent) {
+                        $scope.fileFired = loadEvent.target.result;
                     };
-                    $scope.l.Photos.push(photo);
-                    $scope.l.Id = data.GalleryId;
-                    $scope.up($files, index + 1);
+                    reader.readAsDataURL(file);
                 });
             };
 
@@ -57,7 +64,6 @@ var litterNew = function () {
                         $scope.ok = function () {
                             $modalInstance.close(true);
                         };
-
                         $scope.cancel = function () {
                             $modalInstance.close(false);
                         };
@@ -88,7 +94,6 @@ var litterNew = function () {
 
                 $scope.opened = true;
             };
-
             $scope.initDate = new Date();
             $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
             $scope.format = $scope.formats[2];

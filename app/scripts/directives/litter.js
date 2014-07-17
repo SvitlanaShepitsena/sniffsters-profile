@@ -1,4 +1,5 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../services/DataService.ts" />
 var litter = function () {
     return {
         restrict: 'E',
@@ -11,11 +12,6 @@ var litter = function () {
             userName: '@'
         },
         controller: function ($scope, DataService, $modal, $upload, toastr) {
-            $scope.saveLitter = function () {
-                DataService.updateLitter($scope.l, $scope.userName).then(function () {
-                    toastr.success("Your changes have been saved to Db!");
-                });
-            };
             $scope.onFileSelect = function ($files) {
                 for (var i = 0; i < $files.length; i++) {
                     var file = $files[i];
