@@ -118,6 +118,7 @@ class PhotosCtrl {
         })
     }
 
+
     updateGallery(galleries:IGallery[], index:number) {
         if (galleries.length == 0) {
             if (this.GalleriesNew.length == 0) {
