@@ -1,9 +1,10 @@
 /// <reference path="HomeCtrl.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 var PhotosCtrl = (function () {
-    function PhotosCtrl($scope, $firebase, $state, toastr, DataService, CopyProfileService) {
+    function PhotosCtrl($scope, $filter, $firebase, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
+        this.$filter = $filter;
         this.$firebase = $firebase;
         this.$state = $state;
         this.toastr = toastr;
@@ -99,8 +100,7 @@ var PhotosCtrl = (function () {
         };
     }
     PhotosCtrl.prototype.saveNewGalleries = function () {
-        var unshared = _.values(this.$scope.galleries);
-        console.log(unshared);
+        var unshared = this.$filter('orderByPriority')(this.$scope.galleries);
         unshared.forEach(function (gallery) {
             gallery.isTemp = false;
         });
