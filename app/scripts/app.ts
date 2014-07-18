@@ -65,6 +65,7 @@
 /// <reference path="directives/svImageUpload.ts" />
 /// <reference path="controllers/LitterInfoCtrl.ts" />
 /// <reference path="filters/Unshared.ts" />
+/// <reference path="directives/galleryNew.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -148,6 +149,7 @@ profile.directive("breedInfo", breedInfo);
 profile.directive("randomGallery", randomGallery);
 profile.directive("subscriptionPlans", subscriptionPlans);
 profile.directive("svImageUpload", svImageUpload);
+profile.directive("galleryNew", galleryNew);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);

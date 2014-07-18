@@ -1,0 +1,50 @@
+<div class="well well-sm">gallery-new Template</div>
+<h3 class="sniff-head-info">New Gallery</h3>
+<ul class="list-unstyled">
+	<li ng-repeat="(galleryid,g) in galleries|orderByPriority|unshared:true">
+
+		<ul class="list-unstyled">
+			<li ng-repeat="(pid,p) in g.photos">
+				<img ng-src="{{p.file64}}" class="img-responsive">
+				<input type="text" ng-model="p.caption" placeholder="photo caption"/>
+
+			</li>
+		</ul>
+		<hr/>
+		<input type="text" ng-model="g.Title" placeholder="gallery title"/>
+
+		<div class="panel panel-default panel-file-upload">
+			<div class="row">
+				<div class="col-xs-12">
+					<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
+
+					<div class="text-center dropFilesHere"
+					     ng-file-drop="onFileNewSelect($files)"
+					     ng-file-drag-over-class="optional-css-class"
+					     ng-show="dropSupported">
+						<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="Photo Icon">
+
+						<h5 class="drag-photos"> drag photos here </h5>
+					</div>
+				</div>
+			</div>
+			<br/>
+
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<div ng-file-drop-available="dropSupported=true"
+					     ng-show="!dropSupported">HTML5 Drop File is not supported!
+					</div>
+					<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer">
+						<button class="btn btn-primary btn-choose">
+							<!--ng-disabled="newLitterForm.$invalid"-->
+							Choose Files
+						</button>
+						<input class="chooseFilesButton" type="file"
+						       ng-file-select="onNewFileSelect($files, galleryid)" multiple/>
+					</label>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>
