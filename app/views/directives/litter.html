@@ -4,8 +4,8 @@
 			<button class="right"
 			        ng-disabled="(litter.$pristine)
 					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
-			        ng-click="saveLitter();litter.$setPristine();">
-				<i class="fa fa-save"></i>
+			        ng-click="save();litter.$setPristine();">
+			<i class="fa fa-save"></i>
 			</button>
 		</div>
 	</div>
@@ -46,19 +46,22 @@
 
 		<div class="row">
 			<ul class="list-unstyled ">
-				<li class="col-xs-12 shuffle-animation" ng-repeat="p in l.Photos">
+				<li class="col-xs-12 shuffle-animation" ng-repeat="(id,p) in l.photos">
 					<button class="btn pull-right btn-del-pic"
 					        data-toggle="tooltip" data-placement="left" title="Delete this photo."
-					        ng-click="deleteLitterPhoto(l.Id, p.Id,$index)">
-						<i class="fa fa-trash-o"></i>
+					        ng-click="deleteLitterPhoto(id)">
+					<i class="fa fa-trash-o"></i>
 					</button>
 					<div class="thumbnail">
 						<img class="puppyPic"
-						     ng-src="{{('imgdir/'+userName+'/litters/'+l.Id+'/'+p.FilePath) | spacesToDashes}}">
+						     ng-src="{{p.file64}}" alt="">
+						<h5>
+							{{p.caption}}
+						</h5>
 
 						<div class="row">
 							<div class="col-xs-12">
-								<input type="text" class="form-control" ng-model="p.Caption">
+								<input type="text" class="form-control" ng-model="p.caption">
 							</div>
 						</div>
 					</div>

@@ -8,6 +8,7 @@ var litter = function () {
         // replace directive tag with template info
         replace: true,
         scope: {
+            save: '&',
             l: '=',
             userName: '@'
         },
@@ -37,7 +38,7 @@ var litter = function () {
                 }
             };
 
-            $scope.deleteLitterPhoto = function (litterId, photoId, index) {
+            $scope.deleteLitterPhoto = function (id) {
                 var modalInstance = $modal.open({
                     template: "<div><div class=\"modal-body\">Delete this photo?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
                     size: 'sm',
@@ -54,9 +55,7 @@ var litter = function () {
 
                 modalInstance.result.then(function (confirmation) {
                     if (confirmation) {
-                        DataService.deleteLitterPhoto(litterId, photoId).then(function () {
-                            $scope.l.Photos.splice(index, 1);
-                        });
+                        console.log($scope.l.photos.$remove(id));
                     }
                 });
             };

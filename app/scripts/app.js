@@ -214,7 +214,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-puppies-litter.html"
     }).state("user.profile.puppies3.litter.edit", {
         url: "/edit",
-        template: "<litter l='puppies.SelectedLitter' user-name='{{index.Id}}'></litter>"
+        template: "<litter l='litter' save='litterInfo.saveLitter()' user-name='{{home.userName}}'></litter>"
     }).state("user.profile.details4", {
         url: "/details",
         templateUrl: "../views/profile-details.html"
