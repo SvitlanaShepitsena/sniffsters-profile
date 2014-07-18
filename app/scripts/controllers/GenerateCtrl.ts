@@ -49,12 +49,6 @@ class GenerateCtrl {
                 feedbackRef.$save();
             })
 
-            var galleries:IGallery[] = this.GenerateGalleries();
-            galleries.forEach((gallery:IGallery)=> {
-                galleriesRef[gallery.Id] = gallery;
-                galleriesRef.$save();
-            })
-
 
             var messagesRef = breederRef.$child('messages');
             var notes:INote[] = this.GenerateMessages();
@@ -268,9 +262,7 @@ class GenerateCtrl {
     GenerateGalleries():IGallery[] {
         var galleries:IGallery[] = [];
         var gallery1 = new Gallery();
-        gallery1.Id = 1;
         gallery1.Title = "Gallery 1";
-        gallery1.IsActive = true;
 
         var photo1 = new Photo();
         photo1.Caption = "My Dogs";
@@ -285,7 +277,6 @@ class GenerateCtrl {
 
         gallery1.Photos = photos;
 
-        galleries[gallery1.Id] = (gallery1);
 
         return galleries;
 

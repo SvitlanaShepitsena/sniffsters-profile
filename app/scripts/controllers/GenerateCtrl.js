@@ -45,12 +45,6 @@ var GenerateCtrl = (function () {
                 feedbackRef.$save();
             });
 
-            var galleries = _this.GenerateGalleries();
-            galleries.forEach(function (gallery) {
-                galleriesRef[gallery.Id] = gallery;
-                galleriesRef.$save();
-            });
-
             var messagesRef = breederRef.$child('messages');
             var notes = _this.GenerateMessages();
 
@@ -249,9 +243,7 @@ var GenerateCtrl = (function () {
     GenerateCtrl.prototype.GenerateGalleries = function () {
         var galleries = [];
         var gallery1 = new Gallery();
-        gallery1.Id = 1;
         gallery1.Title = "Gallery 1";
-        gallery1.IsActive = true;
 
         var photo1 = new Photo();
         photo1.Caption = "My Dogs";
@@ -265,8 +257,6 @@ var GenerateCtrl = (function () {
         photos.push(photo2);
 
         gallery1.Photos = photos;
-
-        galleries[gallery1.Id] = (gallery1);
 
         return galleries;
     };

@@ -1,9 +1,10 @@
 /// <reference path="HomeCtrl.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 var PhotosCtrl = (function () {
-    function PhotosCtrl($scope, $state, toastr, DataService, CopyProfileService) {
+    function PhotosCtrl($scope, $firebase, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
+        this.$firebase = $firebase;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
@@ -29,27 +30,79 @@ var PhotosCtrl = (function () {
 
         $scope.home.url = "photos";
 
-        DataService.getGalleries($scope.index.BreederName).then(function (galleries) {
-            _this.Galleries = galleries;
+        this.$scope.home.auth.$getCurrentUser().then(function (user) {
+            _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
+                var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries';
+                $scope.galleries = $firebase(new Firebase(galleriesUrl));
+            });
         });
+        $scope.onNewFileSelect = function ($files, galleryId) {
+            var photos = $scope.galleries.$child(galleryId).$child('photos');
+            console.log(galleryId);
+
+            $files.forEach(function (file) {
+                var reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    var image = loadEvent.target.result;
+                    photos.$add({
+                        caption: 'picture1',
+                        file64: image
+                    });
+                };
+                reader.readAsDataURL(file);
+            });
+
+            photos.$save();
+            //$files: an array of files selected, each file has name, size, and type.
+            //                 var file = $files[0];
+            //            $scope.up($files, 0);
+        };
+
+        $scope.up = function ($files, index) {
+            if (index == $files.length) {
+                return;
+            }
+            var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters/';
+            var littersRef = $firebase(new Firebase(littersUrl));
+            var litter = new Litter();
+            litter.Title = $scope.l.Title;
+            litter.DateOfBirth = $scope.l.DateOfBirth;
+            litter.Puppies = $scope.l.Puppies;
+            litter.Colors = $scope.l.Colors;
+            litter.isTemp = true;
+
+            littersRef.$add(litter).then(function (keyChild) {
+                var litterRef = $firebase(new Firebase(littersUrl + keyChild.name()));
+                var photosRef = litterRef.$child('photos');
+
+                $files.forEach(function (file) {
+                    var reader = new FileReader();
+                    reader.onload = function (loadEvent) {
+                        var image = loadEvent.target.result;
+                        $scope.tempPhotos.push(image);
+                        photosRef.$add({
+                            caption: 'picture1',
+                            file64: image
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                });
+            });
+
+            $files.forEach(function (file) {
+                var reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    $scope.fileFired = loadEvent.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        };
     }
     PhotosCtrl.prototype.saveNewGalleries = function () {
-        var _this = this;
-        var index = 0;
-        var newGalleries = [];
-
-        this.GalleriesNew.forEach(function (gallery) {
-            newGalleries.push(gallery.Id);
-        });
-
-        this.DataService.convertNewGalleries(newGalleries).then(function () {
-            _this.GalleriesNew.forEach(function (gallery) {
-                gallery.IsActive = true;
-                _this.Galleries.push(gallery);
-            });
-            _this.GalleriesNew = [];
-            _this.GalleriesNew.push(new Gallery());
-            _this.ShowSuccess("Galleries have been saved to Db");
+        var unshared = _.values(this.$scope.galleries);
+        console.log(unshared);
+        unshared.forEach(function (gallery) {
+            gallery.isTemp = false;
         });
     };
 
@@ -72,7 +125,10 @@ var PhotosCtrl = (function () {
     };
 
     PhotosCtrl.prototype.addGallery = function () {
-        this.GalleriesNew.push(new Gallery());
+        var gallery = new Gallery();
+        gallery.Title = "";
+        gallery.isTemp = true;
+        this.$scope.galleries.$add(gallery);
     };
 
     PhotosCtrl.prototype.setSelectedGallery = function (galleryId) {

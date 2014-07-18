@@ -13,7 +13,7 @@ class PhotosCtrl {
     public SelectedGallery:IGallery;
     public SelectedGalleryEdit:IGallery;
 
-    constructor(public $scope:IPhotosScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.home.menuIndex = 2;
 
         $scope.$watch("photosCtrl.GalleriesNew", () => {
@@ -39,32 +39,84 @@ class PhotosCtrl {
 
         $scope.home.url = "photos";
 
-        DataService.getGalleries($scope.index.BreederName).then((galleries:IGallery[])=> {
-            this.Galleries = galleries;
+        this.$scope.home.auth.$getCurrentUser().then((user) => {
+
+            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
+                var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries';
+                $scope.galleries = $firebase(new Firebase(galleriesUrl));
+            })
         })
+        $scope.onNewFileSelect = ($files, galleryId:string) => {
+            var photos = $scope.galleries.$child(galleryId).$child('photos');
+            console.log(galleryId);
+
+            $files.forEach((file)=> {
+                var reader = new FileReader();
+                reader.onload = (loadEvent)=> {
+                    var image = loadEvent.target.result;
+                    photos.$add({
+                        caption: 'picture1',
+                        file64: image
+                    });
+                }
+                reader.readAsDataURL(file);
+            })
+
+            photos.$save();
+
+            //$files: an array of files selected, each file has name, size, and type.
+//                 var file = $files[0];
+//            $scope.up($files, 0);
+        }
+
+
+        $scope.up = ($files, index) => {
+            if (index == $files.length) {
+                return;
+            }
+            var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters/';
+            var littersRef = $firebase(new Firebase(littersUrl));
+            var litter = new Litter();
+            litter.Title = $scope.l.Title;
+            litter.DateOfBirth = $scope.l.DateOfBirth;
+            litter.Puppies = $scope.l.Puppies;
+            litter.Colors = $scope.l.Colors;
+            litter.isTemp = true;
+
+            littersRef.$add(litter).then((keyChild) => {
+                var litterRef = $firebase(new Firebase(littersUrl + keyChild.name()));
+                var photosRef = litterRef.$child('photos');
+
+                $files.forEach((file)=> {
+                    var reader = new FileReader();
+                    reader.onload = (loadEvent)=> {
+                        var image = loadEvent.target.result;
+                        $scope.tempPhotos.push(image);
+                        photosRef.$add({
+                            caption: 'picture1',
+                            file64: image
+                        });
+                    }
+                    reader.readAsDataURL(file);
+                })
+            });
+
+            $files.forEach((file)=> {
+                var reader = new FileReader();
+                reader.onload = (loadEvent)=> {
+                    $scope.fileFired = loadEvent.target.result;
+                }
+                reader.readAsDataURL(file);
+            })
+        }
     }
 
     saveNewGalleries() {
-        var index = 0;
-        var newGalleries:number[] = [];
-
-        this.GalleriesNew.forEach((gallery:IGallery) => {
-            newGalleries.push(gallery.Id);
-        });
-
-        this.DataService.convertNewGalleries(newGalleries).then(() => {
-
-            this.GalleriesNew.forEach((gallery:IGallery) => {
-                gallery.IsActive = true;
-                this.Galleries.push(gallery);
-            });
-            this.GalleriesNew = [];
-            this.GalleriesNew.push(new Gallery());
-            this.ShowSuccess("Galleries have been saved to Db");
-
+        var unshared = _.values(this.$scope.galleries);
+        console.log(unshared);
+        unshared.forEach((gallery:IGallery)=> {
+            gallery.isTemp = false;
         })
-
-
     }
 
     updateGallery(galleries:IGallery[], index:number) {
@@ -86,7 +138,12 @@ class PhotosCtrl {
     }
 
     addGallery() {
-        this.GalleriesNew.push(new Gallery());
+
+        var gallery = new Gallery();
+        gallery.Title = "";
+        gallery.isTemp = true;
+        this.$scope.galleries.$add(gallery);
+
     }
 
     setSelectedGallery(galleryId:number) {

@@ -64,6 +64,7 @@
 /// <reference path="controllers/FollowingsCtrl.ts" />
 /// <reference path="directives/svImageUpload.ts" />
 /// <reference path="controllers/LitterInfoCtrl.ts" />
+/// <reference path="filters/Unshared.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
@@ -102,6 +103,11 @@ profile.filter('selectedUserMessages', function () {
 profile.filter('unfire', function () {
     return function (value) {
         return Unfire.filter(value);
+    };
+});
+profile.filter('unshared', function () {
+    return function (value, isTemp) {
+        return Unshared.filter(value, isTemp);
     };
 });
 

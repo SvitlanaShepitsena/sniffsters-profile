@@ -69,20 +69,15 @@ class Photo implements IPhoto {
 
 }
 interface IGallery {
-    Id:number;
     Title:string;
-    IsActive:Boolean;
+    isTemp:boolean;
     Photos:IPhoto[]
 }
 class Gallery implements IGallery {
-    Id:number;
     Title:string;
-    IsActive:Boolean;
+    isTemp:boolean;
     Photos:IPhoto[];
 
-    constructor() {
-        this.Photos = [];
-    }
 }
 class BreederProfile implements IBreederProfile {
     City:string;

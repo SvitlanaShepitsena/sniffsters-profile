@@ -26,7 +26,6 @@ var Photo = (function () {
 
 var Gallery = (function () {
     function Gallery() {
-        this.Photos = [];
     }
     return Gallery;
 })();
