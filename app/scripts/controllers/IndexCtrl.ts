@@ -26,6 +26,14 @@ class IndexCtrl {
     constructor(public $scope, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index = this;
 
+
+        this.$scope.home.auth.$getCurrentUser().then((user) => {
+
+            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
+            })
+        })
+
+
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
         $scope.home.hideMenu = false;

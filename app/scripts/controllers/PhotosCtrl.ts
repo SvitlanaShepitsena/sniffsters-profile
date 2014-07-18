@@ -13,7 +13,7 @@ class PhotosCtrl {
     public SelectedGallery:IGallery;
     public SelectedGalleryEdit:IGallery;
 
-    constructor(public $scope, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public $filter, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.home.menuIndex = 2;
 
         $scope.$watch("photosCtrl.GalleriesNew", () => {
@@ -112,8 +112,7 @@ class PhotosCtrl {
     }
 
     saveNewGalleries() {
-        var unshared = _.values(this.$scope.galleries);
-        console.log(unshared);
+        var unshared = this.$filter('orderByPriority')(this.$scope.galleries);
         unshared.forEach((gallery:IGallery)=> {
             gallery.isTemp = false;
         })

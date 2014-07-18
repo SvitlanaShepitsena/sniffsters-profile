@@ -16,6 +16,11 @@ var IndexCtrl = (function () {
         this.CopyProfileService = CopyProfileService;
         $scope.index = this;
 
+        this.$scope.home.auth.$getCurrentUser().then(function (user) {
+            _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
+            });
+        });
+
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
         $scope.home.hideMenu = false;
