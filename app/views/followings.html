@@ -7,7 +7,7 @@
 			<div class="row ">
 				<div class="col-xs-3">
 					<div class="thumbnail no-b-margin" ng-if="f.Email.length>0">
-					<a ui-sref="user.profile.about1({uname:f.Email})">
+						<a ui-sref="user.profile.about1({uname:f.Email})">
 							<img ng-src="../imgdir/{{f.Email}}/myimg/mainpic.jpg" alt="">
 						</a>
 					</div>
@@ -32,33 +32,26 @@
 							</li>
 						</ul>
 					</div>
-
-
 				</div>
 
 				<div class="col-xs-6">
 					<div class="">
 						<h3 class="breederName">
-							<a class="a-name" href="#">
+							<a class="a-name " ui-sref="user.profile.about1({uname:f.Email})">
 								{{f.KennelName}}
 							</a>
 						</h3>
 
-						<h4 class="hBreederWebsite">
-							<a class="text-muted" href="#">
-								{{f.Website}}
-							</a>
+						<h4 class="hBreederWebsite text-muted">
+							{{f.Website}}
 						</h4>
 
-						<h4 class="hBreederWebsite">
-							<a class="text-muted" href="#">
-								{{f.City}} {{f.State}}
-							</a>
+						<h4 class="hBreederWebsite text-muted">
+							{{f.City}} {{f.State}}
 						</h4>
 						<br/>
 					</div>
 				</div>
-
 
 				<div class="col-xs-3 text-right">
 					<p class="text-right" ng-show="home.FireUname">
@@ -71,7 +64,6 @@
 						        role="button" ng-click="home.unFollowUser(home.FireUname,f)">
 							UnFollow
 						</button>
-
 					</p>
 
 					<button class="btn btn-default btn-tiny btn-follow" role="button">
@@ -79,7 +71,6 @@
 					</button>
 				</div>
 			</div>
-
 		</li>
 	</ul>
 </div>
