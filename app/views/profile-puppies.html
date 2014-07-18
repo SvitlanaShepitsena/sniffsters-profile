@@ -1,19 +1,14 @@
 <div ui-view="">
-	<div class="row" ng-show="home.isOwner">
-	<div class="col-xs-3 pull-right">
-			<button class="btn btn-link"
-			        ng-click="puppies.addNewLitter()">
-				Add New Litter
-			</button>
-		</div>
-		<div class="col-xs-xs-3 pull-right">
-			<button class="btn btn-link"
-			        ng-show="puppies.LittersNew.length"
-			        ng-disabled="isOk"
-			        ng-click="puppies.saveNewLitters()">Save
-			</button>
-		</div>
-
+	<div class="text-right" ng-show="home.isOwner">
+		<button class="btn btn-link"
+		        ng-show="puppies.LittersNew.length"
+		        ng-disabled="isOk"
+		        ng-click="puppies.saveNewLitters()">Save
+		</button>
+		<button class="btn btn-link"
+		        ng-click="puppies.addNewLitter()">
+			Add New Litter
+		</button>
 	</div>
 	<div ng-show="puppies.LittersNew.length>0">
 		<ul class="list-unstyled">
