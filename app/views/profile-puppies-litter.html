@@ -10,29 +10,36 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12 textLitter">
-			<h4 class="sniff-head-sm">
-				{{litter.Title}}
-			</h4>
+			<h3 class="sniff-head-info">
+			{{litter.Title}}
+			</h3>
 			<hr/>
-
 			<p>
+				<strong>
+					Date of Birth:
+				</strong>
 				{{litter.DateOfBirth|date:'MM.dd.yyyy'}}
 			</p>
 
 			<p>
+				<strong>
+					Amount of puppies and sex:
+				</strong>
 				{{litter.Puppies}}
 			</p>
 
 			<p>
+				<strong>
+					Color:
+				</strong>
 				{{litter.Colors}}
 			</p>
 			<ul class="list-unstyled">
 				<li ng-repeat="p in litter.photos">
 					<img ng-src="{{p.file64}}" alt="">
-
-					<p>
-						{{p.caption}}
-					</p>
+					<h5>
+					{{p.caption}}
+					</h5>
 				</li>
 			</ul>
 		</div>
