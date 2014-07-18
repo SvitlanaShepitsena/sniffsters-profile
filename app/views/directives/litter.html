@@ -1,45 +1,52 @@
 <div>
-	<form role="form" name="l" id="l" novalidate>
-		<div class="form-group text-right">
-			<button class="btn btn-link btn-save-litter"
-			        ng-disabled="(l.$pristine)
-					|| (l.Title.$invalid || l.dateOfiBirth.$invalid || l.puppies.$invalid)|| l.colors.$invalid || saved"
-			        ng-click="save();l.$setPristine();"> Save
+	<div class="text-right">
+		<button class="right btn btn-link"
+		        ng-disabled="(litter.$pristine)
+					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
+		        ng-click="save();litter.$setPristine();">Save
 			</button>
+	</div>
+	<form role="form" name="litter" id="litter" novalidate>
+		<div class="form-group">
+			<label class="sniff-subhead" for="title"> Title</label>&nbsp<span class="textMuted">Required</span>
+			<span ng-show="litter.title.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
+			<input type="text" class="form-control" id="title" name="title" placeholder="title"
+			       ng-class="{inputEmpty:!l.Title}"
+			       ng-model="l.Title">
 		</div>
 
 		<div class="form-group">
-			<label class="sniff-subhead" for="title"> Title</label>
-			<input type="text" class="form-control" id="title" name="title" placeholder="title" ng-model="l.Title">
-		</div>
+			<label class="sniff-subhead" for="date">Date of Birth</label>&nbsp<span class="textMuted">Required</span>
 
-		<div class="form-group">
-			<label class="sniff-subhead" for="date">Date of Birth</label>
-
-			<p class="input-group">
+			<div class="input-group calendar">
 				<input type="text" id="date" name="date" class="form-control"
 				       datepicker-popup='dd.MM.yyyy' is-open="opened"
 				       datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+				       ng-class="{inputEmpty:!l.DateOfBirth}"
 				       ng-model="l.DateOfBirth"
 				       ng-model="dt"
 				       ng-required="true" close-text="Close"/>
               <span class="input-group-btn">
-                <button type="button" class="btn btn-default"
+                <button type="button" class="btn btn-default btn-calendar"
                         ng-click="open($event)">
 	                <i class="fa fa-calendar"></i>
                 </button>
               </span>
-			</p>
+			</div>
 		</div>
 
 		<div class="form-group">
-			<label class="sniff-subhead" for="puppies">Number of puppies and sex</label>
+			<label class="sniff-subhead" for="puppies">Number of puppies and sex</label>&nbsp<span class="textMuted">Required</span>
 			<input type="text" class="form-control" id="puppies" name="puppies" placeholder="title"
+			       ng-class="{inputEmpty:!l.Puppies}"
 			       ng-model="l.Puppies">
 		</div>
 		<div class="form-group">
-			<label class="sniff-subhead" for="Colors">Colors</label>
-			<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title" ng-model="l.Colors">
+			<label class="sniff-subhead" for="Colors">Colors</label>&nbsp<span class="textMuted">Required</span>
+			<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title"
+			       ng-class="{inputEmpty:!l.Colors}"
+			       ng-model="l.Colors">
 		</div>
 
 		<div class="row">
@@ -53,7 +60,6 @@
 					<div class="thumbnail">
 						<img class="puppyPic"
 						     ng-src="{{p.file64}}" alt="">
-
 						<div class="row">
 							<div class="col-xs-12">
 								<input type="text" class="form-control" ng-model="p.caption">
@@ -95,8 +101,8 @@
 		</div>
 		<a ui-sref="^" class="btn btn-default">Cancel</a>
 		<button class="btn btn-info"
-		        ng-disabled="l.$pristine"
-		        ng-click="saveLitter(); l.$setPristine(); ">Save
+		        ng-disabled="litter.$pristine"
+		        ng-click="saveLitter(); litter.$setPristine(); ">Save
 		</button>
 	</form>
 </div>
