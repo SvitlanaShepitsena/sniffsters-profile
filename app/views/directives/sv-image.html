@@ -1,8 +1,14 @@
 <div class="well well-sm">
 	<div ng-show="i.isSized">
 
-		<div>
-			<img ng-src={{i.file64}}>
+		<div style="position: relative">
+			<img ng-src={{i.file64}} sv-image-wrapper>
+			<br/>
+
+			<div ng-show="isCropNeeded">
+				<button ng-hide="cropAccept" ng-click="crop()">Crop</button>
+				<button ng-show="cropAccept" ng-click="cropAccept()">Accept Crop</button>
+			</div>
 		</div>
 		<label for="caption">Caption
 		</label>

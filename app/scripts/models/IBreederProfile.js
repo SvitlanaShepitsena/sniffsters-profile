@@ -1,5 +1,17 @@
 /// <reference path="IUser.ts" />
 
+var SImage = (function () {
+    function SImage(isSized, fileName, file64) {
+        this.isSized = isSized;
+        this.fileName = fileName;
+        if (file64) {
+            this.file64 = file64;
+        }
+        this.caption = fileName.split('.')[0] + ' image';
+    }
+    return SImage;
+})();
+
 var Note = (function () {
     function Note() {
     }
