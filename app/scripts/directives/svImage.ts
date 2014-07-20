@@ -42,7 +42,9 @@ var svImage = ($compile, $document) => {
 
         },
         link: (scope, elem, attrs:ng.IAttributes) => {
-
+            scope.cutImage = () => {
+                scope.isCropNeeded = false;
+            }
             scope.crop = () => {
                 scope.cropAccept = true;
                 console.log(scope.scaledCropWidth);
@@ -90,7 +92,8 @@ var svImage = ($compile, $document) => {
 
                 $compile(element)(scope);
 
-                elem.append(element);
+                var imgDiv = elem.find('img').parent();
+                imgDiv.append(element);
             }
 
         }
