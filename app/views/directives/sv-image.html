@@ -1,0 +1,17 @@
+<div class="well well-sm">
+	<div ng-show="i.isSized">
+
+		<div>
+			<img ng-src={{i.file64}}>
+		</div>
+		<label for="caption">Caption
+		</label>
+		<input name="caption" id="caption" type="text" ng-model="i.caption">
+
+	</div>
+	<p ng-hide="i.isSized">{{i.fileName}} file exceeds the size limit
+		<input type="file" ng-file-select="onFileSelect({$files:$files,index:index})" accept="image/*">
+	</p>
+
+
+</div>

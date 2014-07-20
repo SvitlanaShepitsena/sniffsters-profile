@@ -1,4 +1,24 @@
 /// <reference path="IUser.ts" />
+interface IImage {
+    isSized:boolean;
+    fileName:string;
+    file64:string;
+    caption:string;
+}
+
+
+class SImage implements IImage {
+    caption:string;
+    file64:string;
+
+    constructor(public isSized:boolean, public fileName:string, file64?:string) {
+        if (file64) {
+            this.file64 = file64;
+        }
+        this.caption = fileName.split('.')[0] + ' image';
+    }
+}
+
 interface IBreederProfile extends IUser {
     FirstName:string;
     LastName:string;

@@ -732,7 +732,7 @@ module.exports = function (grunt) {
 
         var d = 'app/scripts/directives/';
         var directive = grunt.file.read('templates/dir.tpl');
-
+        dname = 'sv-' + _.str.dasherize(dname);
         var dnames = dname.toLowerCase().split('-');
 
         var uname = '', lname = '', jname = '';

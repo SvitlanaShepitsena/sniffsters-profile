@@ -1,7 +1,11 @@
 <div class="well well-sm">
+	<ul class="list-unstyled">
+		<li ng-repeat="i in files">
+			<sv-image i="i" index="$index" on-file-select="onFileSelect($files,index)"/>
+		</li>
+	</ul>
 
-	<img ng-src={{cover}}>
+	<input type="file" ng-file-select="onFileSelect($files)" accept="image/*">
 
-	<input type="file" accept="image/*">
-
+	<!--<div ng-file-drop="onFileSelect($files)" style="width: 400px;height: 300px;background: grey">drop files here</div>-->
 </div>
