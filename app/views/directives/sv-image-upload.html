@@ -4,16 +4,6 @@
 			<sv-image i="i" index="$index" on-file-select="onFileSelect($files,index)" width="width" height="height"/>
 		</li>
 	</ul>
-
-
-	<div class="row">
-		<div class="col-xs-10 col-xs-offset-1 no-pad gal-title">
-			<input type="text"
-			       class="form-control"
-			       ng-model="g.Title"
-			       placeholder="gallery title"/>
-		</div>
-	</div>
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 well">
 			<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
@@ -28,6 +18,7 @@
 				<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer ">
 					<button class="btn btn-primary btn-choose">
 						<!--ng-disabled="newLitterForm.$invalid"-->
+						<i class="fa fa-upload"></i>
 						Choose Files
 					</button>
 					<input class="panel panel-default" type="file" ng-file-select="onFileSelect($files)"
@@ -37,5 +28,4 @@
 			</div>
 		</div>
 	</div>
-
 </div>

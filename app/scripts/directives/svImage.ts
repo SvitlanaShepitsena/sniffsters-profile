@@ -17,6 +17,7 @@ var svImage = ($compile, $document) => {
             onFileSelect: '&'
         },
         controller($scope) {
+//            console.log($scope.width);
 
             var realImageWidth:number, realImageHeight:number, scaledImageWidth:number, scaledImageHeight:number;
 
