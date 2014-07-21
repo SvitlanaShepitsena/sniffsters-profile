@@ -99,7 +99,6 @@ var PhotosCtrl = (function () {
             });
         };
     }
-
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var unshared = this.$filter('orderByPriority')(this.$scope.galleries);
         unshared.forEach(function (gallery) {

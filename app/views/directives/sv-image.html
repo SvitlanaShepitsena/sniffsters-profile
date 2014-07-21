@@ -1,20 +1,24 @@
-<div>
+<div class="well well-sm">
 	<div ng-show="i.isSized">
-		<div class="form-group">
-			<label for="caption">Image title: </label>
-			<input class="form-control" name="caption" id="caption" type="text" ng-model="i.caption">
-		</div>
+
 		<div style="position: relative">
 			<img ng-src={{i.file64}} sv-image-wrapper>
 			<br/>
 
-			<div class="btn-crop" ng-show="isCropNeeded">
-				<button class="btn btn-default" ng-show="!cropAccept" ng-click="crop()">Crop</button>
-				<button class="btn btn-default" ng-show="cropAccept" ng-click="cutImage()">Accept Crop</button>
+			<div ng-show="isCropNeeded && !hasBeenCropped">
+
+				<button ng-show="!cropAccept" ng-click="crop()">Crop</button>
+				<button ng-show="cropAccept" ng-click="cutImage()">Accept Crop</button>
 			</div>
 		</div>
+		<label for="caption">Caption
+		</label>
+		<input name="caption" id="caption" type="text" ng-model="i.caption">
+
 	</div>
 	<p ng-hide="i.isSized">{{i.fileName}} file exceeds the size limit
 		<input type="file" ng-file-select="onFileSelect({$files:$files,index:index})" accept="image/*">
 	</p>
+
+
 </div>
