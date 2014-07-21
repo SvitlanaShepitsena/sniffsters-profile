@@ -5,8 +5,9 @@
 			<img ng-src={{i.file64}} sv-image-wrapper>
 			<br/>
 
-			<div ng-show="isCropNeeded">
-				<button ng-hide="cropAccept" ng-click="crop()">Crop</button>
+			<div ng-show="isCropNeeded && !hasBeenCropped">
+
+				<button ng-show="!cropAccept" ng-click="crop()">Crop</button>
 				<button ng-show="cropAccept" ng-click="cutImage()">Accept Crop</button>
 			</div>
 		</div>
