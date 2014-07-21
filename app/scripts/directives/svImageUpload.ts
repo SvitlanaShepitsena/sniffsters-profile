@@ -26,6 +26,7 @@ var svImageUpload:() => ng.IDirective = () => {
 
             $scope.onFileSelect = ($files, index?:number) => {
                 var reader = new FileReader();
+
                 $files.forEach((file)=> {
                     if (file.size > $scope.fileSize) {
 

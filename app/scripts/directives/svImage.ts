@@ -44,6 +44,7 @@ var svImage = ($compile, $document) => {
         link: (scope, elem, attrs:ng.IAttributes) => {
             scope.cutImage = () => {
                 scope.isCropNeeded = false;
+
             }
             scope.crop = () => {
                 scope.cropAccept = true;
@@ -78,6 +79,21 @@ var svImage = ($compile, $document) => {
                 function mousemove(event) {
                     scope.y = event.pageY - startY;
                     scope.x = event.pageX - startX;
+                    if (scope.y < 0) {
+                        scope.y = 0;
+                    }
+                    if (scope.x < 0) {
+                        scope.x = 0;
+                    }
+
+                    if (scope.x + scope.scaledCropWidth > scope.scaledImageWidth) {
+                        scope.x = scope.scaledImageWidth - scope.scaledCropWidth;
+                    }
+
+                    if (scope.y + scope.scaledCropHeight > scope.scaledImageHeight) {
+                        scope.y = scope.scaledImageHeight - scope.scaledCropHeight;
+                    }
+
                     element.css({
                         top: scope.y + 'px',
                         left: scope.x + 'px'
