@@ -18,10 +18,10 @@
 		<hr/>
 		<ul class="list-unstyled">
 			<h3>Shared Galleries</h3>
-			<li ng-repeat="(id,g) in galleries">
+			<li ng-if="g.isTemp" ng-repeat="(id,g) in galleries">
 
 
-			<ul class="list-unstyled">
+				<ul class="list-unstyled">
 					<li ng-repeat="(pid,p) in g.photos">
 						<img ng-src="{{p.file64}}" class="img-responsive">
 
@@ -36,10 +36,11 @@
 		</ul>
 		<hr/>
 		<h3>Temporary Galleries</h3>
+
 		<ul class="list-unstyled">
 			<li ng-repeat="(galleryid,g) in galleries">
 
-			<ul class="list-unstyled">
+				<ul class="list-unstyled">
 					<li ng-repeat="(pid,p) in g.photos">
 						<img ng-src="{{p.file64}}" class="img-responsive">
 						<input type="text" ng-model="p.caption" placeholder="photo caption"/>

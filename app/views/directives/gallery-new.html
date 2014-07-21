@@ -7,7 +7,6 @@
 			<li ng-repeat="(pid,p) in g.photos">
 				<img ng-src="{{p.file64}}" class="img-responsive">
 				<input type="text" ng-model="p.caption" placeholder="photo caption"/>
-
 			</li>
 		</ul>
 		<hr/>
@@ -23,7 +22,6 @@
 					     ng-file-drag-over-class="optional-css-class"
 					     ng-show="dropSupported">
 						<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="Photo Icon">
-
 						<h5 class="drag-photos"> drag photos here </h5>
 					</div>
 				</div>

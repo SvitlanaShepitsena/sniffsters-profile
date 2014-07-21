@@ -1,11 +1,41 @@
-<div class="well well-sm">
+<div class="img-upload-container">
 	<ul class="list-unstyled">
 		<li ng-repeat="i in files">
 			<sv-image i="i" index="$index" on-file-select="onFileSelect($files,index)" width="width" height="height"/>
 		</li>
 	</ul>
 
-	<input type="file" ng-file-select="onFileSelect($files)" accept="image/*" multiple>
 
-	<!--<div ng-file-drop="onFileSelect($files)" style="width: 400px;height: 300px;background: grey">drop files here</div>-->
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 no-pad gal-title">
+			<input type="text"
+			       class="form-control"
+			       ng-model="g.Title"
+			       placeholder="gallery title"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 well">
+			<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
+
+			<div class="panel panel-default drag-file text-center" ng-file-drop="onFileSelect($files)">
+				<div class="drag-file-content">
+					<img class="drag-file-img" src="../../img/photo-icon.png" alt="Photo Icon">
+					<h5 class="drag-photos"> drag photos here </h5>
+				</div>
+			</div>
+			<div class="text-center">
+				<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer ">
+					<button class="btn btn-primary btn-choose">
+						<!--ng-disabled="newLitterForm.$invalid"-->
+						Choose Files
+					</button>
+					<input class="panel panel-default" type="file" ng-file-select="onFileSelect($files)"
+					       acceptaccept="image/*"
+					       multiple>
+				</label>
+			</div>
+		</div>
+	</div>
+
 </div>
