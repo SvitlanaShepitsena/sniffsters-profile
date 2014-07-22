@@ -8,7 +8,7 @@ var svImageWrapper:() => ng.IDirective = () => {
             element.on('load', () => {
                 scope.$apply(() => {
                     scope.setInitialImageProp(element.width(), element.height());
-                    element.addClass('img-responsive');
+//                    element.addClass('img-responsive');
                     scope.setScaledImageProp(element.width());
 //                    console.log(element.width());
                 })
