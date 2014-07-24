@@ -23,8 +23,10 @@ var svImage = ($compile, $document) => {
 
             $scope.saveAvatar = () => {
                 $scope.fireRef.$remove();
-                $scope.fireRef.$add($scope.i.file64);
+                $scope.fireRef.$add($scope.i.file64).then(() => {
                 $scope.closeModal();
+
+                });
             }
 
             var realImageWidth:number, realImageHeight:number, scaledImageWidth:number, scaledImageHeight:number;
@@ -93,7 +95,7 @@ var svImage = ($compile, $document) => {
                         scope.w = c.w;
                         scope.h = c.h;
                     },
-
+                    setSelect: [0, 0, scope.width, scope.height],
                     aspectRatio: scope.width / scope.height
                 });
             }

@@ -14,6 +14,17 @@ var cover:() => ng.IDirective = () => {
         // replace directive tag with template info
         replace: true,
         controller: ($scope, $firebase, $filter, $modal) => {
+            $scope.showChangeBtn = false;
+
+            $scope.chgBtnShown = () => {
+                $scope.showChangeBtn = true;
+
+            }
+            $scope.chgBtnHidden = () => {
+                $scope.showChangeBtn = false;
+
+            }
+
             $scope.show64 = () => {
                 console.log('test12');
             }
@@ -30,7 +41,6 @@ var cover:() => ng.IDirective = () => {
                     $scope.avatar.$on('value', (snapshot:any)=> {
                         $scope.isAvatarChanged = !_.isEmpty(snapshot.snapshot.value);
                         $scope.avatarsrc = _.values(snapshot.snapshot.value)[0];
-                        console.log($scope.avatarsrc);
                     });
 
                     $scope.changePicture = () => {
@@ -43,7 +53,7 @@ var cover:() => ng.IDirective = () => {
                                 ' file-size="3000000"' +
                                 ' width=163' +
                                 ' height=163' +
-                                ' btn-title="Change"' +
+                                ' btn-title="Upload Picture"' +
                                 ' close-modal="hide()"' +
                                 ' ok-modal="okModal(file64)"' +
                                 ' show64="show64()"' +

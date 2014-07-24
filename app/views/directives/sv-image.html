@@ -6,8 +6,12 @@
 		</div>
 		<div>
 			<div ng-show="hasBeenCropped">
-				<canvas id="myCanvas" width="{{width}}" height="{{height}}"></canvas>
-				<button ng-click="saveAvatar()">Save Avatar</button>
+				<div>
+					<canvas id="myCanvas" width="{{width}}" height="{{height}}"></canvas>
+				</div>
+				<div class="">
+					<button class='btn btn-success crop-ava' ng-click="saveAvatar()">Set Avatar</button>
+				</div>
 			</div>
 			<div ng-show="!hasBeenCropped">
 				<img ng-src={{i.file64}} id="cropme" sv-image-wrapper>
