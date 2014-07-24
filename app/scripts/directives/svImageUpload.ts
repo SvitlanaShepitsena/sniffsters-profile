@@ -17,12 +17,17 @@ var svImageUpload:() => ng.IDirective = () => {
             height: '=',
             fileSize: '=',
             mainRef: '=',
-
+            isDragShown: '=',
+            fireRef: '=',
+            btnTitle: '@',
             childPath: '@',
-            func: '&'
+            closeModal: '&',
+            okModal: '&',
+            show64: '&'
         },
         controller($scope) {
             $scope.files = [];
+            $scope.show64();
 
             $scope.onFileSelect = ($files, index?:number) => {
                 var reader = new FileReader();
@@ -44,11 +49,8 @@ var svImageUpload:() => ng.IDirective = () => {
                     }
                 })
             }
-
         },
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
-
         }
     };
 }

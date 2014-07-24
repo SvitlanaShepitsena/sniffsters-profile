@@ -20,30 +20,22 @@
 		</ul>
 	</div>
 	<div id="cover" style="position: relative">
-
-
-		<image-crop
-				style="position: absolute;left: 250px;top: 280px"
-				data-width="796"
-				data-height="276"
-				data-shape="square"
-				data-step="imageCropStep"
-				data-result="imageCropResult"
-				ng-show="showImageCropper">
-		</image-crop>
-
-
 		<img id="cover-img" class="img-responsive" ng-src="../../imgdir/breeder1@gmail.com/myimg/maincover.jpg"/>
 	</div>
 
 	<div id="profile-picture" class="profileMainPic">
 		<label id="labelMainPic" class="fileContainer uploadMainPicBtn" ng-show="home.isOwner">
-			<button class="btn btn-primary btnEditMainPic">
+
+
+			<button class="btn btn-primary btnEditMainPic" ng-click="changePicture ()">
 				<i class="fa fa-camera fa-fw"></i>
-				Edit Picture
+				Change Picture
 			</button>
 		</label>
-		<img class="thumbnail thPictureSmall img-responsive" id="profile-img"
+		<img ng-if="isAvatarChanged" class="thumbnail thPictureSmall img-responsive"
+		     ng-src="{{avatarsrc}}"/>
+
+		<img ng-if="!isAvatarChanged" class="thumbnail thPictureSmall img-responsive"
 		     src="../../imgdir/default/myimg/mainpic.jpg"/>
 	</div>
 </div>

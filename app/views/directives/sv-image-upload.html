@@ -1,14 +1,16 @@
 <div class="img-upload-container">
 	<ul class="list-unstyled">
 		<li ng-repeat="i in files">
-			<sv-image i="i" index="$index" on-file-select="onFileSelect($files,index)" width="width" height="height"/>
+			<sv-image fire-ref='fireRef' ok-modal="okModal(file64)" close-modal="closeModal()" i="i" index="$index"
+			          on-file-select="onFileSelect($files,index)" width="width" height="height"/>
 		</li>
 	</ul>
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 well">
-			<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
 
 			<div class="panel panel-default drag-file text-center" ng-file-drop="onFileSelect($files)">
+				<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
+
 				<div class="drag-file-content">
 					<img class="drag-file-img" src="../../img/photo-icon.png" alt="Photo Icon">
 					<h5 class="drag-photos"> drag photos here </h5>
@@ -18,8 +20,8 @@
 				<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer ">
 					<button class="btn btn-primary btn-choose">
 						<!--ng-disabled="newLitterForm.$invalid"-->
-						<i class="fa fa-upload"></i>
-						Choose Files
+						<i class="fa fa-camera"></i>
+						{{btnTitle}}
 					</button>
 					<input class="panel panel-default" type="file" ng-file-select="onFileSelect($files)"
 					       acceptaccept="image/*"

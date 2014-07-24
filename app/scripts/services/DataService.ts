@@ -132,7 +132,6 @@ class DataService {
     getLookerMessages(userName:string) {
         userName = this.FireProcess(userName);
         var d = this.$q.defer();
-        console.log('looker Messages');
         var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/messages"));
 
         fireMessages.$on('value', (snapshot:any)=> {
@@ -144,7 +143,6 @@ class DataService {
     }
 
     getMessages(userName:string) {
-        console.log('breeders Messages');
         userName = this.FireProcess(userName);
         var d = this.$q.defer();
 

@@ -13,10 +13,18 @@ var svImage = ($compile, $document) => {
 
             width: '=',
             height: '=',
-
-            onFileSelect: '&'
+            fireRef: '=',
+            onFileSelect: '&',
+            closeModal: '&',
+            okModal: '&'
         },
         controller($scope) {
+
+            $scope.saveAvatar = () => {
+                $scope.fireRef.$remove();
+                $scope.fireRef.$add($scope.i.file64);
+                $scope.closeModal();
+            }
 
             var realImageWidth:number, realImageHeight:number, scaledImageWidth:number, scaledImageHeight:number;
 
@@ -73,12 +81,12 @@ var svImage = ($compile, $document) => {
                         console.log(scope.jcrop_api);
 
                         scope.i.file64 = canvas.toDataURL('image/jpg');
+                        scope.hasBeenCropped = true;
                         scope.i.isSized = true;
                     })
                 };
                 scope.cropAccept = false;
 
-                scope.hasBeenCropped = true;
 //                console.log(imageObj);
                 imageObj.src = scope.i.file64;
             }
