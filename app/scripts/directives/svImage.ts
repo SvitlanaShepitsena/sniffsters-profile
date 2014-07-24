@@ -10,6 +10,7 @@ var svImage = ($compile, $document) => {
         scope: {
             i: '=',
             index: '=',
+            isMult: '=',
 
             width: '=',
             height: '=',
@@ -44,15 +45,10 @@ var svImage = ($compile, $document) => {
 
                 $scope.scaledCropWidth = Math.floor($scope.scaledCoefficient * parseInt($scope.width));
                 $scope.scaledCropHeight = Math.floor($scope.scaledCoefficient * $scope.height);
-
-//                console.log($scope.scaledCropHeight);
             }
-
         },
         link: (scope, elem, attrs:ng.IAttributes) => {
             scope.cutImage = () => {
-//                scope.isCropNeeded = false;
-//                console.log('I am herer');
                 var canvas:any = document.getElementById('myCanvas');
 
                 canvas.style.width = scope.width + "px";
@@ -78,16 +74,12 @@ var svImage = ($compile, $document) => {
                     context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
 
                     scope.$apply(()=> {
-                        console.log(scope.jcrop_api);
-
                         scope.i.file64 = canvas.toDataURL('image/jpg');
                         scope.hasBeenCropped = true;
                         scope.i.isSized = true;
                     })
                 };
                 scope.cropAccept = false;
-
-//                console.log(imageObj);
                 imageObj.src = scope.i.file64;
             }
             scope.crop = () => {
@@ -105,7 +97,6 @@ var svImage = ($compile, $document) => {
                     aspectRatio: scope.width / scope.height
                 });
             }
-
         }
     }
 }

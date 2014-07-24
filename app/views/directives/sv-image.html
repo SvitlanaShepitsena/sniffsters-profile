@@ -1,10 +1,10 @@
-<div class="well well-sm">
+<div class="well">
 	<div ng-show="i.isSized">
-		<div class="form-group">
-			<label for="caption">Image Caption:</label>
+		<div class="form-group" ng-show="isMult">
+		<label for="caption">Image Caption:</label>
 			<input class="form-control" name="caption" id="caption" type="text" ng-model="i.caption">
 		</div>
-		<div style="position: relative">
+		<div>
 			<div ng-show="hasBeenCropped">
 				<canvas id="myCanvas" width="{{width}}" height="{{height}}"></canvas>
 				<button ng-click="saveAvatar()">Save Avatar</button>
@@ -14,8 +14,8 @@
 				<br/>
 
 				<div class="btn-crop-wrapper" ng-show="isCropNeeded && !hasBeenCropped">
-					<button class="btn btn-primary" ng-show="!cropAccept" ng-click="crop()">
-						<i class="fa fa-crop"></i>
+					<button class="btn btn-primary crop-ava" ng-show="!cropAccept" ng-click="crop()">
+					<i class="fa fa-crop"></i>
 						Crop Image
 					</button>
 					<button class="btn btn-primary" ng-show="cropAccept" ng-click="cutImage()">

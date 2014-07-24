@@ -31,16 +31,14 @@ var cover:() => ng.IDirective = () => {
                         $scope.isAvatarChanged = !_.isEmpty(snapshot.snapshot.value);
                         $scope.avatarsrc = _.values(snapshot.snapshot.value)[0];
                         console.log($scope.avatarsrc);
-
-
                     });
-
-                    console.log($scope.avatar);
 
                     $scope.changePicture = () => {
                         var modalInstance = $modal.open({
-                            template: '<sv-image-upload ' +
-                                ' is-mult=true' +
+                            template: '<div class="row">' +
+                                '<div class="col-xs-12 avatarModel">' +
+                                '<sv-image-upload ' +
+                                ' is-mult=false' +
                                 ' fire-ref="avatar"' +
                                 ' file-size="3000000"' +
                                 ' width=163' +
@@ -49,7 +47,7 @@ var cover:() => ng.IDirective = () => {
                                 ' close-modal="hide()"' +
                                 ' ok-modal="okModal(file64)"' +
                                 ' show64="show64()"' +
-                                '></sv-image-upload><p> <button class="btn btn-default" ng-click="hide()">Cancel</button> </p>',
+                                '></sv-image-upload><p> <button class="btn btn-default pull-right" ng-click="hide()">Cancel</button> </p></div></div>',
                             controller: ($scope, $modalInstance, avatar) => {
                                 $scope.avatar = avatar;
                                 $scope.hide = () => {
@@ -59,8 +57,6 @@ var cover:() => ng.IDirective = () => {
                                     console.log(file64);
                                     $modalInstance.close(file64);
                                 }
-
-
                             },
                             size: 'lg',
                             resolve: {
@@ -68,7 +64,6 @@ var cover:() => ng.IDirective = () => {
                                     return $scope.avatar;
                                 }
                             }
-
                         });
 
                         modalInstance.result.then(function (file64) {
@@ -77,17 +72,12 @@ var cover:() => ng.IDirective = () => {
 
                         }, function () {
                         });
-
                     }
-
                 })
             })
-
         },
 
         link: (scope:ICover, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
-
         }
     }
 }

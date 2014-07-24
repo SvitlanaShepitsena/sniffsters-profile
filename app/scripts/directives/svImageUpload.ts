@@ -1,10 +1,6 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 
-interface ISvImageUpload extends ng.IScope {
-    test:string;
-}
-
 var svImageUpload:() => ng.IDirective = () => {
 
     return{
