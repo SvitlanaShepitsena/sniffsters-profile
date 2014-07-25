@@ -35,6 +35,7 @@ var PhotosCtrl = (function () {
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
                 var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries';
                 $scope.galleries = $firebase(new Firebase(galleriesUrl));
+                $scope.newGalleries = [];
             });
         });
         $scope.onNewFileSelect = function ($files, galleryId) {
@@ -99,6 +100,7 @@ var PhotosCtrl = (function () {
             });
         };
     }
+
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var unshared = this.$filter('orderByPriority')(this.$scope.galleries);
         unshared.forEach(function (gallery) {
@@ -128,7 +130,7 @@ var PhotosCtrl = (function () {
         var gallery = new Gallery();
         gallery.Title = "";
         gallery.isTemp = true;
-        this.$scope.galleries.$add(gallery);
+        this.$scope.newGalleries.unshift(gallery);
     };
 
     PhotosCtrl.prototype.setSelectedGallery = function (galleryId) {

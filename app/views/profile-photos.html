@@ -16,75 +16,51 @@
 		</div>
 		<br/>
 		<hr/>
-		<ul class="list-unstyled">
-			<h3>Shared Galleries</h3>
-			<li ng-if="g.isTemp" ng-repeat="(id,g) in galleries">
+		<div class="current-galleeries" id="gall-scroll">
+			<ul class="list-unstyled">
+				<h3>Current Galleries</h3>
+				<li ng-if="g.isTemp" ng-repeat="(id,g) in galleries">
 
 
-				<ul class="list-unstyled">
-					<li ng-repeat="(pid,p) in g.photos">
-						<img ng-src="{{p.file64}}" class="img-responsive">
+					<ul class="list-unstyled">
+						<li ng-repeat="(pid,p) in g.photos">
+							<img ng-src="{{p.file64}}" class="img-responsive">
 
-						<p>{{p.caption}}</p>
+							<p>{{p.caption}}</p>
 
-					</li>
-				</ul>
-				<hr/>
-				<h4>{{g.Title}}</h4>
+						</li>
+					</ul>
+					<h4>{{g.Title}}</h4>
 
-			</li>
-		</ul>
-		<hr/>
-		<h3>Temporary Galleries</h3>
+				</li>
+			</ul>
+			<hr/>
+			<h3>Temporary Galleries</h3>
 
-		<ul class="list-unstyled">
-			<li ng-repeat="(galleryid,g) in galleries">
+			<ul class="list-unstyled">
+				<li ng-repeat="(galleryid,g) in newGalleries">
 
-				<ul class="list-unstyled">
-					<li ng-repeat="(pid,p) in g.photos">
-						<img ng-src="{{p.file64}}" class="img-responsive">
-						<input type="text" ng-model="p.caption" placeholder="photo caption"/>
+					<hr/>
+					<input type="text" ng-model="g.Title" placeholder="gallery title"/>
 
-					</li>
-				</ul>
-				<hr/>
-				<input type="text" ng-model="g.Title" placeholder="gallery title"/>
+					<sv-image-upload
+							is-mult="true"
+							file-size="3000000"
+							btn-title="Upload Pictures"
 
-				<div class="panel panel-default panel-file-upload">
-					<div class="row">
-						<div class="col-xs-12">
-							<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
-
-							<div class="text-center dropFilesHere"
-							     ng-file-drop="onFileNewSelect($files)"
-							     ng-file-drag-over-class="optional-css-class"
-							     ng-show="dropSupported">
-								<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="Photo Icon">
-
-								<h5 class="drag-photos"> drag photos here </h5>
-							</div>
-						</div>
-					</div>
-					<br/>
-
-					<div class="row">
-						<div class="col-xs-12 text-center">
-							<div ng-file-drop-available="dropSupported=true"
-							     ng-show="!dropSupported">HTML5 Drop File is not supported!
-							</div>
-							<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer">
-								<button class="btn btn-primary btn-choose">
-									<!--ng-disabled="newLitterForm.$invalid"-->
-									Choose Files
-								</button>
-								<input class="chooseFilesButton" type="file"
-								       ng-file-select="onNewFileSelect($files, galleryid)" multiple/>
-							</label>
-						</div>
-					</div>
-				</div>
-			</li>
-		</ul>
+							></sv-image-upload>
+				</li>
+			</ul>
+		</div>
 	</div>
 
 </div>
+
+<script>
+
+	$('#gall-scroll').slimScroll({
+		railVisible: true,
+		height: '1500px'
+	})
+
+</script>

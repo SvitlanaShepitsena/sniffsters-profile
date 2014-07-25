@@ -198,7 +198,7 @@ profile.service("DataService", DataService);
 
 profile.config(
     ($stateProvider, $urlRouterProvider) => {
-        $urlRouterProvider.otherwise("profile/breeder1@gmail.com/about");
+        $urlRouterProvider.otherwise("profile/breeder1@gmail.com/photos");
 
         $stateProvider
         /**********************

@@ -1,5 +1,6 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
+/// <reference path="../../../dist/bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 
 
 var svImageUpload:() => ng.IDirective = () => {
@@ -27,18 +28,27 @@ var svImageUpload:() => ng.IDirective = () => {
             $scope.show64();
 
             $scope.onFileSelect = ($files, index?:number) => {
-                var reader = new FileReader();
 
                 $files.forEach((file)=> {
+                    var reader = new FileReader();
                     if (file.size > $scope.fileSize) {
-
-                        index >= 0 ? $scope.files[index] = new SImage(false, file.name) : $scope.files.push(new SImage(false, file.name));
+                        if (_.isUndefined(index)) {
+                            $scope.files.push(new SImage(false, file.name));
+                        } else {
+                            $scope.files[index] = new SImage(false, file.name);
+                        }
                     } else {
 
                         reader.onload = (loadEvent)=> {
                             var file64 = loadEvent.target.result;
                             $scope.$apply(() => {
-                                index >= 0 ? $scope.files[index] = new SImage(true, file.name, file64) : $scope.files.push(new SImage(true, file.name, file64));
+
+                                if (_.isUndefined(index)) {
+                                    $scope.files.push(new SImage(true, file.name, file64));
+                                } else {
+                                    $scope.files[index] = new SImage(true, file.name, file64)
+
+                                }
                             });
                         }
 

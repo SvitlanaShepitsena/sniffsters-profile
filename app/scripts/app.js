@@ -194,7 +194,7 @@ profile.value("toastr", toastr);
 profile.service("DataService", DataService);
 
 profile.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("profile/breeder1@gmail.com/about");
+    $urlRouterProvider.otherwise("profile/breeder1@gmail.com/photos");
 
     $stateProvider.state("user", {
         abstract: true,

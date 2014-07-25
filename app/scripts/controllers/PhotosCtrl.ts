@@ -44,6 +44,8 @@ class PhotosCtrl {
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
                 var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries';
                 $scope.galleries = $firebase(new Firebase(galleriesUrl));
+                $scope.newGalleries = [];
+
             })
         })
         $scope.onNewFileSelect = ($files, galleryId:string) => {
@@ -142,7 +144,7 @@ class PhotosCtrl {
         var gallery = new Gallery();
         gallery.Title = "";
         gallery.isTemp = true;
-        this.$scope.galleries.$add(gallery);
+        this.$scope.newGalleries.unshift(gallery);
 
     }
 
