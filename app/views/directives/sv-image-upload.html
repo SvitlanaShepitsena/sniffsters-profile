@@ -12,8 +12,8 @@
 		</li>
 	</ul>
 
-	<div class="well">
-		<div class="panel panel-default drag-file text-center" ng-file-drop="onFileSelect($files)">
+	<div class="well" ng-hide="isFileChosen">
+	<div class="panel panel-default drag-file text-center" ng-file-drop="onFileSelect($files)">
 				<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
 				<div class="drag-file-content">
 					<img class="drag-file-img" ng-src="../../img/photo-icon.png" alt="Photo Icon">

@@ -1,6 +1,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 
+
 var svImageUpload:() => ng.IDirective = () => {
 
     return{
@@ -8,18 +9,18 @@ var svImageUpload:() => ng.IDirective = () => {
         templateUrl: 'views/directives/sv-image-upload.html',
         replace: true,
         scope: {
-            isMult: '=',
-            width: '=',
-            height: '=',
-            fileSize: '=',
-            mainRef: '=',
-            isDragShown: '=',
-            fireRef: '=',
-            btnTitle: '@',
             childPath: '@',
             closeModal: '&',
+            fileSize: '=',
+            fireRef: '=',
+            height: '=',
+            isMult: '=',
+            isDragShown: '=',
+            mainRef: '=',
+            btnTitle: '@',
             okModal: '&',
-            show64: '&'
+            show64: '&',
+            width: '='
         },
         controller($scope) {
             $scope.files = [];
@@ -44,6 +45,7 @@ var svImageUpload:() => ng.IDirective = () => {
                         reader.readAsDataURL(file);
                     }
                 })
+                $scope.isFileChosen = true;
             }
         },
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
