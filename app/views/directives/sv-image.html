@@ -13,8 +13,8 @@
 					<button class='btn btn-success crop-ava' ng-click="saveAvatar()">Set Avatar</button>
 				</div>
 			</div>
-			<div ng-show="!hasBeenCropped">
-				<img ng-src={{i.file64}} id="cropme" sv-image-wrapper>
+			<div class="img-responsive" ng-show="!hasBeenCropped">
+				<img class="" ng-src={{i.file64}} id="cropme" sv-image-wrapper>
 				<br/>
 
 				<div class="btn-crop-wrapper" ng-show="isCropNeeded && !hasBeenCropped">

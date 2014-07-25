@@ -49,6 +49,7 @@ var cover:() => ng.IDirective = () => {
                                 '<div class="col-xs-12 avatarModel">' +
                                 '<sv-image-upload ' +
                                 ' is-mult=false' +
+                                ' sm=true' +
                                 ' fire-ref="avatar"' +
                                 ' file-size="3000000"' +
                                 ' width=163' +
@@ -68,7 +69,7 @@ var cover:() => ng.IDirective = () => {
                                     $modalInstance.close(file64);
                                 }
                             },
-                            size: 'lg',
+                            size: 'md',
                             resolve: {
                                 avatar: function () {
                                     return $scope.avatar;
