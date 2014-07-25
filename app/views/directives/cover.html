@@ -19,18 +19,26 @@
 			</li>
 		</ul>
 	</div>
-	<div id="cover" style="position: relative">
+	<div id="cover">
+		<div class="uploadCoverBtn" ng-show="home.isOwner">
+			<button class="btn btn-primary"
+			        ng-show="showChangeCoverBtn">
+				<i class="fa fa-camera fa-fw"></i>
+				Edit Picture
+			</button>
+		</div>
 		<img id="cover-img" class="img-responsive" ng-src="../../imgdir/breeder1@gmail.com/myimg/maincover.jpg"/>
 	</div>
 
 	<div id="profile-picture" class="profileMainPic"
-	     ng-show="home.isOwner"
 	     ng-mouseover="chgBtnShown()"
 	     ng-mouseleave="chgBtnHidden()">
 
-		<div ng-show="showChangeBtn">
-			<button class="btn btn-primary btnEditMainPic" ng-click="changePicture()">
-				<i class="fa fa-camera fa-fw"></i>
+		<div ng-show="home.isOwner">
+			<button class="btn btn-primary btnEditMainPic"
+			        ng-show="showChangeBtn"
+			        ng-click="changePicture()">
+			<i class="fa fa-camera fa-fw"></i>
 				Change Picture
 			</button>
 		</div>

@@ -2,10 +2,6 @@
 /// <reference path="../../../dist/bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 /// <reference path="../../../dist/bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 
-interface ICover extends ng.IScope {
-    test:string;
-}
-
 var cover:() => ng.IDirective = () => {
 
     return{
@@ -18,12 +14,20 @@ var cover:() => ng.IDirective = () => {
 
             $scope.chgBtnShown = () => {
                 $scope.showChangeBtn = true;
-
             }
             $scope.chgBtnHidden = () => {
                 $scope.showChangeBtn = false;
-
             }
+
+            $scope.showChangeCoverBtn = false;
+
+            $scope.chgCoverBtnShown = () => {
+                $scope.showCgangeCoverBtn = true;
+            };
+
+            $scope.chgCoverBtnShown = () => {
+                $scope.showCgangeCoverBtn = false;
+            };
 
             $scope.show64 = () => {
                 console.log('test12');
@@ -88,7 +92,5 @@ var cover:() => ng.IDirective = () => {
             })
         },
 
-        link: (scope:ICover, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-        }
     }
 }

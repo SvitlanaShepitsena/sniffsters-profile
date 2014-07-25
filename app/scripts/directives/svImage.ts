@@ -62,10 +62,10 @@ var svImage = ($compile, $document) => {
                 imageObj.onload = function () {
                     // draw cropped image
                     var cf = scope.scaledCoefficient;
-                    var sourceX = scope.x;
-                    var sourceY = scope.y;
-                    var sourceWidth = scope.w;
-                    var sourceHeight = scope.h;
+                    var sourceX = scope.x / cf;
+                    var sourceY = scope.y / cf;
+                    var sourceWidth = scope.w / cf;
+                    var sourceHeight = scope.h / cf;
 
                     var destWidth = scope.width;
                     var destHeight = scope.height;
