@@ -26,7 +26,6 @@ var IndexCtrl = (function () {
         $scope.home.hideMenu = false;
         $scope.slide = '';
 
-        $scope.cover = {};
         this.spinner = true;
 
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
@@ -54,6 +53,7 @@ var IndexCtrl = (function () {
             });
         });
     }
+
     IndexCtrl.prototype.SaveKennelName = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 

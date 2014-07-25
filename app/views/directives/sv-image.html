@@ -5,12 +5,13 @@
 			<input class="form-control" name="caption" id="caption" type="text" ng-model="i.caption">
 		</div>
 		<div>
-			<div ng-show="hasBeenCropped">
+			<div ng-show="hasBeenCropped" class="img-responsive">
 				<div>
-					<canvas id="myCanvas" width="{{width}}" height="{{height}}"></canvas>
+					<img class="img-responsive" ng-src="{{i.file64}}">
 				</div>
+				<canvas id="myCanvas" width="{{width}}" height="{{height}}" class="hidden"></canvas>
 				<div class="">
-					<button class='btn btn-success crop-ava' ng-click="saveAvatar()">Set Avatar</button>
+					<button class='btn btn-success crop-ava' ng-click="saveChanges()">Set Picture</button>
 				</div>
 			</div>
 			<div class="img-responsive" ng-show="!hasBeenCropped">

@@ -19,18 +19,28 @@
 			</li>
 		</ul>
 	</div>
-	<div id="cover">
-		<div class="uploadCoverBtn" ng-show="home.isOwner">
-			<button class="btn btn-primary"
-			        ng-show="showChangeCoverBtn">
+	<div id="cover"
+	     class="coverWrapper"
+	     ng-mouseover="chgCoverBtnShown()"
+	     ng-mouseleave="chgCoverBtnHidden()">
+		<div ng-show="home.isOwner">
+			<button class="btn btn-primary uploadCoverBtn"
+			        ng-show="showChangeCoverBtn"
+			        ng-click="changeCoverPic()">
 				<i class="fa fa-camera fa-fw"></i>
-				Edit Picture
+				Change Picture
 			</button>
 		</div>
-		<img id="cover-img" class="img-responsive" ng-src="../../imgdir/breeder1@gmail.com/myimg/maincover.jpg"/>
+		<img class="img-responsive"
+		     ng-show="isCoverChanged==true"
+		     ng-src="{{coversrc}}"/>
+		<img class="img-responsive"
+		     ng-show="isCoverChanged==false"
+		     ng-src="../../imgdir/breeder1@gmail.com/myimg/maincover.jpg"/>
 	</div>
 
-	<div id="profile-picture" class="profileMainPic"
+	<div id="profile-picture"
+	     class="profileMainPic"
 	     ng-mouseover="chgBtnShown()"
 	     ng-mouseleave="chgBtnHidden()">
 
@@ -38,7 +48,7 @@
 			<button class="btn btn-primary btnEditMainPic"
 			        ng-show="showChangeBtn"
 			        ng-click="changePicture()">
-			<i class="fa fa-camera fa-fw"></i>
+				<i class="fa fa-camera fa-fw"></i>
 				Change Picture
 			</button>
 		</div>

@@ -20,13 +20,27 @@ var svImage = ($compile, $document) => {
             okModal: '&'
         },
         controller($scope) {
-
-            $scope.saveAvatar = () => {
+            $scope.saveChanges = () => {
                 $scope.fireRef.$remove();
-                $scope.fireRef.$add($scope.i.file64).then(() => {
-                $scope.closeModal();
 
+                $scope.fireRef.$add($scope.i.file64).then(() => {
+                    $scope.closeModal();
                 });
+//                var arrKeys = _.keys($scope.fireRef);
+
+//                if (arrKeys.length == 0) {
+//
+//                    $scope.fireRef.$add($scope.i.file64).then(() => {
+//                        $scope.closeModal();
+//                    });
+//                } else {
+//                    $scope.fireRef.$update($scope.fireRef.$id, $scope.i.file64).then(() => {
+//                        $scope.closeModal();
+//
+////               var key = _.keys($scope.fireRef)[0];
+//
+//                    });
+//                }
             }
 
             var realImageWidth:number, realImageHeight:number, scaledImageWidth:number, scaledImageHeight:number;
@@ -34,7 +48,6 @@ var svImage = ($compile, $document) => {
             $scope.setInitialImageProp = (width:number, height:number) => {
                 $scope.realImageWidth = width;
                 $scope.realImageHeight = height;
-
                 $scope.isCropNeeded = ( $scope.realImageWidth > $scope.width || $scope.realImageHeight > $scope.height ) ? true : false;
 
             }
@@ -76,7 +89,7 @@ var svImage = ($compile, $document) => {
                     context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
 
                     scope.$apply(()=> {
-                        scope.i.file64 = canvas.toDataURL('image/jpg');
+                        scope.i.file64 = canvas.toDataURL('image/jpeg', 0.6);
                         scope.hasBeenCropped = true;
                         scope.i.isSized = true;
                     })

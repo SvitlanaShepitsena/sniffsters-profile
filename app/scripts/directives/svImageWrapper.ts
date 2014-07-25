@@ -12,13 +12,8 @@ var svImageWrapper:() => ng.IDirective = () => {
                     scope.setScaledImageProp(element.width());
 //                    console.log(element.width());
                 })
-
-
 //               element.css({width:scope.width})
-
             })
-
-
         }
     }
 }
