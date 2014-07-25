@@ -10,6 +10,7 @@ var svImageUpload:() => ng.IDirective = () => {
         templateUrl: 'views/directives/sv-image-upload.html',
         replace: true,
         scope: {
+            files: '=',
             childPath: '@',
             closeModal: '&',
             fileSize: '=',
@@ -24,7 +25,7 @@ var svImageUpload:() => ng.IDirective = () => {
             width: '='
         },
         controller($scope) {
-            $scope.files = [];
+//            $scope.files = [];
             $scope.show64();
 
             $scope.onFileSelect = ($files, index?:number) => {

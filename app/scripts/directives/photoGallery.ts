@@ -12,29 +12,21 @@ var photoGallery:(data) => ng.IDirective = () => {
         templateUrl: 'views/directives/photo-gallery.html',
         // replace directive tag with template info
         replace: true,
-        controller: ($scope, $modal, DataService:DataService, $stateParams, $state, toastr) => {
-            $scope.tempPhoto = [];
-            var index = 0;
+        controller: ($scope, $firebase, $modal, DataService:DataService, $stateParams, $state, toastr) => {
+            var galleryId = $stateParams.id;
 
-            if ($scope.photosCtrl.SelectedGallery == undefined) {
-                var id = $stateParams.id;
-                DataService.getGalleries($scope.index.BreederName).then((galleries:IGallery[])=> {
-                    $scope.photosCtrl.Galleries = galleries;
-                $scope.photosCtrl.SelectedGallery = $scope.photosCtrl.Galleries[id];
-//                    console.log($scope.photosCtrl.SelectedGallery.Photos.length)
+
+            $scope.home.auth.$getCurrentUser().then((user) => {
+
+                $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
+                    var galleryUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries/' + galleryId;
+                    $scope.gallery = $firebase(new Firebase(galleryUrl));
+
                 })
-            }
+            })
 
+//            $scope.gallery = $scope.galleries[galleryId];
 
-            $scope.shareGallery = () => {
-                DataService.shareGallery($scope.photosCtrl.SelectedGallery.Id).then(() => {
-                    //Success
-                    $scope.photosCtrl.SelectedGallery.IsShared = true;
-                    toastr.success('This gallery is shared.');
-                }, () => {
-                    //error
-                })
-            }
 
 
             $scope.delGallery = () => {
@@ -55,15 +47,6 @@ var photoGallery:(data) => ng.IDirective = () => {
                 });
                 modalInstance.result.then((confirmation:boolean) => {
                     if (confirmation) {
-                        DataService.deleteGallery($scope.photosCtrl.SelectedGallery.Id)
-                            .then(() => {
-//                        Success
-//                        1. Delete Gallery from Array
-                                var id = $stateParams.id;
-                                $scope.photosCtrl.Galleries.splice(id, 1);
-//                        2. Navigate to List of Galleries
-                                $state.go('profile.photos2', {});
-                            })
 
 
                     }

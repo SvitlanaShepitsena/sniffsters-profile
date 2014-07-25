@@ -55,9 +55,6 @@ var PhotosCtrl = (function () {
             });
 
             photos.$save();
-            //$files: an array of files selected, each file has name, size, and type.
-            //                 var file = $files[0];
-            //            $scope.up($files, 0);
         };
 
         $scope.up = function ($files, index) {
@@ -102,9 +99,19 @@ var PhotosCtrl = (function () {
     }
 
     PhotosCtrl.prototype.saveNewGalleries = function () {
-        var unshared = this.$filter('orderByPriority')(this.$scope.galleries);
-        unshared.forEach(function (gallery) {
-            gallery.isTemp = false;
+        var _this = this;
+        this.$scope.newGalleries.forEach(function (gallery, index) {
+            var galleryShort = _.omit(gallery, 'Photos');
+
+            _this.$scope.galleries.$add(galleryShort).then(function (key) {
+                gallery.Photos.forEach(function (photo) {
+                    _this.$scope.galleries.$child(key.name()).$child('Photos').$add(_.omit(photo, 'isSized'));
+                });
+                _this.$scope.newGalleries.splice(index, 1);
+            });
+            //            gallery.Photos.forEach((photo)=> {
+            //                console.log(photo);
+            //            })
         });
     };
 

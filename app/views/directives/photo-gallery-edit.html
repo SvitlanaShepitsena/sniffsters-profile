@@ -14,8 +14,8 @@
 							       placeholder="Gallery Title"
 							       name="galTitleEdit"
 							       class="form-control"
-							       ng-model="photosCtrl.SelectedGalleryEdit.Title"
-							       ng-class="{inputEmpty:!photosCtrl.SelectedGalleryEdit.Title}"
+							       ng-model="gallery.Title"
+							       ng-class="{inputEmpty:!gallery.Title}"
 							       ng-maxLength="250"
 							       required>
 						</div>
@@ -24,8 +24,8 @@
 							<button class="btn pull-right btn-save"
 							        data-toggle="tooltip" data-placement="left" title="Save Gallery Title"
 							        ng-disabled="form.galTitleEdit.$invalid || form.$pristine"
-							        ng-click="updateTitle(photosCtrl.SelectedGalleryEdit.Title); form.$setPristine();">
-								<i class="fa fa-save"></i>
+							        ng-click="updateTitle(gallery.Title); form.$setPristine();">
+							<i class="fa fa-save"></i>
 							</button>
 						</div>
 					</div>
@@ -36,15 +36,15 @@
 	<div class="row">
 		<ul class="list-unstyled ">
 			<li class="col-xs-12 shuffle-animation"
-			    ng-repeat="p in photosCtrl.SelectedGalleryEdit.Photos | orderByPriority">
+			    ng-repeat="(key,p) in gallery.Photos">
 				<button class="btn pull-right btn-del-pic"
 				        data-toggle="tooltip" data-placement="left" title="Delete this picture"
-				        ng-click="delete(p,$index, index.IdFire)">
-					<i class="fa fa-trash-o"></i>
+				        ng-click="deletePhoto(key)">
+				<i class="fa fa-trash-o"></i>
 				</button>
 				<div class="thumbnail">
 					<img class="puppyPic"
-					     ng-src="{{('imgdir/'+index.Id+'/'+photosCtrl.SelectedGalleryEdit.Id+'/'+p.FilePath) | spacesToDashes}}">
+					     ng-src="{{p.file64}}">
 
 					<form role="form" id="picCapForm" name="picCapForm">
 						<div class="form-group">
@@ -56,7 +56,7 @@
 									<input type="text"
 									       class="form-control"
 									       name="picCaptionEdit"
-									       ng-model="p.Caption"
+									       ng-model="p.caption"
 									       ng-class="{inputEmpty:picCapForm.picCaptionEdit.$invalid}"
 									       ng-maxlength="250"/>
 								</div>
@@ -78,34 +78,12 @@
 		</ul>
 	</div>
 
-	<div class="panel panel-default panel-file-upload">
-		<div class="row">
-			<div class="col-xs-12">
-				<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
-
-				<div class="text-center dropFilesHere"
-				     ng-file-drop="onFileSelect($files)"
-				     ng-file-drag-over-class="optional-css-class"
-				     ng-show="dropSupported">
-					<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="Photo Icon">
-					<h5 class="drag-photos"> drag photos here </h5>
-				</div>
-			</div>
-		</div>
-		<br/>
-
-		<div class="row">
-			<div class="col-xs-12 text-center">
-				<div ng-file-drop-available="dropSupported=true"
-				     ng-show="!dropSupported">HTML5 Drop File is not supported!
-				</div>
-				<label class="fileContainer">
-					<button class="btn btn-primary">Choose Files</button>
-					<input class="chooseFilesButton" type="file" ng-file-select="onFileSelect($files)" multiple>
-				</label>
-			</div>
-		</div>
-	</div>
+	<sv-image-upload
+			files="files"
+			is-mult="true"
+			file-size="3000000"
+			btn-title="Add More Pictures"
+			></sv-image-upload>
 	<a ui-sref="^" class="btn btn-default">Cancel</a>
 </div>
 

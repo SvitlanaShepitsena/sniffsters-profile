@@ -66,9 +66,6 @@ class PhotosCtrl {
 
             photos.$save();
 
-            //$files: an array of files selected, each file has name, size, and type.
-//                 var file = $files[0];
-//            $scope.up($files, 0);
         }
 
 
@@ -114,12 +111,21 @@ class PhotosCtrl {
     }
 
     saveNewGalleries() {
-        var unshared = this.$filter('orderByPriority')(this.$scope.galleries);
-        unshared.forEach((gallery:IGallery)=> {
-            gallery.isTemp = false;
+        this.$scope.newGalleries.forEach((gallery, index)=> {
+            var galleryShort = _.omit(gallery, 'Photos');
+
+
+            this.$scope.galleries.$add(galleryShort).then((key) => {
+                gallery.Photos.forEach((photo)=> {
+                    this.$scope.galleries.$child(key.name()).$child('Photos').$add(_.omit(photo, 'isSized'));
+                })
+                this.$scope.newGalleries.splice(index, 1);
+            });
+//            gallery.Photos.forEach((photo)=> {
+//                console.log(photo);
+//            })
         })
     }
-
 
     updateGallery(galleries:IGallery[], index:number) {
         if (galleries.length == 0) {

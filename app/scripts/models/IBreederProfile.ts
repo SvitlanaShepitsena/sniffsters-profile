@@ -91,12 +91,16 @@ class Photo implements IPhoto {
 interface IGallery {
     Title:string;
     isTemp:boolean;
-    Photos:IPhoto[]
+    Photos:any[]
 }
 class Gallery implements IGallery {
     Title:string;
     isTemp:boolean;
-    Photos:IPhoto[];
+    Photos:any[];
+
+    constructor() {
+        this.Photos = [];
+    }
 
 }
 class BreederProfile implements IBreederProfile {

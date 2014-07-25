@@ -13,24 +13,28 @@
 	</ul>
 
 	<div class="well" ng-hide="isFileChosen">
-	<div class="panel panel-default drag-file text-center" ng-file-drop="onFileSelect($files)">
-				<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
-				<div class="drag-file-content">
-					<img class="drag-file-img" ng-src="../../img/photo-icon.png" alt="Photo Icon">
-					<h5 class="drag-photos"> drag photos here </h5>
-				</div>
-			</div>
-			<div class="text-center">
-				<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer ">
-					<button class="btn btn-primary btn-choose">
-						<!--ng-disabled="newLitterForm.$invalid"-->
-						<i class="fa fa-camera"></i>
-						{{btnTitle}}
-					</button>
-					<input class="panel panel-default" type="file" ng-file-select="onFileSelect($files)"
-					       acceptaccept="image/*"
-					       multiple>
-				</label>
+		<div class="panel panel-default drag-file text-center" ng-file-drop="onFileSelect($files)">
+			<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
+
+			<div class="drag-file-content">
+				<img class="drag-file-img" ng-src="../../img/photo-icon.png" alt="Photo Icon">
+				<h5 class="drag-photos"> drag photos here </h5>
 			</div>
 		</div>
+		<div class="text-center">
+			<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer ">
+				<button class="btn btn-primary btn-choose">
+					<!--ng-disabled="newLitterForm.$invalid"-->
+					<i class="fa fa-camera"></i>
+					{{btnTitle}}
+				</button>
+
+				<input ng-show="isMult" class="panel panel-default" type="file" ng-file-select="onFileSelect($files)"
+				       acceptaccept="image/*" multiple>
+
+				<input ng-hide='isMult' class="panel panel-default" type="file" ng-file-select="onFileSelect($files)"
+				       acceptaccept="image/*">
+			</label>
+		</div>
+	</div>
 </div>
