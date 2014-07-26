@@ -1,5 +1,4 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-
 var photoGalleryEdit = function () {
     return {
         restrict: 'E',
@@ -11,13 +10,12 @@ var photoGalleryEdit = function () {
 
             $scope.deletePhoto = function (id) {
                 var modalInstance = $modal.open({
-                    template: "<div><div class=\"modal-body\"> Delete this photo?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
+                    template: "<div><div class=\"modal-body\"> Delete this photo?</div>" + "<div class=\"modal-footer\">" + "<button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button>" + "<button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button>" + "</div></div>",
                     size: 'sm',
                     controller: function ($scope, $modalInstance) {
                         $scope.ok = function () {
                             $modalInstance.close(true);
                         };
-
                         $scope.cancel = function () {
                             $modalInstance.close(false);
                         };

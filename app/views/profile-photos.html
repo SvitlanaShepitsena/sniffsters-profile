@@ -1,13 +1,14 @@
 <div>
-	<h3 class="sniff-head-info">Photo Galleries</h3>
+	<div ng-show="home.isOwner" ui-view>
+		<h3 class="sniff-head-info">Photo Galleries</h3>
 
-	<div ng-show="home.isOwner">
 		<div class="row">
 			<div class="col-xs-6">
 			</div>
 
 			<div class="col-xs-2">
-				<button class="btn btn-link" ng-click="photosCtrl.saveNewGalleries()">Save All
+				<button class="btn btn-link"
+				        ng-click="photosCtrl.saveNewGalleries()">Save All
 				</button>
 			</div>
 			<div class="col-xs-3">
@@ -16,40 +17,38 @@
 		</div>
 		<br/>
 		<hr/>
-		<div class="current-galleeries" id="gall-scroll" ui-view>
-			<h3>Current Galleries</h3>
-			<ul class="list-unstyled">
-				<li ng-if="g.isTemp" ng-repeat="(id,g) in galleries">
-					<a ui-sref="user.profile.photos2.galleries({id:id})"><h4>{{g.Title}}</h4>
-						<img ng-src="{{(g.Photos| orderByPriority)[0].file64}}" class="img-responsive">
-
-					</a>
-				</li>
-			</ul>
-			<hr/>
-			<h3>Temporary Galleries</h3>
-
-			<ul class="list-unstyled">
-				<li ng-repeat="g in newGalleries">
-					<input type="text" ng-model="g.Title" placeholder="gallery title"/>
-					<sv-image-upload
-							files="g.Photos"
-							is-mult="true"
-							file-size="3000000"
-							btn-title="Upload Pictures"
-							></sv-image-upload>
-				</li>
-			</ul>
+		<div class="" id="gallery-scroll">
+			<div class="current-galleeries">
+				<h3 ng-show="addGallTemplate">New Galleries</h3>
+				<ul class="list-unstyled">
+					<li ng-repeat="g in newGalleries">
+						<input type="text" ng-model="g.Title" placeholder="gallery title"/>
+						<sv-image-upload
+								files="g.Photos"
+								is-mult="true"
+								file-size="3000000"
+								btn-title="Upload Pictures">
+						</sv-image-upload>
+					</li>
+				</ul>
+				<h3>Current Galleries</h3>
+				<ul class="list-unstyled row">
+					<li class="col-xs-4" ng-if="g.isTemp" ng-repeat="(id,g) in galleries">
+						<a class="thumbnail text-center" ui-sref="user.profile.photos2.galleries({id:id})">
+							<h4>{{g.Title}}</h4>
+							<img ng-src="{{(g.Photos| orderByPriority)[0].file64}}" class="img-responsive">
+						</a>
+					</li>
+				</ul>
+				<hr/>
+			</div>
 		</div>
 	</div>
-
 </div>
 
 <script>
-
-	$('#gall-scroll').slimScroll({
+	$('#gallery-scroll').slimScroll({
 		railVisible: true,
 		height: '1200px'
 	})
-
 </script>
