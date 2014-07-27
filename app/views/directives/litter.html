@@ -56,8 +56,8 @@
 
 		<div class="row">
 			<ul class="list-unstyled ">
-				<li class="col-xs-12 shuffle-animation" ng-repeat="(id,p) in l.photos">
-					<button class="btn pull-right btn-del-pic"
+				<li class="col-xs-12 shuffle-animation" ng-repeat="(id,p) in l.Photos">
+				<button class="btn pull-right btn-del-pic"
 					        data-toggle="tooltip" data-placement="left" title="Delete this photo."
 					        ng-click="deleteLitterPhoto(id)">
 						<i class="fa fa-trash-o"></i>
@@ -74,40 +74,18 @@
 				</li>
 			</ul>
 		</div>
-		<div class="panel panel-default panel-file-upload">
-			<div class="row">
-				<div class="col-xs-12">
-					<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
 
-					<div class="text-center dropFilesHere"
-					     ng-file-drop="onFileSelect($files)"
-					     ng-file-drag-over-class="optional-css-class"
-					     ng-show="dropSupported">
-						<img class="dragPhotosImg" src="../../img/photo-icon.png" alt="Photo Icon">
-
-						<h5 class="drag-photos"> drag photos here </h5>
-					</div>
-				</div>
-			</div>
-			<br/>
-
-			<div class="row">
-				<div class="col-xs-12 text-center">
-					<div ng-file-drop-available="dropSupported=true"
-					     ng-show="!dropSupported">HTML5 Drop File is not supported!
-					</div>
-					<label class="fileContainer">
-						<button class="btn btn-primary">Choose Files</button>
-						<input class="chooseFilesButton" type="file"
-						       ng-file-select="onFileSelect($files)" multiple>
-					</label>
-				</div>
-			</div>
-		</div>
+		<sv-image-upload
+				files="g.Photos"
+				is-mult="true"
+				file-size="3000000"
+				btn-title="Upload Pictures">
+		</sv-image-upload>
 		<a ui-sref="^" class="btn btn-default">Cancel</a>
 		<button class="btn btn-info"
-		        ng-disabled="litter.$pristine"
-		        ng-click="saveLitter(); litter.$setPristine(); ">Save
+		        ng-disabled="(litter.$pristine)
+					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
+		        ng-click="save();litter.$setPristine();">Save
 		</button>
 	</form>
 </div>
