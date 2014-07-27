@@ -97,9 +97,14 @@ var PhotosCtrl = (function () {
             });
         };
     }
+
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var _this = this;
         this.$scope.newGalleries.forEach(function (gallery, index) {
+            if (gallery.Title === "") {
+                gallery.Title = "New Gallery";
+            }
+
             var galleryShort = _.omit(gallery, 'Photos');
 
             _this.$scope.galleries.$add(galleryShort).then(function (key) {
@@ -112,6 +117,9 @@ var PhotosCtrl = (function () {
             //                console.log(photo);
             //            })
         });
+    };
+    PhotosCtrl.prototype.cancelGalleries = function () {
+        this.$scope.newGalleries = [];
     };
 
     PhotosCtrl.prototype.updateGallery = function (galleries, index) {
@@ -134,7 +142,7 @@ var PhotosCtrl = (function () {
 
     PhotosCtrl.prototype.addGallery = function () {
         var gallery = new Gallery();
-        gallery.Title = "";
+        gallery.Title = "New Gallery";
         gallery.isTemp = true;
         this.$scope.newGalleries.unshift(gallery);
     };

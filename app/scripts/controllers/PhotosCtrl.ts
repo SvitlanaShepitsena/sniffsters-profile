@@ -112,6 +112,10 @@ class PhotosCtrl {
 
     saveNewGalleries() {
         this.$scope.newGalleries.forEach((gallery, index)=> {
+            if (gallery.Title === "") {
+                gallery.Title = "New Gallery";
+            }
+
             var galleryShort = _.omit(gallery, 'Photos');
 
 
@@ -125,6 +129,10 @@ class PhotosCtrl {
 //                console.log(photo);
 //            })
         })
+    }
+
+    cancelGalleries() {
+        this.$scope.newGalleries = [];
     }
 
     updateGallery(galleries:IGallery[], index:number) {
@@ -148,7 +156,7 @@ class PhotosCtrl {
     addGallery() {
 
         var gallery = new Gallery();
-        gallery.Title = "";
+        gallery.Title = "New Gallery";
         gallery.isTemp = true;
         this.$scope.newGalleries.unshift(gallery);
 

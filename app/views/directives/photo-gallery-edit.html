@@ -1,96 +1,103 @@
-<div class="well">
-	<form class="form" name="form" id="form" novalidate>
-		<div class="row">
-			<div class="col-xs-12">
+<div>
+	<ol class="breadcrumb">
+		<li><a ui-sref="user.profile.photos2">Photo Galleries</a></li>
+		<li><a ui-sref="^">{{gallery.Title}}</a></li>
+		<li class="active">Edit</li>
+	</ol>
+	<div class="well">
+		<form class="form" name="form" id="form" novalidate>
+			<div class="row">
+				<div class="col-xs-12">
 
-				<div class="form-group">
-					<label class="sniff-subhead">Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
+					<div class="form-group">
+						<label class="sniff-subhead">Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
 					<span ng-show="form.galTitleEdit.$error.maxlength"
 					      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
 
-					<div class="row">
-						<div class="col-xs-11">
-							<input type="text"
-							       placeholder="Gallery Title"
-							       name="galTitleEdit"
-							       class="form-control"
-							       ng-model="gallery.Title"
-							       ng-class="{inputEmpty:!gallery.Title}"
-							       ng-maxLength="250"
-							       required>
-						</div>
+						<div class="row">
+							<div class="col-xs-11">
+								<input type="text"
+								       placeholder="Gallery Title"
+								       name="galTitleEdit"
+								       class="form-control"
+								       ng-model="gallery.Title"
+								       ng-class="{inputEmpty:!gallery.Title}"
+								       ng-maxLength="250"
+								       required>
+							</div>
 
-						<div class="col-xs-1">
-							<button class="btn pull-right btn-save"
-							        data-toggle="tooltip" data-placement="left" title="Save Gallery Title"
-							        ng-disabled="form.galTitleEdit.$invalid || form.$pristine"
-							        ng-click="updateTitle(gallery.Title); form.$setPristine();">
-								<i class="fa fa-save"></i>
-							</button>
+							<div class="col-xs-1">
+								<button class="btn pull-right btn-save"
+								        data-toggle="tooltip" data-placement="left" title="Save Gallery Title"
+								        ng-disabled="form.galTitleEdit.$invalid || form.$pristine"
+								        ng-click="updateTitle(gallery.Title); form.$setPristine();">
+									<i class="fa fa-save"></i>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</form>
-	<div class="row">
-		<ul class="list-unstyled ">
-			<li class="col-xs-12 shuffle-animation"
-			    ng-repeat="(key,p) in gallery.Photos">
-				<button class="btn pull-right btn-del-pic"
-				        data-toggle="tooltip" data-placement="left" title="Delete this picture"
-				        ng-click="deletePhoto(key)">
-					<i class="fa fa-trash-o"></i>
-				</button>
-				<div class="thumbnail">
-					<img class="puppyPic"
-					     ng-src="{{p.file64}}">
+		</form>
+		<div class="row">
+			<ul class="list-unstyled ">
+				<li class="col-xs-12 shuffle-animation"
+				    ng-repeat="(key,p) in gallery.Photos">
+					<button class="btn pull-right btn-del-pic"
+					        data-toggle="tooltip" data-placement="left" title="Delete this picture"
+					        ng-click="deletePhoto(key)">
+						<i class="fa fa-trash-o"></i>
+					</button>
+					<div class="thumbnail">
+						<img class="puppyPic"
+						     ng-src="{{p.file64}}">
 
-					<form role="form" id="form" name="form">
-						<div class="form-group">
+						<form role="form" id="form" name="form">
+							<div class="form-group">
 						<span ng-show="picCapForm.picCaptionEdit.$error.maxlength"
 						      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
 
-							<div class="row">
-								<div class="col-xs-11">
-									<input type="text"
-									       class="form-control"
-									       name="picCaptionEdit"
-									       ng-model="p.caption"
-									       ng-class="{inputEmpty:picCapForm.picCaptionEdit.$invalid}"
-									       ng-maxlength="250"/>
-								</div>
+								<div class="row">
+									<div class="col-xs-11">
+										<input type="text"
+										       class="form-control"
+										       name="picCaptionEdit"
+										       ng-model="p.caption"
+										       ng-class="{inputEmpty:picCapForm.picCaptionEdit.$invalid}"
+										       ng-maxlength="250"/>
+									</div>
 
-								<div class="col-xs-1">
-									<button class="btn pull-right btn-save"
-									        data-toggle="tooltip" data-placement="left"
-									        title="Save Caption"
-									        ng-disabled="picCapForm.picCaptionEdit.$invalid || picCapForm.picCaptionEdit.$pristine || saved"
-									        ng-click="update(p); picCapForm.$setPristine();">
-										<i class="fa fa-save"></i>
-									</button>
+									<div class="col-xs-1">
+										<button class="btn pull-right btn-save"
+										        data-toggle="tooltip" data-placement="left"
+										        title="Save Caption"
+										        ng-disabled="picCapForm.picCaptionEdit.$invalid || picCapForm.picCaptionEdit.$pristine || saved"
+										        ng-click="update(p); picCapForm.$setPristine();">
+											<i class="fa fa-save"></i>
+										</button>
+									</div>
 								</div>
 							</div>
-						</div>
-					</form>
-				</div>
-			</li>
-		</ul>
+						</form>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<sv-image-upload
+				files="files"
+				is-mult="true"
+				file-size="3000000"
+				btn-title="Add More Pictures"
+				></sv-image-upload>
+		<a ui-sref="^" class="btn btn-default">Cancel</a>
+
+		<button class="btn btn-primary"
+		        ng-disabled="form.$pristine"
+		        ng-click="ctrl.Save(ctrl.BreederProfileEdit); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
+			Save
+		</button>
 	</div>
-
-	<sv-image-upload
-			files="files"
-			is-mult="true"
-			file-size="3000000"
-			btn-title="Add More Pictures"
-			></sv-image-upload>
-	<a ui-sref="^" class="btn btn-default">Cancel</a>
-
-	<button class="btn btn-primary"
-	        ng-disabled="form.$pristine"
-	        ng-click="ctrl.Save(ctrl.BreederProfileEdit); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
-		Save
-	</button>
 </div>
 
 

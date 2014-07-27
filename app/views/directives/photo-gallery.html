@@ -1,44 +1,50 @@
-<div class="well">
-	<div class="row sniff-row">
-	<div class="col-xs-9">
-			<h3 class="content text-center">
-				{{gallery.Title | uppercase}}
-			</h3>
+<div>
+	<ol class="breadcrumb">
+		<li><a ui-sref="^">Photo Galleries</a></li>
+		<li class="active">{{gallery.Title}}</li>
+	</ol>
+	<div class="well">
+		<div class="row sniff-row">
+			<div class="col-xs-9">
+				<h3 class="content text-center">
+					{{gallery.Title | uppercase}}
+				</h3>
+			</div>
+			<div class="col-xs-1" ng-show="gallery.isTemp">
+				<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"
+				        ng-click="shareGallery()">
+					<i class="fa fa-share"></i>
+				</button>
+			</div>
+			<div class="col-xs-1">
+				<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
+				        ui-sref=".edit">
+					<i class="fa fa-pencil"></i>
+				</button>
+			</div>
+			<div class="col-xs-1">
+				<button class="btn btn-del" data-toggle="tooltip" data-placement="left" title="Delete this gallery"
+				        ng-click="delGallery()">
+					<i class="fa fa-trash-o"></i>
+				</button>
+			</div>
 		</div>
-		<div class="col-xs-1" ng-show="gallery.isTemp">
-		<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"
-			        ng-click="shareGallery()">
-				<i class="fa fa-share"></i>
-			</button>
-		</div>
-		<div class="col-xs-1">
-			<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
-			        ui-sref=".edit">
-				<i class="fa fa-pencil"></i>
-			</button>
-		</div>
-		<div class="col-xs-1">
-			<button class="btn btn-del" data-toggle="tooltip" data-placement="left" title="Delete this gallery"
-			        ng-click="delGallery()">
-				<i class="fa fa-trash-o"></i>
-			</button>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<ul class="list-unstyled list-inline">
-				<li class="col-xs-12 shuffle-animation"
-				    ng-repeat="p in gallery.Photos">
-					<div class="thumbnail">
+		<div class="row">
+			<div class="col-xs-12">
+				<ul class="list-unstyled list-inline">
+					<li class="col-xs-12 shuffle-animation"
+					    ng-repeat="p in gallery.Photos">
+						<div class="thumbnail">
 
-						<img ng-src="{{p.file64}}">
+							<img ng-src="{{p.file64}}">
 
-						<div class="caption">
-							<h4>{{p.caption}}</h4>
+							<div class="caption">
+								<h4>{{p.caption}}</h4>
+							</div>
 						</div>
-					</div>
-				</li>
-			</ul>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

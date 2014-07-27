@@ -10,8 +10,6 @@ var svSlider:() => ng.IDirective = () => {
         },
         link: (scope, element, attrs:ng.IAttributes) => {
             element.slimScroll({height: scope.h + 'px'});
-
-
         }
     }
 }
