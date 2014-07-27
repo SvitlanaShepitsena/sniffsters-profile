@@ -2,6 +2,10 @@
 	<div class="text-right" ng-show="home.isOwner">
 		<button class="btn btn-link"
 		        ng-show="puppies.LittersNew.length"
+		        ng-click="puppies.cancelLitters()">Cancel
+		</button>
+		<button class="btn btn-link"
+		        ng-show="puppies.LittersNew.length"
 		        ng-disabled="isOk"
 		        ng-click="puppies.saveNewLitters()">Save
 		</button>
@@ -13,7 +17,7 @@
 	<div ng-show="puppies.LittersNew.length>0">
 		<ul class="list-unstyled">
 			<li ng-repeat="l in puppies.LittersNew" class="bouncy-slide-down">
-				<litter-new l="l" user-name="{{index.Id}}"></litter-new>
+				<litter-new l="l"></litter-new>
 			</li>
 		</ul>
 	</div>

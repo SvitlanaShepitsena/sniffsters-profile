@@ -71,6 +71,7 @@ var BreederProfile = (function () {
 
 var Litter = (function () {
     function Litter() {
+        this.Photos = [];
     }
     return Litter;
 })();

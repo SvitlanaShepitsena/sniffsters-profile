@@ -23,7 +23,6 @@ var photoGalleryEdit:() => ng.IDirective = () => {
                 })
             }
             $scope.saveTitle = () => {
-
                 $scope.gallery.$save('Title').then(() => {
 //                    $state.go('^');
                 })

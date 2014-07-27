@@ -175,4 +175,9 @@ class Litter implements ILitter {
     Colors:string;
     Photos:any[];
     isTemp:boolean;
+
+    constructor() {
+        this.Photos = [];
+    }
 }
+

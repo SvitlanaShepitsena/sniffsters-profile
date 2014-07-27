@@ -30,25 +30,25 @@
 								        data-toggle="tooltip" data-placement="left" title="Save Gallery Title"
 								        ng-disabled="form.galTitleEdit.$invalid || form.$pristine"
 								        ng-click="saveTitle(); form.$setPristine();">
-								<i class="fa fa-save"></i>
+									<i class="fa fa-save"></i>
 								</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		<div class="row">
-			<ul class="list-unstyled ">
-				<li class="col-xs-12 shuffle-animation"
-				    ng-repeat="(key,p) in gallery.Photos">
-					<button class="btn pull-right btn-del-pic"
-					        data-toggle="tooltip" data-placement="left" title="Delete this picture"
-					        ng-click="deletePhoto(key)">
-						<i class="fa fa-trash-o"></i>
-					</button>
-					<div class="thumbnail">
-						<img class="puppyPic"
-						     ng-src="{{p.file64}}">
+			<div class="row">
+				<ul class="list-unstyled ">
+					<li class="col-xs-12 shuffle-animation"
+					    ng-repeat="(key,p) in gallery.Photos">
+						<button class="btn pull-right btn-del-pic"
+						        data-toggle="tooltip" data-placement="left" title="Delete this picture"
+						        ng-click="deletePhoto(key)">
+							<i class="fa fa-trash-o"></i>
+						</button>
+						<div class="thumbnail">
+							<img class="puppyPic"
+							     ng-src="{{p.file64}}">
 
 							<div class="form-group">
 						<span ng-show="picCapForm.picCaptionEdit.$error.maxlength"
@@ -75,11 +75,11 @@
 									</div>
 								</div>
 							</div>
-						</form>
-					</div>
-				</li>
-			</ul>
-		</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</form>
 
 		<sv-image-upload
 				files="files"
@@ -92,7 +92,7 @@
 		<button class="btn btn-primary"
 		        ng-disabled="files.length==0 && form.$pristine"
 		        ng-click="saveGallery(); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
-		Save
+			Save
 		</button>
 	</div>
 </div>

@@ -26,14 +26,6 @@ class IndexCtrl {
     constructor(public $scope, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index = this;
 
-
-        this.$scope.home.auth.$getCurrentUser().then((user) => {
-
-            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
-            })
-        })
-
-
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
         $scope.home.hideMenu = false;
@@ -41,32 +33,35 @@ class IndexCtrl {
 
         this.spinner = true;
 
+        this.$scope.home.auth.$getCurrentUser().then((user) => {
+            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
 
-        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
-        new FirebaseSimpleLogin(fref, () => {
-            var requestEmail = $stateParams.uname;
+                var requestEmail = $stateParams.uname;
 
-            if (requestEmail == "public") {
-                requestEmail = $scope.home.Uname;
-            }
-            var promiseT = this.DataService.getProfile(requestEmail);
-            promiseT.then((breederProfile:IBreederProfile) => {
-                //Success
-                $scope.home.Ownership();
-                this.error = false;
-                this.BreederProfile = breederProfile;
+                if (requestEmail == "public") {
+                    requestEmail = $scope.home.Uname;
+                }
+                var promiseT = this.DataService.getProfile(requestEmail);
+                promiseT.then((breederProfile:IBreederProfile) => {
+                    //Success
+                    $scope.home.Ownership();
+                    this.error = false;
+                    this.BreederProfile = breederProfile;
 
-                this.CopyProfileService.SetProfile(breederProfile);
-                this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+                    this.CopyProfileService.SetProfile(breederProfile);
+                    this.BreederProfileEdit = CopyProfileService.GetProfileClone();
 
-            }, () => {
-                //Error
-                this.error = true;
-                this.ShowError("Error in Db Connection")
-            }).finally(() => {
-                this.spinner = false;
+                }, () => {
+                    //Error
+                    this.error = true;
+                    this.ShowError("Error in Db Connection")
+                }).finally(() => {
+                    this.spinner = false;
+                })
             })
-        });
+        })
+
+
     }
 
 

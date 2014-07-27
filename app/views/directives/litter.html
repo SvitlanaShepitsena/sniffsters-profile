@@ -1,4 +1,9 @@
 <div>
+	<ol class="breadcrumb">
+		<li><a ui-sref="user.profile.puppies3">Current Litters</a></li>
+		<li><a ui-sref="^">{{l.Title}}</a></li>
+		<li class="active">Edit</li>
+	</ol>
 	<div class="text-right">
 		<button class="right btn btn-link"
 		        ng-disabled="(litter.$pristine)

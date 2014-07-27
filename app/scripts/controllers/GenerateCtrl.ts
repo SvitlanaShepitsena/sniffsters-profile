@@ -24,20 +24,20 @@ class GenerateCtrl {
             var breederRef = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key));
             var galleriesRef = breederRef.$child('galleries');
 
-            var littersRef = breederRef.$child('litters');
-            var litters:ILitter[] = this.GenerateLitters();
-            var littersUrl = $scope.home.MainUrl + 'breeders/' + key + '/litters/';
-            console.log(littersUrl);
-            litters.forEach((litter:ILitter)=> {
-                var newLitter = _.omit(litter, 'Photos');
-                littersRef.$add(newLitter).then((keyChild) => {
-                    var litterRef = this.$firebase(new Firebase(littersUrl + keyChild.name()));
-                    var photosRef = litterRef.$child('photos');
-                    litter.Photos.forEach((photo)=> {
-                        photosRef.$add(photo)
-                    })
-                });
-            })
+//            var littersRef = breederRef.$child('litters');
+//            var litters:ILitter[] = this.GenerateLitters();
+//            var littersUrl = $scope.home.MainUrl + 'breeders/' + key + '/litters/';
+//            console.log(littersUrl);
+//            litters.forEach((litter:ILitter)=> {
+//                var newLitter = _.omit(litter, 'Photos');
+//                littersRef.$add(newLitter).then((keyChild) => {
+//                    var litterRef = this.$firebase(new Firebase(littersUrl + keyChild.name()));
+//                    var photosRef = litterRef.$child('photos');
+//                    litter.Photos.forEach((photo)=> {
+//                        photosRef.$add(photo)
+//                    })
+//                });
+//            })
 
             var feedbackRef = breederRef.$child('feedbacks');
             var feedbacks:IFeedback[] = this.GenerateFeedbacks();

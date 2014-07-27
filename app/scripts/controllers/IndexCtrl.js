@@ -16,11 +16,6 @@ var IndexCtrl = (function () {
         this.CopyProfileService = CopyProfileService;
         $scope.index = this;
 
-        this.$scope.home.auth.$getCurrentUser().then(function (user) {
-            _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
-            });
-        });
-
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
         $scope.home.hideMenu = false;
@@ -28,28 +23,29 @@ var IndexCtrl = (function () {
 
         this.spinner = true;
 
-        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
-        new FirebaseSimpleLogin(fref, function () {
-            var requestEmail = $stateParams.uname;
+        this.$scope.home.auth.$getCurrentUser().then(function (user) {
+            _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
+                var requestEmail = $stateParams.uname;
 
-            if (requestEmail == "public") {
-                requestEmail = $scope.home.Uname;
-            }
-            var promiseT = _this.DataService.getProfile(requestEmail);
-            promiseT.then(function (breederProfile) {
-                //Success
-                $scope.home.Ownership();
-                _this.error = false;
-                _this.BreederProfile = breederProfile;
+                if (requestEmail == "public") {
+                    requestEmail = $scope.home.Uname;
+                }
+                var promiseT = _this.DataService.getProfile(requestEmail);
+                promiseT.then(function (breederProfile) {
+                    //Success
+                    $scope.home.Ownership();
+                    _this.error = false;
+                    _this.BreederProfile = breederProfile;
 
-                _this.CopyProfileService.SetProfile(breederProfile);
-                _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
-            }, function () {
-                //Error
-                _this.error = true;
-                _this.ShowError("Error in Db Connection");
-            }).finally(function () {
-                _this.spinner = false;
+                    _this.CopyProfileService.SetProfile(breederProfile);
+                    _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+                }, function () {
+                    //Error
+                    _this.error = true;
+                    _this.ShowError("Error in Db Connection");
+                }).finally(function () {
+                    _this.spinner = false;
+                });
             });
         });
     }

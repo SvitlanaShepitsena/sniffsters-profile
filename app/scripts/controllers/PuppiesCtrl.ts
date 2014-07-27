@@ -2,6 +2,7 @@
 
 interface IPuppiesScope extends IMainScope {
     puppies:PuppiesCtrl;
+    home:HomeCtrl;
     ctrl:IndexCtrl;
 }
 class PuppiesCtrl {
@@ -54,16 +55,22 @@ class PuppiesCtrl {
     }
 
     saveNewLitters() {
-        var indexNew:number = 0;
-        this.LittersNew.forEach((litter:ILitter) => {
-            this.Litters.push(litter);
-            this.LittersNew.splice(indexNew++, 1);
+        this.LittersNew.forEach((litter:ILitter, index) => {
+            var litterShort = _.omit(litter, 'Photos');
+            this.$scope.litters.$add(litterShort).then((key) => {
+                litter.Photos.forEach((photo)=> {
+                    this.$scope.litters.$child(key.name()).$child('Photos').$add(_.omit(photo, 'isSized'));
+                })
+                this.LittersNew.splice(index, 1);
+            });
         });
+    }
 
+    cancelLitters() {
+        this.LittersNew = [];
     }
 
     deleteLitter() {
-
 
         var modalInstance = this.$modal.open({
             template: "<div><div class=\"modal-body\">Delete this Litter?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",

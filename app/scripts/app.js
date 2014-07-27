@@ -6,7 +6,6 @@
 /// <reference path="directives/detailsInfoEdit.ts" />
 /// <reference path="directives/previousPuppies.ts" />
 /// <reference path="controllers/PhotosCtrl.ts" />
-/// <reference path="directives/photoGalleries.ts" />
 /// <reference path="filters/SpacesToDashes.ts" />
 /// <reference path="directives/photoGallery.ts" />
 /// <reference path="directives/photoGalleryEdit.ts" />
@@ -126,7 +125,6 @@ profile.directive("aboutInfoEdit", aboutInfoEdit);
 profile.directive("detailsInfo", detailsInfo);
 profile.directive("detailsInfoEdit", detailsInfoEdit);
 profile.directive("previousPuppies", previousPuppies);
-profile.directive("photoGalleries", photoGalleries);
 profile.directive("photoGallery", photoGallery);
 profile.directive("photoGalleryEdit", photoGalleryEdit);
 profile.directive("spinDiv", spinDiv);
@@ -196,7 +194,7 @@ profile.value("toastr", toastr);
 profile.service("DataService", DataService);
 
 profile.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("profile/breeder1@gmail.com/photos");
+    $urlRouterProvider.otherwise("profile/breeder1@gmail.com/puppies");
 
     $stateProvider.state("user", {
         abstract: true,

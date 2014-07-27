@@ -113,9 +113,6 @@ var PhotosCtrl = (function () {
                 });
                 _this.$scope.newGalleries.splice(index, 1);
             });
-            //            gallery.Photos.forEach((photo)=> {
-            //                console.log(photo);
-            //            })
         });
     };
 
@@ -136,7 +133,6 @@ var PhotosCtrl = (function () {
         this.DataService.updateGallery(gallery).then(function () {
             _this.GalleriesNew.splice(index, 1);
             _this.Galleries.push(gallery);
-
             _this.updateGallery(galleries, index);
         });
     };

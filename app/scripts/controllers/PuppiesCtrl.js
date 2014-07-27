@@ -43,11 +43,19 @@ var PuppiesCtrl = (function () {
 
     PuppiesCtrl.prototype.saveNewLitters = function () {
         var _this = this;
-        var indexNew = 0;
-        this.LittersNew.forEach(function (litter) {
-            _this.Litters.push(litter);
-            _this.LittersNew.splice(indexNew++, 1);
+        this.LittersNew.forEach(function (litter, index) {
+            var litterShort = _.omit(litter, 'Photos');
+            _this.$scope.litters.$add(litterShort).then(function (key) {
+                litter.Photos.forEach(function (photo) {
+                    _this.$scope.litters.$child(key.name()).$child('Photos').$add(_.omit(photo, 'isSized'));
+                });
+                _this.LittersNew.splice(index, 1);
+            });
         });
+    };
+
+    PuppiesCtrl.prototype.cancelLitters = function () {
+        this.LittersNew = [];
     };
 
     PuppiesCtrl.prototype.deleteLitter = function () {

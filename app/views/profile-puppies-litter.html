@@ -1,17 +1,22 @@
 <div ui-view="">
+	<ol class="breadcrumb">
+		<li><a ui-sref="^">Current Litters</a></li>
+		<li class="active">{{litter.Title}}</li>
+	</ol>
 	<div class="row">
 		<div class="col-xs-1 pull-right">
 			<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
 		</div>
 
 		<div class="col-xs-1 pull-right">
-			<button class="right" ng-click="litterInfo.deleteLitter()"><i class="fa fa-trash-o light-gray"></i></button>
+			<button class="right" ng-click="litterInfo.deleteLitter()"><i class="fa fa-trash-o light-gray"></i>
+			</button>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-12 textLitter">
 			<h3 class="sniff-head-info">
-			{{litter.Title}}
+				{{litter.Title}}
 			</h3>
 			<hr/>
 			<p>
@@ -35,30 +40,15 @@
 				{{litter.Colors}}
 			</p>
 			<ul class="list-unstyled">
-				<li ng-repeat="p in litter.photos">
+				<li ng-repeat="p in litter.Photos">
 					<img ng-src="{{p.file64}}" alt="">
 					<h5>
-					{{p.caption}}
+						{{p.caption}}
 					</h5>
 				</li>
 			</ul>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<ul class="list-unstyled">
-				<li ng-repeat="p in litter.Photos">
 
-					<div class="thumbnail">
-						<img class="puppyPic"
-						     ng-src="{{('imgdir/'+index.Id+'/litters/'+litter.Id+'/'+p.FilePath) | spacesToDashes}}">
-					</div>
-
-				</li>
-			</ul>
-		</div>
-	</div>
 </div>
-
-<!-- PUT DIRECTIVES BELOW -->
 

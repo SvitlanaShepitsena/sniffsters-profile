@@ -25,7 +25,6 @@ class PhotosCtrl {
                     this.$scope.isOk = true;
                     break;
                 } else {
-
                     this.$scope.isOk = false;
                 }
             }
@@ -125,9 +124,6 @@ class PhotosCtrl {
                 })
                 this.$scope.newGalleries.splice(index, 1);
             });
-//            gallery.Photos.forEach((photo)=> {
-//                console.log(photo);
-//            })
         })
     }
 
@@ -147,19 +143,15 @@ class PhotosCtrl {
         this.DataService.updateGallery(gallery).then(() => {
             this.GalleriesNew.splice(index, 1);
             this.Galleries.push(gallery);
-
-
             this.updateGallery(galleries, index);
         })
     }
 
     addGallery() {
-
         var gallery = new Gallery();
         gallery.Title = "New Gallery";
         gallery.isTemp = true;
         this.$scope.newGalleries.unshift(gallery);
-
     }
 
     setSelectedGallery(galleryId:number) {
@@ -170,7 +162,6 @@ class PhotosCtrl {
     }
 
     ShowSuccess(note:string) {
-
         this.toastr.info(note);
     }
 

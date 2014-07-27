@@ -21,21 +21,20 @@ var GenerateCtrl = (function () {
             var breederRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key));
             var galleriesRef = breederRef.$child('galleries');
 
-            var littersRef = breederRef.$child('litters');
-            var litters = _this.GenerateLitters();
-            var littersUrl = $scope.home.MainUrl + 'breeders/' + key + '/litters/';
-            console.log(littersUrl);
-            litters.forEach(function (litter) {
-                var newLitter = _.omit(litter, 'Photos');
-                littersRef.$add(newLitter).then(function (keyChild) {
-                    var litterRef = _this.$firebase(new Firebase(littersUrl + keyChild.name()));
-                    var photosRef = litterRef.$child('photos');
-                    litter.Photos.forEach(function (photo) {
-                        photosRef.$add(photo);
-                    });
-                });
-            });
-
+            //            var littersRef = breederRef.$child('litters');
+            //            var litters:ILitter[] = this.GenerateLitters();
+            //            var littersUrl = $scope.home.MainUrl + 'breeders/' + key + '/litters/';
+            //            console.log(littersUrl);
+            //            litters.forEach((litter:ILitter)=> {
+            //                var newLitter = _.omit(litter, 'Photos');
+            //                littersRef.$add(newLitter).then((keyChild) => {
+            //                    var litterRef = this.$firebase(new Firebase(littersUrl + keyChild.name()));
+            //                    var photosRef = litterRef.$child('photos');
+            //                    litter.Photos.forEach((photo)=> {
+            //                        photosRef.$add(photo)
+            //                    })
+            //                });
+            //            })
             var feedbackRef = breederRef.$child('feedbacks');
             var feedbacks = _this.GenerateFeedbacks();
 
@@ -121,6 +120,7 @@ var GenerateCtrl = (function () {
         $scope.breeders.$save();
         this.CreateLookers();
     }
+
     GenerateCtrl.prototype.CreateLookers = function () {
         var _this = this;
         this.$scope.generate = this;
