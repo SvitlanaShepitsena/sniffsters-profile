@@ -16,7 +16,7 @@ var #jname#:() => ng.IDirective = () => {
         controller($scope){
 
         },
-        link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        link: (scope, element, attrs) => {
 
 
 

@@ -21,8 +21,29 @@ var svImage = ($compile, $document) => {
         },
         controller($scope) {
             $scope.saveChanges = () => {
-                $scope.fireRef.$remove();
 
+//                $scope.fireRef.$on('value', (snapshot:any)=> {
+//                    var data = snapshot.snapshot.value;
+//                    if (data === null) {
+//
+//                        $scope.fireRef.$add($scope.i.file64).then(() => {
+//                            $scope.closeModal();
+//                        });
+//
+//                    } else {
+//                        $scope.fireRef.$add($scope.i.file64).then(() => {
+//                            $scope.closeModal();
+//                        });
+////                        var key = _.keys($scope.fireRef)[0];
+////                        $scope.fireRef[key] = $scope.i.file64;
+////                        $scope.fireRef.$save().then(() => {
+////                            $scope.closeModal();
+////                        })
+//
+//                    }
+//                });
+
+                $scope.fireRef.$remove();
                 $scope.fireRef.$add($scope.i.file64).then(() => {
                     $scope.closeModal();
                 });
