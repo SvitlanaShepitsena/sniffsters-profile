@@ -25,20 +25,18 @@
 								       ng-maxLength="250"
 								       required>
 							</div>
-
 							<div class="col-xs-1">
 								<button class="btn pull-right btn-save"
 								        data-toggle="tooltip" data-placement="left" title="Save Gallery Title"
 								        ng-disabled="form.galTitleEdit.$invalid || form.$pristine"
-								        ng-click="updateTitle(gallery.Title); form.$setPristine();">
-									<i class="fa fa-save"></i>
+								        ng-click="saveTitle(); form.$setPristine();">
+								<i class="fa fa-save"></i>
 								</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</form>
 		<div class="row">
 			<ul class="list-unstyled ">
 				<li class="col-xs-12 shuffle-animation"
@@ -52,7 +50,6 @@
 						<img class="puppyPic"
 						     ng-src="{{p.file64}}">
 
-						<form role="form" id="form" name="form">
 							<div class="form-group">
 						<span ng-show="picCapForm.picCaptionEdit.$error.maxlength"
 						      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
@@ -93,9 +90,9 @@
 		<a ui-sref="^" class="btn btn-default">Cancel</a>
 
 		<button class="btn btn-primary"
-		        ng-disabled="form.$pristine"
-		        ng-click="ctrl.Save(ctrl.BreederProfileEdit); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
-			Save
+		        ng-disabled="files.length==0 && form.$pristine"
+		        ng-click="saveGallery(); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
+		Save
 		</button>
 	</div>
 </div>

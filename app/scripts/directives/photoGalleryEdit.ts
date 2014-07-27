@@ -8,8 +8,26 @@ var photoGalleryEdit:() => ng.IDirective = () => {
         templateUrl: 'views/directives/photo-gallery-edit.html',
         // replace directive tag with template info
         replace: true,
-        controller: ($scope, $modal) => {
+        controller: ($scope, $state, $modal) => {
             $scope.files = [];
+
+            $scope.saveGallery = () => {
+                var photos = $scope.gallery.$child('Photos');
+
+                $scope.files.forEach((photo, index)=> {
+                    photos.$add(photo);
+                })
+
+                $scope.gallery.$save().then(() => {
+                    $state.go('^');
+                })
+            }
+            $scope.saveTitle = () => {
+
+                $scope.gallery.$save('Title').then(() => {
+//                    $state.go('^');
+                })
+            }
 
             $scope.deletePhoto = (id) => {
                 var modalInstance = $modal.open({
