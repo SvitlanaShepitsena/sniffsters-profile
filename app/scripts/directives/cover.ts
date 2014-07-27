@@ -11,6 +11,7 @@ var cover:() => ng.IDirective = () => {
         replace: true,
         controller: ($scope, $firebase, $filter, $modal) => {
             $scope.showChangeBtn = false;
+            // $scope.files = [];
 
             $scope.chgBtnShown = () => {
                 $scope.showChangeBtn = true;
@@ -63,6 +64,7 @@ var cover:() => ng.IDirective = () => {
                             template: '<div class="row">' +
                                 '<div class="col-xs-12 avatarModel">' +
                                 '<sv-image-upload ' +
+                                ' files=files' +
                                 ' is-mult=false' +
                                 ' fire-ref="avatar"' +
                                 ' file-size="3000000"' +
@@ -75,6 +77,7 @@ var cover:() => ng.IDirective = () => {
                                 '></sv-image-upload><p> <button class="btn btn-default pull-right" ng-click="hide()">Cancel</button> </p></div></div>',
                             controller: ($scope, $modalInstance, avatar) => {
                                 $scope.avatar = avatar;
+                                $scope.files = [];
                                 $scope.hide = () => {
                                     $modalInstance.dismiss('cancel');
                                 }
@@ -99,7 +102,9 @@ var cover:() => ng.IDirective = () => {
                             template: '<div class="row">' +
                                 '<div class="col-xs-12 avatarModel">' +
                                 '<sv-image-upload ' +
+
                                 ' is-mult=false' +
+                                ' files=files' +
                                 ' file-size="3000000"' +
                                 ' fire-ref="cover"' +
                                 ' file-size="3000000"' +
@@ -114,6 +119,7 @@ var cover:() => ng.IDirective = () => {
 
                             controller: ($scope, $modalInstance, cover) => {
                                 $scope.cover = cover;
+                                $scope.files = [];
                                 $scope.hide = () => {
                                     $modalInstance.dismiss('cancel');
                                 }

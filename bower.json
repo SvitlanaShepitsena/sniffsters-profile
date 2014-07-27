@@ -3,7 +3,7 @@
     "app": "profile",
     "version": "0.0.0",
     "dependencies": {
-        "angular": "*",
+        "angular": "v1.3.0-build.2981+sha.c03b9e5",
         "json3": "*",
         "jquery": "*",
         "angular-bootstrap": "*",
@@ -19,8 +19,6 @@
         "bootstrap": "~3.2.0"
     },
     "devDependencies": {
-        "angular-mocks": "*",
-        "angular-scenario": "*",
         "DefinitelyTyped": "*"
     }
 }

@@ -9,10 +9,12 @@ class UserManagementCtrl {
     lookers:any;
     urlRef:string;
 
-    constructor(public $scope:IUserManagementScope, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
-        this.urlRef = "https://torid-fire-6526.firebaseio.com/breeders";
+    constructor(public $scope, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+
+        this.urlRef = $scope.home.MainUrl + 'breeders';
         this.breeders = $firebase(new Firebase(this.urlRef));
-        this.urlRef = "https://torid-fire-6526.firebaseio.com/lookers";
+
+        this.urlRef = $scope.home.MainUrl + 'lookers';
         this.lookers = $firebase(new Firebase(this.urlRef));
 
         $scope.management = this;
