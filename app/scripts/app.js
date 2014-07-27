@@ -70,6 +70,7 @@
 /// <reference path="directives/svImageWrapper.ts" />
 /// <reference path="directives/svCropCover.ts" />
 /// <reference path="directives/svSlider.ts" />
+/// <reference path="directives/svMessageShort.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
@@ -155,6 +156,7 @@ profile.directive("svImage", svImage);
 profile.directive("svImageWrapper", svImageWrapper);
 profile.directive("svCropCover", svCropCover);
 profile.directive("svSlider", svSlider);
+profile.directive("svMessageShort", svMessageShort);
 
 //#dir
 profile.directive("aboutInfo", aboutInfo);
