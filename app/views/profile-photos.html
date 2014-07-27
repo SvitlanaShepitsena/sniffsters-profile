@@ -44,13 +44,20 @@
 
 							<div style="position: relative;overflow: hidden">
 
-								<img style="position: relative;
+								<img ng-show="(g.Photos| orderByPriority).length" style="position: relative;
 							direction: ltr;
 							display:block;
 							background-position: 50% 25%;
 							background-size: cover;height: 100px"
 								     ng-src="{{(g.Photos| orderByPriority)[0].file64}}">
 							</div>
+
+							<img ng-hide="(g.Photos| orderByPriority).length" style="position: relative;
+							direction: ltr;
+							display:block;
+							background-position: 50% 25%;
+							background-size: cover;height: 100px"
+							     ng-src="../img/avatar-lg.png">
 						</a>
 					</li>
 				</ul>
