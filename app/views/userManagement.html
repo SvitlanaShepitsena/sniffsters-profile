@@ -7,10 +7,11 @@
 		<div class="tab-pane fade active in" id="breeders">
 			<div class="users-tab-content">
 				<table class="table-responsive table-striped user-table-content">
-					<tr ng-repeat="b in management.breeders">
-						<th>
+					<tr ng-repeat-start="b in management.breeders">
+
+						<td>
 							{{b.profile.KennelName}}
-						</th>
+						</td>
 
 						<td>
 							{{b.profile.City}}, {{b.profile.State}}
@@ -27,9 +28,9 @@
 						<td class="text-muted">
 							{{b.profile.Website}}
 						</td>
-						<sv-message-short addressat="{{b.profile.Email}}"></sv-message-short>
+
 						<td class="admin-contact">
-							<button class="btn btn-default btn-sm">
+							<button class="btn btn-default btn-sm" ng-click="showMessageForm($index)">
 								Contact
 							</button>
 						</td>
@@ -50,6 +51,12 @@
 							<button class="btn btn-danger btn-sm">
 								Delete
 							</button>
+						</td>
+					</tr>
+					<tr ng-repeat-end ng-show="showMessages.indexOf($index)>-1">
+						<td>
+							<sv-message-short index="$index" show-messages="showMessages"
+							                  addressat="b.profile.Email"></sv-message-short>
 						</td>
 					</tr>
 				</table>

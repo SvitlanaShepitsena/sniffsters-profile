@@ -6,9 +6,9 @@
 	</ol>
 	<div class="text-right">
 		<button class="right btn btn-link"
-		        ng-disabled="(litter.$pristine)
+		        ng-disabled="(!files.length && litter.$pristine)
 					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
-		        ng-click="save();litter.$setPristine();">Save
+		        ng-click="saveLitter();litter.$setPristine();">Save
 			</button>
 	</div>
 	<form role="form" name="litter" id="litter" novalidate>
@@ -76,16 +76,16 @@
 		</div>
 
 		<sv-image-upload
-				files="g.Photos"
+				files="files"
 				is-mult="true"
 				file-size="3000000"
 				btn-title="Upload Pictures">
 		</sv-image-upload>
 		<a ui-sref="^" class="btn btn-default">Cancel</a>
 		<button class="btn btn-info"
-		        ng-disabled="(litter.$pristine)
+		        ng-disabled="(!files.length && litter.$pristine)
 					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
-		        ng-click="save();litter.$setPristine();">Save
+		        ng-click="saveLitter();litter.$setPristine();">Save
 		</button>
 	</form>
 </div>

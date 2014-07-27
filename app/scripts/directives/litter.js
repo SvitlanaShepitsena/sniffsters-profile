@@ -7,37 +7,7 @@ var litter = function () {
         transclude: true,
         // replace directive tag with template info
         replace: true,
-        scope: {
-            save: '&',
-            l: '=',
-            userName: '@'
-        },
         controller: function ($scope, DataService, $modal, $upload, toastr) {
-            $scope.onFileSelect = function ($files) {
-                for (var i = 0; i < $files.length; i++) {
-                    var file = $files[i];
-
-                    $scope.upload = $upload.upload({
-                        url: 'http://localhost:44300/BreederPersonal/AddLitterPicture',
-                        // method: 'POST' or 'PUT',
-                        // headers: {'header-key': 'header-value'},
-                        // withCredentials: true,
-                        data: { gallery: $scope.l.Id },
-                        file: file
-                    }).progress(function (evt) {
-                        //                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-                    }).success(function (data, status, headers, config) {
-                        // file is uploaded successfully
-                        $scope.l.Photos.push(data);
-                        //                        $scope.myModelObj = {};
-                        //                        alert(data);
-                    });
-                    //.error(...)
-                    //.then(success, error, progress);
-                    //.xhr(function(xhr){xhr.upload.addEventListener(...)})// access and attach any event listener to XMLHttpRequest.
-                }
-            };
-
             $scope.deleteLitterPhoto = function (id) {
                 var modalInstance = $modal.open({
                     template: "<div><div class=\"modal-body\">Delete this photo?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",

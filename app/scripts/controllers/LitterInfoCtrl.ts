@@ -9,31 +9,30 @@ class LitterInfoCtrl {
 
     constructor(public $scope, public $modal, public $stateParams, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.litterInfo = this;
-
+        $scope.files = [];
         var litterId = $stateParams.id;
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
                 var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/litters/' + litterId;
-//                console.log(litterUrl);
-                $scope.litter = $firebase(new Firebase(litterUrl));
+                $scope.l = $firebase(new Firebase(litterUrl));
             })
         })
-    }
 
-    saveLitter() {
-        var colors = this.$scope.litter.Colors;
-        var date = this.$scope.litter.DateOfBirth;
-        var title = this.$scope.litter.Title;
-        var puppies = this.$scope.litter.Puppies;
 
-        this.$scope.litter.$update({
-            Colors: colors,
-            DateOfBirth: date,
-            Title: title,
-            Puppies: puppies
-        }).then(() => {
-            this.ShowSuccess('Data has been saved to Db');
-        });
+        $scope.saveLitter = () => {
+
+            var photos = $scope.l.$child('Photos');
+
+            $scope.files.forEach((photo, index)=> {
+                photos.$add(photo);
+            })
+
+            $scope.l.$save().then(() => {
+                $state.go('^');
+            })
+
+
+        }
     }
 
 

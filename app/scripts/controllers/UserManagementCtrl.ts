@@ -9,7 +9,7 @@ class UserManagementCtrl {
     lookers:any;
     urlRef:string;
 
-    constructor(public $scope, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, $timeout, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
 
         this.urlRef = $scope.home.MainUrl + 'breeders';
         this.breeders = $firebase(new Firebase(this.urlRef));
@@ -18,6 +18,15 @@ class UserManagementCtrl {
         this.lookers = $firebase(new Firebase(this.urlRef));
 
         $scope.management = this;
+
+        $scope.showMessages = [];
+
+
+        $scope.showMessageForm = (id) => {
+            $timeout(()=> {
+                $scope.showMessages.push(id);
+            })
+        }
     }
 
 

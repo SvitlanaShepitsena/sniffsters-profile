@@ -1,4 +1,5 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 
 
 var svMessageShort:() => ng.IDirective = () => {
@@ -7,11 +8,12 @@ var svMessageShort:() => ng.IDirective = () => {
         restrict: 'E',
         templateUrl: 'views/directives/sv-message-short.html',
         replace: true,
-        scope: {
-            addressat: '@'
-        },
+
         controller($scope) {
+
             $scope.message = {};
+
+            $scope.isFormShown = $scope.showMessages.indexOf(0);
 
             $scope.sendAdminMessage = () => {
 

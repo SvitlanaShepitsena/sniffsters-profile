@@ -14,11 +14,6 @@ var litterInfo:() => ng.IDirective = () => {
         // replace directive tag with template info
         replace: true,
         controller: ($scope, $stateParams) => {
-            var id = $stateParams.id;
-            if (!_.isUndefined(_.values($scope.l.photos)[0])) {
-            $scope.frontSrc = _.values($scope.l.photos)[0].file64;
-
-            }
         },
 
         link: (scope:ILitterInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
