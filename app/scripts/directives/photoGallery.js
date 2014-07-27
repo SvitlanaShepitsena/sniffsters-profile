@@ -34,6 +34,9 @@ var photoGallery = function () {
                 });
                 modalInstance.result.then(function (confirmation) {
                     if (confirmation) {
+                        $scope.gallery.$remove().then(function () {
+                            $state.go('^');
+                        });
                     }
                 });
             };

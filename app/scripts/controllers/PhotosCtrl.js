@@ -118,6 +118,7 @@ var PhotosCtrl = (function () {
             //            })
         });
     };
+
     PhotosCtrl.prototype.cancelGalleries = function () {
         this.$scope.newGalleries = [];
     };

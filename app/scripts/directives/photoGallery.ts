@@ -28,7 +28,6 @@ var photoGallery:(data) => ng.IDirective = () => {
 //            $scope.gallery = $scope.galleries[galleryId];
 
 
-
             $scope.delGallery = () => {
 
                 var modalInstance = $modal.open({
@@ -47,7 +46,9 @@ var photoGallery:(data) => ng.IDirective = () => {
                 });
                 modalInstance.result.then((confirmation:boolean) => {
                     if (confirmation) {
-
+                        $scope.gallery.$remove().then(() => {
+                            $state.go('^');
+                        })
 
                     }
                 })
