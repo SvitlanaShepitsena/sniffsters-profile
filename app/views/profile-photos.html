@@ -30,8 +30,11 @@
 			<hr/>
 			<h3>Current Galleries</h3>
 			<ul class="list-unstyled row">
-				<li class="col-xs-4" ng-if="g.isTemp" ng-repeat="(id,g) in galleries">
+				<li class="col-xs-4"
+				    ng-if="g.isTemp"
+				    ng-repeat="(id,g) in galleries">
 					<a class="thumbnail text-center" ui-sref="user.profile.photos2.galleries({id:id})">
+
 						<h4>{{g.Title}}</h4>
 
 						<div class="img-thumb-container">

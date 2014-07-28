@@ -18,7 +18,6 @@
 /// <reference path="controllers/TestimonialsCtrl.ts" />
 /// <reference path="directives/feedback.ts" />
 /// <reference path="directives/feedbackInfo.ts" />
-/// <reference path="directives/litterInfo.ts" />
 /// <reference path="directives/feedbackEdit.ts" />
 /// <reference path="controllers/GenerateCtrl.ts" />
 /// <reference path="controllers/HomeCtrl.ts" />
@@ -133,7 +132,6 @@ profile.directive("spinDiv", spinDiv);
 profile.directive("litterNew", litterNew);
 profile.directive("feedback", feedback);
 profile.directive("feedbackInfo", feedbackInfo);
-profile.directive("litterInfo", litterInfo);
 profile.directive("feedbackEdit", feedbackEdit);
 profile.directive("newMessage", newMessage);
 profile.directive("setter", setter);

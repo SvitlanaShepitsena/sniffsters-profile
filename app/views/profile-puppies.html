@@ -28,8 +28,15 @@
 
 		<div class="row">
 			<ul class="list-unstyled list-inline">
-				<li class="col-xs-6" ng-repeat="(id,l) in litters">
-					<litter-info l="l"></litter-info>
+				<li class="col-xs-4" ng-repeat="(id,l) in litters">
+					<div class="litter-wrapper">
+						<a ui-sref="user.profile.puppies3.litter({id:id})" class="cursor-p">
+							<div class="thumbnail">
+								<h4 class="text-center"> {{l.Title}} </h4>
+								<img class="img-responsive" ng-src="{{(l.Photos|orderByPriority)[0].file64}}" alt="">
+							</div>
+						</a>
+					</div>
 				</li>
 			</ul>
 		</div>

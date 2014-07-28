@@ -487,9 +487,6 @@ class DataService {
         fireGalleriesPhotos.$remove().then(() => {
             d.resolve();
         })
-
         return d.promise;
     }
-
-
 }
