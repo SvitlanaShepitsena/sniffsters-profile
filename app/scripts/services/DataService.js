@@ -4,21 +4,21 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 var DataService = (function () {
-    function DataService($http, $q, $firebase, $filter) {
+    function DataService($http, $q, $firebase, settings, $filter) {
         this.$http = $http;
         this.$q = $q;
         this.$firebase = $firebase;
+        this.settings = settings;
         this.$filter = $filter;
         /*
-         Todo: apply MainUrl
-         @author - Svitlana
-         @date - 7/27/2014
-         @time - 9:38 PM
-         */
-        this.url = "https://torid-fire-6526.firebaseio.com/breeders/";
+        Todo: apply MainUrl
+        @author - Svitlana
+        @date - 7/27/2014
+        @time - 9:38 PM
+        */
+        this.url = settings.mainUrl;
         this.urlLooker = "https://torid-fire-6526.firebaseio.com/lookers/";
     }
-
     // =Messages
     DataService.prototype.sendReply = function (userName, corrUserName, reply) {
         userName = this.FireProcess(userName);
@@ -420,9 +420,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-            GalleryId: galleryId,
-            PhotoId: photoId
-        } }).success(function () {
+                GalleryId: galleryId,
+                PhotoId: photoId
+            } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -434,10 +434,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-            GalleryId: galleryId,
-            PhotoId: photoId,
-            Caption: caption
-        } }).success(function () {
+                GalleryId: galleryId,
+                PhotoId: photoId,
+                Caption: caption
+            } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();

@@ -9,16 +9,11 @@ var BreedersCtrl = (function () {
         $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
 
-        /*
-         Todo: apply MainUrl
-         @author - Svitlana
-         @date - 7/27/2014
-         @time - 9:27 PM
-         */
-        var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
-        new FirebaseSimpleLogin(fref, function () {
-            DataService.getAllProfiles().then(function (breedersArr) {
-                _this.breeders = _.values(breedersArr);
+        this.$scope.home.auth.$getCurrentUser().then(function (user) {
+            _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
+                DataService.getAllProfiles().then(function (breedersArr) {
+                    _this.breeders = _.values(breedersArr);
+                });
             });
         });
     }

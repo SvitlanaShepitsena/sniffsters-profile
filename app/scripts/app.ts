@@ -195,9 +195,16 @@ profile.controller("FollowingsCtrl", FollowingsCtrl);
 profile.controller("LitterInfoCtrl", LitterInfoCtrl);
 //#ctrl
 
-// TODO: Implement filter
-profile.value("toastr", toastr)
 profile.service("DataService", DataService);
+
+
+//////////////////////////////////
+// Values
+//////////////////////////////////
+profile.value("toastr", toastr)
+profile.value("settings", {
+    mainUrl: "https://torid-fire-6526.firebaseio.com/"
+})
 
 
 profile.config(

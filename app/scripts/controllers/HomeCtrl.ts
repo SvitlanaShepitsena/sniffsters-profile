@@ -35,12 +35,12 @@ class HomeCtrl {
 
     isLoggedIn:boolean = false;
 
-    constructor(public $scope, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
 
         $scope.home = this;
         this.menuIndex = 1;
 
-        this.MainUrl = "https://torid-fire-6526.firebaseio.com/";
+        this.MainUrl = settings.mainUrl;
         this.MainRef = new Firebase(this.MainUrl);
         this.MainRefFire = $firebase(new Firebase(this.MainUrl));
 

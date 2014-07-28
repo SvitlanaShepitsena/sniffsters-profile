@@ -11,13 +11,7 @@ var GenerateCtrl = (function () {
         this.DataService = DataService;
         $scope.generate = this;
 
-        /*
-         Todo: apply MainUrl
-         @author - Svitlana
-         @date - 7/27/2014
-         @time - 9:27 PM
-         */
-        $scope.breeders = $firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders"));
+        $scope.breeders = $firebase(new Firebase($scope.home.MainUrl));
 
         var breeders = this.GenerateBreeders();
         breeders.forEach(function (breeder) {
@@ -25,13 +19,7 @@ var GenerateCtrl = (function () {
             $scope.breeders[key] = { profile: breeder };
             $scope.breeders.$save();
 
-            /*
-             Todo: apply MainUrl
-             @author - Svitlana
-             @date - 7/27/2014
-             @time - 9:27 PM
-             */
-            var breederRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key));
+            var breederRef = _this.$firebase(new Firebase($scope.home.MainUrl + key));
             var galleriesRef = breederRef.$child('galleries');
 
             //            var littersRef = breederRef.$child('litters');
@@ -133,18 +121,11 @@ var GenerateCtrl = (function () {
         $scope.breeders.$save();
         this.CreateLookers();
     }
-
     GenerateCtrl.prototype.CreateLookers = function () {
         var _this = this;
         this.$scope.generate = this;
 
-        /*
-         Todo: apply MainUrl
-         @author - Svitlana
-         @date - 7/27/2014
-         @time - 9:27 PM
-         */
-        this.$scope.lookers = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers"));
+        this.$scope.lookers = this.$firebase(new Firebase(this.$scope.home.MainUrl + "lookers"));
 
         var lookers = this.GenerateLookers();
         lookers.forEach(function (looker) {
@@ -152,13 +133,7 @@ var GenerateCtrl = (function () {
             _this.$scope.lookers[key] = { profile: looker };
             _this.$scope.lookers.$save();
 
-            /*
-             Todo: apply MainUrl
-             @author - Svitlana
-             @date - 7/27/2014
-             @time - 9:27 PM
-             */
-            var lookerRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + key));
+            var lookerRef = _this.$firebase(new Firebase(_this.$scope.home.MainUrl + "lookers/" + key));
 
             var messagesRef = lookerRef.$child('messages');
             var notes = _this.GenerateMessages();
