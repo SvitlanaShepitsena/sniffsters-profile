@@ -20,6 +20,7 @@
   left: 0;
   opacity: 1;
 }
+
 .shuffle-animation.ng-enter-stagger {
 
   -webkit-transition-delay: 0.2s;
@@ -28,7 +29,9 @@
   -webkit-transition-duration: 0s;
   transition-duration: 0s;
 
-}.shuffle-animation.ng-leave-stagger {
+}
+
+.shuffle-animation.ng-leave-stagger {
 
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s;
@@ -51,8 +54,8 @@
   left: 2em;
   opacity: 0;
 }
-/*#endregion*/
 
+/*#endregion*/
 
 .cont {
   position: relative;
@@ -61,17 +64,31 @@
 }
 
 .well-photos :extend(.well) {
-background: #efefef;
+  background: #efefef;
   padding: 5px;
   margin: 5px;
 }
 
+.sp {
+  left: 40%;
+  top: 100px;
+  position: relative;
+  color: #5bc0de;
+  font-size: 2em;
+}
 
-.sp{
-  left:40%;
-  top:100px;
-  position:relative;
-  color:#5bc0de;
-  font-size:2em;
+.show-hide {
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+}
+
+.show-hide {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+.show-hide.ng-hide {
+  opacity: 0;
 }
 

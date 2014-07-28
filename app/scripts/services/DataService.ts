@@ -10,7 +10,6 @@ class DataService {
 
 
     constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase, public settings, public $filter) {
-        console.log(settings.mainUrl);
         this.url = settings.mainUrl;
         this.urlLooker = this.url + "lookers/";
     }
@@ -317,12 +316,10 @@ class DataService {
     //=Profile
 
     getProfile(id:string) {
-        console.log(id);
         var key:string = id.replace(/\./g, '(p)');
         this.fb = this.$firebase(new Firebase(this.url + "breeders/" + key + "/profile"));
         this.fb.$on('value', (snapshot:any)=> {
             var breeder = snapshot.snapshot.value;
-            console.log(breeder);
             d.resolve(breeder);
         })
         var d = this.$q.defer();
@@ -366,7 +363,6 @@ class DataService {
 
         var key:string = id.replace(/\./g, '(p)');
         var fireGalleries = this.$firebase(new Firebase(this.url + "breeders/" + key + "/galleries"));
-        //console.log(fireGalleries);
 
         fireGalleries.$on('value', (snapshot:any)=> {
             var galleries = snapshot.snapshot.value;
@@ -382,7 +378,6 @@ class DataService {
 
     saveNewTestimonials<T>(feedbacks:IFeedback[], userName:string) {
         var d = this.$q.defer();
-        console.log(feedbacks);
         var fireTestimonials:AngularFire = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/testimonials"));
         var keys = fireTestimonials.$getIndex();
         return d.promise;
@@ -469,7 +464,6 @@ class DataService {
         var d = this.$q.defer();
 
         var fireGallery = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/galleries/" + galleryId));
-        console.log(fireGallery);
         fireGallery.$update({Title: title}).then(() => {
             d.resolve();
         })

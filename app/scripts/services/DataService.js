@@ -10,11 +10,9 @@ var DataService = (function () {
         this.$firebase = $firebase;
         this.settings = settings;
         this.$filter = $filter;
-        console.log(settings.mainUrl);
         this.url = settings.mainUrl;
         this.urlLooker = this.url + "lookers/";
     }
-
     // =Messages
     DataService.prototype.sendReply = function (userName, corrUserName, reply) {
         userName = this.FireProcess(userName);
@@ -309,12 +307,10 @@ var DataService = (function () {
 
     //=Profile
     DataService.prototype.getProfile = function (id) {
-        console.log(id);
         var key = id.replace(/\./g, '(p)');
         this.fb = this.$firebase(new Firebase(this.url + "breeders/" + key + "/profile"));
         this.fb.$on('value', function (snapshot) {
             var breeder = snapshot.snapshot.value;
-            console.log(breeder);
             d.resolve(breeder);
         });
         var d = this.$q.defer();
@@ -355,7 +351,6 @@ var DataService = (function () {
         var key = id.replace(/\./g, '(p)');
         var fireGalleries = this.$firebase(new Firebase(this.url + "breeders/" + key + "/galleries"));
 
-        //console.log(fireGalleries);
         fireGalleries.$on('value', function (snapshot) {
             var galleries = snapshot.snapshot.value;
             d.resolve(galleries);
@@ -368,7 +363,6 @@ var DataService = (function () {
     //=Testimonials
     DataService.prototype.saveNewTestimonials = function (feedbacks, userName) {
         var d = this.$q.defer();
-        console.log(feedbacks);
         var fireTestimonials = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/testimonials"));
         var keys = fireTestimonials.$getIndex();
         return d.promise;
@@ -418,9 +412,9 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-            GalleryId: galleryId,
-            PhotoId: photoId
-        } }).success(function () {
+                GalleryId: galleryId,
+                PhotoId: photoId
+            } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -432,10 +426,10 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-            GalleryId: galleryId,
-            PhotoId: photoId,
-            Caption: caption
-        } }).success(function () {
+                GalleryId: galleryId,
+                PhotoId: photoId,
+                Caption: caption
+            } }).success(function () {
             d.resolve();
         }).error(function () {
             d.reject();
@@ -447,7 +441,6 @@ var DataService = (function () {
         var d = this.$q.defer();
 
         var fireGallery = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/galleries/" + galleryId));
-        console.log(fireGallery);
         fireGallery.$update({ Title: title }).then(function () {
             d.resolve();
         });

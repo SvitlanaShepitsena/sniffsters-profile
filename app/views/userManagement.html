@@ -53,9 +53,9 @@
 							</button>
 						</td>
 					</tr>
-					<tr ng-repeat-end ng-show="showMessages.indexOf($index)>-1">
+					<tr ng-repeat-end ng-show="showMessages.indexOf($index)>-1" class="">
 						<td>
-							<sv-message-short index="$index" show-messages="showMessages"
+							<sv-message-short show-messages="showMessages" index="$index"
 							                  addressat="b.profile.Email"></sv-message-short>
 						</td>
 					</tr>
