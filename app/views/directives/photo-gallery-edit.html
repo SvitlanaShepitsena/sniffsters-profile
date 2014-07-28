@@ -4,11 +4,16 @@
 		<li><a ui-sref="^">{{gallery.Title}}</a></li>
 		<li class="active">Edit</li>
 	</ol>
-	<div class="well">
+	<div class="well" sv-slider h="1200">
+		<button class="btn btn-link pull-right"
+		        data-toggle="tooltip" data-placement="left" title="Save Gallery Changes"
+		        ng-disabled="files.length==0 && form.$pristine"
+		        ng-click="saveGallery(); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
+			Save
+		</button>
 		<form class="form" name="form" id="form" novalidate>
 			<div class="row">
 				<div class="col-xs-12">
-
 					<div class="form-group">
 						<label class="sniff-subhead">Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
 					<span ng-show="form.galTitleEdit.$error.maxlength"
@@ -53,27 +58,12 @@
 							<div class="form-group">
 						<span ng-show="picCapForm.picCaptionEdit.$error.maxlength"
 						      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
-
-								<div class="row">
-									<div class="col-xs-11">
-										<input type="text"
-										       class="form-control"
-										       name="picCaptionEdit"
-										       ng-model="p.caption"
-										       ng-class="{inputEmpty:picCapForm.picCaptionEdit.$invalid}"
-										       ng-maxlength="250"/>
-									</div>
-
-									<div class="col-xs-1">
-										<button class="btn pull-right btn-save"
-										        data-toggle="tooltip" data-placement="left"
-										        title="Save Caption"
-										        ng-disabled="picCapForm.picCaptionEdit.$invalid || picCapForm.picCaptionEdit.$pristine || saved"
-										        ng-click="update(p); picCapForm.$setPristine();">
-											<i class="fa fa-save"></i>
-										</button>
-									</div>
-								</div>
+								<input type="text"
+								       class="form-control"
+								       name="picCaptionEdit"
+								       ng-model="p.caption"
+								       ng-class="{inputEmpty:picCapForm.picCaptionEdit.$invalid}"
+								       ng-maxlength="250"/>
 							</div>
 						</div>
 					</li>

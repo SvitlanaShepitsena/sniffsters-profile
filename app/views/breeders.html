@@ -22,131 +22,133 @@
 	<!-- PUT DIRECTIVES BELOW -->
 </div>
 
-<div class="searchBreederDescription">
-	<ul class="list-unstyled">
-		<li ng-repeat="b in breedersCtrl.breeders">
-			<hr/>
-			<div class="row ">
-				<div class="col-md-3">
-					<div class="thumbnail thPictureSmall">
-						<a ui-sref="user.profile.about1({uname:b.profile.Email})">
-							<img ng-src="../imgdir/{{b.profile.Email}}/myimg/mainpic.jpg" alt="">
-						</a>
-					</div>
-
-					<ul class="list-inline text-center">
-						<li class="bone">
-							<img src="../img/raiting-info.png" alt="altText">
-						</li>
-						<li class="bone">
-							<img src="../img/raiting-info.png" alt="altText">
-						</li>
-						<li class="bone">
-							<img src="../img/raiting-info.png" alt="altText">
-						</li>
-						<li class="bone">
-							<img src="../img/raiting.png" alt="altText">
-						</li>
-						<li class="bone">
-							<img src="../img/raiting.png" alt="altText">
-						</li>
-					</ul>
-				</div>
-
-				<div class="col-md-5">
-					<div class="">
-						<h3 class="text-info breederName">
-							<a href="#">
-								{{b.profile.FirstName}} {{b.profile.LastName}}
+<div class="well" sv-slider h="1780">
+	<div class="searchBreederDescription">
+		<ul class="list-unstyled">
+			<li ng-repeat="b in breedersCtrl.breeders">
+				<hr/>
+				<div class="row ">
+					<div class="col-md-3">
+						<div class="thumbnail thPictureSmall">
+							<a ui-sref="user.profile.about1({uname:b.profile.Email})">
+								<img ng-src="../imgdir/{{b.profile.Email}}/myimg/mainpic.jpg" alt="">
 							</a>
-						</h3>
+						</div>
 
-						<h4 class="hBreederWebsite">
-							<a class="text-muted" href="#">
-								{{b.profile.Website}}
-							</a>
-						</h4>
-
-						<ul class="list-unstyled ulBreederCard">
-							<li class="className">
-								<strong>Certifications:</strong>
-
+						<ul class="list-inline text-center">
+							<li class="bone">
+								<img src="../img/raiting-info.png" alt="altText">
 							</li>
-							<li>
-								<strong>Pricing:</strong> Lorem
+							<li class="bone">
+								<img src="../img/raiting-info.png" alt="altText">
 							</li>
-							<li>
-								<strong>Available litters:</strong> Lorem
+							<li class="bone">
+								<img src="../img/raiting-info.png" alt="altText">
 							</li>
-							<li>
-								<strong>Puppies:</strong> Lorem
+							<li class="bone">
+								<img src="../img/raiting.png" alt="altText">
 							</li>
-							<li>
-								<strong>Colors:</strong> Lorem
-							</li>
-							<li>
-								<strong>Vet services:</strong>
-
-								<div>
-								</div>
-							</li>
-							<li>
-								<strong>Shipping:</strong>
-
+							<li class="bone">
+								<img src="../img/raiting.png" alt="altText">
 							</li>
 						</ul>
-						<br/>
+					</div>
+
+					<div class="col-md-5">
+						<div class="">
+							<h3 class="text-info breederName">
+								<a href="#">
+									{{b.profile.FirstName}} {{b.profile.LastName}}
+								</a>
+							</h3>
+
+							<h4 class="hBreederWebsite">
+								<a class="text-muted" href="#">
+									{{b.profile.Website}}
+								</a>
+							</h4>
+
+							<ul class="list-unstyled ulBreederCard">
+								<li class="className">
+									<strong>Certifications:</strong>
+
+								</li>
+								<li>
+									<strong>Pricing:</strong> Lorem
+								</li>
+								<li>
+									<strong>Available litters:</strong> Lorem
+								</li>
+								<li>
+									<strong>Puppies:</strong> Lorem
+								</li>
+								<li>
+									<strong>Colors:</strong> Lorem
+								</li>
+								<li>
+									<strong>Vet services:</strong>
+
+									<div>
+									</div>
+								</li>
+								<li>
+									<strong>Shipping:</strong>
+
+								</li>
+							</ul>
+							<br/>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+
+						<ul class="list-unstyled ulBreederCard text-right">
+							<li class="cityState">
+								{{b.profile.City}}, {{b.profile.State}}
+							</li>
+							<li>
+								{{b.profile.Phone}}
+							</li>
+							<li>
+								{{b.profile.Email}}
+							</li>
+						</ul>
 					</div>
 				</div>
 
-				<div class="col-md-4">
+				<div class="row">
+					<div class="col-sm-3">
+						<p class="text-center" ng-show="home.FireUname">
+							<button class="btn btn-default" ng-hide="home.Followings.indexOf(b.profile.Email)>-1"
+							        role="button" ng-click="home.followUser(home.FireUname,b.profile.Email)">
+								Follow +
+							</button>
 
-					<ul class="list-unstyled ulBreederCard text-right">
-						<li class="cityState">
-							{{b.profile.City}}, {{b.profile.State}}
-						</li>
-						<li>
-							{{b.profile.Phone}}
-						</li>
-						<li>
-							{{b.profile.Email}}
-						</li>
-					</ul>
+							<button class="btn btn-default" ng-show="home.Followings.indexOf(b.profile.Email)>-1"
+							        role="button" ng-click="home.unFollowUser(home.FireUname,b.profile.Email)">
+								UnFollow -
+							</button>
+
+						</p>
+					</div>
+
+					<div class="col-sm-5">
+						<p>
+							<button class="btn btn-default" role="button">
+								Contact
+							</button>
+						</p>
+					</div>
+
+					<div class="col-sm-4">
+						<p class="text-right">
+							<button class="btn btn-default" role="button">
+								Share
+							</button>
+						</p>
+					</div>
 				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-sm-3">
-					<p class="text-center" ng-show="home.FireUname">
-						<button class="btn btn-default" ng-hide="home.Followings.indexOf(b.profile.Email)>-1"
-						        role="button" ng-click="home.followUser(home.FireUname,b.profile.Email)">
-						Follow +
-						</button>
-
-						<button class="btn btn-default" ng-show="home.Followings.indexOf(b.profile.Email)>-1"
-						        role="button" ng-click="home.unFollowUser(home.FireUname,b.profile.Email)">
-						UnFollow -
-						</button>
-
-					</p>
-				</div>
-
-				<div class="col-sm-5">
-					<p>
-						<button class="btn btn-default" role="button">
-						Contact
-						</button>
-					</p>
-				</div>
-
-				<div class="col-sm-4">
-					<p class="text-right">
-						<button class="btn btn-default" role="button">
-						Share
-						</button>
-					</p>
-				</div>
-			</div>
-		</li>
-	</ul>
+			</li>
+		</ul>
+	</div>
 </div>

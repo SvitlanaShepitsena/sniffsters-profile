@@ -1,5 +1,5 @@
 <h2 class="sniff-head-info">Followers</h2>
-<div class="searchBreederDescription">
+<div class="searchBreederDescription" ng-cloak sv-slider h="1200">
 	<ul class="list-unstyled">
 		<li class="shuffle-animation" ng-repeat="f in followers">
 			<hr/>
@@ -39,18 +39,18 @@
 					<div class="">
 						<h3 class="breederName">
 							<a class="a-name " ui-sref="user.profile.about1({uname:f.Email})">
-							{{f.KennelName}}
+								{{f.KennelName}}
 							</a>
 						</h3>
 
 						<h4 class="hBreederWebsite text-muted">
-						<a class="text-muted" href="#">
+							<a class="text-muted" href="#">
 								{{f.Website}}
 							</a>
 						</h4>
 
 						<h4 class="hBreederWebsite text-muted">
-						<a class="text-muted" href="#">
+							<a class="text-muted" href="#">
 								{{f.City}} {{f.State}}
 							</a>
 						</h4>

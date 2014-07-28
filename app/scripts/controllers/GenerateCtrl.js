@@ -10,6 +10,13 @@ var GenerateCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.generate = this;
+
+        /*
+         Todo: apply MainUrl
+         @author - Svitlana
+         @date - 7/27/2014
+         @time - 9:27 PM
+         */
         $scope.breeders = $firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders"));
 
         var breeders = this.GenerateBreeders();
@@ -18,6 +25,12 @@ var GenerateCtrl = (function () {
             $scope.breeders[key] = { profile: breeder };
             $scope.breeders.$save();
 
+            /*
+             Todo: apply MainUrl
+             @author - Svitlana
+             @date - 7/27/2014
+             @time - 9:27 PM
+             */
             var breederRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key));
             var galleriesRef = breederRef.$child('galleries');
 
@@ -120,9 +133,17 @@ var GenerateCtrl = (function () {
         $scope.breeders.$save();
         this.CreateLookers();
     }
+
     GenerateCtrl.prototype.CreateLookers = function () {
         var _this = this;
         this.$scope.generate = this;
+
+        /*
+         Todo: apply MainUrl
+         @author - Svitlana
+         @date - 7/27/2014
+         @time - 9:27 PM
+         */
         this.$scope.lookers = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers"));
 
         var lookers = this.GenerateLookers();
@@ -131,6 +152,12 @@ var GenerateCtrl = (function () {
             _this.$scope.lookers[key] = { profile: looker };
             _this.$scope.lookers.$save();
 
+            /*
+             Todo: apply MainUrl
+             @author - Svitlana
+             @date - 7/27/2014
+             @time - 9:27 PM
+             */
             var lookerRef = _this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + key));
 
             var messagesRef = lookerRef.$child('messages');

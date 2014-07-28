@@ -12,14 +12,11 @@ class AdvertiseCtrl {
         $scope.home.IsSearchHidden = false;
     }
 
-
     ShowSuccess(note:string) {
-
         this.toastr.info(note);
     }
 
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }

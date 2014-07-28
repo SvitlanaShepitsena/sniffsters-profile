@@ -9,6 +9,13 @@ class DataService {
     urlLooker:string;
 
     constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase, public $filter) {
+        /*
+         Todo: apply MainUrl
+         @author - Svitlana
+         @date - 7/27/2014
+         @time - 9:38 PM
+         */
+
         this.url = "https://torid-fire-6526.firebaseio.com/breeders/";
         this.urlLooker = "https://torid-fire-6526.firebaseio.com/lookers/";
     }

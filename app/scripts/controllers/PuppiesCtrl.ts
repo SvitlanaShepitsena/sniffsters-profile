@@ -25,9 +25,6 @@ class PuppiesCtrl {
         $scope.puppies = this;
 
         $scope.isOk = false;
-        /*        DataService.getLitters($scope.index.IdFire).then((litters:ILitter[])=> {
-         this.Litters = litters;
-         })*/
 
         $scope.$watch("puppies.LittersNew", () => {
             for (var i = 0; i < this.LittersNew.length; i++) {
@@ -37,10 +34,8 @@ class PuppiesCtrl {
                     && typeof(litter.Puppies) != 'undefined' && litter.Puppies.length < 250
                     && typeof(litter.DateOfBirth) != 'undefined'
                     && typeof(litter.Colors) != 'undefined' && litter.Colors.length < 250
-
                     )) {
                     this.$scope.isOk = true;
-//                console.log($scope.isOk);
                     break;
                 } else {
                     this.$scope.isOk = false;
@@ -71,7 +66,6 @@ class PuppiesCtrl {
     }
 
     deleteLitter() {
-
         var modalInstance = this.$modal.open({
             template: "<div><div class=\"modal-body\">Delete this Litter?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
             size: 'sm',

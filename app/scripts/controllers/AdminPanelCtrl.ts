@@ -11,7 +11,6 @@ class AdminPanelCtrl {
         $scope.adminPanel = this;
     }
 
-
     ShowSuccess(note:string) {
 
         this.toastr.info(note);
@@ -20,5 +19,4 @@ class AdminPanelCtrl {
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }

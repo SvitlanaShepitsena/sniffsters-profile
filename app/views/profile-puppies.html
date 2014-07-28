@@ -14,26 +14,28 @@
 			Add New Litter
 		</button>
 	</div>
-	<div ng-show="puppies.LittersNew.length>0">
-		<ul class="list-unstyled">
-			<li ng-repeat="l in puppies.LittersNew" class="bouncy-slide-down">
-				<litter-new l="l"></litter-new>
-			</li>
-		</ul>
-	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<h3 class="sniff-head-info">Current Litters</h3>
+	<div sv-slider h="1200">
+		<div ng-show="puppies.LittersNew.length>0">
+			<ul class="list-unstyled">
+				<li ng-repeat="l in puppies.LittersNew" class="bouncy-slide-down">
+					<litter-new l="l"></litter-new>
+				</li>
+			</ul>
 		</div>
-	</div>
+		<div class="row">
+			<div class="col-xs-6">
+				<h3 class="sniff-head-info">Current Litters</h3>
+			</div>
+		</div>
 
-	<div class="row">
-		<ul class="list-unstyled list-inline">
-			<li class="col-xs-6" ng-repeat="(id,l) in litters">
-				<litter-info l="l"></litter-info>
-			</li>
-		</ul>
+		<div class="row">
+			<ul class="list-unstyled list-inline">
+				<li class="col-xs-6" ng-repeat="(id,l) in litters">
+					<litter-info l="l"></litter-info>
+				</li>
+			</ul>
+		</div>
+		<!-- PUT DIRECTIVES BELOW -->
 	</div>
-	<!-- PUT DIRECTIVES BELOW -->
 </div>
 

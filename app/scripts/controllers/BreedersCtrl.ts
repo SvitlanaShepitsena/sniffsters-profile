@@ -11,6 +11,12 @@ class BreedersCtrl {
     constructor(public $scope:IBreedersScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
+        /*
+         Todo: apply MainUrl
+         @author - Svitlana
+         @date - 7/27/2014
+         @time - 9:27 PM
+         */
 
         var fref = new Firebase("https://torid-fire-6526.firebaseio.com/");
         new FirebaseSimpleLogin(fref, () => {

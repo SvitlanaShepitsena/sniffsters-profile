@@ -4,88 +4,96 @@
 		<li><a ui-sref="^">{{l.Title}}</a></li>
 		<li class="active">Edit</li>
 	</ol>
-	<div class="text-right">
-		<button class="right btn btn-link"
-		        ng-disabled="(!files.length && litter.$pristine)
-					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
-		        ng-click="saveLitter();litter.$setPristine();">Save
+	<div class="well" sv-slider h="1200">
+		<div class="text-right">
+			<button class="right btn btn-link"
+			        ng-disabled="(!files.length && litter.$pristine)
+					|| (l.Title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
+			        ng-click="saveLitter();litter.$setPristine();">Save
 			</button>
-	</div>
-	<form role="form" name="litter" id="litter" novalidate>
-		<div class="form-group">
-			<label class="sniff-subhead" for="title"> Title</label>&nbsp<span class="textMuted">Required</span>
-			<span ng-show="litter.title.$error.maxlength"
-			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
-			<input type="text" class="form-control" id="title" name="title" placeholder="title"
-			       ng-class="{inputEmpty:!l.Title}"
-			       ng-model="l.Title">
 		</div>
+		<form role="form" name="litter" id="litter" novalidate>
+			<div class="form-group">
+				<label class="sniff-subhead" for="title"> Title</label>&nbsp<span class="textMuted">Required</span>
+			<span ng-show="l.Title.$error.maxlength"
+			      class="text text-danger pull-right maxsymb">Max 250 symbols!
+			</span>
+				<input type="text" class="form-control" id="title" name="title" placeholder="title"
+				       ng-class="{inputEmpty:!l.Title}"
+				       ng-required="true"
+				       ng-model="l.Title">
+			</div>
 
-		<div class="form-group">
-			<label class="sniff-subhead" for="date">Date of Birth</label>&nbsp<span class="textMuted">Required</span>
+			<div class="form-group">
+				<label class="sniff-subhead" for="date">Date of Birth</label>&nbsp<span
+					class="textMuted">Required</span>
 
-			<div class="input-group calendar">
-				<input type="text" id="date" name="date" class="form-control"
-				       datepicker-popup='dd.MM.yyyy' is-open="opened"
-				       datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
-				       ng-class="{inputEmpty:!l.DateOfBirth}"
-				       ng-model="l.DateOfBirth"
-				       ng-model="dt"
-				       ng-required="true" close-text="Close"/>
+				<div class="input-group calendar">
+					<input type="text" id="date" name="date" class="form-control"
+					       datepicker-popup='dd.MM.yyyy' is-open="opened"
+					       datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+					       ng-class="{inputEmpty:!l.DateOfBirth}"
+					       ng-model="l.DateOfBirth"
+					       ng-model="dt"
+					       ng-required="true"
+					       close-text="Close"/>
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default btn-calendar"
                         ng-click="open($event)">
 	                <i class="fa fa-calendar"></i>
                 </button>
               </span>
+				</div>
 			</div>
-		</div>
 
-		<div class="form-group">
-			<label class="sniff-subhead" for="puppies">Number of puppies and sex</label>&nbsp<span class="textMuted">Required</span>
-			<input type="text" class="form-control" id="puppies" name="puppies" placeholder="title"
-			       ng-class="{inputEmpty:!l.Puppies}"
-			       ng-model="l.Puppies">
-		</div>
-		<div class="form-group">
-			<label class="sniff-subhead" for="Colors">Colors</label>&nbsp<span class="textMuted">Required</span>
-			<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title"
-			       ng-class="{inputEmpty:!l.Colors}"
-			       ng-model="l.Colors">
-		</div>
+			<div class="form-group">
+				<label class="sniff-subhead" for="puppies">Number of puppies and sex</label>&nbsp<span
+					class="textMuted">Required</span>
+				<input type="text" class="form-control" id="puppies" name="puppies" placeholder="title"
+				       ng-class="{inputEmpty:!l.Puppies}"
+				       ng-model="l.Puppies">
+			</div>
+			<div class="form-group">
+				<label class="sniff-subhead" for="Colors">Colors</label>&nbsp<span class="textMuted">Required</span>
+				<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title"
+				       ng-class="{inputEmpty:!l.Colors}"
+				       ng-model="l.Colors">
+			</div>
 
-		<div class="row">
-			<ul class="list-unstyled ">
-				<li class="col-xs-12 shuffle-animation" ng-repeat="(id,p) in l.Photos">
-				<button class="btn pull-right btn-del-pic"
-					        data-toggle="tooltip" data-placement="left" title="Delete this photo."
-					        ng-click="deleteLitterPhoto(id)">
-						<i class="fa fa-trash-o"></i>
-					</button>
-					<div class="thumbnail">
-						<img class="puppyPic"
-						     ng-src="{{p.file64}}" alt="">
-						<div class="row">
-							<div class="col-xs-12">
-								<input type="text" class="form-control" ng-model="p.caption">
+			<div class="row">
+				<ul class="list-unstyled ">
+					<li class="col-xs-12 shuffle-animation" ng-repeat="(id,p) in l.Photos">
+						<button class="btn pull-right btn-del-pic"
+						        data-toggle="tooltip" data-placement="left" title="Delete this photo."
+						        ng-click="deleteLitterPhoto(id)">
+							<i class="fa fa-trash-o"></i>
+						</button>
+						<div class="thumbnail">
+							<img class="puppyPic"
+							     ng-src="{{p.file64}}" alt="">
+
+							<div class="row">
+								<div class="col-xs-12">
+									<input type="text" class="form-control" ng-model="p.caption">
+								</div>
 							</div>
 						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
+					</li>
+				</ul>
+			</div>
 
-		<sv-image-upload
-				files="files"
-				is-mult="true"
-				file-size="3000000"
-				btn-title="Upload Pictures">
-		</sv-image-upload>
-		<a ui-sref="^" class="btn btn-default">Cancel</a>
-		<button class="btn btn-info"
-		        ng-disabled="(!files.length && litter.$pristine)
+			<sv-image-upload
+					files="files"
+					is-mult="true"
+					file-size="3000000"
+					btn-title="Upload Pictures">
+			</sv-image-upload>
+			<a ui-sref="^" class="btn btn-default">Cancel</a>
+			<button class="btn btn-info"
+			        ng-disabled="(!files.length && litter.$pristine)
 					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
-		        ng-click="saveLitter();litter.$setPristine();">Save
-		</button>
-	</form>
+			        ng-click="saveLitter();litter.$setPristine();">Save
+			</button>
+		</form>
+	</div>
 </div>
