@@ -5,15 +5,12 @@ var GalleryActive = (function () {
     GalleryActive.filter = function (Galleries, isActive) {
         var finalArray = [];
 
-        for (var key in Galleries) {
-            var gallery = Galleries[key];
-
+        Galleries.forEach(function (gallery) {
             if (gallery.IsActive === isActive) {
                 finalArray.push(gallery);
             }
-
-            return finalArray;
-        }
+        });
+        return finalArray;
     };
     return GalleryActive;
 })();

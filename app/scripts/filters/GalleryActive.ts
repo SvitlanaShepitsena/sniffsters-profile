@@ -5,14 +5,13 @@ class GalleryActive {
 
         var finalArray:IGallery[] = [];
 
-        for (var key in Galleries) {
-            var gallery = Galleries[key];
+        Galleries.forEach((gallery) => {
 
             if (gallery.IsActive === isActive) {
                 finalArray.push(gallery);
             }
+        })
+        return finalArray;
 
-            return finalArray;
-        }
     }
 }

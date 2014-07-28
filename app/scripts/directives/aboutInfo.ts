@@ -19,4 +19,4 @@ var aboutInfo:() => ng.IDirective = () => {
             scope.home.url = 'about';
         }
     }
-}
+};
