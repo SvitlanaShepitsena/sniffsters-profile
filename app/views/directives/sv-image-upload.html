@@ -1,21 +1,8 @@
 <div class="img-upload-container">
-	<ul class="list-unstyled">
-		<li ng-repeat="i in files">
-			<sv-image fire-ref='fireRef'
-			          is-mult='isMult'
-			          ok-modal="okModal(file64)"
-			          close-modal="closeModal()"
-			          i="i"
-			          index="$index"
-			          on-file-select="onFileSelect($files,index)"
-			          width="width" height="height">
-			</sv-image>
-		</li>
-	</ul>
 
 	<div class="well" ng-hide="!isMult && isFileChosen">
-	<div class="panel panel-default drag-file text-center" ng-file-drop="onFileSelect($files)">
-			<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
+		<div class="panel panel-default drag-file text-center" ng-file-drop="onFileSelect($files)">
+		<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
 
 			<div class="drag-file-content">
 				<img class="drag-file-img" ng-src="../../img/photo-icon.png" alt="Photo Icon">
@@ -38,4 +25,17 @@
 			</label>
 		</div>
 	</div>
+	<ul class="list-unstyled">
+		<li ng-repeat="i in files">
+			<sv-image fire-ref='fireRef'
+			          is-mult='isMult'
+			          ok-modal="okModal(file64)"
+			          close-modal="closeModal()"
+			          i="i"
+			          index="$index"
+			          on-file-select="onFileSelect($files,index)"
+			          width="width" height="height">
+			</sv-image>
+		</li>
+	</ul>
 </div>

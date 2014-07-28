@@ -19,6 +19,20 @@
 /**********************
         Photos
 ***********************/
+.img-thumb-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-thumb {
+    position: relative;
+    direction: ltr;
+    display: block;
+    background-position: 50% 25%;
+    background-size: cover;
+    height: 100px;
+}
+
 .puppyPic {
     margin-top: 10px;
     margin-bottom: 10px;

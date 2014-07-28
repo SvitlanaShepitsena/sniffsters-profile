@@ -1,4 +1,4 @@
-/// <reference path="HomeCtrl.ts" />
+// <reference path="HomeCtrl.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 var PhotosCtrl = (function () {
     function PhotosCtrl($scope, $filter, $firebase, $state, toastr, DataService, CopyProfileService) {
@@ -53,48 +53,8 @@ var PhotosCtrl = (function () {
                 };
                 reader.readAsDataURL(file);
             });
-
             photos.$save();
         };
-        //        $scope.up = ($files, index) => {
-        //            if (index == $files.length) {
-        //                return;
-        //            }
-        //            var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters/';
-        //            var littersRef = $firebase(new Firebase(littersUrl));
-        //            var litter = new Litter();
-        //            litter.Title = $scope.l.Title;
-        //            litter.DateOfBirth = $scope.l.DateOfBirth;
-        //            litter.Puppies = $scope.l.Puppies;
-        //            litter.Colors = $scope.l.Colors;
-        //            litter.isTemp = true;
-        //
-        //            littersRef.$add(litter).then((keyChild) => {
-        //                var litterRef = $firebase(new Firebase(littersUrl + keyChild.name()));
-        //                var photosRef = litterRef.$child('photos');
-        //
-        //                $files.forEach((file)=> {
-        //                    var reader = new FileReader();
-        //                    reader.onload = (loadEvent)=> {
-        //                        var image = loadEvent.target.result;
-        //                        $scope.tempPhotos.push(image);
-        //                        photosRef.$add({
-        //                            caption: 'picture1',
-        //                            file64: image
-        //                        });
-        //                    }
-        //                    reader.readAsDataURL(file);
-        //                })
-        //            });
-        //
-        //            $files.forEach((file)=> {
-        //                var reader = new FileReader();
-        //                reader.onload = (loadEvent)=> {
-        //                    $scope.fileFired = loadEvent.target.result;
-        //                }
-        //                reader.readAsDataURL(file);
-        //            })
-        //        }
     }
 
     PhotosCtrl.prototype.saveNewGalleries = function () {
@@ -103,9 +63,7 @@ var PhotosCtrl = (function () {
             if (gallery.Title === "") {
                 gallery.Title = "New Gallery";
             }
-
             var galleryShort = _.omit(gallery, 'Photos');
-
             _this.$scope.galleries.$add(galleryShort).then(function (key) {
                 gallery.Photos.forEach(function (photo) {
                     _this.$scope.galleries.$child(key.name()).$child('Photos').$add(_.omit(photo, 'isSized'));
@@ -119,34 +77,11 @@ var PhotosCtrl = (function () {
         this.$scope.newGalleries = [];
     };
 
-    PhotosCtrl.prototype.updateGallery = function (galleries, index) {
-        var _this = this;
-        if (galleries.length == 0) {
-            if (this.GalleriesNew.length == 0) {
-                this.GalleriesNew.push(new Gallery());
-            }
-            return;
-        }
-        var gallery = galleries[index];
-
-        this.DataService.updateGallery(gallery).then(function () {
-            _this.GalleriesNew.splice(index, 1);
-            _this.Galleries.push(gallery);
-            _this.updateGallery(galleries, index);
-        });
-    };
-
     PhotosCtrl.prototype.addGallery = function () {
         var gallery = new Gallery();
         gallery.Title = "New Gallery";
         gallery.isTemp = true;
         this.$scope.newGalleries.unshift(gallery);
-    };
-
-    PhotosCtrl.prototype.setSelectedGallery = function (galleryId) {
-        this.SelectedGallery = this.Galleries[galleryId];
-        this.$state.go('profile.photos2.galleries', { 'id': galleryId });
-        //        console.log(this.SelectedGallery);
     };
 
     PhotosCtrl.prototype.ShowSuccess = function (note) {
@@ -155,18 +90,6 @@ var PhotosCtrl = (function () {
 
     PhotosCtrl.prototype.ShowError = function (note) {
         this.toastr.error(note);
-    };
-
-    PhotosCtrl.prototype.CreateSelectedGalleryClone = function () {
-        this.SelectedGalleryEdit = new Gallery();
-        for (var key in this.SelectedGallery) {
-            if (this.SelectedGallery.hasOwnProperty(key)) {
-                this.SelectedGalleryEdit[key] = this.SelectedGallery[key];
-            }
-        }
-        //        console.log(this.SelectedGalleryEdit);
-        //        console.log(this.SelectedGallery);
-        //        return dolly;
     };
     return PhotosCtrl;
 })();

@@ -1,4 +1,4 @@
-/// <reference path="HomeCtrl.ts" />
+// <reference path="HomeCtrl.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 
 interface IPhotosScope extends IMainScope {
@@ -44,7 +44,6 @@ class PhotosCtrl {
                 var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries';
                 $scope.galleries = $firebase(new Firebase(galleriesUrl));
                 $scope.newGalleries = [];
-
             })
         })
         $scope.onNewFileSelect = ($files, galleryId:string) => {
@@ -62,51 +61,8 @@ class PhotosCtrl {
                 }
                 reader.readAsDataURL(file);
             })
-
             photos.$save();
-
         }
-
-
-//        $scope.up = ($files, index) => {
-//            if (index == $files.length) {
-//                return;
-//            }
-//            var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters/';
-//            var littersRef = $firebase(new Firebase(littersUrl));
-//            var litter = new Litter();
-//            litter.Title = $scope.l.Title;
-//            litter.DateOfBirth = $scope.l.DateOfBirth;
-//            litter.Puppies = $scope.l.Puppies;
-//            litter.Colors = $scope.l.Colors;
-//            litter.isTemp = true;
-//
-//            littersRef.$add(litter).then((keyChild) => {
-//                var litterRef = $firebase(new Firebase(littersUrl + keyChild.name()));
-//                var photosRef = litterRef.$child('photos');
-//
-//                $files.forEach((file)=> {
-//                    var reader = new FileReader();
-//                    reader.onload = (loadEvent)=> {
-//                        var image = loadEvent.target.result;
-//                        $scope.tempPhotos.push(image);
-//                        photosRef.$add({
-//                            caption: 'picture1',
-//                            file64: image
-//                        });
-//                    }
-//                    reader.readAsDataURL(file);
-//                })
-//            });
-//
-//            $files.forEach((file)=> {
-//                var reader = new FileReader();
-//                reader.onload = (loadEvent)=> {
-//                    $scope.fileFired = loadEvent.target.result;
-//                }
-//                reader.readAsDataURL(file);
-//            })
-//        }
     }
 
     saveNewGalleries() {
@@ -114,10 +70,7 @@ class PhotosCtrl {
             if (gallery.Title === "") {
                 gallery.Title = "New Gallery";
             }
-
             var galleryShort = _.omit(gallery, 'Photos');
-
-
             this.$scope.galleries.$add(galleryShort).then((key) => {
                 gallery.Photos.forEach((photo)=> {
                     this.$scope.galleries.$child(key.name()).$child('Photos').$add(_.omit(photo, 'isSized'));
@@ -131,34 +84,11 @@ class PhotosCtrl {
         this.$scope.newGalleries = [];
     }
 
-    updateGallery(galleries:IGallery[], index:number) {
-        if (galleries.length == 0) {
-            if (this.GalleriesNew.length == 0) {
-                this.GalleriesNew.push(new Gallery());
-            }
-            return;
-        }
-        var gallery = galleries[index];
-
-        this.DataService.updateGallery(gallery).then(() => {
-            this.GalleriesNew.splice(index, 1);
-            this.Galleries.push(gallery);
-            this.updateGallery(galleries, index);
-        })
-    }
-
     addGallery() {
         var gallery = new Gallery();
         gallery.Title = "New Gallery";
         gallery.isTemp = true;
         this.$scope.newGalleries.unshift(gallery);
-    }
-
-    setSelectedGallery(galleryId:number) {
-
-        this.SelectedGallery = this.Galleries[galleryId];
-        this.$state.go('profile.photos2.galleries', {'id': galleryId});
-//        console.log(this.SelectedGallery);
     }
 
     ShowSuccess(note:string) {
@@ -167,17 +97,5 @@ class PhotosCtrl {
 
     ShowError(note:string) {
         this.toastr.error(note);
-    }
-
-    CreateSelectedGalleryClone() {
-        this.SelectedGalleryEdit = new Gallery();
-        for (var key in this.SelectedGallery) {
-            if (this.SelectedGallery.hasOwnProperty(key)) {
-                this.SelectedGalleryEdit[key] = this.SelectedGallery[key];
-            }
-        }
-//        console.log(this.SelectedGalleryEdit);
-//        console.log(this.SelectedGallery);
-//        return dolly;
     }
 }
