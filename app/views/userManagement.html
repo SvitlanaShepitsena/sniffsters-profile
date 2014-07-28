@@ -55,7 +55,8 @@
 					</tr>
 					<tr ng-repeat-end ng-show="showMessages.indexOf($index)>-1" class="">
 						<td>
-							<sv-message-short show-messages="showMessages" index="$index"
+							<sv-message-short admin="home.userNameFire" is-breeder="true" main-fire="home.MainRefFire"
+							                  show-messages="showMessages" index=$index
 							                  addressat="b.profile.Email"></sv-message-short>
 						</td>
 					</tr>
