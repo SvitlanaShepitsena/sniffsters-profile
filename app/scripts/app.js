@@ -14,7 +14,6 @@
 /// <reference path="directives/spinDiv.ts" />
 /// <reference path="filters/GalleryActive.ts" />
 /// <reference path="controllers/PuppiesCtrl.ts" />
-/// <reference path="directives/litter.ts" />
 /// <reference path="directives/litterNew.ts" />
 /// <reference path="controllers/TestimonialsCtrl.ts" />
 /// <reference path="directives/feedback.ts" />
@@ -130,7 +129,6 @@ profile.directive("previousPuppies", previousPuppies);
 profile.directive("photoGallery", photoGallery);
 profile.directive("photoGalleryEdit", photoGalleryEdit);
 profile.directive("spinDiv", spinDiv);
-profile.directive("litter", litter);
 profile.directive("litterNew", litterNew);
 profile.directive("feedback", feedback);
 profile.directive("feedbackInfo", feedbackInfo);
