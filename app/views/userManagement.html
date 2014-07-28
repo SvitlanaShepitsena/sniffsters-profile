@@ -36,9 +36,20 @@
 						</td>
 
 						<td>
-							<button class="btn btn-primary btn-sm">
-								Subscriptions
-							</button>
+							<div class="btn-group" dropdown is-open="status.isopen">
+								<button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+									Subscriptions<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li>
+										<button ng-click="changeSubscription(b.profile.Email,0)">Plan 1</button>
+									</li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+								</ul>
+							</div>
 						</td>
 
 						<td>

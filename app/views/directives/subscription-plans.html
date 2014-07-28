@@ -1,7 +1,17 @@
 <div>
 	<table class="table table-for-breeders">
 		<tr>
-			<th class="th-plans-table text-center active">Compare Plans</th>
+			<th class="th-plans-table text-center active">
+			<td>
+				<button type="button" class="btn btn-lg btn-danger" title="{{popover.title}}"
+				        data-content="{{popover.content}}" data-template="../views/directives/sv-new-plan.html"
+				        data-animation="am-flip-x" bs-popover>Add new Plan
+				</button>
+
+			</td>
+			<button class="pull-left" ng-click="addFeaturePlan()">Add new Feature</button>
+
+			</th>
 			<th class="text-center active">
 				<span class="th-plans-table">
 					Free

@@ -11,6 +11,12 @@ var subscriptionPlans:() => ng.IDirective = () => {
         templateUrl: 'views/directives/subscription-plans.html',
         // replace directive tag with template info
         replace: true,
+        controller: ($scope) => {
+            $scope.popover = {
+                "title": "Title",
+                "content": "Hello Popover<br />This is a multiline message!"
+            };
+        },
         link: (scope:ISubscriptionPlans, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 
         }

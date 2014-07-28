@@ -70,8 +70,9 @@
 /// <reference path="directives/svMessageShort.ts" />
 /// <reference path="directives/svLitterEdit.ts" />
 /// <reference path="directives/svLitter.ts" />
+/// <reference path="directives/svNewPlan.ts" />
 //#ref
-var profile = angular.module("profile", ['ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
+var profile = angular.module("profile", ['mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap.modal', 'ui.bootstrap.tpls', 'firebase']);
 
 profile.filter('boolString', function () {
     return function (value) {
@@ -156,6 +157,7 @@ profile.directive("svSlider", svSlider);
 profile.directive("svMessageShort", svMessageShort);
 profile.directive("svLitterEdit", svLitterEdit);
 profile.directive("svLitter", svLitter);
+profile.directive("svNewPlan", svNewPlan);
 
 //#dir
 profile.directive("aboutInfo", aboutInfo);
