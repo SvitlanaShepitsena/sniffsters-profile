@@ -9,7 +9,6 @@ var photoGallery = function () {
         replace: true,
         controller: function ($scope, $firebase, $modal, DataService, $stateParams, $state, toastr) {
             var galleryId = $stateParams.id;
-
             $scope.home.auth.$getCurrentUser().then(function (user) {
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(function () {
                     var galleryUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries/' + galleryId;
@@ -17,7 +16,6 @@ var photoGallery = function () {
                 });
             });
 
-            //            $scope.gallery = $scope.galleries[galleryId];
             $scope.delGallery = function () {
                 var modalInstance = $modal.open({
                     template: "<div><div class=\"modal-body\"> Delete this gallery?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
@@ -26,7 +24,6 @@ var photoGallery = function () {
                         $scope.ok = function () {
                             $modalInstance.close(true);
                         };
-
                         $scope.cancel = function () {
                             $modalInstance.close(false);
                         };

@@ -65,28 +65,6 @@ class PuppiesCtrl {
         this.LittersNew = [];
     }
 
-    deleteLitter() {
-        var modalInstance = this.$modal.open({
-            template: "<div><div class=\"modal-body\">Delete this Litter?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
-            size: 'sm',
-            controller: ($scope, $modalInstance) => {
-                $scope.ok = () => {
-                    $modalInstance.close(true)
-                }
-
-                $scope.cancel = () => {
-                    $modalInstance.close(false)
-                }
-            }
-
-        });
-
-        modalInstance.result.then((confirmation:boolean) => {
-            if (confirmation) {
-
-            }
-        })
-    }
 
     ShowSuccess(note:string) {
         this.toastr.info(note);
