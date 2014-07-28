@@ -9,10 +9,6 @@ var litterInfo = function () {
         // replace directive tag with template info
         replace: true,
         controller: function ($scope, $stateParams) {
-            var id = $stateParams.id;
-            if (!_.isUndefined(_.values($scope.l.photos)[0])) {
-                $scope.frontSrc = _.values($scope.l.photos)[0].file64;
-            }
         },
         link: function (scope, element, attrs) {
         }
