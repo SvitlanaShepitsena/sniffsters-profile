@@ -33,7 +33,6 @@ var PuppiesCtrl = (function () {
             }
         }, true);
     }
-
     PuppiesCtrl.prototype.addNewLitter = function () {
         this.LittersNew.unshift(new Litter());
     };
