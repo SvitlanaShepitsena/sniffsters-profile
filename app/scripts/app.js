@@ -71,6 +71,7 @@
 /// <reference path="directives/svCropCover.ts" />
 /// <reference path="directives/svSlider.ts" />
 /// <reference path="directives/svMessageShort.ts" />
+/// <reference path="directives/svLitterEdit.ts" />
 //#ref
 var profile = angular.module("profile", ['ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
 
@@ -157,6 +158,7 @@ profile.directive("svImageWrapper", svImageWrapper);
 profile.directive("svCropCover", svCropCover);
 profile.directive("svSlider", svSlider);
 profile.directive("svMessageShort", svMessageShort);
+profile.directive("svLitterEdit", svLitterEdit);
 
 //#dir
 profile.directive("aboutInfo", aboutInfo);
@@ -232,7 +234,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-puppies-litter.html"
     }).state("user.profile.puppies3.litter.edit", {
         url: "/edit",
-        template: "<litter l='litter' save='litterInfo.saveLitter()' user-name='{{home.userName}}'></litter>"
+        template: "<sv-litter-edit l='litter' save='litterInfo.saveLitter()' user-name='{{home.userName}}'></sv-litter-edit>"
     }).state("user.profile.details4", {
         url: "/details",
         templateUrl: "../views/profile-details.html"

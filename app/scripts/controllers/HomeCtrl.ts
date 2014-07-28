@@ -85,7 +85,6 @@ class HomeCtrl {
     }
 
     Breedership(email:string) {
-
         var d = this.$q.defer();
 
         var breederUrl = this.MainUrl + "breeders/" + email;
