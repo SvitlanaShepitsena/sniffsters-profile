@@ -71,6 +71,8 @@
 /// <reference path="directives/svSlider.ts" />
 /// <reference path="directives/svMessageShort.ts" />
 /// <reference path="directives/svLitterEdit.ts" />
+/// <reference path="directives/svLitter.ts" />
+/// <reference path="directives/svLitterInfo.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap', 'ui.bootstrap.tpls', 'firebase']);
@@ -160,6 +162,8 @@ profile.directive("svCropCover", svCropCover);
 profile.directive("svSlider", svSlider);
 profile.directive("svMessageShort", svMessageShort);
 profile.directive("svLitterEdit", svLitterEdit);
+profile.directive("svLitter", svLitter);
+profile.directive("svLitterInfo", svLitterInfo);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
