@@ -17,7 +17,9 @@
 			<h3 ng-show="addGallTemplate">New Galleries</h3>
 			<ul class="list-unstyled">
 				<li ng-repeat="g in newGalleries">
-					<input type="text" ng-model="g.Title" placeholder="gallery title"/>
+					<input class="form-control gal-title " type="text"
+					       ng-model="g.Title"
+					       placeholder="gallery title"/>
 					<sv-image-upload
 							files="g.Photos"
 							is-mult="true"
@@ -26,9 +28,8 @@
 					</sv-image-upload>
 				</li>
 			</ul>
-			<h3 class="sniff-head-info">Photo Galleries</h3>
+			<h3 class="sniff-head-info">Current Galleries</h3>
 			<hr/>
-			<h3>Current Galleries</h3>
 			<ul class="list-unstyled row">
 				<li class="col-xs-4"
 				    ng-if="g.isTemp"
