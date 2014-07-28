@@ -4,13 +4,16 @@
 		<li><a ui-sref="^">{{gallery.Title}}</a></li>
 		<li class="active">Edit</li>
 	</ol>
-	<div class="well" sv-slider h="1200">
+	<div class="btn-wrapper text-right">
+		<button ui-sref="^" class="btn btn-link">Cancel</button>
 		<button class="btn btn-link pull-right"
 		        data-toggle="tooltip" data-placement="left" title="Save Gallery Changes"
 		        ng-disabled="files.length==0 && form.$pristine"
 		        ng-click="saveGallery(); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
 			Save
 		</button>
+	</div>
+	<div class="well" sv-slider h="1200">
 		<form class="form" name="form" id="form" novalidate>
 			<div class="row">
 				<div class="col-xs-12">
@@ -42,43 +45,44 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<ul class="list-unstyled ">
-					<li class="col-xs-12 shuffle-animation"
-					    ng-repeat="(key,p) in gallery.Photos">
-						<button class="btn pull-right btn-del-pic"
-						        data-toggle="tooltip" data-placement="left" title="Delete this picture"
-						        ng-click="deletePhoto(key)">
-							<i class="fa fa-trash-o"></i>
-						</button>
-						<div class="thumbnail">
-							<img class="puppyPic"
-							     ng-src="{{p.file64}}">
 
-							<div class="form-group">
-						<span ng-show="picCapForm.picCaptionEdit.$error.maxlength"
+			<ul class="list-unstyled row">
+				<li class="col-xs-12 shuffle-animation"
+				    ng-repeat="(key,p) in gallery.Photos">
+					<button class="btn pull-right btn-del-pic"
+					        data-toggle="tooltip" data-placement="left" title="Delete this picture"
+					        ng-click="deletePhoto(key)">
+						<i class="fa fa-trash-o"></i>
+					</button>
+					<div class="thumbnail">
+						<img class="puppyPic"
+						     ng-src="{{p.file64}}">
+
+						<div class="form-group">
+						<span ng-show="form.picCap.$error.maxlength"
 						      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
-								<input type="text"
-								       class="form-control"
-								       name="picCaptionEdit"
-								       ng-model="p.caption"
-								       ng-class="{inputEmpty:picCapForm.picCaptionEdit.$invalid}"
-								       ng-maxlength="250"/>
-							</div>
+							<input type="text"
+							       class="form-control"
+							       name="picCap"
+							       ng-model="p.caption"
+							       ng-class="{inputEmpty:!p.caption}"
+							       ng-maxlength="250"/>
 						</div>
-					</li>
-				</ul>
-			</div>
+					</div>
+				</li>
+			</ul>
+
 		</form>
 
 		<sv-image-upload
 				files="files"
 				is-mult="true"
 				file-size="3000000"
-				btn-title="Add More Pictures"
-				></sv-image-upload>
-		<a ui-sref="^" class="btn btn-default">Cancel</a>
-
+				btn-title="Add More Pictures">
+		</sv-image-upload>
+	</div>
+	<div class="btn-wrapper">
+	<a ui-sref="^" class="btn btn-default">Cancel</a>
 		<button class="btn btn-primary"
 		        ng-disabled="files.length==0 && form.$pristine"
 		        ng-click="saveGallery(); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">

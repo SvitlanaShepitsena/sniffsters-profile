@@ -3,31 +3,29 @@
 		<li><a ui-sref="^">Photo Galleries</a></li>
 		<li class="active">{{gallery.Title}}</li>
 	</ol>
+	<div class="text-right btn-wrapper">
+		<!--<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"-->
+		<!--ng-show="gallery.isTemp"-->
+		<!--ng-click="shareGallery()">-->
+		<!--<i class="fa fa-share"></i>-->
+		<!--</button>-->
+		<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
+		        ui-sref=".edit">
+			<i class="fa fa-pencil"></i>
+		</button>
+		<button class="btn btn-del"
+		        data-toggle="tooltip" data-placement="left" title="Delete this gallery"
+		        ng-click="delGallery()">
+			<i class="fa fa-trash-o"></i>
+		</button>
+
+	</div>
 	<div class="well" sv-slider h="1200">
 		<div class="row sniff-row">
 			<div class="col-xs-9">
 				<h3 class="content text-center">
 					{{gallery.Title | uppercase}}
 				</h3>
-			</div>
-			<div class="col-xs-1" ng-show="gallery.isTemp">
-				<!--<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"-->
-				<!--ng-click="shareGallery()">-->
-				<!--<i class="fa fa-share"></i>-->
-				<!--</button>-->
-			</div>
-			<div class="col-xs-1">
-				<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
-				        ui-sref=".edit">
-					<i class="fa fa-pencil"></i>
-				</button>
-			</div>
-			<div class="col-xs-1">
-				<button class="btn btn-del"
-				        data-toggle="tooltip" data-placement="left" title="Delete this gallery"
-				        ng-click="delGallery()">
-					<i class="fa fa-trash-o"></i>
-				</button>
 			</div>
 		</div>
 		<div class="row">

@@ -3,58 +3,50 @@
 		<li><a ui-sref="^">Current Litters</a></li>
 		<li class="active">{{litter.Title}}</li>
 	</ol>
+	<div class="text-right btn-wrapper">
+		<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
+		        ui-sref=".edit">
+			<i class="fa fa-pencil"></i>
+		</button>
+		<button class="btn btn-del"
+		        ng-click="deleteLitter()"><i
+				data-toggle="tooltip" data-placement="left" title="Delete this litter"
+				class="fa fa-trash-o light-gray"></i>
+		</button>
+	</div>
 	<div class="well" sv-slider h="1200">
-		<div class="row sniff-row">
-			<div class="col-xs-1 pull-right">
-				<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
-				        ui-sref=".edit">
-					<i class="fa fa-pencil"></i>
-				</button>
-			</div>
-			<div class="col-xs-1 pull-right">
-				<button class="btn btn-del"
-				        ng-click="deleteLitter()"><i
-						data-toggle="tooltip" data-placement="left" title="Delete this litter"
-						class="fa fa-trash-o light-gray"></i>
-				</button>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12">
-				<h3 class="sniff-head-info">
-					{{litter.Title}}
-				</h3>
-				<hr/>
-				<p>
-					<strong>
-						Date of Birth:
-					</strong>
-					{{litter.DateOfBirth|date:'MM.dd.yyyy'}}
-				</p>
+		<h3 class="sniff-head-info">
+			{{litter.Title}}
+		</h3>
+		<hr/>
+		<p>
+			<strong>
+				Date of Birth:
+			</strong>
+			{{litter.DateOfBirth|date:'MM.dd.yyyy'}}
+		</p>
 
-				<p>
-					<strong>
-						Number of puppies and sex:
-					</strong>
-					{{litter.Puppies}}
-				</p>
+		<p>
+			<strong>
+				Number of puppies and sex:
+			</strong>
+			{{litter.Puppies}}
+		</p>
 
-				<p>
-					<strong>
-						Color:
-					</strong>
-					{{litter.Colors}}
-				</p>
-				<ul class="list-unstyled">
-					<li ng-repeat="p in litter.Photos">
-						<img class="img-responsive" ng-src="{{p.file64}}">
-						<h5>
-							{{p.caption}}
-						</h5>
-					</li>
-				</ul>
-			</div>
-		</div>
+		<p>
+			<strong>
+				Color:
+			</strong>
+			{{litter.Colors}}
+		</p>
+		<ul class="list-unstyled">
+			<li ng-repeat="p in litter.Photos">
+				<img class="img-responsive" ng-src="{{p.file64}}">
+				<h5>
+					{{p.caption}}
+				</h5>
+			</li>
+		</ul>
 	</div>
 </div>
 
