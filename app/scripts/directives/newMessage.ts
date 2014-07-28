@@ -3,17 +3,6 @@
 /// <reference path="../services/DataService.ts" />
 /// <reference path="../controllers/HomeCtrl.ts" />
 
-interface INewMessage extends IHomeScope {
-    test:string;
-    note:{
-        to:string;
-        body:string;
-
-    };
-    home:HomeCtrl;
-    Send:(to:string, body:string) => void;
-}
-
 var newMessage:() => ng.IDirective = () => {
 
     return{

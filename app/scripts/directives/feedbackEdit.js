@@ -1,6 +1,5 @@
 /// <reference path="../models/IBreederProfile.ts" />
 /// <reference path="../controllers/HomeCtrl.ts" />
-
 var feedbackEdit = function () {
     return {
         restrict: 'E',

@@ -11,7 +11,7 @@ var GenerateCtrl = (function () {
         this.DataService = DataService;
         $scope.generate = this;
 
-        $scope.breeders = $firebase(new Firebase($scope.home.MainUrl));
+        $scope.breeders = $firebase(new Firebase($scope.home.MainUrl + "/breeders"));
 
         var breeders = this.GenerateBreeders();
         breeders.forEach(function (breeder) {
@@ -121,7 +121,6 @@ var GenerateCtrl = (function () {
         $scope.breeders.$save();
         this.CreateLookers();
     }
-
     GenerateCtrl.prototype.CreateLookers = function () {
         var _this = this;
         this.$scope.generate = this;

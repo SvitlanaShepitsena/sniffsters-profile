@@ -1,17 +1,5 @@
 /// <reference path="../app.ts" />
 
-interface IAboutInfoEdit extends ng.IScope {
-    test:string;
-    IsEdit:Boolean;
-    Save:() => void;
-    Cancel:() => void;
-
-    ctrl:IndexCtrl;
-    KennelNameValid:boolean;
-    KennelNameValidityCheck:() => boolean;
-    form:HTMLFormElement;
-}
-
 var aboutInfoEdit:() => ng.IDirective = () => {
 
     return{

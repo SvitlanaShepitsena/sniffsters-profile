@@ -56,7 +56,6 @@ var PhotosCtrl = (function () {
             photos.$save();
         };
     }
-
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var _this = this;
         this.$scope.newGalleries.forEach(function (gallery, index) {

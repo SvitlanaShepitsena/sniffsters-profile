@@ -21,11 +21,9 @@ class HomeCtrl {
     auth:any;
 
     Id:string;
-    IdFire:string;
     IsHome:boolean;
 
     url:string;
-    Followers:string[];
     Followings:string[];
     menuIndex:number;
 

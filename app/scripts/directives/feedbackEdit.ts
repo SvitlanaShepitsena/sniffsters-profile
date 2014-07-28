@@ -1,9 +1,5 @@
 /// <reference path="../models/IBreederProfile.ts" />
 /// <reference path="../controllers/HomeCtrl.ts" />
-interface IFeedbackEdit extends ng.IScope {
-    test:string;
-}
-
 var feedbackEdit:() => ng.IDirective = () => {
 
     return{

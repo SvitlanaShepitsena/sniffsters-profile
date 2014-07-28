@@ -2,19 +2,12 @@
 /// <reference path="../models/IBreederProfile.ts" />
 /// <reference path="../models/ILookerProfile.ts" />
 
-interface IGenerateScope extends IMainScope {
-    generate:GenerateCtrl;
-    ctrl:IndexCtrl;
-    breeders:AngularFire;
-    lookers:any;
-
-}
 class GenerateCtrl {
 
     constructor(public $scope, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.generate = this;
 
-        $scope.breeders = $firebase(new Firebase($scope.home.MainUrl));
+        $scope.breeders = $firebase(new Firebase($scope.home.MainUrl + "/breeders"));
 
         var breeders:IBreederProfile[] = this.GenerateBreeders();
         breeders.forEach((breeder:IBreederProfile)=> {

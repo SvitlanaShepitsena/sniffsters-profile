@@ -69,7 +69,7 @@ var svImage = ($compile, $document) => {
             $scope.setInitialImageProp = (width:number, height:number) => {
                 $scope.realImageWidth = width;
                 $scope.realImageHeight = height;
-                $scope.isCropNeeded = ( $scope.realImageWidth > $scope.width || $scope.realImageHeight > $scope.height ) ? true : false;
+                $scope.isCropNeeded = !!( $scope.realImageWidth > $scope.width || $scope.realImageHeight > $scope.height );
 
             }
             $scope.setScaledImageProp = (width:number) => {

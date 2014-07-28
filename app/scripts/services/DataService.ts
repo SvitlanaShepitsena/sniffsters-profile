@@ -9,15 +9,9 @@ class DataService {
     urlLooker:string;
 
     constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase, public settings, public $filter) {
-        /*
-         Todo: apply MainUrl
-         @author - Svitlana
-         @date - 7/27/2014
-         @time - 9:38 PM
-         */
-
+        console.log(settings.mainUrl);
         this.url = settings.mainUrl;
-        this.urlLooker = "https://torid-fire-6526.firebaseio.com/lookers/";
+        this.urlLooker = this.url + "lookers/";
     }
 
     // =Messages
@@ -139,7 +133,7 @@ class DataService {
     getLookerMessages(userName:string) {
         userName = this.FireProcess(userName);
         var d = this.$q.defer();
-        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/messages"));
+        var fireMessages = this.$firebase(new Firebase(this.url + "lookers/" + userName + "/messages"));
 
         fireMessages.$on('value', (snapshot:any)=> {
             var messages = snapshot.snapshot.value;
@@ -153,7 +147,7 @@ class DataService {
         userName = this.FireProcess(userName);
         var d = this.$q.defer();
 
-        var fireMessages = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/messages"));
+        var fireMessages = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/messages"));
 
         fireMessages.$on('value', (snapshot:any)=> {
             var messages = snapshot.snapshot.value;
@@ -180,7 +174,7 @@ class DataService {
 
         var d = this.$q.defer();
 
-        var followingsUrl = "https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/followings";
+        var followingsUrl = this.url + "lookers/" + userName + "/followings";
         var followingsRef = this.$firebase(new Firebase(followingsUrl));
 
         followingsRef.$on('value', (snapshot:any)=> {
@@ -201,7 +195,7 @@ class DataService {
 
         var d = this.$q.defer();
 
-        var followingsUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followings";
+        var followingsUrl = this.url + "breeders/" + userName + "/followings";
         var followingsRef = this.$firebase(new Firebase(followingsUrl));
 
         followingsRef.$on('value', (snapshot:any)=> {
@@ -222,7 +216,7 @@ class DataService {
 
         var d = this.$q.defer();
 
-        var followersUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followers";
+        var followersUrl = this.url + "breeders/" + userName + "/followers";
         var followersRef = this.$firebase(new Firebase(followersUrl));
 
         followersRef.$on('value', (snapshot:any)=> {
@@ -242,7 +236,7 @@ class DataService {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followingsUrl = "https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/followings";
+        var followingsUrl = this.url + "lookers/" + userName + "/followings";
         var followingsRef = this.$firebase(new Firebase(followingsUrl));
 
         var followingRef = followingsRef.$child(followerName);
@@ -259,7 +253,7 @@ class DataService {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followingsUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followings";
+        var followingsUrl = this.url + "breeders/" + userName + "/followings";
         var followingsRef = this.$firebase(new Firebase(followingsUrl));
 
         var followingRef = followingsRef.$child(followerName);
@@ -267,7 +261,7 @@ class DataService {
 
         followingsRef.$save();
 
-        var followersUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + followerName + "/followers";
+        var followersUrl = this.url + "breeders/" + followerName + "/followers";
         var followersRef = this.$firebase(new Firebase(followersUrl));
 
         var followerRef = followersRef.$child(userName);
@@ -286,7 +280,7 @@ class DataService {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followingUrl = "https://torid-fire-6526.firebaseio.com/lookers/" + userName + "/followings/" + followerName;
+        var followingUrl = this.url + "lookers/" + userName + "/followings/" + followerName;
         var followingRef = this.$firebase(new Firebase(followingUrl));
 
         followingRef.$remove();
@@ -301,14 +295,14 @@ class DataService {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followingUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/followings/" + followerName;
+        var followingUrl = this.url + "breeders/" + userName + "/followings/" + followerName;
         var followingRef = this.$firebase(new Firebase(followingUrl));
 
         followingRef.$remove();
         followingRef.$save();
 
 
-        var followerUrl = "https://torid-fire-6526.firebaseio.com/breeders/" + followerName + "/followers/" + userName;
+        var followerUrl = this.url + "breeders/" + followerName + "/followers/" + userName;
         var followerRef = this.$firebase(new Firebase(followerUrl));
 
         followerRef.$remove();
@@ -322,11 +316,12 @@ class DataService {
     //=Profile
 
     getProfile(id:string) {
-
+        console.log(id);
         var key:string = id.replace(/\./g, '(p)');
-        this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/profile"));
+        this.fb = this.$firebase(new Firebase(this.url + "breeders/" + key + "/profile"));
         this.fb.$on('value', (snapshot:any)=> {
             var breeder = snapshot.snapshot.value;
+            console.log(breeder);
             d.resolve(breeder);
         })
         var d = this.$q.defer();
@@ -337,7 +332,7 @@ class DataService {
     getAllProfiles() {
         var d = this.$q.defer();
 
-        this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/"));
+        this.fb = this.$firebase(new Firebase(this.url + "breeders/"));
         this.fb.$on('value', (snapshot:any)=> {
 
             var breeders = snapshot.snapshot.value;
@@ -357,7 +352,7 @@ class DataService {
 
         var key:string = t.Email.replace(/\./g, '(p)');
 
-        this.fb = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/"));
+        this.fb = this.$firebase(new Firebase(this.url + "breeders/"));
         this.fb[key] = {profile: t};
         this.fb.$save(key);
         d.resolve();
@@ -369,7 +364,7 @@ class DataService {
     getGalleries(id:string) {
 
         var key:string = id.replace(/\./g, '(p)');
-        var fireGalleries = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + key + "/galleries"));
+        var fireGalleries = this.$firebase(new Firebase(this.url + "breeders/" + key + "/galleries"));
         //console.log(fireGalleries);
 
         fireGalleries.$on('value', (snapshot:any)=> {
@@ -387,7 +382,7 @@ class DataService {
     saveNewTestimonials<T>(feedbacks:IFeedback[], userName:string) {
         var d = this.$q.defer();
         console.log(feedbacks);
-        var fireTestimonials:AngularFire = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/testimonials"));
+        var fireTestimonials:AngularFire = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/testimonials"));
         var keys = fireTestimonials.$getIndex();
         return d.promise;
     }
@@ -411,7 +406,7 @@ class DataService {
     getLitters(userName:string) {
         var d = this.$q.defer();
 
-        var fireLitters = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/litters"));
+        var fireLitters = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/litters"));
 
         fireLitters.$on('value', (snapshot:any)=> {
             var litters = snapshot.snapshot.value;
@@ -430,7 +425,7 @@ class DataService {
     saveNewLitters(userName:string, litters:Litter[]) {
 
         var d = this.$q.defer();
-        var fireLitters:AngularFire = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/litters"));
+        var fireLitters:AngularFire = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/litters"));
         var keys = fireLitters.$getIndex();
         return d.promise;
     }
@@ -472,7 +467,7 @@ class DataService {
     updateTitle(galleryId:number, title:string, userName:string) {
         var d = this.$q.defer();
 
-        var fireGallery = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/galleries/" + galleryId));
+        var fireGallery = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/galleries/" + galleryId));
         console.log(fireGallery);
         fireGallery.$update({Title: title}).then(() => {
             d.resolve();
@@ -482,115 +477,16 @@ class DataService {
         return d.promise;
     }
 
-//    updateLitter(litter:ILitter, userName) {
-//        var d = this.$q.defer();
-//        var unp:string = userName.replace(/\./g, '(p)');
-//
-//        var fbLitter = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + unp + "/litters/" + litter.Id));
-//        fbLitter [litter.Id] = litter;
-//        fbLitter.$save(litter.Id);
-//
-//        d.resolve();
-//        return d.promise;
-//    }
-
-
-    deleteLitter(id:number) {
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitter', {
-            litterId: id
-        })
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
-        return d.promise;
-    }
-
-    //=Galleries
-
-    deleteGallery(galleryId:number) {
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/DeleteGallery', {
-            galleryId: galleryId
-        })
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
-        return d.promise;
-    }
 
     deletePhoto(galleryId:number, photoId:number, userName:string) {
         var d = this.$q.defer();
-        var fireGalleriesPhotos = this.$firebase(new Firebase("https://torid-fire-6526.firebaseio.com/breeders/" + userName + "/galleries/" + galleryId +
+        var fireGalleriesPhotos = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/galleries/" + galleryId +
             "/Photos/" + photoId));
 
         fireGalleriesPhotos.$remove().then(() => {
             d.resolve();
         })
 
-        return d.promise;
-    }
-
-    shareGallery(galleryId:number) {
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/ShareGallery', {
-            galleryId: galleryId
-        })
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
-        return d.promise;
-    }
-
-    updateGallery(gallery:IGallery) {
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/UpdateGallery', {
-            gallery: gallery
-        })
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
-        return d.promise;
-    }
-
-    convertNewGalleries(galleries:number[]) {
-
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/ConvertNewGalleries', {
-            galleries: galleries
-        })
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
-        return d.promise;
-    }
-
-    updateGalleries<T>(t:T[]) {
-        var d = this.$q.defer<T>();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/UpdateGalleries', {Galleries: t})
-            .success(() => {
-                d.resolve();
-            }).error((data, error) => {
-                // console.log(data)
-                // console.log(error)
-                d.reject();
-            });
         return d.promise;
     }
 

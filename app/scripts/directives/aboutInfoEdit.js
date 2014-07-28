@@ -1,5 +1,4 @@
 /// <reference path="../app.ts" />
-
 var aboutInfoEdit = function () {
     return {
         restrict: 'E',

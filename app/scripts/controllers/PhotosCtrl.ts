@@ -1,11 +1,6 @@
 // <reference path="HomeCtrl.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
 
-interface IPhotosScope extends IMainScope {
-    photosCtrl:PhotosCtrl;
-    home:HomeCtrl;
-    isOk:boolean;
-}
 class PhotosCtrl {
     public GalleriesNew:IGallery[];
     public Galleries:IGallery[];
