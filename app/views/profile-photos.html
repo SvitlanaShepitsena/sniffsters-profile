@@ -1,57 +1,50 @@
-<div>
-	<div ng-show="home.isOwner" ui-view>
-		<div class="row">
-			<div class="col-xs-4">
-			</div>
+<div ui-view>
+	<div class="text-right" ng-show="home.isOwner">
+		<button class="btn btn-link" ng-show="newGalleries.length"
+		        ng-click="photosCtrl.cancelGalleries()">
+			Cancel
+		</button>
+		<button class="btn btn-link" ng-show="newGalleries.length"
+		        ng-click="photosCtrl.saveNewGalleries()">
+			Save All
+		</button>
+		<button class="btn btn-link" ng-click="photosCtrl.addGallery()">
+			Add new gallery
+		</button>
+	</div>
+	<div sv-slider h="1200">
+		<div class="current-galleeries">
+			<h3 ng-show="addGallTemplate">New Galleries</h3>
+			<ul class="list-unstyled">
+				<li ng-repeat="g in newGalleries">
+					<input type="text" ng-model="g.Title" placeholder="gallery title"/>
+					<sv-image-upload
+							files="g.Photos"
+							is-mult="true"
+							file-size="3000000"
+							btn-title="Upload Pictures">
+					</sv-image-upload>
+				</li>
+			</ul>
+			<h3 class="sniff-head-info">Photo Galleries</h3>
+			<hr/>
+			<h3>Current Galleries</h3>
+			<ul class="list-unstyled row">
+				<li class="col-xs-4" ng-if="g.isTemp" ng-repeat="(id,g) in galleries">
+					<a class="thumbnail text-center" ui-sref="user.profile.photos2.galleries({id:id})">
+						<h4>{{g.Title}}</h4>
 
-			<div class="col-xs-2">
-				<button class="btn btn-link" ng-show="newGalleries.length"
-				        ng-click="photosCtrl.cancelGalleries()">Cancel
-				</button>
-			</div>
-			<div class="col-xs-2">
-				<button class="btn btn-link" ng-show="newGalleries.length"
-				        ng-click="photosCtrl.saveNewGalleries()">Save All
-				</button>
-			</div>
-			<div class="col-xs-3">
-				<button class="btn btn-link" ng-click="photosCtrl.addGallery()">Add new gallery</button>
-			</div>
-		</div>
-		<div sv-slider h="1200">
-			<div class="current-galleeries">
-				<h3 ng-show="addGallTemplate">New Galleries</h3>
-				<ul class="list-unstyled">
-					<li ng-repeat="g in newGalleries">
-						<input type="text" ng-model="g.Title" placeholder="gallery title"/>
-						<sv-image-upload
-								files="g.Photos"
-								is-mult="true"
-								file-size="3000000"
-								btn-title="Upload Pictures">
-						</sv-image-upload>
-					</li>
-				</ul>
-				<h3 class="sniff-head-info">Photo Galleries</h3>
-				<hr/>
-				<h3>Current Galleries</h3>
-				<ul class="list-unstyled row">
-					<li class="col-xs-4" ng-if="g.isTemp" ng-repeat="(id,g) in galleries">
-						<a class="thumbnail text-center" ui-sref="user.profile.photos2.galleries({id:id})">
-							<h4>{{g.Title}}</h4>
-
-							<div class="img-thumb-container">
-								<img class="img-thumb"
-								     ng-show="(g.Photos| orderByPriority).length"
-								     ng-src="{{(g.Photos| orderByPriority)[0].file64}}">
-								<img class="img-thumb"
-								     ng-hide="(g.Photos| orderByPriority).length"
-								     ng-src="../img/avatar-lg.png">
-							</div>
-						</a>
-					</li>
-				</ul>
-			</div>
+						<div class="img-thumb-container">
+							<img class="img-thumb"
+							     ng-show="(g.Photos| orderByPriority).length"
+							     ng-src="{{(g.Photos| orderByPriority)[0].file64}}">
+							<img class="img-thumb"
+							     ng-hide="(g.Photos| orderByPriority).length"
+							     ng-src="../img/avatar-lg.png">
+						</div>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>
