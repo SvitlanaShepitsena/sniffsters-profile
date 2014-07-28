@@ -21,20 +21,17 @@ var svLitterEdit:() => ng.IDirective = () => {
             })
 
             $scope.saveLitter = () => {
-
                 var photos = $scope.litter.$child('Photos');
-
                 $scope.files.forEach((photo, index)=> {
                     photos.$add(photo);
+                    $scope.files.splice(index, 1);
                 })
                 $scope.litter.$save().then(() => {
                     $state.go('^');
                 })
-
-
             }
-            $scope.deleteLitterPhoto = (id:string) => {
 
+            $scope.deleteLitterPhoto = (id) => {
                 var modalInstance = $modal.open({
                     template: "<div><div class=\"modal-body\">Delete this photo?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
                     size: 'sm',
@@ -42,17 +39,15 @@ var svLitterEdit:() => ng.IDirective = () => {
                         $scope.ok = () => {
                             $modalInstance.close(true)
                         }
-
                         $scope.cancel = () => {
                             $modalInstance.close(false)
                         }
                     }
-
                 });
 
                 modalInstance.result.then((confirmation:boolean) => {
                     if (confirmation) {
-                        console.log($scope.l.photos.$remove(id));
+                        $scope.litter.$child('Photos').$remove(id)
                     }
                 })
             }

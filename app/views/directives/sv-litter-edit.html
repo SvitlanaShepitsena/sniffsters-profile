@@ -4,14 +4,15 @@
 		<li><a ui-sref="^">{{litter.Title}}</a></li>
 		<li class="active">Edit</li>
 	</ol>
-	<div class="well" sv-slider h="1200">
-		<div class="text-right">
-			<button class="right btn btn-link"
-			        ng-disabled="(!files.length && litter.$pristine)
+	<div class="text-right btn-wrapper">
+		<button ui-sref="^" class="btn btn-link">Cancel</button>
+		<button class="right btn btn-link"
+		        ng-disabled="(!files.length && litter.$pristine)
 					|| (litter.Title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
-			        ng-click="saveLitter();litter.$setPristine();">Save
-			</button>
-		</div>
+		        ng-click="saveLitter();litter.$setPristine();">Save
+		</button>
+	</div>
+	<div class="well" sv-slider h="1200">
 		<form role="form" name="litter" id="litter" novalidate>
 			<div class="form-group">
 				<label class="sniff-subhead" for="title"> Title</label>&nbsp<span class="textMuted">Required</span>
@@ -63,7 +64,7 @@
 			<div class="row">
 				<ul class="list-unstyled ">
 					<li class="col-xs-12 shuffle-animation" ng-repeat="(id,p) in litter.Photos">
-					<button class="btn pull-right btn-del-pic"
+						<button class="btn pull-right btn-del-pic"
 						        data-toggle="tooltip" data-placement="left" title="Delete this photo."
 						        ng-click="deleteLitterPhoto(id)">
 							<i class="fa fa-trash-o"></i>
@@ -88,12 +89,15 @@
 					file-size="3000000"
 					btn-title="Upload Pictures">
 			</sv-image-upload>
-			<a ui-sref="^" class="btn btn-default">Cancel</a>
-			<button class="btn btn-info"
-			        ng-disabled="(!files.length && litter.$pristine)
-					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
-			        ng-click="saveLitter();litter.$setPristine();">Save
-			</button>
 		</form>
+	</div>
+	<div class="btn-wrapper">
+		<a ui-sref="^" class="btn btn-default">Cancel</a>
+		<button class="btn btn-info"
+		        ng-disabled="(!files.length && litter.$pristine)
+					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
+		        ng-click="saveLitter();litter.$setPristine();">Save
+		</button>
+
 	</div>
 </div>

@@ -36,18 +36,14 @@ var svLitter:() => ng.IDirective = () => {
 
                 modalInstance.result.then((confirmation:boolean) => {
                     if (confirmation) {
-
                         $scope.litter.$remove().then(() => {
                             $state.go('^');
                         })
-
                     }
                 })
             }
-
         },
         link: (scope, element, attrs) => {
-
 
         }
     }
