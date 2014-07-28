@@ -1,15 +1,14 @@
 // <reference path="HomeCtrl.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 var PhotosCtrl = (function () {
-    function PhotosCtrl($scope, $filter, $firebase, $state, toastr, DataService, CopyProfileService) {
+    function PhotosCtrl($scope, $filter, $firebase, $state) {
         var _this = this;
         this.$scope = $scope;
         this.$filter = $filter;
         this.$firebase = $firebase;
         this.$state = $state;
-        this.toastr = toastr;
-        this.DataService = DataService;
-        this.CopyProfileService = CopyProfileService;
         $scope.home.menuIndex = 2;
 
         $scope.$watch("photosCtrl.GalleriesNew", function () {
@@ -81,14 +80,6 @@ var PhotosCtrl = (function () {
         gallery.Title = "New Gallery";
         gallery.isTemp = true;
         this.$scope.newGalleries.unshift(gallery);
-    };
-
-    PhotosCtrl.prototype.ShowSuccess = function (note) {
-        this.toastr.info(note);
-    };
-
-    PhotosCtrl.prototype.ShowError = function (note) {
-        this.toastr.error(note);
     };
     return PhotosCtrl;
 })();

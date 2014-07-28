@@ -1,14 +1,13 @@
 // <reference path="HomeCtrl.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 
 class PhotosCtrl {
     public GalleriesNew:IGallery[];
-    public Galleries:IGallery[];
 
-    public SelectedGallery:IGallery;
-    public SelectedGalleryEdit:IGallery;
 
-    constructor(public $scope, public $filter, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public $filter, public $firebase, public $state) {
         $scope.home.menuIndex = 2;
 
         $scope.$watch("photosCtrl.GalleriesNew", () => {
@@ -86,11 +85,4 @@ class PhotosCtrl {
         this.$scope.newGalleries.unshift(gallery);
     }
 
-    ShowSuccess(note:string) {
-        this.toastr.info(note);
-    }
-
-    ShowError(note:string) {
-        this.toastr.error(note);
-    }
 }
