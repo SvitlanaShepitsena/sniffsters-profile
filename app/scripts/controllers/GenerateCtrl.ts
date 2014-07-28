@@ -22,7 +22,7 @@ class GenerateCtrl {
             $scope.breeders[key] = {profile: breeder};
             $scope.breeders.$save();
 
-            var breederRef = this.$firebase(new Firebase($scope.home.MainUrl + key));
+            var breederRef = this.$firebase(new Firebase($scope.home.MainUrl + "breeders/" + key));
             var galleriesRef = breederRef.$child('galleries');
 
 //            var littersRef = breederRef.$child('litters');

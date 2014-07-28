@@ -1,27 +1,27 @@
 <div>
 	<ol class="breadcrumb">
 		<li><a ui-sref="user.profile.puppies3">Current Litters</a></li>
-		<li><a ui-sref="^">{{l.Title}}</a></li>
+		<li><a ui-sref="^">{{litter.Title}}</a></li>
 		<li class="active">Edit</li>
 	</ol>
 	<div class="well" sv-slider h="1200">
 		<div class="text-right">
 			<button class="right btn btn-link"
 			        ng-disabled="(!files.length && litter.$pristine)
-					|| (l.Title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
+					|| (litter.Title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
 			        ng-click="saveLitter();litter.$setPristine();">Save
 			</button>
 		</div>
 		<form role="form" name="litter" id="litter" novalidate>
 			<div class="form-group">
 				<label class="sniff-subhead" for="title"> Title</label>&nbsp<span class="textMuted">Required</span>
-			<span ng-show="l.Title.$error.maxlength"
+			<span ng-show="litter.Title.$error.maxlength"
 			      class="text text-danger pull-right maxsymb">Max 250 symbols!
 			</span>
 				<input type="text" class="form-control" id="title" name="title" placeholder="title"
-				       ng-class="{inputEmpty:!l.Title}"
+				       ng-class="{inputEmpty:!litter.Title}"
 				       ng-required="true"
-				       ng-model="l.Title">
+				       ng-model="litter.Title">
 			</div>
 
 			<div class="form-group">
@@ -32,8 +32,8 @@
 					<input type="text" id="date" name="date" class="form-control"
 					       datepicker-popup='dd.MM.yyyy' is-open="opened"
 					       datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
-					       ng-class="{inputEmpty:!l.DateOfBirth}"
-					       ng-model="l.DateOfBirth"
+					       ng-class="{inputEmpty:!litter.DateOfBirth}"
+					       ng-model="litter.DateOfBirth"
 					       ng-model="dt"
 					       ng-required="true"
 					       close-text="Close"/>
@@ -50,20 +50,20 @@
 				<label class="sniff-subhead" for="puppies">Number of puppies and sex</label>&nbsp<span
 					class="textMuted">Required</span>
 				<input type="text" class="form-control" id="puppies" name="puppies" placeholder="title"
-				       ng-class="{inputEmpty:!l.Puppies}"
-				       ng-model="l.Puppies">
+				       ng-class="{inputEmpty:!litter.Puppies}"
+				       ng-model="litter.Puppies">
 			</div>
 			<div class="form-group">
 				<label class="sniff-subhead" for="Colors">Colors</label>&nbsp<span class="textMuted">Required</span>
 				<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title"
-				       ng-class="{inputEmpty:!l.Colors}"
-				       ng-model="l.Colors">
+				       ng-class="{inputEmpty:!litter.Colors}"
+				       ng-model="litter.Colors">
 			</div>
 
 			<div class="row">
 				<ul class="list-unstyled ">
-					<li class="col-xs-12 shuffle-animation" ng-repeat="(id,p) in l.Photos">
-						<button class="btn pull-right btn-del-pic"
+					<li class="col-xs-12 shuffle-animation" ng-repeat="(id,p) in litter.Photos">
+					<button class="btn pull-right btn-del-pic"
 						        data-toggle="tooltip" data-placement="left" title="Delete this photo."
 						        ng-click="deleteLitterPhoto(id)">
 							<i class="fa fa-trash-o"></i>

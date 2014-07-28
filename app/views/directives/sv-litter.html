@@ -1,7 +1,7 @@
 <div ui-view="">
 	<ol class="breadcrumb">
 		<li><a ui-sref="^">Current Litters</a></li>
-		<li class="active">{{l.Title}}</li>
+		<li class="active">{{litter.Title}}</li>
 	</ol>
 	<div class="well" sv-slider h="1200">
 		<div class="row sniff-row">
@@ -20,32 +20,32 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<h3 class="sniff-head-info">
-					{{l.Title}}
+					{{litter.Title}}
 				</h3>
 				<hr/>
 				<p>
 					<strong>
 						Date of Birth:
 					</strong>
-					{{l.DateOfBirth|date:'MM.dd.yyyy'}}
+					{{litter.DateOfBirth|date:'MM.dd.yyyy'}}
 				</p>
 
 				<p>
 					<strong>
 						Number of puppies and sex:
 					</strong>
-					{{l.Puppies}}
+					{{litter.Puppies}}
 				</p>
 
 				<p>
 					<strong>
 						Color:
 					</strong>
-					{{l.Colors}}
+					{{litter.Colors}}
 				</p>
 				<ul class="list-unstyled">
-					<li ng-repeat="p in l.Photos">
-						<img ng-src="{{p.file64}}" alt="">
+					<li ng-repeat="p in litter.Photos">
+					<img ng-src="{{p.file64}}" alt="">
 						<h5>
 							{{p.caption}}
 						</h5>

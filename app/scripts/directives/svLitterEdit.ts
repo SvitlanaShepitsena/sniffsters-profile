@@ -7,13 +7,32 @@ var svLitterEdit:() => ng.IDirective = () => {
     return{
         restrict: 'E',
         templateUrl: 'views/directives/sv-litter-edit.html',
-        transclude: true,
         // replace directive tag with template info
         replace: true,
 
-        controller: ($scope, DataService:DataService, $modal, $upload, toastr)=> {
+        controller: ($scope, $state, $stateParams, $firebase, $modal, $upload, toastr)=> {
+
+            var litterId = $stateParams.id;
+            $scope.home.auth.$getCurrentUser().then((user) => {
+                $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
+                    var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/litters/' + litterId;
+                    $scope.litter = $firebase(new Firebase(litterUrl));
+                })
+            })
+
+            $scope.saveLitter = () => {
+
+                var photos = $scope.litter.$child('Photos');
+
+                $scope.files.forEach((photo, index)=> {
+                    photos.$add(photo);
+                })
+                $scope.litter.$save().then(() => {
+                    $state.go('^');
+                })
 
 
+            }
             $scope.deleteLitterPhoto = (id:string) => {
 
                 var modalInstance = $modal.open({

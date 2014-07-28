@@ -61,7 +61,6 @@
 /// <reference path="directives/subscriptionPlans.ts" />
 /// <reference path="controllers/FollowingsCtrl.ts" />
 /// <reference path="directives/svImageUpload.ts" />
-/// <reference path="controllers/LitterInfoCtrl.ts" />
 /// <reference path="filters/Unshared.ts" />
 /// <reference path="directives/galleryNew.ts" />
 /// <reference path="directives/svFileSelect.ts" />
@@ -192,7 +191,6 @@ profile.controller("LookerCtrl", LookerCtrl);
 profile.controller("LookerAccountCtrl", LookerAccountCtrl);
 profile.controller("LookerAccountEditCtrl", LookerAccountEditCtrl);
 profile.controller("FollowingsCtrl", FollowingsCtrl);
-profile.controller("LitterInfoCtrl", LitterInfoCtrl);
 
 //#ctrl
 profile.service("DataService", DataService);
@@ -238,11 +236,10 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-puppies.html"
     }).state("user.profile.puppies3.litter", {
         url: "/litter/:id",
-        controller: "LitterInfoCtrl",
-        templateUrl: "../views/profile-puppies-litter.html"
+        template: "<sv-litter></sv-litter>"
     }).state("user.profile.puppies3.litter.edit", {
         url: "/edit",
-        template: "<sv-litter-edit l='litter' save='litterInfo.saveLitter()' user-name='{{home.userName}}'></sv-litter-edit>"
+        template: "<sv-litter-edit></sv-litter-edit>"
     }).state("user.profile.details4", {
         url: "/details",
         templateUrl: "../views/profile-details.html"

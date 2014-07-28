@@ -19,7 +19,7 @@ var GenerateCtrl = (function () {
             $scope.breeders[key] = { profile: breeder };
             $scope.breeders.$save();
 
-            var breederRef = _this.$firebase(new Firebase($scope.home.MainUrl + key));
+            var breederRef = _this.$firebase(new Firebase($scope.home.MainUrl + "breeders/" + key));
             var galleriesRef = breederRef.$child('galleries');
 
             //            var littersRef = breederRef.$child('litters');
@@ -121,6 +121,7 @@ var GenerateCtrl = (function () {
         $scope.breeders.$save();
         this.CreateLookers();
     }
+
     GenerateCtrl.prototype.CreateLookers = function () {
         var _this = this;
         this.$scope.generate = this;

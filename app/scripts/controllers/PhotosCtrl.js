@@ -56,47 +56,47 @@ var PhotosCtrl = (function () {
 
             photos.$save();
         };
-
-        $scope.up = function ($files, index) {
-            if (index == $files.length) {
-                return;
-            }
-            var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters/';
-            var littersRef = $firebase(new Firebase(littersUrl));
-            var litter = new Litter();
-            litter.Title = $scope.l.Title;
-            litter.DateOfBirth = $scope.l.DateOfBirth;
-            litter.Puppies = $scope.l.Puppies;
-            litter.Colors = $scope.l.Colors;
-            litter.isTemp = true;
-
-            littersRef.$add(litter).then(function (keyChild) {
-                var litterRef = $firebase(new Firebase(littersUrl + keyChild.name()));
-                var photosRef = litterRef.$child('photos');
-
-                $files.forEach(function (file) {
-                    var reader = new FileReader();
-                    reader.onload = function (loadEvent) {
-                        var image = loadEvent.target.result;
-                        $scope.tempPhotos.push(image);
-                        photosRef.$add({
-                            caption: 'picture1',
-                            file64: image
-                        });
-                    };
-                    reader.readAsDataURL(file);
-                });
-            });
-
-            $files.forEach(function (file) {
-                var reader = new FileReader();
-                reader.onload = function (loadEvent) {
-                    $scope.fileFired = loadEvent.target.result;
-                };
-                reader.readAsDataURL(file);
-            });
-        };
+        //        $scope.up = ($files, index) => {
+        //            if (index == $files.length) {
+        //                return;
+        //            }
+        //            var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters/';
+        //            var littersRef = $firebase(new Firebase(littersUrl));
+        //            var litter = new Litter();
+        //            litter.Title = $scope.l.Title;
+        //            litter.DateOfBirth = $scope.l.DateOfBirth;
+        //            litter.Puppies = $scope.l.Puppies;
+        //            litter.Colors = $scope.l.Colors;
+        //            litter.isTemp = true;
+        //
+        //            littersRef.$add(litter).then((keyChild) => {
+        //                var litterRef = $firebase(new Firebase(littersUrl + keyChild.name()));
+        //                var photosRef = litterRef.$child('photos');
+        //
+        //                $files.forEach((file)=> {
+        //                    var reader = new FileReader();
+        //                    reader.onload = (loadEvent)=> {
+        //                        var image = loadEvent.target.result;
+        //                        $scope.tempPhotos.push(image);
+        //                        photosRef.$add({
+        //                            caption: 'picture1',
+        //                            file64: image
+        //                        });
+        //                    }
+        //                    reader.readAsDataURL(file);
+        //                })
+        //            });
+        //
+        //            $files.forEach((file)=> {
+        //                var reader = new FileReader();
+        //                reader.onload = (loadEvent)=> {
+        //                    $scope.fileFired = loadEvent.target.result;
+        //                }
+        //                reader.readAsDataURL(file);
+        //            })
+        //        }
     }
+
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var _this = this;
         this.$scope.newGalleries.forEach(function (gallery, index) {
