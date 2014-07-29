@@ -10,6 +10,7 @@ interface ILookerProfile extends IUser {
 }
 
 class LookerProfile implements ILookerProfile {
+    isBreeder:boolean;
     FirstName:string;
     LastName:string;
     Email:string;
@@ -19,6 +20,7 @@ class LookerProfile implements ILookerProfile {
     State:string;
 
     constructor() {
+        this.isBreeder = false;
         this.FirstName = "";
         this.LastName = "";
         this.Email = "";

@@ -199,7 +199,8 @@ profile.service("DataService", DataService);
 //////////////////////////////////
 profile.value("toastr", toastr)
 profile.value("settings", {
-    mainUrl: "https://torid-fire-6526.firebaseio.com/"
+    mainUrl: "https://torid-fire-6526.firebaseio.com/",
+    messageSuccessNotice: 'Message has been sent'
 })
 
 

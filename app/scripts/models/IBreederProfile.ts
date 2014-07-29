@@ -104,6 +104,7 @@ class Gallery implements IGallery {
 
 }
 class BreederProfile implements IBreederProfile {
+    isBreeder:boolean;
     City:string;
     Zip:string;
     State:string;
@@ -129,7 +130,8 @@ class BreederProfile implements IBreederProfile {
 
     constructor() {
 
-
+        this.isBreeder = true;
+        
         this.FirstName = "";
         this.LastName = "";
         this.Website = "";

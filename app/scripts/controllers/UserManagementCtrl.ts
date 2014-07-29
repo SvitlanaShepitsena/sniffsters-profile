@@ -9,7 +9,7 @@ class UserManagementCtrl {
     lookers:any;
     urlRef:string;
 
-    constructor(public $scope, public $modal, $timeout, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, settings, public $modal, $timeout, public $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
 
         $scope.message = {};
         this.urlRef = $scope.home.MainUrl + 'breeders';
@@ -27,9 +27,9 @@ class UserManagementCtrl {
             show: true
         };
 
-        $scope.sendAdminMessage = (addressat) => {
+        $scope.sendAdminMessage = (addressat, isBreeder) => {
             $scope.addressat = addressat;
-            $scope.admin = $scope.home.userNameFire;
+            $scope.admin = "Admin";
             var messageTo = new Note();
             messageTo.body = $scope.message.body;
             messageTo.userName = $scope.admin;
@@ -37,7 +37,7 @@ class UserManagementCtrl {
             messageTo.sent = Date.now();
             messageTo.amISender = false;
 
-            var userType = $scope.isBreeder ? 'breeders' : 'lookers';
+            var userType = isBreeder ? 'breeders' : 'lookers';
 
             var receiverMessages = $scope.home.MainRefFire.$child(userType).$child($scope.addressat.replace(/\./g, '(p)')).$child('messages');
             receiverMessages.$add(messageTo);
@@ -51,7 +51,7 @@ class UserManagementCtrl {
 
             var senderMessages = $scope.home.MainRefFire.$child('admins').$child('messages');
             senderMessages.$add(messageFrom).then(() => {
-                toastr.success('Message has been send');
+                toastr.success(settings.messageSuccessNotice);
             });
         }
     }
