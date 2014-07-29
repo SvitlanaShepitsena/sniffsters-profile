@@ -7,21 +7,23 @@
 	<div class="text-right btn-wrapper">
 		<button ui-sref="^" class="btn btn-link">Cancel</button>
 		<button class="right btn btn-link"
-		        ng-disabled="(!files.length && litter.$pristine)
-					|| (litter.Title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
-		        ng-click="saveLitter();litter.$setPristine();">Save
+		        ng-disabled="(files.length==0 && form.$pristine)
+					|| (form.title.$invalid || form.dateOfBirth.$invalid
+					 || form.puppies.$invalid)|| form.colors.$invalid"
+		        ng-click="saveLitter(); form.$setPristine();">Save
 		</button>
 	</div>
 	<div class="well" sv-slider h="1200">
-		<form role="form" name="litter" id="litter" novalidate>
+		<form role="form" name="form" id="form" novalidate>
 			<div class="form-group">
 				<label class="sniff-subhead" for="title"> Title</label>&nbsp<span class="textMuted">Required</span>
-			<span ng-show="litter.Title.$error.maxlength"
+			<span ng-show="form.title.$error.maxlength"
 			      class="text text-danger pull-right maxsymb">Max 250 symbols!
 			</span>
 				<input type="text" class="form-control" id="title" name="title" placeholder="title"
 				       ng-class="{inputEmpty:!litter.Title}"
 				       ng-required="true"
+				       ng-maxLength="250"
 				       ng-model="litter.Title">
 			</div>
 
@@ -36,6 +38,7 @@
 					       ng-class="{inputEmpty:!litter.DateOfBirth}"
 					       ng-model="litter.DateOfBirth"
 					       ng-model="dt"
+					       ng-maxLength="250"
 					       ng-required="true"
 					       close-text="Close"/>
               <span class="input-group-btn">
@@ -50,15 +53,23 @@
 			<div class="form-group">
 				<label class="sniff-subhead" for="puppies">Number of puppies and sex</label>&nbsp<span
 					class="textMuted">Required</span>
+					<span ng-show="form.puppies.$error.maxlength"
+					      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
 				<input type="text" class="form-control" id="puppies" name="puppies" placeholder="title"
 				       ng-class="{inputEmpty:!litter.Puppies}"
-				       ng-model="litter.Puppies">
+				       ng-maxLength="250"
+				       ng-model="litter.Puppies"
+				       ng-required="true">
 			</div>
 			<div class="form-group">
-				<label class="sniff-subhead" for="Colors">Colors</label>&nbsp<span class="textMuted">Required</span>
+				<label class="sniff-subhead" for="colors">Colors</label>&nbsp<span class="textMuted">Required</span>
+					<span ng-show="form.colors.$error.maxlength"
+					      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
 				<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title"
 				       ng-class="{inputEmpty:!litter.Colors}"
-				       ng-model="litter.Colors">
+				       ng-maxLength="250"
+				       ng-model="litter.Colors"
+				       ng-required="true">
 			</div>
 
 			<div class="row">
@@ -71,12 +82,16 @@
 						</button>
 						<div class="thumbnail">
 							<img class="puppyPic"
-							     ng-src="{{p.file64}}" alt="">
+							     ng-src="{{p.file64}}">
 
-							<div class="row">
-								<div class="col-xs-12">
-									<input type="text" class="form-control" ng-model="p.caption">
-								</div>
+							<div class="form-group">
+					<span ng-show="form.cap.$invalid"
+					      class="text text-danger pull-right maxSymb">Max 250 symbols!</span>
+								<input type="text" class="form-control"
+								       name="cap"
+								       id="cap"
+								       ng-maxLength="250"
+								       ng-model="p.caption">
 							</div>
 						</div>
 					</li>
@@ -94,9 +109,11 @@
 	<div class="btn-wrapper">
 		<a ui-sref="^" class="btn btn-default">Cancel</a>
 		<button class="btn btn-info"
-		        ng-disabled="(!files.length && litter.$pristine)
-					|| (litter.title.$invalid || litter.dateOfBirth.$invalid || litter.puppies.$invalid)|| litter.colors.$invalid || saved"
-		        ng-click="saveLitter();litter.$setPristine();">Save
+		        ng-disabled="(files.length==0 && form.$pristine)
+					|| (form.title.$invalid || form.dateOfBirth.$invalid
+					 || form.puppies.$invalid)|| form.colors.$invalid
+					 || form.cap.$invalid"
+		        ng-click="saveLitter(); form.$setPristine();">Save
 		</button>
 
 	</div>

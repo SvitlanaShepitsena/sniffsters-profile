@@ -1,9 +1,16 @@
 <div class="well">
 	<div ng-show="i.isSized">
-		<div class="form-group" ng-show="isMult">
-		<label for="caption">Image Caption:</label>
-			<input class="form-control" name="caption" id="caption" type="text" ng-model="i.caption">
-		</div>
+		<form name="form-caption" action="">
+			<div class="form-group" ng-show="isMult">
+				<label for="caption">Image Caption:</label>
+					<span ng-show="form-caption.cap.$invalid"
+					      class="text text-danger pull-right maxSymb">Max 250 symbols!</span>
+				<input class="form-control"
+				       name="caption" id="caption" type="text"
+				       ng-maxLength="250"
+				       ng-model="i.caption">
+			</div>
+		</form>
 		<div>
 			<div ng-show="hasBeenCropped" class="img-responsive">
 				<div>
@@ -20,7 +27,7 @@
 
 				<div class="btn-crop-wrapper" ng-show="isCropNeeded && !hasBeenCropped">
 					<button class="btn btn-primary crop-ava" ng-show="!cropAccept" ng-click="crop()">
-					<i class="fa fa-crop"></i>
+						<i class="fa fa-crop"></i>
 						Crop Image
 					</button>
 					<button class="btn btn-primary" ng-show="cropAccept" ng-click="cutImage()">
