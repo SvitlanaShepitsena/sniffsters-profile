@@ -7,7 +7,7 @@
 		<div class="tab-pane fade active in" id="breeders">
 			<div class="users-tab-content">
 				<table class="table-responsive table-striped user-table-content">
-					<tr ng-repeat-start="b in management.breeders">
+					<tr ng-repeat="b in management.breeders">
 
 						<td>
 							{{b.profile.KennelName}}
@@ -30,8 +30,12 @@
 						</td>
 
 						<td class="admin-contact">
-							<button class="btn btn-default btn-sm" ng-click="showMessageForm($index)">
-								Contact
+							<button class="btn btn-default btn-sm"
+							        data-animation="am-fade-and-scale"
+							        data-placement="center"
+							        data-template="../views/modals/admin-message.html"
+							        bs-modal="modal">
+							Contact
 							</button>
 						</td>
 
@@ -53,12 +57,8 @@
 						</td>
 
 						<td>
-							<button class="btn btn-warning btn-sm"
-							        data-animation="am-fade-and-scale"
-							        data-placement="center"
-							        data-template="../bower_components/angular-strap/src/modal/modal.tpl.html"
-							        bs-modal="modal">
-							Block
+							<button class="btn btn-warning btn-sm">
+								Block
 							</button>
 						</td>
 
@@ -68,44 +68,40 @@
 							</button>
 						</td>
 					</tr>
-					<tr ng-repeat-end ng-show="showMessages.indexOf($index)>-1" class="">
-						<td>
-							<sv-message-short admin="home.userNameFire" is-breeder="true" main-fire="home.MainRefFire"
-							                  show-messages="showMessages" index=$index
-							                  addressat="b.profile.Email">
-							</sv-message-short>
-						</td>
-					</tr>
 				</table>
 			</div>
 		</div>
 		<div class="tab-pane fade" id="lookers">
 			<div class="users-tab-content">
 				<table class="table-responsive table-striped user-table-content">
-					<tr ng-repeat="l in management.lookers">
+					<tr ng-repeat="b in management.lookers">
 						<th>
-							{{l.profile.FirstName}} {{l.profile.LastName}}
+							{{b.profile.FirstName}} {{b.profile.LastName}}
 						</th>
 
 						<td>
-							{{l.profile.City}}, {{l.profile.State}}
+							{{b.profile.City}}, {{b.profile.State}}
 						</td>
 
 						<td>
-							{{l.profile.Phone}}
+							{{b.profile.Phone}}
 						</td>
 
 						<td class="text-info">
-							{{l.profile.Email}}
+							{{b.profile.Email}}
 						</td>
 
 						<td class="text-muted">
-							{{l.profile.Website}}
+							{{b.profile.Website}}
 						</td>
 
 						<td class="admin-contact">
-							<button class="btn btn-default btn-sm">
-								Contact
+							<button class="btn btn-default btn-sm"
+							        data-animation="am-fade-and-scale"
+							        data-placement="center"
+							        data-template="../views/modals/admin-message.html"
+							        bs-modal="modal">
+							Contact
 							</button>
 						</td>
 
@@ -118,7 +114,7 @@
 						<td>
 							<button class="btn btn-warning btn-sm" data-animation="am-fade-and-scale"
 							        data-placement="center" bs-modal="modal">
-							Block
+								Block
 							</button>
 						</td>
 
