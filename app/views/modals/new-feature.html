@@ -1,0 +1,19 @@
+<div class="popover popover-plans">
+	<div class="arrow"></div>
+
+	<h3 class="popover-title text-center new-plan-title" ng-bind="title" ng-show="title"></h3>
+
+	<div class="popover-content new-plan-content">
+		<form role="form" action="">
+			<div class="form-group">
+				<input class="form-control" type="text" ng-model="feature.name" placeholder="Feature Name"/>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="text" ng-model="feature.comment" placeholder="Comments"/>
+			</div>
+
+			<button class="btn btn-warning" ng-click="$hide()">Cancel</button>
+			<button class="btn btn-primary" ng-click="addNewFeature();$hide()">Save</button>
+		</form>
+	</div>
+</div>

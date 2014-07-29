@@ -2,14 +2,10 @@
 	<table class="table table-for-breeders">
 		<tr>
 			<th class="th-plans-table text-center active">
-			<td>
 				<button type="button" class="btn btn-lg btn-danger" title="{{popover.title}}"
-				        data-content="{{popover.content}}" data-template="../views/directives/sv-new-plan.html"
-				        data-animation="am-flip-x" bs-popover>Add new Plan
+				        data-content="{{popover.content}}" data-template="../views/modals/new-feature.html"
+				        data-animation="am-flip-x" bs-popover>Add new Feauture
 				</button>
-
-			</td>
-			<button class="pull-left" ng-click="addFeaturePlan()">Add new Feature</button>
 
 			</th>
 			<th class="text-center active">
@@ -21,6 +17,7 @@
 			</th>
 			<th class="text-center active th-plans-table">Monthly</th>
 			<th class="text-center info th-plans-table">Annually</th>
+			<th></th>
 		</tr>
 
 		<tbody>
@@ -38,58 +35,29 @@
 
 				<p class="text-center text-warning">10% discount</p>
 			</td>
+			<td></td>
 		</tr>
 
-		<tr>
-			<th></th>
-			<td class="text-center active">
-				<button class="text-center btn btn-default btn-tryit">Try It</button>
-			</td>
-			<td class="text-center active">
-				<button class="text-center btn btn-default btn-tryit">Start Now</button>
-			</td>
-			<td class="text-center info">
-				<button class="btn btn-primary btn-tryit">Start Now</button>
-			</td>
 
-		</tr>
-		<tr>
-			<th>Profile Features
-				<p>Tell your story</p>
+		<tr ng-repeat="(key,f) in features" class="shuffle-animation">
+			<th> {{f.name}}
+				<p>{{f.comment}}</p>
 			</th>
-			<td class="text-center active">Limited</td>
-			<td class="text-center active"><i class="text-center fa fa-check fa-2x text-info"></i></td>
-			<td class="text-center info"><i class="fa fa-check fa-2x text-info"></i></td>
-		</tr>
-		<tr>
-			<th>Messages
-				<p>Get in touch with your customers</p>
-			</th>
-			<td class="text-center active">Limited</td>
-			<td class="text-center active"><i class="fa fa-check fa-2x text-info"></i></td>
-			<td class="text-center info"><i class="fa fa-check fa-2x text-info"></i></td>
-		</tr>
-		<tr>
-			<th>Photo Galleries
-				<p>Snow your current and past puppies</p>
-			</th>
-			<td class="text-center active"></td>
-			<td class="text-center active"><i class="fa fa-check fa-2x text-info"></i></td>
-			<td class="text-center info"><i class="fa fa-check fa-2x text-info"></i></td>
-		</tr>
-		<tr>
-			<th class="active"></th>
 			<td class="text-center active">
-				<button class="text-center btn btn-default btn-tryit">Try It</button>
+				<input type="number" ng-model="f.free">
 			</td>
 			<td class="text-center active">
-				<button class="text-center btn btn-default btn-tryit">Start Now</button>
+				<input type="number" ng-model="f.monthly">
 			</td>
-			<td class="text-center info">
-				<button class="btn btn-primary btn-tryit">Start Now</button>
+			<td class="text-center active">
+				<input type="number" ng-model="f.annually">
 			</td>
+			<td class="text-center active">
+				<button ng-click="removeFeature(key)">X</button>
+			</td>
+		</tr>
 
-		</tr>
+
 		</tbody>
 	</table>
 

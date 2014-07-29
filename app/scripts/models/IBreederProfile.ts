@@ -1,4 +1,28 @@
 /// <reference path="IUser.ts" />
+interface IFeature {
+    name:string;
+    comment:string;
+
+    free:number;
+    monthly:number;
+    annually:number;
+}
+
+class Feature implements IFeature {
+    name:string;
+    comment:string;
+    free:number;
+    monthly:number;
+    annually:number;
+
+    constructor() {
+        this.free = 0;
+        this.monthly = 0;
+        this.annually = 0;
+    }
+}
+
+
 interface IImage {
     isSized:boolean;
     fileName:string;
@@ -131,7 +155,7 @@ class BreederProfile implements IBreederProfile {
     constructor() {
 
         this.isBreeder = true;
-        
+
         this.FirstName = "";
         this.LastName = "";
         this.Website = "";
