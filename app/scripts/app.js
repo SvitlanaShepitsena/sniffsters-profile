@@ -72,7 +72,7 @@
 /// <reference path="directives/svLitter.ts" />
 /// <reference path="directives/svNewPlan.ts" />
 //#ref
-var profile = angular.module("profile", ['mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap.modal', 'ui.bootstrap.tpls', 'firebase']);
+var profile = angular.module("profile", ['mgcrea.ngStrap.modal', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'ui.bootstrap.modal', 'ui.bootstrap.modal', 'ui.bootstrap.tpls', 'firebase']);
 
 profile.filter('boolString', function () {
     return function (value) {

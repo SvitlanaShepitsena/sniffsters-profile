@@ -21,6 +21,11 @@ class UserManagementCtrl {
 
         $scope.showMessages = [];
 
+        $scope.modal = {
+            "title": "Title",
+            "content": "Hello Modal<br />This is a multiline message!",
+            show: true
+        };
 
         $scope.showMessageForm = (id) => {
             $timeout(()=> {

@@ -13,7 +13,7 @@ var subscriptionPlans:() => ng.IDirective = () => {
         replace: true,
         controller: ($scope) => {
             $scope.popover = {
-                "title": "Title",
+                "title": "Add New Subscription Plan",
                 "content": "Hello Popover<br />This is a multiline message!"
             };
         },
