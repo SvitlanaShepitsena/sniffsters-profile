@@ -1,0 +1,28 @@
+<div class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="$hide()">&times;</button>
+				<h3 class="modal-title">Manage Profile Picture</h3>
+			</div>
+			<div class="modal-body">
+				<sv-image-upload files=files
+				                 is-mult=false
+				                 btn-title="Upload Picture"
+				                 file-size="3000000"
+				                 fire-ref="avatar"
+				                 width="163"
+				                 height="163"
+				                 ok-modal="okModal(file64)"
+				                 close-modal="hide()"
+				                 show64="show64()"
+						>
+				</sv-image-upload>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
