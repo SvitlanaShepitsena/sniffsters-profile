@@ -193,10 +193,11 @@ profile.service("DataService", DataService);
 
 
 //////////////////////////////////
-// Values
+//=val
 //////////////////////////////////
 profile.value("toastr", toastr)
 profile.value("settings", {
+    deleteConfirm: 'Delete forever?',
     mainUrl: "https://torid-fire-6526.firebaseio.com/",
     messageSuccessNotice: 'Message has been sent'
 })

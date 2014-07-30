@@ -5,21 +5,35 @@ interface ISubscriptionPlans extends ng.IScope {
     test:string;
 }
 
-var subscriptionPlans:() => ng.IDirective = () => {
-
+var subscriptionPlans = (settings, $popover)  => {
     return{
         restrict: 'E',
         templateUrl: 'views/directives/subscription-plans.html',
+        scope: {
+            home: '=',
+            isAdmin: '='
+        },
         // replace directive tag with template info
         replace: true,
         controller: ($scope, toastr) => {
-            $scope.features = $scope.home.MainRefFire.$child('features');
-            $scope.feature = {};
-            $scope.popover = {
-                "title": "Add New Subscription Feature"
-            };
 
-            $scope.isAdmin = false;
+            $scope.home.auth.$getCurrentUser().then((user) => {
+                $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
+
+                    $scope.features = $scope.home.MainRefFire.$child('features');
+                    $scope.feature = {};
+                    $scope.popover = {
+                        "title": "Add New Subscription Feature"
+                    }
+
+                    $scope.popoverDelete = {
+                        "title": "Delete?",
+                        template: '../../views/modals/delete-confirmation.html'
+                    };
+
+
+                })
+            })
 
             $scope.addNewFeature = () => {
                 var newFeature = new Feature();
@@ -38,7 +52,10 @@ var subscriptionPlans:() => ng.IDirective = () => {
                 });
             };
         },
-        link: (scope:ISubscriptionPlans, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        link: (scope, element, attrs:ng.IAttributes) => {
+
+
         }
     }
 }
+
