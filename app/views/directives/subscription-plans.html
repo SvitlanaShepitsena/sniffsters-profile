@@ -6,20 +6,18 @@
 				        data-content="{{popover.content}}" data-template="../views/modals/new-feature.html"
 				        data-animation="am-flip-x" bs-popover>Add new Feauture
 				</button>
-
 			</th>
-			<th class="text-center active">
-				<span class="th-plans-table">
+			<th class="text-center active th-plans-table">
+				<span>
 					Free
 				</span>
 
-				<p class="">First 2 months</p>
+				<p class="p-plans-table">First 2 months</p>
 			</th>
 			<th class="text-center active th-plans-table">Monthly</th>
 			<th class="text-center info th-plans-table">Annually</th>
-			<th></th>
+			<th class="active"></th>
 		</tr>
-
 		<tbody>
 		<tr>
 			<th></th>
@@ -35,30 +33,95 @@
 
 				<p class="text-center text-warning">10% discount</p>
 			</td>
-			<td></td>
+			<td class="active"></td>
 		</tr>
-
-
 		<tr ng-repeat="(key,f) in features" class="shuffle-animation">
 			<th> {{f.name}}
 				<p>{{f.comment}}</p>
 			</th>
 			<td class="text-center active">
-				<input type="number" ng-model="f.free">
+				<input class="form-control" type="number" ng-model="f.free">
 			</td>
 			<td class="text-center active">
-				<input type="number" ng-model="f.monthly">
+				<input class="form-control" type="number" ng-model="f.monthly">
 			</td>
 			<td class="text-center active">
-				<input type="number" ng-model="f.annually">
+				<input class="form-control" type="number" ng-model="f.annually">
 			</td>
 			<td class="text-center active">
-				<button ng-click="removeFeature(key)">X</button>
+				<button class="btn btn-link" ng-click="removeFeature(key)"><i class="fa fa-trash-o"></i>
+				</button>
 			</td>
 		</tr>
-
-
 		</tbody>
 	</table>
 
+	<div class="form-group text-right">
+		<button class="btn btn-primary" ng-click="savePlans()">Save</button>
+	</div>
+	<hr/>
+
+	<table class="table table-for-breeders">
+		<tr>
+			<th class="plans-cell text-center active">
+				<h3>Compare Plans</h3>
+			</th>
+			<th class="text-center active th-plans-table">
+				<span>
+					Free
+				</span>
+
+				<p class="p-plans-table">First 2 months</p>
+			</th>
+			<th class="text-center active th-plans-table">Monthly</th>
+
+			<th class="text-center info th-plans-table">Annually</th>
+		</tr>
+		<tr>
+			<th></th>
+			<td class="text-center active">
+				<button class="text-center btn btn-default btn-tryit">Try It</button>
+			</td>
+			<td class="text-center active">
+				<button class="text-center btn btn-default btn-tryit">Start Now</button>
+			</td>
+			<td class="text-center info">
+				<button class="btn btn-primary btn-tryit">Start Now</button>
+			</td>
+		</tr>
+		<tbody>
+		<tr>
+			<th></th>
+			<td class="active"></td>
+			<td class="text-center text-center active">
+				<strong>US$19.99/MO
+				</strong>
+			</td>
+			<td class="text-center info">
+				<strong>
+					US$225.99*
+				</strong>
+
+				<p class="text-center text-warning">10% discount</p>
+			</td>
+		</tr>
+		<tr ng-repeat="(key,f) in features" class="shuffle-animation">
+			<th> {{f.name}}
+				<p>{{f.comment}}</p>
+			</th>
+			<td class="text-center active">
+				<span ng-show="f.free">Limited</span>
+				<i ng-hide="f.free" class="text-center fa fa-check fa-2x text-info"></i>
+			</td>
+			<td class="text-center active">
+				<span ng-show="f.monthly">Limited{{f.free}}</span>
+				<i ng-hide="f.monthly" class="text-center fa fa-check fa-2x text-info"></i>
+			</td>
+			<td class="text-center active">
+				<span ng-show="f.annually">Limited</span>
+				<i ng-hide="f.annually" class="text-center fa fa-check fa-2x text-info"></i>
+			</td>
+		</tr>
+		</tbody>
+	</table>
 </div>

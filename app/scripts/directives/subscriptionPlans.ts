@@ -12,7 +12,7 @@ var subscriptionPlans:() => ng.IDirective = () => {
         templateUrl: 'views/directives/subscription-plans.html',
         // replace directive tag with template info
         replace: true,
-        controller: ($scope) => {
+        controller: ($scope, toastr) => {
             $scope.features = $scope.home.MainRefFire.$child('features');
 
 
@@ -31,6 +31,11 @@ var subscriptionPlans:() => ng.IDirective = () => {
 
                 $scope.features.$remove(key);
             }
+            $scope.savePlans = () => {
+                $scope.features.$save().then(() => {
+                    toastr.success('success');
+                });
+            };
         },
         link: (scope:ISubscriptionPlans, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 
