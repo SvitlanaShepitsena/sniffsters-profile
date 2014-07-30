@@ -28,22 +28,14 @@
 			<button class="btn btn-primary uploadCoverBtn"
 			        data-animation="am-fade-and-scale"
 			        data-placement="center"
-			        data-template="../views/modals/profile-picture.html"
+			        data-template="../views/modals/cover-picture.html"
 			        ng-show="showChangeCoverBtn"
-			        ng-click="changeCoverPic()"
 			        bs-modal="modal">
-			<i class="fa fa-camera fa-fw"></i>
-				Change Picture
+				<i class="fa fa-camera fa-fw"></i>
+				Change Cover
 			</button>
 		</div>
-		<!--		<div ng-show="home.isOwner">
-					<button class="btn btn-primary uploadCoverBtn"
-							ng-show="showChangeCoverBtn"
-							ng-click="changeCoverPic()">
-						<i class="fa fa-camera fa-fw"></i>
-						Change Picture
-					</button>
-				</div>-->
+
 		<img class="img-responsive"
 		     ng-show="isCoverChanged==true"
 		     ng-src="{{coversrc}}"/>
@@ -60,8 +52,8 @@
 		<div ng-show="home.isOwner">
 			<button class="btn btn-primary btnEditMainPic"
 			        ng-show="showChangeBtn"
-			        ng-click="changePicture()">
-				<i class="fa fa-camera fa-fw"></i>
+			        ng-click="showProfile()">
+			<i class="fa fa-camera fa-fw"></i>
 				Change Picture
 			</button>
 		</div>

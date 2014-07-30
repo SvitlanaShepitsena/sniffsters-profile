@@ -11,8 +11,20 @@ var cover:() => ng.IDirective = () => {
         replace: true,
         controller: ($scope, $firebase, $filter, $modal) => {
 
+            $scope.profileModal = $modal({
+                scope: $scope,
+                template: '../views/modals/profile-picture.html',
+                animation: 'am-fade-and-scale',
+                placement: 'center',
+                show: false
+            });
+
+            $scope.showProfile = () => {
+                $scope.profileModal.$promise.then($scope.profileModal.show);
+            }
+
             $scope.showChangeBtn = false;
-            // $scope.files = [];
+            $scope.files = [];
 
             $scope.chgBtnShown = () => {
                 $scope.showChangeBtn = true;
@@ -59,100 +71,6 @@ var cover:() => ng.IDirective = () => {
                         $scope.coversrc = _.values(snapshot.snapshot.value)[0];
                     });
 
-                    $scope.changePicture = () => {
-                        $scope.modal = {
-                            show: true,
-                            controller: ($scope, $modal, avatar) => {
-                                $scope.avatar = avatar;
-                                $scope.files = [];
-                                $scope.hide = () => {
-                                    $modal.dismiss('cancel');
-                                }
-                                $scope.okModal = (file64) => {
-                                    $modal.close(file64);
-                                }
-                            },
-                            resolve: {
-                                avatar: () => {
-                                    return $scope.avatar;
-                                }
-                            }
-                        };
-//                        var modalInstance = $modal.open({
-//                            template: '<div class="row">' +
-//                                '<div class="col-xs-12 avatarModel">' +
-//                                '<sv-image-upload ' +
-//                                ' files=files' +
-//                                ' is-mult=false' +
-//                                ' fire-ref="avatar"' +
-//                                ' file-size="3000000"' +
-//                                ' width=163' +
-//                                ' height=163' +
-//                                ' btn-title="Upload Picture"' +
-//                                ' close-modal="hide()"' +
-//                                ' ok-modal="okModal(file64)"' +
-//                                ' show64="show64()"' +
-//                                '></sv-image-upload><p> <button class="btn btn-default pull-right" ng-click="hide()">Cancel</button> </p></div></div>',
-//                            controller: ($scope, $modalInstance, avatar) => {
-//                                $scope.avatar = avatar;
-//                                $scope.files = [];
-//                                $scope.hide = () => {
-//                                    $modalInstance.dismiss('cancel');
-//                                }
-//                                $scope.okModal = (file64) => {
-//                                    console.log(file64);
-//                                    $modalInstance.close(file64);
-//                                }
-//                            },
-//                            size: 'md',
-//                            resolve: {
-//                                avatar: function () {
-//                                    return $scope.avatar;
-//                                }
-//                            }
-//                        });
-                    };
-
-                    $scope.changeCoverPic = () => {
-
-                        var modalCoverInstance = $modal.open({
-                            template: '<div class="row">' +
-                                '<div class="col-xs-12 avatarModel">' +
-                                '<sv-image-upload ' +
-
-                                ' is-mult=false' +
-                                ' files=files' +
-                                ' file-size="3000000"' +
-                                ' fire-ref="cover"' +
-                                ' file-size="3000000"' +
-                                ' width=1000' +
-                                ' height=347' +
-                                ' btn-title="Upload Picture"' +
-                                ' close-modal="hide()"' +
-                                ' ok-modal="okModal(file64)"' +
-                                ' show64="show64()"' +
-
-                                '></sv-image-upload><p> <button class="btn btn-default pull-right" ng-click="hide()">Cancel</button> </p></div></div>',
-
-                            controller: ($scope, $modalInstance, cover) => {
-                                $scope.cover = cover;
-                                $scope.files = [];
-                                $scope.hide = () => {
-                                    $modal.dismiss('cancel');
-                                }
-                                $scope.okModal = (file64) => {
-                                    $modal.close(file64);
-                                }
-                            },
-                            size: 'lg',
-
-                            resolve: {
-                                cover: function () {
-                                    return $scope.cover;
-                                }
-                            }
-                        });
-                    };
                 })
             })
         }

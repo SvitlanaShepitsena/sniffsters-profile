@@ -47,6 +47,7 @@ var svImage = ($compile, $document) => {
                 $scope.fireRef.$add($scope.i.file64).then(() => {
                     $scope.closeModal();
                 });
+                $scope.closeModal();
 //                var arrKeys = _.keys($scope.fireRef);
 
 //                if (arrKeys.length == 0) {

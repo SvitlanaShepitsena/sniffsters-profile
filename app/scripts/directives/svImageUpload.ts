@@ -25,7 +25,10 @@ var svImageUpload:() => ng.IDirective = () => {
             width: '='
         },
         controller($scope) {
-//            $scope.files = [];
+            if (!$scope.isMult) {
+                $scope.files = [];
+
+            }
             $scope.show64();
 
             $scope.onFileSelect = ($files, index?:number) => {

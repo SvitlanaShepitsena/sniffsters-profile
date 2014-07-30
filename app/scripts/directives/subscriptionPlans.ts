@@ -14,12 +14,13 @@ var subscriptionPlans:() => ng.IDirective = () => {
         replace: true,
         controller: ($scope, toastr) => {
             $scope.features = $scope.home.MainRefFire.$child('features');
-
-
             $scope.feature = {};
             $scope.popover = {
                 "title": "Add New Subscription Feature"
             };
+
+            $scope.isAdmin = false;
+
             $scope.addNewFeature = () => {
                 var newFeature = new Feature();
                 newFeature.name = $scope.feature.name;
@@ -38,7 +39,6 @@ var subscriptionPlans:() => ng.IDirective = () => {
             };
         },
         link: (scope:ISubscriptionPlans, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
         }
     }
 }
