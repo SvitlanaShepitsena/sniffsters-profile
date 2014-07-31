@@ -55,9 +55,9 @@ class PuppiesCtrl {
                 litter.Photos.forEach((photo)=> {
                     this.$scope.litters.$child(key.name()).$child('Photos').$add(_.omit(photo, 'isSized'));
                 })
-                this.LittersNew.splice(index, 1);
             });
         });
+        this.LittersNew = [];
     }
 
     cancelLitters() {

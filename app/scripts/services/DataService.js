@@ -13,6 +13,7 @@ var DataService = (function () {
         this.url = settings.mainUrl;
         this.urlLooker = this.url + "lookers/";
     }
+
     // =Messages
     DataService.prototype.sendReply = function (userName, corrUserName, reply) {
         userName = this.FireProcess(userName);
@@ -405,35 +406,6 @@ var DataService = (function () {
         var d = this.$q.defer();
         var fireLitters = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/litters"));
         var keys = fireLitters.$getIndex();
-        return d.promise;
-    };
-
-    DataService.prototype.deleteLitterPhoto = function (galleryId, photoId) {
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/DeleteLitterPhoto', { deletePhoto: {
-                GalleryId: galleryId,
-                PhotoId: photoId
-            } }).success(function () {
-            d.resolve();
-        }).error(function () {
-            d.reject();
-        });
-        return d.promise;
-    };
-
-    DataService.prototype.updateCaption = function (galleryId, photoId, caption) {
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/UpdateCaption', { photoCaption: {
-                GalleryId: galleryId,
-                PhotoId: photoId,
-                Caption: caption
-            } }).success(function () {
-            d.resolve();
-        }).error(function () {
-            d.reject();
-        });
         return d.promise;
     };
 

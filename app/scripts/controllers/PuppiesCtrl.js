@@ -46,9 +46,9 @@ var PuppiesCtrl = (function () {
                 litter.Photos.forEach(function (photo) {
                     _this.$scope.litters.$child(key.name()).$child('Photos').$add(_.omit(photo, 'isSized'));
                 });
-                _this.LittersNew.splice(index, 1);
             });
         });
+        this.LittersNew = [];
     };
 
     PuppiesCtrl.prototype.cancelLitters = function () {
