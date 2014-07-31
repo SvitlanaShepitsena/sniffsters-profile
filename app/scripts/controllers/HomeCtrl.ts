@@ -151,7 +151,6 @@ class HomeCtrl {
 
     Register(email:string, pass:string, confpass:string, isBreeder:boolean) {
 
-
         if (pass.length < 5) {
             this.ShowError("Password should be not less than 5 symbols");
             return;
@@ -161,7 +160,6 @@ class HomeCtrl {
             this.ShowError("Passwords do not match");
             return;
         }
-
         this.auth.$createUser(email, pass).then(() => {
             // User is created
 //            var userGenerator:IUserGenerator;

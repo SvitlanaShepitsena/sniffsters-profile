@@ -141,7 +141,6 @@ var GenerateCtrl = (function () {
         $scope.breeders.$save();
         this.CreateLookers();
     }
-
     GenerateCtrl.prototype.CreateLookers = function () {
         var _this = this;
         this.$scope.generate = this;
@@ -299,6 +298,7 @@ var GenerateCtrl = (function () {
         breeder1.Girls = "2 puppies";
         breeder1.AddInfo = "Add Info about dogs";
         breeder1.City = "Chicago";
+        breeder1.Location = "Chicago,IL";
         breeder1.Zip = "60630";
         breeder1.State = "IL";
         breeder1.Certifications = ["Cenrtification 1"];

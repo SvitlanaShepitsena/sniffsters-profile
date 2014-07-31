@@ -12,7 +12,25 @@ var aboutInfoEdit:() => ng.IDirective = () => {
             ctrl: '=',
             isOwner: '=',
             text: '@',
-            func: '&'
+            func: '&',
+            home: '='
+        },
+        controller($scope, $stateParams, $firebase, $modal) {
+            var id = $stateParams.id;
+            $scope.newBreed = {};
+
+            $scope.addNewBreed = (breedName:string)=> {
+                $scope.breeds.$add(breedName);
+                $scope.newBreed = {};
+            }
+            $scope.popoverDelete = {
+                "title": "Delete?",
+                template: '../../views/modals/delete-confirmation.html'
+            };
+            $scope.remove = (key:string)=> {
+                $scope.breeds.$remove(key);
+            }
+            $scope.breeds = $firebase(new Firebase($scope.home.MainUrl + "/breeders/" + id + '/profile/breeds'));
         },
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )

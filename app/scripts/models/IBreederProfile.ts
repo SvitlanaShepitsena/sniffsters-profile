@@ -72,6 +72,7 @@ interface IBreederProfile extends IUser {
     Zip:string;
     State:string;
     Certifications:string[];
+    Breeds:string[];
     VetServices:boolean;
     Insurances:string[];
     Shipping:boolean;
@@ -140,6 +141,7 @@ class Gallery implements IGallery {
 
 }
 class BreederProfile implements IBreederProfile {
+    Breeds:string[];
     isBreeder:boolean;
     City:string;
     Zip:string;
@@ -190,7 +192,7 @@ class BreederProfile implements IBreederProfile {
 
         this.IsShowEmail = true;
         this.IsShowPhoneNumber = true;
-
+        this.Breeds = [];
 
     }
 }

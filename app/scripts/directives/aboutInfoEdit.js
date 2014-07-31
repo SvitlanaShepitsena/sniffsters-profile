@@ -10,7 +10,25 @@ var aboutInfoEdit = function () {
             ctrl: '=',
             isOwner: '=',
             text: '@',
-            func: '&'
+            func: '&',
+            home: '='
+        },
+        controller: function ($scope, $stateParams, $firebase, $modal) {
+            var id = $stateParams.id;
+            $scope.newBreed = {};
+
+            $scope.addNewBreed = function (breedName) {
+                $scope.breeds.$add(breedName);
+                $scope.newBreed = {};
+            };
+            $scope.popoverDelete = {
+                "title": "Delete?",
+                template: '../../views/modals/delete-confirmation.html'
+            };
+            $scope.remove = function (key) {
+                $scope.breeds.$remove(key);
+            };
+            $scope.breeds = $firebase(new Firebase($scope.home.MainUrl + "/breeders/" + id + '/profile/breeds'));
         },
         link: function (scope, element, attrs) {
             //            SCOPE (USE just {{test}} . )

@@ -316,6 +316,7 @@ class GenerateCtrl {
         breeder1.Girls = "2 puppies";
         breeder1.AddInfo = "Add Info about dogs";
         breeder1.City = "Chicago";
+        breeder1.Location = "Chicago,IL";
         breeder1.Zip = "60630";
         breeder1.State = "IL";
         breeder1.Certifications = ["Cenrtification 1"];
