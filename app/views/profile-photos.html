@@ -14,20 +14,22 @@
 	</div>
 	<div sv-slider h="1200">
 		<div class="current-galleeries">
-			<h3 ng-show="addGallTemplate">New Galleries</h3>
-			<ul class="list-unstyled">
-				<li ng-repeat="g in newGalleries">
-					<input class="form-control gal-title " type="text"
-					       ng-model="g.Title"
-					       placeholder="gallery title"/>
-					<sv-image-upload
-							files="g.Photos"
-							is-mult="true"
-							file-size="3000000"
-							btn-title="Upload Pictures">
-					</sv-image-upload>
-				</li>
-			</ul>
+			<div ng-show="newGalleries.length">
+				<h3 ng-show="addGallTemplate">New Galleries</h3>
+				<ul class="list-unstyled">
+					<li ng-repeat="g in newGalleries">
+						<input class="form-control gal-title " type="text"
+						       ng-model="g.Title"
+						       placeholder="gallery title"/>
+						<sv-image-upload
+								files="g.Photos"
+								is-mult="true"
+								file-size="3000000"
+								btn-title="Upload Pictures">
+						</sv-image-upload>
+					</li>
+				</ul>
+			</div>
 			<h3 class="sniff-head-info">Current Galleries</h3>
 			<hr/>
 			<ul class="list-unstyled row">
@@ -36,7 +38,7 @@
 				    ng-repeat="(id,g) in galleries">
 					<a class="thumbnail text-center"
 					   ui-sref="user.profile.photos2.galleries({id:id})">
-					<h4>{{g.Title}}</h4>
+						<h4>{{g.Title}}</h4>
 
 						<div class="img-thumb-container">
 							<img class="img-thumb"

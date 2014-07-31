@@ -15,8 +15,11 @@
 		</button>
 		<button class="btn btn-del"
 		        data-toggle="tooltip" data-placement="left" title="Delete this gallery"
-		        ng-click="delGallery()">
-			<i class="fa fa-trash-o"></i>
+		        data-content="{{popover.content}}"
+		        data-template="../views/modals/delete-confirmation.html"
+		        data-animation="am-flip-x"
+		        bs-popover="popoverDelete">
+		<i class="fa fa-trash-o"></i>
 		</button>
 
 	</div>

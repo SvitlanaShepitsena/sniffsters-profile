@@ -74,11 +74,15 @@
 
 			<div class="row">
 				<ul class="list-unstyled ">
-					<li class="col-xs-12 shuffle-animation" ng-repeat="(id,p) in litter.Photos">
+					<li class="col-xs-12 shuffle-animation" ng-repeat="(key,p) in litter.Photos">
 						<button class="btn pull-right btn-del-pic"
 						        data-toggle="tooltip" data-placement="left" title="Delete this photo."
-						        ng-click="deleteLitterPhoto(id)">
-							<i class="fa fa-trash-o"></i>
+						        title="{{popoverDelete.title}}"
+						        data-content="{{popover.content}}"
+						        data-template="../views/modals/delete-confirmation.html"
+						        data-animation="am-flip-x"
+						        bs-popover="popoverDelete">
+						<i class="fa fa-trash-o"></i>
 						</button>
 						<div class="thumbnail">
 							<img class="puppyPic"

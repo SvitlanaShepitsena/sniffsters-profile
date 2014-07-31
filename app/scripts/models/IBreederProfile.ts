@@ -204,8 +204,6 @@ interface ILitter {
     Colors:string;
     Photos:any[];
     isTemp:boolean
-
-
 }
 
 class Litter implements ILitter {

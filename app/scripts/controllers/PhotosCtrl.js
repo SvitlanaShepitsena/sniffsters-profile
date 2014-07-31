@@ -55,6 +55,7 @@ var PhotosCtrl = (function () {
             photos.$save();
         };
     }
+
     PhotosCtrl.prototype.saveNewGalleries = function () {
         var _this = this;
         this.$scope.newGalleries.forEach(function (gallery, index) {
@@ -66,9 +67,9 @@ var PhotosCtrl = (function () {
                 gallery.Photos.forEach(function (photo) {
                     _this.$scope.galleries.$child(key.name()).$child('Photos').$add(_.omit(photo, 'isSized'));
                 });
-                _this.$scope.newGalleries.splice(index, 1);
             });
         });
+        this.$scope.newGalleries = [];
     };
 
     PhotosCtrl.prototype.cancelGalleries = function () {

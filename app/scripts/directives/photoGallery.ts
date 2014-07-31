@@ -21,29 +21,10 @@ var photoGallery:(data) => ng.IDirective = () => {
                 })
             })
 
-            $scope.delGallery = () => {
-                var modalInstance = $modal.open({
-                    template: "<div><div class=\"modal-body\"> Delete this gallery?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
-                    size: 'sm',
-                    controller: ($scope, $modalInstance) => {
-                        $scope.ok = () => {
-                            $modalInstance.close(true)
-                        }
-                        $scope.cancel = () => {
-                            $modalInstance.close(false)
-                        }
-                    }
-
+            $scope.remove = (key) => {
+                $scope.gallery.$remove(key).then(() => {
+                    $state.go('^');
                 });
-                modalInstance.result.then((confirmation:boolean) => {
-                    if (confirmation) {
-                        $scope.gallery.$remove().then(() => {
-                            $state.go('^');
-                        })
-
-                    }
-                })
-
             }
         },
         link: (scope:IPhotoGallery, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {

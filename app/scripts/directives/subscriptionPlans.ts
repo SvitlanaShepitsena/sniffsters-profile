@@ -40,7 +40,9 @@ var subscriptionPlans = (settings, $popover)  => {
                 $scope.features.$add(newFeature);
             }
             $scope.remove = (key) => {
+                $scope.features.$remove(key);
             }
+
             $scope.savePlans = () => {
                 $scope.features.$save().then(() => {
                     $scope.plans.$save().then(

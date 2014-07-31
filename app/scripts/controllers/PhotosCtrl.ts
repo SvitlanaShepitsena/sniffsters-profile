@@ -69,9 +69,9 @@ class PhotosCtrl {
                 gallery.Photos.forEach((photo)=> {
                     this.$scope.galleries.$child(key.name()).$child('Photos').$add(_.omit(photo, 'isSized'));
                 })
-                this.$scope.newGalleries.splice(index, 1);
             });
         })
+        this.$scope.newGalleries = [];
     }
 
     cancelGalleries() {
