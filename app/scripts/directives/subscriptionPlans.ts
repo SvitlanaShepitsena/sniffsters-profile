@@ -20,7 +20,9 @@ var subscriptionPlans = (settings, $popover)  => {
             $scope.home.auth.$getCurrentUser().then((user) => {
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
 
-                    $scope.features = $scope.home.MainRefFire.$child('features');
+                    $scope.features = $scope.home.MainRefFire.$child('subscriptions').$child('features');
+                    $scope.plans = $scope.home.MainRefFire.$child('subscriptions').$child('plans');
+
                     $scope.feature = {};
                     $scope.popover = {
                         "title": "Add New Subscription Feature"

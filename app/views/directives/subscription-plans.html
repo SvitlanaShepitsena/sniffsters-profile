@@ -8,14 +8,18 @@
 				</button>
 			</th>
 			<th class="text-center active th-plans-table">
-				<input class="form-control" type="number" placeholder="Plan Name" ng-model="f.free">
-				<input class="form-control" type="number" placeholder="Time" ng-model="f.free">
+				<input class="form-control" type="text" placeholder="Plan Name"
+				       ng-model="(plans|orderByPriority)[0].name">
+				<input class="form-control" type="text" placeholder="Comment" ng-model="f.free"
+				       ng-model="(plans|orderByPriority)[0].comment">
 			</th>
 			<th class="text-center active th-plans-table">
 				<input class="form-control" type="number" placeholder="Plan Name" ng-model="f.free">
+				<input class="form-control" type="text" placeholder="Comment" ng-model="f.free">
 			</th>
 			<th class="text-center info th-plans-table">
 				<input class="form-control" type="number" placeholder="Plan Name" ng-model="f.free">
+				<input class="form-control" type="text" placeholder="Comment" ng-model="f.free">
 			</th>
 			<th class="active"></th>
 		</tr>
@@ -61,8 +65,8 @@
 	<hr/>
 
 	<table class="table table-for-breeders">
-	<tr>
-			<th class="plans-cell text-center active">
+		<tr>
+		<th class="plans-cell text-center active">
 				<h3>Compare Plans</h3>
 			</th>
 			<th class="text-center active th-plans-table">

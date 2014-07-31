@@ -11,6 +11,26 @@ var GenerateCtrl = (function () {
         this.DataService = DataService;
         $scope.generate = this;
 
+        var plan1 = new Plan();
+        plan1.name = 'Free';
+        plan1.comment = 'First 2 months';
+
+        var plan2 = new Plan();
+        plan2.name = 'Monthly';
+        plan2.price = 19.99;
+
+        var plan3 = new Plan();
+        plan3.name = 'Annually';
+        plan3.price = 225.99;
+        plan3.discount = 10;
+
+        $scope.plans = $scope.home.MainRefFire.$child('subscriptions').$child('plans');
+        $scope.plans.$remove();
+
+        $scope.plans.$add(plan1);
+        $scope.plans.$add(plan2);
+        $scope.plans.$add(plan3);
+
         $scope.breeders = $firebase(new Firebase($scope.home.MainUrl + "/breeders"));
 
         var breeders = this.GenerateBreeders();
@@ -121,6 +141,7 @@ var GenerateCtrl = (function () {
         $scope.breeders.$save();
         this.CreateLookers();
     }
+
     GenerateCtrl.prototype.CreateLookers = function () {
         var _this = this;
         this.$scope.generate = this;
