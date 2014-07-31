@@ -22,6 +22,18 @@ class Feature implements IFeature {
     }
 }
 
+interface IPlan {
+    name:string;
+    comment:string;
+    price:number;
+    discount:number;
+}
+class Plan implements IPlan {
+    name:string;
+    comment:string;
+    price:number;
+    discount:number;
+}
 
 interface IImage {
     isSized:boolean;

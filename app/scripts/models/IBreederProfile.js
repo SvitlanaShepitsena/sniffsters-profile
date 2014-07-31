@@ -6,7 +6,15 @@ var Feature = (function () {
         this.monthly = 0;
         this.annually = 0;
     }
+
     return Feature;
+})();
+
+var Plan = (function () {
+    function Plan() {
+    }
+
+    return Plan;
 })();
 
 var SImage = (function () {
@@ -18,30 +26,35 @@ var SImage = (function () {
         }
         this.caption = fileName.split('.')[0] + ' image';
     }
+
     return SImage;
 })();
 
 var Note = (function () {
     function Note() {
     }
+
     return Note;
 })();
 
 var Message = (function () {
     function Message() {
     }
+
     return Message;
 })();
 
 var Feedback = (function () {
     function Feedback() {
     }
+
     return Feedback;
 })();
 
 var Photo = (function () {
     function Photo() {
     }
+
     return Photo;
 })();
 
@@ -49,6 +62,7 @@ var Gallery = (function () {
     function Gallery() {
         this.Photos = [];
     }
+
     return Gallery;
 })();
 var BreederProfile = (function () {
@@ -77,6 +91,7 @@ var BreederProfile = (function () {
         this.IsShowEmail = true;
         this.IsShowPhoneNumber = true;
     }
+
     return BreederProfile;
 })();
 
@@ -84,5 +99,6 @@ var Litter = (function () {
     function Litter() {
         this.Photos = [];
     }
+
     return Litter;
 })();
