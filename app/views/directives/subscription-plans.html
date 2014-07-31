@@ -1,4 +1,6 @@
 <div>
+	<h3 class="">Subscription Plans</h3>
+	<hr/>
 	<table class="table table-for-breeders" ng-show="isAdmin">
 		<tr>
 			<th class="th-plans-table text-center active">
@@ -55,9 +57,13 @@
 			<input class="form-control" type="number" ng-model="f.annually">
 			</td>
 			<td class="text-center active">
-				<button type="button" class="btn btn-link" title="{{popoverDelete.title}}"
-				        data-content="{{popover.content}}" data-template="../views/modals/delete-confirmation.html"
-				        data-animation="am-flip-x" bs-popover="popoverDelete"><i class="fa fa-trash-o"></i>
+				<button type="button" class="btn btn-link"
+				        title="{{popoverDelete.title}}"
+				        data-content="{{popover.content}}"
+				        data-template="../views/modals/delete-confirmation.html"
+				        data-animation="am-flip-x"
+				        bs-popover="popoverDelete">
+					<i class="fa fa-trash-o"></i>
 				</button>
 			</td>
 		</tr>

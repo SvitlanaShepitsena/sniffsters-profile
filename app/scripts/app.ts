@@ -71,7 +71,7 @@
 /// <reference path="directives/svLitter.ts" />
 //#ref
 
-var profile = angular.module("profile", ['mgcrea.ngStrap.modal', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
+var profile = angular.module("profile", ['mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
 
 profile.filter('boolString', () => {
     return (value:boolean):string => {

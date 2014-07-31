@@ -24,7 +24,7 @@ var PuppiesCtrl = (function () {
         $scope.$watch("puppies.LittersNew", function () {
             for (var i = 0; i < _this.LittersNew.length; i++) {
                 var litter = _this.LittersNew[i];
-                if (!(typeof (litter.Title) != 'undefined' && litter.Title.length < 250 && typeof (litter.Puppies) != 'undefined' && litter.Puppies.length < 250 && typeof (litter.DateOfBirth) != 'undefined' && typeof (litter.Colors) != 'undefined' && litter.Colors.length < 250)) {
+                if (!(typeof (litter.Title) != 'undefined' && litter.Title.length < 250 && typeof (litter.Puppies) != 'undefined' && litter.Puppies.length < 250 && typeof (litter.Colors) != 'undefined' && litter.Colors.length < 250)) {
                     _this.$scope.isOk = true;
                     break;
                 } else {
@@ -33,6 +33,7 @@ var PuppiesCtrl = (function () {
             }
         }, true);
     }
+
     PuppiesCtrl.prototype.addNewLitter = function () {
         this.LittersNew.unshift(new Litter());
     };

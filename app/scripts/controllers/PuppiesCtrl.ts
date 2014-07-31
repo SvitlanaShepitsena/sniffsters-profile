@@ -32,7 +32,6 @@ class PuppiesCtrl {
                 if (!(
                     typeof(litter.Title) != 'undefined' && litter.Title.length < 250
                     && typeof(litter.Puppies) != 'undefined' && litter.Puppies.length < 250
-                    && typeof(litter.DateOfBirth) != 'undefined'
                     && typeof(litter.Colors) != 'undefined' && litter.Colors.length < 250
                     )) {
                     this.$scope.isOk = true;

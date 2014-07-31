@@ -9,9 +9,13 @@
 			<i class="fa fa-pencil"></i>
 		</button>
 		<button class="btn btn-del"
-		        ng-click="deleteLitter()"><i
-				data-toggle="tooltip" data-placement="left" title="Delete this litter"
-				class="fa fa-trash-o light-gray"></i>
+		        title="{{popoverDelete.title}}"
+		        data-content="{{popover.content}}"
+		        data-template="../views/modals/delete-confirmation.html"
+		        data-animation="am-flip-x"
+				>
+			<i data-toggle="tooltip" data-placement="left" title="Delete this litter"
+			   class="fa fa-trash-o light-gray"></i>
 		</button>
 	</div>
 	<div class="well" sv-slider h="1200">

@@ -16,27 +16,28 @@ var litterNew:() => ng.IDirective = () => {
             l: '='
         },
         controller: ($scope, $firebase, $q, DataService:DataService, $modal, $upload)=> {
-//            $scope.files = [];
-
-            $scope.today = function () {
-                $scope.dt = new Date();
-            };
-            $scope.today();
-
-            $scope.clear = function () {
-                $scope.dt = null;
-            };
+            $scope.files = [];
 
 
-            $scope.open = function ($event) {
-                $event.preventDefault();
-                $event.stopPropagation();
-
-                $scope.opened = true;
-            };
-            $scope.initDate = new Date();
-            $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-            $scope.format = $scope.formats[2];
+//            $scope.today = function () {
+//                $scope.dt = new Date();
+//            };
+//            $scope.today();
+//
+//            $scope.clear = function () {
+//                $scope.dt = null;
+//            };
+//
+//
+//            $scope.open = function ($event) {
+//                $event.preventDefault();
+//                $event.stopPropagation();
+//
+//                $scope.opened = true;
+//            };
+//            $scope.initDate = new Date();
+//            $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+//            $scope.format = $scope.formats[2];
         },
         link: (scope:ILitterNew, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
         }
