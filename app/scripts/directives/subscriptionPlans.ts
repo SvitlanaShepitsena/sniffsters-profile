@@ -13,13 +13,11 @@ var subscriptionPlans = (settings, $popover)  => {
             home: '=',
             isAdmin: '='
         },
-        // replace directive tag with template info
         replace: true,
         controller: ($scope, toastr) => {
 
             $scope.home.auth.$getCurrentUser().then((user) => {
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
-
                     $scope.features = $scope.home.MainRefFire.$child('subscriptions').$child('features');
                     $scope.plans = $scope.home.MainRefFire.$child('subscriptions').$child('plans');
 
@@ -27,13 +25,10 @@ var subscriptionPlans = (settings, $popover)  => {
                     $scope.popover = {
                         "title": "Add New Subscription Feature"
                     }
-
                     $scope.popoverDelete = {
                         "title": "Delete?",
                         template: '../../views/modals/delete-confirmation.html'
                     };
-
-
                 })
             })
 
@@ -50,13 +45,14 @@ var subscriptionPlans = (settings, $popover)  => {
             }
             $scope.savePlans = () => {
                 $scope.features.$save().then(() => {
-                    toastr.success('success');
+                    $scope.plans.$save().then(
+                        () => {
+                            toastr.success('success');
+                        })
                 });
             };
         },
         link: (scope, element, attrs:ng.IAttributes) => {
-
-
         }
     }
 }

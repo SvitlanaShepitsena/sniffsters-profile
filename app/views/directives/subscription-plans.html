@@ -10,16 +10,18 @@
 			<th class="text-center active th-plans-table">
 				<input class="form-control" type="text" placeholder="Plan Name"
 				       ng-model="(plans|orderByPriority)[0].name">
-				<input class="form-control" type="text" placeholder="Comment" ng-model="f.free"
+				<input class="form-control" type="text" placeholder="Comment"
 				       ng-model="(plans|orderByPriority)[0].comment">
 			</th>
 			<th class="text-center active th-plans-table">
-				<input class="form-control" type="number" placeholder="Plan Name" ng-model="f.free">
-				<input class="form-control" type="text" placeholder="Comment" ng-model="f.free">
+				<input class="form-control" type="text" placeholder="Plan Name"
+				       ng-model="(plans|orderByPriority)[1].name">
+				<!--<input class="form-control" type="text" placeholder="Comment" ng-model="(plans|orderByPriority)[1].comment">-->
 			</th>
 			<th class="text-center info th-plans-table">
-				<input class="form-control" type="number" placeholder="Plan Name" ng-model="f.free">
-				<input class="form-control" type="text" placeholder="Comment" ng-model="f.free">
+				<input class="form-control" type="text" placeholder="Plan Name"
+				       ng-model="(plans|orderByPriority)[2].name">
+				<!--<input class="form-control" type="text" placeholder="Comment" ng-model="(plans|orderByPriority)[2].comment">-->
 			</th>
 			<th class="active"></th>
 		</tr>
@@ -28,11 +30,14 @@
 			<th></th>
 			<td class="active"></td>
 			<td class="text-center text-center active">
-				<input class="form-control" type="number" placeholder="Price" ng-model="f.free">
+				<input class="form-control" type="number" placeholder="Price"
+				       ng-model="(plans|orderByPriority)[1].price">
 			</td>
 			<td class="text-center info">
-				<input class="form-control" type="number" placeholder="Price" ng-model="f.free">
-				<input class="form-control" type="number" placeholder="Discount" ng-model="f.free">
+				<input class="form-control" type="number" placeholder="Price"
+				       ng-model="(plans|orderByPriority)[2].price">
+				<input class="form-control" type="number" placeholder="Discount"
+				       ng-model="(plans|orderByPriority)[2].discount">
 			</td>
 			<td class="active"></td>
 		</tr>
@@ -46,8 +51,8 @@
 			<td class="text-center active">
 				<input class="form-control" type="number" ng-model="f.monthly">
 			</td>
-			<td class="text-center active">
-				<input class="form-control" type="number" ng-model="f.annually">
+			<td class="text-center info">
+			<input class="form-control" type="number" ng-model="f.annually">
 			</td>
 			<td class="text-center active">
 				<button type="button" class="btn btn-link" title="{{popoverDelete.title}}"
@@ -66,19 +71,25 @@
 
 	<table class="table table-for-breeders">
 		<tr>
-		<th class="plans-cell text-center active">
-				<h3>Compare Plans</h3>
+			<th class="plans-cell text-center active">
+			<h3>Compare Plans</h3>
 			</th>
 			<th class="text-center active th-plans-table">
 				<span>
-					Free
+					{{(plans|orderByPriority)[0].name}}
 				</span>
 
-				<p class="p-plans-table">First 2 months</p>
+				<p class="p-plans-table">
+					{{(plans|orderByPriority)[0].comment}}
+				</p>
 			</th>
-			<th class="text-center active th-plans-table">Monthly</th>
+			<th class="text-center active th-plans-table">
+				{{(plans|orderByPriority)[1].name}}
+			</th>
 
-			<th class="text-center info th-plans-table">Annually</th>
+			<th class="text-center info th-plans-table">
+				{{(plans|orderByPriority)[2].name}}
+			</th>
 		</tr>
 		<tr>
 			<th></th>
@@ -86,7 +97,9 @@
 				<button class="text-center btn btn-default btn-tryit">Try It</button>
 			</td>
 			<td class="text-center active">
-				<button class="text-center btn btn-default btn-tryit">Start Now</button>
+				<button class="text-center btn btn-default btn-tryit">
+					Start Now
+				</button>
 			</td>
 			<td class="text-center info">
 				<button class="btn btn-primary btn-tryit">Start Now</button>
@@ -97,15 +110,21 @@
 			<th></th>
 			<td class="active"></td>
 			<td class="text-center text-center active">
-				<strong>US$19.99/MO
+				<strong>US$
+					{{(plans|orderByPriority)[1].price}}
+					/MO
 				</strong>
 			</td>
 			<td class="text-center info">
 				<strong>
-					US$225.99*
+					US$
+					{{(plans|orderByPriority)[2].price}}
+					/MO
 				</strong>
 
-				<p class="text-center text-warning">10% discount</p>
+				<p class="text-center text-warning">
+					{{(plans|orderByPriority)[2].discount}}%
+					discount</p>
 			</td>
 		</tr>
 		<tr ng-repeat="(key,f) in features" class="shuffle-animation">
