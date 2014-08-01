@@ -17,7 +17,6 @@
 /// <reference path="directives/litterNew.ts" />
 /// <reference path="controllers/TestimonialsCtrl.ts" />
 /// <reference path="directives/feedback.ts" />
-/// <reference path="directives/feedbackInfo.ts" />
 /// <reference path="directives/feedbackEdit.ts" />
 /// <reference path="controllers/GenerateCtrl.ts" />
 /// <reference path="controllers/HomeCtrl.ts" />
@@ -69,6 +68,7 @@
 /// <reference path="directives/svSlider.ts" />
 /// <reference path="directives/svLitterEdit.ts" />
 /// <reference path="directives/svLitter.ts" />
+/// <reference path="controllers/UpgradeCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
 
@@ -129,7 +129,6 @@ profile.directive("photoGalleryEdit", photoGalleryEdit);
 profile.directive("spinDiv", spinDiv);
 profile.directive("litterNew", litterNew);
 profile.directive("feedback", feedback);
-profile.directive("feedbackInfo", feedbackInfo);
 profile.directive("feedbackEdit", feedbackEdit);
 profile.directive("newMessage", newMessage);
 profile.directive("setter", setter);
@@ -185,6 +184,7 @@ profile.controller("LookerCtrl", LookerCtrl);
 profile.controller("LookerAccountCtrl", LookerAccountCtrl);
 profile.controller("LookerAccountEditCtrl", LookerAccountEditCtrl);
 profile.controller("FollowingsCtrl", FollowingsCtrl);
+profile.controller("UpgradeCtrl", UpgradeCtrl);
 
 //#ctrl
 profile.service("DataService", DataService);
@@ -360,6 +360,10 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("looker.messages.trash", {
         url: "/trash",
         templateUrl: "../views/messages-trash.html"
+    }).state("upgrade", {
+        url: "/upgrade",
+        controller: "UpgradeCtrl",
+        templateUrl: "../views/upgrade.html"
     });
     //#state
 });

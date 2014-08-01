@@ -7,7 +7,7 @@
 		<div class="tab-pane fade active in" id="breeders">
 			<div class="users-tab-content">
 				<table class="table-responsive table-striped user-table-content">
-					<tr ng-repeat="b in management.breeders">
+					<tr ng-repeat="(key,b) in management.breeders">
 						<td>
 							{{b.profile.KennelName}}
 						</td>
@@ -62,8 +62,13 @@
 						</td>
 
 						<td>
-							<button class="btn btn-danger btn-sm">
-								Delete
+							<button class="btn btn-danger btn-sm"
+							        data-toggle="tooltip" data-placement="left" title="Delete this user"
+							        data-content="{{popover.content}}"
+							        data-template="../views/modals/delete-confirmation.html"
+							        data-animation="am-flip-x"
+							        bs-popover="popoverDelete">
+							Delete
 							</button>
 						</td>
 					</tr>
@@ -73,9 +78,9 @@
 		<div class="tab-pane fade" id="lookers">
 			<div class="users-tab-content">
 				<table class="table-responsive table-striped user-table-content">
-					<tr ng-repeat="b in management.lookers">
+					<tr ng-repeat="(key,b) in management.lookers">
 
-					<th>
+						<th>
 							{{b.profile.FirstName}} {{b.profile.LastName}}
 						</th>
 
@@ -119,8 +124,13 @@
 						</td>
 
 						<td>
-							<button class="btn btn-danger btn-sm">
-								Delete
+							<button class="btn btn-danger btn-sm"
+							        data-toggle="tooltip" data-placement="left" title="Delete this user"
+							        data-content="{{popover.content}}"
+							        data-template="../views/modals/delete-confirmation.html"
+							        data-animation="am-flip-x"
+							        bs-popover="popoverDelete">
+							Delete
 							</button>
 						</td>
 					</tr>

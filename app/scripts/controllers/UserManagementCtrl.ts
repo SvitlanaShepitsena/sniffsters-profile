@@ -27,6 +27,19 @@ class UserManagementCtrl {
             show: true
         };
 
+        $scope.popoverDelete = {
+            "title": "Delete Forever?",
+            template: '../../views/modals/delete-confirmation.html'
+        };
+
+        $scope.remove = (key)=> {
+            if (_.isUndefined(key) || _.isNull(key)) {
+                return;
+            }
+            this.breeders.$remove(key);
+            this.lookers.$remove(key);
+        }
+
         $scope.sendAdminMessage = (addressat, isBreeder) => {
             $scope.addressat = addressat;
             $scope.admin = "Admin";
