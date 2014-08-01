@@ -1,15 +1,14 @@
-<div class="popover">
+<div class="popover popover-delete">
 	<div class="arrow"></div>
-	<h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
+	<h3 class="popover-title text-center" ng-bind="title" ng-show="title"></h3>
 
-	<div class="popover-content">
-		<ul class="list-inline">
-			<li>
-				<button class="btn btn-warning btn-tiny" ng-click="remove(key)">Remove</button>
-			</li>
-			<li>
-				<button class="btn btn-info btn-tiny" ng-click="$hide()">Cancel</button>
-			</li>
-		</ul>
+	<div class="row popover-row popover-content">
+		<div class="col-xs-6">
+			<button class="btn btn-danger btn-sm" ng-click="remove(key)">Remove</button>
+		</div>
+		<div class="col-xs-6">
+			<button class="btn btn-default btn-sm" ng-click="$hide()">Cancel</button>
+		</div>
+
 	</div>
 </div>

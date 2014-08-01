@@ -26,7 +26,7 @@ var subscriptionPlans = (settings, $popover)  => {
                         "title": "Add New Subscription Feature"
                     }
                     $scope.popoverDelete = {
-                        "title": "Delete?",
+                        "title": "Delete forever?",
                         template: '../../views/modals/delete-confirmation.html'
                     };
                 })

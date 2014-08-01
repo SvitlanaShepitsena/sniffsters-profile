@@ -24,7 +24,7 @@ var aboutInfoEdit:() => ng.IDirective = () => {
                 $scope.newBreed = {};
             }
             $scope.popoverDelete = {
-                "title": "Delete?",
+                "title": "Delete Forever?",
                 template: '../../views/modals/delete-confirmation.html'
             };
             $scope.remove = (key:string)=> {

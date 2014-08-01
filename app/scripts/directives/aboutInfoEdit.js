@@ -22,7 +22,7 @@ var aboutInfoEdit = function () {
                 $scope.newBreed = {};
             };
             $scope.popoverDelete = {
-                "title": "Delete?",
+                "title": "Delete Forever?",
                 template: '../../views/modals/delete-confirmation.html'
             };
             $scope.remove = function (key) {
