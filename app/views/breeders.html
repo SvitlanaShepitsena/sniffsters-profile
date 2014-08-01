@@ -3,7 +3,7 @@
 	<hr/>
 	<h4>Search result for:</h4>
 
-	<p class="searchResult">Breed, Location</p>
+	<p class="searchResult">{{searchBreed || 'any'}}, {{searchLocation || 'any'}}</p>
 
 	<div class="btn-group sortBy">
 		<button type="button" class="btn btn-default">Sort by</button>
@@ -25,13 +25,13 @@
 <div class="well" sv-slider h="1780">
 	<div class="searchBreederDescription">
 		<ul class="list-unstyled">
-			<li ng-repeat="b in breedersCtrl.breeders">
+			<li ng-repeat="b in breeders">
 				<hr/>
 				<div class="row ">
 					<div class="col-md-3">
 						<div class="thumbnail thPictureSmall">
 							<a ui-sref="user.profile.about1({uname:b.profile.Email})">
-								<img ng-src="../imgdir/{{b.profile.Email}}/myimg/mainpic.jpg" alt="">
+								<!--<img ng-src="../imgdir/{{b.profile.Email}}/myimg/mainpic.jpg" alt="">-->
 							</a>
 						</div>
 

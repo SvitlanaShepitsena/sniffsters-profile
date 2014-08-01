@@ -22,24 +22,23 @@ var TestimonialsCtrl = (function () {
         $scope.testimonials = this;
 
         /*        $scope.$watch("testimonials.FeedbacksNew", () => {
-         for (var i = 0; i < this.FeedbacksNew.length; i++) {
-         var feedback:IFeedback = this.FeedbacksNew[i];
-         if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0 &&
-         feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
-         this.$scope.isOk = true;
-         break;
-         } else {
-
-         this.$scope.isOk = false;
-         }
-         }
-         }, true);*/
+        for (var i = 0; i < this.FeedbacksNew.length; i++) {
+        var feedback:IFeedback = this.FeedbacksNew[i];
+        if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0 &&
+        feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
+        this.$scope.isOk = true;
+        break;
+        } else {
+        
+        this.$scope.isOk = false;
+        }
+        }
+        }, true);*/
         $scope.remove = function (key) {
             console.log(key);
             _this.$scope.feedbacks.$remove(key);
         };
     }
-
     TestimonialsCtrl.prototype.addNewTestimonial = function () {
         this.FeedbacksNew.unshift(new Feedback());
     };

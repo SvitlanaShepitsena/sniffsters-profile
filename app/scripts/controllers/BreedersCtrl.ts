@@ -1,21 +1,37 @@
 /// <reference path="HomeCtrl.ts" />
 
-interface IBreedersScope extends IMainScope {
-    breedersCtrl:BreedersCtrl;
-    ctrl:IndexCtrl;
-    home:HomeCtrl;
-}
 class BreedersCtrl {
     breeders:IBreederProfile[];
 
-    constructor(public $scope:IBreedersScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
 
+        $scope.searchLocation = ($stateParams.location == null || $stateParams.location == "") ? null : $stateParams.location;
+        $scope.searchBreed = ($stateParams.breed == null || $stateParams.breed == "") ? null : $stateParams.breed;
+
+        $scope.breeders = [];
         this.$scope.home.auth.$getCurrentUser().then((user) => {
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
                 DataService.getAllProfiles().then((breedersArr:IBreederProfile[])=> {
-                    this.breeders = _.values(breedersArr);
+
+                    var breeders = _.values(breedersArr);
+                    breeders.forEach((breeder)=> {
+                        if (!_.isNull($scope.searchLocation)) {
+                            if (_.isNull(breeder.profile.Location) || $scope.searchLocation != breeder.profile.Location) {
+                                return;
+                            }
+                        }
+
+                        if (!_.isNull($scope.searchBreed)) {
+                            if ((_.isUndefined(breeder.profile.breeds)) || _.values(breeder.profile.breeds).indexOf($scope.searchBreed) == -1) {
+                                console.log(breeder);
+                                return;
+                            }
+                        }
+                        $scope.breeders.push(breeder)
+
+                    })
                 })
             })
         })

@@ -13,7 +13,6 @@ var DataService = (function () {
         this.url = settings.mainUrl;
         this.urlLooker = this.url + "lookers/";
     }
-
     // =Messages
     DataService.prototype.sendReply = function (userName, corrUserName, reply) {
         userName = this.FireProcess(userName);

@@ -276,7 +276,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         controller: "AboutCtrl",
         templateUrl: "../views/about.html"
     }).state("sniff.breeders", {
-        url: "/breeders",
+        url: "/breeders/:breed/:location",
         controller: "BreedersCtrl",
         templateUrl: "../views/breeders.html"
     }).state("sniff.dogs", {

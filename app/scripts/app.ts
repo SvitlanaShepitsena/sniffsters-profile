@@ -314,7 +314,7 @@ profile.config(
                 templateUrl: "../views/about.html"
             })
             .state("sniff.breeders", {
-                url: "/breeders",
+                url: "/breeders/:breed/:location",
                 controller: "BreedersCtrl",
                 templateUrl: "../views/breeders.html"
             })

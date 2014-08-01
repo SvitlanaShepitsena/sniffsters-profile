@@ -109,47 +109,33 @@
 		</div>
 	</div>
 </div>
-
-
 <div class="search-bar-wrapper" ng-hide="home.IsSearchHidden">
 	<div class="container search-bar-content">
 		<div class="search-bar text-center">
-			<form action="/Breeders-Search-Result"
-			      class="form-inline search-bar-form"
-			      method="get"
-			      role="form">
-				<span class="quick-search">QUICK SEARCH</span>
+			<span class="quick-search">QUICK SEARCH</span>
 
 
+			<div class="btn-group btn-group-fetch">
+				<select ng-model="searchBreed.val" ng-options="breed.name for breed in breeds">
+					<option value="">Breeds</option>
+				</select>
+			</div>
+
+			<div class="btn-group btn-group-fetch">
 				<div class="btn-group btn-group-fetch">
-					<select ng-model="searchBreed" ng-options="breed.name for breed in breeds">
-						<option value="">Breeds</option>
+					<select ng-model="searchLocation.val" ng-options="location.name for location in locations">
+						<option value="">Locations</option>
 					</select>
 				</div>
 
-				<div class="btn-group btn-group-fetch">
+			</div>
+			<div class="form-group">
+				<button ng-click="fetchDog(searchBreed.val,searchLocation.val)" class="btn btn-primary btn-fetch">
+					<i class="fa fa-search"></i>
+					Fetch
+				</button>
+			</div>
 
-					<button type="button" class="btn btn-default btn-search-drop">Location</button>
-					<button type="button" class="btn btn-default dropdown-toggle quick-search-toggle"
-					        data-toggle="dropdown">
-						<span class="caret"></span>
-						<span class="sr-only">Toggle Dropdown</span>
-					</button>
-					<ul class="dropdown-menu search-dropdown" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-					</ul>
-				</div>
-				<div class="form-group">
-					<button class="btn btn-primary btn-fetch" value="Fetch">
-						<i class="fa fa-search"></i>
-						Fetch
-					</button>
-				</div>
-			</form>
 		</div>
 	</div>
 </div>

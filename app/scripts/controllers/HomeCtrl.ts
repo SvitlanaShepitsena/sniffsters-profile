@@ -37,7 +37,20 @@ class HomeCtrl {
 
         $scope.home = this;
         this.menuIndex = 1;
+        $scope.fetchDog = (breed, location)=> {
+            if (breed == null) {
+                breed = {name: null};
+            }
 
+
+            if (location == null) {
+                location = {name: null};
+            }
+            $state.go('sniff.breeders', {
+                breed: breed.name,
+                location: location.name
+            });
+        }
 
         this.MainUrl = settings.mainUrl;
         this.MainRef = new Firebase(this.MainUrl);
@@ -47,23 +60,25 @@ class HomeCtrl {
         $scope.breedsRef.$on('value', (snapshot:any)=> {
             var bs = snapshot.snapshot.value;
 
-            var breedsR = _.values(_.values(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'breeds')))[0]);
-            $scope.breeds = _.map(breedsR, (breed)=> {
-                return {name: breed};
-            })
+            var breedsR = _.values(_.values(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'breeds'))));
+            $scope.breeds = _.map(_.uniq(_.flatten(_.map(breedsR, (breed)=> {
+
+                var arrTemp = _.values(breed);
+                return arrTemp;
+            }))), (breed)=> {
+                return {name: breed}
+            });
         });
 
         $scope.locationRef = this.MainRefFire.$child('breeders');
         $scope.locationRef.$on('value', (snapshot:any)=> {
             var bs = snapshot.snapshot.value;
 
-            var breedsR = _.values(_.values(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'breeds')))[0]);
-            $scope.breeds = _.map(breedsR, (breed)=> {
-                return {name: breed};
+            var locationVal = _.uniq(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'Location')));
+            $scope.locations = _.map(locationVal, (location)=> {
+                return {name: location};
             })
         });
-
-
 
 
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
