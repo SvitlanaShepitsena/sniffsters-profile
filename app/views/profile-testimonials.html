@@ -24,17 +24,18 @@
 		</div>
 	</div>
 	<ul class="list-unstyled">
-		<li ng-repeat="(id,f) in feedbacks">
-			<div class="row pull-right">
-				<div class="col-xs-12">
-					<a class="light-gray" ui-sref="user.profile.testimonials5.edit({id:id})">
-						<i class="fa fa-pencil"></i>
-					</a>
-					<button class="btn btn-link text-muted"
-					        ng-click="testimonials.deleteFeedback(id)">
-						<i class="fa fa-trash light-gray"></i>
-					</button>
-				</div>
+		<li ng-repeat="(key,f) in feedbacks">
+			<div class="pull-right">
+				<a class="light-gray" ui-sref="user.profile.testimonials5.edit({id:id})">
+					<i class="fa fa-pencil"></i>
+				</a>
+				<button class="btn-link light-gray"
+				        data-content="{{popover.content}}"
+				        data-template="../views/modals/delete-confirmation.html"
+				        data-animation="am-flip-x"
+				        bs-popover="popoverDelete">
+					<i class="fa fa-trash-o"></i>
+				</button>
 			</div>
 			<feedback f="f"></feedback>
 		</li>

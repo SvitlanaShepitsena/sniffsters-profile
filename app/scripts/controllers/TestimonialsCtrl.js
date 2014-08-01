@@ -21,18 +21,25 @@ var TestimonialsCtrl = (function () {
         $scope.home.url = "testimonials";
         $scope.testimonials = this;
 
-        $scope.$watch("testimonials.FeedbacksNew", function () {
-            for (var i = 0; i < _this.FeedbacksNew.length; i++) {
-                var feedback = _this.FeedbacksNew[i];
-                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0 && feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500)) {
-                    _this.$scope.isOk = true;
-                    break;
-                } else {
-                    _this.$scope.isOk = false;
-                }
-            }
-        }, true);
+        /*        $scope.$watch("testimonials.FeedbacksNew", () => {
+         for (var i = 0; i < this.FeedbacksNew.length; i++) {
+         var feedback:IFeedback = this.FeedbacksNew[i];
+         if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0 &&
+         feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
+         this.$scope.isOk = true;
+         break;
+         } else {
+
+         this.$scope.isOk = false;
+         }
+         }
+         }, true);*/
+        $scope.remove = function (key) {
+            console.log(key);
+            _this.$scope.feedbacks.$remove(key);
+        };
     }
+
     TestimonialsCtrl.prototype.addNewTestimonial = function () {
         this.FeedbacksNew.unshift(new Feedback());
     };
@@ -44,29 +51,6 @@ var TestimonialsCtrl = (function () {
         });
         this.FeedbacksNew = [];
         this.ShowSuccess("Feedbacks have been successfully saved to Db");
-    };
-
-    TestimonialsCtrl.prototype.deleteFeedback = function (id) {
-        var _this = this;
-        var modalInstance = this.$modal.open({
-            template: "<div><div class=\"modal-body\">Delete this Feedback?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
-            size: 'sm',
-            controller: function ($scope, $modalInstance) {
-                $scope.ok = function () {
-                    $modalInstance.close(true);
-                };
-
-                $scope.cancel = function () {
-                    $modalInstance.close(false);
-                };
-            }
-        });
-
-        modalInstance.result.then(function (confirmation) {
-            if (confirmation) {
-                _this.$scope.feedbacks.$remove(id);
-            }
-        });
     };
 
     TestimonialsCtrl.prototype.updateFeedBack = function (feedback) {

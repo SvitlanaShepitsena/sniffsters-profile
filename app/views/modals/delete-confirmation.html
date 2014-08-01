@@ -3,8 +3,13 @@
 	<h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
 
 	<div class="popover-content">
-
-		<button class="btn btn-warning" ng-click="remove(key)">Remove</button>
-		<button class="btn btn-info" ng-click="$hide()">Cancel</button>
+		<ul class="list-inline">
+			<li>
+				<button class="btn btn-warning btn-tiny" ng-click="remove(key)">Remove</button>
+			</li>
+			<li>
+				<button class="btn btn-info btn-tiny" ng-click="$hide()">Cancel</button>
+			</li>
+		</ul>
 	</div>
 </div>

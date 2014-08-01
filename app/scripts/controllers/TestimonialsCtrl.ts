@@ -16,19 +16,23 @@ class TestimonialsCtrl {
         $scope.home.url = "testimonials";
         $scope.testimonials = this;
 
-        $scope.$watch("testimonials.FeedbacksNew", () => {
-            for (var i = 0; i < this.FeedbacksNew.length; i++) {
-                var feedback:IFeedback = this.FeedbacksNew[i];
-                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0 &&
-                    feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
-                    this.$scope.isOk = true;
-                    break;
-                } else {
+        /*        $scope.$watch("testimonials.FeedbacksNew", () => {
+         for (var i = 0; i < this.FeedbacksNew.length; i++) {
+         var feedback:IFeedback = this.FeedbacksNew[i];
+         if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0 &&
+         feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
+         this.$scope.isOk = true;
+         break;
+         } else {
 
-                    this.$scope.isOk = false;
-                }
-            }
-        }, true);
+         this.$scope.isOk = false;
+         }
+         }
+         }, true);*/
+        $scope.remove = (key)=> {
+            console.log(key);
+            this.$scope.feedbacks.$remove(key);
+        }
     }
 
     addNewTestimonial() {
@@ -43,29 +47,6 @@ class TestimonialsCtrl {
         this.ShowSuccess("Feedbacks have been successfully saved to Db");
     }
 
-    deleteFeedback(id:string) {
-
-        var modalInstance = this.$modal.open({
-            template: "<div><div class=\"modal-body\">Delete this Feedback?</div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">OK</button><button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button></div></div>",
-            size: 'sm',
-            controller: ($scope, $modalInstance) => {
-                $scope.ok = () => {
-                    $modalInstance.close(true)
-                }
-
-                $scope.cancel = () => {
-                    $modalInstance.close(false)
-                }
-            }
-        });
-
-        modalInstance.result.then((confirmation:boolean) => {
-            if (confirmation) {
-
-                this.$scope.feedbacks.$remove(id);
-            }
-        })
-    }
 
     updateFeedBack(feedback:IFeedback) {
         this.DataService.updateFeedback(feedback).then(() => {

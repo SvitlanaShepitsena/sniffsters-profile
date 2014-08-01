@@ -1,20 +1,31 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
+/// <reference path="../services/DataService.ts" />
 
 var feedback:() => ng.IDirective = () => {
 
-	return{
-		restrict: 'E',
-		templateUrl: 'views/directives/feedback.html',
-		// replace directive tag with template info
-		replace: true,
-		scope: {
-			f: '=',
+    return{
+        restrict: 'E',
+        templateUrl: 'views/directives/feedback.html',
+        // replace directive tag with template info
+        replace: true,
 
-			text: '@',
-			func: '&'
-		},
-		link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        /*        controller: ($scope, $firebase, $modal, DataService:DataService, $stateParams, $state, toastr) => {
+         $scope.files = [];
+         var feedbackId = $stateParams.id;
+         $scope.home.auth.$getCurrentUser().then((user) => {
+         $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
+         var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks' + feedbackId;
+         //binding to firebase
+         $scope.feedback = $firebase(new Firebase(feedbackUrl));
+         })
+         })
 
-		}
-	}
+         $scope.remove = (key) => {
+         $scope.feedback.$remove(key);
+         }
+         },*/
+        link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        }
+    }
 }
