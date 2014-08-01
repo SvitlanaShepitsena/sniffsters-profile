@@ -47,14 +47,6 @@ class TestimonialsCtrl {
         this.ShowSuccess("Feedbacks have been successfully saved to Db");
     }
 
-
-    updateFeedBack(feedback:IFeedback) {
-        this.DataService.updateFeedback(feedback).then(() => {
-            this.ShowSuccess("Feedback has been successfully saved to Db");
-            this.$state.go('^');
-        })
-    }
-
     ShowSuccess(note:string) {
         this.toastr.info(note);
     }
@@ -62,5 +54,4 @@ class TestimonialsCtrl {
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }

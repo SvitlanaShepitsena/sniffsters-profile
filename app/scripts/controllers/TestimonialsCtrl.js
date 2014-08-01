@@ -53,14 +53,6 @@ var TestimonialsCtrl = (function () {
         this.ShowSuccess("Feedbacks have been successfully saved to Db");
     };
 
-    TestimonialsCtrl.prototype.updateFeedBack = function (feedback) {
-        var _this = this;
-        this.DataService.updateFeedback(feedback).then(function () {
-            _this.ShowSuccess("Feedback has been successfully saved to Db");
-            _this.$state.go('^');
-        });
-    };
-
     TestimonialsCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
     };
