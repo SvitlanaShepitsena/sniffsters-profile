@@ -44,17 +44,7 @@
 
 	<form role="form" class="alert alert-warning sniff-alert form-horizontal" name="myDetailsForm" id="myDetailsForm"
 	      novalidate>
-		<div class="form-group" ng-show="home.isOwner">
-			<label for="locationInput" class="labelMyDetails">Location:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Location}}</span>
-			<input id="locationInput" name="locationInput" type="text" class="form-control"
-			       ng-model="ctrl.BreederProfileCopy.Location"
-			       ng-show="IsEdit">
-		</div>
-		<div class="form-group" ng-show="!home.isOwner">
-			<label for="locationInput" class="labelMyDetails">Location:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Location}}</span>
-		</div>
+
 
 		<div class="form-group" ng-show="home.isOwner">
 			<label class="labelMyDetails">Website:</label>

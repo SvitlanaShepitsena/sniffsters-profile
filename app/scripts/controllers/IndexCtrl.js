@@ -107,6 +107,9 @@ var IndexCtrl = (function () {
 
     IndexCtrl.prototype.Save = function (breederProfile) {
         var _this = this;
+        breederProfile.Location = breederProfile.City + ', ' + breederProfile.State;
+        breederProfile = _.omit(breederProfile, 'breeds');
+
         //Run Service UpdateProfile Method and get promise back
         this.DataService.updateProfile(breederProfile).then(function () {
             // Success

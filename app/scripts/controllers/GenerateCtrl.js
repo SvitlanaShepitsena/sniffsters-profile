@@ -35,6 +35,8 @@ var GenerateCtrl = (function () {
 
         var breeders = this.GenerateBreeders();
         breeders.forEach(function (breeder) {
+            breeder.Location = breeder.State + ',' + breeder.City;
+
             var key = breeder.Email.replace(/\./g, '(p)');
             $scope.breeders[key] = { profile: breeder };
             $scope.breeders.$save();
@@ -42,20 +44,6 @@ var GenerateCtrl = (function () {
             var breederRef = _this.$firebase(new Firebase($scope.home.MainUrl + "breeders/" + key));
             var galleriesRef = breederRef.$child('galleries');
 
-            //            var littersRef = breederRef.$child('litters');
-            //            var litters:ILitter[] = this.GenerateLitters();
-            //            var littersUrl = $scope.home.MainUrl + 'breeders/' + key + '/litters/';
-            //            console.log(littersUrl);
-            //            litters.forEach((litter:ILitter)=> {
-            //                var newLitter = _.omit(litter, 'Photos');
-            //                littersRef.$add(newLitter).then((keyChild) => {
-            //                    var litterRef = this.$firebase(new Firebase(littersUrl + keyChild.name()));
-            //                    var photosRef = litterRef.$child('photos');
-            //                    litter.Photos.forEach((photo)=> {
-            //                        photosRef.$add(photo)
-            //                    })
-            //                });
-            //            })
             var feedbackRef = breederRef.$child('feedbacks');
             var feedbacks = _this.GenerateFeedbacks();
 

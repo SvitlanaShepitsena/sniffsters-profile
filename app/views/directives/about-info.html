@@ -34,6 +34,13 @@
 
 		<p>{{index.BreederProfile.AddInfo}}</p>
 		<!--<div ui-view="info"></div>-->
+		<h3 class="sniff-head-info"> Breeds</h3>
+
+		<ul class="list-unstyled">
+			<li ng-repeat="b in index.BreederProfile.breeds">
+				{{b}}
+			</li>
+		</ul>
 
 	</div>
 </div>
