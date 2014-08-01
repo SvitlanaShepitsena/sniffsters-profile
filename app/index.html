@@ -111,31 +111,35 @@
 </div>
 <div class="search-bar-wrapper" ng-hide="home.IsSearchHidden">
 	<div class="container search-bar-content">
+
 		<div class="search-bar text-center">
-			<span class="quick-search">QUICK SEARCH</span>
-
-
-			<div class="btn-group btn-group-fetch">
-				<select ng-model="searchBreed.val" ng-options="breed.name for breed in breeds">
-					<option value="">Breeds</option>
-				</select>
-			</div>
+			<label class="quick-search">QUICK SEARCH</label>
 
 			<div class="btn-group btn-group-fetch">
-				<div class="btn-group btn-group-fetch">
-					<select ng-model="searchLocation.val" ng-options="location.name for location in locations">
-						<option value="">Locations</option>
-					</select>
-				</div>
-
-			</div>
-			<div class="form-group">
-				<button ng-click="fetchDog(searchBreed.val,searchLocation.val)" class="btn btn-primary btn-fetch">
-					<i class="fa fa-search"></i>
-					Fetch
+				<button type="button" class="btn btn-default dropdown-toggle"
+				        ng-model="searchBreed.val"
+				        ng-options="breed.name for breed in breeds"
+				        placeholder="Breed"
+				        data-animation="am-flip-x"
+				        bs-select>
+					Action <span class="caret"></span>
 				</button>
 			</div>
 
+			<div class="btn-group btn-group-fetch">
+				<button type="button" class="btn btn-default"
+				        ng-model="searchLocation.val"
+				        placeholder="Locations"
+				        ng-options="location.name for location in locations"
+				        data-animation="am-flip-x"
+				        bs-select>
+					Action <span class="caret"></span>
+				</button>
+			</div>
+			<button ng-click="fetchDog(searchBreed.val,searchLocation.val)" class="btn btn-primary btn-fetch">
+				<i class="fa fa-search"></i>
+				Fetch
+			</button>
 		</div>
 	</div>
 </div>

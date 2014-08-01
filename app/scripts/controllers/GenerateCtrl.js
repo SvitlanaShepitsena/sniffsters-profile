@@ -129,6 +129,7 @@ var GenerateCtrl = (function () {
         $scope.breeders.$save();
         this.CreateLookers();
     }
+
     GenerateCtrl.prototype.CreateLookers = function () {
         var _this = this;
         this.$scope.generate = this;
@@ -472,27 +473,6 @@ var GenerateCtrl = (function () {
 
         breeders.push(breeder9);
 
-        var breeder10 = new BreederProfile();
-        breeder10.FirstName = "Jon";
-        breeder10.LastName = "Doe";
-        breeder10.Website = "www.dogs.com";
-        breeder10.Email = "breeder10@gmail.com";
-        breeder10.Phone = "773-123-45-67";
-        breeder10.KennelName = "Dogs Paradise";
-        breeder10.Story = "My Dogs Story";
-        breeder10.Parents = "Great parents";
-        breeder10.Boys = "3 pupies";
-        breeder10.Girls = "2 puppies";
-        breeder10.AddInfo = "Add Info about dogs";
-        breeder10.City = "Chicago";
-        breeder10.Zip = "60630";
-        breeder10.State = "IL";
-        breeder10.Certifications = ["Cenrtification 1"];
-        breeder10.VetServices = true;
-        breeder10.Insurances = ["Insurance 1"];
-        breeder10.Shipping = false;
-
-        breeders.push(breeder10);
         return breeders;
     };
 
