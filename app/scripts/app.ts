@@ -379,6 +379,12 @@ profile.config(
                 templateUrl: "../views/followers.html"
             })
 
+            .state("user.profile.upgrade", {
+                url: "/upgrade",
+                controller: "UpgradeCtrl",
+                templateUrl: "../views/upgrade.html"
+            })
+
         /**********************
          * =Admin
          ***********************/
@@ -443,11 +449,6 @@ profile.config(
                 templateUrl: "../views/messages-trash.html"
             })
 
-            .state("upgrade", {
-                url: "/upgrade",
-                controller: "UpgradeCtrl",
-                templateUrl: "../views/upgrade.html"
-            })
 //#state
     });
 

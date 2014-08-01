@@ -1,6 +1,7 @@
 /// <reference path="HomeCtrl.ts" />
 
 class UpgradeCtrl {
+    home:HomeCtrl;
 
     constructor(public $scope, public $state:ng.ui.IStateService, public toastr:Toastr, public $firebase) {
         $scope.upgrade = this;

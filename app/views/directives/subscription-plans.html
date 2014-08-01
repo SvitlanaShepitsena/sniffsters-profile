@@ -1,92 +1,92 @@
 <div>
-	<h3 class="">Subscription Plans</h3>
+	<h3 class="h-subsctriptions">Subscription Plans</h3>
 	<hr/>
-	<table class="table table-for-breeders" ng-show="isAdmin">
-		<tr>
-			<th class="th-plans-table text-center active">
-				<button type="button" class="btn btn-lg btn-danger" title="{{popover.title}}"
-				        data-content="{{popover.content}}" data-template="../views/modals/new-feature.html"
-				        data-animation="am-flip-x" bs-popover>Add new Feauture
-				</button>
-			</th>
-			<th class="text-center active th-plans-table">
-				<input class="form-control" type="text" placeholder="Plan Name"
-				       ng-model="(plans|orderByPriority)[0].name">
-				<input class="form-control" type="text" placeholder="Comment"
-				       ng-model="(plans|orderByPriority)[0].comment">
-			</th>
-			<th class="text-center active th-plans-table">
-				<input class="form-control" type="text" placeholder="Plan Name"
-				       ng-model="(plans|orderByPriority)[1].name">
-				<!--<input class="form-control" type="text" placeholder="Comment" ng-model="(plans|orderByPriority)[1].comment">-->
-			</th>
-			<th class="text-center info th-plans-table">
-				<input class="form-control" type="text" placeholder="Plan Name"
-				       ng-model="(plans|orderByPriority)[2].name">
-				<!--<input class="form-control" type="text" placeholder="Comment" ng-model="(plans|orderByPriority)[2].comment">-->
-			</th>
-			<th class="active"></th>
-		</tr>
-		<tbody>
-		<tr>
-			<th></th>
-			<td class="active"></td>
-			<td class="text-center text-center active">
-				<input class="form-control" type="number" placeholder="Price"
-				       ng-model="(plans|orderByPriority)[1].price">
-			</td>
-			<td class="text-center info">
-				<input class="form-control" type="number" placeholder="Price"
-				       ng-model="(plans|orderByPriority)[2].price">
-				<input class="form-control" type="number" placeholder="Discount"
-				       ng-model="(plans|orderByPriority)[2].discount">
-			</td>
-			<td class="active"></td>
-		</tr>
-		<tr ng-repeat="(key,f) in features" class="shuffle-animation">
-			<th> {{f.name}}
-				<p>{{f.comment}}</p>
-			</th>
-			<td class="text-center active">
-				<input class="form-control" type="number" ng-model="f.free">
-			</td>
-			<td class="text-center active">
-				<input class="form-control" type="number" ng-model="f.monthly">
-			</td>
-			<td class="text-center info">
-			<input class="form-control" type="number" ng-model="f.annually">
-			</td>
-			<td class="text-center active">
-				<button type="button" class="btn btn-link"
-				        title="{{popoverDelete.title}}"
-				        data-content="{{popover.content}}"
-				        data-template="../views/modals/delete-confirmation.html"
-				        data-animation="am-flip-x"
-				        bs-popover="popoverDelete">
-					<i class="fa fa-trash-o"></i>
-				</button>
-			</td>
-		</tr>
-		</tbody>
-	</table>
+	<div class="" ng-show="isAdmin">
+		<table class="table table-for-breeders">
+			<tr>
+				<th class="th-plans-table text-center active">
+					<button type="button" class="btn btn-lg btn-danger" title="{{popover.title}}"
+					        data-content="{{popover.content}}" data-template="../views/modals/new-feature.html"
+					        data-animation="am-flip-x" bs-popover>Add new Feauture
+					</button>
+				</th>
+				<th class="text-center active th-plans-table">
+					<input class="form-control" type="text" placeholder="Plan Name"
+					       ng-model="(plans|orderByPriority)[0].name">
+					<input class="form-control" type="text" placeholder="Comment"
+					       ng-model="(plans|orderByPriority)[0].comment">
+				</th>
+				<th class="text-center active th-plans-table">
+					<input class="form-control" type="text" placeholder="Plan Name"
+					       ng-model="(plans|orderByPriority)[1].name">
+					<!--<input class="form-control" type="text" placeholder="Comment" ng-model="(plans|orderByPriority)[1].comment">-->
+				</th>
+				<th class="text-center info th-plans-table">
+					<input class="form-control" type="text" placeholder="Plan Name"
+					       ng-model="(plans|orderByPriority)[2].name">
+					<!--<input class="form-control" type="text" placeholder="Comment" ng-model="(plans|orderByPriority)[2].comment">-->
+				</th>
+				<th class="active"></th>
+			</tr>
+			<tbody>
+			<tr>
+				<th></th>
+				<td class="active"></td>
+				<td class="text-center text-center active">
+					<input class="form-control" type="number" placeholder="Price"
+					       ng-model="(plans|orderByPriority)[1].price">
+				</td>
+				<td class="text-center info">
+					<input class="form-control" type="number" placeholder="Price"
+					       ng-model="(plans|orderByPriority)[2].price">
+					<input class="form-control" type="number" placeholder="Discount"
+					       ng-model="(plans|orderByPriority)[2].discount">
+				</td>
+				<td class="active"></td>
+			</tr>
+			<tr ng-repeat="(key,f) in features" class="shuffle-animation">
+				<th> {{f.name}}
+					<p>{{f.comment}}</p>
+				</th>
+				<td class="text-center active">
+					<input class="form-control" type="number" ng-model="f.free">
+				</td>
+				<td class="text-center active">
+					<input class="form-control" type="number" ng-model="f.monthly">
+				</td>
+				<td class="text-center info">
+					<input class="form-control" type="number" ng-model="f.annually">
+				</td>
+				<td class="text-center active">
+					<button type="button" class="btn btn-link"
+					        title="{{popoverDelete.title}}"
+					        data-content="{{popover.content}}"
+					        data-template="../views/modals/delete-confirmation.html"
+					        data-animation="am-flip-x"
+					        bs-popover="popoverDelete">
+						<i class="fa fa-trash-o"></i>
+					</button>
+				</td>
+			</tr>
+			</tbody>
+		</table>
 
-	<div class="form-group text-right">
-		<button class="btn btn-primary" ng-click="savePlans()">Save</button>
+		<div class="text-right">
+			<button class="btn btn-primary" ng-click="savePlans()">Save</button>
+		</div>
+		<br/>
+		<hr/>
 	</div>
-	<hr/>
 
 	<table class="table table-for-breeders">
 		<tr>
 			<th class="plans-cell text-center active">
-			<h3>Compare Plans</h3>
+				<h3 class="h-compare">Compare Plans</h3>
 			</th>
 			<th class="text-center active th-plans-table">
-				<span>
-					{{(plans|orderByPriority)[0].name}}
-				</span>
-
-				<p class="p-plans-table">
-					{{(plans|orderByPriority)[0].comment}}
+				{{(plans|orderByPriority)[0].name}}
+				<p class="comment">
+				{{(plans|orderByPriority)[0].comment}}
 				</p>
 			</th>
 			<th class="text-center active th-plans-table">
@@ -100,15 +100,15 @@
 		<tr>
 			<th></th>
 			<td class="text-center active">
-				<button class="text-center btn btn-default btn-tryit">Try It</button>
+				<button class="text-center btn btn-default btn-sm btn-tryit">Try It</button>
 			</td>
 			<td class="text-center active">
-				<button class="text-center btn btn-default btn-tryit">
-					Start Now
+				<button class="text-center btn btn-default btn-sm btn-tryit">
+				Start Now
 				</button>
 			</td>
 			<td class="text-center info">
-				<button class="btn btn-primary btn-tryit">Start Now</button>
+				<button class="btn btn-primary btn-sm btn-tryit">Start Now</button>
 			</td>
 		</tr>
 		<tbody>
@@ -116,17 +116,18 @@
 			<th></th>
 			<td class="active"></td>
 			<td class="text-center text-center active">
-				<strong>US$
+				<h5 class="h-price">
+					US$
 					{{(plans|orderByPriority)[1].price}}
 					/MO
-				</strong>
+				</h5>
 			</td>
 			<td class="text-center info">
-				<strong>
-					US$
+				<h5 class="h-price">
+				US$
 					{{(plans|orderByPriority)[2].price}}
 					/MO
-				</strong>
+				</h5>
 
 				<p class="text-center text-warning">
 					{{(plans|orderByPriority)[2].discount}}%
@@ -135,7 +136,7 @@
 		</tr>
 		<tr ng-repeat="(key,f) in features" class="shuffle-animation">
 			<th> {{f.name}}
-				<p>{{f.comment}}</p>
+				<p class="comment">{{f.comment}}</p>
 			</th>
 			<td class="text-center active">
 				<span ng-show="f.free">Limited</span>

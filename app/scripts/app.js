@@ -322,6 +322,10 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/followers",
         controller: "FollowersCtrl",
         templateUrl: "../views/followers.html"
+    }).state("user.profile.upgrade", {
+        url: "/upgrade",
+        controller: "UpgradeCtrl",
+        templateUrl: "../views/upgrade.html"
     }).state("admin", {
         abstract: true,
         controller: "AdminPanelCtrl",
@@ -360,10 +364,6 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
     }).state("looker.messages.trash", {
         url: "/trash",
         templateUrl: "../views/messages-trash.html"
-    }).state("upgrade", {
-        url: "/upgrade",
-        controller: "UpgradeCtrl",
-        templateUrl: "../views/upgrade.html"
     });
     //#state
 });
