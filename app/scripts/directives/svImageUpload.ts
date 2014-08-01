@@ -25,6 +25,7 @@ var svImageUpload:() => ng.IDirective = () => {
             width: '='
         },
         controller($scope) {
+
             if (!$scope.isMult) {
                 $scope.files = [];
 

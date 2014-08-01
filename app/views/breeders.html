@@ -31,7 +31,10 @@
 					<div class="col-md-3">
 						<div class="thumbnail thPictureSmall">
 							<a ui-sref="user.profile.about1({uname:b.profile.Email})">
-								<!--<img ng-src="../imgdir/{{b.profile.Email}}/myimg/mainpic.jpg" alt="">-->
+								<img ng-show="(b.profile.images.avatar|orderByPriority)[0]"
+								     ng-src="{{(b.profile.images.avatar|orderByPriority)[0]}}" alt="">
+								<img ng-hide="(b.profile.images.avatar|orderByPriority)[0]"
+								     ng-src="../imgdir/default/myimg/mainpic.jpg" alt="">
 							</a>
 						</div>
 
@@ -57,8 +60,9 @@
 					<div class="col-md-5">
 						<div class="">
 							<h3 class="text-info breederName">
-								<a href="#">
-									{{b.profile.FirstName}} {{b.profile.LastName}}
+
+								<a ui-sref="user.profile.about1({uname:b.profile.Email})">
+								{{b.profile.FirstName}} {{b.profile.LastName}}
 								</a>
 							</h3>
 

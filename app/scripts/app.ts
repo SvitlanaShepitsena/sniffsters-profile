@@ -205,7 +205,7 @@ profile.value("settings", {
 
 profile.config(
     ($stateProvider, $urlRouterProvider) => {
-        $urlRouterProvider.otherwise("profile/breeder1@gmail.com/puppies");
+//        $urlRouterProvider.otherwise("profile/breeder1@gmail.com/puppies");
 
         $stateProvider
         /**********************

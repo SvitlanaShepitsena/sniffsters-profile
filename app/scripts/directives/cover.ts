@@ -51,7 +51,7 @@ var cover:() => ng.IDirective = () => {
 
                     var profilePicUrl = $scope.home.MainUrl;
                     profilePicUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
-                    profilePicUrl += $scope.home.FireProcess(user.email) + '/images/avatar';
+                    profilePicUrl += $scope.home.FireProcess(user.email) + '/profile/images/avatar';
 
                     $scope.avatar = $firebase(new Firebase(profilePicUrl));
 
@@ -61,7 +61,7 @@ var cover:() => ng.IDirective = () => {
                     });
 
                     var coverPicUrl = $scope.home.MainUrl;
-                    coverPicUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
+                    coverPicUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/' + 'profile/';
                     coverPicUrl += $scope.home.FireProcess(user.email) + '/images/cover';
 
                     $scope.cover = $firebase(new Firebase(coverPicUrl));

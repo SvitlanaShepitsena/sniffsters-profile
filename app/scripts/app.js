@@ -200,8 +200,7 @@ profile.value("settings", {
 });
 
 profile.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("profile/breeder1@gmail.com/puppies");
-
+    //        $urlRouterProvider.otherwise("profile/breeder1@gmail.com/puppies");
     $stateProvider.state("user", {
         abstract: true,
         templateUrl: "../views/profile-side-bar.html"
