@@ -120,20 +120,11 @@
 			      role="form">
 				<span class="quick-search">QUICK SEARCH</span>
 
+
 				<div class="btn-group btn-group-fetch">
-					<button type="button" class="btn btn-default btn-search-drop">Breed</button>
-					<button type="button" class="btn btn-default dropdown-toggle quick-search-toggle"
-					        data-toggle="dropdown">
-						<span class="caret"></span>
-						<span class="sr-only">Toggle Dropdown</span>
-					</button>
-					<ul class="dropdown-menu search-dropdown" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-					</ul>
+					<select ng-model="searchBreed" ng-options="breed.name for breed in breeds">
+						<option value="">Breeds</option>
+					</select>
 				</div>
 
 				<div class="btn-group btn-group-fetch">
@@ -318,4 +309,4 @@
 <script src="bower_components/jcrop/jquery.Jcrop.min.js"></script>
 <!-- endbuil-->
 </body>
-</html>
+  

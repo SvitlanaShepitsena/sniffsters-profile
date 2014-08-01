@@ -14,7 +14,7 @@ var aboutInfoEdit = function () {
             home: '='
         },
         controller: function ($scope, $stateParams, $firebase, $modal) {
-            var id = $stateParams.id;
+            var id = $scope.home.FireProcess($stateParams.uname);
             $scope.newBreed = {};
 
             $scope.addNewBreed = function (breedName) {

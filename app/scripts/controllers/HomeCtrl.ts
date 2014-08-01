@@ -16,7 +16,7 @@ class HomeCtrl {
 
     MainUrl:string;
     MainRef:Firebase;
-    MainRefFire:Firebase;
+    MainRefFire:any;
 
     auth:any;
 
@@ -38,9 +38,33 @@ class HomeCtrl {
         $scope.home = this;
         this.menuIndex = 1;
 
+
         this.MainUrl = settings.mainUrl;
         this.MainRef = new Firebase(this.MainUrl);
         this.MainRefFire = $firebase(new Firebase(this.MainUrl));
+
+        $scope.breedsRef = this.MainRefFire.$child('breeders');
+        $scope.breedsRef.$on('value', (snapshot:any)=> {
+            var bs = snapshot.snapshot.value;
+
+            var breedsR = _.values(_.values(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'breeds')))[0]);
+            $scope.breeds = _.map(breedsR, (breed)=> {
+                return {name: breed};
+            })
+        });
+
+        $scope.locationRef = this.MainRefFire.$child('breeders');
+        $scope.locationRef.$on('value', (snapshot:any)=> {
+            var bs = snapshot.snapshot.value;
+
+            var breedsR = _.values(_.values(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'breeds')))[0]);
+            $scope.breeds = _.map(breedsR, (breed)=> {
+                return {name: breed};
+            })
+        });
+
+
+
 
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
         this.auth.$getCurrentUser().then((user)=> {

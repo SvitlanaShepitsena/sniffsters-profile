@@ -16,7 +16,7 @@ var aboutInfoEdit:() => ng.IDirective = () => {
             home: '='
         },
         controller($scope, $stateParams, $firebase, $modal) {
-            var id = $stateParams.id;
+            var id = $scope.home.FireProcess($stateParams.uname);
             $scope.newBreed = {};
 
             $scope.addNewBreed = (breedName:string)=> {
