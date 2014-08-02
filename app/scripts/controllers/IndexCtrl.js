@@ -28,7 +28,7 @@ var IndexCtrl = (function () {
                 var requestEmail = $stateParams.uname;
 
                 if (requestEmail == "public") {
-                    requestEmail = $scope.home.Uname;
+                    requestEmail = $scope.home.userName;
                 }
                 var promiseT = _this.DataService.getProfile(requestEmail);
                 promiseT.then(function (breederProfile) {
