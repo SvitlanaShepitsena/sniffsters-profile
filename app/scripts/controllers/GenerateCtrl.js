@@ -36,6 +36,7 @@ var GenerateCtrl = (function () {
         var breeders = this.GenerateBreeders();
         breeders.forEach(function (breeder) {
             breeder.Location = breeder.State + ',' + breeder.City;
+            breeder.UserName = breeder.Email.split('@')[0];
 
             var key = breeder.Email.replace(/\./g, '(p)');
             $scope.breeders[key] = { profile: breeder };
@@ -137,6 +138,8 @@ var GenerateCtrl = (function () {
 
         var lookers = this.GenerateLookers();
         lookers.forEach(function (looker) {
+            looker.UserName = looker.Email.split('@')[0];
+
             var key = looker.Email.replace(/\./g, '(p)');
             _this.$scope.lookers[key] = { profile: looker };
             _this.$scope.lookers.$save();

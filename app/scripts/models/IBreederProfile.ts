@@ -56,6 +56,7 @@ class SImage implements IImage {
 }
 
 interface IBreederProfile extends IUser {
+    UserName:string;
     FirstName:string;
     LastName:string;
     Location:string;
@@ -141,6 +142,7 @@ class Gallery implements IGallery {
 
 }
 class BreederProfile implements IBreederProfile {
+    UserName:string;
     Breeds:string[];
     isBreeder:boolean;
     City:string;

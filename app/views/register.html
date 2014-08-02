@@ -11,7 +11,7 @@
 					       id="email"
 					       name="email"
 					       placeholder="Enter email"
-					       ng-model="register.email">
+					       ng-model="email">
 				</div>
 				<div class="form-group">
 					<label for="pass">Password</label>
@@ -19,7 +19,7 @@
 					       class="form-control"
 					       id="pass"
 					       placeholder="Password"
-					       ng-model="register.pass">
+					       ng-model="pass">
 				</div>
 				<div class="form-group">
 					<label for="pass">Confirm Password</label>
@@ -27,16 +27,23 @@
 					       class="form-control"
 					       id="confirm-pass"
 					       placeholder="Password"
-					       ng-model="register.confpass">
+					       ng-model="confpass">
 				</div>
 
 				<div class="form-group">
-					<input type="radio" ng-model="register.isBreeder" ng-value=true> Breeder <br/>
-					<input type="radio" ng-model="register.isBreeder" ng-value=false> Looker <br/>
+					<input type="radio" ng-model="isBreeder" ng-value=true> Breeder <br/>
+					<input type="radio" ng-model="isBreeder" ng-value=false> Looker <br/>
 				</div>
 
+
 				<button class="btn btn-default"
-				        ng-click="home.Register(register.email,register.pass,register.confpass,register.isBreeder)">
+				        ng-click="register(email,pass,confpass,isBreeder)">
+					<!--data-animation="am-fade-and-scale"-->
+					<!--data-placement="center"-->
+					<!--data-show=false,-->
+					<!--data-template="../views/modals/choose-username.html"-->
+					<!--bs-modal="modal"-->
+					<!--ng-click="register(email,pass,confpass,isBreeder)">-->
 					Register
 				</button>
 			</form>

@@ -1,5 +1,6 @@
 /// <reference path="IUser.ts" />
 interface ILookerProfile extends IUser {
+    UserName:string;
     FirstName:string;
     LastName:string;
     Email:string;
@@ -10,6 +11,7 @@ interface ILookerProfile extends IUser {
 }
 
 class LookerProfile implements ILookerProfile {
+    UserName:string;
     isBreeder:boolean;
     FirstName:string;
     LastName:string;

@@ -35,6 +35,7 @@ class GenerateCtrl {
         var breeders:IBreederProfile[] = this.GenerateBreeders();
         breeders.forEach((breeder:IBreederProfile)=> {
             breeder.Location = breeder.State + ',' + breeder.City;
+            breeder.UserName = breeder.Email.split('@')[0];
 
 
             var key:string = breeder.Email.replace(/\./g, '(p)');
@@ -146,6 +147,9 @@ class GenerateCtrl {
 
         var lookers:ILookerProfile[] = this.GenerateLookers();
         lookers.forEach((looker:ILookerProfile)=> {
+
+            looker.UserName = looker.Email.split('@')[0];
+
             var key:string = looker.Email.replace(/\./g, '(p)');
             this.$scope.lookers[key] = {profile: looker};
             this.$scope.lookers.$save();
