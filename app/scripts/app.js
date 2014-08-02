@@ -200,7 +200,8 @@ profile.value("settings", {
     mainUrl: "https://torid-fire-6526.firebaseio.com/",
     messageSuccessNotice: 'Message has been sent',
     noGalleryNotice: 'Here is no any gallery yet',
-    noLitterNotice: 'Here is no any litter yet'
+    noLitterNotice: 'Here is no any litter yet',
+    noMessages: 'Here is no any messages yet'
 });
 
 profile.config(function ($stateProvider, $urlRouterProvider) {

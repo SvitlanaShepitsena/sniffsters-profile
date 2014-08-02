@@ -2,13 +2,16 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 var MessagesCtrl = (function () {
-    function MessagesCtrl($scope, $filter, $firebaseSimpleLogin, $modal, $state, toastr, DataService) {
+    function MessagesCtrl($scope, settings, $filter, $firebaseSimpleLogin, $modal, $state, toastr, DataService) {
         var _this = this;
         this.$scope = $scope;
+        this.settings = settings;
         this.$filter = $filter;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
+        $scope.noMessages = settings.noMessages;
+
         $scope.messages = this;
 
         $scope.home.hideMenu = true;

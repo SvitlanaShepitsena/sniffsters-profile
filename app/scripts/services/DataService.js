@@ -65,7 +65,7 @@ var DataService = (function () {
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
-        var messagesUrl = this.url + userName + "/messages";
+        var messagesUrl = this.urlBreeder + userName + "/messages";
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
         var keys = notesRef.$getIndex();

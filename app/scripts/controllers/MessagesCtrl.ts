@@ -18,7 +18,9 @@ class MessagesCtrl {
     selectedUserIndex:number;
     selectedUserMessages:INote[];
 
-    constructor(public $scope:IMessagesScope, public $filter, $firebaseSimpleLogin, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public settings, public $filter, $firebaseSimpleLogin, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+        $scope.noMessages = settings.noMessages;
+
         $scope.messages = this;
 
         $scope.home.hideMenu = true;
