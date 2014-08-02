@@ -356,7 +356,6 @@ profile.config(
          * =Messages Breeder Profile
          ***********************/
 
-
             .state("user.profile.messages", {
                 url: "/messages",
                 controller: "MessagesCtrl",

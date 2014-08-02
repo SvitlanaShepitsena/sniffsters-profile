@@ -10,7 +10,6 @@ class CreateMessageCtrl {
         $scope.createMessage = this;
     }
 
-
     ShowSuccess(note:string) {
 
         this.toastr.info(note);
@@ -19,5 +18,4 @@ class CreateMessageCtrl {
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }

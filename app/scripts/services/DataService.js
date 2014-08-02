@@ -12,6 +12,7 @@ var DataService = (function () {
         this.$filter = $filter;
         this.url = settings.mainUrl;
         this.urlLooker = this.url + "lookers/";
+        this.urlBreeder = this.url + "breeders/";
     }
     // =Messages
     DataService.prototype.sendReply = function (userName, corrUserName, reply) {
@@ -19,7 +20,7 @@ var DataService = (function () {
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
-        var corrUserUrl = this.url + userName + "/messages";
+        var corrUserUrl = this.urlBreeder + userName + "/messages";
         var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
 
         var note = new Note();
@@ -148,7 +149,7 @@ var DataService = (function () {
         userName = this.FireProcess(userName);
         var d = this.$q.defer();
 
-        var fireMessages = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/messages"));
+        var fireMessages = this.$firebase(new Firebase(this.urlBreeder + userName + "/messages"));
 
         fireMessages.$on('value', function (snapshot) {
             var messages = snapshot.snapshot.value;
@@ -193,7 +194,7 @@ var DataService = (function () {
 
         var d = this.$q.defer();
 
-        var followingsUrl = this.url + "breeders/" + userName + "/followings";
+        var followingsUrl = this.urlBreeder + userName + "/followings";
         var followingsRef = this.$firebase(new Firebase(followingsUrl));
 
         followingsRef.$on('value', function (snapshot) {
@@ -213,7 +214,7 @@ var DataService = (function () {
 
         var d = this.$q.defer();
 
-        var followersUrl = this.url + "breeders/" + userName + "/followers";
+        var followersUrl = this.urlBreeder + userName + "/followers";
         var followersRef = this.$firebase(new Firebase(followersUrl));
 
         followersRef.$on('value', function (snapshot) {
@@ -249,7 +250,7 @@ var DataService = (function () {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followingsUrl = this.url + "breeders/" + userName + "/followings";
+        var followingsUrl = this.urlBreeder + userName + "/followings";
         var followingsRef = this.$firebase(new Firebase(followingsUrl));
 
         var followingRef = followingsRef.$child(followerName);
@@ -257,7 +258,7 @@ var DataService = (function () {
 
         followingsRef.$save();
 
-        var followersUrl = this.url + "breeders/" + followerName + "/followers";
+        var followersUrl = this.urlBreeder + followerName + "/followers";
         var followersRef = this.$firebase(new Firebase(followersUrl));
 
         var followerRef = followersRef.$child(userName);
@@ -289,13 +290,13 @@ var DataService = (function () {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followingUrl = this.url + "breeders/" + userName + "/followings/" + followerName;
+        var followingUrl = this.urlBreeder + userName + "/followings/" + followerName;
         var followingRef = this.$firebase(new Firebase(followingUrl));
 
         followingRef.$remove();
         followingRef.$save();
 
-        var followerUrl = this.url + "breeders/" + followerName + "/followers/" + userName;
+        var followerUrl = this.urlBreeder + followerName + "/followers/" + userName;
         var followerRef = this.$firebase(new Firebase(followerUrl));
 
         followerRef.$remove();
@@ -308,7 +309,7 @@ var DataService = (function () {
     //=Profile
     DataService.prototype.getProfile = function (id) {
         var key = id.replace(/\./g, '(p)');
-        this.fb = this.$firebase(new Firebase(this.url + "breeders/" + key + "/profile"));
+        this.fb = this.$firebase(new Firebase(this.urlBreeder + key + "/profile"));
         this.fb.$on('value', function (snapshot) {
             var breeder = snapshot.snapshot.value;
             d.resolve(breeder);
@@ -322,7 +323,7 @@ var DataService = (function () {
         var _this = this;
         var d = this.$q.defer();
 
-        this.fb = this.$firebase(new Firebase(this.url + "breeders/"));
+        this.fb = this.$firebase(new Firebase(this.urlBreeder));
         this.fb.$on('value', function (snapshot) {
             var breeders = snapshot.snapshot.value;
             var breedersArr = (_this.$filter('orderByPriority')(breeders));
@@ -339,7 +340,7 @@ var DataService = (function () {
 
         var key = t.Email.replace(/\./g, '(p)');
 
-        this.fb = this.$firebase(new Firebase(this.url + "breeders/"));
+        this.fb = this.$firebase(new Firebase(this.urlBreeder));
         this.fb[key] = { profile: t };
         this.fb.$save(key);
         d.resolve();
@@ -349,7 +350,7 @@ var DataService = (function () {
     //=Photo Galleries
     DataService.prototype.getGalleries = function (id) {
         var key = id.replace(/\./g, '(p)');
-        var fireGalleries = this.$firebase(new Firebase(this.url + "breeders/" + key + "/galleries"));
+        var fireGalleries = this.$firebase(new Firebase(this.urlBreeder + key + "/galleries"));
 
         fireGalleries.$on('value', function (snapshot) {
             var galleries = snapshot.snapshot.value;
@@ -363,30 +364,30 @@ var DataService = (function () {
     //=Testimonials
     DataService.prototype.saveNewTestimonials = function (feedbacks, userName) {
         var d = this.$q.defer();
-        var fireTestimonials = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/testimonials"));
+        var fireTestimonials = this.$firebase(new Firebase(this.urlBreeder + userName + "/testimonials"));
         var keys = fireTestimonials.$getIndex();
         return d.promise;
     };
 
-    DataService.prototype.updateFeedback = function (feedback) {
-        var d = this.$q.defer();
-
-        this.$http.post('http://localhost:44300/BreederPersonal/UpdateFeedback', {
-            feedback: feedback
-        }).success(function () {
-            d.resolve();
-        }).error(function () {
-            d.reject();
-        });
-        return d.promise;
-    };
-
+    /*    updateFeedback(feedback:IFeedback) {
+    var d = this.$q.defer();
+    
+    this.$http.post('http://localhost:44300/BreederPersonal/UpdateFeedback', {
+    feedback: feedback
+    })
+    .success(() => {
+    d.resolve();
+    }).error(() => {
+    d.reject();
+    });
+    return d.promise;
+    }*/
     //    =Litters
     DataService.prototype.getLitters = function (userName) {
         var _this = this;
         var d = this.$q.defer();
 
-        var fireLitters = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/litters"));
+        var fireLitters = this.$firebase(new Firebase(this.urlBreeder + userName + "/litters"));
 
         fireLitters.$on('value', function (snapshot) {
             var litters = snapshot.snapshot.value;
@@ -403,7 +404,7 @@ var DataService = (function () {
 
     DataService.prototype.saveNewLitters = function (userName, litters) {
         var d = this.$q.defer();
-        var fireLitters = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/litters"));
+        var fireLitters = this.$firebase(new Firebase(this.urlBreeder + userName + "/litters"));
         var keys = fireLitters.$getIndex();
         return d.promise;
     };
@@ -411,7 +412,7 @@ var DataService = (function () {
     DataService.prototype.updateTitle = function (galleryId, title, userName) {
         var d = this.$q.defer();
 
-        var fireGallery = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/galleries/" + galleryId));
+        var fireGallery = this.$firebase(new Firebase(this.urlBreeder + userName + "/galleries/" + galleryId));
         fireGallery.$update({ Title: title }).then(function () {
             d.resolve();
         });
@@ -422,7 +423,7 @@ var DataService = (function () {
 
     DataService.prototype.deletePhoto = function (galleryId, photoId, userName) {
         var d = this.$q.defer();
-        var fireGalleriesPhotos = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/galleries/" + galleryId + "/Photos/" + photoId));
+        var fireGalleriesPhotos = this.$firebase(new Firebase(this.urlBreeder + userName + "/galleries/" + galleryId + "/Photos/" + photoId));
 
         fireGalleriesPhotos.$remove().then(function () {
             d.resolve();

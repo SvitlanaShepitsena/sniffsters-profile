@@ -26,7 +26,6 @@ class MessagesCtrl {
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
                 if ($scope.home.isBreeder === true) {
-
                     DataService.getMessages(user.email).then((messages:any)=> {
                         this.fireMessages = messages;
                         this.SetSelectedUser(0);

@@ -3,15 +3,18 @@
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
+
 class DataService {
     fb:AngularFire;
     url:string;
     urlLooker:string;
+    urlBreeder:string;
 
 
     constructor(public $http:ng.IHttpService, public $q:ng.IQService, public $firebase, public settings, public $filter) {
         this.url = settings.mainUrl;
         this.urlLooker = this.url + "lookers/";
+        this.urlBreeder = this.url + "breeders/";
     }
 
     // =Messages
@@ -20,7 +23,7 @@ class DataService {
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
-        var corrUserUrl = this.url + userName + "/messages";
+        var corrUserUrl = this.urlBreeder + userName + "/messages";
         var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
 
         var note = new Note();
@@ -147,7 +150,7 @@ class DataService {
         userName = this.FireProcess(userName);
         var d = this.$q.defer();
 
-        var fireMessages = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/messages"));
+        var fireMessages = this.$firebase(new Firebase(this.urlBreeder + userName + "/messages"));
 
         fireMessages.$on('value', (snapshot:any)=> {
             var messages = snapshot.snapshot.value;
@@ -195,7 +198,7 @@ class DataService {
 
         var d = this.$q.defer();
 
-        var followingsUrl = this.url + "breeders/" + userName + "/followings";
+        var followingsUrl = this.urlBreeder + userName + "/followings";
         var followingsRef = this.$firebase(new Firebase(followingsUrl));
 
         followingsRef.$on('value', (snapshot:any)=> {
@@ -216,7 +219,7 @@ class DataService {
 
         var d = this.$q.defer();
 
-        var followersUrl = this.url + "breeders/" + userName + "/followers";
+        var followersUrl = this.urlBreeder + userName + "/followers";
         var followersRef = this.$firebase(new Firebase(followersUrl));
 
         followersRef.$on('value', (snapshot:any)=> {
@@ -253,7 +256,7 @@ class DataService {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followingsUrl = this.url + "breeders/" + userName + "/followings";
+        var followingsUrl = this.urlBreeder + userName + "/followings";
         var followingsRef = this.$firebase(new Firebase(followingsUrl));
 
         var followingRef = followingsRef.$child(followerName);
@@ -261,7 +264,7 @@ class DataService {
 
         followingsRef.$save();
 
-        var followersUrl = this.url + "breeders/" + followerName + "/followers";
+        var followersUrl = this.urlBreeder + followerName + "/followers";
         var followersRef = this.$firebase(new Firebase(followersUrl));
 
         var followerRef = followersRef.$child(userName);
@@ -295,14 +298,14 @@ class DataService {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followingUrl = this.url + "breeders/" + userName + "/followings/" + followerName;
+        var followingUrl = this.urlBreeder + userName + "/followings/" + followerName;
         var followingRef = this.$firebase(new Firebase(followingUrl));
 
         followingRef.$remove();
         followingRef.$save();
 
 
-        var followerUrl = this.url + "breeders/" + followerName + "/followers/" + userName;
+        var followerUrl = this.urlBreeder + followerName + "/followers/" + userName;
         var followerRef = this.$firebase(new Firebase(followerUrl));
 
         followerRef.$remove();
@@ -317,7 +320,7 @@ class DataService {
 
     getProfile(id:string) {
         var key:string = id.replace(/\./g, '(p)');
-        this.fb = this.$firebase(new Firebase(this.url + "breeders/" + key + "/profile"));
+        this.fb = this.$firebase(new Firebase(this.urlBreeder + key + "/profile"));
         this.fb.$on('value', (snapshot:any)=> {
             var breeder = snapshot.snapshot.value;
             d.resolve(breeder);
@@ -330,7 +333,7 @@ class DataService {
     getAllProfiles() {
         var d = this.$q.defer();
 
-        this.fb = this.$firebase(new Firebase(this.url + "breeders/"));
+        this.fb = this.$firebase(new Firebase(this.urlBreeder));
         this.fb.$on('value', (snapshot:any)=> {
 
             var breeders = snapshot.snapshot.value;
@@ -350,7 +353,7 @@ class DataService {
 
         var key:string = t.Email.replace(/\./g, '(p)');
 
-        this.fb = this.$firebase(new Firebase(this.url + "breeders/"));
+        this.fb = this.$firebase(new Firebase(this.urlBreeder));
         this.fb[key] = {profile: t};
         this.fb.$save(key);
         d.resolve();
@@ -362,7 +365,7 @@ class DataService {
     getGalleries(id:string) {
 
         var key:string = id.replace(/\./g, '(p)');
-        var fireGalleries = this.$firebase(new Firebase(this.url + "breeders/" + key + "/galleries"));
+        var fireGalleries = this.$firebase(new Firebase(this.urlBreeder + key + "/galleries"));
 
         fireGalleries.$on('value', (snapshot:any)=> {
             var galleries = snapshot.snapshot.value;
@@ -378,13 +381,13 @@ class DataService {
 
     saveNewTestimonials<T>(feedbacks:IFeedback[], userName:string) {
         var d = this.$q.defer();
-        var fireTestimonials:AngularFire = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/testimonials"));
+        var fireTestimonials:AngularFire = this.$firebase(new Firebase(this.urlBreeder + userName + "/testimonials"));
         var keys = fireTestimonials.$getIndex();
         return d.promise;
     }
 
-    updateFeedback(feedback:IFeedback) {
-        var d = this.$q.defer();
+    /*    updateFeedback(feedback:IFeedback) {
+     var d = this.$q.defer();
 
         this.$http.post('http://localhost:44300/BreederPersonal/UpdateFeedback', {
             feedback: feedback
@@ -395,14 +398,14 @@ class DataService {
                 d.reject();
             });
         return d.promise;
-    }
+     }*/
 
 //    =Litters
 
     getLitters(userName:string) {
         var d = this.$q.defer();
 
-        var fireLitters = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/litters"));
+        var fireLitters = this.$firebase(new Firebase(this.urlBreeder + userName + "/litters"));
 
         fireLitters.$on('value', (snapshot:any)=> {
             var litters = snapshot.snapshot.value;
@@ -421,7 +424,7 @@ class DataService {
     saveNewLitters(userName:string, litters:Litter[]) {
 
         var d = this.$q.defer();
-        var fireLitters:AngularFire = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/litters"));
+        var fireLitters:AngularFire = this.$firebase(new Firebase(this.urlBreeder + userName + "/litters"));
         var keys = fireLitters.$getIndex();
         return d.promise;
     }
@@ -429,7 +432,7 @@ class DataService {
     updateTitle(galleryId:number, title:string, userName:string) {
         var d = this.$q.defer();
 
-        var fireGallery = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/galleries/" + galleryId));
+        var fireGallery = this.$firebase(new Firebase(this.urlBreeder + userName + "/galleries/" + galleryId));
         fireGallery.$update({Title: title}).then(() => {
             d.resolve();
         })
@@ -441,7 +444,7 @@ class DataService {
 
     deletePhoto(galleryId:number, photoId:number, userName:string) {
         var d = this.$q.defer();
-        var fireGalleriesPhotos = this.$firebase(new Firebase(this.url + "breeders/" + userName + "/galleries/" + galleryId +
+        var fireGalleriesPhotos = this.$firebase(new Firebase(this.urlBreeder + userName + "/galleries/" + galleryId +
             "/Photos/" + photoId));
 
         fireGalleriesPhotos.$remove().then(() => {
