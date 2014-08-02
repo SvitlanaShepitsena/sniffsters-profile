@@ -69,6 +69,7 @@
 /// <reference path="directives/svLitterEdit.ts" />
 /// <reference path="directives/svLitter.ts" />
 /// <reference path="controllers/UpgradeCtrl.ts" />
+/// <reference path="controllers/ManageBreederAccountCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
@@ -187,6 +188,7 @@ profile.controller("LookerAccountCtrl", LookerAccountCtrl);
 profile.controller("LookerAccountEditCtrl", LookerAccountEditCtrl);
 profile.controller("FollowingsCtrl", FollowingsCtrl);
 profile.controller("UpgradeCtrl", UpgradeCtrl);
+profile.controller("ManageBreederAccountCtrl", ManageBreederAccountCtrl);
 //#ctrl
 
 profile.service("DataService", DataService);
@@ -383,6 +385,12 @@ profile.config(
                 url: "/upgrade",
                 controller: "UpgradeCtrl",
                 templateUrl: "../views/upgrade.html"
+            })
+
+            .state("user.profile.manage", {
+                url: "/manage-breeder-account",
+                controller: "ManageBreederAccountCtrl",
+                templateUrl: "../views/manage-breeder-account.html"
             })
 
         /**********************
