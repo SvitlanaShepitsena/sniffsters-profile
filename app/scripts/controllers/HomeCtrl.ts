@@ -188,33 +188,6 @@ class HomeCtrl {
             return 'slide-right';
     }
 
-    Register(email:string, pass:string, confpass:string, isBreeder:boolean) {
-
-        if (pass.length < 5) {
-            this.ShowError("Password should be not less than 5 symbols");
-            return;
-        }
-
-        if (pass !== confpass) {
-            this.ShowError("Passwords do not match");
-            return;
-        }
-        this.auth.$createUser(email, pass).then(() => {
-            // User is created
-//            var userGenerator:IUserGenerator;
-
-            if (isBreeder) {
-                var breederGenerator = new BreederGenerator();
-                breederGenerator.create(this.FireProcess(email), this.MainUrl, this.$firebase);
-            } else {
-                var lookerGenerator = new LookerGenerator();
-                lookerGenerator.create(this.FireProcess(email), this.MainUrl, this.$firebase);
-            }
-            this.Signin(email, pass)
-        }, (error)=> {
-            this.ShowError(error);
-        })
-    }
 
     FacebookSignin() {
         this.auth.$login('facebook',
