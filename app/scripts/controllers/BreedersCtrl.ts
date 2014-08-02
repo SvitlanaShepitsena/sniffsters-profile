@@ -11,40 +11,31 @@ class BreedersCtrl {
         $scope.searchBreed = ($stateParams.breed == null || $stateParams.breed == "") ? null : $stateParams.breed;
 
         $scope.breeders = [];
-        this.$scope.home.auth.$getCurrentUser().then((user) => {
-            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
-                DataService.getAllProfiles().then((breedersArr:IBreederProfile[])=> {
 
-                    var breeders = _.values(breedersArr);
-                    breeders.forEach((breeder)=> {
-                        if (!_.isNull($scope.searchLocation)) {
-                            if (_.isNull(breeder.profile.Location) || $scope.searchLocation != breeder.profile.Location) {
-                                return;
-                            }
-                        }
-
-                        if (!_.isNull($scope.searchBreed)) {
-                            if ((_.isUndefined(breeder.profile.breeds)) || _.values(breeder.profile.breeds).indexOf($scope.searchBreed) == -1) {
-                                console.log(breeder);
-                                return;
-                            }
-                        }
-                        $scope.breeders.push(breeder)
-
-                    })
-                })
+        DataService.getAllProfiles().then((breedersArr:IBreederProfile[])=> {
+            var breeders = _.values(breedersArr);
+            breeders.forEach((breeder)=> {
+                if (!_.isNull($scope.searchLocation)) {
+                    if (_.isNull(breeder.profile.Location) || $scope.searchLocation != breeder.profile.Location) {
+                        return;
+                    }
+                }
+                if (!_.isNull($scope.searchBreed)) {
+                    if ((_.isUndefined(breeder.profile.breeds)) || _.values(breeder.profile.breeds).indexOf($scope.searchBreed) == -1) {
+                        console.log(breeder);
+                        return;
+                    }
+                }
+                $scope.breeders.push(breeder)
             })
         })
     }
 
-
     ShowSuccess(note:string) {
-
         this.toastr.info(note);
     }
 
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }
