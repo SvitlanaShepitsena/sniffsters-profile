@@ -72,7 +72,7 @@
 /// <reference path="controllers/ManageBreederAccountCtrl.ts" />
 //#ref
 
-var profile = angular.module("profile", ['mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
+var profile = angular.module("profile", ['mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
 
 profile.filter('boolString', () => {
     return (value:boolean):string => {
@@ -201,7 +201,9 @@ profile.value("toastr", toastr)
 profile.value("settings", {
     deleteConfirm: 'Delete forever?',
     mainUrl: "https://torid-fire-6526.firebaseio.com/",
-    messageSuccessNotice: 'Message has been sent'
+    messageSuccessNotice: 'Message has been sent',
+    noGalleryNotice: 'Here is no any gallery yet',
+    noLitterNotice: 'Here is no any litter yet'
 })
 
 

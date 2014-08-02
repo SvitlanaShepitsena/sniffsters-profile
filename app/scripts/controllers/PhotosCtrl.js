@@ -3,13 +3,14 @@
 /// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 var PhotosCtrl = (function () {
-    function PhotosCtrl($scope, $filter, $firebase, $state) {
+    function PhotosCtrl($scope, $filter, $firebase, $state, settings) {
         var _this = this;
         this.$scope = $scope;
         this.$filter = $filter;
         this.$firebase = $firebase;
         this.$state = $state;
         $scope.home.menuIndex = 2;
+        $scope.noGalleryNotice = settings.noGalleryNotice;
 
         $scope.$watch("photosCtrl.GalleriesNew", function () {
             for (var i = 0; i < _this.GalleriesNew.length; i++) {
@@ -27,7 +28,6 @@ var PhotosCtrl = (function () {
         this.GalleriesNew = new Array(newGallery);
 
         $scope.photosCtrl = this;
-
         $scope.home.url = "photos";
 
         this.$scope.home.auth.$getCurrentUser().then(function (user) {

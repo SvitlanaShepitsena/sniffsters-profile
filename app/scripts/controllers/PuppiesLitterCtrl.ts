@@ -6,7 +6,7 @@ interface IPuppiesLitterScope extends IMainScope {
 }
 class PuppiesLitterCtrl {
 
-    constructor(public $scope:IPuppiesLitterScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope:IPuppiesLitterScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService, public settings) {
         $scope.puppiesLitter = this;
     }
 

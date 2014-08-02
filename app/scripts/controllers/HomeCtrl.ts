@@ -33,7 +33,7 @@ class HomeCtrl {
 
     isLoggedIn:boolean = false;
 
-    constructor(public $scope, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public $modal, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
 
         $scope.home = this;
         this.menuIndex = 1;
@@ -202,15 +202,19 @@ class HomeCtrl {
         this.auth.$createUser(email, pass).then(() => {
             // User is created
 //            var userGenerator:IUserGenerator;
+            var modal = this.$modal({
+                title: 'Choose your username',
+                template: '../../views/modals/choose-username.html',
+                show: true});
 
-            if (isBreeder) {
-                var breederGenerator = new BreederGenerator();
-                breederGenerator.create(this.FireProcess(email), this.MainUrl, this.$firebase);
-            } else {
-                var lookerGenerator = new LookerGenerator();
-                lookerGenerator.create(this.FireProcess(email), this.MainUrl, this.$firebase);
-            }
-            this.Signin(email, pass)
+//            if (isBreeder) {
+//                var breederGenerator = new BreederGenerator();
+//                breederGenerator.create(this.FireProcess(email), this.MainUrl, this.$firebase);
+//            } else {
+//                var lookerGenerator = new LookerGenerator();
+//                lookerGenerator.create(this.FireProcess(email), this.MainUrl, this.$firebase);
+//            }
+//            this.Signin(email, pass)
         }, (error)=> {
             this.ShowError(error);
         })
@@ -246,7 +250,6 @@ class HomeCtrl {
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 
     Ownership() {
         var breederUserName:string = this.$stateParams.uname;
@@ -292,7 +295,5 @@ class HomeCtrl {
             this.menuIndex = 5;
             this.$state.go('user.profile.testimonials5');
         }
-
     }
-
 }

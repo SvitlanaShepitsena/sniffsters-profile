@@ -6,9 +6,9 @@
 class PhotosCtrl {
     public GalleriesNew:IGallery[];
 
-
-    constructor(public $scope, public $filter, public $firebase, public $state) {
+    constructor(public $scope, public $filter, public $firebase, public $state, settings) {
         $scope.home.menuIndex = 2;
+        $scope.noGalleryNotice = settings.noGalleryNotice;
 
         $scope.$watch("photosCtrl.GalleriesNew", () => {
             for (var i = 0; i < this.GalleriesNew.length; i++) {
@@ -24,12 +24,10 @@ class PhotosCtrl {
             }
         }, true);
 
-
         var newGallery = new Gallery();
         this.GalleriesNew = new Array(newGallery);
 
         $scope.photosCtrl = this;
-
         $scope.home.url = "photos";
 
         this.$scope.home.auth.$getCurrentUser().then((user) => {
@@ -84,5 +82,4 @@ class PhotosCtrl {
         gallery.isTemp = true;
         this.$scope.newGalleries.unshift(gallery);
     }
-
 }

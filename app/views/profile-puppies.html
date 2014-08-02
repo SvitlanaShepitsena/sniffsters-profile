@@ -26,6 +26,8 @@
 		<h3 class="sniff-head-info">Current Litters</h3>
 		<hr/>
 
+		<h3 class="text-warning" ng-show="!litters.length">{{noLitterNotice}}</h3>
+
 		<div class="row">
 			<ul class="list-unstyled list-inline">
 				<li class="col-xs-4" ng-repeat="(id,l) in litters">

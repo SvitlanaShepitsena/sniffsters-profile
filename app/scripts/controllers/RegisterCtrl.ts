@@ -22,14 +22,11 @@ class RegisterCtrl {
         this.confpass = "123456";
     }
 
-
     ShowSuccess(note:string) {
-
         this.toastr.info(note);
     }
 
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }
