@@ -32,7 +32,6 @@ class LookerCtrl {
         this.toastr.error(note);
     }
 
-
     ResetAllFields = () => {
         this.$scope.looker = "";
     }

@@ -7,7 +7,7 @@ interface IAdvertiseScope extends IMainScope {
 }
 class AdvertiseCtrl {
 
-    constructor(public $scope:IAdvertiseScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.advertise = this;
         $scope.home.IsSearchHidden = false;
     }

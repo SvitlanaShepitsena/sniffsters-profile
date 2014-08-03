@@ -26,7 +26,6 @@ class RegisterCtrl {
                 var userNames = _.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'UserName');
                 console.log(userNames);
             });
-
         }
 
         $scope.register = (email:string, pass:string, confpass:string, isBreeder:boolean) => {

@@ -1,4 +1,4 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 var ContactCtrl = (function () {
     function ContactCtrl($scope, $state, toastr, DataService) {
         this.$scope = $scope;

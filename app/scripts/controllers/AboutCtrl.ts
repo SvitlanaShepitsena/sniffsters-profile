@@ -7,7 +7,7 @@ interface IAboutScope extends IMainScope {
 }
 class AboutCtrl {
 
-    constructor(public $scope:IAboutScope, public FinduserService, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public FinduserService, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home.IsSearchHidden = false;
         $scope.about = this;
 
