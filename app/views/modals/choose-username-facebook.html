@@ -1,0 +1,46 @@
+<div class="modal" tabindex="-1" role="dialog" xmlns="http://www.w3.org/1999/html">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" ng-show="title">
+				<button type="button" class="close"
+				        ng-click="$hide()">&times;
+				</button>
+				<h4 class="modal-title sniff-head-sm" ng-bind="title"></h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<input type="radio" ng-model="isBreederFb" ng-value=true> Breeder <br/>
+					<input type="radio" ng-model="isBreederFb" ng-value=false> Looker <br/>
+				</div>
+
+
+				<form role="form" action="" name="form" novalidate>
+					<div class="form-group has-feedback"
+					     ng-class="{'has-error':form.$invalid}">
+						<label for="username">
+							Username:
+						</label>
+						<span class="textMuted">Required</span>
+			<span ng-show="form.username.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
+						<input class="form-control input-user-name" type="text"
+						       ng-class="{error:userExists}"
+						       name="username"
+						       id="username"
+						       ng-maxlength="250"
+						       ng-model="usernameFb.val"
+						       required>
+					</div>
+					<button class="btn btn-primary"
+					        ng-click="setUsernameFb(usernameFb.val,isBreederFb)">
+						<i class="fa fa-hand-o-up"></i>
+						Choose
+					</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

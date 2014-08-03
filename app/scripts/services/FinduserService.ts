@@ -45,6 +45,43 @@ class FinduserService {
         return d.promise;
     }
 
+    findByEmail(email:string) {
+        email = this.FireProcess(email);
+        var d = this.$q.defer();
+        var mainRef = this.$firebase(new Firebase(this.settings.mainUrl));
+        this.getUserByEmail(mainRef, 'breeders', email).then((user:any)=> {
+            d.resolve(user.profile);
+        }, (user)=> {
+            this.getUserByEmail(mainRef, 'lookers', email).then((user:any)=> {
+                d.resolve(user.profile);
+            }, (user)=> {
+                d.reject(null)
+            })
+        });
+        return d.promise;
+    }
+
+
+    getUserByEmail(mainRef, type:string, email:string) {
+        var d = this.$q.defer();
+        email = this.FireProcess(email);
+
+        var breeders = mainRef.$child(type);
+        var keys = breeders.$getIndex();
+        var wasFound = false;
+        keys.forEach((key)=> {
+            if (key == email) {
+                wasFound = true;
+                d.resolve(breeders[key]);
+            }
+        })
+        if (!wasFound) {
+            d.reject(null);
+        }
+
+        return d.promise;
+    }
+
     FireProcess(userName:string) {
         return userName.replace(/\./g, '(p)');
     }

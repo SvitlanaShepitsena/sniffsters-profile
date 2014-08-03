@@ -35,10 +35,87 @@ class HomeCtrl {
 
     isLoggedIn:boolean = false;
 
-    constructor(public $scope, public $modal, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    FacebookSignin() {
+        this.auth.$login('facebook',
+            {rememberMe: false}
+        ).then((user)=> {
+                if (user) {
+                    this.$scope.facebookUid = user.id;
+
+                    this.FinduserService.findByEmail(user.id).then((userProfile)=> {
+                            ///was found
+                            this.nickName = userProfile.UserName;
+                            this.nickNameFire = this.FireProcess(this.nickName);
+                            this.userName = userProfile.Email;
+                            this.userNameFire = this.FireProcess(this.userName);
+
+
+                            this.isLoggedIn = true;
+                            this.isBreeder = userProfile.isBreeder;
+                        },
+                        () => {
+                            //was not found
+                            this.$scope.modal = this.$modal(
+                                {
+                                    scope: this.$scope,
+                                    title: 'Choose username',
+                                    template: '../views/modals/choose-username-facebook.html',
+                                    show: true
+                                }
+                            );
+
+                        }
+                    )
+
+                } else {
+                    // user logout
+                }
+            }, (error)=> {
+                this.ShowError(error);
+            })
+    }
+
+
+    constructor(public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
 
         $scope.home = this;
         this.menuIndex = 1;
+
+        $scope.usernameFb = {};
+        $scope.isBreederFb = {};
+
+        $scope.setUsernameFb = (userNameFb, isBreederFb) => {
+
+            FinduserService.find(userNameFb).then(() => {
+                //exists
+
+                $scope.userExists = true;
+                this.ShowError(settings.userExists);
+            }, () => {
+                //free
+                if (isBreederFb) {
+                    var breederGenerator = new BreederGenerator();
+                    breederGenerator.create($scope.home.FireProcess($scope.facebookUid), this.MainUrl, this.$firebase, userNameFb);
+                } else {
+                    var lookerGenerator = new LookerGenerator();
+                    lookerGenerator.create($scope.home.FireProcess($scope.facebookUid), this.MainUrl, this.$firebase, userNameFb);
+                }
+
+                this.nickName = userNameFb;
+                this.nickNameFire = this.FireProcess(userNameFb);
+                this.userName = this.$scope.facebookUid;
+                this.userNameFire = this.FireProcess(this.$scope.facebookUid);
+
+
+                this.isLoggedIn = true;
+                this.isBreeder = isBreederFb;
+                this.$scope.modal.hide();
+            })
+
+
+        }
+
+
         $scope.fetchDog = (breed, location)=> {
             if (breed == null) {
                 breed = {name: null};
@@ -57,6 +134,7 @@ class HomeCtrl {
         this.MainUrl = settings.mainUrl;
         this.MainRef = new Firebase(this.MainUrl);
         this.MainRefFire = $firebase(new Firebase(this.MainUrl));
+
 
 //        $scope.breedsRef = this.MainRefFire.$child('breeders');
 //        $scope.breedsRef.$on('value', (snapshot:any)=> {
@@ -179,10 +257,13 @@ class HomeCtrl {
     }
 
     FireProcess(userName:string) {
+        if (_.isUndefined(userName)) return;
         return userName.replace(/\./g, '(p)');
+
     }
 
     FireUnProcess(userName:string) {
+        if (_.isUndefined(userName)) return;
         return userName.replace(/\(p\)/g, '.');
 
     }
@@ -195,21 +276,6 @@ class HomeCtrl {
             return 'slide-right';
     }
 
-
-    FacebookSignin() {
-        this.auth.$login('facebook',
-            {rememberMe: true}
-        ).then((user)=> {
-                if (user) {
-                    this.userName = user.displayName;
-
-                } else {
-                    // user logout
-                }
-            }, (error)=> {
-                this.ShowError(error);
-            })
-    }
 
     Logout() {
         this.isLoggedIn = false;
