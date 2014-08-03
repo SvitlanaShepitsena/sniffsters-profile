@@ -18,7 +18,7 @@ class DataService {
     }
 
     // =Messages
-    sendReply(userName:string, corrUserName:string, reply:string) {
+    sendReply(userName:string, corrUserName:string, corrUserNameNick:string, reply:string) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
@@ -31,8 +31,10 @@ class DataService {
         note.sent = Date.now();
         note.body = reply;
 
+
         note.isTrash = false;
         note.userName = corrUserName;
+        note.nickName = corrUserNameNick;
         corrUserRef.$add(note);
 
         d.resolve();
@@ -40,7 +42,7 @@ class DataService {
         return d.promise;
     }
 
-    sendLookerReply(userName:string, corrUserName:string, reply:string) {
+    sendLookerReply(userName:string, corrUserName:string, corrUserNameNick:string, reply:string) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
@@ -56,6 +58,7 @@ class DataService {
 
         note.isTrash = false;
         note.userName = corrUserName;
+        note.nickName = corrUserNameNick;
         corrUserRef.$add(note);
 
         d.resolve();

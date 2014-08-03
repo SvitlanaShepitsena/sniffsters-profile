@@ -21,6 +21,7 @@ class FinduserService {
         return d.promise;
     }
 
+
     getUser(mainRef, type:string, userName:string) {
         var d = this.$q.defer();
         var breeders = mainRef.$child(type);
@@ -29,6 +30,9 @@ class FinduserService {
 
             var userNames = _.pluck(this.$filter('orderByPriority')(bs), 'profile');
             var foundUser = _.find(userNames, (user)=> {
+                if (_.isUndefined(user)) {
+                    return false;
+                }
                 return user.UserName == userName;
             });
             if (_.isUndefined(foundUser)) {

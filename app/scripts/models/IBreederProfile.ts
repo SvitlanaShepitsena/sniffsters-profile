@@ -82,6 +82,7 @@ interface INote {
     amISender:boolean;
     isTrash:boolean;
     userName:string;
+    nickName:string;
     body:string;
     sent:number;
 }
@@ -91,6 +92,7 @@ class Note implements INote {
     amISender:boolean;
     isTrash:boolean;
     userName:string;
+    nickName:string;
     body:string;
     sent:number;
 

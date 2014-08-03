@@ -15,7 +15,7 @@ var DataService = (function () {
         this.urlBreeder = this.url + "breeders/";
     }
     // =Messages
-    DataService.prototype.sendReply = function (userName, corrUserName, reply) {
+    DataService.prototype.sendReply = function (userName, corrUserName, corrUserNameNick, reply) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
@@ -30,6 +30,7 @@ var DataService = (function () {
 
         note.isTrash = false;
         note.userName = corrUserName;
+        note.nickName = corrUserNameNick;
         corrUserRef.$add(note);
 
         d.resolve();
@@ -37,7 +38,7 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.sendLookerReply = function (userName, corrUserName, reply) {
+    DataService.prototype.sendLookerReply = function (userName, corrUserName, corrUserNameNick, reply) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
@@ -53,6 +54,7 @@ var DataService = (function () {
 
         note.isTrash = false;
         note.userName = corrUserName;
+        note.nickName = corrUserNameNick;
         corrUserRef.$add(note);
 
         d.resolve();

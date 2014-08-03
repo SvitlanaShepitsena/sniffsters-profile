@@ -11,9 +11,6 @@
 					    ng-click="messages.SetSelectedUser($index)"
 					    ng-repeat="u in messages.fireMessages | selectUsers:isTrash">
 						<a href="" class="displayMessageSender">
-							<img class="thumbnail th-sender img-responsive"
-							     ng-src="../../imgdir/{{u}}/myimg/mainpic.jpg"
-							     alt="">
 							{{u}}
 						</a>
 					</li>
@@ -26,9 +23,9 @@
 			<div class="messagesScrollBox">
 				<ul class="list-unstyled">
 					<li class="li-message-body"
-					    ng-repeat="m in messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser|orderBy:'sent':true">
+					    ng-repeat="m in messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName|orderBy:'sent':true">
 						<ul class="list-inline">
-							<li class="userName" ng-hide="m.amISender">{{messages.selectedUser | unfire}}
+							<li class="userName" ng-hide="m.amISender">{{messages.selectedUser.nickName | unfire}}
 							</li>
 							<li class="userName" ng-show="m.amISender">Me</li>
 							<li class="pull-right ">
@@ -64,7 +61,7 @@
 					<button class="btn btn-danger" ng-click="messages.Delete()">Delete Conversation</button>
 					<button class="btn btn-primary btn-send"
 					        ng-disabled="form.body.$pristine"
-					        ng-click="messages.Send()">Send
+					        ng-click="messages.SendNewMessage(messages.selectedUser.nickName,messages.reply.body)">Send
 					</button>
 				</div>
 			</form>

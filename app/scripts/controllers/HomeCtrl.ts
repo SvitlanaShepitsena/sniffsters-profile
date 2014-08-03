@@ -11,6 +11,8 @@ interface IHomeScope extends IMainScope {
     ctrl:IndexCtrl;
 }
 class HomeCtrl {
+    nickName:any
+    nickNameFire:any
     userName:any;
     userNameFire:string;
 
@@ -56,29 +58,29 @@ class HomeCtrl {
         this.MainRef = new Firebase(this.MainUrl);
         this.MainRefFire = $firebase(new Firebase(this.MainUrl));
 
-        $scope.breedsRef = this.MainRefFire.$child('breeders');
-        $scope.breedsRef.$on('value', (snapshot:any)=> {
-            var bs = snapshot.snapshot.value;
-
-            var breedsR = _.values(_.values(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'breeds'))));
-            $scope.breeds = _.map(_.uniq(_.flatten(_.map(breedsR, (breed)=> {
-
-                var arrTemp = _.values(breed);
-                return arrTemp;
-            }))), (breed)=> {
-                return {name: breed}
-            });
-        });
-
-        $scope.locationRef = this.MainRefFire.$child('breeders');
-        $scope.locationRef.$on('value', (snapshot:any)=> {
-            var bs = snapshot.snapshot.value;
-
-            var locationVal = _.uniq(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'Location')));
-            $scope.locations = _.map(locationVal, (location)=> {
-                return {name: location};
-            })
-        });
+//        $scope.breedsRef = this.MainRefFire.$child('breeders');
+//        $scope.breedsRef.$on('value', (snapshot:any)=> {
+//            var bs = snapshot.snapshot.value;
+//
+//            var breedsR = _.values(_.values(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'breeds'))));
+//            $scope.breeds = _.map(_.uniq(_.flatten(_.map(breedsR, (breed)=> {
+//
+//                var arrTemp = _.values(breed);
+//                return arrTemp;
+//            }))), (breed)=> {
+//                return {name: breed}
+//            });
+//        });
+//
+//        $scope.locationRef = this.MainRefFire.$child('breeders');
+//        $scope.locationRef.$on('value', (snapshot:any)=> {
+//            var bs = snapshot.snapshot.value;
+//
+//            var locationVal = _.uniq(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'Location')));
+//            $scope.locations = _.map(locationVal, (location)=> {
+//                return {name: location};
+//            })
+//        });
 
 
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
@@ -133,6 +135,10 @@ class HomeCtrl {
         breederRef.$on('value', (snapshot:any)=> {
             var breeder = this.$filter('orderByPriority')(snapshot.snapshot.value);
             if (breeder.length > 0) {
+                if (!_.isUndefined(breeder.profile)) {
+                    this.nickName = breeder.profile.UserName;
+                    this.nickNameFire = this.FireProcess(this.nickName);
+                }
                 this.isBreeder = true;
                 d.resolve();
             }
@@ -140,6 +146,11 @@ class HomeCtrl {
         lookerRef.$on('value', (snapshot:any)=> {
             var looker = this.$filter('orderByPriority')(snapshot.snapshot.value);
             if (looker.length > 0) {
+
+                if (!_.isUndefined(looker.profile)) {
+                    this.nickName = looker.profile.UserName;
+                    this.nickNameFire = this.FireProcess(this.nickName);
+                }
                 this.isBreeder = false;
                 d.resolve();
             }
