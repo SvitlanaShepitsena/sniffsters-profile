@@ -47,7 +47,6 @@ var RegisterCtrl = (function () {
                 show: true
             });
             //            $scope.home.auth.$createUser(email, pass).then(() => {
-            //
             //            this.Signin(email, pass)
             //            }, (error)=> {
             //                this.ShowError(error);

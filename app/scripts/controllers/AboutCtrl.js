@@ -8,11 +8,6 @@ var AboutCtrl = (function () {
         this.DataService = DataService;
         $scope.home.IsSearchHidden = false;
         $scope.about = this;
-        FinduserService.find('breeder44').then(function (user) {
-            console.log('We found: ' + user.UserName);
-        }, function () {
-            console.log('Does not exist');
-        });
     }
     AboutCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
