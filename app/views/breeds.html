@@ -8,6 +8,7 @@
 				<li ng-repeat="(key,bs) in breeds" class="list-group-item li-breed">
 					<div class="row">
 						<div class="col-xs-11">
+							{{bs}}
 						</div>
 						<div class="col-xs-1">
 							<button type="button" class="btn btn-link btn-del-breed" title="{{popoverDelete.title}}"
@@ -19,18 +20,20 @@
 					</div>
 				</li>
 			</ul>
-
-
 			<div class="profile-breeds">
 				<div class="control-group" id="fields">
 					<div class="controls">
 						<form role="form" name="form" id="form" autocomplete="off">
 							<div class="form-group">
 								<div class="entry input-group col-xs-12">
-									<input class="form-control add-input" name="fields[]" type="text"
-									       placeholder="Add new Breeds" ng-model="newBreed.name"/>
+									<input class="form-control add-input"
+									       name="fields[]"
+									       type="text"
+									       placeholder="Add new Breeds"
+									       ng-model="newBreed.name"/>
                     	<span class="input-group-btn">
-                            <button ng-click="addNewBreed(newBreed.name)" class="btn btn-success btn-add" type="button">
+                            <button ng-click="saveBreed(newBreed.name);newBreed.name=''" class="btn btn-success btn-add"
+                                    type="button">
 	                            <span class="glyphicon glyphicon-plus">
 	                            </span>
                             </button>
