@@ -11,24 +11,17 @@ interface ILookerScope extends IHomeScope {
 class LookerCtrl {
     lookersUrl:string;
 
-    constructor(public $scope:ILookerScope, public $firebase, public $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public $firebase, public $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home.IsSearchHidden = false;
         $scope.lookerCtrl = this;
 
-        /*
-         Todo: apply MainUrl
-         @author - Svitlana
-         @date - 7/27/2014
-         @time - 9:27 PM
-         */
-//        this.lookersUrl = "https://torid-fire-6526.firebaseio.com/lookers/";
-
         var lookerEmail = this.$stateParams.uname;
-//        var lookerUrl = this.lookersUrl + $scope.home.FireProcess(lookerEmail);
         var lookerUrl = $scope.home.MainUrl + 'lookers/' + $scope.home.FireProcess(lookerEmail);
         $scope.looker = $firebase(new Firebase(lookerUrl));
+        $scope.save = () => {
+            $scope.looker.$save();
+        }
     }
-
 
     ShowSuccess(note:string) {
 
@@ -39,12 +32,8 @@ class LookerCtrl {
         this.toastr.error(note);
     }
 
-    Save = () => {
-
-    }
 
     ResetAllFields = () => {
         this.$scope.looker = "";
     }
-
 }

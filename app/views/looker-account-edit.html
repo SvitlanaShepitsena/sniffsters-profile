@@ -5,7 +5,7 @@
 		</div>
 		<div class="col-xs-2 pull-right">
 			<button class="btn pull-right btn-save"
-			        ng-click="ctrl.SavePersonalInfo(); form.$setPristine();"
+			        ng-click="save(); form.$setPristine();"
 			        ng-disabled="(form.$pristine)
 					|| (form.$invalid)
 					|| saved">
@@ -16,14 +16,18 @@
 
 	<form class="form" name="form" novalidate>
 		<div class="row">
-			<div class="form-group has-feedback col-xs-6" ng-class="{'has-error':form.fname.$invalid}">
+			<div class="form-group has-feedback col-xs-6"
+			     ng-class="{'has-error':form.fname.$invalid}">
 				<label for="fname" class="sniff-subhead control-label">First Name:</label>
 				<span class="textMuted">Required</span>
 				<input type="text" id="fname" name="fname" class="form-control"
 				       ng-model="looker.profile.FirstName"
+				       ng-maxlength="250"
 				       required/>
 				<span ng-show="form.fname.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
 				<span ng-hide="form.fname.$invalid" class="fa custom-col fa-check form-control-feedback"></span>
+			<span ng-show="form.fname.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			</div>
 
 			<div class="form-group col-xs-6 has-feedback" ng-class="{'has-error':form.lname.$invalid}">
@@ -31,9 +35,12 @@
 				<span class="textMuted">Required</span>
 				<input type="text" id="lname" name="lname" class="form-control"
 				       ng-model="looker.profile.LastName"
+				       ng-maxlength="250"
 				       required/>
 				<span ng-show="form.lname.$invalid" class="fa fa-times form-control-feedback"></span>
 				<span ng-hide="form.lname.$invalid" class="fa fa-check form-control-feedback"></span>
+			<span ng-show="form.lname.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 			</div>
 		</div>
 		<div class="row">
