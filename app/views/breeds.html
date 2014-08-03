@@ -1,5 +1,46 @@
-<div>
-	<h3 class="sniff-head">Breeds</h3>
-	<hr/>
-	<!-- PUT DIRECTIVES BELOW -->
+<div class="row">
+	<div class="col-xs-6">
+		<h3 class="h-subsctriptions">Breeds</h3>
+		<hr/>
+		<!--<button class="btn btn-warning" ng-click="removeBreed(key)"><i class="fa fa-trash-o pull-right"></i></button>-->
+		<div class="breeds-container">
+			<ul class="list-group">
+				<li ng-repeat="(key,bs) in breeds" class="list-group-item li-breed">
+					<div class="row">
+						<div class="col-xs-11">
+						</div>
+						<div class="col-xs-1">
+							<button type="button" class="btn btn-link btn-del-breed" title="{{popoverDelete.title}}"
+							        data-content="{{popover.content}}"
+							        data-template="../views/modals/delete-confirmation.html"
+							        data-animation="am-flip-x" bs-popover="popoverDelete"><i class="fa fa-trash-o"></i>
+							</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+
+			<div class="profile-breeds">
+				<div class="control-group" id="fields">
+					<div class="controls">
+						<form role="form" name="form" id="form" autocomplete="off">
+							<div class="form-group">
+								<div class="entry input-group col-xs-12">
+									<input class="form-control add-input" name="fields[]" type="text"
+									       placeholder="Add new Breeds" ng-model="newBreed.name"/>
+                    	<span class="input-group-btn">
+                            <button ng-click="addNewBreed(newBreed.name)" class="btn btn-success btn-add" type="button">
+	                            <span class="glyphicon glyphicon-plus">
+	                            </span>
+                            </button>
+                        </span>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

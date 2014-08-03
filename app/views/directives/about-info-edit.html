@@ -100,66 +100,61 @@
 		</textarea>
 		<br/>
 
-		<div>
-			<h3 class="sniff-head-info">Breeds</h3>
+		<h3 class="sniff-head-info">Breeds</h3>
 
+		<div class="breeds-container">
 			<ul class="list-group">
-				<li ng-repeat="(key,bs) in breeds" class="list-group-item">
+				<li ng-repeat="(key,bs) in breeds" class="list-group-item li-breed">
 					<div class="row">
-						<div class="col-sm-6">
-							{{bs}}
+						<div class="col-xs-11">
+						{{bs}}
 						</div>
-
-						<div class="col-sm-6">
-
-							<button type="button" class="btn btn-link" title="{{popoverDelete.title}}"
+						<div class="col-xs-1">
+							<button type="button" class="btn btn-link btn-del-breed" title="{{popoverDelete.title}}"
 							        data-content="{{popover.content}}"
 							        data-template="../views/modals/delete-confirmation.html"
 							        data-animation="am-flip-x" bs-popover="popoverDelete"><i class="fa fa-trash-o"></i>
 							</button>
-
-
-							<!--<button class="btn btn-warning" ng-click="removeBreed(key)"><i class="fa fa-trash-o pull-right"></i></button>-->
 						</div>
 					</div>
 				</li>
 			</ul>
 
 
-			<div class="container">
-				<div class="row">
-					<div class="control-group" id="fields">
-						<div class="controls">
-							<form role="form" autocomplete="off">
-								<div class="entry input-group col-xs-9">
-									<input class="form-control" name="fields[]" type="text"
+			<div class="profile-breeds">
+				<div class="control-group" id="fields">
+					<div class="controls">
+						<form role="form" name="form" id="form" autocomplete="off">
+							<div class="form-group">
+								<div class="entry input-group col-xs-12">
+									<input class="form-control add-input" name="fields[]" type="text"
 									       placeholder="Add new Breeds" ng-model="newBreed.name"/>
                     	<span class="input-group-btn">
                             <button ng-click="addNewBreed(newBreed.name)" class="btn btn-success btn-add" type="button">
-	                            <span class="glyphicon glyphicon-plus"></span>
+	                            <span class="glyphicon glyphicon-plus">
+	                            </span>
                             </button>
                         </span>
 								</div>
-							</form>
-
-						</div>
+							</div>
+						</form>
 					</div>
 				</div>
-
 			</div>
+		</div>
 
 
-			<div class="form-group profileSave text-center">
-				<a class="btn btn-default" ui-sref="user.profile.about1">Cancel</a>
-				<button class="btn btn-warning"
-				        ng-click="ResetAllFields();form.info.$setDirty()"> Reset all fields
-				</button>
-				<button class="btn btn-primary"
-				        ng-disabled="form.$invalid || form.$pristine"
-				        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save
-				</button>
-				<a class="btn btn-default" ui-sref="user.profile.photos2">Next Section</a>
-			</div>
+		<div class="form-group profileSave text-center">
+			<a class="btn btn-default" ui-sref="user.profile.about1">Cancel</a>
+			<button class="btn btn-warning"
+			        ng-click="ResetAllFields();form.info.$setDirty()"> Reset all fields
+			</button>
+			<button class="btn btn-primary"
+			        ng-disabled="form.$invalid || form.$pristine"
+			        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save
+			</button>
+			<a class="btn btn-default" ui-sref="user.profile.photos2">Next Section</a>
+		</div>
 
 	</form>
 </div>
