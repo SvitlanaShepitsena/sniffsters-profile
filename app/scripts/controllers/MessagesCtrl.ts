@@ -65,6 +65,7 @@ class MessagesCtrl {
                 message.isTrash = false;
             })
             this.SetSelectedUser(0);
+
         })
     }
 
