@@ -7,7 +7,8 @@
 		<div class="scrollBarAside">
 			<div class="scrollBoxAside">
 				<ul class="nav nav-pills nav-stacked messageUserList">
-					<li ng-class="{active:messages.selectedUserIndex==$index}" class="cursor-p text-center"
+					<li ng-class="{active:messages.selectedUserIndex==$index}"
+					    class="cursor-p text-center"
 					    ng-click="messages.SetSelectedUser($index)"
 					    ng-repeat="u in messages.fireMessages | selectUsers:isTrash">
 						<a href="" class="displayMessageSender">
