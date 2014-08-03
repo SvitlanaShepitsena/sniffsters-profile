@@ -23,7 +23,7 @@ class MessagesCtrl {
         $scope.noSuchUser = false;
 
         $scope.messages = this;
-
+        $scope.reply = {};
         $scope.home.hideMenu = true;
 
         $scope.home.auth.$getCurrentUser().then((user) => {
@@ -94,7 +94,7 @@ class MessagesCtrl {
 //        })
 //    }
 
-    SendNewMessage(to:string, body:string) {
+    SendNewMessage(to:string, body:string, levelUp:boolean) {
         this.$scope.home.auth.$getCurrentUser().then((user) => {
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
                 this.FinduserService.find(to).then((userToProfile)=> {
@@ -119,14 +119,24 @@ class MessagesCtrl {
 
                         if (userToProfile.isBreeder === true) {
                             this.DataService.sendReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body).then(() => {
-//                                this.$state.go('^');
-                                this.ShowSuccess('Your message has been sent!!');
+                                if (levelUp) {
+                                    this.$state.go('^');
+                                }
+                                this.$scope.reply.body = "";
+
+                                this.ShowSuccess(this.settings.messageSuccessNotice);
                             })
                         }
                         if (this.$scope.home.isBreeder === false) {
                             this.DataService.sendLookerReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body).then(() => {
-//                                this.$state.go('^');
-                                this.ShowSuccess('Your message has been sent!!');
+                                if (levelUp) {
+                                    this.$state.go('^');
+                                }
+                                this.$scope.note.body = "";
+                                this.$scope.note.to = "";
+                                this.$scope.reply.body = "";
+
+                                this.ShowSuccess(this.settings.messageSuccessNotice);
                             })
                         }
 
@@ -137,8 +147,6 @@ class MessagesCtrl {
                         this.$scope.noSuchUser = true;
                     }
                 );
-
-
             })
         })
     }

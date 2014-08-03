@@ -44,8 +44,9 @@
 				</ul>
 			</div>
 		</div>
-		<div ng-show="isTrash" class="trash-buttons pull-right">
-			<button class="btn btn-danger" ng-click="messages.DeleteForever()">Delete Forever</button>
+		<div ng-show="isTrash && (messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName).length"
+		     class="trash-buttons pull-right">
+		<button class="btn btn-danger" ng-click="messages.DeleteForever()">Delete Forever</button>
 			<button class="btn btn-success" ng-click="messages.Recover()">Recover</button>
 		</div>
 		<div ng-hide="isTrash" class="reply-container">
@@ -54,15 +55,16 @@
 
 			<form action="" role="form" name="form" id="form">
 				<div class="form-group form-group-reply">
-					<textarea name="body" class="form-control text-reply" ng-model="messages.reply.body" id="body">
-						{{keply.body}}
+					<textarea name="body" class="form-control text-reply"
+					          ng-model="reply.body" id="body">
 					</textarea>
 				</div>
 				<div class="pull-right btn-send-container form-group">
 					<button class="btn btn-danger" ng-click="messages.Delete()">Delete Conversation</button>
 					<button class="btn btn-primary btn-send"
 					        ng-disabled="form.body.$pristine"
-					        ng-click="messages.SendNewMessage(messages.selectedUser.nickName,messages.reply.body)">Send
+					        ng-click="messages.SendNewMessage(messages.selectedUser.nickName, reply.body,false);reply.body=''">
+						Send
 					</button>
 				</div>
 			</form>

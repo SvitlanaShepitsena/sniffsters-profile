@@ -15,7 +15,7 @@ var MessagesCtrl = (function () {
         $scope.noSuchUser = false;
 
         $scope.messages = this;
-
+        $scope.reply = {};
         $scope.home.hideMenu = true;
 
         $scope.home.auth.$getCurrentUser().then(function (user) {
@@ -84,7 +84,7 @@ var MessagesCtrl = (function () {
     //            })
     //        })
     //    }
-    MessagesCtrl.prototype.SendNewMessage = function (to, body) {
+    MessagesCtrl.prototype.SendNewMessage = function (to, body, levelUp) {
         var _this = this;
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
@@ -109,14 +109,24 @@ var MessagesCtrl = (function () {
                     //                TO #################################
                     if (userToProfile.isBreeder === true) {
                         _this.DataService.sendReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body).then(function () {
-                            //                                this.$state.go('^');
-                            _this.ShowSuccess('Your message has been sent!!');
+                            if (levelUp) {
+                                _this.$state.go('^');
+                            }
+                            _this.$scope.reply.body = "";
+
+                            _this.ShowSuccess(_this.settings.messageSuccessNotice);
                         });
                     }
                     if (_this.$scope.home.isBreeder === false) {
                         _this.DataService.sendLookerReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body).then(function () {
-                            //                                this.$state.go('^');
-                            _this.ShowSuccess('Your message has been sent!!');
+                            if (levelUp) {
+                                _this.$state.go('^');
+                            }
+                            _this.$scope.note.body = "";
+                            _this.$scope.note.to = "";
+                            _this.$scope.reply.body = "";
+
+                            _this.ShowSuccess(_this.settings.messageSuccessNotice);
                         });
                     }
                 }, function () {
