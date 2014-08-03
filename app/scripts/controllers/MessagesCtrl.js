@@ -89,21 +89,17 @@ var MessagesCtrl = (function () {
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
                 _this.FinduserService.find(to).then(function (userToProfile) {
                     // UserTo is in DB
-                    var note = new Note();
-                    note.isTrash = false;
-                    note.body = body;
-
                     //                        FROM ##############################
                     if (_this.$scope.home.isBreeder === true) {
                         _this.DataService.sendReply(_this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body).then(function () {
-                            _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: _this.$scope.home.FireProcess(to), userName: userToProfile.Email });
+                            _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: _this.$scope.home.FireProcess(to), userName: _this.$scope.home.FireProcess(userToProfile.Email) });
                             //                                this.$state.go('^');
                             //                                this.ShowSuccess('Your message has been sent!!');
                         });
                     }
                     if (_this.$scope.home.isBreeder === false) {
                         _this.DataService.sendLookerReply(_this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body).then(function () {
-                            _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: _this.$scope.home.FireProcess(to), userName: userToProfile.Email });
+                            _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: _this.$scope.home.FireProcess(to), userName: _this.$scope.home.FireProcess(userToProfile.Email) });
                             //                                this.$state.go('^');
                             //                                this.ShowSuccess('Your message has been sent!!');
                         });
@@ -111,13 +107,13 @@ var MessagesCtrl = (function () {
 
                     //                TO #################################
                     if (userToProfile.isBreeder === true) {
-                        _this.DataService.sendReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickNameFire, body).then(function () {
+                        _this.DataService.sendReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body).then(function () {
                             //                                this.$state.go('^');
                             _this.ShowSuccess('Your message has been sent!!');
                         });
                     }
                     if (_this.$scope.home.isBreeder === false) {
-                        _this.DataService.sendLookerReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickNameFire, body).then(function () {
+                        _this.DataService.sendLookerReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body).then(function () {
                             //                                this.$state.go('^');
                             _this.ShowSuccess('Your message has been sent!!');
                         });

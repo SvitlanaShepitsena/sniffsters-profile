@@ -133,29 +133,25 @@ class HomeCtrl {
         var lookerRef = this.$firebase(new Firebase(lookerUrl));
 
         breederRef.$on('value', (snapshot:any)=> {
-            var breeder = this.$filter('orderByPriority')(snapshot.snapshot.value);
-            if (breeder.length > 0) {
-                if (!_.isUndefined(breeder.profile)) {
-                    this.nickName = breeder.profile.UserName;
-                    this.nickNameFire = this.FireProcess(this.nickName);
-                }
+
+
+            var breeder = snapshot.snapshot.value;
+            if (!_.isNull(breeder) && !_.isUndefined(breeder.profile)) {
+                this.nickName = breeder.profile.UserName;
+                this.nickNameFire = this.FireProcess(this.nickName);
                 this.isBreeder = true;
                 d.resolve();
             }
         });
         lookerRef.$on('value', (snapshot:any)=> {
-            var looker = this.$filter('orderByPriority')(snapshot.snapshot.value);
-            if (looker.length > 0) {
-
-                if (!_.isUndefined(looker.profile)) {
-                    this.nickName = looker.profile.UserName;
-                    this.nickNameFire = this.FireProcess(this.nickName);
-                }
+            var looker = snapshot.snapshot.value;
+            if (!_.isNull(looker) && !_.isUndefined(looker.profile)) {
+                this.nickName = looker.profile.UserName;
+                this.nickNameFire = this.FireProcess(this.nickName);
                 this.isBreeder = false;
                 d.resolve();
             }
         });
-
         return d.promise;
     }
 

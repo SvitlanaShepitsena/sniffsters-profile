@@ -21,6 +21,7 @@ class DataService {
     sendReply(userName:string, corrUserName:string, corrUserNameNick:string, reply:string) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
+        corrUserNameNick = this.FireProcess(corrUserNameNick);
 
         var d = this.$q.defer();
         var corrUserUrl = this.urlBreeder + userName + "/messages";
@@ -45,7 +46,7 @@ class DataService {
     sendLookerReply(userName:string, corrUserName:string, corrUserNameNick:string, reply:string) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
-
+        corrUserNameNick = this.FireProcess(corrUserNameNick);
         var d = this.$q.defer();
 
         var corrUserUrl = this.urlLooker + userName + "/messages";

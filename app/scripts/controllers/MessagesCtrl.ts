@@ -97,22 +97,18 @@ class MessagesCtrl {
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
                 this.FinduserService.find(to).then((userToProfile)=> {
                         // UserTo is in DB
-                        var note = new Note();
-                        note.isTrash = false;
-                        note.body = body;
-
 
 //                        FROM ##############################
                         if (this.$scope.home.isBreeder === true) {
                             this.DataService.sendReply(this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body).then(() => {
-                                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: userToProfile.Email});
+                                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: this.$scope.home.FireProcess(userToProfile.Email)});
 //                                this.$state.go('^');
 //                                this.ShowSuccess('Your message has been sent!!');
                             })
                         }
                         if (this.$scope.home.isBreeder === false) {
                             this.DataService.sendLookerReply(this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body).then(() => {
-                                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: userToProfile.Email});
+                                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: this.$scope.home.FireProcess(userToProfile.Email)});
 //                                this.$state.go('^');
 //                                this.ShowSuccess('Your message has been sent!!');
                             })
@@ -120,13 +116,13 @@ class MessagesCtrl {
 //                TO #################################
 
                         if (userToProfile.isBreeder === true) {
-                            this.DataService.sendReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickNameFire, body).then(() => {
+                            this.DataService.sendReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body).then(() => {
 //                                this.$state.go('^');
                                 this.ShowSuccess('Your message has been sent!!');
                             })
                         }
                         if (this.$scope.home.isBreeder === false) {
-                            this.DataService.sendLookerReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickNameFire, body).then(() => {
+                            this.DataService.sendLookerReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body).then(() => {
 //                                this.$state.go('^');
                                 this.ShowSuccess('Your message has been sent!!');
                             })
