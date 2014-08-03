@@ -5,7 +5,7 @@
 var BreederGenerator = (function () {
     function BreederGenerator() {
     }
-    BreederGenerator.prototype.create = function (email, mainRef, $firebase) {
+    BreederGenerator.prototype.create = function (email, mainRef, $firebase, nickName) {
         var user = new BreederProfile();
         var userUrl = mainRef + "breeders";
 
@@ -15,6 +15,7 @@ var BreederGenerator = (function () {
         var profileRef = userRef.$child('profile');
 
         user.Email = email;
+        user.UserName = nickName;
 
         profileRef.$set(user);
 
