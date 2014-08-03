@@ -70,6 +70,7 @@
 /// <reference path="directives/svLitter.ts" />
 /// <reference path="controllers/UpgradeCtrl.ts" />
 /// <reference path="controllers/ManageBreederAccountCtrl.ts" />
+/// <reference path="services/FinduserService.ts" />
 //#ref
 var profile = angular.module("profile", ['mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
 
@@ -119,6 +120,7 @@ profile.filter('unshared', function () {
 //#filt
 profile.service("CopyProfileService", CopyProfileService);
 profile.service("GalleryService", GalleryService);
+profile.service("FinduserService", FinduserService);
 
 //#serv
 profile.directive("aboutInfoEdit", aboutInfoEdit);
