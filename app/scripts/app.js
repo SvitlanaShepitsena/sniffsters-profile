@@ -70,6 +70,7 @@
 /// <reference path="controllers/UpgradeCtrl.ts" />
 /// <reference path="controllers/ManageBreederAccountCtrl.ts" />
 /// <reference path="services/FinduserService.ts" />
+/// <reference path="controllers/BreedsCtrl.ts" />
 //#ref
 var profile = angular.module("profile", ['mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
 
@@ -187,6 +188,7 @@ profile.controller("LookerAccountCtrl", LookerAccountCtrl);
 profile.controller("FollowingsCtrl", FollowingsCtrl);
 profile.controller("UpgradeCtrl", UpgradeCtrl);
 profile.controller("ManageBreederAccountCtrl", ManageBreederAccountCtrl);
+profile.controller("BreedsCtrl", BreedsCtrl);
 
 //#ctrl
 profile.service("DataService", DataService);
@@ -347,6 +349,10 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/subscriptions",
         controller: "SubscriptionsCtrl",
         templateUrl: "../views/subscriptions.html"
+    }).state("admin.breeds", {
+        url: "/breeds",
+        controller: "BreedsCtrl",
+        templateUrl: "../views/breeds.html"
     }).state("looker", {
         abstract: true,
         controller: "LookerCtrl",
