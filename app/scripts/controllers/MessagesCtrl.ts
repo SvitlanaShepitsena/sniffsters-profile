@@ -51,25 +51,26 @@ class MessagesCtrl {
     }
 
     Delete() {
-        this.DataService.deleteConversation(this.$scope.home.userName, this.selectedUser).then(() => {
-            _.where(this.fireMessages, {isTrash: false, userName: this.selectedUser}).forEach((message:INote)=> {
+        this.DataService.deleteConversation(this.$scope.home.userName, this.selectedUser.userName, this.$scope.home.isBreeder).then(() => {
+            _.where(this.fireMessages, {isTrash: false, userName: this.selectedUser.userName}).forEach((message:INote)=> {
                 message.isTrash = true;
             })
+            this.SetSelectedUser(0);
         })
     }
 
     Recover() {
-        this.DataService.recoverConversation(this.$scope.home.userName, this.selectedUser).then(() => {
-            _.where(this.fireMessages, {isTrash: true, userName: this.selectedUser}).forEach((message:INote)=> {
+        this.DataService.recoverConversation(this.$scope.home.userName, this.selectedUser.userName, this.$scope.home.isBreeder).then(() => {
+            _.where(this.fireMessages, {isTrash: true, userName: this.selectedUser.userName}).forEach((message:INote)=> {
                 message.isTrash = false;
             })
-//            this.SetSelectedUser(0);
+            this.SetSelectedUser(0);
         })
     }
 
     DeleteForever() {
-        this.DataService.deleteForever(this.$scope.home.userName, this.selectedUser).then(() => {
-            this.fireMessages = _.without(this.fireMessages, _.findWhere(this.fireMessages, {isTrash: true, userName: this.selectedUser}));
+        this.DataService.deleteForever(this.$scope.home.userName, this.selectedUser.userName, this.$scope.home.isBreeder).then(() => {
+            this.fireMessages = _.without(this.fireMessages, _.findWhere(this.fireMessages, {isTrash: true, userName: this.selectedUser.userName}));
         })
     }
 

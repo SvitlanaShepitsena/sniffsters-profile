@@ -18,6 +18,7 @@ var DataService = (function () {
     DataService.prototype.sendReply = function (userName, corrUserName, corrUserNameNick, reply) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
+        corrUserNameNick = this.FireProcess(corrUserNameNick);
 
         var d = this.$q.defer();
         var corrUserUrl = this.urlBreeder + userName + "/messages";
@@ -41,7 +42,7 @@ var DataService = (function () {
     DataService.prototype.sendLookerReply = function (userName, corrUserName, corrUserNameNick, reply) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
-
+        corrUserNameNick = this.FireProcess(corrUserNameNick);
         var d = this.$q.defer();
 
         var corrUserUrl = this.urlLooker + userName + "/messages";
@@ -62,12 +63,13 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.deleteConversation = function (userName, corrUserName) {
+    DataService.prototype.deleteConversation = function (userName, corrUserName, isBreeder) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
-        var messagesUrl = this.urlBreeder + userName + "/messages";
+        var url = isBreeder ? this.urlBreeder : this.urlBreeder;
+        var messagesUrl = url + userName + "/messages";
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
         var keys = notesRef.$getIndex();
@@ -86,12 +88,13 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.recoverConversation = function (userName, corrUserName) {
+    DataService.prototype.recoverConversation = function (userName, corrUserName, isBreeder) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
-        var messagesUrl = this.url + userName + "/messages";
+        var url = isBreeder ? this.urlBreeder : this.urlBreeder;
+        var messagesUrl = url + userName + "/messages";
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
         var keys = notesRef.$getIndex();
@@ -110,12 +113,14 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.deleteForever = function (userName, corrUserName) {
+    DataService.prototype.deleteForever = function (userName, corrUserName, isBreeder) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
+        //
         var d = this.$q.defer();
-        var messagesUrl = this.url + userName + "/messages";
+        var url = isBreeder ? this.urlBreeder : this.urlBreeder;
+        var messagesUrl = url + userName + "/messages";
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
         var keys = notesRef.$getIndex();

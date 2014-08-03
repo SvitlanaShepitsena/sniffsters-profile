@@ -41,27 +41,28 @@ var MessagesCtrl = (function () {
     }
     MessagesCtrl.prototype.Delete = function () {
         var _this = this;
-        this.DataService.deleteConversation(this.$scope.home.userName, this.selectedUser).then(function () {
-            _.where(_this.fireMessages, { isTrash: false, userName: _this.selectedUser }).forEach(function (message) {
+        this.DataService.deleteConversation(this.$scope.home.userName, this.selectedUser.userName, this.$scope.home.isBreeder).then(function () {
+            _.where(_this.fireMessages, { isTrash: false, userName: _this.selectedUser.userName }).forEach(function (message) {
                 message.isTrash = true;
             });
+            _this.SetSelectedUser(0);
         });
     };
 
     MessagesCtrl.prototype.Recover = function () {
         var _this = this;
-        this.DataService.recoverConversation(this.$scope.home.userName, this.selectedUser).then(function () {
-            _.where(_this.fireMessages, { isTrash: true, userName: _this.selectedUser }).forEach(function (message) {
+        this.DataService.recoverConversation(this.$scope.home.userName, this.selectedUser.userName, this.$scope.home.isBreeder).then(function () {
+            _.where(_this.fireMessages, { isTrash: true, userName: _this.selectedUser.userName }).forEach(function (message) {
                 message.isTrash = false;
             });
-            //            this.SetSelectedUser(0);
+            _this.SetSelectedUser(0);
         });
     };
 
     MessagesCtrl.prototype.DeleteForever = function () {
         var _this = this;
-        this.DataService.deleteForever(this.$scope.home.userName, this.selectedUser).then(function () {
-            _this.fireMessages = _.without(_this.fireMessages, _.findWhere(_this.fireMessages, { isTrash: true, userName: _this.selectedUser }));
+        this.DataService.deleteForever(this.$scope.home.userName, this.selectedUser.userName, this.$scope.home.isBreeder).then(function () {
+            _this.fireMessages = _.without(_this.fireMessages, _.findWhere(_this.fireMessages, { isTrash: true, userName: _this.selectedUser.userName }));
         });
     };
 

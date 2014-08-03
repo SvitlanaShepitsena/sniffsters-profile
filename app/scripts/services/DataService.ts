@@ -67,12 +67,13 @@ class DataService {
         return d.promise;
     }
 
-    deleteConversation(userName:string, corrUserName:string) {
+    deleteConversation(userName:string, corrUserName:string, isBreeder:boolean) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
-        var messagesUrl = this.urlBreeder + userName + "/messages";
+        var url = isBreeder ? this.urlBreeder : this.urlBreeder;
+        var messagesUrl = url + userName + "/messages";
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
         var keys = notesRef.$getIndex();
@@ -91,12 +92,13 @@ class DataService {
         return d.promise;
     }
 
-    recoverConversation(userName:string, corrUserName:string) {
+    recoverConversation(userName:string, corrUserName:string, isBreeder:boolean) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
-        var messagesUrl = this.url + userName + "/messages";
+        var url = isBreeder ? this.urlBreeder : this.urlBreeder;
+        var messagesUrl = url + userName + "/messages";
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
         var keys = notesRef.$getIndex();
@@ -115,12 +117,13 @@ class DataService {
         return d.promise;
     }
 
-    deleteForever(userName:string, corrUserName:string) {
+    deleteForever(userName:string, corrUserName:string, isBreeder:boolean) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
-
+//
         var d = this.$q.defer();
-        var messagesUrl = this.url + userName + "/messages";
+        var url = isBreeder ? this.urlBreeder : this.urlBreeder;
+        var messagesUrl = url + userName + "/messages";
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
         var keys = notesRef.$getIndex();
