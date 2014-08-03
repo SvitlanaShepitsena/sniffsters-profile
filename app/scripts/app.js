@@ -55,7 +55,6 @@
 /// <reference path="directives/breedInfo.ts" />
 /// <reference path="directives/randomGallery.ts" />
 /// <reference path="controllers/LookerAccountCtrl.ts" />
-/// <reference path="controllers/LookerAccountEditCtrl.ts" />
 /// <reference path="directives/subscriptionPlans.ts" />
 /// <reference path="controllers/FollowingsCtrl.ts" />
 /// <reference path="directives/svImageUpload.ts" />
@@ -185,7 +184,6 @@ profile.controller("AdminPanelCtrl", AdminPanelCtrl);
 profile.controller("SubscriptionsCtrl", SubscriptionsCtrl);
 profile.controller("LookerCtrl", LookerCtrl);
 profile.controller("LookerAccountCtrl", LookerAccountCtrl);
-profile.controller("LookerAccountEditCtrl", LookerAccountEditCtrl);
 profile.controller("FollowingsCtrl", FollowingsCtrl);
 profile.controller("UpgradeCtrl", UpgradeCtrl);
 profile.controller("ManageBreederAccountCtrl", ManageBreederAccountCtrl);
