@@ -5,7 +5,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 
 class LookerGenerator implements IUserGenerator {
-    create(email:string, mainRef:string, $firebase:any) {
+    create(email:string, mainRef:string, $firebase:any, nickName:string) {
         var user = new LookerProfile();
         var userUrl = mainRef + "lookers";
 
@@ -15,6 +15,7 @@ class LookerGenerator implements IUserGenerator {
         var profileRef = userRef.$child('profile');
 
         user.Email = email;
+        user.UserName = nickName;
 //        console.log(user);
 
         profileRef.$set(user);

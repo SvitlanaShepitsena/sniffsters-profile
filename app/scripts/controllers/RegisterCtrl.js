@@ -1,11 +1,13 @@
 /// <reference path="HomeCtrl.ts" />
+/// <reference path="../services/FinduserService.ts" />
 var RegisterCtrl = (function () {
-    function RegisterCtrl($scope, $modal, $filter, $state, toastr, DataService) {
+    function RegisterCtrl($scope, $modal, settings, $firebase, $filter, $state, toastr, FinduserService) {
         var _this = this;
         this.$scope = $scope;
+        this.$firebase = $firebase;
         this.$state = $state;
         this.toastr = toastr;
-        this.DataService = DataService;
+        this.FinduserService = FinduserService;
         $scope.register = this;
         $scope.home.IsSearchHidden = false;
 
@@ -15,19 +17,36 @@ var RegisterCtrl = (function () {
         $scope.pass = "123456";
         $scope.confpass = "123456";
         $scope.username = {};
+        $scope.userExists = false;
 
         $scope.setUsername = function (username) {
-            var breeders = $scope.home.MainRefFire.$child('breeders');
+            FinduserService.find(username).then(function () {
+                $scope.userExists = true;
+                _this.ShowError(settings.userExists);
+            }, function () {
+                $scope.home.auth.$createUser($scope.email, $scope.pass).then(function () {
+                    if ($scope.isNewBreeder) {
+                        var breederGenerator = new BreederGenerator();
+                        breederGenerator.create($scope.home.FireProcess($scope.email), $scope.home.MainUrl, _this.$firebase, username);
+                    } else {
+                        var lookerGenerator = new LookerGenerator();
+                        lookerGenerator.create($scope.home.FireProcess($scope.email), $scope.home.MainUrl, _this.$firebase, username);
+                    }
 
-            breeders.$on('value', function (snapshot) {
-                var bs = snapshot.snapshot.value;
+                    $scope.home.Signin($scope.email, $scope.pass);
+                }, function (error) {
+                    _this.ShowError(error);
+                });
 
-                var userNames = _.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'UserName');
-                console.log(userNames);
+                $scope.modal.hide();
             });
         };
 
         $scope.register = function (email, pass, confpass, isBreeder) {
+            $scope.email = email;
+            $scope.password = pass;
+            $scope.isNewBreeder = isBreeder;
+
             if (pass.length < 5) {
                 _this.ShowError("Password should be not less than 5 symbols");
                 return;
@@ -46,11 +65,6 @@ var RegisterCtrl = (function () {
                 template: '../views/modals/choose-username.html',
                 show: true
             });
-            //            $scope.home.auth.$createUser(email, pass).then(() => {
-            //            this.Signin(email, pass)
-            //            }, (error)=> {
-            //                this.ShowError(error);
-            //            })
         };
     }
     RegisterCtrl.prototype.ShowSuccess = function (note) {

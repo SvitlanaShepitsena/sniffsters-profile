@@ -4,7 +4,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 
 class BreederGenerator implements IUserGenerator {
-    create(email:string, mainRef:string, $firebase:any) {
+    create(email:string, mainRef:string, $firebase:any, nickName:string) {
         var user = new BreederProfile();
         var userUrl = mainRef + "breeders";
 
@@ -14,6 +14,7 @@ class BreederGenerator implements IUserGenerator {
         var profileRef = userRef.$child('profile');
 
         user.Email = email;
+        user.UserName = nickName;
 
         profileRef.$set(user);
 

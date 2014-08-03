@@ -18,6 +18,7 @@
 			<span ng-show="form.username.$error.maxlength"
 			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 						<input class="form-control input-user-name" type="text"
+						       ng-class="{error:userExists}"
 						       name="username"
 						       id="username"
 						       ng-maxlength="250"

@@ -207,6 +207,7 @@ profile.value("settings", {
     noGalleryNotice: 'Here is no any gallery yet',
     noLitterNotice: 'Here is no any litter yet',
     noSuchUser: 'The user with such username does not exist',
+    userExists: 'This username is already in use. Please try another',
     noMessages: 'Here is no any messages yet'
 })
 
