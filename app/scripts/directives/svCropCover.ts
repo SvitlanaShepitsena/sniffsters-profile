@@ -1,10 +1,8 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
-
 var svCropCover = ($document) => {
 
     return{
-
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
             var startX = 0, startY = 0, x = 0, y = 0;
             element.css({
@@ -41,8 +39,6 @@ var svCropCover = ($document) => {
                 $document.off('mousemove', mousemove);
                 $document.off('mouseup', mouseup);
             }
-
-
         }
     }
 }

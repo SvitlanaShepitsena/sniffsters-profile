@@ -12,7 +12,7 @@ class PuppiesCtrl {
     SelectedLitter:ILitter;
     SelectedLitterEdit:ILitter;
 
-    constructor(public $scope, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService, settings) {
+    constructor(public $scope, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService, public settings) {
         $scope.noLitterNotice = settings.noLitterNotice;
 
         this.$scope.home.auth.$getCurrentUser().then((user) => {

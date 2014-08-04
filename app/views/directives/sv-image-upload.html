@@ -1,8 +1,7 @@
 <div class="img-upload-container">
-
 	<div class="well" ng-hide="!isMult && isFileChosen">
 		<div class="panel panel-default drag-file text-center" ng-file-drop="onFileSelect($files)">
-		<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
+			<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
 
 			<div class="drag-file-content">
 				<img class="drag-file-img" ng-src="../../img/photo-icon.png" alt="Photo Icon">
@@ -29,7 +28,6 @@
 		<li ng-repeat="i in files">
 			<sv-image fire-ref='fireRef'
 			          is-mult='isMult'
-			          ok-modal="okModal(file64)"
 			          close-modal="closeModal()"
 			          i="i"
 			          index="$index"

@@ -9,6 +9,7 @@ var PuppiesCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
+        this.settings = settings;
         $scope.noLitterNotice = settings.noLitterNotice;
 
         this.$scope.home.auth.$getCurrentUser().then(function (user) {

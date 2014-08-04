@@ -9,6 +9,7 @@ var cover:() => ng.IDirective = () => {
         templateUrl: 'views/directives/cover.html',
         // replace directive tag with template info
         replace: true,
+
         controller: ($scope, $firebase, $filter, $modal) => {
 
             $scope.profileModal = $modal({
