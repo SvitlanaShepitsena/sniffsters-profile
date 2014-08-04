@@ -116,16 +116,10 @@ class HomeCtrl {
         }
 
         $scope.fetchDog = (breed, location)=> {
-            if (breed == null) {
-                breed = {name: null};
-            }
 
-            if (location == null) {
-                location = {name: null};
-            }
             $state.go('sniff.breeders', {
-                breed: breed.name,
-                location: location.name
+                breed: breed,
+                location: location
             });
         }
 

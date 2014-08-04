@@ -13,16 +13,21 @@ var aboutInfoEdit:() => ng.IDirective = () => {
             isOwner: '=',
             text: '@',
             func: '&',
-            home: '='
+            home: '=',
+            breedsa: '='
         },
         controller($scope, $stateParams, $firebase, $modal) {
+
             var id = $stateParams.id;
 //            var id = $scope.home.FireProcess($stateParams.uname);
             $scope.newBreed = {};
 
-            $scope.addNewBreed = (breedName:string)=> {
-                $scope.breeds.$add(breedName);
-                $scope.newBreed = {};
+            $scope.addNewBreeds = (breeds:string[])=> {
+                breeds.forEach((breedName)=> {
+                    $scope.breeds.$add(breedName);
+                })
+                $scope.breeder.breeds = [];
+
             }
             $scope.popoverDelete = {
                 "title": "Delete?",

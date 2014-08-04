@@ -11,7 +11,8 @@ var aboutInfoEdit = function () {
             isOwner: '=',
             text: '@',
             func: '&',
-            home: '='
+            home: '=',
+            breedsa: '='
         },
         controller: function ($scope, $stateParams, $firebase, $modal) {
             var id = $stateParams.id;
@@ -19,9 +20,11 @@ var aboutInfoEdit = function () {
             //            var id = $scope.home.FireProcess($stateParams.uname);
             $scope.newBreed = {};
 
-            $scope.addNewBreed = function (breedName) {
-                $scope.breeds.$add(breedName);
-                $scope.newBreed = {};
+            $scope.addNewBreeds = function (breeds) {
+                breeds.forEach(function (breedName) {
+                    $scope.breeds.$add(breedName);
+                });
+                $scope.breeder.breeds = [];
             };
             $scope.popoverDelete = {
                 "title": "Delete?",

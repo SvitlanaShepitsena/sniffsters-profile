@@ -1,6 +1,6 @@
 <div ng-show="isOwner">
 	<ol class="breadcrumb">
-		<li><a ui-sref="^">About</a></li>
+	<li><a ui-sref="^">About</a></li>
 		<li class="active">Edit</li>
 	</ol>
 	<div class="row">
@@ -125,10 +125,21 @@
 						<form role="form" name="form" id="form" autocomplete="off">
 							<div class="form-group">
 								<div class="entry input-group col-xs-12">
-									<input class="form-control add-input" name="fields[]" type="text"
-									       placeholder="Add new Breeds" ng-model="newBreed.name"/>
+
+									<button type="button" class="btn btn-default btn-search-panel"
+									        ng-model="breeder.breeds"
+									        data-multiple="1"
+									        ng-options="breed for breed in breedsa"
+									        placeholder="Breed"
+									        bs-select="selectBreeder">
+										Action <span class="caret"></span>{{breeder.breeds}}
+									</button>
+
+
+
                     	<span class="input-group-btn">
-                            <button ng-click="addNewBreed(newBreed.name)" class="btn btn-success btn-add" type="button">
+                            <button ng-click="addNewBreeds(breeder.breeds)" class="btn btn-success btn-add"
+                                    type="button">
 	                            <span class="glyphicon glyphicon-plus">
 	                            </span>
                             </button>

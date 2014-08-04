@@ -73,7 +73,7 @@
 /// <reference path="controllers/BreedsCtrl.ts" />
 //#ref
 
-var profile = angular.module("profile", ['mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
+var profile = angular.module("profile", ['mgcrea.ngStrap.helpers.parseOptions', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
 
 profile.filter('boolString', () => {
     return (value:boolean):string => {
@@ -209,7 +209,7 @@ profile.value("settings", {
     noSuchUser: 'The user with such username does not exist',
     userExists: 'This username is already in use. Please try another',
     noMessages: 'Here is no any messages yet',
-    dataSaved: 'Successfully saved'
+    dataSaved: 'Successfully saved',
     dbError: 'Db Connection Error!'
 })
 
