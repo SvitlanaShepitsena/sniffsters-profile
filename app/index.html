@@ -38,7 +38,6 @@
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
-
 <div class="navbar navbar-default navbar-sniff">
 	<div class="container navbar-sniff-content">
 		<div class="navbar-header">
@@ -115,7 +114,7 @@
 			<div class="btn-group btn-group-fetch">
 				<button type="button" class="btn btn-default btn-search-panel"
 				        ng-model="searchBreed.val"
-				        ng-options="breed.name for breed in breeds"
+				        ng-options="breed for breed in breeds"
 				        placeholder="Breed"
 				        data-animation="am-flip-x"
 				        bs-select>
@@ -296,4 +295,3 @@
 <script src="scripts/models/ILookerProfile.js"></script>
 <script src="bower_components/jcrop/jquery.Jcrop.min.js"></script>
 <!-- endbuil-->
-</body>

@@ -90,6 +90,7 @@ class HomeCtrl {
             FinduserService.find(userNameFb).then(() => {
                 //exists
 
+
                 $scope.userExists = true;
                 this.ShowError(settings.userExists);
             }, () => {
@@ -136,8 +137,12 @@ class HomeCtrl {
         this.MainRef = new Firebase(this.MainUrl);
         this.MainRefFire = $firebase(new Firebase(this.MainUrl));
 
+        var breedsRef = $firebase(new Firebase(this.MainUrl + 'breeds'));
 
-//        $scope.breedsRef = this.MainRefFire.$child('breeders');
+        breedsRef.$on('value', (snapshot:any)=> {
+            var breeds = snapshot.snapshot.value;
+            $scope.breeds = $filter('orderByPriority')(breeds);
+        });//        $scope.breedsRef = this.MainRefFire.$child('breeders');
 //        $scope.breedsRef.$on('value', (snapshot:any)=> {
 //            var bs = snapshot.snapshot.value;
 //
