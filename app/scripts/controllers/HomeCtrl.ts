@@ -113,16 +113,12 @@ class HomeCtrl {
                 this.isBreeder = isBreederFb;
                 this.$scope.modal.hide();
             })
-
-
         }
-
 
         $scope.fetchDog = (breed, location)=> {
             if (breed == null) {
                 breed = {name: null};
             }
-
 
             if (location == null) {
                 location = {name: null};

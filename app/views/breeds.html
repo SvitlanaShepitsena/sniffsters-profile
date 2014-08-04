@@ -23,7 +23,9 @@
 			<div class="profile-breeds">
 				<div class="control-group" id="fields">
 					<div class="controls">
-						<form role="form" name="form" id="form" autocomplete="off">
+						<form role="form" name="form" id="form"
+						      autocomplete="off"
+						      ng-submit="saveBreed(newBreed.name);newBreed.name=''">
 							<div class="form-group">
 								<div class="entry input-group col-xs-12">
 									<input class="form-control add-input"
@@ -32,8 +34,9 @@
 									       placeholder="Add new Breeds"
 									       ng-model="newBreed.name"/>
                     	<span class="input-group-btn">
-                            <button ng-click="saveBreed(newBreed.name);newBreed.name=''" class="btn btn-success btn-add"
-                                    type="button">
+                            <button
+		                            class="btn btn-success btn-add"
+		                            type="submit">
 	                            <span class="glyphicon glyphicon-plus">
 	                            </span>
                             </button>
@@ -47,3 +50,11 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$('#input').keydown(function (e) {
+		if (e.keyCode == 13) {
+			$('#form').submit();
+		}
+	});
+</script>
