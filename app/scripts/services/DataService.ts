@@ -55,6 +55,7 @@ class DataService {
         var note = new Note();
         note.amISender = amISender;
         note.sent = Date.now();
+
         note.body = reply;
 
         note.isTrash = false;
@@ -396,15 +397,15 @@ class DataService {
     /*    updateFeedback(feedback:IFeedback) {
      var d = this.$q.defer();
 
-        this.$http.post('http://localhost:44300/BreederPersonal/UpdateFeedback', {
-            feedback: feedback
-        })
-            .success(() => {
-                d.resolve();
-            }).error(() => {
-                d.reject();
-            });
-        return d.promise;
+     this.$http.post('http://localhost:44300/BreederPersonal/UpdateFeedback', {
+     feedback: feedback
+     })
+     .success(() => {
+     d.resolve();
+     }).error(() => {
+     d.reject();
+     });
+     return d.promise;
      }*/
 
 //    =Litters

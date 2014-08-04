@@ -15,7 +15,7 @@ var DataService = (function () {
         this.urlBreeder = this.url + "breeders/";
     }
     // =Messages
-    DataService.prototype.sendReply = function (userName, corrUserName, corrUserNameNick, reply) {
+    DataService.prototype.sendReply = function (userName, corrUserName, corrUserNameNick, reply, amISender) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
         corrUserNameNick = this.FireProcess(corrUserNameNick);
@@ -25,7 +25,7 @@ var DataService = (function () {
         var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
 
         var note = new Note();
-        note.amISender = true;
+        note.amISender = amISender;
         note.sent = Date.now();
         note.body = reply;
 
@@ -39,7 +39,7 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.sendLookerReply = function (userName, corrUserName, corrUserNameNick, reply) {
+    DataService.prototype.sendLookerReply = function (userName, corrUserName, corrUserNameNick, reply, amISender) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
         corrUserNameNick = this.FireProcess(corrUserNameNick);
@@ -49,8 +49,9 @@ var DataService = (function () {
         var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
 
         var note = new Note();
-        note.amISender = true;
+        note.amISender = amISender;
         note.sent = Date.now();
+
         note.body = reply;
 
         note.isTrash = false;

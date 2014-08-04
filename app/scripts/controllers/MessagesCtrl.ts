@@ -18,7 +18,7 @@ class MessagesCtrl {
     selectedUserIndex:number;
     selectedUserMessages:INote[];
 
-    constructor(public $scope, public FinduserService, public settings, public $filter, $firebaseSimpleLogin, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public FinduserService, public $firebase, public settings, public $filter, $firebaseSimpleLogin, $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.noMessages = settings.noMessages;
         $scope.noSuchUser = false;
 
@@ -29,22 +29,18 @@ class MessagesCtrl {
         $scope.home.auth.$getCurrentUser().then((user) => {
 //            FROM
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
+                var messagesUrl = $scope.home.MainUrl;
+                var type;
                 if ($scope.home.isBreeder === true) {
-                    DataService.getMessages(user.email).then((messages:any)=> {
-                        this.fireMessages = messages;
-                        this.SetSelectedUser(0);
-                        var userNames = _.pluck(this.fireMessages, 'userName');
-                        userNames.forEach((username)=> {
-
-                        })
-                    })
+                    type = "breeders/";
                 }
                 if ($scope.home.isBreeder === false) {
-                    DataService.getLookerMessages(user.email).then((messages:any)=> {
-                        this.fireMessages = messages;
-                        this.SetSelectedUser(0);
-                    })
+                    type = "lookers/";
                 }
+                messagesUrl = messagesUrl + type + $scope.home.FireProcess(user.email) + '/messages';
+                this.fireMessages = $filter('orderByPriority')($firebase(new Firebase(messagesUrl)));
+                this.SetSelectedUser(0);
+
 
             })
         })
@@ -127,7 +123,7 @@ class MessagesCtrl {
                                 this.ShowSuccess(this.settings.messageSuccessNotice);
                             })
                         }
-                        if (this.$scope.home.isBreeder === false) {
+                        if (userToProfile.isBreeder === false) {
                             this.DataService.sendLookerReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body, false).then(() => {
                                 if (levelUp) {
                                     this.$state.go('^');

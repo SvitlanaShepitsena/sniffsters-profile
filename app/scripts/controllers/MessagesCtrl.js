@@ -2,10 +2,11 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 var MessagesCtrl = (function () {
-    function MessagesCtrl($scope, FinduserService, settings, $filter, $firebaseSimpleLogin, $modal, $state, toastr, DataService) {
+    function MessagesCtrl($scope, FinduserService, $firebase, settings, $filter, $firebaseSimpleLogin, $modal, $state, toastr, DataService) {
         var _this = this;
         this.$scope = $scope;
         this.FinduserService = FinduserService;
+        this.$firebase = $firebase;
         this.settings = settings;
         this.$filter = $filter;
         this.$state = $state;
@@ -21,21 +22,17 @@ var MessagesCtrl = (function () {
         $scope.home.auth.$getCurrentUser().then(function (user) {
             //            FROM
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(function () {
+                var messagesUrl = $scope.home.MainUrl;
+                var type;
                 if ($scope.home.isBreeder === true) {
-                    DataService.getMessages(user.email).then(function (messages) {
-                        _this.fireMessages = messages;
-                        _this.SetSelectedUser(0);
-                        var userNames = _.pluck(_this.fireMessages, 'userName');
-                        userNames.forEach(function (username) {
-                        });
-                    });
+                    type = "breeders/";
                 }
                 if ($scope.home.isBreeder === false) {
-                    DataService.getLookerMessages(user.email).then(function (messages) {
-                        _this.fireMessages = messages;
-                        _this.SetSelectedUser(0);
-                    });
+                    type = "lookers/";
                 }
+                messagesUrl = messagesUrl + type + $scope.home.FireProcess(user.email) + '/messages';
+                _this.fireMessages = $filter('orderByPriority')($firebase(new Firebase(messagesUrl)));
+                _this.SetSelectedUser(0);
             });
         });
     }
@@ -117,7 +114,7 @@ var MessagesCtrl = (function () {
                             _this.ShowSuccess(_this.settings.messageSuccessNotice);
                         });
                     }
-                    if (_this.$scope.home.isBreeder === false) {
+                    if (userToProfile.isBreeder === false) {
                         _this.DataService.sendLookerReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body, false).then(function () {
                             if (levelUp) {
                                 _this.$state.go('^');
