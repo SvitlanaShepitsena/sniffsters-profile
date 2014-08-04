@@ -19,12 +19,10 @@ class LoginCtrl {
 
 
     ShowSuccess(note:string) {
-
         this.toastr.info(note);
     }
 
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }

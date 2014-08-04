@@ -6,16 +6,16 @@
 /// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
 var IndexCtrl = (function () {
-    function IndexCtrl($scope, $stateParams, $rootScope, $window, toastr, DataService, CopyProfileService) {
+    function IndexCtrl($scope, settings, $stateParams, $rootScope, $window, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
+        this.settings = settings;
         this.$rootScope = $rootScope;
         this.$window = $window;
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
         $scope.index = this;
-
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
         $scope.home.hideMenu = false;
@@ -118,10 +118,10 @@ var IndexCtrl = (function () {
             //                Update scope on IndexCtrl.
             _this.UpdateBreederProfile(breederProfile);
 
-            _this.ShowSuccess('Successfully Saved');
+            _this.ShowSuccess(_this.settings.dataSaved);
         }, function () {
             // Error
-            _this.ShowError('Db Connection Problem');
+            _this.ShowError(_this.settings.dbError);
         });
     };
     return IndexCtrl;

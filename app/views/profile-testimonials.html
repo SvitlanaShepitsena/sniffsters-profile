@@ -12,7 +12,22 @@
 		<div class="col-xs-12">
 			<ul class="list-unstyled">
 				<li ng-repeat="f in testimonials.FeedbacksNew" class="bouncy-slide-down">
-					<feedback-info is-owner="home.isOwner" f="f"></feedback-info>
+					<!--<feedback-info is-owner="home.isOwner" f="f"></feedback-info>-->
+					<div>
+						<div class="form-group">
+							<label for="clientName" class="subheadlabel control-label">Name:</label>
+							<input id="clientName" name="clientName" class="form-control"
+							       ng-model="f.ClientName"
+							       name="clientName"
+							       type="text"/>
+						</div>
+						<div class="form-group">
+							<label for="feedback" class="coltrol-label">Feedback:</label>
+							<textarea rows="5" cols="30" name="feedback" id="feedback" class="form-control"
+							          ng-model="f.FeedbackBody">
+							</textarea>
+						</div>
+					</div>
 				</li>
 			</ul>
 		</div>
@@ -27,7 +42,7 @@
 		<li ng-repeat="(key,f) in feedbacks">
 			<div class="pull-right">
 				<a class="light-gray" ui-sref="user.profile.testimonials5.edit({id:key})">
-				<i class="fa fa-pencil"></i>
+					<i class="fa fa-pencil"></i>
 				</a>
 				<button class="btn-link light-gray"
 				        data-content="{{popover.content}}"

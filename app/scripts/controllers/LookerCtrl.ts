@@ -24,7 +24,6 @@ class LookerCtrl {
     }
 
     ShowSuccess(note:string) {
-
         this.toastr.info(note);
     }
 

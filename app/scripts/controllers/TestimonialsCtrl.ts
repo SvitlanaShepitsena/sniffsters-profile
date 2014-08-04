@@ -4,7 +4,20 @@ class TestimonialsCtrl {
     Feedbacks:IFeedback[];
     FeedbacksNew:IFeedback[];
 
-    constructor(public $scope, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public settings
+
+    public $firebase
+,
+    public $modal
+,
+    public $state:ng.ui.IStateService
+,
+    public toastr:Toastr
+,
+    public DataService:DataService
+,
+    public CopyProfileService:CopyProfileService
+) {
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
                 var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
@@ -44,7 +57,7 @@ class TestimonialsCtrl {
             this.$scope.feedbacks.$add(feedback);
         });
         this.FeedbacksNew = [];
-        this.ShowSuccess("Feedbacks have been successfully saved to Db");
+    this.ShowSuccess(this.settings.dataSaved);
     }
 
     ShowSuccess(note:string) {

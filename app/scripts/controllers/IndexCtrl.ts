@@ -5,6 +5,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
+
 interface IMainScope extends ng.IScope {
     index:IndexCtrl;
 }
@@ -23,9 +24,8 @@ class IndexCtrl {
     isOwner:boolean;
 
 
-    constructor(public $scope, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public settings, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index = this;
-
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
         $scope.home.hideMenu = false;
@@ -60,8 +60,6 @@ class IndexCtrl {
                 })
             })
         })
-
-
     }
 
 
@@ -135,11 +133,11 @@ class IndexCtrl {
 //                Update scope on IndexCtrl.
                 this.UpdateBreederProfile(breederProfile);
 
-                this.ShowSuccess('Successfully Saved');
+                this.ShowSuccess(this.settings.dataSaved);
             },
             () => {
                 // Error
-                this.ShowError('Db Connection Problem');
+                this.ShowError(this.settings.dbError);
             });
     }
 }
