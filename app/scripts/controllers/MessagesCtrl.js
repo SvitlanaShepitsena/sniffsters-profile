@@ -92,14 +92,14 @@ var MessagesCtrl = (function () {
                     // UserTo is in DB
                     //                        FROM ##############################
                     if (_this.$scope.home.isBreeder === true) {
-                        _this.DataService.sendReply(_this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body).then(function () {
+                        _this.DataService.sendReply(_this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(function () {
                             _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: _this.$scope.home.FireProcess(to), userName: _this.$scope.home.FireProcess(userToProfile.Email) });
                             //                                this.$state.go('^');
                             //                                this.ShowSuccess('Your message has been sent!!');
                         });
                     }
                     if (_this.$scope.home.isBreeder === false) {
-                        _this.DataService.sendLookerReply(_this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body).then(function () {
+                        _this.DataService.sendLookerReply(_this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(function () {
                             _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: _this.$scope.home.FireProcess(to), userName: _this.$scope.home.FireProcess(userToProfile.Email) });
                             //                                this.$state.go('^');
                             //                                this.ShowSuccess('Your message has been sent!!');
@@ -108,7 +108,7 @@ var MessagesCtrl = (function () {
 
                     //                TO #################################
                     if (userToProfile.isBreeder === true) {
-                        _this.DataService.sendReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body).then(function () {
+                        _this.DataService.sendReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body, false).then(function () {
                             if (levelUp) {
                                 _this.$state.go('^');
                             }
@@ -118,7 +118,7 @@ var MessagesCtrl = (function () {
                         });
                     }
                     if (_this.$scope.home.isBreeder === false) {
-                        _this.DataService.sendLookerReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body).then(function () {
+                        _this.DataService.sendLookerReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body, false).then(function () {
                             if (levelUp) {
                                 _this.$state.go('^');
                             }
@@ -147,6 +147,10 @@ var MessagesCtrl = (function () {
         })), function (message) {
             return { userName: message.userName, nickName: message.nickName };
         });
+        userNames = _.uniq(userNames, false, function (user) {
+            return user.userName;
+        });
+
         this.selectedUser = userNames[this.selectedUserIndex];
     };
 

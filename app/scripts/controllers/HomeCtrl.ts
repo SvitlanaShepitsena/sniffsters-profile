@@ -78,6 +78,7 @@ class HomeCtrl {
 
     constructor(public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
 
+
         $scope.home = this;
         this.menuIndex = 1;
 

@@ -102,14 +102,14 @@ class MessagesCtrl {
 
 //                        FROM ##############################
                         if (this.$scope.home.isBreeder === true) {
-                            this.DataService.sendReply(this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body).then(() => {
+                            this.DataService.sendReply(this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(() => {
                                 this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: this.$scope.home.FireProcess(userToProfile.Email)});
 //                                this.$state.go('^');
 //                                this.ShowSuccess('Your message has been sent!!');
                             })
                         }
                         if (this.$scope.home.isBreeder === false) {
-                            this.DataService.sendLookerReply(this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body).then(() => {
+                            this.DataService.sendLookerReply(this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(() => {
                                 this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: this.$scope.home.FireProcess(userToProfile.Email)});
 //                                this.$state.go('^');
 //                                this.ShowSuccess('Your message has been sent!!');
@@ -118,7 +118,7 @@ class MessagesCtrl {
 //                TO #################################
 
                         if (userToProfile.isBreeder === true) {
-                            this.DataService.sendReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body).then(() => {
+                            this.DataService.sendReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body, false).then(() => {
                                 if (levelUp) {
                                     this.$state.go('^');
                                 }
@@ -128,7 +128,7 @@ class MessagesCtrl {
                             })
                         }
                         if (this.$scope.home.isBreeder === false) {
-                            this.DataService.sendLookerReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body).then(() => {
+                            this.DataService.sendLookerReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body, false).then(() => {
                                 if (levelUp) {
                                     this.$state.go('^');
                                 }
@@ -159,6 +159,10 @@ class MessagesCtrl {
         })), (message)=> {
             return {userName: message.userName, nickName: message.nickName};
         });
+        userNames = _.uniq(userNames, false, (user) => {
+            return user.userName;
+        })
+
         this.selectedUser = userNames[this.selectedUserIndex];
     }
 

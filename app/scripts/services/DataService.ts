@@ -18,7 +18,7 @@ class DataService {
     }
 
     // =Messages
-    sendReply(userName:string, corrUserName:string, corrUserNameNick:string, reply:string) {
+    sendReply(userName:string, corrUserName:string, corrUserNameNick:string, reply:string, amISender:boolean) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
         corrUserNameNick = this.FireProcess(corrUserNameNick);
@@ -28,7 +28,7 @@ class DataService {
         var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
 
         var note = new Note();
-        note.amISender = true;
+        note.amISender = amISender;
         note.sent = Date.now();
         note.body = reply;
 
@@ -43,7 +43,7 @@ class DataService {
         return d.promise;
     }
 
-    sendLookerReply(userName:string, corrUserName:string, corrUserNameNick:string, reply:string) {
+    sendLookerReply(userName:string, corrUserName:string, corrUserNameNick:string, reply:string, amISender:boolean) {
         userName = this.FireProcess(userName);
         corrUserName = this.FireProcess(corrUserName);
         corrUserNameNick = this.FireProcess(corrUserNameNick);
@@ -53,7 +53,7 @@ class DataService {
         var corrUserRef = this.$firebase(new Firebase(corrUserUrl));
 
         var note = new Note();
-        note.amISender = true;
+        note.amISender = amISender;
         note.sent = Date.now();
         note.body = reply;
 
