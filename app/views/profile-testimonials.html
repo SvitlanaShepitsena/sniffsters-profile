@@ -1,33 +1,47 @@
 <div ui-view>
-	<div class=" form-group text-right">
+	<div class="text-right">
 		<button class="btn btn-link"
-		        ng-disabled="isOk"
 		        ng-show="testimonials.FeedbacksNew.length>0"
-		        ng-click="testimonials.saveNewTestimonials()">Save All
+		        ng-disabled="isOk"
+		        ng-click="testimonials.saveNewTestimonials(); form.setPristine()">Save All
 		</button>
-		<button class="btn btn-link" ng-show="home.isOwner" ng-click="testimonials.addNewTestimonial()">Add New</button>
+		<button class="btn btn-link"
+		        ng-show="home.isOwner" ng-click="testimonials.addNewTestimonial()">Add New
+		</button>
 	</div>
 
 	<div class="row" ng-show="testimonials.FeedbacksNew.length>0">
 		<div class="col-xs-12">
 			<ul class="list-unstyled">
-				<li ng-repeat="f in testimonials.FeedbacksNew" class="bouncy-slide-down">
+				<li ng-repeat="feedback in testimonials.FeedbacksNew" class="bouncy-slide-down">
 					<!--<feedback-info is-owner="home.isOwner" f="f"></feedback-info>-->
-					<div>
-						<div class="form-group">
+					<form action="" role="form" name="form" id="form" novalidate>
+						<div class="form-group has-feedback"
+						     ng-class="{'has-error':form.clientName.$invalid}">
 							<label for="clientName" class="subheadlabel control-label">Name:</label>
+							<span class="textMuted">Required</span>
+			<span ng-show="form.clientName.$error.maxlength"
+			      class="text text-danger pull-right maxSymb">Max 250 symbols!</span>
 							<input id="clientName" name="clientName" class="form-control"
-							       ng-model="f.ClientName"
+							       ng-model="feedback.ClientName"
 							       name="clientName"
-							       type="text"/>
+							       ng-maxlength="250"
+							       type="text"
+							       required/>
 						</div>
-						<div class="form-group">
-							<label for="feedback" class="coltrol-label">Feedback:</label>
-							<textarea rows="5" cols="30" name="feedback" id="feedback" class="form-control"
-							          ng-model="f.FeedbackBody">
+						<div class="form-group has-feedback"
+						     ng-class="{'has-error':form.feedbackBody.$invalid}">
+							<label for="feedbackBody" class="coltrol-label">Feedback:</label>
+							<span class="textMuted">Required</span>
+			<span ng-show="form.feedbackBody.$error.maxlength"
+			      class="text text-danger pull-right maxSymb">Max 500 symbols!</span>
+							<textarea rows="5" cols="30" name="feedbackBody" id="feedbackBody" class="form-control"
+							          ng-model="feedback.FeedbackBody"
+							          ng-maxlength="500"
+							          required/>
 							</textarea>
 						</div>
-					</div>
+					</form>
 				</li>
 			</ul>
 		</div>

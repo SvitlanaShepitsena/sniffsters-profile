@@ -41,6 +41,8 @@ var Message = (function () {
 
 var Feedback = (function () {
     function Feedback() {
+        this.ClientName = "";
+        this.FeedbackBody = "";
     }
     return Feedback;
 })();

@@ -1,8 +1,9 @@
 /// <reference path="HomeCtrl.ts" />
 var TestimonialsCtrl = (function () {
-    function TestimonialsCtrl($scope, $firebase, $modal, $state, toastr, DataService, CopyProfileService) {
+    function TestimonialsCtrl($scope, settings, $firebase, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
+        this.settings = settings;
         this.$firebase = $firebase;
         this.$modal = $modal;
         this.$state = $state;
@@ -21,21 +22,20 @@ var TestimonialsCtrl = (function () {
         $scope.home.url = "testimonials";
         $scope.testimonials = this;
 
-        /*        $scope.$watch("testimonials.FeedbacksNew", () => {
-        for (var i = 0; i < this.FeedbacksNew.length; i++) {
-        var feedback:IFeedback = this.FeedbacksNew[i];
-        if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0 &&
-        feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
-        this.$scope.isOk = true;
-        break;
-        } else {
-        
-        this.$scope.isOk = false;
-        }
-        }
-        }, true);*/
+        $scope.isOk = false;
+
+        $scope.$watch("testimonials.FeedbacksNew", function () {
+            for (var i = 0; i < _this.FeedbacksNew.length; i++) {
+                var feedback = _this.FeedbacksNew[i];
+                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0) && (feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500)) {
+                    _this.$scope.isOk = true;
+                    break;
+                } else {
+                    _this.$scope.isOk = false;
+                }
+            }
+        }, true);
         $scope.remove = function (key) {
-            console.log(key);
             _this.$scope.feedbacks.$remove(key);
         };
     }
@@ -49,7 +49,7 @@ var TestimonialsCtrl = (function () {
             _this.$scope.feedbacks.$add(feedback);
         });
         this.FeedbacksNew = [];
-        this.ShowSuccess("Feedbacks have been successfully saved to Db");
+        this.ShowSuccess(this.settings.dataSaved);
     };
 
     TestimonialsCtrl.prototype.ShowSuccess = function (note) {
