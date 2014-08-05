@@ -30,8 +30,8 @@
 							</li>
 							<li class="userName" ng-show="m.amISender">Me</li>
 							<li class="pull-right">
-							<p class="messageDate text-muted">
-									<i class="fa fa-calendar"></i>
+								<p class="messageDate text-muted">
+								<i class="fa fa-calendar"></i>
 									{{m.sent | date: 'mediumDate'}}
 								</p>
 							</li>
@@ -46,23 +46,28 @@
 		</div>
 		<div ng-show="isTrash && (messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName).length"
 		     class="trash-buttons pull-right">
-		<button class="btn btn-danger" ng-click="messages.DeleteForever()">Delete Forever</button>
+			<button class="btn btn-danger" ng-click="messages.DeleteForever()">Delete Forever</button>
 			<button class="btn btn-success" ng-click="messages.Recover()">Recover</button>
 		</div>
 		<div ng-hide="isTrash" class="reply-container">
-			<h4 class="h4-reply">
-				Write a reply....</h4>
 
-			<form action="" role="form" name="form" id="form">
-				<div class="form-group form-group-reply">
-					<textarea name="body" class="form-control text-reply"
+			<form role="form" name="form" id="form">
+				<div class="form-group form-group-reply" ng-class="{'has-error':form.message.$invalid}">
+					<label class="h4-reply">
+						Write a reply....</label>
+			<span ng-show="form.message.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 1000 symbols!</span>
+					<textarea name="message"
+					          id="message"
+					          class="form-control text-reply"
+					          ng-maxlength="1000"
 					          ng-model="reply.body" id="body">
 					</textarea>
 				</div>
 				<div class="pull-right btn-send-container form-group">
 					<button class="btn btn-danger" ng-click="messages.Delete()">Delete Conversation</button>
 					<button class="btn btn-primary btn-send"
-					        ng-disabled="form.body.$pristine"
+					        ng-disabled="form.message.$pristine || form.message.$invalid"
 					        ng-click="messages.SendNewMessage(messages.selectedUser.nickName, reply.body,false);reply.body=''">
 						Send
 					</button>

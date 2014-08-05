@@ -26,13 +26,15 @@
 						</textarea>
 					</div>
 				</form>
-				<button ng-show="b.profile.UserName" class="btn btn-sm btn-primary"
+				<button ng-show="b.profile.UserName"
+				        class="btn btn-sm btn-primary"
+				        ng-disabled="form.$pristine || form.$invalid"
 				        ng-click="sendNewMessage(home.userName, b.profile.UserName, b.profile.isBreeder);$hide()">Send
 				</button>
 
 				<button class="btn btn-sm btn-primary"
 				        ng-hide="b.profile.UserName"
-				        ng-disabled="form.$pristine || form.invalid"
+				        ng-disabled="form.$pristine || form.$invalid"
 				        ng-click="sendNewMessage(home.userName, index.BreederName, b.profile.isBreeder);$hide()">Send
 				</button>
 			</div>
