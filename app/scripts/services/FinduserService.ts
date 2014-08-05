@@ -47,6 +47,7 @@ class FinduserService {
 
     findByEmail(email:string) {
         email = this.FireProcess(email);
+        console.log(email);
         var d = this.$q.defer();
         var mainRef = this.$firebase(new Firebase(this.settings.mainUrl));
         this.getUserByEmail(mainRef, 'breeders', email).then((user:any)=> {

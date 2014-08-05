@@ -1,6 +1,6 @@
 /// <reference path="../app.ts" />
 
-var breederDetails = function () {
+var breederDetails = function (FinduserService) {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/breeder-details.html',
@@ -30,7 +30,7 @@ var breederDetails = function () {
                 scope.IsEdit = false;
             };
         },
-        controller: function ($scope, $modal, FinduserService, DataService, settings, toastr) {
+        controller: function ($scope, $modal, DataService, settings, toastr) {
             $scope.ShowSuccess = function (note) {
                 toastr.success(note);
             };
@@ -46,21 +46,17 @@ var breederDetails = function () {
                 template: "../views/modals/admin-message.html"
             });
             $scope.showMessage = function (receiverUserName, receiverNickname) {
-                $scope.b.profile.UserName = receiverNickname;
+                $scope.b.profile.UserName = receiverUserName;
                 $scope.modalMessage.show();
             };
 
             $scope.sendNewMessage = function (sender, addressat, isBreeder) {
-                console.log('ddd');
-
                 var body = $scope.message.body;
                 var levelUp = false;
 
                 var to = addressat;
                 FinduserService.find(to).then(function (userToProfile) {
                     // UserTo is in DB
-                    console.log(userToProfile);
-
                     //                        FROM ##############################
                     if ($scope.home.isBreeder === true) {
                         DataService.sendReply($scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(function () {

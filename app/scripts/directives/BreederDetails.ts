@@ -7,7 +7,7 @@ interface IDBreederDetails extends ng.IScope {
     Save:() => void;
 }
 
-var breederDetails = () => {
+var breederDetails = (FinduserService) => {
 
 
     return{
@@ -40,7 +40,7 @@ var breederDetails = () => {
                 scope.IsEdit = false;
             }
         },
-        controller: ($scope, $modal, FinduserService, DataService, settings, toastr) => {
+        controller: ($scope, $modal, DataService, settings, toastr) => {
             $scope.ShowSuccess = (note:string) => {
                 toastr.success(note);
             }
@@ -57,12 +57,11 @@ var breederDetails = () => {
                 template: "../views/modals/admin-message.html"
             });
             $scope.showMessage = (receiverUserName, receiverNickname) => {
-                $scope.b.profile.UserName = receiverNickname;
+                $scope.b.profile.UserName = receiverUserName;
                 $scope.modalMessage.show();
             }
 
             $scope.sendNewMessage = (sender, addressat, isBreeder) => {
-                console.log('ddd');
 
                 var body = $scope.message.body;
                 var levelUp = false;
@@ -70,7 +69,6 @@ var breederDetails = () => {
                 var to = addressat;
                 FinduserService.find(to).then((userToProfile)=> {
                     // UserTo is in DB
-                    console.log(userToProfile);
 //                        FROM ##############################
                     if ($scope.home.isBreeder === true) {
                         DataService.sendReply($scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(() => {
