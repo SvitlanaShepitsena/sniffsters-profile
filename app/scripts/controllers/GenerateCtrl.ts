@@ -34,7 +34,7 @@ class GenerateCtrl {
 
         var breeders:IBreederProfile[] = this.GenerateBreeders();
         breeders.forEach((breeder:IBreederProfile)=> {
-            breeder.Location = breeder.State + ',' + breeder.City;
+            breeder.Location = breeder.City + ', ' + breeder.State;
             breeder.UserName = breeder.Email.split('@')[0];
 
 
