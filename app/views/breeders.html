@@ -1,24 +1,37 @@
-<div>
-	<h2 class="sniff-head-info">Breeders</h2>
-	<hr/>
-	<h4>Search result for:</h4>
+<h2 class="sniff-head-info">Breeders</h2>
+<hr/>
+<div class="row">
+	<div class="col-xs-12">
+		<h4>Search result for:</h4>
 
-	<p class="searchResult">{{searchBreed || 'any'}}, {{searchLocation || 'any'}}</p>
-	<button type="button" class="btn btn-default btn-search-panel"
-	        ng-model="sortFeature.val"
-	        ng-options="sort.val as sort.name for sort in sortBy"
-	        placeholder="Sort By"
-	        bs-select>
-		Sort By
-	</button>
-	<!-- PUT DIRECTIVES BELOW -->
+		<p class="searchResult">
+		<ul class="list-inline">
+			<li><em>Breed:</em>
+				{{searchBreed || 'all breeds'}}
+			</li>
+			<li><em>Location:</em>
+				{{searchLocation || 'all locations'}}
+			</li>
+		</ul>
+		</p>
+		<button type="button" class="btn btn-default btn-search-panel"
+		        ng-model="sortFeature.val"
+		        ng-options="sort.val as sort.name for sort in sortBy"
+		        placeholder="Sort By"
+		        bs-select>
+			Sort By
+		</button>
+		<!-- PUT DIRECTIVES BELOW -->
+	</div>
 </div>
 
+
+<br/>
 <div class="well" sv-slider h="1780">
 	<div class="searchBreederDescription">
 		<ul class="list-unstyled">
 			<li ng-repeat="b in breeders|orderBy:sortFeature.val">
-			<hr/>
+				<hr/>
 				<div class="row ">
 					<div class="col-md-3">
 						<div class="thumbnail thPictureSmall">
@@ -134,7 +147,7 @@
 							        data-placement="center"
 							        data-template="../views/modals/admin-message.html"
 							        bs-modal="modalContactSearch">
-							Contact
+								Contact
 							</button>
 						</p>
 					</div>
