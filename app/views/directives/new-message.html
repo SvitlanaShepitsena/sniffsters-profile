@@ -2,18 +2,28 @@
 	<h3 class="sniff-head-info">New Message</h3>
 
 	<hr/>
-	<form action="">
-		<div class="form-group">
+	<form name="form" id="form" novalidate>
+		<div class="form-group has-feedback" ng-class="{'has-error':form.to.$invalid}">
 			<label for="to" class="control-label">To:</label>
-			<input ng-class="{error:noSuchUser}" class="form-control" type="text" id="to" name="to" ng-model="note.to">
+			<span class="textMuted">Required</span>
+			<span ng-show="form.message.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
+			<input ng-class="{error:noSuchUser}" class="form-control" type="text" id="to" name="to"
+			       ng-maxlength="250"
+			       ng-model="note.to">
+		</div>
+		<div class="form-group has-feedback" ng-class="{'has-error':form.message.$invalid}">
+			<label for="message" class="control-label">Your message:</label>
+			<span class="textMuted">Required</span>
+			<span ng-show="form.message.$error.maxlength"
+			      class="text text-danger pull-right  maxsymb">Max 1000 symbols!</span>
+			<textarea class="form-control" name="message" id="message" cols="30" rows="10"
+			          ng-maxlength="1000"
+			          ng-model="note.message">{{message}}
+			</textarea>
 		</div>
 		<div class="form-group">
-			<label for="body" class="control-label">Your message:</label>
-			<textarea class="form-control" name="body" id="body" cols="30" rows="10"
-			          ng-model="note.body">{{body}}</textarea>
-		</div>
-		<div class="form-group">
-			<button class="btn btn-primary" ng-click="messages.SendNewMessage(note.to,note.body,true);">Send</button>
+			<button class="btn btn-primary" ng-click="messages.SendNewMessage(note.to,note.message,true);">Send</button>
 		</div>
 	</form>
 </div>
