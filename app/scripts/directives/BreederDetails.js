@@ -30,30 +30,66 @@ var breederDetails = function () {
                 scope.IsEdit = false;
             };
         },
-        controller: function ($scope, $modal, $state) {
-            //            console.log($scope.ctrl.BreederProfile);
-            //            console.log('Hello');
+        controller: function ($scope, $modal, FinduserService, DataService, settings, toastr) {
+            $scope.ShowSuccess = function (note) {
+                toastr.success(note);
+            };
+
+            $scope.message = {};
             $scope.b = {};
             $scope.b.profile = {};
 
-            //            $scope.b.profile.UserName = $scope.ctrl.BreederProfile.UserName;
             $scope.modalMessage = $modal({
                 "title": "New Message",
                 scope: $scope,
                 show: false,
                 template: "../views/modals/admin-message.html"
             });
-            $scope.showMessage = funcion (receiverUserName, receiverNickname) {
+            $scope.showMessage = function (receiverUserName, receiverNickname) {
                 $scope.b.profile.UserName = receiverNickname;
                 $scope.modalMessage.show();
             };
 
             $scope.sendNewMessage = function (sender, addressat, isBreeder) {
-                console.log(sender);
-                console.log(addressat);
-            };
+                console.log('ddd');
 
-            $scope.message = {};
+                var body = $scope.message.body;
+                var levelUp = false;
+
+                var to = addressat;
+                FinduserService.find(to).then(function (userToProfile) {
+                    // UserTo is in DB
+                    console.log(userToProfile);
+
+                    //                        FROM ##############################
+                    if ($scope.home.isBreeder === true) {
+                        DataService.sendReply($scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(function () {
+                        });
+                    }
+                    if ($scope.home.isBreeder === false) {
+                        DataService.sendLookerReply($scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(function () {
+                        });
+                    }
+
+                    //                TO #################################
+                    if (userToProfile.isBreeder === true) {
+                        DataService.sendReply(userToProfile.Email, $scope.home.userName, $scope.home.nickName, body, false).then(function () {
+                            $scope.ShowSuccess(settings.messageSuccessNotice);
+                        });
+                    }
+                    if (userToProfile.isBreeder === false) {
+                        DataService.sendLookerReply(userToProfile.Email, $scope.home.userName, $scope.home.nickName, body, false).then(function () {
+                            $scope.note.body = "";
+                            $scope.note.to = "";
+                            $scope.reply.body = "";
+
+                            $scope.ShowSuccess(settings.messageSuccessNotice);
+                        });
+                    }
+                });
+
+                $scope.message = {};
+            };
         }
     };
 };

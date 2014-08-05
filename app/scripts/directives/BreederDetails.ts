@@ -9,13 +9,7 @@ interface IDBreederDetails extends ng.IScope {
 
 var breederDetails = () => {
 
-    ShowSuccess(note
-    :
-    string
-    )
-    {
-        this.toastr.info(note);
-    }
+
     return{
         restrict: 'E',
         templateUrl: 'views/directives/breeder-details.html',
@@ -46,7 +40,13 @@ var breederDetails = () => {
                 scope.IsEdit = false;
             }
         },
-        controller: ($scope, $modal, $state, FinduserService, DataService, settings, toastr) => {
+        controller: ($scope, $modal, FinduserService, DataService, settings, toastr) => {
+            $scope.ShowSuccess = (note:string) => {
+                toastr.success(note);
+            }
+
+
+            $scope.message = {};
             $scope.b = {};
             $scope.b.profile = {};
 
@@ -62,41 +62,40 @@ var breederDetails = () => {
             }
 
             $scope.sendNewMessage = (sender, addressat, isBreeder) => {
+                console.log('ddd');
 
+                var body = $scope.message.body;
+                var levelUp = false;
 
                 var to = addressat;
-                console.log('here');
-                this.FinduserService.find(to).then((userToProfile)=> {
+                FinduserService.find(to).then((userToProfile)=> {
                     // UserTo is in DB
-
+                    console.log(userToProfile);
 //                        FROM ##############################
                     if ($scope.home.isBreeder === true) {
-                        this.DataService.sendReply($scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(() => {
+                        DataService.sendReply($scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(() => {
                         })
                     }
                     if ($scope.home.isBreeder === false) {
-                        this.DataService.sendLookerReply($scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(() => {
+                        DataService.sendLookerReply($scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(() => {
                         })
                     }
 
 //                TO #################################
 
                     if (userToProfile.isBreeder === true) {
-                        this.DataService.sendReply(userToProfile.Email, $scope.home.userName, $scope.home.nickName, body, false).then(() => {
+                        DataService.sendReply(userToProfile.Email, $scope.home.userName, $scope.home.nickName, body, false).then(() => {
 
-                            this.ShowSuccess(this.settings.messageSuccessNotice);
+                            $scope.ShowSuccess(settings.messageSuccessNotice);
                         })
                     }
                     if (userToProfile.isBreeder === false) {
-                        this.DataService.sendLookerReply(userToProfile.Email, $scope.home.userName, $scope.home.nickName, body, false).then(() => {
-                            if (levelUp) {
-                                this.$state.go('^');
-                            }
+                        DataService.sendLookerReply(userToProfile.Email, $scope.home.userName, $scope.home.nickName, body, false).then(() => {
                             $scope.note.body = "";
                             $scope.note.to = "";
                             $scope.reply.body = "";
 
-                            this.ShowSuccess(this.settings.messageSuccessNotice);
+                            $scope.ShowSuccess(settings.messageSuccessNotice);
                         })
                     }
 
@@ -104,6 +103,7 @@ var breederDetails = () => {
 
 
                 $scope.message = {};
+            }
         }
     }
 }
