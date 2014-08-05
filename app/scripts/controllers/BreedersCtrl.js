@@ -5,6 +5,12 @@ var BreedersCtrl = (function () {
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
+        $scope.sortBy = [{
+                name: 'Recent Litters',
+                val: 'profile.LittersNumber'
+            }];
+        $scope.sortFeature = {};
+
         $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
 
@@ -17,7 +23,7 @@ var BreedersCtrl = (function () {
             var breeders = _.values(breedersArr);
             breeders.forEach(function (breeder) {
                 if (!_.isNull($scope.searchLocation)) {
-                    if (_.isNull(breeder.profile.Location) || $scope.searchLocation != breeder.profile.Location) {
+                    if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || $scope.searchLocation != breeder.profile.Location) {
                         return;
                     }
                 }
@@ -27,6 +33,8 @@ var BreedersCtrl = (function () {
                         return;
                     }
                 }
+
+                breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
                 $scope.breeders.push(breeder);
             });
         });

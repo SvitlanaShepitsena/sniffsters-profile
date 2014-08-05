@@ -4,6 +4,15 @@ class BreedersCtrl {
     breeders:IBreederProfile[];
 
     constructor(public $scope, $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+
+        $scope.sortBy = [
+            {
+                name: 'Recent Litters',
+                val: 'profile.LittersNumber'
+            }
+        ]
+        $scope.sortFeature = {};
+
         $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
 
@@ -16,7 +25,7 @@ class BreedersCtrl {
             var breeders = _.values(breedersArr);
             breeders.forEach((breeder)=> {
                 if (!_.isNull($scope.searchLocation)) {
-                    if (_.isNull(breeder.profile.Location) || $scope.searchLocation != breeder.profile.Location) {
+                    if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || $scope.searchLocation != breeder.profile.Location) {
                         return;
                     }
                 }
@@ -26,6 +35,8 @@ class BreedersCtrl {
                         return;
                     }
                 }
+
+                breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
                 $scope.breeders.push(breeder)
             })
         })

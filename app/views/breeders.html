@@ -4,29 +4,21 @@
 	<h4>Search result for:</h4>
 
 	<p class="searchResult">{{searchBreed || 'any'}}, {{searchLocation || 'any'}}</p>
-
-	<div class="btn-group sortBy">
-		<button type="button" class="btn btn-default">Sort by</button>
-		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-			<span class="caret"></span>
-			<span class="sr-only">Toggle Dropdown</span>
-		</button>
-		<ul class="dropdown-menu" role="menu">
-			<li><a href="#">Recent Litters</a></li>
-			<li><a href="#">Expecting Litters</a></li>
-			<li class="divider"></li>
-			<li><a href="#">Top Rated</a></li>
-		</ul>
-	</div>
-
+	<button type="button" class="btn btn-default btn-search-panel"
+	        ng-model="sortFeature.val"
+	        ng-options="sort.val as sort.name for sort in sortBy"
+	        placeholder="Sort By"
+	        bs-select>
+		Sort By
+	</button>
 	<!-- PUT DIRECTIVES BELOW -->
 </div>
 
 <div class="well" sv-slider h="1780">
 	<div class="searchBreederDescription">
 		<ul class="list-unstyled">
-			<li ng-repeat="b in breeders">
-				<hr/>
+			<li ng-repeat="b in breeders|orderBy:sortFeature.val">
+			<hr/>
 				<div class="row ">
 					<div class="col-md-3">
 						<div class="thumbnail thPictureSmall">

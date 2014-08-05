@@ -1,44 +1,43 @@
 <div>
-	<div class="row">
-		<div class="col-xs-6">
-			<h3 class="h-subsctriptions" ng-transclude=""></h3>
-			<hr/>
-			<!--<button class="btn btn-warning" ng-click="removeBreed(key)"><i class="fa fa-trash-o pull-right"></i></button>-->
-			<div class="breeds-container">
-				<div class="breeds-slider" sv-slider h="600">
-					<ul class="list-group">
-						<li ng-repeat="(key,bs) in features" class="list-group-item li-breed">
-							<div class="row">
-								<div class="col-xs-10">
-									{{bs}}
-								</div>
-								<div class="col-xs-2">
-									<button type="button" data-placement="left"
-									        data-template="../views/modals/delete-confirmation.html"
-									        data-title="Delete?"
-									        data-trigger="click" bs-popover="{{key}}">
-										<i class="fa fa-trash-o"></i>
-									</button>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<br/>
 
-				<div class="profile-breeds">
-					<div class="control-group" id="fields">
-						<div class="controls">
-							<form role="form" name="form" id="form"
-							      autocomplete="off"
-							      ng-submit="add({breed:newBreed.name});newBreed.name=''">
-								<div class="form-group">
-									<div class="entry input-group col-xs-12">
-										<input class="form-control add-input"
-										       name="fields[]"
-										       type="text"
-										       placeholder="Add new Feature"
-										       ng-model="newBreed.name"/>
+	<h3 class="h-subsctriptions" ng-transclude=""></h3>
+	<hr/>
+	<!--<button class="btn btn-warning" ng-click="removeBreed(key)"><i class="fa fa-trash-o pull-right"></i></button>-->
+	<div class="breeds-container">
+		<div class="breeds-slider" sv-slider h="600">
+			<ul class="list-group">
+				<li ng-repeat="(key,bs) in features" class="list-group-item li-breed">
+					<div class="row">
+						<div class="col-xs-10">
+							{{bs}}
+						</div>
+						<div class="col-xs-2">
+							<button type="button" data-placement="left"
+							        data-template="../views/modals/delete-confirmation.html"
+							        data-title="Delete?"
+							        data-trigger="click" bs-popover="{{key}}">
+								<i class="fa fa-trash-o"></i>
+							</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<br/>
+
+		<div class="profile-breeds">
+			<div class="control-group" id="fields">
+				<div class="controls">
+					<form role="form" name="form" id="form"
+					      autocomplete="off"
+					      ng-submit="add({breed:newBreed.name});newBreed.name=''">
+						<div class="form-group">
+							<div class="entry input-group col-xs-12">
+								<input class="form-control add-input"
+								       name="fields[]"
+								       type="text"
+								       placeholder="Add new Feature"
+								       ng-model="newBreed.name"/>
                     	<span class="input-group-btn">
                             <button
 		                            class="btn btn-success btn-add"
@@ -47,17 +46,15 @@
 	                            </span>
                             </button>
                         </span>
-									</div>
-								</div>
-
-							</form>
+							</div>
 						</div>
-					</div>
+
+					</form>
 				</div>
 			</div>
-
 		</div>
 	</div>
+
 
 	<script>
 		$('#input').keydown(function (e) {

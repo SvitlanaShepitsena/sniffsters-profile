@@ -77,6 +77,8 @@ interface IBreederProfile extends IUser {
     VetServices:boolean;
     Insurances:string[];
     Shipping:boolean;
+    LittersNumber:number
+
 }
 interface INote {
     amISender:boolean;
@@ -173,8 +175,10 @@ class BreederProfile implements IBreederProfile {
     VetServices:boolean;
     Insurances:string[];
     Shipping:boolean;
+    LittersNumber:number;
 
     constructor() {
+        this.LittersNumber = 0;
 
         this.isBreeder = true;
 
