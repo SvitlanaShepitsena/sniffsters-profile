@@ -112,24 +112,21 @@
 			<label class="quick-search">QUICK SEARCH</label>
 
 			<div class="btn-group btn-group-fetch">
-				<button type="button" class="btn btn-default btn-search-panel"
-				        ng-model="searchBreed.val"
-				        ng-options="breed for breed in breeds"
-				        placeholder="Breed"
-				        bs-select>
-					Action <span class="caret"></span>
-				</button>
+				<input class="form-control"
+				       ng-model="searchBreed.val"
+				       placeholder="Start typing breed"
+				       ng-options="breed for breed in breeds"
+				       data-animation="am-flip-x"
+				       bs-typeahead type="text">
 			</div>
 
 			<div class="btn-group btn-group-fetch">
-				<button type="button" class="btn btn-default"
-				        ng-model="searchLocation.val"
-				        placeholder="Locations"
-				        ng-options="location.name for location in locations"
-				        data-animation="am-flip-x"
-				        bs-select>
-					Action <span class="caret"></span>
-				</button>
+				<input class="form-control"
+				       ng-model="searchBreed.val"
+				       placeholder="Location"
+				       ng-options="breed for breed in breeds"
+				       data-animation="am-flip-x"
+				       bs-typeahead type="text">
 			</div>
 			<button ng-click="fetchDog(searchBreed.val,searchLocation.val)" class="btn btn-primary btn-fetch">
 				<i class="fa fa-search"></i>
