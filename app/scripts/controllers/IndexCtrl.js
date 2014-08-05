@@ -49,6 +49,10 @@ var IndexCtrl = (function () {
             });
         });
     }
+    IndexCtrl.prototype.GetBreederName = function () {
+        return this.BreederProfile;
+    };
+
     IndexCtrl.prototype.SaveKennelName = function () {
         var breederProfileOriginal = this.CopyProfileService.GetProfileClone();
 

@@ -62,6 +62,9 @@ class IndexCtrl {
         })
     }
 
+    GetBreederName() {
+        return this.BreederProfile;
+    }
 
     SaveKennelName() {
         var breederProfileOriginal:IBreederProfile = this.CopyProfileService.GetProfileClone();

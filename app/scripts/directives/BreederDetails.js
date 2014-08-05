@@ -29,6 +29,16 @@ var breederDetails = function (FinduserService) {
                 scope.ctrl.Save(scope.ctrl.BreederProfileCopy);
                 scope.IsEdit = false;
             };
+        },
+        controller: function ($scope, $modal, DataService, settings, toastr) {
+            $scope.b = {};
+            $scope.b.profile = {};
+            $scope.$watch('ctrl', function (index) {
+                console.log(index.GetBreederName());
+                console.log(typeof index);
+            });
+            //            console.log($scope.ctrl);
+            //            console.log('ddd');
         }
     };
 };

@@ -13,7 +13,6 @@ var svContactModal = (FinduserService) => {
                 toastr.success(note);
             }
 
-
             $scope.message = {};
 
             $scope.modalMessage = $modal({
