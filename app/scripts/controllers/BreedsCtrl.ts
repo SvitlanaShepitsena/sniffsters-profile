@@ -11,14 +11,17 @@ class BreedsCtrl {
             $scope.breeds.$add(breed);
         }
 
-        $scope.popoverDelete = {
-            "title": "Delete?",
-            template: '../../views/modals/delete-confirmation.html'
-        };
+        $scope.saveLocation = (location:string) => {
+
+            $scope.locations.$add(location);
+        }
+
+
         $scope.remove = (key:string)=> {
             $scope.breeds.$remove(key);
         }
         $scope.breeds = $firebase(new Firebase($scope.home.MainUrl + 'breeds'));
+        $scope.locations = $firebase(new Firebase($scope.home.MainUrl + 'locations'));
 
     }
 

@@ -128,33 +128,15 @@ class HomeCtrl {
         this.MainRefFire = $firebase(new Firebase(this.MainUrl));
 
         var breedsRef = $firebase(new Firebase(this.MainUrl + 'breeds'));
-
         breedsRef.$on('value', (snapshot:any)=> {
             var breeds = snapshot.snapshot.value;
             $scope.breeds = $filter('orderByPriority')(breeds);
-        });//        $scope.breedsRef = this.MainRefFire.$child('breeders');
-//        $scope.breedsRef.$on('value', (snapshot:any)=> {
-//            var bs = snapshot.snapshot.value;
-//
-//            var breedsR = _.values(_.values(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'breeds'))));
-//            $scope.breeds = _.map(_.uniq(_.flatten(_.map(breedsR, (breed)=> {
-//
-//                var arrTemp = _.values(breed);
-//                return arrTemp;
-//            }))), (breed)=> {
-//                return {name: breed}
-//            });
-//        });
-//
-//        $scope.locationRef = this.MainRefFire.$child('breeders');
-//        $scope.locationRef.$on('value', (snapshot:any)=> {
-//            var bs = snapshot.snapshot.value;
-//
-//            var locationVal = _.uniq(_.compact(_.pluck(_.pluck($filter('orderByPriority')(bs), 'profile'), 'Location')));
-//            $scope.locations = _.map(locationVal, (location)=> {
-//                return {name: location};
-//            })
-//        });
+        });
+        var locationsRef = $firebase(new Firebase(this.MainUrl + 'locations'));
+        locationsRef.$on('value', (snapshot:any)=> {
+            var locations = snapshot.snapshot.value;
+            $scope.locations = $filter('orderByPriority')(locations);
+        });
 
 
         this.auth = this.$firebaseSimpleLogin(this.MainRef);

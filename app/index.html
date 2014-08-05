@@ -120,10 +120,11 @@
 				       ng-options="breed for breed in breeds"
 				       data-animation="am-flip-x"
 				       bs-typeahead type="text">
+
 				<input class="form-control"
-				       ng-model="searchBreed.val"
+				       ng-model="searchLocation.val"
 				       placeholder="Location"
-				       ng-options="breed for breed in breeds"
+				       ng-options="location for location in locations"
 				       data-animation="am-flip-x"
 				       bs-typeahead type="text">
 				<button ng-click="fetchDog(searchBreed.val,searchLocation.val)"
@@ -278,6 +279,8 @@
 <script src="scripts/controllers/ManageBreederAccountCtrl.js"></script>
 <script src="scripts/services/FinduserService.js"></script>
 <script src="scripts/controllers/BreedsCtrl.js"></script>
+<script src="scripts/directives/svSearchFeature.js"></script>
+<script src="scripts/directives/svDeletePopover.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>
@@ -293,4 +296,4 @@
 <script src="bower_components/jcrop/jquery.Jcrop.min.js"></script>
 <!-- endbuil-->
 </body>
-</html>
+</ht

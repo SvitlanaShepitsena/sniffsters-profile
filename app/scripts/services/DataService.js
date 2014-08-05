@@ -69,7 +69,8 @@ var DataService = (function () {
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
-        var url = isBreeder ? this.urlBreeder : this.urlBreeder;
+        var url = isBreeder ? this.urlBreeder : this.urlLooker;
+
         var messagesUrl = url + userName + "/messages";
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
@@ -94,7 +95,7 @@ var DataService = (function () {
         corrUserName = this.FireProcess(corrUserName);
 
         var d = this.$q.defer();
-        var url = isBreeder ? this.urlBreeder : this.urlBreeder;
+        var url = isBreeder ? this.urlBreeder : this.urlLooker;
         var messagesUrl = url + userName + "/messages";
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
@@ -120,7 +121,7 @@ var DataService = (function () {
 
         //
         var d = this.$q.defer();
-        var url = isBreeder ? this.urlBreeder : this.urlBreeder;
+        var url = isBreeder ? this.urlBreeder : this.urlLooker;
         var messagesUrl = url + userName + "/messages";
         var notesRef = this.$firebase(new Firebase(messagesUrl));
 
