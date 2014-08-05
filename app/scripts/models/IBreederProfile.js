@@ -61,6 +61,8 @@ var Gallery = (function () {
 })();
 var BreederProfile = (function () {
     function BreederProfile() {
+        this.LittersNumber = 0;
+
         this.isBreeder = true;
 
         this.FirstName = "";

@@ -5,10 +5,12 @@ var BreedersCtrl = (function () {
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
-        $scope.sortBy = [{
+        $scope.sortBy = [
+            {
                 name: 'Recent Litters',
                 val: 'profile.LittersNumber'
-            }];
+            }
+        ];
         $scope.sortFeature = {};
 
         $scope.home.IsSearchHidden = false;

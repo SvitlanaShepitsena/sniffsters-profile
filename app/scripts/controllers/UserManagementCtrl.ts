@@ -40,7 +40,8 @@ class UserManagementCtrl {
             this.lookers.$remove(key);
         }
 
-        $scope.sendAdminMessage = (addressat, isBreeder) => {
+        $scope.sendNewMessage = (sender, addressat, isBreeder) => {
+            console.log('ddd');
             $scope.addressat = addressat;
             $scope.admin = "Admin";
             var messageTo = new Note();

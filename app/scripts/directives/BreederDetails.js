@@ -29,6 +29,31 @@ var breederDetails = function () {
                 scope.ctrl.Save(scope.ctrl.BreederProfileCopy);
                 scope.IsEdit = false;
             };
+        },
+        controller: function ($scope, $modal, $state) {
+            //            console.log($scope.ctrl.BreederProfile);
+            //            console.log('Hello');
+            $scope.b = {};
+            $scope.b.profile = {};
+
+            //            $scope.b.profile.UserName = $scope.ctrl.BreederProfile.UserName;
+            $scope.modalMessage = $modal({
+                "title": "New Message",
+                scope: $scope,
+                show: false,
+                template: "../views/modals/admin-message.html"
+            });
+            $scope.showMessage = funcion (receiverUserName, receiverNickname) {
+                $scope.b.profile.UserName = receiverNickname;
+                $scope.modalMessage.show();
+            };
+
+            $scope.sendNewMessage = function (sender, addressat, isBreeder) {
+                console.log(sender);
+                console.log(addressat);
+            };
+
+            $scope.message = {};
         }
     };
 };
