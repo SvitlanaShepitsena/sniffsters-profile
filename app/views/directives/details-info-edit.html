@@ -128,9 +128,14 @@
 
 			<label for="state" class="sniff-subhead control-label">State:</label>
 			<span class="textMuted">Required</span>
-			<input type="text" id="state" name="state" class="form-control"
+			<input name="state" id="state" class="form-control"
 			       ng-model="ctrl.BreederProfileEdit.State"
-			       required/>
+			       placeholder="state"
+			       ng-options="state.abbreviation as state.name for state in states"
+			       data-animation="am-flip-x"
+			       bs-typeahead type="text">
+
+
 			<span ng-show="form.state.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
 			<span ng-hide="form.state.$invalid" class="fa custom-col  fa-check form-control-feedback"></span>
 		</div>
