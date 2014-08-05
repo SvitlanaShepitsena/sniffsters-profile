@@ -3,8 +3,12 @@
 class BreedersCtrl {
     breeders:IBreederProfile[];
 
-    constructor(public $scope, $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public $modal, $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
 
+        $scope.modalContactSearch = {
+            "title": "New Message",
+            show: true
+        };
         $scope.sortBy = [
             {
                 name: 'Recent Litters',

@@ -1,10 +1,15 @@
 /// <reference path="HomeCtrl.ts" />
 var BreedersCtrl = (function () {
-    function BreedersCtrl($scope, $stateParams, $state, toastr, DataService) {
+    function BreedersCtrl($scope, $modal, $stateParams, $state, toastr, DataService) {
         this.$scope = $scope;
+        this.$modal = $modal;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
+        $scope.modalContactSearch = {
+            "title": "New Message",
+            show: true
+        };
         $scope.sortBy = [
             {
                 name: 'Recent Litters',
