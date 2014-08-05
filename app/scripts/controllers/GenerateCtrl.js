@@ -35,7 +35,7 @@ var GenerateCtrl = (function () {
 
         var breeders = this.GenerateBreeders();
         breeders.forEach(function (breeder) {
-            breeder.Location = breeder.State + ',' + breeder.City;
+            breeder.Location = breeder.City + ', ' + breeder.State;
             breeder.UserName = breeder.Email.split('@')[0];
 
             var key = breeder.Email.replace(/\./g, '(p)');
