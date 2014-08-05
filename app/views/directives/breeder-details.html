@@ -17,15 +17,15 @@
 			<li>
 				<p class="text-center" ng-show="home.FireUname">
 					<button class="btn btn-link sniff-head-sm"
-					        ng-hide="home.Followings.indexOf(ctrl.BreederProfile.Email)>-1"
-					        role="button" ng-click="home.followUser(home.FireUname,ctrl.BreederProfile.Email)">
-						Follow
+					        ng-hide="home.Followings.indexOf(index.BreederProfile.Email)>-1"
+					        role="button" ng-click="home.followUser(home.FireUname,index.BreederProfile.Email)">
+					Follow
 					</button>
 
 					<button class="btn btn-link sniff-head-sm"
-					        ng-show="home.Followings.indexOf(ctrl.BreederProfile.Email)>-1"
-					        role="button" ng-click="home.unFollowUser(home.FireUname,ctrl.BreederProfile.Email)">
-						UnFollow
+					        ng-show="home.Followings.indexOf(index.BreederProfile.Email)>-1"
+					        role="button" ng-click="home.unFollowUser(home.FireUname,index.BreederProfile.Email)">
+					UnFollow
 					</button>
 				</p>
 			</li>
@@ -46,57 +46,57 @@
 
 		<div class="form-group">
 			<label class="labelMyDetails">Location:</label>
-			<span>{{ctrl.BreederProfile.Location}}</span>
+			<span>{{index.BreederProfile.Location}}</span>
 		</div>
 
 		<div class="form-group" ng-show="home.isOwner">
 			<label class="labelMyDetails">Website:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Website}}</span>
+			<span ng-show="!IsEdit">{{index.BreederProfile.Website}}</span>
 			<input type="text" class="form-control"
-			       ng-model="ctrl.BreederProfileCopy.Website"
+			       ng-model="index.BreederProfileCopy.Website"
 			       ng-show="IsEdit">
 		</div>
 		<div class="form-group" ng-show="!home.isOwner">
 			<label class="labelMyDetails">Website:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Website}}</span>
+			<span ng-show="!IsEdit">{{index.BreederProfile.Website}}</span>
 		</div>
 
 		<div class="form-group" ng-show="home.isOwner">
 			<label class="labelMyDetails">Email:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Email}}</span>
+			<span ng-show="!IsEdit">{{index.BreederProfile.Email}}</span>
 			<input type="text" class="form-control"
-			       ng-model="ctrl.BreederProfileCopy.Email"
+			       ng-model="index.BreederProfileCopy.Email"
 			       ng-show="IsEdit">
 		</div>
 
 		<div class="form-group" ng-show="!home.isOwner">
 			<label class="labelMyDetails">Email:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Email}}</span>
+			<span ng-show="!IsEdit">{{index.BreederProfile.Email}}</span>
 		</div>
 
 		<div class="form-group" ng-show="home.isOwner">
 			<label class="labelMyDetails">Phone:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Phone}}</span>
+			<span ng-show="!IsEdit">{{index.BreederProfile.Phone}}</span>
 			<input type="text" class="form-control"
-			       ng-model="ctrl.BreederProfileCopy.Phone"
+			       ng-model="index.BreederProfileCopy.Phone"
 			       ng-show="IsEdit">
 		</div>
 
 		<div class="form-group" ng-show="!home.isOwner">
 			<label class="labelMyDetails">Phone:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Phone}}</span>
+			<span ng-show="!IsEdit">{{index.BreederProfile.Phone}}</span>
 		</div>
 
 		<div class="form-group" ng-show="home.isOwner">
 			<label class="col-xs-4 no-l-pad labelMyDetails">Certifications:</label>
 			<span class="col-xs-7 spanCertif">
 				<ul class="list-unstyled">
-					<li ng-show="!IsEdit" ng-repeat="c in ctrl.BreederProfile.Certifications">
-						{{c.Title}} {{c.isActive | boolString}}
+					<li ng-show="!IsEdit" ng-repeat="c in index.BreederProfile.Certifications">
+					{{c.Title}} {{c.isActive | boolString}}
 					</li>
 
-					<li ng-show="IsEdit" ng-repeat="c in ctrl.BreederProfileCopy.Certifications">
-						{{c.Title}} <input type="checkbox" ng-model='c.isActive'>
+					<li ng-show="IsEdit" ng-repeat="c in index.BreederProfileCopy.Certifications">
+					{{c.Title}} <input type="checkbox" ng-model='c.isActive'>
 					</li>
 				</ul>
 			</span>
@@ -106,8 +106,8 @@
 			<label class="col-xs-4 no-l-pad labelMyDetails">Certifications:</label>
 			<span class="col-xs-7 spanCertif">
 				<ul class="list-unstyled">
-					<li ng-show="!IsEdit" ng-repeat="c in ctrl.BreederProfile.Certifications">
-						{{c.Title}} - {{c.isActive | boolString}}
+					<li ng-show="!IsEdit" ng-repeat="c in index.BreederProfile.Certifications">
+					{{c.Title}} - {{c.isActive | boolString}}
 					</li>
 				</ul>
 			</span>
@@ -115,28 +115,28 @@
 
 		<div class="form-group" ng-show="home.isOwner">
 			<label class="labelMyDetails">Vet Services:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.VetServices|boolString}}</span>
+			<span ng-show="!IsEdit">{{index.BreederProfile.VetServices|boolString}}</span>
 			<input type="checkbox"
-			       ng-model="ctrl.BreederProfileCopy.VetServices"
+			       ng-model="index.BreederProfileCopy.VetServices"
 			       ng-show="IsEdit">
 		</div>
 
 		<div class="form-group" ng-show="!home.isOwner">
 			<label class="labelMyDetails">Vet Services:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.VetServices|boolString}}</span>
+			<span ng-show="!IsEdit">{{index.BreederProfile.VetServices|boolString}}</span>
 		</div>
 
 		<div class="form-group" ng-show="home.isOwner">
 			<label class="labelMyDetails">Shipping:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Shipping|boolString}}</span>
+			<span ng-show="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
 			<input type="checkbox"
-			       ng-model="ctrl.BreederProfileCopy.Shipping"
+			       ng-model="index.BreederProfileCopy.Shipping"
 			       ng-show="IsEdit">
 		</div>
 
 		<div class="form-group" ng-show="!home.isOwner">
 			<label class="labelMyDetails">Shipping:</label>
-			<span ng-show="!IsEdit">{{ctrl.BreederProfile.Shipping|boolString}}</span>
+			<span ng-show="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
 		</div>
 
 		<div class="form-group  profileSave text-center" ng-show="home.isOwner">

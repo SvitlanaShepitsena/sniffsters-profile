@@ -10,7 +10,7 @@
 					<div class="form-group">
 						<label>To:</label>
 		<span>
-			{{b.profile.UserName}}
+			{{b.profile.UserName || index.BreederName}}
 		</span>
 					</div>
 					<div class="form-group">
@@ -20,8 +20,12 @@
 						</textarea>
 					</div>
 				</form>
-				<button class="btn btn-sm btn-primary"
+				<button ng-show="b.profile.UserName" class="btn btn-sm btn-primary"
 				        ng-click="sendNewMessage(home.userName, b.profile.UserName, b.profile.isBreeder);$hide()">Send
+				</button>
+
+				<button ng-hide="b.profile.UserName" class="btn btn-sm btn-primary"
+				        ng-click="sendNewMessage(home.userName, index.BreederName, b.profile.isBreeder);$hide()">Send
 				</button>
 			</div>
 		</div>

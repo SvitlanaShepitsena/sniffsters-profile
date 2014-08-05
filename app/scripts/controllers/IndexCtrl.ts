@@ -47,6 +47,8 @@ class IndexCtrl {
                     $scope.home.Ownership();
                     this.error = false;
                     this.BreederProfile = breederProfile;
+                    this.BreederName = breederProfile.UserName;
+
 
                     this.CopyProfileService.SetProfile(breederProfile);
                     this.BreederProfileEdit = CopyProfileService.GetProfileClone();

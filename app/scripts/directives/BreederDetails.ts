@@ -7,7 +7,7 @@ interface IDBreederDetails extends ng.IScope {
     Save:() => void;
 }
 
-var breederDetails = (FinduserService) => {
+var breederDetails = () => {
 
 
     return{
@@ -15,16 +15,16 @@ var breederDetails = (FinduserService) => {
         templateUrl: 'views/directives/breeder-details.html',
         // replace directive tag with template info
         replace: true,
-        scope: {
-            ctrl: '=',
-            text: '@',
-            func: '&',
-            home: '='
-        },
         link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
 //            SCOPE (USE just {{test}} . )
 
             scope.IsEdit = false;
+
+            scope.b = {};
+            scope.b.profile = {};
+            scope.b.profile.UserName = scope.index.BreederName;
+//            console.log(scope.index.BreederName);
+
 
             scope.Edit = () => {
                 scope.ctrl.Clone();
@@ -41,16 +41,8 @@ var breederDetails = (FinduserService) => {
                 scope.IsEdit = false;
             }
         },
-        controller: ($scope, $modal, DataService, settings, toastr) => {
-            $scope.b = {};
-            $scope.b.profile = {};
-            $scope.$watch('ctrl', (index)=> {
-                console.log(index.GetBreederName());
-                console.log(typeof index);
-            })
-
-//            console.log($scope.ctrl);
-//            console.log('ddd');
+        controller($scope) {
+            $scope.message = {};
         }
     }
 }
