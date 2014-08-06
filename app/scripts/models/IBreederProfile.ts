@@ -90,10 +90,11 @@ interface INote {
     nickName:string;
     body:string;
     sent:number;
+    isUnread:boolean;
 }
 
 class Note implements INote {
-
+    isUnread:boolean;
     amISender:boolean;
     isTrash:boolean;
     userName:string;
@@ -101,6 +102,9 @@ class Note implements INote {
     body:string;
     sent:number;
 
+    constructor() {
+        this.isUnread = true;
+    }
 }
 
 interface IMessage {

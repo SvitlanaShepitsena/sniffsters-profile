@@ -24,6 +24,7 @@ class IndexCtrl {
     isOwner:boolean;
     subscription:any;
     messagesNumber:number;
+    unReadMessagesNumber:number;
 
     constructor(public $scope, public $firebase, public $filter, public settings, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index = this;
@@ -57,6 +58,15 @@ class IndexCtrl {
 
                             var messagesRef = $firebase(new Firebase(messagesUrl));
                             this.messagesNumber = messagesRef.$getIndex().length;
+
+                            messagesRef.$on('value', (snapshot:any)=> {
+                                var messages = snapshot.snapshot.value;
+                                var messagesArr = $filter('orderByPriority')(messages);
+                                var unReadMessages = _.where(messagesArr, {isUnread: true});
+                                this.unReadMessagesNumber = unReadMessages.length;
+
+
+                            });
                         });
 
                     }

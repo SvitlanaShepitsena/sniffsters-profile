@@ -32,6 +32,11 @@ class DataService {
         note.sent = Date.now();
         note.body = reply;
 
+        if (amISender == true) {
+            note.isUnread = false;
+        } else {
+            note.isUnread = true;
+        }
 
         note.isTrash = false;
         note.userName = corrUserName;
@@ -58,6 +63,11 @@ class DataService {
 
         note.body = reply;
 
+        if (amISender == true) {
+            note.isUnread = false;
+        } else {
+            note.isUnread = true;
+        }
         note.isTrash = false;
         note.userName = corrUserName;
         note.nickName = corrUserNameNick;

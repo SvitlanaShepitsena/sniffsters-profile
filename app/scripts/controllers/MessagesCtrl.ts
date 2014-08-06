@@ -9,6 +9,7 @@ interface IMessagesScope extends IHomeScope {
 class MessagesCtrl {
 
     fireMessages;
+    messagesRef;
     reply:{
         body:string
     }
@@ -38,7 +39,8 @@ class MessagesCtrl {
                     type = "lookers/";
                 }
                 messagesUrl = messagesUrl + type + $scope.home.FireProcess(user.email) + '/messages';
-                this.fireMessages = $filter('orderByPriority')($firebase(new Firebase(messagesUrl)));
+                this.messagesRef = $firebase(new Firebase(messagesUrl));
+                this.fireMessages = (this.messagesRef);
                 this.SetSelectedUser(0);
 
 
@@ -103,14 +105,14 @@ class MessagesCtrl {
 //                        FROM ##############################
                         if (this.$scope.home.isBreeder === true) {
                             this.DataService.sendReply(this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(() => {
-                                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: this.$scope.home.FireProcess(userToProfile.Email)});
+//                                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: this.$scope.home.FireProcess(userToProfile.Email)});
 //                                this.$state.go('^');
 //                                this.ShowSuccess('Your message has been sent!!');
                             })
                         }
                         if (this.$scope.home.isBreeder === false) {
                             this.DataService.sendLookerReply(this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(() => {
-                                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: this.$scope.home.FireProcess(userToProfile.Email)});
+//                                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: this.$scope.home.FireProcess(userToProfile.Email)});
 //                                this.$state.go('^');
 //                                this.ShowSuccess('Your message has been sent!!');
                             })
@@ -164,7 +166,21 @@ class MessagesCtrl {
         })
 
         this.selectedUser = userNames[this.selectedUserIndex];
+        if (!_.isUndefined(this.fireMessages) && !_.isUndefined(this.selectedUser)) {
+
+            this.messagesRef.$getIndex().forEach((key)=> {
+                var message = this.messagesRef[key];
+                console.log(message);
+
+                if (message.nickName == this.selectedUser.nickName) {
+                    message.isUnread = false;
+                }
+            })
+            this.messagesRef.$save();
+
+        }
     }
+
 
     ShowSuccess(note:string) {
         this.toastr.info(note);

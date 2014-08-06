@@ -29,6 +29,7 @@ var SImage = (function () {
 
 var Note = (function () {
     function Note() {
+        this.isUnread = true;
     }
     return Note;
 })();

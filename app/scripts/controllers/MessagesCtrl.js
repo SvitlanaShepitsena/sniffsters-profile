@@ -31,7 +31,8 @@ var MessagesCtrl = (function () {
                     type = "lookers/";
                 }
                 messagesUrl = messagesUrl + type + $scope.home.FireProcess(user.email) + '/messages';
-                _this.fireMessages = $filter('orderByPriority')($firebase(new Firebase(messagesUrl)));
+                _this.messagesRef = $firebase(new Firebase(messagesUrl));
+                _this.fireMessages = (_this.messagesRef);
                 _this.SetSelectedUser(0);
             });
         });
@@ -91,14 +92,14 @@ var MessagesCtrl = (function () {
                     //                        FROM ##############################
                     if (_this.$scope.home.isBreeder === true) {
                         _this.DataService.sendReply(_this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(function () {
-                            _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: _this.$scope.home.FireProcess(to), userName: _this.$scope.home.FireProcess(userToProfile.Email) });
+                            //                                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: this.$scope.home.FireProcess(userToProfile.Email)});
                             //                                this.$state.go('^');
                             //                                this.ShowSuccess('Your message has been sent!!');
                         });
                     }
                     if (_this.$scope.home.isBreeder === false) {
                         _this.DataService.sendLookerReply(_this.$scope.home.userName, userToProfile.Email, userToProfile.UserName, body, true).then(function () {
-                            _this.fireMessages.push({ amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: _this.$scope.home.FireProcess(to), userName: _this.$scope.home.FireProcess(userToProfile.Email) });
+                            //                                this.fireMessages.push({amISender: true, body: body, sent: Date.now(), isTrash: false, nickName: this.$scope.home.FireProcess(to), userName: this.$scope.home.FireProcess(userToProfile.Email)});
                             //                                this.$state.go('^');
                             //                                this.ShowSuccess('Your message has been sent!!');
                         });
@@ -150,6 +151,17 @@ var MessagesCtrl = (function () {
         });
 
         this.selectedUser = userNames[this.selectedUserIndex];
+        if (!_.isUndefined(this.fireMessages) && !_.isUndefined(this.selectedUser)) {
+            this.messagesRef.$getIndex().forEach(function (key) {
+                var message = _this.messagesRef[key];
+                console.log(message);
+
+                if (message.nickName == _this.selectedUser.nickName) {
+                    message.isUnread = false;
+                }
+            });
+            this.messagesRef.$save();
+        }
     };
 
     MessagesCtrl.prototype.ShowSuccess = function (note) {

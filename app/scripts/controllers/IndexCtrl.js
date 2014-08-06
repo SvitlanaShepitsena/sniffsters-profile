@@ -47,6 +47,13 @@ var IndexCtrl = (function () {
 
                             var messagesRef = $firebase(new Firebase(messagesUrl));
                             _this.messagesNumber = messagesRef.$getIndex().length;
+
+                            messagesRef.$on('value', function (snapshot) {
+                                var messages = snapshot.snapshot.value;
+                                var messagesArr = $filter('orderByPriority')(messages);
+                                var unReadMessages = _.where(messagesArr, { isUnread: true });
+                                _this.unReadMessagesNumber = unReadMessages.length;
+                            });
                         });
                     }
 

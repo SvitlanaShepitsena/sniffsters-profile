@@ -60,13 +60,6 @@ class GenerateCtrl {
             })
 
 
-            var messagesRef = breederRef.$child('messages');
-            var notes:INote[] = this.GenerateMessages();
-
-            notes.forEach((note:INote)=> {
-                messagesRef.$add(note);
-            })
-
             var followersRef = breederRef.$child('followers');
             var followingsRef = breederRef.$child('followings');
 
