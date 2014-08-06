@@ -79,9 +79,7 @@ class HomeCtrl {
 
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
-                $scope.$apply(() => {
-                    this.url2 = toState.name;
-                })
+                this.url2 = toState.name;
             })
 //        console.log($state.current);
 

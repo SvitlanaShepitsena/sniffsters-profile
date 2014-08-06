@@ -49,7 +49,6 @@ class IndexCtrl {
                     if (ownership) {
                         var subscriptionUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/subscriptions';
                         var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
-
                         var subscriptionRef = $firebase(new Firebase(subscriptionUrl));
 
                         subscriptionRef.$on('value', (snapshot:any)=> {
@@ -58,8 +57,6 @@ class IndexCtrl {
 
                             var messagesRef = $firebase(new Firebase(messagesUrl));
                             this.messagesNumber = messagesRef.$getIndex().length;
-
-
                         });
 
                     }

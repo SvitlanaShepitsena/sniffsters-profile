@@ -37,9 +37,9 @@
 				        ng-disabled="!index.subscription || index.messagesNumber>=index.subscription.Messages"
 				        ng-if="home.isBreeder===true"
 				        ui-sref="user.profile.messages.create">
-				<i class="fa fa-pencil fa-fw fa-md "></i>
+					<i class="fa fa-pencil fa-fw fa-md "></i>
 					New Message
-				</a>
+				</button>
 
 				<a
 						ui-sref="sniff.forBreeders"
@@ -50,9 +50,9 @@
 				<button class="btn btn-primary pull-right"
 				        ng-if="home.isBreeder===false"
 				        ui-sref="looker.messages.create">
-				<i class="fa fa-pencil fa-fw fa-md "></i>
+					<i class="fa fa-pencil fa-fw fa-md "></i>
 					New Message
-				</a>
+					</a>
 			</div>
 		</div>
 	</div>
