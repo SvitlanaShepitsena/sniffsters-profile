@@ -41,11 +41,11 @@
 					New Message
 				</button>
 
-				<a
-						ui-sref="sniff.forBreeders"
-						ng-show="!index.subscription || index.messagesNumber>=index.subscription.Messages"
-
-						class="btn btn-link pull-right">start a plan, gad</a>
+				<a class="btn btn-link pull-right"
+				   ui-sref="sniff.forBreeders"
+				   ng-show="!index.subscription || index.messagesNumber>=index.subscription.Messages">
+					Start a plan
+				</a>
 
 				<button class="btn btn-primary pull-right"
 				        ng-if="home.isBreeder===false"

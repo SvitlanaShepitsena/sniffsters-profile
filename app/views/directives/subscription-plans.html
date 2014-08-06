@@ -86,7 +86,7 @@
 			<th class="text-center active th-plans-table">
 				{{(plans|orderByPriority)[0].name}}
 				<p class="comment">
-				{{(plans|orderByPriority)[0].comment}}
+					{{(plans|orderByPriority)[0].comment}}
 				</p>
 			</th>
 			<th class="text-center active th-plans-table">
@@ -100,12 +100,18 @@
 		<tr>
 			<th></th>
 			<td class="text-center active">
-				<button class="text-center btn btn-default btn-sm btn-tryit" ng-click="startPlan('free')">Try It
+				<button class="text-center btn btn-default btn-sm btn-tryit"
+				        ng-show="!index.subscription"
+				        ng-click="startPlan('free')">Try It
 				</button>
+				<h4 class="label label-success"
+				    ng-show="index.subscription"
+						>Active
+				</h4>
 			</td>
 			<td class="text-center active">
 				<button class="text-center btn btn-default btn-sm btn-tryit">
-				Start Now
+					Start Now
 				</button>
 			</td>
 			<td class="text-center info">
@@ -125,7 +131,7 @@
 			</td>
 			<td class="text-center info">
 				<h5 class="h-price">
-				US$
+					US$
 					{{(plans|orderByPriority)[2].price}}
 					/MO
 				</h5>

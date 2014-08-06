@@ -12,6 +12,10 @@ class ManageBreederAccountCtrl {
                 this.ShowSuccess(this.settings.delSubscriptionNotice);
             });
         }
+        $scope.popoverCancelSubscription = {
+            "title": "Deactivate your subscription plan?",
+            template: '../../views/modals/cancel-subscription.html'
+        };
     }
 
     ShowSuccess(note:string) {

@@ -7,7 +7,7 @@ interface ISubscriptionPlans extends ng.IScope {
     test:string;
 }
 
-var subscriptionPlans = (settings, $popover, $filter, $firebase)  => {
+var subscriptionPlans = ($popover, $filter, $firebase, settings)  => {
 
 
     return{
@@ -15,6 +15,7 @@ var subscriptionPlans = (settings, $popover, $filter, $firebase)  => {
         templateUrl: 'views/directives/subscription-plans.html',
         scope: {
             home: '=',
+            index: '=',
             isAdmin: '='
         },
         replace: true,
@@ -92,18 +93,14 @@ var subscriptionPlans = (settings, $popover, $filter, $firebase)  => {
 
                                         var breederRef = $firebase(new Firebase(breederUrl));
                                         breederRef.$remove();
-                                        breederRef.$add(userSubscriptions);
+                                        breederRef.$add(userSubscriptions).then(() => {
+                                            toastr.success(settings.activeSubscriptionNotice)
+                                        });
                                     }
                                 })
                             }
-
-
                         })
                     });
-
-
-                    ;
-
                 });
             }
 

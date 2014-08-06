@@ -1,0 +1,13 @@
+<div class="popover popover-delete">
+	<div class="arrow"></div>
+	<h3 class="popover-title text-center" ng-bind="title" ng-show="title"></h3>
+
+	<div class="row popover-row popover-content">
+		<div class="col-xs-6">
+			<button class="btn btn-danger btn-sm" ng-click="cancelSubscription();$hide()">Yes</button>
+		</div>
+		<div class="col-xs-6">
+			<button class="btn btn-default btn-sm" ng-click="$hide()">No</button>
+		</div>
+	</div>
+</div>

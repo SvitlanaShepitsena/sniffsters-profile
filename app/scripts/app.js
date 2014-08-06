@@ -120,11 +120,6 @@ profile.filter('unshared', function () {
         return Unshared.filter(value, isTemp);
     };
 });
-profile.filter('hideAdmin', function () {
-    return function (value) {
-        return HideAdmin.filter(value);
-    };
-});
 
 //#filt
 profile.service("CopyProfileService", CopyProfileService);
@@ -211,6 +206,8 @@ profile.service("DataService", DataService);
 profile.value("toastr", toastr);
 profile.value("settings", {
     deleteConfirm: 'Delete forever?',
+    activeSubscriptionNotice: 'Your free subscription plan is activated.',
+    delSubscriptionNotice: 'Your subscription plan was successfully deactivated.',
     mainUrl: "https://torid-fire-6526.firebaseio.com/",
     messageSuccessNotice: 'Message has been sent',
     noGalleryNotice: 'Here is no any gallery yet',

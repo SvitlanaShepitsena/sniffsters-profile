@@ -54,10 +54,18 @@
 			<button class="btn-link">Change Subscription</button>
 		</li>
 		<li>
-			<button class="btn-link">Cancel Subscription</button>
+			<button class="btn-link"
+			        data-toggle="tooltip" data-placement="left" title="Deactivate subscription plan"
+			        data-content="{{popover.content}}"
+			        data-template="../views/modals/cancel-subscription.html"
+			        data-animation="am-flip-x"
+			        ng-show="(subscription|orderByPriority).length"
+			        bs-popover="popoverCancelSubscription">
+				Deactivate Subscription
+			</button>
 		</li>
 		<li>
-			<button class="btn-link">Cancel Account</button>
+			<button class="btn-link">Delete Account</button>
 		</li>
 	</ul>
 </div>
