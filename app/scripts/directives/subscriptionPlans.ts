@@ -1,11 +1,15 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 
 interface ISubscriptionPlans extends ng.IScope {
     test:string;
 }
 
-var subscriptionPlans = (settings, $popover)  => {
+var subscriptionPlans = (settings, $popover, $filter, $firebase)  => {
+
+
     return{
         restrict: 'E',
         templateUrl: 'views/directives/subscription-plans.html',
@@ -31,6 +35,77 @@ var subscriptionPlans = (settings, $popover)  => {
                     };
                 })
             })
+
+            $scope.startPlan = (planName:string) => {
+                var subscriptionsUrl = $scope.home.MainUrl + 'subscriptions';
+                var plansUrl = subscriptionsUrl + "/plans";
+                var featuresUrl = subscriptionsUrl + "/features";
+
+
+                var featuresRef = $firebase(new Firebase(featuresUrl));
+                featuresRef.$on('value', (snapshot:any)=> {
+                    var featuresFire = snapshot.snapshot.value;
+                    var feautures = $filter('orderByPriority')(featuresFire);
+                    ///////////////////////
+
+
+                    var expirationDate;
+
+                    var today = new Date();
+                    var months:number;
+                    var plansRef = $firebase(new Firebase(plansUrl));
+                    plansRef.$on('value', (snapshot:any)=> {
+                        var plans = snapshot.snapshot.value;
+                        var plansArr = $filter('orderByPriority')(plans);
+                        plansArr.forEach((plan)=> {
+                            if (planName == plan.name.toLowerCase()) {
+                                if (!plan.hasOwnProperty('comment')) {
+                                    return;
+                                }
+                                var comments = plan.comment.split(' ');
+                                comments.forEach((comment)=> {
+                                    var commentParsed = parseInt(comment);
+                                    if (!_.isNaN(commentParsed)) {
+                                        months = commentParsed;
+                                        var days = months * 31;
+
+                                        expirationDate = new Date(today.getTime() + days * 24 * 60 * 60 * 1000);
+
+                                        var userSubscriptions:any = {name: plan.name,
+                                            startDate: new Date(Date.now()),
+                                            expirationDate: expirationDate
+
+                                        };
+                                        feautures.forEach((feauture)=> {
+                                            var feautureName = feauture.name;
+                                            var feautureRestriction;
+                                            var keys = _.keys(feauture);
+                                            keys.forEach((key)=> {
+                                                if (key == planName) {
+                                                    feautureRestriction = feauture[key];
+                                                }
+                                            });
+                                            userSubscriptions[feautureName] = feautureRestriction;
+
+                                        })
+                                        var breederUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/subscriptions';
+
+                                        var breederRef = $firebase(new Firebase(breederUrl));
+                                        breederRef.$remove();
+                                        breederRef.$add(userSubscriptions);
+                                    }
+                                })
+                            }
+
+
+                        })
+                    });
+
+
+                    ;
+
+                });
+            }
 
             $scope.addNewFeature = () => {
                 var newFeature = new Feature();

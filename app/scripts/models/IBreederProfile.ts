@@ -1,4 +1,6 @@
 /// <reference path="IUser.ts" />
+
+
 interface IFeature {
     name:string;
     comment:string;
