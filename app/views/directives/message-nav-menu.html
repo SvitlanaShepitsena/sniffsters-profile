@@ -3,6 +3,7 @@
 		<div class="alert alert-warning sniff-alert">
 			<div class="">
 				<a class="btn btn-default btn-message shuffle-animation"
+				   ui-sref-active="active"
 				   ng-if="home.isBreeder===true"
 				   ui-sref="user.profile.messages"><i class="fa fa-envelope-o fa-fw fa-md "></i>
 					Inbox
@@ -10,12 +11,14 @@
 
 				<a class="btn btn-default btn-message shuffle-animation"
 				   ng-if="home.isBreeder===false"
+				   ui-sref-active="active"
 				   ui-sref="looker.messages"><i class="fa fa-envelope-o fa-fw fa-md "></i>
 					Inbox
 				</a>
 
 				<a class="btn btn-default btn-message shuffle-animation"
 				   ng-if="home.isBreeder===true"
+				   ui-sref-active="active"
 				   ui-sref="user.profile.messages.trash">
 					<i class="fa fa-trash-o fa-md fa-fw"></i>
 					Trash
@@ -23,6 +26,7 @@
 
 				<a class="btn btn-default btn-message shuffle-animation"
 				   ng-if="home.isBreeder===false"
+				   ui-sref-active="active"
 				   ui-sref="looker.messages.trash">
 					<i class="fa fa-trash-o fa-md fa-fw"></i>
 					Trash
@@ -30,6 +34,7 @@
 
 				<a class="btn btn-primary pull-right"
 				   ng-if="home.isBreeder===true"
+				   ui-sref-active="active"
 				   ui-sref="user.profile.messages.create">
 					<i class="fa fa-pencil fa-fw fa-md "></i>
 					New Message
@@ -37,6 +42,7 @@
 
 				<a class="btn btn-primary pull-right"
 				   ng-if="home.isBreeder===false"
+				   ui-sref-active="active"
 				   ui-sref="looker.messages.create">
 					<i class="fa fa-pencil fa-fw fa-md "></i>
 					New Message
