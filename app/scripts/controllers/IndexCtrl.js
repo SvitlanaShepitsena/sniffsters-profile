@@ -6,9 +6,11 @@
 /// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
 var IndexCtrl = (function () {
-    function IndexCtrl($scope, settings, $stateParams, $rootScope, $window, toastr, DataService, CopyProfileService) {
+    function IndexCtrl($scope, $firebase, $filter, settings, $stateParams, $rootScope, $window, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
+        this.$firebase = $firebase;
+        this.$filter = $filter;
         this.settings = settings;
         this.$rootScope = $rootScope;
         this.$window = $window;
@@ -33,7 +35,22 @@ var IndexCtrl = (function () {
                 var promiseT = _this.DataService.getProfile(requestEmail);
                 promiseT.then(function (breederProfile) {
                     //Success
-                    $scope.home.Ownership();
+                    var ownership = $scope.home.Ownership();
+                    if (ownership) {
+                        var subscriptionUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/subscriptions';
+                        var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
+
+                        var subscriptionRef = $firebase(new Firebase(subscriptionUrl));
+
+                        subscriptionRef.$on('value', function (snapshot) {
+                            var subscription = snapshot.snapshot.value;
+                            _this.subscription = $filter('orderByPriority')(subscription)[0];
+
+                            var messagesRef = $firebase(new Firebase(messagesUrl));
+                            _this.messagesNumber = messagesRef.$getIndex().length;
+                        });
+                    }
+
                     _this.error = false;
                     _this.BreederProfile = breederProfile;
                     _this.BreederName = breederProfile.UserName;

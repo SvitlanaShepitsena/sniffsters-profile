@@ -22,9 +22,10 @@ class IndexCtrl {
     BreederName:string;
     url:string;
     isOwner:boolean;
+    subscription:any;
+    messagesNumber:number;
 
-
-    constructor(public $scope, public settings, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, public $firebase, public $filter, public settings, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index = this;
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
@@ -44,7 +45,26 @@ class IndexCtrl {
                 var promiseT = this.DataService.getProfile(requestEmail);
                 promiseT.then((breederProfile:IBreederProfile) => {
                     //Success
-                    $scope.home.Ownership();
+                    var ownership = $scope.home.Ownership();
+                    if (ownership) {
+                        var subscriptionUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/subscriptions';
+                        var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
+
+                        var subscriptionRef = $firebase(new Firebase(subscriptionUrl));
+
+                        subscriptionRef.$on('value', (snapshot:any)=> {
+                            var subscription = snapshot.snapshot.value;
+                            this.subscription = $filter('orderByPriority')(subscription)[0];
+
+                            var messagesRef = $firebase(new Firebase(messagesUrl));
+                            this.messagesNumber = messagesRef.$getIndex().length;
+
+
+                        });
+
+                    }
+
+
                     this.error = false;
                     this.BreederProfile = breederProfile;
                     this.BreederName = breederProfile.UserName;

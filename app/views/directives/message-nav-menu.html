@@ -32,19 +32,25 @@
 					Trash
 				</a>
 
-				<a class="btn btn-primary pull-right"
-				   ng-if="home.isBreeder===true"
-				   ui-sref-active="active"
-				   ui-sref="user.profile.messages.create">
-					<i class="fa fa-pencil fa-fw fa-md "></i>
+
+				<button class="btn btn-primary pull-right"
+				        ng-disabled="!index.subscription || index.messagesNumber>=index.subscription.Messages"
+				        ng-if="home.isBreeder===true"
+				        ui-sref="user.profile.messages.create">
+				<i class="fa fa-pencil fa-fw fa-md "></i>
 					New Message
 				</a>
 
-				<a class="btn btn-primary pull-right"
-				   ng-if="home.isBreeder===false"
-				   ui-sref-active="active"
-				   ui-sref="looker.messages.create">
-					<i class="fa fa-pencil fa-fw fa-md "></i>
+				<a
+						ui-sref="sniff.forBreeders"
+						ng-show="!index.subscription || index.messagesNumber>=index.subscription.Messages"
+
+						class="btn btn-link pull-right">start a plan, gad</a>
+
+				<button class="btn btn-primary pull-right"
+				        ng-if="home.isBreeder===false"
+				        ui-sref="looker.messages.create">
+				<i class="fa fa-pencil fa-fw fa-md "></i>
 					New Message
 				</a>
 			</div>

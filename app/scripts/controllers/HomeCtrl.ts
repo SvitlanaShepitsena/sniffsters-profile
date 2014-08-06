@@ -285,6 +285,7 @@ class HomeCtrl {
         if (this.auth.user === null)
             return false;
         this.isOwner = (breederUserName === this.auth.user.email);
+
         return this.isOwner;
     }
 
