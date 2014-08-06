@@ -58,13 +58,6 @@ var GenerateCtrl = (function () {
                 feedbackRef.$save();
             });
 
-            var messagesRef = breederRef.$child('messages');
-            var notes = _this.GenerateMessages();
-
-            notes.forEach(function (note) {
-                messagesRef.$add(note);
-            });
-
             var followersRef = breederRef.$child('followers');
             var followingsRef = breederRef.$child('followings');
 

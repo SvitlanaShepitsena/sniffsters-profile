@@ -29,6 +29,12 @@ var DataService = (function () {
         note.sent = Date.now();
         note.body = reply;
 
+        if (amISender == true) {
+            note.isUnread = false;
+        } else {
+            note.isUnread = true;
+        }
+
         note.isTrash = false;
         note.userName = corrUserName;
         note.nickName = corrUserNameNick;
@@ -54,6 +60,11 @@ var DataService = (function () {
 
         note.body = reply;
 
+        if (amISender == true) {
+            note.isUnread = false;
+        } else {
+            note.isUnread = true;
+        }
         note.isTrash = false;
         note.userName = corrUserName;
         note.nickName = corrUserNameNick;
