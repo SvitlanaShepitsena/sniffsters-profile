@@ -50,8 +50,6 @@ class HomeCtrl {
                             this.nickNameFire = this.FireProcess(this.nickName);
                             this.userName = userProfile.Email;
                             this.userNameFire = this.FireProcess(this.userName);
-
-
                             this.isLoggedIn = true;
                             this.isBreeder = userProfile.isBreeder;
                         },
@@ -65,7 +63,6 @@ class HomeCtrl {
                                     show: true
                                 }
                             );
-
                         }
                     )
 
@@ -82,10 +79,10 @@ class HomeCtrl {
 
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
-                this.url2 = toState.name;
+                $scope.$apply(() => {
+                    this.url2 = toState.name;
+                })
             })
-
-
 //        console.log($state.current);
 
         $scope.home = this;

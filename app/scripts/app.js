@@ -74,7 +74,6 @@
 /// <reference path="directives/svSearchFeature.ts" />
 /// <reference path="directives/svDeletePopover.ts" />
 /// <reference path="directives/svContactModal.ts" />
-/// <reference path="filters/HideAdmin.ts" />
 //#ref
 var profile = angular.module("profile", ['mgcrea.ngStrap.typeahead', 'mgcrea.ngStrap.helpers.parseOptions', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
 
@@ -118,11 +117,6 @@ profile.filter('unfire', function () {
 profile.filter('unshared', function () {
     return function (value, isTemp) {
         return Unshared.filter(value, isTemp);
-    };
-});
-profile.filter('hideAdmin', function () {
-    return function (value) {
-        return HideAdmin.filter(value);
     };
 });
 
