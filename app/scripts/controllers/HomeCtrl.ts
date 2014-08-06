@@ -25,6 +25,7 @@ class HomeCtrl {
     Id:string;
     IsHome:boolean;
 
+    url2:string;
     url:string;
     Followings:string[];
     menuIndex:number;
@@ -77,11 +78,19 @@ class HomeCtrl {
     }
 
 
-    constructor(public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $rootScope, public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
 
+        $rootScope.$on('$stateChangeSuccess',
+            function (event, toState, toParams, fromState, fromParams) {
+                this.url2 = toState.name;
+            })
+
+
+//        console.log($state.current);
 
         $scope.home = this;
         this.menuIndex = 1;
+
 
         $scope.usernameFb = {};
         $scope.isBreederFb = {};
