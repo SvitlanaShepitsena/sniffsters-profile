@@ -120,6 +120,11 @@ profile.filter('unshared', function () {
         return Unshared.filter(value, isTemp);
     };
 });
+profile.filter('hideAdmin', function () {
+    return function (value) {
+        return HideAdmin.filter(value);
+    };
+});
 
 //#filt
 profile.service("CopyProfileService", CopyProfileService);
@@ -163,7 +168,6 @@ profile.directive("svLitter", svLitter);
 profile.directive("svSearchFeature", svSearchFeature);
 profile.directive("svDeletePopover", svDeletePopover);
 profile.directive("svContactModal", svContactModal);
-profile.directive("svPlanOffer", svPlanOffer);
 
 //#dir
 profile.directive("aboutInfo", aboutInfo);
