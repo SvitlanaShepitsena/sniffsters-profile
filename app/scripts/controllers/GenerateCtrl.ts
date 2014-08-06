@@ -36,7 +36,10 @@ class GenerateCtrl {
         breeders.forEach((breeder:IBreederProfile)=> {
             breeder.Location = breeder.City + ', ' + breeder.State;
             breeder.UserName = breeder.Email.split('@')[0];
-
+            if (breeder.UserName == 'breeder1') {
+                breeder.isAdmin = true;
+                breeder.UserName = 'Admin';
+            }
 
             var key:string = breeder.Email.replace(/\./g, '(p)');
             $scope.breeders[key] = {profile: breeder};

@@ -37,6 +37,10 @@ var GenerateCtrl = (function () {
         breeders.forEach(function (breeder) {
             breeder.Location = breeder.City + ', ' + breeder.State;
             breeder.UserName = breeder.Email.split('@')[0];
+            if (breeder.UserName == 'breeder1') {
+                breeder.isAdmin = true;
+                breeder.UserName = 'Admin';
+            }
 
             var key = breeder.Email.replace(/\./g, '(p)');
             $scope.breeders[key] = { profile: breeder };

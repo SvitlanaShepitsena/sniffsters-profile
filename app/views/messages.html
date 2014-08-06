@@ -1,8 +1,6 @@
 <div ui-view>
 	<div class="row m-container">
 		<h3 class="h-messages">Inbox</h3>
-		<!--<message-nav-menu></message-nav-menu>-->
-
 
 		<h3 class="text-warning" ng-show="messages.length">{{noMessages}}</h3>
 		<sv-messages messages="messages" is-trash="false"></sv-messages>

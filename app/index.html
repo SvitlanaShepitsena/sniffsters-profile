@@ -69,17 +69,14 @@
 				<li><a class="sniff-menu" ui-sref="sniff.explore">EXPLORE
 					<img src="img/pow.png" alt="">
 				</a></li>
-				<li><a class="sniff-menu" ui-sref="admin.management">Admin
-					<img src="img/pow.png" alt="">
-				</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-show="home.isLoggedIn">
 					<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})"
-					   ng-if="home.isBreeder===true">Hello, {{home.nickName}}</a>
+					   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!</a>
 
 					<a class="hello-user" ui-sref="looker.account({uname:home.userName})"
-					   ng-if="home.isBreeder===false">Hello, {{home.nickName}}</a>
+					   ng-if="home.isBreeder===false">Hello, {{home.nickName}}!</a>
 				</li>
 
 				<li>
@@ -280,6 +277,7 @@
 <script src="scripts/directives/svSearchFeature.js"></script>
 <script src="scripts/directives/svDeletePopover.js"></script>
 <script src="scripts/directives/svContactModal.js"></script>
+<script src="scripts/filters/HideAdmin.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>

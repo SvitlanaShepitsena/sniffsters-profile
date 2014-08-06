@@ -64,6 +64,7 @@ var BreederProfile = (function () {
         this.LittersNumber = 0;
 
         this.isBreeder = true;
+        this.isAdmin = false;
 
         this.FirstName = "";
         this.LastName = "";

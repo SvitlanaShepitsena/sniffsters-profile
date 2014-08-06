@@ -30,6 +30,7 @@ class HomeCtrl {
     menuIndex:number;
 
     isBreeder:boolean;
+    isAdmin:boolean;
     isOwner:boolean;
     hideMenu:boolean;
 
@@ -196,6 +197,7 @@ class HomeCtrl {
                 this.nickName = breeder.profile.UserName;
                 this.nickNameFire = this.FireProcess(this.nickName);
                 this.isBreeder = true;
+                this.isAdmin = breeder.profile.isAdmin;
                 d.resolve();
             }
         });

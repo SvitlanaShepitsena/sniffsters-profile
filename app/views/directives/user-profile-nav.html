@@ -1,4 +1,8 @@
 <ul class="nav nav-stacked">
+	<li ng-if="home.isLoggedIn && home.isAdmin">
+		<a class="sniff-menu a-profile-nav a-admin" ui-sref="admin.management">
+			Admin Panel</a>
+	</li>
 	<li><a class="sniff-menu a-profile-nav" ui-sref="user.profile.about1">My Profile</a></li>
 	<li><a class="sniff-menu a-profile-nav" ui-sref="user.profile.manage">Manage Account</a></li>
 	<li><a class="sniff-menu a-profile-nav" ui-sref="user.profile.messages">Messages</a></li>

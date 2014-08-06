@@ -18,6 +18,9 @@
 	<div class="col-xs-8 col-messages">
 		<div class="messagesScrollBar">
 			<div class="messagesScrollBox">
+				<h3 class="text-warning"
+				    ng-show="!(messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName|orderByPriority).length">
+					{{noMessages}}</h3>
 				<ul class="list-unstyled">
 					<li class="li-message-body"
 					    ng-repeat="m in messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName|orderBy:'sent':true">

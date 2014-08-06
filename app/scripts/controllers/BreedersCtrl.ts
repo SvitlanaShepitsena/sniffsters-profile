@@ -28,20 +28,23 @@ class BreedersCtrl {
         DataService.getAllProfiles().then((breedersArr:IBreederProfile[])=> {
             var breeders = _.values(breedersArr);
             breeders.forEach((breeder)=> {
-                if (!_.isNull($scope.searchLocation)) {
-                    if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || $scope.searchLocation != breeder.profile.Location) {
-                        return;
-                    }
-                }
-                if (!_.isNull($scope.searchBreed)) {
-                    if ((_.isUndefined(breeder.profile.breeds)) || _.values(breeder.profile.breeds).indexOf($scope.searchBreed) == -1) {
-                        console.log(breeder);
-                        return;
-                    }
-                }
+                if (!breeder.profile.isAdmin) {
 
-                breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
-                $scope.breeders.push(breeder)
+                    if (!_.isNull($scope.searchLocation)) {
+                        if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || $scope.searchLocation != breeder.profile.Location) {
+                            return;
+                        }
+                    }
+                    if (!_.isNull($scope.searchBreed)) {
+                        if ((_.isUndefined(breeder.profile.breeds)) || _.values(breeder.profile.breeds).indexOf($scope.searchBreed) == -1) {
+                            console.log(breeder);
+                            return;
+                        }
+                    }
+
+                    breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
+                    $scope.breeders.push(breeder)
+                }
             })
         })
     }

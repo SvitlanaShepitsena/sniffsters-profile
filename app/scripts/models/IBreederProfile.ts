@@ -78,7 +78,8 @@ interface IBreederProfile extends IUser {
     Insurances:string[];
     Shipping:boolean;
     LittersNumber:number
-
+    isAdmin:boolean;
+    isBreeder:boolean;
 }
 interface INote {
     amISender:boolean;
@@ -153,6 +154,7 @@ class BreederProfile implements IBreederProfile {
     UserName:string;
     Breeds:string[];
     isBreeder:boolean;
+    isAdmin:boolean;
     City:string;
     Zip:string;
     State:string;
@@ -177,10 +179,12 @@ class BreederProfile implements IBreederProfile {
     Shipping:boolean;
     LittersNumber:number;
 
+
     constructor() {
         this.LittersNumber = 0;
 
         this.isBreeder = true;
+        this.isAdmin = false;
 
         this.FirstName = "";
         this.LastName = "";

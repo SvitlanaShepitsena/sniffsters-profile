@@ -7,7 +7,7 @@ interface ISvMessages extends ng.IScope {
 
 }
 
-var svMessages:() => ng.IDirective = () => {
+var svMessages = (settings) => {
 
     return{
         restrict: 'E',
@@ -21,7 +21,8 @@ var svMessages:() => ng.IDirective = () => {
             text: '@',
             func: '&'
         },
-        link: (scope:ISvMessages, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+            scope.noMessages = settings.noMessages;
             scope.messages.isTrash = scope.isTrash;
             scope.messages.SetSelectedUser(0);
 

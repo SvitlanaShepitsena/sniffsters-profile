@@ -60,6 +60,7 @@ var MessagesCtrl = (function () {
         var _this = this;
         this.DataService.deleteForever(this.$scope.home.userName, this.selectedUser.userName, this.$scope.home.isBreeder).then(function () {
             _this.fireMessages = _.without(_this.fireMessages, _.findWhere(_this.fireMessages, { isTrash: true, userName: _this.selectedUser.userName }));
+            _this.SetSelectedUser(0);
         });
     };
 
