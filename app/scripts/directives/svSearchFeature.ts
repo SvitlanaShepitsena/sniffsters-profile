@@ -11,8 +11,6 @@ var svSearchFeature:() => ng.IDirective = () => {
         scope: {
             features: '=',
             add: '&'
-
-
         },
         controller($scope, $popover, $element) {
             $scope.remove = (key)=> {
@@ -20,8 +18,6 @@ var svSearchFeature:() => ng.IDirective = () => {
             }
         },
         link: (scope, element, attrs) => {
-
-
         }
     }
 }

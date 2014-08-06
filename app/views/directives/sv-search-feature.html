@@ -1,18 +1,18 @@
 <div>
-
 	<h3 class="h-subsctriptions" ng-transclude=""></h3>
 	<hr/>
 	<!--<button class="btn btn-warning" ng-click="removeBreed(key)"><i class="fa fa-trash-o pull-right"></i></button>-->
 	<div class="breeds-container">
 		<div class="breeds-slider" sv-slider h="600">
 			<ul class="list-group">
-				<li ng-repeat="(key,bs) in features" class="list-group-item li-breed">
+				<li ng-repeat="(key,bs) in features" class="list-group-item">
 					<div class="row">
 						<div class="col-xs-10">
 							{{bs}}
 						</div>
-						<div class="col-xs-2">
-							<button type="button" data-placement="left"
+						<div class="col-xs-1">
+							<button class="btn btn-del-breed"
+							        data-placement="left"
 							        data-template="../views/modals/delete-confirmation.html"
 							        data-title="Delete?"
 							        data-trigger="click" bs-popover="{{key}}">
@@ -28,27 +28,27 @@
 		<div class="profile-breeds">
 			<div class="control-group" id="fields">
 				<div class="controls">
-					<form role="form" name="form" id="form"
+					<form role="form" name="form" id="form" novalidate
 					      autocomplete="off"
 					      ng-submit="add({breed:newBreed.name});newBreed.name=''">
 						<div class="form-group">
 							<div class="entry input-group col-xs-12">
 								<input class="form-control add-input"
 								       name="fields[]"
+								       required
 								       type="text"
 								       placeholder="Add new Feature"
 								       ng-model="newBreed.name"/>
                     	<span class="input-group-btn">
-                            <button
-		                            class="btn btn-success btn-add"
-		                            type="submit">
+                            <button class="btn btn-success btn-add"
+                                    ng-disabled="form.$pristine || form.$invalid"
+                                    type="submit">
 	                            <span class="glyphicon glyphicon-plus">
 	                            </span>
                             </button>
                         </span>
 							</div>
 						</div>
-
 					</form>
 				</div>
 			</div>

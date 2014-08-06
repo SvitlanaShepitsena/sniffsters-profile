@@ -1,9 +1,5 @@
 <div class="messages-wrapper">
-	<!--<div ng-show="messages.corrUsers.length==0">-->
-	<!--<p class="well well-sm">You do not have any messages. </p>-->
-	<!--</div>-->
 	<div class="col-xs-4 aside-messages">
-		<!--<div class="col-xs-4 aside-messages" ng-show="messages.corrUsers.length>0">-->
 		<div class="scrollBarAside">
 			<div class="scrollBoxAside">
 				<ul class="nav nav-pills nav-stacked messageUserList">
@@ -51,8 +47,8 @@
 		</div>
 		<div ng-hide="isTrash" class="reply-container">
 
-			<form role="form" name="form" id="form">
-				<div class="form-group form-group-reply" ng-class="{'has-error':form.message.$invalid}">
+			<form role="form" name="form" id="form" novalidate>
+				<div class="form-group form-group-reply" ng-class="{'has-error':form.message.$error.maxlength}">
 					<label class="h4-reply">
 						Write a reply....</label>
 			<span ng-show="form.message.$error.maxlength"
@@ -61,6 +57,7 @@
 					          id="message"
 					          class="form-control text-reply"
 					          ng-maxlength="1000"
+					          required
 					          ng-model="reply.body" id="body">
 					</textarea>
 				</div>

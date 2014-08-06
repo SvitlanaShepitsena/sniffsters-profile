@@ -1,9 +1,8 @@
 <div class="new-message">
 	<h3 class="sniff-head-info">New Message</h3>
-
 	<hr/>
 	<form name="form" id="form" role="form" novalidate>
-		<div class="form-group has-feedback" ng-class="{'has-error':form.to.$invalid}">
+		<div class="form-group has-feedback" ng-class="{'has-error':form.to.$error.maxlenght}">
 			<label for="to" class="control-label">To:</label>
 			<span class="textMuted">Required</span>
 			<span ng-show="form.to.$error.maxlength"
@@ -11,15 +10,17 @@
 			<input ng-class="{error:noSuchUser}" class="form-control" type="text" id="to" name="to"
 			       placeholder="User Name"
 			       ng-maxlength="250"
+			       required
 			       ng-model="note.to">
 		</div>
-		<div class="form-group has-feedback" ng-class="{'has-error':form.message.$invalid}">
+		<div class="form-group has-feedback" ng-class="{'has-error':form.message.$error.maxlength}">
 			<label for="message" class="control-label">Your message:</label>
 			<span class="textMuted">Required</span>
 			<span ng-show="form.message.$error.maxlength"
 			      class="text text-danger pull-right  maxsymb">Max 1000 symbols!</span>
 			<textarea class="form-control" name="message" id="message" cols="30" rows="10"
 			          ng-maxlength="1000"
+			          required
 			          ng-model="note.message">{{message}}
 			</textarea>
 		</div>
