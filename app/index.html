@@ -102,17 +102,15 @@
 		<div class="search-bar text-center">
 			<form class="form-inline">
 				<label class="quick-search">
-
 					QUICK SEARCH
-
 				</label>
-				<input class="form-control"
+				<input class="form-control input-search"
 				       ng-model="searchBreed.val"
 				       placeholder="Start typing breed"
 				       ng-options="breed for breed in breeds"
 				       bs-typeahead type="text">
 
-				<input class="form-control"
+				<input class="form-control input-search"
 				       ng-model="searchLocation.val"
 				       placeholder="Location"
 				       ng-options="location for location in locations"

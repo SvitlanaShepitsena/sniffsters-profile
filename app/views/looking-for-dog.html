@@ -10,48 +10,27 @@
 					<h3 class="text-center help-text">LET'S FIND YOUR PUPPY!</h3>
 
 					<div class="home-btn-wrapper">
-						<form action=""
-						      class="form-great-search text-center"
+						<form class="form-inline text-center"
 						      method="get"
 						      role="form">
-							<div class="btn-group btn-group-great">
-								<button type="button" class="btn btn-default btn-search-drop">Breed</button>
-								<button type="button" class="btn btn-default dropdown-toggle quick-search-toggle"
-								        data-toggle="dropdown">
-									<span class="caret"></span>
-									<span class="sr-only">Toggle Dropdown</span>
-								</button>
-								<ul class="dropdown-menu search-dropdown" role="menu">
-									<li><a href="#">Action</a></li>
-									<li><a href="#">Another action</a></li>
-									<li><a href="#">Something else here</a></li>
-									<li class="divider"></li>
-									<li><a href="#">Separated link</a></li>
-								</ul>
-							</div>
-							<div class="btn-group btn-group-great">
+							<input class="form-control input-search"
+							       ng-model="searchBreed.val"
+							       placeholder="Start typing breed"
+							       ng-options="breed for breed in breeds"
+							       bs-typeahead type="text">
 
-								<button type="button" class="btn btn-default btn-search-drop">Location</button>
-								<button type="button" class="btn btn-default dropdown-toggle quick-search-toggle"
-								        data-toggle="dropdown">
-									<span class="caret"></span>
-									<span class="sr-only">Toggle Dropdown</span>
-								</button>
-								<ul class="dropdown-menu  search-dropdown" role="menu">
-									<li><a href="#">Action</a></li>
-									<li><a href="#">Another action</a></li>
-									<li><a href="#">Something else here</a></li>
-									<li class="divider"></li>
-									<li><a href="#">Separated link</a></li>
-								</ul>
-							</div>
-							<div class="form-group btn-group-great">
-								<button class="btn btn-primary btn-great-search" ui-sref="sniff.breeders" value="Fetch">
-									<i class="fa fa-search"></i>
-									Search
-								</button>
-							</div>
+							<input class="form-control input-search"
+							       ng-model="searchLocation.val"
+							       placeholder="Location"
+							       ng-options="location for location in locations"
+							       bs-typeahead type="text">
 						</form>
+						<div class="text-center btn-great-search">
+							<button class="btn btn-primary" ui-sref="sniff.breeders" value="Fetch">
+								<i class="fa fa-search"></i>
+								Search
+							</button>
+						</div>
 
 					</div>
 
