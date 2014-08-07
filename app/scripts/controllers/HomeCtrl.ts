@@ -39,9 +39,11 @@ class HomeCtrl {
     isLoggedIn:boolean = false;
 
     FacebookSignin() {
+        console.log('fblog');
         this.auth.$login('facebook',
             {rememberMe: false}
         ).then((user)=> {
+//                this.isLoggedIn = true;
                 if (user) {
                     this.$scope.facebookUid = user.id;
 
@@ -53,6 +55,14 @@ class HomeCtrl {
                             this.userNameFire = this.FireProcess(this.userName);
                             this.isLoggedIn = true;
                             this.isBreeder = userProfile.isBreeder;
+
+                            if (this.isBreeder == true) {
+                                this.$state.go('user.profile.about1', {uname: userProfile.Email});
+                            }
+
+                            if (this.isBreeder == false) {
+                                this.$state.go('looker.account', {uname: userProfile.Email});
+                            }
                         },
                         () => {
                             //was not found
@@ -69,6 +79,8 @@ class HomeCtrl {
 
                 } else {
                     // user logout
+                    this.isLoggedIn = false;
+                    this.auth.user = null;
                 }
             }, (error)=> {
                 this.ShowError(error);
@@ -95,7 +107,6 @@ class HomeCtrl {
             FinduserService.find(userNameFb).then(() => {
                 //exists
 
-
                 $scope.userExists = true;
                 this.ShowError(settings.userExists);
             }, () => {
@@ -107,6 +118,7 @@ class HomeCtrl {
                     var lookerGenerator = new LookerGenerator();
                     lookerGenerator.create($scope.home.FireProcess($scope.facebookUid), this.MainUrl, this.$firebase, userNameFb);
                 }
+                this.Breedership(this.FireProcess(userNameFb));
 
                 this.nickName = userNameFb;
                 this.nickNameFire = this.FireProcess(userNameFb);
@@ -117,6 +129,19 @@ class HomeCtrl {
                 this.isLoggedIn = true;
                 this.isBreeder = isBreederFb;
                 this.$scope.modal.hide();
+
+                ///////////////////////
+                if (isBreederFb) {
+                    this.$state.go('user.profile.about1', {uname: this.userName});
+                }
+
+                if (!isBreederFb) {
+                    this.$state.go('looker.account', {uname: this.userName});
+
+                }
+                this.$scope.modal.hide();
+                ///////////////////////
+
             })
         }
 
@@ -208,9 +233,12 @@ class HomeCtrl {
 
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
         this.auth.$getCurrentUser().then((user)=> {
+            this.isLoggedIn = true;
             if (user === null) {
                 return;
             }
+            if (_.isUndefined(user.email))user.email = user.id;
+
             this.Breedership(this.FireProcess(user.email)).then(() => {
                 this.userName = user.email;
                 this.isLoggedIn = true;
@@ -333,8 +361,11 @@ class HomeCtrl {
 
 
     Logout() {
-        this.isLoggedIn = false;
         this.auth.$logout();
+        this.isLoggedIn = false;
+//        this.auth = null;
+
+
         this.$state.go('home');
     }
 
@@ -351,10 +382,11 @@ class HomeCtrl {
 
     Ownership() {
         var breederUserName:string = this.$stateParams.uname;
+        console.log(breederUserName);
         if (this.auth.user === null)
             return false;
-        this.isOwner = (breederUserName === this.auth.user.email);
-
+        this.isOwner = (breederUserName === this.auth.user.email) || (breederUserName === this.auth.user.id);
+        console.log(this.isOwner);
         return this.isOwner;
     }
 

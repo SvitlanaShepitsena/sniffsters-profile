@@ -21,6 +21,10 @@ var subscriptionPlans = ($popover, $filter, $firebase, settings)  => {
         controller: ($scope, toastr) => {
 
             $scope.home.auth.$getCurrentUser().then((user) => {
+                if (_.isNull(user)) {
+                    return;
+                }
+                if (_.isUndefined(user.email))user.email = user.id;
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
                     $scope.features = $scope.home.MainRefFire.$child('subscriptions').$child('features');
                     $scope.plans = $scope.home.MainRefFire.$child('subscriptions').$child('plans');
