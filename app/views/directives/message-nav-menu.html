@@ -42,6 +42,7 @@
 				</button>
 
 				<a class="btn btn-link pull-right"
+				   ng-if="home.isBreeder===true"
 				   ui-sref="sniff.forBreeders"
 				   ng-show="!home.subscription || index.messagesNumber>=home.subscription.Messages">
 				Start a plan
