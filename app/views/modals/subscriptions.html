@@ -1,0 +1,30 @@
+<div class="popover popover-delete">
+	<div class="arrow"></div>
+	<h3 class="popover-title text-center" ng-bind="title" ng-show="title"></h3>
+
+	<div class="popover-content">
+
+		<div class="btn-group" data-toggle="buttons-radio">
+			<div class="form-group">
+				<input type="radio" ng-model="plan.val" ng-value="0" ng-change="changeS(0)"
+				       ng-checked="!((b.subscriptions| orderByPriority)[0].name)"/> No Plans <br/>
+				<input type="radio" ng-model="plan.val" ng-value="'Free'" ng-change="changeS('Free')"
+				       ng-checked="((b.subscriptions| orderByPriority)[0].name)=='Free'"/> Free <br/>
+				<input type="radio" ng-model="plan.val" ng-value="'Monthly'" ng-change="changeS('Monthly')"
+				       ng-checked="((b.subscriptions| orderByPriority)[0].name)=='Monthly'"/> Monthly <br/>
+				<input type="radio" ng-model="plan.val" ng-value="'Annually'" ng-change="changeS('Annually')"
+				       ng-checked="((b.subscriptions| orderByPriority)[0].name)=='Annually'"/> Annually <br/>
+			</div>
+		</div>
+
+	</div>
+	<div class="row">
+
+		<div class="col-xs-4 col-xs-offset-1">
+			<button class="btn btn-danger " ng-click="changePlan(key,plan.val);$hide()">Save</button>
+		</div>
+		<div class="col-xs-4">
+			<button class="btn btn-default" ng-click="$hide()">Cancel</button>
+		</div>
+	</div>
+</div>

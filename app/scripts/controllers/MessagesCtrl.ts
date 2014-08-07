@@ -170,7 +170,6 @@ class MessagesCtrl {
 
             this.messagesRef.$getIndex().forEach((key)=> {
                 var message = this.messagesRef[key];
-                console.log(message);
 
                 if (message.nickName == this.selectedUser.nickName) {
                     message.isUnread = false;

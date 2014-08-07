@@ -70,7 +70,7 @@
 			<!--AuthUser:{{home.auth.user || "null"}}-->
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-show="home.auth.user">
-				<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})"
+					<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})"
 					   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!</a>
 
 					<a class="hello-user" ui-sref="looker.account({uname:home.userName})"
@@ -86,7 +86,7 @@
 
 				</li>
 				<li ng-hide="home.auth.user">
-				<a class="sniff-menu" ui-sref="sniff.register">REGISTER</a>
+					<a class="sniff-menu" ui-sref="sniff.register">REGISTER</a>
 				</li>
 			</ul>
 
@@ -287,4 +287,6 @@
 <script src="scripts/utils/LookerGenerator.js"></script>
 <script src="scripts/utils/IUserGenerator.js"></script>
 <script src="scripts/models/ILookerProfile.js"></script>
-<script src="bower_components/jcrop/jquery.Jcrop.min.js"></script
+<script src="bower_components/jcrop/jquery.Jcrop.min.js"></script>
+</body>
+</html>

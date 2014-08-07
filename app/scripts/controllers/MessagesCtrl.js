@@ -154,7 +154,6 @@ var MessagesCtrl = (function () {
         if (!_.isUndefined(this.fireMessages) && !_.isUndefined(this.selectedUser)) {
             this.messagesRef.$getIndex().forEach(function (key) {
                 var message = _this.messagesRef[key];
-                console.log(message);
 
                 if (message.nickName == _this.selectedUser.nickName) {
                     message.isUnread = false;
