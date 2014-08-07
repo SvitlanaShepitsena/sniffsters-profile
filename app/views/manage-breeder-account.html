@@ -2,48 +2,48 @@
 
 	<h3 class="sniff-head-info">My Account</h3>
 	<hr/>
-	<h3><i class="fa fa-credit-card"></i> Billing & Payments</h3>
-	<br/>
-	<button class="btn btn-primary btn-sm"><i class="fa fa-clock-o"></i> Set Automatic Payments</button>
-	<button class="btn btn-primary btn-sm"><i class="fa fa-dollar"></i> Make a Payment</button>
-	<hr/>
-	<h5 class="label label-info">You ar using autorenewal with PayPal</h5>
-	<h4>My Invoices</h4>
-	<h6>2 Records Found</h6>
-	<table class="table table-bordered table-invoices">
+	<!--<h3><i class="fa fa-credit-card"></i> Billing & Payments</h3>-->
+	<!--<br/>-->
+	<!--<button class="btn btn-primary btn-sm"><i class="fa fa-clock-o"></i> Set Automatic Payments</button>-->
+	<!--<button class="btn btn-primary btn-sm"><i class="fa fa-dollar"></i> Make a Payment</button>-->
+	<!--<hr/>-->
+	<!--<h5 class="label label-info">You ar using autorenewal with PayPal</h5>-->
+	<!--<h4>My Invoices</h4>-->
+	<!--<h6>2 Records Found</h6>-->
+	<h4>Subscriptions</h4>
+
+	<div ng-show="!hasSubscription">You do not have any Subscription plan</div>
+	<table ng-show="hasSubscription" class="table table-bordered table-invoices">
 		<tr>
-			<th>Invoice #</th>
-			<th>Date</th>
-			<th>Due Date</th>
-			<th>Total</th>
-			<th>Status</th>
-			<th>Document</th>
+			<th>Plan</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Restrictions</th>
+			<th>Change</th>
 		</tr>
 		<tr>
-			<td>0000002</td>
-			<td>10/01/2014</td>
-			<td>10/07/2014</td>
-			<td>$19.99</td>
+			<td>{{home.subscription.name}}</td>
+			<td>{{home.subscription.startDate | date:'mediumDate'}}</td>
+			<td>{{home.subscription.expirationDate | date:'mediumDate'}}</td>
+			<td>
+				<ul class="list-unstyled">
+					<li><strong>Messages:</strong>{{home.subscription.Messages}}</li>
+					<li><strong>Galleries:</strong>{{home.subscription.Galleries}}</li>
+					<li><strong>Litters:</strong>{{home.subscription.Litters}}</li>
+				</ul>
+			</td>
 			<td class="text-center">
-				<button class="btn btn-danger btn-sm btn-invoice">
-					Pay
+				<button class="btn btn-danger"
+				        data-toggle="tooltip" data-placement="left" title="Deactivate subscription plan"
+				        data-content="{{popover.content}}"
+				        data-template="../views/modals/cancel-subscription.html"
+				        data-animation="am-flip-x"
+				        bs-popover="popoverCancelSubscription">
+					Cancel Subscription
 				</button>
 			</td>
-			<td>
-				<button class="btn btn-link btn-invoice">View Invoice</button>
-			</td>
 		</tr>
-		<tr>
-			<td>0000001</td>
-			<td>10/01/2014</td>
-			<td>10/07/2014</td>
-			<td>$19.99</td>
-			<td class="text-center"><p class="label label-success label-invoice">
-				Paid </p></td>
-			<td>
-				<button class="btn btn-link btn-invoice">View Invoice</button>
-			</td>
-		</tr>
+
 	</table>
 	<br/>
 
@@ -51,21 +51,20 @@
 	<hr/>
 	<ul class="list-unstyled">
 		<li>
-			<button class="btn-link">Change Subscription</button>
+			<a ui-sref="user.profile.upgrade" class="btn btn-info">Upgrade Subscription</a>
 		</li>
 		<li>
-			<button class="btn-link"
-			        data-toggle="tooltip" data-placement="left" title="Deactivate subscription plan"
+			&nbsp;
+		</li>
+		<li>
+			<button class="btn btn-danger"
+			        data-toggle="tooltip" data-placement="left" title="Remove Sniffsters Account?"
 			        data-content="{{popover.content}}"
-			        data-template="../views/modals/cancel-subscription.html"
+			        data-template="../views/modals/delete-confirmation.html"
 			        data-animation="am-flip-x"
-			        ng-show="(subscription|orderByPriority).length"
-			        bs-popover="popoverCancelSubscription">
-				Deactivate Subscription
+			        bs-popover>
+				Delete Account
 			</button>
-		</li>
-		<li>
-			<button class="btn-link">Delete Account</button>
 		</li>
 	</ul>
 </div>

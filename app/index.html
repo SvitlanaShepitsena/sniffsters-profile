@@ -69,7 +69,7 @@
 			<!--isloggedIn:{{home.isLoggedIn || false}}<br/>-->
 			<!--AuthUser:{{home.auth.user || "null"}}-->
 			<ul class="nav navbar-nav navbar-right">
-				<li ng-show="home.auth.user!=null">
+				<li ng-show="home.auth.user">
 				<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})"
 					   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!</a>
 
@@ -78,15 +78,15 @@
 				</li>
 
 				<li>
-					<a ng-show="home.isLoggedIn" class="sniff-menu btn-logout"
+					<a ng-show="home.auth.user" class="sniff-menu btn-logout"
 					   ng-click="home.Logout()">LOG OUT
 					</a>
-					<a ng-hide="home.isLoggedIn" class="sniff-menu"
+					<a ng-hide="home.auth.user" class="sniff-menu"
 					   ui-sref="sniff.login">LOG IN</a>
 
 				</li>
-				<li ng-hide="home.isLoggedIn">
-					<a class="sniff-menu" ui-sref="sniff.register">REGISTER</a>
+				<li ng-hide="home.auth.user">
+				<a class="sniff-menu" ui-sref="sniff.register">REGISTER</a>
 				</li>
 			</ul>
 
@@ -287,5 +287,4 @@
 <script src="scripts/utils/LookerGenerator.js"></script>
 <script src="scripts/utils/IUserGenerator.js"></script>
 <script src="scripts/models/ILookerProfile.js"></script>
-<script src="bower_components/jcrop/jquery.Jcrop.min.js"></script>
-<!-- endbuil--
+<script src="bower_components/jcrop/jquery.Jcrop.min.js"></script

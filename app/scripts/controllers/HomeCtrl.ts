@@ -93,7 +93,6 @@ class HomeCtrl {
             function (event, toState, toParams, fromState, fromParams) {
                 this.url2 = toState.name;
             })
-//        console.log($state.current);
 
         $scope.home = this;
         this.menuIndex = 1;
@@ -363,6 +362,7 @@ class HomeCtrl {
     Logout() {
         this.auth.$logout();
         this.isLoggedIn = false;
+        this.auth.user = null;
 //        this.auth = null;
 
 
@@ -382,11 +382,9 @@ class HomeCtrl {
 
     Ownership() {
         var breederUserName:string = this.$stateParams.uname;
-        console.log(breederUserName);
         if (this.auth.user === null)
             return false;
         this.isOwner = (breederUserName === this.auth.user.email) || (breederUserName === this.auth.user.id);
-        console.log(this.isOwner);
         return this.isOwner;
     }
 

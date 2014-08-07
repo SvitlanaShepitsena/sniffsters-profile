@@ -25,13 +25,11 @@ var IndexCtrl = (function () {
 
         this.spinner = true;
 
-        console.log('INDEXXX');
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
             if (_.isUndefined(user.email))
                 user.email = user.id;
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
                 var requestEmail = $stateParams.uname;
-                console.log(requestEmail);
 
                 if (requestEmail == "public") {
                     requestEmail = $scope.home.userName;

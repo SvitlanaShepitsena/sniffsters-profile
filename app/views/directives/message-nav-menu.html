@@ -37,22 +37,22 @@
 				        ng-if="home.isBreeder===true"
 				        ng-disabled="!home.subscription || index.messagesNumber>=home.subscription.Messages"
 				        ui-sref="user.profile.messages.create">
-				<i class="fa fa-pencil fa-fw fa-md "></i>
+					<i class="fa fa-pencil fa-fw fa-md "></i>
 					New Message
 				</button>
 
 				<a class="btn btn-link pull-right"
-				   ng-if="home.isBreeder===true"
-				   ui-sref="sniff.forBreeders"
+				   ui-sref="user.profile.upgrade"
+
 				   ng-show="!home.subscription || index.messagesNumber>=home.subscription.Messages">
-				Start a plan
+					Start a plan
 				</a>
 
 				<button class="btn btn-primary pull-right"
 				        ng-disabled="!home.subscription || index.messagesNumber>=home.subscription.Messages"
 				        ng-if="home.isBreeder===false"
 				        ui-sref="looker.messages.create">
-				<i class="fa fa-pencil fa-fw fa-md "></i>
+					<i class="fa fa-pencil fa-fw fa-md "></i>
 					New Message
 				</button>
 			</div>

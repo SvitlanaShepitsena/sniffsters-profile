@@ -37,13 +37,11 @@ class IndexCtrl {
 
         this.spinner = true;
 
-        console.log('INDEXXX');
         this.$scope.home.auth.$getCurrentUser().then((user) => {
             if (_.isUndefined(user.email))user.email = user.id;
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
 
                 var requestEmail = $stateParams.uname;
-                console.log(requestEmail);
 
                 if (requestEmail == "public") {
                     requestEmail = $scope.home.userName;
@@ -59,16 +57,16 @@ class IndexCtrl {
 
 
                         var messagesRef = $firebase(new Firebase(messagesUrl));
-                            this.messagesNumber = messagesRef.$getIndex().length;
+                        this.messagesNumber = messagesRef.$getIndex().length;
 
-                            messagesRef.$on('value', (snapshot:any)=> {
-                                var messages = snapshot.snapshot.value;
-                                var messagesArr = $filter('orderByPriority')(messages);
-                                var unReadMessages = _.where(messagesArr, {isUnread: true});
-                                this.unReadMessagesNumber = unReadMessages.length;
+                        messagesRef.$on('value', (snapshot:any)=> {
+                            var messages = snapshot.snapshot.value;
+                            var messagesArr = $filter('orderByPriority')(messages);
+                            var unReadMessages = _.where(messagesArr, {isUnread: true});
+                            this.unReadMessagesNumber = unReadMessages.length;
 
 
-                            });
+                        });
 
                     }
 
