@@ -13,9 +13,9 @@ class RegisterCtrl {
 
         this.isBreeder = false;
 
-        $scope.email = "user_" + Math.random().toString(36).substring(13) + "@gmail.com";
-        $scope.pass = "123456";
-        $scope.confpass = "123456";
+//        $scope.email = "user_" + Math.random().toString(36).substring(13) + "@gmail.com";
+//        $scope.pass = "123456";
+//        $scope.confpass = "123456";
         $scope.username = {};
         $scope.userExists = false;
 

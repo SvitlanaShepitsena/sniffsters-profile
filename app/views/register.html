@@ -5,8 +5,8 @@
 			<hr/>
 			<form role="form" name="form" id="form" novalidate>
 				<div class="form-group has-feedback"
-				     ng-class="{'has-error':form.email.$invalid}">
-					<label for="email">Email address</label>
+				     ng-class="{'has-error':form.email.$dirty && form.email.$invalid}">
+				<label for="email">Email address</label>
 					<input type="email"
 					       class="form-control"
 					       id="email"
@@ -16,41 +16,48 @@
 					       required>
 				</div>
 				<div class="form-group has-feedback"
-				     ng-class="{'has-error':form.password.$invalid}">
-					<label for="pass">Password</label>
+				     ng-class="{'has-error':(form.pass1.$dirty && form.pass1.$invalid)}">
+					<label for="pass1">Password</label>
 					<input type="password"
 					       class="form-control"
-					       id="pass"
+					       id="pass1"
+					       name="pass1"
+					       ng-minlength="6"
 					       placeholder="Password"
-					       ng-model="pass"
-					       required>
+					       ng-model="pass1"
+					       ng-required>
 				</div>
 				<div class="form-group has-feedback"
-				     ng-class="{'has-error':form.confirm-pass.$invalid}">
-					<label for="pass">Confirm Password</label>
+				     ng-class="{'has-error':(form.confpass.$dirty && form.confpass.$invalid)}">
+					<label for="confpass">Confirm Password</label>
 					<input type="password"
 					       class="form-control"
-					       id="confirm-pass"
+					       sv-pw-check="pass1"
+					       ng-minlength="6"
+					       id="confpass"
+					       name="confpass"
 					       placeholder="Password"
 					       ng-model="confpass"
 					       required>
 				</div>
 
 				<div class="form-group">
-					<input type="radio" ng-model="isBreeder" ng-value=true> Breeder <br/>
-					<input type="radio" ng-model="isBreeder" ng-value=false> Looker <br/>
+					<input id="breeder" ng-required="" type="radio" ng-model="isBreeder" ng-value=true> Breeder <br/>
+					<input id="looker" ng-required="" type="radio" ng-model="isBreeder" ng-checked="1" ng-value=false>
+					Looker <br/>
 				</div>
 
-				<button class="btn btn-default"
-				        ng-click="register(email,pass,confpass,isBreeder)">
-					<!--data-animation="am-fade-and-scale"-->
+				<input type="submit" class="btn btn-info"
+
+				       value="Register"
+				       ng-disabled="form.$invalid"
+				       ng-click="register(email,pass,confpass,isBreeder)"/>
+				<!--data-animation="am-fade-and-scale"-->
 					<!--data-placement="center"-->
 					<!--data-show=false,-->
 					<!--data-template="../views/modals/choose-username.html"-->
 					<!--bs-modal="modal"-->
 					<!--ng-click="register(email,pass,confpass,isBreeder)">-->
-					Register
-				</button>
 			</form>
 			<hr/>
 			<h4 class="h-sign-up">Log In if You Already have a Sniffsters Account</h4>
