@@ -113,7 +113,7 @@
 				<input class="form-control input-search"
 				       ng-model="searchLocation.val"
 				       placeholder="Location"
-				       ng-options="location for location in locations"
+				       ng-options="state.abbreviation as state.name for state in states"
 				       bs-typeahead type="text">
 				<button ng-click="fetchDog(searchBreed.val,searchLocation.val)"
 				        class="btn btn-primary btn-fetch">
