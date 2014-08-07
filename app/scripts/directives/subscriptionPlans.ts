@@ -15,7 +15,6 @@ var subscriptionPlans = ($popover, $filter, $firebase, settings)  => {
         templateUrl: 'views/directives/subscription-plans.html',
         scope: {
             home: '=',
-            index: '=',
             isAdmin: '='
         },
         replace: true,

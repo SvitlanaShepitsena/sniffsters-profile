@@ -1,4 +1,5 @@
 <div>
+
 	<h3 class="h-subsctriptions">Subscription Plans</h3>
 	<hr/>
 	<div class="" ng-show="isAdmin">
@@ -101,12 +102,11 @@
 			<th></th>
 			<td class="text-center active">
 				<button class="text-center btn btn-default btn-sm btn-tryit"
-				        ng-show="!index.subscription"
+				        ng-show="!home.subscription"
 				        ng-click="startPlan('free')">Try It
 				</button>
 				<h4 class="label label-success"
-				    ng-show="index.subscription"
-						>Active
+				    ng-show="home.subscription">Active
 				</h4>
 			</td>
 			<td class="text-center active">

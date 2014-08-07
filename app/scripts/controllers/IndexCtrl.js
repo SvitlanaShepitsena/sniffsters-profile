@@ -37,23 +37,18 @@ var IndexCtrl = (function () {
                     //Success
                     var ownership = $scope.home.Ownership();
                     if (ownership) {
-                        var subscriptionUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/subscriptions';
                         var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
-                        var subscriptionRef = $firebase(new Firebase(subscriptionUrl));
 
-                        subscriptionRef.$on('value', function (snapshot) {
-                            var subscription = snapshot.snapshot.value;
-                            _this.subscription = $filter('orderByPriority')(subscription)[0];
+                        _this.subscription = $scope.home.subscription;
 
-                            var messagesRef = $firebase(new Firebase(messagesUrl));
-                            _this.messagesNumber = messagesRef.$getIndex().length;
+                        var messagesRef = $firebase(new Firebase(messagesUrl));
+                        _this.messagesNumber = messagesRef.$getIndex().length;
 
-                            messagesRef.$on('value', function (snapshot) {
-                                var messages = snapshot.snapshot.value;
-                                var messagesArr = $filter('orderByPriority')(messages);
-                                var unReadMessages = _.where(messagesArr, { isUnread: true });
-                                _this.unReadMessagesNumber = unReadMessages.length;
-                            });
+                        messagesRef.$on('value', function (snapshot) {
+                            var messages = snapshot.snapshot.value;
+                            var messagesArr = $filter('orderByPriority')(messages);
+                            var unReadMessages = _.where(messagesArr, { isUnread: true });
+                            _this.unReadMessagesNumber = unReadMessages.length;
                         });
                     }
 

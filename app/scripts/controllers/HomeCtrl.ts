@@ -16,6 +16,8 @@ class HomeCtrl {
     userName:any;
     userNameFire:string;
 
+    subscription:any;
+
     MainUrl:string;
     MainRef:Firebase;
     MainRefFire:any;
@@ -202,6 +204,15 @@ class HomeCtrl {
                 this.nickNameFire = this.FireProcess(this.nickName);
                 this.isBreeder = true;
                 this.isAdmin = breeder.profile.isAdmin;
+
+                var subscriptionUrl = this.MainUrl + 'breeders/' + this.FireProcess(breeder.profile.Email) + '/subscriptions';
+                var subscriptionRef = this.$firebase(new Firebase(subscriptionUrl));
+                subscriptionRef.$on('value', (snapshot:any)=> {
+                    var subscription = snapshot.snapshot.value;
+                    this.subscription = this.$filter('orderByPriority')(subscription)[0];
+                });
+
+
                 d.resolve();
             }
         });

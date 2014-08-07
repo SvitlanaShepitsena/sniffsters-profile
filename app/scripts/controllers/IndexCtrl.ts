@@ -13,6 +13,8 @@ class IndexCtrl {
     BreederProfile:IBreederProfile;
     BreederProfileEdit:IBreederProfile;
 
+    subscription:any;
+
     BreederProfileCopy:IBreederProfile;
     error:boolean;
     Id:string;
@@ -22,11 +24,11 @@ class IndexCtrl {
     BreederName:string;
     url:string;
     isOwner:boolean;
-    subscription:any;
     messagesNumber:number;
     unReadMessagesNumber:number;
 
     constructor(public $scope, public $firebase, public $filter, public settings, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+
         $scope.index = this;
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
@@ -48,15 +50,12 @@ class IndexCtrl {
                     //Success
                     var ownership = $scope.home.Ownership();
                     if (ownership) {
-                        var subscriptionUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/subscriptions';
                         var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
-                        var subscriptionRef = $firebase(new Firebase(subscriptionUrl));
 
-                        subscriptionRef.$on('value', (snapshot:any)=> {
-                            var subscription = snapshot.snapshot.value;
-                            this.subscription = $filter('orderByPriority')(subscription)[0];
+                        this.subscription = $scope.home.subscription;
 
-                            var messagesRef = $firebase(new Firebase(messagesUrl));
+
+                        var messagesRef = $firebase(new Firebase(messagesUrl));
                             this.messagesNumber = messagesRef.$getIndex().length;
 
                             messagesRef.$on('value', (snapshot:any)=> {
@@ -67,7 +66,6 @@ class IndexCtrl {
 
 
                             });
-                        });
 
                     }
 
