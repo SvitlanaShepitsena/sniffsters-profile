@@ -35,7 +35,6 @@ class HomeCtrl {
     isBreeder:boolean;
     isAdmin:boolean;
     isOwner:boolean;
-    hideMenu:boolean;
 
     isLoggedIn:boolean = false;
 
@@ -78,7 +77,6 @@ class HomeCtrl {
 
 
     constructor(public $rootScope, public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
-
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
                 this.url2 = toState.name;
@@ -206,7 +204,6 @@ class HomeCtrl {
             { name: 'WISCONSIN', abbreviation: 'WI'},
             { name: 'WYOMING', abbreviation: 'WY' }
         ];
-
 
 
         this.auth = this.$firebaseSimpleLogin(this.MainRef);
@@ -363,7 +360,6 @@ class HomeCtrl {
 
     navigate(menuIndex:number) {
         this.$scope.slide = this.animationDirection(menuIndex);
-        this.hideMenu = false;
 
 
         if (menuIndex == 1) {

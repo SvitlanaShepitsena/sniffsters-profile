@@ -8,7 +8,7 @@ class ForBreedersCtrl {
 
     constructor(public $scope:IForBreedersScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.forBreeders = this;
-        $scope.home.hideMenu = false;
+        $scope.home.IsSearchHidden = false;
     }
 
     ShowSuccess(note:string) {

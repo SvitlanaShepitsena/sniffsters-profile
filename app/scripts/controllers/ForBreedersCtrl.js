@@ -6,7 +6,7 @@ var ForBreedersCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.forBreeders = this;
-        $scope.home.hideMenu = false;
+        $scope.home.IsSearchHidden = false;
     }
     ForBreedersCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

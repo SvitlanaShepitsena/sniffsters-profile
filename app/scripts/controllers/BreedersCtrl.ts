@@ -4,6 +4,7 @@ class BreedersCtrl {
     breeders:IBreederProfile[];
 
     constructor(public $scope, public $modal, $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+        $scope.home.IsSearchHidden = false;
 
         $scope.modalContactSearch = {
             "title": "New Message",
@@ -17,7 +18,6 @@ class BreedersCtrl {
         ]
         $scope.sortFeature = {};
 
-        $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
 
         $scope.searchLocation = ($stateParams.location == null || $stateParams.location == "") ? null : $stateParams.location;

@@ -6,6 +6,8 @@ var BreedersCtrl = (function () {
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
+        $scope.home.IsSearchHidden = false;
+
         $scope.modalContactSearch = {
             "title": "New Message",
             show: true
@@ -18,7 +20,6 @@ var BreedersCtrl = (function () {
         ];
         $scope.sortFeature = {};
 
-        $scope.home.IsSearchHidden = false;
         $scope.breedersCtrl = this;
 
         $scope.searchLocation = ($stateParams.location == null || $stateParams.location == "") ? null : $stateParams.location;
