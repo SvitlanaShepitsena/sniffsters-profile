@@ -89,6 +89,9 @@ class HomeCtrl {
 
 
     constructor(public $rootScope, public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+        $scope.searchLocation = {};
+        $scope.searchBreed = {};
+
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
                 this.url2 = toState.name;
@@ -144,11 +147,14 @@ class HomeCtrl {
             })
         }
 
-        $scope.fetchDog = (breed, location)=> {
-
+        $scope.fetchDog = ()=> {
+            if (!_.isUndefined($scope.searchLocation.val) && $scope.searchLocation.val.length > 2) {
+                var locationShort:any = _.where($scope.states, {name: $scope.searchLocation.val})[0];
+                $scope.searchLocation.val = locationShort;
+            }
             $state.go('sniff.breeders', {
-                breed: breed,
-                location: location
+                breed: $scope.searchBreed.val,
+                location: $scope.searchLocation.val
             });
         }
 

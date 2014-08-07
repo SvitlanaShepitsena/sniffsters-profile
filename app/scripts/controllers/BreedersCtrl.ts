@@ -31,8 +31,9 @@ class BreedersCtrl {
                 if (!breeder.profile.isAdmin) {
 
                     if (!_.isNull($scope.searchLocation)) {
-
-                        if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || breeder.profile.Location.indexOf($scope.searchLocation) == -1) {
+//                        console.log($scope.searchLocation);
+//                        console.log(breeder.profile.Location);
+                        if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || _.isUndefined(breeder.profile.Location) || breeder.profile.Location.indexOf($scope.searchLocation) == -1) {
                             return;
                         }
                     }

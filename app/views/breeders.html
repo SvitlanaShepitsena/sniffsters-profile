@@ -14,18 +14,22 @@
 			</li>
 		</ul>
 		</p>
-		<button type="button" class="btn btn-default btn-search-panel"
-		        ng-model="sortFeature.val"
-		        ng-options="sort.val as sort.name for sort in sortBy"
-		        placeholder="Sort By"
-		        bs-select>
-			Sort By
-		</button>
+
 		<!-- PUT DIRECTIVES BELOW -->
 	</div>
 </div>
 <br/>
-<div class="well" sv-slider h="1780">
+<h4 class="text-warning" ng-hide="breeders.length">No Results Found</h4>
+<div class="well" sv-slider h="1780" ng-show="breeders.length">
+
+	<button type="button" class="btn btn-default btn-search-panel"
+	        ng-model="sortFeature.val"
+	        ng-options="sort.val as sort.name for sort in sortBy"
+	        placeholder="Sort By"
+	        bs-select>
+		Sort By
+	</button>
+
 	<div class="searchBreederDescription">
 		<ul class="list-unstyled">
 			<li ng-repeat="b in breeders|orderBy:sortFeature.val">
