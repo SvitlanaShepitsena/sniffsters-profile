@@ -2,13 +2,18 @@
 
 <div class="searchBreederDescription" ng-cloak sv-slider h="1200">
 	<ul class="list-unstyled">
-		<li class="shuffle-animation" ng-repeat="f in followings|orderByPriority">
+		<li class="shuffle-animation" ng-repeat="(key,f) in followings">
 			<hr/>
 			<div class="row ">
 				<div class="col-xs-3">
-					<div class="thumbnail no-b-margin" ng-if="f.Email.length>0">
-						<a ui-sref="user.profile.about1({uname:f.Email})">
-							<img ng-src="../imgdir/{{f.Email}}/myimg/mainpic.jpg" alt="">
+					<div class="thumbnail no-b-margin">
+						<a ui-sref="user.profile.about1({uname:f.userName})">
+							<h3 class="text-info breederName text-center">
+								{{f.userName}}
+
+							</h3>
+							<img ng-src="{{f.avatar}}" alt="">
+							<img ng-show="!f.avatar" ng-src="../imgdir/default/myimg/mainpic.jpg" alt="">
 						</a>
 					</div>
 

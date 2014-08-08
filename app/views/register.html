@@ -6,7 +6,7 @@
 			<form role="form" name="form" id="form" novalidate>
 				<div class="form-group has-feedback"
 				     ng-class="{'has-error':form.email.$dirty && form.email.$invalid}">
-				<label for="email">Email address</label>
+					<label for="email">Email address</label>
 					<input type="email"
 					       class="form-control"
 					       id="email"
@@ -16,15 +16,15 @@
 					       required>
 				</div>
 				<div class="form-group has-feedback"
-				     ng-class="{'has-error':(form.pass1.$dirty && form.pass1.$invalid)}">
-					<label for="pass1">Password</label>
+				     ng-class="{'has-error':(form.pass.$dirty && form.pass.$invalid)}">
+					<label for="pass">Password</label>
 					<input type="password"
 					       class="form-control"
-					       id="pass1"
-					       name="pass1"
+					       id="pass"
+					       name="pass"
 					       ng-minlength="6"
 					       placeholder="Password"
-					       ng-model="pass1"
+					       ng-model="pass"
 					       ng-required>
 				</div>
 				<div class="form-group has-feedback"
@@ -32,7 +32,7 @@
 					<label for="confpass">Confirm Password</label>
 					<input type="password"
 					       class="form-control"
-					       sv-pw-check="pass1"
+					       sv-pw-check="pass"
 					       ng-minlength="6"
 					       id="confpass"
 					       name="confpass"
@@ -53,11 +53,11 @@
 				       ng-disabled="form.$invalid"
 				       ng-click="register(email,pass,confpass,isBreeder)"/>
 				<!--data-animation="am-fade-and-scale"-->
-					<!--data-placement="center"-->
-					<!--data-show=false,-->
-					<!--data-template="../views/modals/choose-username.html"-->
-					<!--bs-modal="modal"-->
-					<!--ng-click="register(email,pass,confpass,isBreeder)">-->
+				<!--data-placement="center"-->
+				<!--data-show=false,-->
+				<!--data-template="../views/modals/choose-username.html"-->
+				<!--bs-modal="modal"-->
+				<!--ng-click="register(email,pass,confpass,isBreeder)">-->
 			</form>
 			<hr/>
 			<h4 class="h-sign-up">Log In if You Already have a Sniffsters Account</h4>

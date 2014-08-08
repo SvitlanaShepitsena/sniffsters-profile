@@ -8,8 +8,9 @@ interface IFollowingsScope extends IHomeScope {
 }
 class FollowingsCtrl {
 
-    constructor(public $scope:IFollowingsScope, $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
-        $scope.followings = this;
+    constructor(public $scope, $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+        $scope.followingsCtrl = this;
+        $scope.followings = [];
 
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
@@ -17,7 +18,24 @@ class FollowingsCtrl {
                 var followingsUrl = $scope.home.MainUrl;
                 followingsUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
                 followingsUrl += $scope.home.FireProcess(user.email) + '/followings';
-                $scope.followings = $firebase(new Firebase(followingsUrl));
+                $scope.followingsKeys = _.uniq($firebase(new Firebase(followingsUrl)).$getIndex());
+
+                $scope.followingsKeys.forEach((key)=> {
+                    var breederUrl = $scope.home.MainUrl + 'breeders/' + key;
+                    var breederRef = $firebase(new Firebase(breederUrl));
+                    breederRef.$on('value', (snapshot:any)=> {
+                        var breeder = snapshot.snapshot.value;
+                        console.log(breeder.profile.UserName);
+                        if (!_.isUndefined(breeder.profile.images)) {
+                            console.log(breeder.profile.images.avatar);
+                        }
+                        $scope.followings.push({
+                            userName: breeder.profile.UserName,
+                            avatar: (breeder.profile.images) ? _.values(breeder.profile.images.avatar)[0] : null
+
+                        });
+                    });
+                })
             })
         })
     }

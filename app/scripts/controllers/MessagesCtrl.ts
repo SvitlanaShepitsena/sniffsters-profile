@@ -157,6 +157,9 @@ class MessagesCtrl {
         this.selectedUserIndex = arrIndex;
 
         var userNames = _.map(_.uniq(_.filter(this.fireMessages, (note:INote)=> {
+            if (_.isNull(note)) {
+                return;
+            }
             return note.isTrash === this.isTrash;
         })), (message)=> {
             return {userName: message.userName, nickName: message.nickName};

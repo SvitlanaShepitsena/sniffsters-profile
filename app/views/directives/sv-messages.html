@@ -1,7 +1,7 @@
 <div class="messages-wrapper">
 	<div class="col-xs-4 aside-messages">
-		<div class="scrollBarAside">
-			<div class="scrollBoxAside">
+		<div>
+			<div>
 				<ul class="nav nav-pills nav-stacked messageUserList">
 					<li ng-class="{active:messages.selectedUserIndex==$index}"
 					    class="cursor-p text-center"
@@ -15,7 +15,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-8 col-messages">
+	<div class="col-xs-8 col-messages" bs-affixjjj>
 		<div class="messagesScrollBar">
 			<div class="messagesScrollBox">
 				<h3 class="text-warning"
@@ -30,7 +30,7 @@
 							<li class="userName" ng-show="m.amISender">Me</li>
 							<li class="pull-right">
 								<p class="messageDate text-muted">
-								<i class="fa fa-calendar"></i>
+									<i class="fa fa-calendar"></i>
 									{{m.sent | date: 'mediumDate'}}
 								</p>
 							</li>
@@ -48,7 +48,8 @@
 			<button class="btn btn-danger" ng-click="messages.DeleteForever()">Delete Forever</button>
 			<button class="btn btn-success" ng-click="messages.Recover()">Recover</button>
 		</div>
-		<div ng-hide="isTrash" class="reply-container">
+		<div ng-show="!isTrash  && (messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName).length"
+		     class="reply-container">
 
 			<form role="form" name="form" id="form" novalidate>
 				<div class="form-group form-group-reply" ng-class="{'has-error':form.message.$error.maxlength}">

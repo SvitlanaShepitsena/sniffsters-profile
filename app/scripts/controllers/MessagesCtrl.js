@@ -142,6 +142,9 @@ var MessagesCtrl = (function () {
         this.selectedUserIndex = arrIndex;
 
         var userNames = _.map(_.uniq(_.filter(this.fireMessages, function (note) {
+            if (_.isNull(note)) {
+                return;
+            }
             return note.isTrash === _this.isTrash;
         })), function (message) {
             return { userName: message.userName, nickName: message.nickName };
