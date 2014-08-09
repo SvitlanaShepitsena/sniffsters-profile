@@ -78,7 +78,6 @@ class PaymentSuccessCtrl {
                             breederRef.$remove();
                             breederRef.$add(userSubscriptions).then(() => {
                                 toastr.success(settings.monthlySubscriptionNotice)
-                                $state.go('^');
                             });
 
                         }

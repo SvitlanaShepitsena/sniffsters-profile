@@ -10,9 +10,17 @@
 		        ng-click="puppies.saveNewLitters()">Save
 		</button>
 		<button class="btn btn-link"
+
+		        ng-disabled="!home.subscription || (home.subscription.Litters>0 && index.littersNumber>=home.subscription.Litters)"
 		        ng-click="puppies.addNewLitter()">
 			Add New Litter
 		</button>
+
+		<a class="btn btn-link pull-right"
+		   ui-sref="user.profile.upgrade"
+		   ng-show="!home.subscription || (home.subscription.Litters>0 && index.galleriesNumber>=home.subscription.Litters)">
+			Start a plan
+		</a>
 	</div>
 	<div sv-slider h="1200">
 		<div ng-show="puppies.LittersNew.length>0">

@@ -25,6 +25,8 @@ class IndexCtrl {
     url:string;
     isOwner:boolean;
     messagesNumber:number;
+    galleriesNumber:number;
+    littersNumber:number;
     unReadMessagesNumber:number;
 
     constructor(public $scope, public $firebase, public $filter, public settings, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
@@ -51,13 +53,24 @@ class IndexCtrl {
                     //Success
                     var ownership = $scope.home.Ownership();
                     if (ownership) {
-                        var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
 
                         this.subscription = $scope.home.subscription;
 
-
+                        // Messages Count
+                        var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
                         var messagesRef = $firebase(new Firebase(messagesUrl));
                         this.messagesNumber = messagesRef.$getIndex().length;
+
+                        // Galleries Count
+                        var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/galleries';
+                        var galleriesRef = $firebase(new Firebase(galleriesUrl));
+                        this.galleriesNumber = galleriesRef.$getIndex().length;
+
+                        // Messages Count
+                        var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters';
+                        var littersRef = $firebase(new Firebase(littersUrl));
+                        this.littersNumber = littersRef.$getIndex().length;
+
 
                         messagesRef.$on('value', (snapshot:any)=> {
                             var messages = snapshot.snapshot.value;

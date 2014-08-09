@@ -67,7 +67,7 @@ var subscriptionPlans = ($popover, $filter, $firebase, settings, PlankeeperServi
                         var plans = snapshot.snapshot.value;
                         var plansArr = $filter('orderByPriority')(plans);
                         plansArr.forEach((plan)=> {
-                            if (planName == plan.name.toLowerCase()) {
+                            if (planName.toLowerCase() == plan.name.toLowerCase()) {
                                 if (!plan.hasOwnProperty('comment')) {
                                     return;
                                 }
