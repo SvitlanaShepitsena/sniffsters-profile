@@ -323,7 +323,7 @@ class HomeCtrl {
     }
 
     followUser(loggedUser:string, follower:string) {
-        this.DataService.followUser(loggedUser, follower).then(()=> {
+        this.DataService.followUser(loggedUser, follower, this.$scope.home.isBreeder).then(()=> {
 
             this.$scope.home.AddToFollowings(follower);
         })

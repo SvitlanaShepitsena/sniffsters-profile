@@ -265,7 +265,7 @@ var DataService = (function () {
         return d.promise;
     };
 
-    DataService.prototype.followUser = function (userName, followerName) {
+    DataService.prototype.followUser = function (userName, followerName, amIBreeder) {
         userName = this.FireProcess(userName);
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
@@ -282,7 +282,7 @@ var DataService = (function () {
         var followersRef = this.$firebase(new Firebase(followersUrl));
 
         var followerRef = followersRef.$child(userName);
-        followerRef.$add(1);
+        followerRef.$add(amIBreeder);
 
         followersRef.$save();
 

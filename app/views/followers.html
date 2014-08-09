@@ -1,13 +1,19 @@
 <h2 class="sniff-head-info">Followers</h2>
-<div class="searchBreederDescription" ng-cloak sv-slider h="1200">
+<hr/>
+<h3 class="text-warning" ng-hide="followers.length">Nobody follows your profile</h3>
+<div ng-show="followers.length" class="searchBreederDescription" ng-cloak sv-slider h="1200">
 	<ul class="list-unstyled">
-		<li class="shuffle-animation" ng-repeat="f in followers">
-			<hr/>
+		<li class="shuffle-animation" ng-repeat="(key,f) in followers">
 			<div class="row ">
 				<div class="col-xs-3">
 					<div class="thumbnail no-b-margin">
-						<a ui-sref="user.profile.about1({uname:f.Email})">
-							<img ng-src="../imgdir/{{f.Email}}/myimg/mainpic.jpg" alt="">
+						<a ui-sref="user.profile.about1({uname:f.userName})">
+							<h3 class="text-info breederName text-center">
+								{{f.nickName}}
+
+							</h3>
+							<img ng-src="{{f.avatar}}" alt="">
+							<img ng-show="!f.avatar" ng-src="../imgdir/default/myimg/mainpic.jpg" alt="">
 						</a>
 					</div>
 
@@ -31,8 +37,6 @@
 							</li>
 						</ul>
 					</div>
-
-
 				</div>
 
 				<div class="col-xs-6">
@@ -44,20 +48,15 @@
 						</h3>
 
 						<h4 class="hBreederWebsite text-muted">
-							<a class="text-muted" href="#">
-								{{f.Website}}
-							</a>
+							{{f.Website}}
 						</h4>
 
 						<h4 class="hBreederWebsite text-muted">
-							<a class="text-muted" href="#">
-								{{f.City}} {{f.State}}
-							</a>
+							{{f.City}} {{f.State}}
 						</h4>
 						<br/>
 					</div>
 				</div>
-
 
 				<div class="col-xs-3 text-right">
 					<p class="text-right" ng-show="home.FireUname">
@@ -70,7 +69,6 @@
 						        role="button" ng-click="home.unFollowUser(home.FireUname,f)">
 							UnFollow
 						</button>
-
 					</p>
 				</div>
 			</div>

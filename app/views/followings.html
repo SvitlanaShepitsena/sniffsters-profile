@@ -1,15 +1,16 @@
 <h2 class="sniff-head-info">Followings</h2>
 
+<hr/>
+<h3 class="text-warning" ng-hide="followings.length">You do not follow anybody.</h3>
 <div class="searchBreederDescription" ng-cloak sv-slider h="1200">
 	<ul class="list-unstyled">
 		<li class="shuffle-animation" ng-repeat="(key,f) in followings">
-			<hr/>
 			<div class="row ">
 				<div class="col-xs-3">
 					<div class="thumbnail no-b-margin">
 						<a ui-sref="user.profile.about1({uname:f.userName})">
 							<h3 class="text-info breederName text-center">
-								{{f.userName}}
+								{{f.nickName}}
 
 							</h3>
 							<img ng-src="{{f.avatar}}" alt="">

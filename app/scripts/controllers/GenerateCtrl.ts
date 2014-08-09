@@ -60,72 +60,72 @@ class GenerateCtrl {
             })
 
 
-            var followersRef = breederRef.$child('followers');
-            var followingsRef = breederRef.$child('followings');
-
-
-            //=followings
-            followingsRef.$add({
-                KennelName: "Dogs Paradise",
-                Email: "breeder5@gmail.com",
-                City: "Chicago",
-                State: "IL",
-                Website: "www.dogsparadise.com",
-                Phone: '773-123-45-67'
-            });
-            followingsRef.$add({
-                KennelName: "Dogs Paradise",
-                Email: "breeder6@gmail.com",
-                City: "Chicago",
-                State: "IL",
-                Website: "www.dogsparadise.com",
-                Phone: '773-123-45-67'
-            });
-            followingsRef.$add({
-                KennelName: "Dogs Paradise",
-                Email: "breeder7@gmail.com",
-                City: "Chicago",
-                State: "IL",
-                Website: "www.dogsparadise.com",
-                Phone: '773-123-45-67'
-            });
-
-            //=followers
-            followersRef.$add({
-                KennelName: "Dogs Paradise",
-                Email: "breeder2@gmail.com",
-                City: "Chicago",
-                State: "IL",
-                Website: "www.dogsparadise.com",
-                Phone: '773-123-45-67'
-            });
-            followersRef.$add({
-                KennelName: "Dogs Paradise",
-                Email: "breeder3@gmail.com",
-                City: "Chicago",
-                State: "IL",
-                Website: "www.dogsparadise.com",
-                Phone: '773-123-45-67'
-            });
-            followersRef.$add({
-                KennelName: "Dogs Paradise",
-                Email: "breeder4@gmail.com",
-                City: "Chicago",
-                State: "IL",
-                Website: "www.dogsparadise.com",
-                Phone: '773-123-45-67'
-            });
-
-//            followersRef.$add({
-//                FirstName: "John",
-//                LastName: "Doe",
+//            var followersRef = breederRef.$child('followers');
+//            var followingsRef = breederRef.$child('followings');
+//
+//
+//            //=followings
+//            followingsRef.$add({
+//                KennelName: "Dogs Paradise",
+//                Email: "breeder5@gmail.com",
 //                City: "Chicago",
-//                State: "IL"
+//                State: "IL",
+//                Website: "www.dogsparadise.com",
+//                Phone: '773-123-45-67'
 //            });
-
-
-            followingsRef.$save();
-            followersRef.$save();
+//            followingsRef.$add({
+//                KennelName: "Dogs Paradise",
+//                Email: "breeder6@gmail.com",
+//                City: "Chicago",
+//                State: "IL",
+//                Website: "www.dogsparadise.com",
+//                Phone: '773-123-45-67'
+//            });
+//            followingsRef.$add({
+//                KennelName: "Dogs Paradise",
+//                Email: "breeder7@gmail.com",
+//                City: "Chicago",
+//                State: "IL",
+//                Website: "www.dogsparadise.com",
+//                Phone: '773-123-45-67'
+//            });
+//
+//            //=followers
+//            followersRef.$add({
+//                KennelName: "Dogs Paradise",
+//                Email: "breeder2@gmail.com",
+//                City: "Chicago",
+//                State: "IL",
+//                Website: "www.dogsparadise.com",
+//                Phone: '773-123-45-67'
+//            });
+//            followersRef.$add({
+//                KennelName: "Dogs Paradise",
+//                Email: "breeder3@gmail.com",
+//                City: "Chicago",
+//                State: "IL",
+//                Website: "www.dogsparadise.com",
+//                Phone: '773-123-45-67'
+//            });
+//            followersRef.$add({
+//                KennelName: "Dogs Paradise",
+//                Email: "breeder4@gmail.com",
+//                City: "Chicago",
+//                State: "IL",
+//                Website: "www.dogsparadise.com",
+//                Phone: '773-123-45-67'
+//            });
+//
+////            followersRef.$add({
+////                FirstName: "John",
+////                LastName: "Doe",
+////                City: "Chicago",
+////                State: "IL"
+////            });
+//
+//
+//            followingsRef.$save();
+//            followersRef.$save();
             breederRef.$save();
         })
 

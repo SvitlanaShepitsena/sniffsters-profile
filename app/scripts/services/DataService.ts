@@ -270,7 +270,7 @@ class DataService {
         return d.promise;
     }
 
-    followUser(userName:string, followerName:string) {
+    followUser(userName:string, followerName:string, amIBreeder:boolean) {
         userName = this.FireProcess(userName);
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
@@ -287,7 +287,7 @@ class DataService {
         var followersRef = this.$firebase(new Firebase(followersUrl));
 
         var followerRef = followersRef.$child(userName);
-        followerRef.$add(1);
+        followerRef.$add(amIBreeder);
 
         followersRef.$save();
 

@@ -44,7 +44,6 @@ class BreedersCtrl {
                         }
                     }
 
-
                     breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
                     $scope.breeders.push(breeder)
                 }

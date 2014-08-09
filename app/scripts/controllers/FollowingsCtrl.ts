@@ -30,8 +30,9 @@ class FollowingsCtrl {
                             console.log(breeder.profile.images.avatar);
                         }
                         $scope.followings.push({
-                            userName: breeder.profile.UserName,
-                            avatar: (breeder.profile.images) ? _.values(breeder.profile.images.avatar)[0] : null
+                            userName: breeder.profile.Email,
+                            nickName: breeder.profile.UserName,
+                            avatar: (breeder.profile.images) ? _.values(breeder.profile.images.avatar) : null
 
                         });
                     });
