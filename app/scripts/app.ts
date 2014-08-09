@@ -223,7 +223,9 @@ profile.service("DataService", DataService);
 profile.value("toastr", toastr)
 profile.value("settings", {
     deleteConfirm: 'Delete forever?',
-    activeSubscriptionNotice: 'Your free subscription plan is activated.',
+    freeSubscriptionNotice: 'Your free subscription plan is activated.',
+    monthlySubscriptionNotice: 'Your monthly subscription plan is activated.',
+    annualSubscriptionNotice: 'Your annual subscription plan is activated.',
     delSubscriptionNotice: 'Your subscription plan was successfully deactivated.',
     mainUrl: "https://torid-fire-6526.firebaseio.com/",
     messageSuccessNotice: 'Message has been sent',

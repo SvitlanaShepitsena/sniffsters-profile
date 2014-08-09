@@ -77,7 +77,8 @@ class PaymentSuccessCtrl {
                             var breederRef = $firebase(new Firebase(breederUrl));
                             breederRef.$remove();
                             breederRef.$add(userSubscriptions).then(() => {
-                                toastr.success(settings.activeSubscriptionNotice)
+                                toastr.success(settings.monthlySubscriptionNotice)
+                                $state.go('^');
                             });
 
                         }
@@ -89,6 +90,8 @@ class PaymentSuccessCtrl {
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
 
                 $scope.startNewPlan(user.email, 'Monthly');
+
+                $state.go('user.profile.about1', {uname: user.email});
             })
         })
     }
