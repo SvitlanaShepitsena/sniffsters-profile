@@ -104,19 +104,43 @@
 			<td class="text-center active">
 				<button class="text-center btn btn-default btn-sm btn-tryit"
 				        ng-show="!home.subscription"
-				        ng-click="startPlan('free')">Try It
+				        ng-click="startPlan('Free')">Try It
 				</button>
 				<h4 class="label label-success"
-				    ng-show="home.subscription">Active
+				    ng-show="home.subscription.name=='Free'">Active
 				</h4>
 			</td>
 			<td class="text-center active">
-				<button class="text-center btn btn-default btn-sm btn-tryit">
-					Start Now
+				<button class="btn btn-primary"
+
+				        ng-show="!home.subscription || home.subscription.name=='Free'"
+				        data-animation="am-fade-and-scale"
+				        data-title="Subscribe to Monthly Sniffsters Plan"
+				        data-placement="center"
+				        ng-click="setPlanToPay('monthly')"
+				        data-template="../views/modals/monthly-plan.html"
+				        bs-modal="modalMonthly">
+				Start Now
 				</button>
+
+				<h4 class="label label-success"
+				    ng-show="home.subscription.name=='Monthly'">Active
+				</h4>
 			</td>
 			<td class="text-center info">
-				<button class="btn btn-primary btn-sm btn-tryit">Start Now</button>
+				<button class="btn btn-primary"
+				        ng-show="!home.subscription || home.subscription.name!='Annually'"
+				        data-animation="am-fade-and-scale"
+				        data-title="Subscribe to Annual Sniffsters Plan"
+				        data-placement="center"
+				        data-template="../views/modals/annually-plan.html"
+				        bs-modal="modalAnnually">
+					Start Now
+				</button>
+
+				<h4 class="label label-success"
+				    ng-show="home.subscription.name=='Annually'">Active
+				</h4>
 			</td>
 		</tr>
 		<tbody>

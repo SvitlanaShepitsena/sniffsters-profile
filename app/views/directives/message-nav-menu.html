@@ -35,7 +35,7 @@
 
 		<div ng-if="home.isBreeder===true">
 			<button class="btn btn-primary pull-right"
-			        ng-disabled="!home.subscription || index.messagesNumber>=home.subscription.Messages"
+			        ng-disabled="!home.subscription || (home.subscription.Messages>0 && index.messagesNumber>=home.subscription.Messages)"
 			        ui-sref="user.profile.messages.create">
 				<i class="fa fa-pencil fa-fw fa-md "></i>
 				New Message
@@ -44,7 +44,7 @@
 			<a class="btn btn-link pull-right"
 			   ui-sref="user.profile.upgrade"
 
-			   ng-show="!home.subscription || index.messagesNumber>=home.subscription.Messages">
+			   ng-show="!home.subscription || (home.subscription.Messages>0 && index.messagesNumber>=home.subscription.Messages)">
 				Start a plan
 			</a>
 		</div>

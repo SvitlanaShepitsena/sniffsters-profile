@@ -7,7 +7,7 @@ interface ISubscriptionPlans extends ng.IScope {
     test:string;
 }
 
-var subscriptionPlans = ($popover, $filter, $firebase, settings)  => {
+var subscriptionPlans = ($popover, $filter, $firebase, settings, PlankeeperService)  => {
 
 
     return{
@@ -39,6 +39,11 @@ var subscriptionPlans = ($popover, $filter, $firebase, settings)  => {
                     };
                 })
             })
+
+            $scope.setPlanToPay = (planName:string)=> {
+                console.log('heehe');
+                PlankeeperService.setPlan(planName);
+            }
 
             $scope.startPlan = (planName:string) => {
                 var subscriptionsUrl = $scope.home.MainUrl + 'subscriptions';

@@ -76,6 +76,12 @@
 /// <reference path="directives/svContactModal.ts" />
 /// <reference path="directives/svPlanOffer.ts" />
 /// <reference path="directives/svPwCheck.ts" />
+/// <reference path="directives/svStartPlanButton.ts" />
+/// <reference path="controllers/PaymentSuccessCtrl.ts" />
+/// <reference path="controllers/PaymentCancelCtrl.ts" />
+/// <reference path="services/PlankeeperService.ts" />
+/// <reference path="controllers/PaymentSuccessAnnuallyCtrl.ts" />
+/// <reference path="controllers/PaymentCancelAnnuallyCtrl.ts" />
 //#ref
 
 var profile = angular.module("profile", ['mgcrea.ngStrap.affix', 'mgcrea.ngStrap.typeahead', 'mgcrea.ngStrap.helpers.parseOptions', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
@@ -129,6 +135,7 @@ profile.filter('unshared', () => {
 profile.service("CopyProfileService", CopyProfileService);
 profile.service("GalleryService", GalleryService);
 profile.service("FinduserService", FinduserService);
+profile.service("PlankeeperService", PlankeeperService);
 //#serv
 
 profile.directive("aboutInfoEdit", aboutInfoEdit);
@@ -168,6 +175,7 @@ profile.directive("svSearchFeature", svSearchFeature);
 profile.directive("svDeletePopover", svDeletePopover);
 profile.directive("svContactModal", svContactModal);
 profile.directive("svPwCheck", svPwCheck);
+profile.directive("svStartPlanButton", svStartPlanButton);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -200,6 +208,10 @@ profile.controller("FollowingsCtrl", FollowingsCtrl);
 profile.controller("UpgradeCtrl", UpgradeCtrl);
 profile.controller("ManageBreederAccountCtrl", ManageBreederAccountCtrl);
 profile.controller("BreedsCtrl", BreedsCtrl);
+profile.controller("PaymentSuccessCtrl", PaymentSuccessCtrl);
+profile.controller("PaymentCancelCtrl", PaymentCancelCtrl);
+profile.controller("PaymentSuccessAnnuallyCtrl", PaymentSuccessAnnuallyCtrl);
+profile.controller("PaymentCancelAnnuallyCtrl", PaymentCancelAnnuallyCtrl);
 //#ctrl
 
 profile.service("DataService", DataService);
@@ -227,8 +239,8 @@ profile.value("settings", {
 
 profile.config(
     ($stateProvider, $urlRouterProvider) => {
-        $urlRouterProvider.otherwise("/for-breeders");
-
+//        $urlRouterProvider.otherwise("/for-breeders");
+//
         $stateProvider
         /**********************
          =Breeder
@@ -481,6 +493,26 @@ profile.config(
                 templateUrl: "../views/messages-trash.html"
             })
 
+            .state("payment-success", {
+                url: "/payment-success",
+                controller: "PaymentSuccessCtrl",
+                templateUrl: "../views/payment-success.html"
+            })
+            .state("payment-cancel", {
+                url: "/payment-cancel",
+                controller: "PaymentCancelCtrl",
+                templateUrl: "../views/payment-cancel.html"
+            })
+            .state("payment-success-annually", {
+                url: "/payment-success-annually",
+                controller: "PaymentSuccessAnnuallyCtrl",
+                templateUrl: "../views/payment-success-annually.html"
+            })
+            .state("payment-cancel-annually", {
+                url: "/payment-cancel-annually",
+                controller: "PaymentCancelAnnuallyCtrl",
+                templateUrl: "../views/payment-cancel-annually.html"
+            })
 //#state
     });
 

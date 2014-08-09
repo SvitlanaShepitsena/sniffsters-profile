@@ -16,20 +16,18 @@
 	<table ng-show="hasSubscription" class="table table-bordered table-invoices">
 		<tr>
 			<th>Plan</th>
-			<th>Start Date</th>
 			<th>End Date</th>
 			<th>Restrictions</th>
 			<th>Change</th>
 		</tr>
 		<tr>
 			<td>{{home.subscription.name}}</td>
-			<td>{{home.subscription.startDate | date:'mediumDate'}}</td>
 			<td>{{home.subscription.expirationDate | date:'mediumDate'}}</td>
 			<td>
 				<ul class="list-unstyled">
-					<li><strong>Messages:</strong>{{home.subscription.Messages}}</li>
-					<li><strong>Galleries:</strong>{{home.subscription.Galleries}}</li>
-					<li><strong>Litters:</strong>{{home.subscription.Litters}}</li>
+					<li><strong>Messages: </strong>{{home.subscription.Messages || 'unlimited'}}</li>
+					<li><strong>Galleries: </strong>{{home.subscription.Galleries || 'unlimited'}}</li>
+					<li><strong>Litters: </strong>{{home.subscription.Litters || 'unlimited'}}</li>
 				</ul>
 			</td>
 			<td class="text-center">
@@ -50,8 +48,8 @@
 	<h3><i class="fa fa-hand-o-up"></i> Manage Account</h3>
 	<hr/>
 	<ul class="list-unstyled">
-		<li>
-			<a ui-sref="user.profile.upgrade" class="btn btn-info">Upgrade Subscription</a>
+		<li ng-show="!home.subscription || home.subscription.name!='Annually'">
+		<a ui-sref="user.profile.upgrade" class="btn btn-info">Upgrade Subscription</a>
 		</li>
 		<li>
 			&nbsp;
