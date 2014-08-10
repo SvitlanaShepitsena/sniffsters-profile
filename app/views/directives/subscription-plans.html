@@ -1,5 +1,4 @@
 <div>
-
 	<h3 class="h-subsctriptions">Subscription Plans</h3>
 	<br/>
 
@@ -99,8 +98,8 @@
 				{{(plans|orderByPriority)[2].name}}
 			</th>
 		</tr>
-		<tr>
-			<th></th>
+		<tr ng-if="isLoggedIn">
+		<th></th>
 			<td class="text-center active">
 				<button class="text-center btn btn-default btn-sm btn-tryit"
 				        ng-show="!home.subscription"

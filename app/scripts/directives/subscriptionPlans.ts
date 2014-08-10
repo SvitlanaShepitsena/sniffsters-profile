@@ -8,8 +8,6 @@ interface ISubscriptionPlans extends ng.IScope {
 }
 
 var subscriptionPlans = ($popover, $filter, $firebase, settings, PlankeeperService)  => {
-
-
     return{
         restrict: 'E',
         templateUrl: 'views/directives/subscription-plans.html',
@@ -19,15 +17,17 @@ var subscriptionPlans = ($popover, $filter, $firebase, settings, PlankeeperServi
         },
         replace: true,
         controller: ($scope, toastr) => {
+            $scope.features = $scope.home.MainRefFire.$child('subscriptions').$child('features');
+            $scope.plans = $scope.home.MainRefFire.$child('subscriptions').$child('plans');
 
             $scope.home.auth.$getCurrentUser().then((user) => {
                 if (_.isNull(user)) {
+                    $scope.isLoggedIn = false;
                     return;
                 }
+                $scope.isLoggedIn = true;
                 if (_.isUndefined(user.email))user.email = user.id;
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
-                    $scope.features = $scope.home.MainRefFire.$child('subscriptions').$child('features');
-                    $scope.plans = $scope.home.MainRefFire.$child('subscriptions').$child('plans');
 
                     $scope.feature = {};
                     $scope.popover = {
