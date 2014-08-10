@@ -11,7 +11,6 @@
 		</button>
 		<button class="btn btn-link"
 		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries)"
-
 		        ng-click="photosCtrl.addGallery()">
 			Add new gallery
 		</button>
@@ -19,7 +18,7 @@
 		<a class="btn btn-link pull-right"
 		   ui-sref="user.profile.upgrade"
 		   ng-show="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries)">
-		Upgrade subscription
+			Upgrade subscription
 		</a>
 	</div>
 

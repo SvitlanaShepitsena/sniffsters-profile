@@ -9,8 +9,8 @@
 		<button class="btn btn-link pull-right"
 		        data-toggle="tooltip" data-placement="left" title="Save Gallery Changes"
 		        ng-disabled="files.length==0 && form.$pristine"
-		        ng-click="saveGallery(); form.$setPristine();">
-			Save
+		        ng-click="saveGallery(); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
+		Save
 		</button>
 	</div>
 	<div class="well" sv-slider h="1200">
@@ -87,6 +87,7 @@
 	<div class="btn-wrapper">
 		<a ui-sref="^" class="btn btn-default">Cancel</a>
 		<button class="btn btn-primary"
+		        data-toggle="tooltip" data-placement="left" title="Save Gallery Changes"
 		        ng-disabled="files.length==0 && form.$pristine"
 		        ng-click="saveGallery(); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
 			Save
