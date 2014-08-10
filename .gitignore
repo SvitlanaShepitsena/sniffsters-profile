@@ -16,7 +16,9 @@ app/scripts/models/*.js
 app/scripts/services/*.js
 
 app/styles/*.css
-!app/bower_components/angular-ratings-master/*
+!app/bower_components/angular-ratings-master/angular.ratings.less
+!app/bower_components/angular-ratings-master/angular.ratings.js
+!app/bower_components/angular-ratings-master/angular-star.png
 
 
 app/styles/sniff.css
