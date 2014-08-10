@@ -5,7 +5,7 @@
 		        ng-disabled="isOk"
 		        ng-click="testimonials.saveNewTestimonials(); form.setPristine()">Save All
 		</button>
-		<button class="btn btn-link"
+		<button class="btn btn-link" ng-show="home.userName"
 		        ng-click="testimonials.addNewTestimonial()">Add New
 		</button>
 	</div>
@@ -55,8 +55,10 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
-			<h3 class="sniff-head-info">WHAT DO YOUR CLIENTS SAY?</h3>
+			<h3 ng-show="feedbacks.length" class="sniff-head-info">WHAT DO YOUR CLIENTS SAY?</h3>
+
 			<hr/>
+			<h3 class="text-warning" ng-show="!feedbacks.length">This breeder does not have testimonials yet.</h3>
 		</div>
 	</div>
 	<ul class="list-unstyled">

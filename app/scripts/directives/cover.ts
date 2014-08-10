@@ -48,32 +48,32 @@ var cover:() => ng.IDirective = () => {
             }
 
 
-            $scope.home.auth.$getCurrentUser().then((user) => {
-                $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
+            var requestEmail = $stateParams.uname;
 
-                    var profilePicUrl = $scope.home.MainUrl;
-                    profilePicUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
-                    profilePicUrl += $scope.home.FireProcess(user.email) + '/profile/images/avatar';
+            $scope.home.Breedership($scope.home.FireProcess(requestEmail)).then(() => {
 
-                    $scope.avatar = $firebase(new Firebase(profilePicUrl));
+                var profilePicUrl = $scope.home.MainUrl;
+                profilePicUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
+                profilePicUrl += $scope.home.FireProcess(requestEmail) + '/profile/images/avatar';
 
-                    $scope.avatar.$on('value', (snapshot:any)=> {
-                        $scope.isAvatarChanged = !_.isEmpty(snapshot.snapshot.value);
-                        $scope.avatarsrc = _.values(snapshot.snapshot.value)[0];
-                    });
+                $scope.avatar = $firebase(new Firebase(profilePicUrl));
 
-                    var coverPicUrl = $scope.home.MainUrl;
-                    coverPicUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/' + 'profile/';
-                    coverPicUrl += $scope.home.FireProcess(user.email) + '/images/cover';
+                $scope.avatar.$on('value', (snapshot:any)=> {
+                    $scope.isAvatarChanged = !_.isEmpty(snapshot.snapshot.value);
+                    $scope.avatarsrc = _.values(snapshot.snapshot.value)[0];
+                });
 
-                    $scope.cover = $firebase(new Firebase(coverPicUrl));
+                var coverPicUrl = $scope.home.MainUrl;
+                coverPicUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/' + 'profile/';
+                coverPicUrl += $scope.home.FireProcess(requestEmail) + '/images/cover';
 
-                    $scope.cover.$on('value', (snapshot:any)=> {
-                        $scope.isCoverChanged = !_.isEmpty(snapshot.snapshot.value);
-                        $scope.coversrc = _.values(snapshot.snapshot.value)[0];
-                    });
+                $scope.cover = $firebase(new Firebase(coverPicUrl));
 
-                })
+                $scope.cover.$on('value', (snapshot:any)=> {
+                    $scope.isCoverChanged = !_.isEmpty(snapshot.snapshot.value);
+                    $scope.coversrc = _.values(snapshot.snapshot.value)[0];
+                });
+
             })
         }
     }
