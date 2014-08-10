@@ -277,6 +277,9 @@ class HomeCtrl {
                     this.$state.go('looker.account', {uname: user.email});
                 }
             })
+        }, () => {
+            this.ShowError('Your login or password was entered incorrectly.');
+            this.$scope.incorrectCredentials = true;
         });
     }
 

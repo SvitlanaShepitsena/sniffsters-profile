@@ -7,9 +7,13 @@
 
 			<hr/>
 			<form role="form">
+				<div class="alert alert-danger small" ng-show="incorrectCredentials">
+					Incorrect login or password
+				</div>
 				<div class="form-group">
 					<label for="email">Email address</label>
 					<input type="email"
+					       ng-class="{error:incorrectCredentials}"
 					       class="form-control"
 					       id="email"
 					       name="email"
