@@ -1,6 +1,6 @@
 /// <reference path="HomeCtrl.ts" />
 var TestimonialsCtrl = (function () {
-    function TestimonialsCtrl($scope, $stateParams, settings, $firebase, $modal, $state, toastr, DataService, CopyProfileService) {
+    function TestimonialsCtrl($scope, $stateParams, settings, $filter, $firebase, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
         this.settings = settings;
@@ -15,7 +15,7 @@ var TestimonialsCtrl = (function () {
                 var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/feedbacks';
 
                 //binding to firebase
-                $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
+                $scope.feedbacks = ($firebase(new Firebase(feedbackUrl)));
             });
         });
 
@@ -45,7 +45,7 @@ var TestimonialsCtrl = (function () {
     }
     TestimonialsCtrl.prototype.addNewTestimonial = function () {
         var feedback = new Feedback();
-        if (!this.$scope.index.isOwner) {
+        if (!this.$scope.home.isOwner) {
             feedback.ClientName = this.$scope.home.nickName;
         }
 

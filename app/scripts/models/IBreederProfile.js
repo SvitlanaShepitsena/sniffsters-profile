@@ -45,6 +45,7 @@ var Feedback = (function () {
         this.ClientName = "";
         this.FeedbackBody = "";
         this.Evaluation = 0;
+        this.AddedAt = Date.now();
     }
     return Feedback;
 })();
