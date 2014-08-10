@@ -301,7 +301,7 @@ class HomeCtrl {
                     this.Followings = _.map(_.keys(breeder.followings), (key)=> {
                         return this.FireUnProcess(key);
                     });
-                    console.log(this.Followings);
+//                    console.log(this.Followings);
                 }
 
 
@@ -333,7 +333,7 @@ class HomeCtrl {
                     this.Followings = _.map(_.keys(looker.followings), (key)=> {
                         return this.FireUnProcess(key);
                     });
-                    console.log(this.Followings);
+//                    console.log(this.Followings);
                 }
 
 
@@ -351,7 +351,7 @@ class HomeCtrl {
     }
 
     unFollowUser(loggedUser:string, follower:string) {
-        this.DataService.unFollowUser(loggedUser, follower).then(()=> {
+        this.DataService.unFollowUser(loggedUser, follower, this.$scope.home.isBreeder).then(()=> {
             this.$scope.home.RemoveFromFollowings(follower);
         })
     }

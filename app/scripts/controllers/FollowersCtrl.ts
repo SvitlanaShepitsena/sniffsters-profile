@@ -23,19 +23,21 @@ class FollowersCtrl {
 
 
                 $scope.followersKeys.forEach((key)=> {
-                    var breederUrl = $scope.home.MainUrl + 'breeders/' + key;
-                    var userRef = $firebase(new Firebase(breederUrl));
+
+                    var isBreeder = $scope.followersKeys[key];
+
+                    var userType = (isBreeder) ? 'breeders' : 'lookers';
+
+                    var userUrl = $scope.home.MainUrl + userType + '/' + key;
+                    var userRef = $firebase(new Firebase(userUrl));
                     userRef.$on('value', (snapshot:any)=> {
                         var breeder = snapshot.snapshot.value;
-                        if (!_.isUndefined(breeder.profile.images)) {
-                            console.log(breeder.profile.images.avatar);
-                        }
+
                         $scope.followers.push({
 
                             userName: breeder.profile.Email,
                             nickName: breeder.profile.UserName,
                             avatar: (breeder.profile.images) ? _.values(breeder.profile.images.avatar) : null
-
                         });
                     });
                 })
