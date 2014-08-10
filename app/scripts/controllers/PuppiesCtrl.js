@@ -1,10 +1,11 @@
 /// <reference path="HomeCtrl.ts" />
 var PuppiesCtrl = (function () {
-    function PuppiesCtrl($scope, $firebase, $modal, $state, toastr, DataService, CopyProfileService, settings) {
+    function PuppiesCtrl($scope, $firebase, $modal, $stateParams, $state, toastr, DataService, CopyProfileService, settings) {
         var _this = this;
         this.$scope = $scope;
         this.$firebase = $firebase;
         this.$modal = $modal;
+        this.$stateParams = $stateParams;
         this.$state = $state;
         this.toastr = toastr;
         this.DataService = DataService;
@@ -14,7 +15,7 @@ var PuppiesCtrl = (function () {
 
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
-                var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/litters';
+                var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/litters';
                 $scope.litters = $firebase(new Firebase(litterUrl));
             });
         });

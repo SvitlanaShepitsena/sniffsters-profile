@@ -3,7 +3,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase.d.ts" />
 var PhotosCtrl = (function () {
-    function PhotosCtrl($scope, $filter, $firebase, $state, settings) {
+    function PhotosCtrl($scope, $filter, $firebase, $stateParams, $state, settings) {
         var _this = this;
         this.$scope = $scope;
         this.$filter = $filter;
@@ -32,7 +32,7 @@ var PhotosCtrl = (function () {
 
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
-                var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries';
+                var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
                 $scope.galleries = $firebase(new Firebase(galleriesUrl));
                 $scope.newGalleries = [];
             });

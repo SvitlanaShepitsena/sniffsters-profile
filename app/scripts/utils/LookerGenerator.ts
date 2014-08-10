@@ -8,6 +8,7 @@ class LookerGenerator implements IUserGenerator {
     create(email:string, mainRef:string, $firebase:any, nickName:string) {
         var user = new LookerProfile();
         var userUrl = mainRef + "lookers";
+        console.log(userUrl);
 
         var usersRef = $firebase(new Firebase(userUrl));
 
