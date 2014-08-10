@@ -9,6 +9,7 @@ var LookerGenerator = (function () {
     LookerGenerator.prototype.create = function (email, mainRef, $firebase, nickName) {
         var user = new LookerProfile();
         var userUrl = mainRef + "lookers";
+        console.log(userUrl);
 
         var usersRef = $firebase(new Firebase(userUrl));
 
