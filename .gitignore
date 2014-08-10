@@ -4,7 +4,6 @@ dist
 !Gruntfile.js
 !app/bower_components/angular-bootstrap/ui-bootstrap-custom-tpls-0.10.0.min.js
 !app/bower_components/angular-image-crop
-!app/bower_components/angular-ratings-master
 .sass-cache
 app/bower_components/*
 .idea
@@ -17,6 +16,7 @@ app/scripts/models/*.js
 app/scripts/services/*.js
 
 app/styles/*.css
+!app/bower_components/angular-ratings-master/*
 
 
 app/styles/sniff.css
