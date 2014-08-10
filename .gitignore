@@ -3,9 +3,6 @@ dist
 .tmp
 !Gruntfile.js
 !app/bower_components/angular-bootstrap/ui-bootstrap-custom-tpls-0.10.0.min.js
-!app/bower_components/angular-ratings-master/angular.ratings.less
-!app/bower_components/angular-ratings-master/angular.ratings.js
-!app/bower_components/angular-ratings-master/angular-star.png
 !app/bower_components/angular-image-crop
 .sass-cache
 app/bower_components/*
