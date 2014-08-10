@@ -4,12 +4,12 @@ class TestimonialsCtrl {
     Feedbacks:IFeedback[];
     FeedbacksNew:IFeedback[];
 
-    constructor(public $scope, $stateParams, public settings, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, $stateParams, public settings, $filter, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
                 var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/feedbacks';
                 //binding to firebase
-                $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
+                $scope.feedbacks = ($firebase(new Firebase(feedbackUrl)));
             })
         })
 
@@ -41,7 +41,7 @@ class TestimonialsCtrl {
     addNewTestimonial() {
 
         var feedback = new Feedback();
-        if (!this.$scope.index.isOwner) {
+        if (!this.$scope.home.isOwner) {
             feedback.ClientName = this.$scope.home.nickName;
 
         }

@@ -121,8 +121,10 @@ interface IFeedback {
     ClientName:string;
     Evaluation:number;
     FeedbackBody:string;
+    AddedAt:number;
 }
 class Feedback implements IFeedback {
+    AddedAt:number;
     ClientName:string;
     Evaluation:number;
     FeedbackBody:string;
@@ -131,6 +133,7 @@ class Feedback implements IFeedback {
         this.ClientName = "";
         this.FeedbackBody = "";
         this.Evaluation = 0;
+        this.AddedAt = Date.now();
     }
 }
 interface IPhoto {
