@@ -6,7 +6,7 @@
 class PhotosCtrl {
     public GalleriesNew:IGallery[];
 
-    constructor(public $scope, public $filter, public $firebase, public $state, settings) {
+    constructor(public $scope, public $filter, public $firebase, $stateParams, public $state, settings) {
         $scope.home.menuIndex = 2;
         $scope.noGalleryNotice = settings.noGalleryNotice;
 
@@ -33,7 +33,7 @@ class PhotosCtrl {
         this.$scope.home.auth.$getCurrentUser().then((user) => {
 
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
-                var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries';
+                var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
                 $scope.galleries = $firebase(new Firebase(galleriesUrl));
                 $scope.newGalleries = [];
             })

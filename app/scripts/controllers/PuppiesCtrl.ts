@@ -12,12 +12,12 @@ class PuppiesCtrl {
     SelectedLitter:ILitter;
     SelectedLitterEdit:ILitter;
 
-    constructor(public $scope, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService, public settings) {
+    constructor(public $scope, public $firebase, public $modal, public $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService, public settings) {
         $scope.noLitterNotice = settings.noLitterNotice;
 
         this.$scope.home.auth.$getCurrentUser().then((user) => {
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
-                var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/litters';
+                var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/litters';
                 $scope.litters = $firebase(new Firebase(litterUrl));
             })
         })
