@@ -9,10 +9,8 @@
 
 					<h3 class="text-center help-text">LET'S FIND YOUR PUPPY!</h3>
 
-					<div class="home-btn-wrapper">
-						<form class="form-inline text-center"
-						      method="get"
-						      role="form">
+					<div class="home-btn-wrapper text-center">
+						<form class="form-inline">
 							<input class="form-control input-search"
 							       ng-model="searchBreed.val"
 							       placeholder="Start typing breed"
@@ -22,15 +20,15 @@
 							<input class="form-control input-search"
 							       ng-model="searchLocation.val"
 							       placeholder="Location"
-							       ng-options="location for location in locations"
+							       ng-options="state.abbreviation as state.name for state in states"
 							       bs-typeahead type="text">
-						</form>
-						<div class="text-center btn-great-search">
-							<button class="btn btn-primary" ui-sref="sniff.breeders" value="Fetch">
+							<button ng-click="fetchDog()"
+							        class="btn btn-primary btn-fetch">
 								<i class="fa fa-search"></i>
-								Search
+								Fetch
 							</button>
-						</div>
+						</form>
+
 
 					</div>
 

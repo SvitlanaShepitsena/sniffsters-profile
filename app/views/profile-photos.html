@@ -5,12 +5,12 @@
 			Cancel
 		</button>
 		<button class="btn btn-link" ng-show="newGalleries.length"
-		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)"
+		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries)"
 		        ng-click="photosCtrl.saveNewGalleries()">
 			Save
 		</button>
 		<button class="btn btn-link"
-		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)"
+		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries)"
 
 		        ng-click="photosCtrl.addGallery()">
 			Add new gallery
@@ -18,8 +18,8 @@
 
 		<a class="btn btn-link pull-right"
 		   ui-sref="user.profile.upgrade"
-		   ng-show="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)">
-			Upgrade subscription
+		   ng-show="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries)">
+		Upgrade subscription
 		</a>
 	</div>
 
