@@ -15,7 +15,11 @@ var BreedersCtrl = (function () {
         $scope.sortBy = [
             {
                 name: 'Recent Litters',
-                val: 'profile.LittersNumber'
+                val: '-LittersNumber'
+            },
+            {
+                name: 'Rating',
+                val: '-rating'
             }
         ];
         $scope.sortFeature = {};
@@ -46,6 +50,7 @@ var BreedersCtrl = (function () {
                     }
 
                     breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
+
                     if (breeder.hasOwnProperty('feedbacks')) {
                         var total = 0;
                         var numb = 0;
