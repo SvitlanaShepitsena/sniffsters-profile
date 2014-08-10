@@ -49,8 +49,9 @@ class IndexCtrl {
         var requestedBreederRef = $firebase(new Firebase($scope.home.MainUrl + 'breeders/' + requestEmailFire + "/profile"));
 
 
+        var breederProfile:IBreederProfile;
         requestedBreederRef.$on('value', (snapshot:any)=> {
-            var breederProfile:IBreederProfile = snapshot.snapshot.value;
+            breederProfile = snapshot.snapshot.value;
             this.BreederProfile = breederProfile;
         });
 
@@ -67,71 +68,63 @@ class IndexCtrl {
                 if (requestEmail == "public") {
                     requestEmail = $scope.home.userName;
                 }
-                var promiseT = this.DataService.getProfile(requestEmail);
-                promiseT.then((breederProfile:IBreederProfile) => {
-                    //Success
-                    var ownership = $scope.home.Ownership();
-                    if (ownership) {
 
-                        this.subscription = $scope.home.subscription;
+                //Success
+                var ownership = $scope.home.Ownership();
+                if (ownership) {
 
-                        // Messages Count
-                        var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
-                        var messagesRef = $firebase(new Firebase(messagesUrl));
-                        this.messagesNumber = messagesRef.$getIndex().length;
+                    this.subscription = $scope.home.subscription;
 
-                        // Galleries Count
-                        var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/galleries';
-                        var galleriesRef = $firebase(new Firebase(galleriesUrl));
-                        this.galleriesNumber = galleriesRef.$getIndex().length;
+                    // Messages Count
+                    var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
+                    var messagesRef = $firebase(new Firebase(messagesUrl));
+                    this.messagesNumber = messagesRef.$getIndex().length;
 
-                        // Messages Count
-                        var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters';
-                        var littersRef = $firebase(new Firebase(littersUrl));
-                        this.littersNumber = littersRef.$getIndex().length;
+                    // Galleries Count
+                    var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/galleries';
+                    var galleriesRef = $firebase(new Firebase(galleriesUrl));
+                    this.galleriesNumber = galleriesRef.$getIndex().length;
 
-                        messagesRef.$on('value', (snapshot:any)=> {
-                            var messages = snapshot.snapshot.value;
-                            var messagesArr = $filter('orderByPriority')(messages);
-                            var unReadMessages = _.where(messagesArr, {isUnread: true});
-                            this.unReadMessagesNumber = unReadMessages.length;
+                    // Messages Count
+                    var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters';
+                    var littersRef = $firebase(new Firebase(littersUrl));
+                    this.littersNumber = littersRef.$getIndex().length;
+
+                    messagesRef.$on('value', (snapshot:any)=> {
+                        var messages = snapshot.snapshot.value;
+                        var messagesArr = $filter('orderByPriority')(messages);
+                        var unReadMessages = _.where(messagesArr, {isUnread: true});
+                        this.unReadMessagesNumber = unReadMessages.length;
 
 
-                        });
+                    });
 
+                }
+                var feedbacksUrl = $scope.home.MainUrl + 'breeders/' + this.$scope.home.FireProcess(requestEmail) + '/feedbacks';
+                var feedbacksRef = $firebase(new Firebase(feedbacksUrl));
+                var feedbacksKeys = feedbacksRef.$getIndex();
+                var total = 0;
+                var numb = 0;
+                feedbacksKeys.forEach((key)=> {
+                    var feedback = feedbacksRef[key];
+
+                    if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
+                        total += feedback.Evaluation;
+                        numb++;
                     }
-                    var feedbacksUrl = $scope.home.MainUrl + 'breeders/' + this.$scope.home.FireProcess(requestEmail) + '/feedbacks';
-                    var feedbacksRef = $firebase(new Firebase(feedbacksUrl));
-                    var feedbacksKeys = feedbacksRef.$getIndex();
-                    var total = 0;
-                    var numb = 0;
-                    feedbacksKeys.forEach((key)=> {
-                        var feedback = feedbacksRef[key];
 
-                        if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
-                            total += feedback.Evaluation;
-                            numb++;
-                        }
-
-                    })
-
-                    this.rating = numb > 0 ? Math.ceil(total / numb) : 0;
-
-                    this.error = false;
-                    this.BreederProfile = breederProfile;
-                    this.BreederName = breederProfile.UserName;
-
-
-                    this.CopyProfileService.SetProfile(breederProfile);
-                    this.BreederProfileEdit = CopyProfileService.GetProfileClone();
-
-                }, () => {
-                    //Error
-                    this.error = true;
-                    this.ShowError("Error in Db Connection")
-                }).finally(() => {
-                    this.spinner = false;
                 })
+
+                this.rating = numb > 0 ? Math.ceil(total / numb) : 0;
+
+                this.error = false;
+                this.BreederProfile = breederProfile;
+                this.BreederName = breederProfile.UserName;
+
+
+                this.CopyProfileService.SetProfile(breederProfile);
+                this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+
             })
         })
     }

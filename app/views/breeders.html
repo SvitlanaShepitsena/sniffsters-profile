@@ -1,4 +1,5 @@
 <h2 class="sniff-head-info">Breeders</h2>
+
 <hr/>
 <div class="row">
 	<div class="col-xs-12">
@@ -112,10 +113,11 @@
 						</ul>
 					</div>
 				</div>
+
 				<div class="row">
 					<div class="col-sm-3">
-						<p class="text-center" ng-show="home.userName">
-							<button class="btn btn-default" ng-hide="home.Followings.indexOf(b.profile.Email)>-1"
+						<p class="text-center" ng-show="home.userName && home.userName!=b.profile.Email">
+						<button class="btn btn-default" ng-hide="home.Followings.indexOf(b.profile.Email)>-1"
 							        role="button" ng-click="home.followUser(home.userName,b.profile.Email)">
 								Follow +
 							</button>
