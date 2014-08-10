@@ -241,8 +241,8 @@ profile.value("settings", {
 
 profile.config(
     ($stateProvider, $urlRouterProvider) => {
-//        $urlRouterProvider.otherwise("/for-breeders");
-//
+        $urlRouterProvider.otherwise("/");
+
         $stateProvider
         /**********************
          =Breeder
