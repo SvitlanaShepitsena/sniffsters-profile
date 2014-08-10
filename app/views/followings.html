@@ -3,75 +3,19 @@
 <hr/>
 <h3 class="text-warning" ng-hide="followings.length">You do not follow anybody.</h3>
 <div class="searchBreederDescription" ng-cloak sv-slider h="1200">
-	<ul class="list-unstyled">
-		<li class="shuffle-animation" ng-repeat="(key,f) in followings">
-			<div class="row ">
-				<div class="col-xs-3">
-					<div class="thumbnail no-b-margin">
-						<a ui-sref="user.profile.about1({uname:f.userName})">
-							<h3 class="text-info breederName text-center">
-								{{f.nickName}}
-
-							</h3>
-							<img ng-src="{{f.avatar}}" alt="">
-							<img ng-show="!f.avatar" ng-src="../imgdir/default/myimg/mainpic.jpg" alt="">
-						</a>
-					</div>
-
-					<div class="raiting-sm">
-						<ul class="list-inline">
-							<li class="bone-xs">
-								<img src="../img/raiting-info-16.png" alt="altText">
-							</li>
-							<li class="bone-xs">
-								<img src="../img/raiting-info-16.png" alt="altText">
-							</li>
-							<li class="bone-xs">
-								<img src="../img/raiting-info-16.png" alt="altText">
-							</li>
-							<li class="bone-xs">
-
-								<img src="../img/raiting-16.png" alt="altText">
-							</li>
-							<li class="bone-xs">
-								<img src="../img/raiting-16.png" alt="altText">
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-xs-6">
-					<div class="">
-						<h3 class="breederName">
-							<a class="a-name " ui-sref="user.profile.about1({uname:f.Email})">
-								{{f.KennelName}}
-							</a>
-						</h3>
-
-						<h4 class="hBreederWebsite text-muted">
-							{{f.Website}}
-						</h4>
-
-						<h4 class="hBreederWebsite text-muted">
-							{{f.City}} {{f.State}}
-						</h4>
-						<br/>
-					</div>
-				</div>
-
-				<div class="col-xs-3 text-right">
-					<p class="text-right" ng-show="home.FireUname">
-						<button class="btn btn-tiny btn-default btn-follow" ng-hide="home.Followings.indexOf(f)>-1"
-						        role="button" ng-click="home.followUser(home.FireUname,f)">
-							Follow
-						</button>
-
-						<button class="btn btn-default btn-tiny btn-follow" ng-show="home.Followings.indexOf(f)>-1"
-						        role="button" ng-click="home.unFollowUser(home.FireUname,f)">
-							UnFollow
-						</button>
-					</p>
-				</div>
+	<ul class="list-unstyled row">
+		<li class="shuffle-animation li-follow col-xs-4 " ng-repeat="(key,f) in followings">
+			<div class="thumbnail no-b-margin">
+				<a ui-sref="user.profile.about1({uname:f.userName})">
+					<h3 class="text-info breederName text-center">
+						{{f.nickName}}
+					</h3>
+					<img ng-src="{{f.avatar}}" alt="">
+					<img ng-show="!f.avatar" ng-src="../imgdir/default/myimg/mainpic.jpg" alt="">
+				</a>
+			</div>
+			<div class="rating-container">
+				<angular-ratings ng-model="f.rating"></angular-ratings>
 			</div>
 		</li>
 	</ul>
