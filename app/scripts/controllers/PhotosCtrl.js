@@ -76,6 +76,7 @@ var PhotosCtrl = (function () {
     };
 
     PhotosCtrl.prototype.addGallery = function () {
+        this.$scope.addGallTemplate = true;
         var gallery = new Gallery();
         gallery.Title = "New Gallery";
         gallery.isTemp = true;

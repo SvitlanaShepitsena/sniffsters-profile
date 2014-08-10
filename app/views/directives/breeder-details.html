@@ -63,10 +63,7 @@
 
 		<div class="form-group" ng-show="home.isOwner">
 			<label class="labelMyDetails">Email:</label>
-			<span ng-show="!IsEdit">{{index.BreederProfile.Email}}</span>
-			<input type="text" class="form-control"
-			       ng-model="index.BreederProfileCopy.Email"
-			       ng-show="IsEdit">
+			<span>{{index.BreederProfile.Email}}</span>
 		</div>
 
 		<div class="form-group" ng-show="!home.isOwner">
