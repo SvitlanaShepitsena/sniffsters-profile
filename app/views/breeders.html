@@ -87,7 +87,6 @@
 					</div>
 
 					<div class="col-md-4">
-
 						<ul class="list-unstyled ulBreederCard text-right">
 							<li class="cityState">
 								{{b.profile.City}}, {{b.profile.State}}
@@ -98,28 +97,30 @@
 							<li>
 								{{b.profile.Email}}
 							</li>
-							<li>
-								<sv-contact-modal></sv-contact-modal>
-							</li>
 						</ul>
 					</div>
-				</div>
 
-				<div class="row">
-					<div class="col-sm-3">
-						<p class="text-center" ng-show="home.userName && home.userName!=b.profile.Email">
-						<button class="btn btn-default" ng-hide="home.Followings.indexOf(b.profile.Email)>-1"
+					<ul class="list-inline pull-right">
+						<li>
+							<sv-contact-modal></sv-contact-modal>
+						</li>
+						<li ng-show="home.userName && home.userName!=b.profile.Email">
+							<button class="btn btn-link sniff-head-sm"
+							        ng-hide="home.Followings.indexOf(b.profile.Email)>-1"
 							        role="button" ng-click="home.followUser(home.userName,b.profile.Email)">
 								Follow +
 							</button>
 
-							<button class="btn btn-default" ng-show="home.Followings.indexOf(b.profile.Email)>-1"
+							<button class="btn btn-link sniff-head-sm"
+							        ng-show="home.Followings.indexOf(b.profile.Email)>-1"
 							        role="button" ng-click="home.unFollowUser(home.FireUname,b.profile.Email)">
 								UnFollow -
 							</button>
-						</p>
-					</div>
+
+						</li>
+					</ul>
 				</div>
+
 			</li>
 		</ul>
 	</div>
