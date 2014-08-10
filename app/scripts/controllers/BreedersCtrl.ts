@@ -41,7 +41,7 @@ class BreedersCtrl {
 
             breedersKeys.forEach((key)=> {
                 var breeder = breeders[key];
-                if (!breeder.profile.isAdmin) {
+                if (!_.isUndefined(breeder.profile) && !breeder.profile.isAdmin) {
 
                     if (!_.isNull($scope.searchLocation)) {
                         if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || _.isUndefined(breeder.profile.Location) || breeder.profile.Location.indexOf($scope.searchLocation) == -1) {
