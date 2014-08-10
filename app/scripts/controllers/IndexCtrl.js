@@ -1,5 +1,6 @@
 /// <reference path="../services/CopyProfileService.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 /// <reference path="../services/DataService.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
@@ -25,12 +26,24 @@ var IndexCtrl = (function () {
 
         this.spinner = true;
 
+        var requestEmail = $stateParams.uname;
+        var requestEmailFire = $scope.home.FireProcess(requestEmail);
+
+        var requestedBreederRef = $firebase(new Firebase($scope.home.MainUrl + 'breeders/' + requestEmailFire + "/profile"));
+
+        requestedBreederRef.$on('value', function (snapshot) {
+            var breederProfile = snapshot.snapshot.value;
+            _this.BreederProfile = breederProfile;
+        });
+
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
+            if (_.isNull(user)) {
+                return;
+            }
+
             if (_.isUndefined(user.email))
                 user.email = user.id;
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
-                var requestEmail = $stateParams.uname;
-
                 if (requestEmail == "public") {
                     requestEmail = $scope.home.userName;
                 }
@@ -63,6 +76,21 @@ var IndexCtrl = (function () {
                             _this.unReadMessagesNumber = unReadMessages.length;
                         });
                     }
+                    var feedbacksUrl = $scope.home.MainUrl + 'breeders/' + _this.$scope.home.FireProcess(requestEmail) + '/feedbacks';
+                    var feedbacksRef = $firebase(new Firebase(feedbacksUrl));
+                    var feedbacksKeys = feedbacksRef.$getIndex();
+                    var total = 0;
+                    var numb = 0;
+                    feedbacksKeys.forEach(function (key) {
+                        var feedback = feedbacksRef[key];
+
+                        if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
+                            total += feedback.Evaluation;
+                            numb++;
+                        }
+                    });
+
+                    _this.rating = numb > 0 ? Math.ceil(total / numb) : 0;
 
                     _this.error = false;
                     _this.BreederProfile = breederProfile;

@@ -1,5 +1,4 @@
 /// <reference path="../app.ts" />
-
 var breederDetails = function () {
     return {
         restrict: 'E',
@@ -16,7 +15,7 @@ var breederDetails = function () {
 
             //            console.log(scope.index.BreederName);
             scope.Edit = function () {
-                scope.ctrl.Clone();
+                scope.index.Clone();
                 scope.IsEdit = true;
             };
 
@@ -25,7 +24,7 @@ var breederDetails = function () {
             };
 
             scope.Save = function () {
-                scope.ctrl.Save(scope.ctrl.BreederProfileCopy);
+                scope.index.Save(scope.index.BreederProfileCopy);
                 scope.IsEdit = false;
             };
         },

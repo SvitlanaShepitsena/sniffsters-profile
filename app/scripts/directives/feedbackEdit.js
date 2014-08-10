@@ -15,13 +15,15 @@ var feedbackEdit = function () {
                     $scope.feedback = $firebase(new Firebase(feedbackUrl));
                 });
             });
-            $scope.updateFeedback = function (clientName, body) {
+            $scope.updateFeedback = function (clientName, evaluation, body) {
                 var feedbackNew = new Feedback();
                 feedbackNew.ClientName = clientName;
                 feedbackNew.FeedbackBody = body;
+                feedbackNew.Evaluation = evaluation;
 
                 $scope.feedback.$set({
                     ClientName: clientName,
+                    Evaluation: evaluation,
                     FeedbackBody: body }).then(function () {
                     $state.go('^');
                 });

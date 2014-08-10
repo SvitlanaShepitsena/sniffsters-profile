@@ -4,10 +4,10 @@ class TestimonialsCtrl {
     Feedbacks:IFeedback[];
     FeedbacksNew:IFeedback[];
 
-    constructor(public $scope, public settings, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
+    constructor(public $scope, $stateParams, public settings, public $firebase, public $modal, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
-                var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
+                var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/feedbacks';
                 //binding to firebase
                 $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
             })
@@ -20,26 +20,33 @@ class TestimonialsCtrl {
 
         $scope.isOk = false;
 
-        $scope.$watch("testimonials.FeedbacksNew", () => {
-            for (var i = 0; i < this.FeedbacksNew.length; i++) {
-                var feedback:IFeedback = this.FeedbacksNew[i];
-                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0) &&
-                    (feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
-                    this.$scope.isOk = true;
-                    break;
-                }
-                else {
-                    this.$scope.isOk = false;
-                }
-            }
-        }, true);
+//        $scope.$watch("testimonials.FeedbacksNew", () => {
+//            for (var i = 0; i < this.FeedbacksNew.length; i++) {
+//                var feedback:IFeedback = this.FeedbacksNew[i];
+//                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0) &&
+//                    (feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
+//                    this.$scope.isOk = true;
+//                    break;
+//                }
+//                else {
+//                    this.$scope.isOk = false;
+//                }
+//            }
+//        }, true);
         $scope.remove = (key)=> {
             this.$scope.feedbacks.$remove(key);
         }
     }
 
     addNewTestimonial() {
-        this.FeedbacksNew.unshift(new Feedback());
+
+        var feedback = new Feedback();
+        if (!this.$scope.index.isOwner) {
+            feedback.ClientName = this.$scope.home.nickName;
+
+        }
+
+        this.FeedbacksNew.unshift(feedback);
     }
 
     saveNewTestimonials() {

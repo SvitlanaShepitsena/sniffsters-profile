@@ -45,6 +45,20 @@ class BreedersCtrl {
                     }
 
                     breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
+                    if (breeder.hasOwnProperty('feedbacks')) {
+                        var total = 0;
+                        var numb = 0;
+
+                        _.values(breeder.feedbacks).forEach((feedback)=> {
+                            if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
+                                total += feedback.Evaluation;
+                                numb++;
+                            }
+                        })
+
+                        breeder.rating = numb > 0 ? Math.ceil(total / numb) : 0;
+                    }
+
                     $scope.breeders.push(breeder)
                 }
             })

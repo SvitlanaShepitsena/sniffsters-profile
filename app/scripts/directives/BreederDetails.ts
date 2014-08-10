@@ -1,11 +1,4 @@
 /// <reference path="../app.ts" />
-interface IDBreederDetails extends ng.IScope {
-    IsEdit:Boolean;
-    ctrl:IndexCtrl;
-    Edit:() => void;
-    Cancel:() => void;
-    Save:() => void;
-}
 
 var breederDetails = () => {
 
@@ -27,7 +20,7 @@ var breederDetails = () => {
 
 
             scope.Edit = () => {
-                scope.ctrl.Clone();
+                scope.index.Clone();
                 scope.IsEdit = true;
             }
 
@@ -37,7 +30,7 @@ var breederDetails = () => {
             }
 
             scope.Save = () => {
-                scope.ctrl.Save(scope.ctrl.BreederProfileCopy);
+                scope.index.Save(scope.index.BreederProfileCopy);
                 scope.IsEdit = false;
             }
         },

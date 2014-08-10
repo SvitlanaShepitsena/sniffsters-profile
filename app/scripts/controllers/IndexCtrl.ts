@@ -1,5 +1,6 @@
 /// <reference path="../services/CopyProfileService.ts" />
 /// <reference path="../models/IBreederProfile.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/underscore/underscore.d.ts" />
 /// <reference path="../services/DataService.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angular-ui/angular-ui-router.d.ts" />
@@ -24,6 +25,9 @@ class IndexCtrl {
     BreederName:string;
     url:string;
     isOwner:boolean;
+
+    rating:number;
+
     messagesNumber:number;
     galleriesNumber:number;
     littersNumber:number;
@@ -39,11 +43,27 @@ class IndexCtrl {
 
         this.spinner = true;
 
+        var requestEmail = $stateParams.uname;
+        var requestEmailFire = $scope.home.FireProcess(requestEmail);
+
+        var requestedBreederRef = $firebase(new Firebase($scope.home.MainUrl + 'breeders/' + requestEmailFire + "/profile"));
+
+
+        requestedBreederRef.$on('value', (snapshot:any)=> {
+            var breederProfile:IBreederProfile = snapshot.snapshot.value;
+            this.BreederProfile = breederProfile;
+        });
+
+
         this.$scope.home.auth.$getCurrentUser().then((user) => {
+
+            if (_.isNull(user)) {
+                return;
+            }
+
             if (_.isUndefined(user.email))user.email = user.id;
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
 
-                var requestEmail = $stateParams.uname;
 
                 if (requestEmail == "public") {
                     requestEmail = $scope.home.userName;
@@ -71,7 +91,6 @@ class IndexCtrl {
                         var littersRef = $firebase(new Firebase(littersUrl));
                         this.littersNumber = littersRef.$getIndex().length;
 
-
                         messagesRef.$on('value', (snapshot:any)=> {
                             var messages = snapshot.snapshot.value;
                             var messagesArr = $filter('orderByPriority')(messages);
@@ -82,7 +101,22 @@ class IndexCtrl {
                         });
 
                     }
+                    var feedbacksUrl = $scope.home.MainUrl + 'breeders/' + this.$scope.home.FireProcess(requestEmail) + '/feedbacks';
+                    var feedbacksRef = $firebase(new Firebase(feedbacksUrl));
+                    var feedbacksKeys = feedbacksRef.$getIndex();
+                    var total = 0;
+                    var numb = 0;
+                    feedbacksKeys.forEach((key)=> {
+                        var feedback = feedbacksRef[key];
 
+                        if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
+                            total += feedback.Evaluation;
+                            numb++;
+                        }
+
+                    })
+
+                    this.rating = numb > 0 ? Math.ceil(total / numb) : 0;
 
                     this.error = false;
                     this.BreederProfile = breederProfile;

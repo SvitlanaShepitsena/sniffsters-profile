@@ -6,7 +6,7 @@
 		        ng-click="testimonials.saveNewTestimonials(); form.setPristine()">Save All
 		</button>
 		<button class="btn btn-link"
-		        ng-show="home.isOwner" ng-click="testimonials.addNewTestimonial()">Add New
+		        ng-click="testimonials.addNewTestimonial()">Add New
 		</button>
 	</div>
 
@@ -19,11 +19,12 @@
 						<div class="form-group has-feedback"
 						     ng-class="{'has-error':form.clientName.$invalid}">
 							<label for="clientName" class="subheadlabel control-label">Name:</label>
-							<span class="textMuted">Required</span>
+							<span class="textMuted" ng-show="index.isOwner">Required</span>
 			<span ng-show="form.clientName.$error.maxlength"
 			      class="text text-danger pull-right maxSymb">Max 250 symbols!</span>
 							<input id="clientName" name="clientName" class="form-control"
 							       ng-model="feedback.ClientName"
+							       ng-disabled="!index.isOwner"
 							       name="clientName"
 							       ng-maxlength="250"
 							       type="text"
@@ -59,8 +60,8 @@
 		</div>
 	</div>
 	<ul class="list-unstyled">
-		<li ng-repeat="(key,f) in feedbacks|orderBy:key">
-		<div class="pull-right">
+		<li ng-repeat="(key,f) in feedbacks|orderBy:key:true">
+			<div class="pull-right" ng-show="index.isOwner">
 				<a class="light-gray" ui-sref="user.profile.testimonials5.edit({id:key})">
 					<i class="fa fa-pencil"></i>
 				</a>

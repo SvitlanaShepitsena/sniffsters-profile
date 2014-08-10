@@ -16,13 +16,15 @@ var feedbackEdit:() => ng.IDirective = () => {
                     $scope.feedback = $firebase(new Firebase(feedbackUrl));
                 })
             })
-            $scope.updateFeedback = (clientName, body) => {
+            $scope.updateFeedback = (clientName, evaluation, body) => {
                 var feedbackNew:IFeedback = new Feedback();
                 feedbackNew.ClientName = clientName;
                 feedbackNew.FeedbackBody = body;
+                feedbackNew.Evaluation = evaluation;
 
                 $scope.feedback.$set(
                     {ClientName: clientName,
+                        Evaluation: evaluation,
                         FeedbackBody: body}).then(() => {
                         $state.go('^');
                     });

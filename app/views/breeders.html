@@ -44,23 +44,7 @@
 								     ng-src="../imgdir/default/myimg/mainpic.jpg" alt="">
 							</a>
 						</div>
-						<ul class="list-inline text-center">
-							<li class="bone">
-								<img src="../img/raiting-info.png" alt="altText">
-							</li>
-							<li class="bone">
-								<img src="../img/raiting-info.png" alt="altText">
-							</li>
-							<li class="bone">
-								<img src="../img/raiting-info.png" alt="altText">
-							</li>
-							<li class="bone">
-								<img src="../img/raiting.png" alt="altText">
-							</li>
-							<li class="bone">
-								<img src="../img/raiting.png" alt="altText">
-							</li>
-						</ul>
+						<angular-ratings ng-show="b.rating" ng-model="b.rating"></angular-ratings>
 					</div>
 
 					<div class="col-md-5">
@@ -132,7 +116,7 @@
 						<p class="text-center" ng-show="home.userName">
 							<button class="btn btn-default" ng-hide="home.Followings.indexOf(b.profile.Email)>-1"
 							        role="button" ng-click="home.followUser(home.userName,b.profile.Email)">
-							Follow +
+								Follow +
 							</button>
 
 							<button class="btn btn-default" ng-show="home.Followings.indexOf(b.profile.Email)>-1"

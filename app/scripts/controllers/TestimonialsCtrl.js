@@ -1,6 +1,6 @@
 /// <reference path="HomeCtrl.ts" />
 var TestimonialsCtrl = (function () {
-    function TestimonialsCtrl($scope, settings, $firebase, $modal, $state, toastr, DataService, CopyProfileService) {
+    function TestimonialsCtrl($scope, $stateParams, settings, $firebase, $modal, $state, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
         this.settings = settings;
@@ -12,35 +12,44 @@ var TestimonialsCtrl = (function () {
         this.CopyProfileService = CopyProfileService;
         $scope.home.auth.$getCurrentUser().then(function (user) {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(function () {
-                var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/feedbacks';
+                var feedbackUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/feedbacks';
 
                 //binding to firebase
                 $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
             });
         });
+
+        $scope.rating = 0;
         this.FeedbacksNew = [];
         $scope.home.url = "testimonials";
         $scope.testimonials = this;
 
         $scope.isOk = false;
 
-        $scope.$watch("testimonials.FeedbacksNew", function () {
-            for (var i = 0; i < _this.FeedbacksNew.length; i++) {
-                var feedback = _this.FeedbacksNew[i];
-                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0) && (feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500)) {
-                    _this.$scope.isOk = true;
-                    break;
-                } else {
-                    _this.$scope.isOk = false;
-                }
-            }
-        }, true);
+        //        $scope.$watch("testimonials.FeedbacksNew", () => {
+        //            for (var i = 0; i < this.FeedbacksNew.length; i++) {
+        //                var feedback:IFeedback = this.FeedbacksNew[i];
+        //                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0) &&
+        //                    (feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
+        //                    this.$scope.isOk = true;
+        //                    break;
+        //                }
+        //                else {
+        //                    this.$scope.isOk = false;
+        //                }
+        //            }
+        //        }, true);
         $scope.remove = function (key) {
             _this.$scope.feedbacks.$remove(key);
         };
     }
     TestimonialsCtrl.prototype.addNewTestimonial = function () {
-        this.FeedbacksNew.unshift(new Feedback());
+        var feedback = new Feedback();
+        if (!this.$scope.index.isOwner) {
+            feedback.ClientName = this.$scope.home.nickName;
+        }
+
+        this.FeedbacksNew.unshift(feedback);
     };
 
     TestimonialsCtrl.prototype.saveNewTestimonials = function () {

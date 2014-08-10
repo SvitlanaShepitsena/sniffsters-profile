@@ -44,6 +44,7 @@ var Feedback = (function () {
     function Feedback() {
         this.ClientName = "";
         this.FeedbackBody = "";
+        this.Evaluation = 0;
     }
     return Feedback;
 })();

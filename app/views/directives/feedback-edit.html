@@ -14,6 +14,14 @@
 			       ng-class="{inputEmpty:!formTestimonials.clientName}"
 			       ng-maxlength="250"/>
 		</div>
+
+
+		<div class="form-group has-feedback">
+			<label for="clientName" class="subheadlabel control-label">Rating:</label>
+			<span class="textMuted">Optional</span>
+			<angular-ratings notify-url="notify.json" notify-id="id"
+			                 ng-model="feedback.Evaluation"></angular-ratings>
+		</div>
 		<div class="form-group">
 			<label for="feedbackBody"
 			       class="sniff-subhead control-label">Feedback:</label>
@@ -30,8 +38,8 @@
 			<a class="btn btn-default" ui-sref="user.profile.testimonials5">Cancel</a>
 			<button class="btn btn-primary"
 			        data-toggle="tooltip" data-placement="left" title="Save Feedback Title"
-			        ng-disabled="formTestimonials.$invalid || formTestimonials.$pristine"
-			        ng-click="updateFeedback(feedback.ClientName,feedback.FeedbackBody)">
+			        ng-disabled="formTestimonials.$invalid"
+			        ng-click="updateFeedback(feedback.ClientName,feedback.Evaluation, feedback.FeedbackBody)">
 				Save
 			</button>
 		</div>
