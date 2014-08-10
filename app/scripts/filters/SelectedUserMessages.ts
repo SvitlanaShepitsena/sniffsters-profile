@@ -2,6 +2,7 @@
 /// <reference path="../models/IBreederProfile.ts" />
 class SelectedUserMessages {
     static filter(notes:INote[], isTrash:boolean, userName:string):INote[] {
+
         return _.filter(notes, (note:INote)=> {
             if (_.isNull(note)) {
                 return;

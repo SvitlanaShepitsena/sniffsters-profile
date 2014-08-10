@@ -108,6 +108,7 @@ var MessagesCtrl = (function () {
                     //                TO #################################
                     if (userToProfile.isBreeder === true) {
                         _this.DataService.sendReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body, false).then(function () {
+                            _this.SetSelectedUser(0);
                             if (levelUp) {
                                 _this.$state.go('^');
                             }
@@ -118,6 +119,7 @@ var MessagesCtrl = (function () {
                     }
                     if (userToProfile.isBreeder === false) {
                         _this.DataService.sendLookerReply(userToProfile.Email, _this.$scope.home.userName, _this.$scope.home.nickName, body, false).then(function () {
+                            _this.SetSelectedUser(0);
                             if (levelUp) {
                                 _this.$state.go('^');
                             }
@@ -141,7 +143,13 @@ var MessagesCtrl = (function () {
         var _this = this;
         this.selectedUserIndex = arrIndex;
 
-        var userNames = _.map(_.uniq(_.filter(this.fireMessages, function (note) {
+        var notes = this.fireMessages;
+
+        notes = _.sortBy(notes, function (note) {
+            return -note.sent;
+        });
+
+        var userNames = _.map(_.uniq(_.filter(notes, function (note) {
             if (_.isNull(note)) {
                 return;
             }

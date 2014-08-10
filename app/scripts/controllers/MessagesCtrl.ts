@@ -121,6 +121,7 @@ class MessagesCtrl {
 
                         if (userToProfile.isBreeder === true) {
                             this.DataService.sendReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body, false).then(() => {
+                                this.SetSelectedUser(0);
                                 if (levelUp) {
                                     this.$state.go('^');
                                 }
@@ -131,6 +132,8 @@ class MessagesCtrl {
                         }
                         if (userToProfile.isBreeder === false) {
                             this.DataService.sendLookerReply(userToProfile.Email, this.$scope.home.userName, this.$scope.home.nickName, body, false).then(() => {
+
+                                this.SetSelectedUser(0);
                                 if (levelUp) {
                                     this.$state.go('^');
                                 }
@@ -156,7 +159,14 @@ class MessagesCtrl {
     SetSelectedUser(arrIndex:number) {
         this.selectedUserIndex = arrIndex;
 
-        var userNames = _.map(_.uniq(_.filter(this.fireMessages, (note:INote)=> {
+        var notes = this.fireMessages;
+
+        notes = _.sortBy(notes, (note:INote)=> {
+            return -note.sent;
+        });
+
+        var userNames = _.map(_.uniq(_.filter(notes, (note:INote)=> {
+
             if (_.isNull(note)) {
                 return;
             }
