@@ -10,7 +10,7 @@ var cover:() => ng.IDirective = () => {
         // replace directive tag with template info
         replace: true,
 
-        controller: ($scope, $firebase, $filter, $modal) => {
+        controller: ($scope, $firebase, $filter, $modal, $stateParams) => {
 
             $scope.profileModal = $modal({
                 scope: $scope,
@@ -46,6 +46,7 @@ var cover:() => ng.IDirective = () => {
             $scope.show64 = () => {
                 console.log('test12');
             }
+
 
             $scope.home.auth.$getCurrentUser().then((user) => {
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
