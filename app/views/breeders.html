@@ -65,29 +65,20 @@
 							</h4>
 
 							<ul class="list-unstyled ulBreederCard">
-								<li class="className">
-									<strong>Certifications:</strong>
-								</li>
 								<li>
-									<strong>Pricing:</strong> Lorem
-								</li>
-								<li>
-									<strong>Available litters:</strong> Lorem
-								</li>
-								<li>
-									<strong>Puppies:</strong> Lorem
-								</li>
-								<li>
-									<strong>Colors:</strong> Lorem
+									<strong>Available litters:</strong>
+									{{b.LittersNumber}}
 								</li>
 								<li>
 									<strong>Vet services:</strong>
+									<span ng-show="!IsEdit">{{index.BreederProfile.VetServices|boolString}}</span>
 
 									<div>
 									</div>
 								</li>
 								<li>
 									<strong>Shipping:</strong>
+									<span ng-show="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
 
 								</li>
 							</ul>
