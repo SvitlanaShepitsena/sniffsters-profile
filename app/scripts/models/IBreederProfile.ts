@@ -119,15 +119,18 @@ class Message implements IMessage {
 
 interface IFeedback {
     ClientName:string;
+    Evaluation:number;
     FeedbackBody:string;
 }
 class Feedback implements IFeedback {
     ClientName:string;
+    Evaluation:number;
     FeedbackBody:string;
 
     constructor() {
         this.ClientName = "";
         this.FeedbackBody = "";
+        this.Evaluation = 0;
     }
 }
 interface IPhoto {

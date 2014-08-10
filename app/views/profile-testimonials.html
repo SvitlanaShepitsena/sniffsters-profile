@@ -29,6 +29,12 @@
 							       type="text"
 							       required/>
 						</div>
+						<div class="form-group has-feedback">
+							<label for="clientName" class="subheadlabel control-label">Rating:</label>
+							<span class="textMuted">Optional</span>
+							<angular-ratings notify-url="notify.json" notify-id="id"
+							                 ng-model="feedback.Evaluation"></angular-ratings>
+						</div>
 						<div class="form-group has-feedback"
 						     ng-class="{'has-error':form.feedbackBody.$invalid}">
 							<label for="feedbackBody" class="coltrol-label">Feedback:</label>
@@ -53,8 +59,8 @@
 		</div>
 	</div>
 	<ul class="list-unstyled">
-		<li ng-repeat="(key,f) in feedbacks">
-			<div class="pull-right">
+		<li ng-repeat="(key,f) in feedbacks|orderBy:key">
+		<div class="pull-right">
 				<a class="light-gray" ui-sref="user.profile.testimonials5.edit({id:key})">
 					<i class="fa fa-pencil"></i>
 				</a>

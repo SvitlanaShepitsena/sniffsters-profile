@@ -1,5 +1,8 @@
 <div class="well">
 	<h4>{{f.ClientName}}</h4>
 
+	<p class="feedbackBody">
+		<angular-ratings ng-model="f.Evaluation"></angular-ratings>
+	</p>
 	<p class="feedbackBody">{{f.FeedbackBody}}</p>
 </div>

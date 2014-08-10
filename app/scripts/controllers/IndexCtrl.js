@@ -39,12 +39,22 @@ var IndexCtrl = (function () {
                     //Success
                     var ownership = $scope.home.Ownership();
                     if (ownership) {
-                        var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
-
                         _this.subscription = $scope.home.subscription;
 
+                        // Messages Count
+                        var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
                         var messagesRef = $firebase(new Firebase(messagesUrl));
                         _this.messagesNumber = messagesRef.$getIndex().length;
+
+                        // Galleries Count
+                        var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/galleries';
+                        var galleriesRef = $firebase(new Firebase(galleriesUrl));
+                        _this.galleriesNumber = galleriesRef.$getIndex().length;
+
+                        // Messages Count
+                        var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters';
+                        var littersRef = $firebase(new Firebase(littersUrl));
+                        _this.littersNumber = littersRef.$getIndex().length;
 
                         messagesRef.$on('value', function (snapshot) {
                             var messages = snapshot.snapshot.value;

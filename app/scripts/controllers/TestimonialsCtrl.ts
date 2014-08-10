@@ -12,6 +12,8 @@ class TestimonialsCtrl {
                 $scope.feedbacks = $firebase(new Firebase(feedbackUrl));
             })
         })
+
+        $scope.rating = 0;
         this.FeedbacksNew = [];
         $scope.home.url = "testimonials";
         $scope.testimonials = this;
