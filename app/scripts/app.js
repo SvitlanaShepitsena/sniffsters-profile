@@ -236,8 +236,8 @@ profile.value("settings", {
 });
 
 profile.config(function ($stateProvider, $urlRouterProvider) {
-    //        $urlRouterProvider.otherwise("/for-breeders");
-    //
+    $urlRouterProvider.otherwise("/");
+
     $stateProvider.state("user", {
         abstract: true,
         templateUrl: "../views/profile-side-bar.html"

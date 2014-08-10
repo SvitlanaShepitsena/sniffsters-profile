@@ -63,8 +63,8 @@
 	</div>
 	<ul class="list-unstyled">
 		<li ng-repeat="(key,f) in feedbacks|orderBy:key:true">
-			<div class="pull-right" ng-show="index.isOwner">
-				<a class="light-gray" ui-sref="user.profile.testimonials5.edit({id:key})">
+			<div class="pull-right" ng-show="home.isOwner">
+			<a class="light-gray" ui-sref="user.profile.testimonials5.edit({id:key})">
 					<i class="fa fa-pencil"></i>
 				</a>
 				<button class="btn-link light-gray"
