@@ -297,6 +297,15 @@ class HomeCtrl {
 
             var breeder = snapshot.snapshot.value;
             if (!_.isNull(breeder) && !_.isUndefined(breeder.profile)) {
+                if (breeder.hasOwnProperty('followings')) {
+                    this.Followings = _.map(_.keys(breeder.followings), (key)=> {
+                        return this.FireUnProcess(key);
+                    });
+                    console.log(this.Followings);
+                }
+
+
+
                 this.nickName = breeder.profile.UserName;
                 this.nickNameFire = this.FireProcess(this.nickName);
                 this.isBreeder = true;
@@ -319,6 +328,15 @@ class HomeCtrl {
                 this.nickName = looker.profile.UserName;
                 this.nickNameFire = this.FireProcess(this.nickName);
                 this.isBreeder = false;
+
+                if (looker.hasOwnProperty('followings')) {
+                    this.Followings = _.map(_.keys(looker.followings), (key)=> {
+                        return this.FireUnProcess(key);
+                    });
+                    console.log(this.Followings);
+                }
+
+
                 d.resolve();
             }
         });

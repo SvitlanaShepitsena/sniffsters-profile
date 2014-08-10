@@ -33,46 +33,53 @@ class BreedersCtrl {
         $scope.breeders = [];
         $scope.isDataLoading = true;
 
+
         this.$scope.home.auth.$getCurrentUser().then((user) => {
+            if (_.isNull(user)) {
+                user = {email: 'no'};
+            }
+            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
 
-            var breeders = $firebase(new Firebase($scope.home.MainUrl + 'breeders'));
-            var breedersKeys = breeders.$getIndex();
-
-
-            breedersKeys.forEach((key)=> {
-                var breeder = breeders[key];
-                if (!_.isUndefined(breeder.profile) && !breeder.profile.isAdmin) {
-
-                    if (!_.isNull($scope.searchLocation)) {
-                        if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || _.isUndefined(breeder.profile.Location) || breeder.profile.Location.indexOf($scope.searchLocation) == -1) {
-                            return;
-                        }
-                    }
-                    if (!_.isNull($scope.searchBreed)) {
-                        if ((_.isUndefined(breeder.profile.breeds)) || _.values(breeder.profile.breeds).indexOf($scope.searchBreed) == -1) {
-                            return;
-                        }
-                    }
-
-                    breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
+                var breeders = $firebase(new Firebase($scope.home.MainUrl + 'breeders'));
+                var breedersKeys = breeders.$getIndex();
 
 
-                    if (breeder.hasOwnProperty('feedbacks')) {
-                        var total = 0;
-                        var numb = 0;
+                breedersKeys.forEach((key)=> {
+                    var breeder = breeders[key];
+                    if (!_.isUndefined(breeder.profile) && !breeder.profile.isAdmin) {
 
-                        _.values(breeder.feedbacks).forEach((feedback)=> {
-                            if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
-                                total += feedback.Evaluation;
-                                numb++;
+                        if (!_.isNull($scope.searchLocation)) {
+                            if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || _.isUndefined(breeder.profile.Location) || breeder.profile.Location.indexOf($scope.searchLocation) == -1) {
+                                return;
                             }
-                        })
+                        }
+                        if (!_.isNull($scope.searchBreed)) {
+                            if ((_.isUndefined(breeder.profile.breeds)) || _.values(breeder.profile.breeds).indexOf($scope.searchBreed) == -1) {
+                                return;
+                            }
+                        }
 
-                        breeder.rating = numb > 0 ? Math.ceil(total / numb) : 0;
+                        breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
+
+
+                        if (breeder.hasOwnProperty('feedbacks')) {
+                            var total = 0;
+                            var numb = 0;
+
+                            _.values(breeder.feedbacks).forEach((feedback)=> {
+                                if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
+                                    total += feedback.Evaluation;
+                                    numb++;
+                                }
+                            })
+
+                            breeder.rating = numb > 0 ? Math.ceil(total / numb) : 0;
+                        }
+
+                        $scope.breeders.push(breeder)
                     }
+                })
 
-                    $scope.breeders.push(breeder)
-                }
             })
             $scope.isDataLoading = false;
 

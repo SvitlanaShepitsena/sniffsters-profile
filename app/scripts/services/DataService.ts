@@ -275,7 +275,9 @@ class DataService {
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followingsUrl = this.urlBreeder + userName + "/followings";
+        var userType = amIBreeder ? this.urlBreeder : this.urlLooker;
+
+        var followingsUrl = userType + userName + "/followings";
         var followingsRef = this.$firebase(new Firebase(followingsUrl));
 
         var followingRef = followingsRef.$child(followerName);
@@ -297,27 +299,15 @@ class DataService {
     }
 
 
-    unFollowLookerUser(userName:string, followerName:string) {
+    unFollowUser(userName:string, followerName:string, amIBreeder:boolean) {
         userName = this.FireProcess(userName);
         followerName = this.FireProcess(followerName);
         var d = this.$q.defer();
 
-        var followingUrl = this.url + "lookers/" + userName + "/followings/" + followerName;
-        var followingRef = this.$firebase(new Firebase(followingUrl));
 
-        followingRef.$remove();
-        followingRef.$save();
+        var userType = amIBreeder ? this.urlBreeder : this.urlLooker;
 
-        d.resolve();
-        return d.promise;
-    }
-
-    unFollowUser(userName:string, followerName:string) {
-        userName = this.FireProcess(userName);
-        followerName = this.FireProcess(followerName);
-        var d = this.$q.defer();
-
-        var followingUrl = this.urlBreeder + userName + "/followings/" + followerName;
+        var followingUrl = userType + userName + "/followings";
         var followingRef = this.$firebase(new Firebase(followingUrl));
 
         followingRef.$remove();
