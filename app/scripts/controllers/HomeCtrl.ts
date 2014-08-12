@@ -286,6 +286,11 @@ class HomeCtrl {
     Breedership(email:string) {
         var d = this.$q.defer();
 
+        console.log(email);
+        if (email == 'no') {
+            d.resolve();
+        }
+
         var breederUrl = this.MainUrl + "breeders/" + email;
         var lookerUrl = this.MainUrl + "lookers/" + email;
 

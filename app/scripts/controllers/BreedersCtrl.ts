@@ -3,7 +3,7 @@
 class BreedersCtrl {
     breeders:IBreederProfile[];
 
-    constructor(public $scope, public $modal, $firebase, $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public $modal, $filter, $firebase, $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home.IsSearchHidden = false;
 
         $scope.modalContactSearch = {
@@ -35,49 +35,54 @@ class BreedersCtrl {
 
 
         this.$scope.home.auth.$getCurrentUser().then((user) => {
+            console.log('I am here');
             if (_.isNull(user)) {
+                console.log('I am here 2');
                 user = {email: 'no'};
             }
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
+                var url = $scope.home.MainUrl + 'breeders';
+                var breedersRef = $firebase(new Firebase(url));
 
-                var breeders = $firebase(new Firebase($scope.home.MainUrl + 'breeders'));
-                var breedersKeys = breeders.$getIndex();
-
-
-                breedersKeys.forEach((key)=> {
-                    var breeder = breeders[key];
-                    if (!_.isUndefined(breeder.profile) && !breeder.profile.isAdmin) {
-
-                        if (!_.isNull($scope.searchLocation)) {
-                            if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || _.isUndefined(breeder.profile.Location) || breeder.profile.Location.indexOf($scope.searchLocation) == -1) {
-                                return;
-                            }
-                        }
-                        if (!_.isNull($scope.searchBreed)) {
-                            if ((_.isUndefined(breeder.profile.breeds)) || _.values(breeder.profile.breeds).indexOf($scope.searchBreed) == -1) {
-                                return;
-                            }
-                        }
-
-                        breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
+                breedersRef.$on('value', (snapshot:any)=> {
 
 
-                        if (breeder.hasOwnProperty('feedbacks')) {
-                            var total = 0;
-                            var numb = 0;
+                    var breedersArr = $filter('orderByPriority')(snapshot.snapshot.value);
+                    breedersArr.forEach((breeder)=> {
 
-                            _.values(breeder.feedbacks).forEach((feedback)=> {
-                                if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
-                                    total += feedback.Evaluation;
-                                    numb++;
+                        if (!_.isUndefined(breeder.profile) && !breeder.profile.isAdmin) {
+
+                            if (!_.isNull($scope.searchLocation)) {
+                                if (_.isUndefined(breeder.profile) || _.isNull(breeder.profile.Location) || _.isUndefined(breeder.profile.Location) || breeder.profile.Location.indexOf($scope.searchLocation) == -1) {
+                                    return;
                                 }
-                            })
+                            }
+                            if (!_.isNull($scope.searchBreed)) {
+                                if ((_.isUndefined(breeder.profile.breeds)) || _.values(breeder.profile.breeds).indexOf($scope.searchBreed) == -1) {
+                                    return;
+                                }
+                            }
 
-                            breeder.rating = numb > 0 ? Math.ceil(total / numb) : 0;
+                            breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
+
+
+                            if (breeder.hasOwnProperty('feedbacks')) {
+                                var total = 0;
+                                var numb = 0;
+
+                                _.values(breeder.feedbacks).forEach((feedback)=> {
+                                    if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
+                                        total += feedback.Evaluation;
+                                        numb++;
+                                    }
+                                })
+
+                                breeder.rating = numb > 0 ? Math.ceil(total / numb) : 0;
+                            }
+
+                            $scope.breeders.push(breeder)
                         }
-
-                        $scope.breeders.push(breeder)
-                    }
+                    })
                 })
 
             })
