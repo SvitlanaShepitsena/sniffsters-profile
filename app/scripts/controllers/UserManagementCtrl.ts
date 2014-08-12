@@ -126,7 +126,7 @@ class UserManagementCtrl {
                             var breederRef = $firebase(new Firebase(breederUrl));
                             breederRef.$remove();
                             breederRef.$add(userSubscriptions).then(() => {
-                                toastr.success(settings.activeSubscriptionNotice)
+                                toastr.success('Subscription plan has been changed.')
                             });
 
                         }
