@@ -102,19 +102,14 @@ body {
   cursor: pointer;
 }
 
-.jumbotron {
-  p {
-    font-family: arial, sans-serif !important;
-    font-size: 14px;
-    color: @color-subhead;
-  }
-}
-
 .container .jumbo-custom {
   background-color: white !important;
   border: 1px #ebebeb solid !important;
   padding: 15px 5px 15px 15px;
   margin-top: 15px;
+  p {
+    font-size: 14px;
+  }
 }
 
 hr {
@@ -314,8 +309,7 @@ textarea {
 }
 
 .textMuted {
-  font-size: 12px;
-  color: @colorFontDimmedL;
+  color: @colorFontDimmedL !important;
 }
 
 .maxSymb {
@@ -465,7 +459,6 @@ textarea {
 .p-check-out {
   font-size: 16px;
   font-style: italic;
-  font-family: 'Georgia', 'Courier New', Courier, 'Nimbus Mono L', monospace !important;
 }
 
 .monthName {
@@ -596,11 +589,6 @@ textarea {
 
 .bold {
   font-weight: bold;
-}
-
-.textMuted {
-  font-size: .9em;
-  color: @colorFontDimmedL;
 }
 
 /**********************
@@ -767,3 +755,4 @@ input[type="checkbox"] + label span {
 input[type="checkbox"]:checked + label span {
   background: url(../imgdir/check_radio_sheet.png) -19px top no-repeat;
 }
+
