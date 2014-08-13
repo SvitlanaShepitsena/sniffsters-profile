@@ -92,6 +92,8 @@ class HomeCtrl {
         this.Followings = [];
         $scope.searchLocation = {};
         $scope.searchBreed = {};
+        $scope.username = {};
+        $scope.userExists = false;
 
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
@@ -147,6 +149,64 @@ class HomeCtrl {
 
             })
         }
+        $scope.register = (email:string, pass:string, confpass:string, isBreeder:boolean) => {
+
+
+            if (pass.length < 5) {
+                this.ShowError("Password should be not less than 5 symbols");
+                return;
+            }
+
+            if (pass !== confpass) {
+                this.ShowError("Passwords do not match");
+                return;
+            }
+            $scope.emailReg = email;
+            $scope.passwordReg = pass;
+            $scope.isNewBreederReg = isBreeder;
+
+            $scope.username.val = email.split('@')[0];
+
+            $scope.modal = $modal(
+                {
+                    scope: $scope,
+                    title: 'Choose your username',
+                    template: '../views/modals/choose-username.html',
+                    show: true
+                }
+            );
+
+        }
+
+
+        $scope.setUsername = (username) => {
+
+            FinduserService.find(username).then(()=> {
+                $scope.userExists = true;
+                this.ShowError(settings.userExists);
+            }, () => {
+
+                $scope.home.auth.$createUser($scope.emailReg, $scope.passwordReg).then(() => {
+
+                    if ($scope.isNewBreederReg) {
+                        var breederGenerator = new BreederGenerator();
+                        breederGenerator.create($scope.home.FireProcess($scope.emailReg), $scope.home.MainUrl, this.$firebase, username);
+                    } else {
+                        var lookerGenerator = new LookerGenerator();
+                        lookerGenerator.create($scope.home.FireProcess($scope.emailReg), $scope.home.MainUrl, this.$firebase, username);
+                    }
+
+
+                    $scope.home.Signin($scope.emailReg, $scope.passwordReg)
+                }, (error)=> {
+                    this.ShowError(error);
+                })
+
+
+                $scope.modal.hide();
+            });
+        }
+
 
         $scope.fetchDog = ()=> {
             if (!_.isUndefined($scope.searchLocation.val) && $scope.searchLocation.val.length > 2) {
@@ -308,7 +368,6 @@ class HomeCtrl {
                     });
 //                    console.log(this.Followings);
                 }
-
 
 
                 this.nickName = breeder.profile.UserName;
