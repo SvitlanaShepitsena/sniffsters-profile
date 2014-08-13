@@ -34,7 +34,6 @@ var BreedersCtrl = (function () {
         $scope.isDataLoading = true;
 
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
-            console.log('I am here');
             if (_.isNull(user)) {
                 console.log('I am here 2');
                 user = { email: 'no' };

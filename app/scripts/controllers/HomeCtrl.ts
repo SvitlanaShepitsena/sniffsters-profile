@@ -167,8 +167,9 @@ class HomeCtrl {
             $scope.isNewBreederReg = isBreeder;
 
             $scope.username.val = email.split('@')[0];
+            $scope.modalRegister.hide();
 
-            $scope.modal = $modal(
+            $scope.modalUser = $modal(
                 {
                     scope: $scope,
                     title: 'Choose your username',
@@ -178,7 +179,24 @@ class HomeCtrl {
             );
 
         }
-
+        $scope.loginMd = ()=> {
+            $scope.modalLogin = $modal(
+                {
+                    scope: $scope,
+                    template: '../views/modals/login.html',
+                    show: true
+                }
+            );
+        }
+        $scope.registerMd = ()=> {
+            $scope.modalRegister = $modal(
+                {
+                    scope: $scope,
+                    template: '../views/modals/register.html',
+                    show: true
+                }
+            );
+        }
 
         $scope.setUsername = (username) => {
 
@@ -196,7 +214,7 @@ class HomeCtrl {
                         var lookerGenerator = new LookerGenerator();
                         lookerGenerator.create($scope.home.FireProcess($scope.emailReg), $scope.home.MainUrl, this.$firebase, username);
                     }
-
+                    $scope.modalRegister.hide();
 
                     $scope.home.Signin($scope.emailReg, $scope.passwordReg)
                 }, (error)=> {
@@ -204,7 +222,7 @@ class HomeCtrl {
                 })
 
 
-                $scope.modal.hide();
+                $scope.modalUser.hide();
             });
         }
 
@@ -323,8 +341,9 @@ class HomeCtrl {
             password: pass
 
         }).then((user)=> {
-            var modalObj = this.$modal;
-            var lmodal = this.$scope.loginModal;
+            if (!_.isUndefined(this.$scope.modalLogin)) {
+                this.$scope.modalLogin.hide();
+            }
 
             this.Breedership(this.FireProcess(user.email)).then(() => {
                 this.userName = user.email;
