@@ -10,8 +10,8 @@ class DogsCtrl {
     constructor(public $scope:IDogsScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.dogs = this;
         $scope.home.IsSearchHidden = false;
+        $scope.home.IsHome = false;
     }
-
 
     ShowSuccess(note:string) {
 
@@ -21,5 +21,4 @@ class DogsCtrl {
     ShowError(note:string) {
         this.toastr.error(note);
     }
-
 }

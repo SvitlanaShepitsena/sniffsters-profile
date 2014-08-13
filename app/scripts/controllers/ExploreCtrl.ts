@@ -10,6 +10,7 @@ class ExploreCtrl {
     constructor(public $scope:IExploreScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.explore = this;
         $scope.home.IsSearchHidden = false;
+        $scope.home.IsHome = false;
     }
 
 

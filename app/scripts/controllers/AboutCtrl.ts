@@ -9,8 +9,8 @@ class AboutCtrl {
 
     constructor(public $scope, public FinduserService, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home.IsSearchHidden = false;
+        $scope.home.IsHome = false;
         $scope.about = this;
-
     }
 
     ShowSuccess(note:string) {

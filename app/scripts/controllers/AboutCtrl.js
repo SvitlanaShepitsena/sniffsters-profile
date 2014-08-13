@@ -7,6 +7,7 @@ var AboutCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.home.IsSearchHidden = false;
+        $scope.home.IsHome = false;
         $scope.about = this;
     }
     AboutCtrl.prototype.ShowSuccess = function (note) {

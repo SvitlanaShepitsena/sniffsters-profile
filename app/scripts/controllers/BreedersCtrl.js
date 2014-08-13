@@ -8,6 +8,7 @@ var BreedersCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.home.IsSearchHidden = false;
+        $scope.home.IsHome = false;
 
         $scope.modalContactSearch = {
             "title": "New Message",
@@ -23,10 +24,7 @@ var BreedersCtrl = (function () {
                 val: '-rating'
             }
         ];
-
-        //                        console.log(breeder.profile.Location);
         $scope.sortFeature = {};
-
         $scope.breedersCtrl = this;
 
         $scope.searchLocation = ($stateParams.location == null || $stateParams.location == "") ? null : $stateParams.location;
@@ -65,17 +63,14 @@ var BreedersCtrl = (function () {
                             if (breeder.hasOwnProperty('feedbacks')) {
                                 var total = 0;
                                 var numb = 0;
-
                                 _.values(breeder.feedbacks).forEach(function (feedback) {
                                     if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
                                         total += feedback.Evaluation;
                                         numb++;
                                     }
                                 });
-
                                 breeder.rating = numb > 0 ? Math.ceil(total / numb) : 0;
                             }
-
                             $scope.breeders.push(breeder);
                         }
                     });

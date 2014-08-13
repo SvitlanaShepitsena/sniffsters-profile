@@ -5,6 +5,7 @@ class BreedersCtrl {
 
     constructor(public $scope, public $modal, $filter, $firebase, $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.home.IsSearchHidden = false;
+        $scope.home.IsHome = false;
 
         $scope.modalContactSearch = {
             "title": "New Message",
@@ -14,17 +15,14 @@ class BreedersCtrl {
             {
                 name: 'Recent Litters',
                 val: '-LittersNumber'
-            }
-            ,
+            },
 
             {
                 name: 'Rating',
                 val: '-rating'
             }
         ]
-//                        console.log(breeder.profile.Location);
         $scope.sortFeature = {};
-
         $scope.breedersCtrl = this;
 
         $scope.searchLocation = ($stateParams.location == null || $stateParams.location == "") ? null : $stateParams.location;
@@ -65,29 +63,23 @@ class BreedersCtrl {
 
                             breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
 
-
                             if (breeder.hasOwnProperty('feedbacks')) {
                                 var total = 0;
                                 var numb = 0;
-
                                 _.values(breeder.feedbacks).forEach((feedback)=> {
                                     if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
                                         total += feedback.Evaluation;
                                         numb++;
                                     }
                                 })
-
                                 breeder.rating = numb > 0 ? Math.ceil(total / numb) : 0;
                             }
-
                             $scope.breeders.push(breeder)
                         }
                     })
                 })
-
             })
             $scope.isDataLoading = false;
-
         })
     }
 

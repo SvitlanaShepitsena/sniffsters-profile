@@ -7,6 +7,7 @@ var TermsCtrl = (function () {
         this.DataService = DataService;
         $scope.terms = this;
         $scope.home.IsSearchHidden = false;
+        $scope.home.IsHome = false;
     }
     TermsCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);

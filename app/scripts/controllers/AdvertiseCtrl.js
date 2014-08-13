@@ -7,6 +7,7 @@ var AdvertiseCtrl = (function () {
         this.DataService = DataService;
         $scope.advertise = this;
         $scope.home.IsSearchHidden = false;
+        $scope.home.IsHome = false;
     }
     AdvertiseCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
