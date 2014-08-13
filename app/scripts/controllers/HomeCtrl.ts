@@ -95,6 +95,7 @@ class HomeCtrl {
         $scope.username = {};
         $scope.userExists = false;
 
+
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
                 this.url2 = toState.name;
@@ -322,6 +323,9 @@ class HomeCtrl {
             password: pass
 
         }).then((user)=> {
+            var modalObj = this.$modal;
+            var lmodal = this.$scope.loginModal;
+
             this.Breedership(this.FireProcess(user.email)).then(() => {
                 this.userName = user.email;
                 this.isLoggedIn = true;
@@ -346,7 +350,6 @@ class HomeCtrl {
     Breedership(email:string) {
         var d = this.$q.defer();
 
-        console.log(email);
         if (email == 'no') {
             d.resolve();
         }

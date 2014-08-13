@@ -1,13 +1,8 @@
-/// <reference path="IndexCtrl.ts" />
+/// <reference path="HomeCtrl.ts" />
 
-interface IExploreScope extends IMainScope {
-    explore:ExploreCtrl;
-    ctrl:IndexCtrl;
-    home:HomeCtrl;
-}
 class ExploreCtrl {
 
-    constructor(public $scope:IExploreScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.explore = this;
         $scope.home.IsSearchHidden = false;
         $scope.home.IsHome = false;
