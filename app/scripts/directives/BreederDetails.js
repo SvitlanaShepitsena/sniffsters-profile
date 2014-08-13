@@ -13,7 +13,6 @@ var breederDetails = function () {
             scope.b.profile = {};
             scope.b.profile.UserName = scope.index.BreederName;
 
-            //            console.log(scope.index.BreederName);
             scope.Edit = function () {
                 scope.index.Clone();
                 scope.IsEdit = true;
