@@ -50,7 +50,7 @@
 			</button>
 			<div class="logo-wrapper">
 				<a ui-sref="home">
-				<img src="img/Logo_web.png" alt="Sniffsters Logo">
+					<img src="img/Logo_web.png" alt="Sniffsters Logo">
 				</a>
 			</div>
 		</div>
@@ -93,7 +93,7 @@
 			</ul>
 
 		</div>
-</div>
+	</div>
 </div>
 <div class="container">
 	<div class="row">
@@ -113,13 +113,13 @@
 				        ng-model="searchBreed.val"
 				        placeholder="Breeds"
 				        ng-options="breed for breed in breeds">
-				<option value="">Breeds</option>
+					<option value="">Breeds</option>
 				</select>
 
 				<select class="form-control search-dropdown"
 				        ng-model="searchLocation.val"
 				        ng-options="state.abbreviation as state.name for state in states">
-				<option value="">Locations</option>
+					<option value="">Locations</option>
 				</select>
 
 				<button ng-click="fetchDog()"
@@ -146,7 +146,9 @@
 	<div class="container footer-container ">
 		<div class="footer-content" ng-class="{'footer-background':!home.IsHome}">
 			<div class="footer-text-container">
-				<span class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</span>
+				<ul class="list-inline">
+					<li class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</li>
+				</ul>
 				<ul class="nav nav-pills navbar-right nav-footer">
 					<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
 					<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
