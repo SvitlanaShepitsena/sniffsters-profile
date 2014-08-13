@@ -1,15 +1,11 @@
 /// <reference path="IndexCtrl.ts" />
 
-interface ILookingForDogScope extends IMainScope {
-    lookingForDog:LookingForDogCtrl;
-    ctrl:IndexCtrl;
-}
 class LookingForDogCtrl {
 
-    constructor(public $scope:ILookingForDogScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.lookingForDog = this;
+        $scope.home.IsSearchHidden = true;
     }
-
 
     ShowSuccess(note:string) {
         this.toastr.info(note);

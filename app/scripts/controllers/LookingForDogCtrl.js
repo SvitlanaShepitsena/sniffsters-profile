@@ -6,6 +6,7 @@ var LookingForDogCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         $scope.lookingForDog = this;
+        $scope.home.IsSearchHidden = true;
     }
     LookingForDogCtrl.prototype.ShowSuccess = function (note) {
         this.toastr.info(note);
