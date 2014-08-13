@@ -42,15 +42,15 @@
 <!-----{{home.auth.user}}---->
 <div class="navbar navbar-default navbar-sniff">
 	<div class="container navbar-sniff-content">
-		<div class="navbar-header">
+		<!--<div class="navbar-header">-->
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
 			<div class="logo-wrapper">
-				<a ui-sref="generate">
-					<img src="img/Logo_web.png" alt="Sniffsters Logo">
+				<a ui-sref="home">
+				<img src="img/Logo_web.png" alt="Sniffsters Logo">
 				</a>
 			</div>
 		</div>
@@ -109,17 +109,19 @@
 				<label class="quick-search">
 					QUICK SEARCH
 				</label>
-				<input class="form-control input-search"
+				<select class="form-control search-dropdown"
 				       ng-model="searchBreed.val"
-				       placeholder="Start typing breed"
-				       ng-options="breed for breed in breeds"
-				       bs-typeahead type="text">
+				       placeholder="Breeds"
+				       ng-options="breed for breed in breeds">
+					<option value="">Breeds</option>
+				</select>
 
-				<input class="form-control input-search"
+				<select class="form-control search-dropdown"
 				       ng-model="searchLocation.val"
-				       placeholder="Location"
-				       ng-options="state.abbreviation as state.name for state in states"
-				       bs-typeahead type="text">
+				       ng-options="state.abbreviation as state.name for state in states">
+					<option value="">Locations</option>
+				</select>
+
 				<button ng-click="fetchDog()"
 				        class="btn btn-primary btn-fetch">
 					<i class="fa fa-search"></i>

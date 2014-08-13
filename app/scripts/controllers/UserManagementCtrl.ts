@@ -50,7 +50,8 @@ class UserManagementCtrl {
 
                 var breederRef = $firebase(new Firebase(breederUrl));
                 breederRef.$remove();
-                toastr.success(settings.activeSubscriptionNotice)
+                toastr.success('Subscription plan has been changed.')
+
             } else {
                 $scope.startNewPlan(userName, plan);
             }
