@@ -30,9 +30,10 @@
 	        bs-select>
 		Sort By
 	</button>
+	{{sortFeature.val}}
 	<div class="searchBreederDescription">
 		<ul class="list-unstyled" ng-cloak>
-			<li ng-repeat="b in breeders|orderBy:sortFeature.val" class="shuffle-animation">
+			<li class="shuffle-animation" ng-repeat="b in breeders|orderBy:sortFeature.val">
 				<hr/>
 				<div class="row">
 				<div class="col-md-3">
@@ -120,7 +121,8 @@
 					</ul>
 
 				</div>
-
+				r:{{b.rating}}<br/>
+				ln:{{b.LittersNumber}}
 			</li>
 		</ul>
 	</div>

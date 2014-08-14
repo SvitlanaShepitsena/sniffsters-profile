@@ -1,85 +1,120 @@
-﻿/**********************
+/**********************
         SHUFFLE
 ***********************/
 .shuffle-animation.ng-enter,
 .shuffle-animation.ng-leave {
-    position: relative;
+  position: relative;
 }
-
+.shuffle-animation.ng-move,
 .shuffle-animation.ng-enter {
-    -moz-transition: ease-out all 0.3s 0.4s;
-    -o-transition: ease-out all 0.3s 0.4s;
-    -webkit-transition: ease-out all 0.3s 0.4s;
-    transition: ease-out all 0.3s 0.4s;
-    left: 2em;
-    opacity: 0;
+  -moz-transition: ease-out all 0.3s 0.4s;
+  -o-transition: ease-out all 0.3s 0.4s;
+  -webkit-transition: ease-out all 0.3s 0.4s;
+  transition: ease-out all 0.3s 0.4s;
+  left: 2em;
+  opacity: 0;
 }
-
+.shuffle-animation.ng-move.ng-move-active,
 .shuffle-animation.ng-enter.ng-enter-active {
-    left: 0;
-    opacity: 1;
+  left: 0;
+  opacity: 1;
 }
-
 .shuffle-animation.ng-enter-stagger {
-    -webkit-transition-delay: 0.2s;
-    transition-delay: 0.2s;
-    -webkit-transition-duration: 0s;
-    transition-duration: 0s;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
 }
-
 .shuffle-animation.ng-leave-stagger {
-    -webkit-transition-delay: 0.2s;
-    transition-delay: 0.2s;
-    -webkit-transition-duration: 0s;
-    transition-duration: 0s;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
 }
-
 .shuffle-animation.ng-leave {
-    -moz-transition: 0.3s ease-out all;
-    -o-transition: 0.3s ease-out all;
-    -webkit-transition: 0.3s ease-out all;
-    transition: 0.3s ease-out all;
-    left: 0;
-    opacity: 1;
+  -moz-transition: 0.3s ease-out all;
+  -o-transition: 0.3s ease-out all;
+  -webkit-transition: 0.3s ease-out all;
+  transition: 0.3s ease-out all;
+  left: 0;
+  opacity: 1;
 }
-
 .shuffle-animation.ng-leave.ng-leave-active {
-    left: 2em;
-    opacity: 0;
+  left: 2em;
+  opacity: 0;
 }
-
 /*#endregion*/
 .cont {
-    position: relative;
-    min-height: 1000px;
-    overflow: hidden;
+  position: relative;
+  min-height: 1000px;
+  overflow: hidden;
 }
-
 .well-photos {
-    background: #efefef;
-    padding: 5px;
-    margin: 5px;
+  background: #efefef;
+  padding: 5px;
+  margin: 5px;
 }
-
 .sp {
-    left: 40%;
-    top: 100px;
-    position: relative;
-    color: #5bc0de;
-    font-size: 2em;
+  left: 40%;
+  top: 100px;
+  position: relative;
+  color: #5bc0de;
+  font-size: 2em;
 }
-
 .show-hide {
-    padding: 10px;
-    border: 1px solid black;
-    background: white;
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
 }
-
 .show-hide {
-    -webkit-transition: all linear 0.5s;
-    transition: all linear 0.5s;
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
 }
-
 .show-hide.ng-hide {
-    opacity: 0;
+  opacity: 0;
+}
+.animate-enter,
+.animate-leave {
+  -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -moz-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -ms-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -o-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  position: relative;
+  display: block;
+}
+.animate-enter.animate-enter-active,
+.animate-leave {
+  opacity: 1;
+  top: 0;
+  height: 30px;
+}
+.animate-leave.animate-leave-active,
+.animate-enter {
+  opacity: 0;
+  top: -50px;
+  height: 0px;
+}
+.animate-repeat {
+  line-height: 20px;
+  list-style: none;
+  box-sizing: border-box;
+}
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity: 0;
+  max-height: 0;
+}
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity: 1;
+  max-height: 20px;
 }
