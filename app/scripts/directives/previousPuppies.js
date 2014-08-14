@@ -13,19 +13,18 @@ var previousPuppies = function () {
         controller: function ($scope, $stateParams, $firebase, $filter) {
             var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
             $scope.galleries = $firebase(new Firebase(galleriesUrl));
-            $scope.index = 0;
+            $scope.indexPrev = 0;
 
             $scope.next = function () {
-                $scope.index++;
-
-                if ($scope.index >= $scope.expuppies.length) {
-                    $scope.index = 0;
+                $scope.indexPrev++;
+                if ($scope.indexPrev >= $scope.expuppies.length) {
+                    $scope.indexPrev = 0;
                 }
             };
             $scope.prev = function () {
-                $scope.index--;
-                if ($scope.index < 0) {
-                    $scope.index = $scope.expuppies.length - 1;
+                $scope.indexPrev--;
+                if ($scope.indexPrev < 0) {
+                    $scope.indexPrev = $scope.expuppies.length - 1;
                 }
             };
             $scope.selectPrevPictures = function (galleries) {
