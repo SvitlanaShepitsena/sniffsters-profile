@@ -25,6 +25,7 @@
 			<span ng-show="form.kennel.$error.maxlength"
 			      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 		<input type="text" id="kennel" name="kennel" class="form-control"
+		       placeholder="What is your Kennel Name?"
 		       ng-model="ctrl.BreederProfileEdit.KennelName"
 		       ng-maxlength="250"
 		       required/>
@@ -39,6 +40,7 @@
 					<span ng-show="form.website.$error.maxlength"
 					      class="text text-danger pull-right  maxsymb">Max 250 symbols!</span>
 				<input type="text" id="website" name="website" class="form-control"
+				       placeholder="Your website?"
 				       ng-model="ctrl.BreederProfileEdit.Website"
 				       ng-maxlength="250"/>
 			</div>
@@ -46,6 +48,7 @@
 
 			<div class="col-xs-6">
 				<input type="checkbox" id="displayEmail1" name="displayEmail"
+				       placeholder="Your Email?"
 				       ng-model="ctrl.BreederProfileEdit.IsShowEmail"/> Yes
 			</div>
 		</div>
@@ -55,6 +58,7 @@
 		<label for="email" class="sniff-subhead control-label">Email:</label>
 		<span class="textMuted">Required</span>
 		<input type="text" id="email" name="email" class="form-control"
+		       placeholder="What is your phone number?"
 		       ng-model="ctrl.BreederProfileEdit.Email"
 		       disabled/>
 
@@ -67,6 +71,7 @@
 			<label for="phone" class="sniff-subhead control-label">Phone:</label>
 			<span class="textMuted">Required</span>
 			<input type="text" id="phone" name="phone" class="form-control"
+			       placeholder="What is your phone number?"
 			       ng-model="ctrl.BreederProfileEdit.Phone"
 			       required/>
 
@@ -79,6 +84,7 @@
 
 			<div class="col-xs-6">
 				<input type="checkbox" id="displayPhone1" name="displayPhone"
+				       placeholder="Your zip?"
 				       ng-model="ctrl.BreederProfileEdit.IsShowPhoneNumber"> Yes
 			</div>
 		</div>
@@ -107,6 +113,7 @@
 			<label for="city" class="sniff-subhead control-label">City:</label>
 			<span class="textMuted">Required</span>
 			<input type="text" id="city" name="city" class="form-control"
+			       placeholder="Your city"
 			       ng-model="ctrl.BreederProfileEdit.City"
 			       required/>
 			<span ng-show="form.city.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
@@ -117,6 +124,7 @@
 			<label for="zip" class="sniff-subhead control-label">ZIP:</label>
 			<span class="textMuted">Required</span>
 			<input type="text" id="zip" name="zip" class="form-control"
+			       placeholder="Your zip"
 			       ng-model="ctrl.BreederProfileEdit.Zip"
 			       required/>
 			<span ng-show="form.zip.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
@@ -130,7 +138,7 @@
 			<span class="textMuted">Required</span>
 			<input name="state" id="state" class="form-control"
 			       ng-model="ctrl.BreederProfileEdit.State"
-			       placeholder="state"
+			       placeholder="Your state"
 			       ng-options="state.abbreviation as state.name for state in states"
 			       data-animation="am-flip-x"
 			       bs-typeahead type="text">
