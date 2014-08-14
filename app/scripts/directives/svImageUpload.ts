@@ -18,6 +18,7 @@ var svImageUpload:() => ng.IDirective = () => {
             height: '=',
             isMult: '=',
             isDragShown: '=',
+            isDragHidden: '=',
             mainRef: '=',
             btnTitle: '@',
             okModal: '&',
@@ -30,7 +31,7 @@ var svImageUpload:() => ng.IDirective = () => {
                 $scope.files = [];
 
             }
-            $scope.show64();
+
 
             $scope.onFileSelect = ($files, index?:number) => {
 

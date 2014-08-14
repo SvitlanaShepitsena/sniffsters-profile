@@ -156,9 +156,11 @@ class Gallery implements IGallery {
     Title:string;
     isTemp:boolean;
     Photos:any[];
+    isPrevPuppy:boolean;
 
     constructor() {
         this.Photos = [];
+        this.isTemp = true;
     }
 
 }

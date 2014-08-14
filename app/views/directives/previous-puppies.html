@@ -10,8 +10,26 @@
 			</a>
 		</div>
 
-		<p>
-			<button class="btn btn-primary" ng-show="home.isOwner" ui-sref="user.profile.photos2">Add Photos</button>
-		</p>
+		<div sv-slider h="700">
+
+			<div ng-show="g.Photos.length">
+				<button class="btn btn-link pull-right" ng-click="savePrevPuppies()">Save Gallery</button>
+				<input type="text" ng-model="g.Title" class="form-control gal-title">
+			</div>
+
+			<sv-image-upload
+					files="g.Photos"
+					is-mult="true"
+					is-drag-hidden="true"
+					file-size="3000000"
+					btn-title="{{btnTitle}}">
+			</sv-image-upload>
+
+			<a class="btn btn-link pull-right"
+			   ui-sref="user.profile.upgrade"
+			   ng-show="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries)">
+				Upgrade subscription
+			</a>
+		</div>
 	</div>
 </div>

@@ -1,6 +1,7 @@
 <div class="img-upload-container">
-	<div class="well" ng-hide="!isMult && isFileChosen">
-		<div class="panel panel-default drag-file text-center" ng-file-drop="onFileSelect($files)">
+	<div ng-class="{well:!isDragHidden}" ng-hide="!isMult && isFileChosen">
+		<div ng-hide="isDragHidden" class="panel panel-default drag-file text-center"
+		     ng-file-drop="onFileSelect($files)">
 			<h6 class="textMuted">Photo 3MB max JPG, PNG, GIF </h6>
 
 			<div class="drag-file-content">
