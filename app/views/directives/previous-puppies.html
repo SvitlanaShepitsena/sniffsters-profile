@@ -6,8 +6,11 @@
 
 		<div class="thumbnail">
 			<a href="#">
-				<img src="../img/avatar-lg.png" alt="Image Avatar">
+				<img ng-src="{{expuppies[index].file64 || '../img/avatar-lg.png'}}" alt="Image Avatar">
 			</a>
+			<button ng-click="prev()">Prev</button>
+			&nbsp;
+			<button ng-click="next()">Next</button>
 		</div>
 
 		<div sv-slider h="700">

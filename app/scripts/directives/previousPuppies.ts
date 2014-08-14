@@ -17,25 +17,49 @@ var previousPuppies:() => ng.IDirective = () => {
         controller: ($scope, $stateParams, $firebase, $filter)=> {
             var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
             $scope.galleries = $firebase(new Firebase(galleriesUrl));
+            $scope.index = 0;
 
+            $scope.next = () => {
+                $scope.index++;
 
-            $scope.selectRandomPicture = (galleries) => {
+                if ($scope.index >= $scope.expuppies.length) {
+                    $scope.index = 0;
+                }
+
+            }
+            $scope.prev = () => {
+                $scope.index--;
+                if ($scope.index < 0) {
+                    $scope.index = $scope.expuppies.length - 1;
+                }
+            }
+            $scope.selectPrevPictures = (galleries) => {
                 var photosArr = [];
+                galleries.$on('value', (snapshot:any)=> {
+                    var galleries = snapshot.snapshot.value;
+                    var galleriesArr = _.values($filter('orderByPriority')(galleries));
 
-                var galleriesArr = ($filter('orderByPriority')(galleries));
-                console.log(galleriesArr);
-                galleriesArr.forEach((gallery:any)=> {
-                    gallery.Photos.forEach((photo)=> {
-                        photosArr.push(photo);
-                    })
+                    galleriesArr.forEach((gallery:any)=> {
+                        if (!gallery.isPrevPuppy) {
+                            return;
+                        }
+                        _.values(gallery.Photos).forEach((photo)=> {
+                            if (photosArr.indexOf(photo) == -1) {
 
-                })
+                                photosArr.push(photo);
+                            }
+                        })
 
-                console.log(photosArr.length)
+                    });
+                    $scope.expuppies = _.shuffle(photosArr = (_.uniq(photosArr, (photo)=> {
+                        return photo.caption;
+                    })));
+                });
+
             }
 
 
-            $scope.selectRandomPicture($scope.galleries);
+            $scope.selectPrevPictures($scope.galleries);
 
             $scope.g = new Gallery();
             $scope.g.isPrevPuppy = true;
