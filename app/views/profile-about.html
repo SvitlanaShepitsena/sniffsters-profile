@@ -1,4 +1,6 @@
-<about-info ui-view ctrl="index"></about-info>
-
+<about-info ng-hide="index.spinner" ui-view ctrl="index"></about-info>
+<div>
+	<sv-spinner radius="45" ng-show="index.spinner"></sv-spinner>
+</div>
 
 

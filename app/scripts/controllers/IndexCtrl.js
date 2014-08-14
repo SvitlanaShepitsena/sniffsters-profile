@@ -45,6 +45,8 @@ var IndexCtrl = (function () {
             if (_.isUndefined(user.email))
                 user.email = user.id;
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
+                _this.spinner = false;
+
                 if (requestEmail == "public") {
                     requestEmail = $scope.home.userName;
                 }

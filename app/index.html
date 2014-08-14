@@ -12,6 +12,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title></title>
 	<meta name="description" content="">
+
+	<script src="js/spin.min.js"></script>
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<!-- build:css({.tmp,app}) styles/main.css -->
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -145,12 +147,9 @@
 </div>
 
 <div class="container body-content">
-	<div class="main-content-wrapper">
-		<div ui-view>
+	<div class="main-content-wrapper" ng-cloak>
+	<div ui-view>
 		</div>
-		<!--<div ng-show="index.error" class="panel panel-default">Error in Database request. Check-->
-		<!--Internet Connection-->
-		<!--</div>-->
 	</div>
 </div>
 
@@ -298,6 +297,7 @@
 <script src="scripts/services/PlankeeperService.js"></script>
 <script src="scripts/controllers/PaymentSuccessAnnuallyCtrl.js"></script>
 <script src="scripts/controllers/PaymentCancelAnnuallyCtrl.js"></script>
+<script src="scripts/directives/svSpinner.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>

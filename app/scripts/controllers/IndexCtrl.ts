@@ -64,6 +64,7 @@ class IndexCtrl {
 
             if (_.isUndefined(user.email))user.email = user.id;
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
+                this.spinner = false;
 
                 if (requestEmail == "public") {
                     requestEmail = $scope.home.userName;
