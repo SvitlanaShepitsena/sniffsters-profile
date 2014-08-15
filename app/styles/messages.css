@@ -1681,13 +1681,25 @@
 .aside-messages {
     padding-right: 0px;
     padding-left: 0px !important;
+    font-size:;
 }
 
-.aside-messages fon .nav-pills > li.active > a,
+.aside-messages .nav-pills > li > a {
+    background-color: #e8e8e8;
+    font-style: italic;
+    border-radius: 0px;
+    padding: 10px 3px !important;
+}
+
+.aside-messages .nav-pills > li.active > a,
 .aside-messages .nav-pills > li.active > a:hover,
 .aside-messages .nav-pills > li.active > a:focus {
-    background-color: #e8e8e8;
-    color: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    border-radius: 0px;
+    padding: 10px 3px !important;
+    background-color: white;
+    color: #217ac8;
+    font-weight: 700;
+    font-style: italic;
 }
 
 .messages-wrapper {

@@ -3,7 +3,7 @@
 	<h3 class="popover-title text-center" ng-bind="title" ng-show="title"></h3>
 
 	<div class="row popover-row popover-content">
-		<div class="col-xs-6" ng-show="key">
+		<div class="col-xs-6" ng-show="!f.$id">
 		<button class="btn btn-danger btn-sm" ng-click="remove(key)">Remove</button>
 		</div>
 		<div class="col-xs-6" ng-show="f.$id">
