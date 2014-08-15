@@ -18,7 +18,7 @@
 			<th>Plan</th>
 			<th>End Date</th>
 			<th>Restrictions</th>
-			<th>Change</th>
+			<th>Change Subscription</th>
 		</tr>
 		<tr>
 			<td>{{home.subscription.name}}</td>
@@ -31,13 +31,16 @@
 				</ul>
 			</td>
 			<td class="text-center">
-				<button class="btn btn-danger"
+				<button class="btn btn-danger btn-sniff-md"
 				        data-toggle="tooltip" data-placement="left" title="Deactivate subscription plan"
 				        data-content="{{popover.content}}"
 				        data-template="../views/modals/cancel-subscription.html"
 				        data-animation="am-flip-x"
 				        bs-popover="popoverCancelSubscription">
-					Cancel Subscription
+					Cancel
+				</button>
+				<button class="btn btn-success btn-sniff-md"
+				        ui-sref="user.profile.upgrade">Upgrade
 				</button>
 			</td>
 		</tr>
@@ -47,13 +50,11 @@
 
 	<ul class="list-unstyled">
 		<li ng-show="!home.subscription || home.subscription.name!='Annually'">
-			<a ui-sref="user.profile.upgrade" class="btn btn-info">Upgrade Subscription</a>
+			<a class="btn btn-link"
+			   ui-sref="user.profile.upgrade">Upgrade Subscription</a>
 		</li>
 		<li>
-			&nbsp;
-		</li>
-		<li>
-			<button class="btn btn-danger"
+			<button class="btn btn-link"
 			        data-toggle="tooltip" data-placement="left" title="Remove Sniffsters Account?"
 			        data-content="{{popover.content}}"
 			        data-template="../views/modals/delete-confirmation.html"

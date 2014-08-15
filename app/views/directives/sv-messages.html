@@ -66,8 +66,10 @@
 					</textarea>
 				</div>
 				<div class="pull-right btn-send-container form-group">
-					<button class="btn btn-danger" ng-click="messages.Delete()">Delete Conversation</button>
-					<button class="btn btn-primary btn-send"
+					<button class="btn btn-danger btn-sniff-md"
+					        ng-click="messages.Delete()">Delete Conversation
+					</button>
+					<button class="btn btn-primary btn-send btn-sniff-md"
 					        ng-disabled="form.message.$pristine || form.message.$invalid"
 					        ng-click="messages.SendNewMessage(messages.selectedUser.nickName, reply.body,false);reply.body=''">
 						Send
