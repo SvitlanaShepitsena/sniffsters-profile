@@ -1,87 +1,87 @@
-<div class="modal" tabindex="-1" role="dialog" ng-show="!home.auth.user">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" ng-click="$hide()">&times;</button>
-				<h4 class="text-center modal-title sniff-head-info">Please Register for a Sniffsters Account</h4>
+<div class=" popover popover-register" ng-show="!home.auth.user">
+
+	<div class="arrow popover-arrow-register"></div>
+	<div class="popover-dialog">
+		<div class="popover-content">
+			<div>
+			<button type="button" class="close" ng-click="$hide()">&times;</button>
 			</div>
-			<div class="modal-body">
+			<div class="popover-body">
 				<div class="row">
 					<div class="col-xs-12">
-						<div class="well">
-							<hr/>
-							<form role="form" name="form" id="form" novalidate>
-								<div class="form-group has-feedback"
-								     ng-class="{'has-error':form.email.$dirty && form.email.$invalid}">
-									<label for="email">Email address</label>
-									<input type="email"
-									       class="form-control"
-									       id="email"
-									       name="email"
-									       placeholder="Enter email"
-									       ng-model="email"
-									       required>
-								</div>
-								<div class="form-group has-feedback"
-								     ng-class="{'has-error':(form.pass.$dirty && form.pass.$invalid)}">
-									<label for="pass">Password</label>
-									<span class="textMuted">More then 6 symbols</span>
-									<input type="password"
-									       class="form-control"
-									       id="pass"
-									       name="pass"
-									       ng-minlength="6"
-									       placeholder="Password"
-									       ng-model="pass"
-									       ng-required>
-								</div>
-								<div class="form-group has-feedback"
-								     ng-class="{'has-error':(form.confpass.$dirty && form.confpass.$invalid)}">
-									<label for="confpass">Confirm Password</label>
-									<input type="password"
-									       class="form-control"
-									       sv-pw-check="pass"
-									       ng-minlength="6"
-									       id="confpass"
-									       name="confpass"
-									       placeholder="Password"
-									       ng-model="confpass"
-									       required>
-								</div>
 
-								<div class="form-group">
-									<input id="breeder" ng-required="" type="radio" ng-model="isRegisteredBreeder"
-									       ng-value=true> Looking for a
-									home for my dogs <br/>
-									<input id="looker" ng-required="" type="radio" ng-model="isRegisteredBreeder"
-									       ng-checked="1" ng-value=false>
-									Looking for a dog <br/>
-								</div>
+						<form role="form" name="form" id="form" novalidate>
+							<div class="form-group has-feedback"
+							     ng-class="{'has-error':(form.email.$dirty && form.email.$invalid) || userExists}">
+								<label for="email">Email address</label>
+								<input type="email"
+								       class="form-control"
+								       id="email"
+								       name="email"
+								       placeholder="Enter email"
+								       ng-model="email"
+								       required>
+							</div>
+							<div class="form-group has-feedback"
+							     ng-class="{'has-error':(form.pass.$dirty && form.pass.$invalid)}">
+								<label for="pass">Password</label>
+								<span class="textMuted">More then 6 symbols</span>
+								<input type="password"
+								       class="form-control"
+								       id="pass"
+								       name="pass"
+								       ng-minlength="6"
+								       placeholder="Password"
+								       ng-model="pass"
+								       ng-required>
+							</div>
+							<div class="form-group has-feedback"
+							     ng-class="{'has-error':(form.confpass.$dirty && form.confpass.$invalid)}">
+								<label for="confpass">Confirm Password</label>
+								<input type="password"
+								       class="form-control"
+								       sv-pw-check="pass"
+								       ng-minlength="6"
+								       id="confpass"
+								       name="confpass"
+								       placeholder="Password"
+								       ng-model="confpass"
+								       required>
+							</div>
 
-								<input type="submit" class="btn btn-info"
+							<div class="form-group">
+								<input id="looker" ng-required="" type="radio" ng-model="isRegisteredBreeder"
+								       ng-checked="1" ng-value=false>
+								Looking for a dog <br/>
 
-								       value="Register"
+								<input id="breeder" ng-required="" type="radio" ng-model="isRegisteredBreeder"
+								       ng-value=true> Looking for a
+								home for my dogs <br/>
+
+							</div>
+
+							<div class="text-center">
+								<input type="submit" class="btn btn-info btn-sniff-md h-sign-up-white"
+								       value="REGISTER"
 								       ng-disabled="form.$invalid"
-								       ng-click="register(email,pass,confpass,isRegisteredBreeder);email='';pass='';confpass='';isRegisteredBreeder=false;"/>
+								       ng-click="register(email,pass,confpass,isRegisteredBreeder)"/>
 
-							</form>
-							<hr/>
-							<h4 class="h-sign-up">Log In if You Already have a Sniffsters Account</h4>
+							</div>
+						</form>
+						<div class="h-sign-up-black">
+							Or
 						</div>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-xs-12 ">
-						<div class="well">
-							<h4 class="text-center sniff-head-sm">Log In to Sniffsters with Facebook</h4>
-
-							<div id="socialLoginForm" class="text-center">
-								<button class="btn btn-primary btn-facebook-login" ng-click="home.FacebookSignin()">
-									<i class="fa fa-facebook"></i>
-									Log In
-								</button>
-							</div>
+						<div id="socialLoginForm" class="text-center">
+							<button class="btn btn-primary btn-facebook-login btn-sniff-md h-sign-up-white"
+							        ng-click="home.FacebookSignin()">
+								<i class="fa fa-facebook"></i>
+								LOG IN
+							</button>
 						</div>
 					</div>
 
@@ -90,8 +90,19 @@
 
 			</div>
 
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+			<div class="popover-footer">
+				<h4 class="margin-top-20">
+				<span class="h-sign-up-black"> ALREADY HAVE AN ACCOUNT?</br>
+				</span>
+
+					<button class="no-pad-margin btn-link btn h-sign-up"
+					        data-template="views/modals/login.html"
+					        data-placement="left"
+					        bs-popover="popoverLogin"
+							>LOG IN HERE
+					</button>
+
+				</h4>
 			</div>
 		</div>
 	</div>

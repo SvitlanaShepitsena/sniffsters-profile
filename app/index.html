@@ -88,21 +88,34 @@
 					   ng-if="home.isBreeder===false">Hello, {{home.nickName}}!</a>
 				</li>
 
-				<li>
-					<a ng-show="home.auth.user" class="sniff-menu btn-logout"
+				<li ng-if="home.auth.user">
+					<a class="sniff-menu btn-logout"
 					   ng-click="home.Logout()">LOG OUT
 					</a>
-					<button ng-hide="home.auth.user" class="sniff-menu btn-link btn menu-modal"
-					        ng-click="loginMd()">LOG IN
+
+				</li>
+
+				<li ng-if="!home.auth.user">
+
+
+					<button class="sniff-menu btn-link btn menu-modal"
+					        data-template="views/modals/login.html"
+					        data-placement="bottom"
+					        bs-popover="popoverLogin"
+							>LOG IN
 					</button>
 
 				</li>
-				<li ng-hide="home.auth.user">
-					<button class="sniff-menu btn-link btn menu-modal"
-					        template="views/modals/register.html"
-					        ng-click="registerMd()"
+				<li ng-if="!home.auth.user">
+
+
+					<button id="register" class="sniff-menu btn-link btn menu-modal"
+					        data-template="views/modals/register.html"
+					        data-placement="bottom"
+					        bs-popover="popoverRegister"
 							>REGISTER
 					</button>
+
 				</li>
 			</ul>
 
@@ -313,4 +326,4 @@
 <script src="bower_components/jcrop/jquery.Jcrop.min.js"></script>
 <script src="plugin/angular-ratings-master/angular.ratings.js"></script>
 </body>
-</html>
+</html> 

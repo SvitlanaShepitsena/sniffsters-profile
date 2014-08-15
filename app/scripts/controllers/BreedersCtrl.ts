@@ -34,7 +34,6 @@ class BreedersCtrl {
 
         this.$scope.home.auth.$getCurrentUser().then((user) => {
             if (_.isNull(user)) {
-                console.log('I am here 2');
                 user = {email: 'no'};
             }
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {

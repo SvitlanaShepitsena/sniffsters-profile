@@ -88,12 +88,18 @@ class HomeCtrl {
     }
 
 
-    constructor(public $rootScope, public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $rootScope, public $popover, public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         this.Followings = [];
         $scope.searchLocation = {};
         $scope.searchBreed = {};
         $scope.username = {};
         $scope.userExists = false;
+
+        $scope.popoverRegister = ({ "title": "Title",
+            "content": "Hello Popover<br />This is a multiline message!",
+            show: false
+        });
+        $scope.popoverLogin = ({show: false});
 
 
         $rootScope.$on('$stateChangeSuccess',
@@ -162,41 +168,34 @@ class HomeCtrl {
                 this.ShowError("Passwords do not match");
                 return;
             }
-            $scope.emailReg = email;
-            $scope.passwordReg = pass;
-            $scope.isNewBreederReg = isBreeder;
 
-            $scope.username.val = email.split('@')[0];
-            $scope.modalRegister.hide();
+            FinduserService.findByEmail(email).then(()=> {
+                $scope.userExists = true;
+                this.ShowError(settings.userExists);
+                return;
+            }, () => {
+                //email is free
 
-            $scope.modalUser = $modal(
-                {
-                    scope: $scope,
-                    title: 'Choose your username',
-                    template: '../views/modals/choose-username.html',
-                    show: true
-                }
-            );
+
+                $scope.emailReg = email;
+                $scope.passwordReg = pass;
+                $scope.isNewBreederReg = isBreeder;
+
+                $scope.username.val = email.split('@')[0];
+
+                $scope.modalUser = $modal(
+                    {
+                        scope: $scope,
+                        title: 'Choose your username',
+                        template: '../views/modals/choose-username.html',
+                        show: true
+                    }
+                );
+
+            });
 
         }
-        $scope.loginMd = ()=> {
-            $scope.modalLogin = $modal(
-                {
-                    scope: $scope,
-                    template: '../views/modals/login.html',
-                    show: true
-                }
-            );
-        }
-        $scope.registerMd = ()=> {
-            $scope.modalRegister = $modal(
-                {
-                    scope: $scope,
-                    template: '../views/modals/register.html',
-                    show: true
-                }
-            );
-        }
+
 
         $scope.setUsername = (username) => {
 
@@ -214,7 +213,6 @@ class HomeCtrl {
                         var lookerGenerator = new LookerGenerator();
                         lookerGenerator.create($scope.home.FireProcess($scope.emailReg), $scope.home.MainUrl, this.$firebase, username);
                     }
-                    $scope.modalRegister.hide();
 
                     $scope.home.Signin($scope.emailReg, $scope.passwordReg)
                 }, (error)=> {

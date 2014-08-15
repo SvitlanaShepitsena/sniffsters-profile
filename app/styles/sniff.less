@@ -562,7 +562,24 @@ textarea {
   font-family: @font-sniff;
   font-size: 16px;
   font-weight: normal;
-  color: @color-info;
+  color: @color-info !important;
+}
+
+.h-sign-up-white {
+  font-family: @font-sniff;
+  font-size: 16px;
+  font-weight: lighter !important;
+  color: #ffffff;
+}
+
+.h-sign-up-black {
+  font-family: @font-sniff;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
 }
 
 .btn-facebook-login {
@@ -643,6 +660,11 @@ textarea {
 
 .no-b-margin {
   margin-bottom: 0px;
+}
+
+.no-pad-margin {
+  margin: 0px !important;
+  padding: 0px 5px 0px 0px;
 }
 
 ////////////////////////////////////////
@@ -726,6 +748,16 @@ textarea {
   max-width: 300px !important;
   width: 160px !important;
   padding-bottom: 15px;
+}
+
+.popover-register:extend(.popover) {
+  max-width: 300px !important;
+  width: 300px !important;
+  left: -175px !important;
+}
+
+.popover-arrow-register {
+  margin-left: 35px !important;
 }
 
 .popover-row {
