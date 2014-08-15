@@ -73,6 +73,8 @@ class BreedersCtrl {
                                     }
                                 })
                                 breeder.rating = numb > 0 ? Math.ceil(total / numb) : 0;
+                            } else {
+                                breeder.rating = 0;
                             }
                             $scope.breeders.push(breeder)
                         }
