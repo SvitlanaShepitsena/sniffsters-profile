@@ -195,7 +195,7 @@ class IndexCtrl {
     Save(breederProfile:IBreederProfile) {
 
         breederProfile.Location = (breederProfile.City != '' && breederProfile.State != '') ? breederProfile.City + ', ' + breederProfile.State : '';
-        breederProfile = _.omit(breederProfile, 'breeds');
+//        breederProfile = _.omit(breederProfile, 'breeds');
 //Run Service UpdateProfile Method and get promise back
         this.DataService.updateProfile(breederProfile).then(
             () => {

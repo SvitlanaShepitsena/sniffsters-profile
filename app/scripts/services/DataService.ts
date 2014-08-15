@@ -356,15 +356,25 @@ class DataService {
     }
 
 
-    updateProfile(t:IBreederProfile) {
+    updateProfile(t:any) {
         var d = this.$q.defer();
 
 
         var key:string = t.Email.replace(/\./g, '(p)');
 
-        this.fb = this.$firebase(new Firebase(this.urlBreeder));
-        this.fb[key] = {profile: t};
-        this.fb.$save(key);
+        t = _.omit(t, ['Breeds', 'breeds', 'LittersNumber']);
+
+
+        var firebaseUrl = this.urlBreeder + key + '/profile';
+        console.log(firebaseUrl);
+        this.fb = this.$firebase(new Firebase(firebaseUrl));
+
+        for (var key in t) {
+            console.log(key, t[key]);
+            this.fb[key] = t[key];
+        }
+
+        this.fb.$save();
         d.resolve();
         return d.promise;
     }

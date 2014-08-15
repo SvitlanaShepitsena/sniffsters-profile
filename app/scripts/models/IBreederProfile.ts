@@ -156,7 +156,7 @@ class Gallery implements IGallery {
     Title:string;
     isTemp:boolean;
     Photos:any[];
-    isPrevPuppy:boolean;
+    isPrevPuppy
 
     constructor() {
         this.Photos = [];
