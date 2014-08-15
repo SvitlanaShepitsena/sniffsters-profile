@@ -338,7 +338,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         controller: "ContactCtrl",
         templateUrl: "../views/contact.html"
     }).state("sniff.forBreeders", {
-        url: "/for-breeders",
+        url: "/for-breeders/:scroll",
         controller: "ForBreedersCtrl",
         templateUrl: "../views/for-breeders.html"
     }).state("user.profile.messages", {
@@ -360,7 +360,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         url: "/followers",
         controller: "FollowersCtrl",
         templateUrl: "../views/followers.html"
-    }).state("user.profile.upgrade", {
+    }).state("sniff.forBreeders({scroll:1}))", {
         url: "/upgrade",
         controller: "UpgradeCtrl",
         templateUrl: "../views/upgrade.html"

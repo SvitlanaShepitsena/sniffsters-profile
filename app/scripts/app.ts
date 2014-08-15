@@ -382,9 +382,10 @@ profile.config(
                 templateUrl: "../views/contact.html"
             })
             .state("sniff.forBreeders", {
-                url: "/for-breeders",
+                url: "/for-breeders/:scroll",
                 controller: "ForBreedersCtrl",
                 templateUrl: "../views/for-breeders.html"
+
             })
         /**********************
          * =Messages Breeder Profile
@@ -416,7 +417,7 @@ profile.config(
                 templateUrl: "../views/followers.html"
             })
 
-            .state("user.profile.upgrade", {
+            .state("sniff.forBreeders({scroll:1}))", {
                 url: "/upgrade",
                 controller: "UpgradeCtrl",
                 templateUrl: "../views/upgrade.html"

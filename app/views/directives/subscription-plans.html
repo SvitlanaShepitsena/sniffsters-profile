@@ -100,9 +100,9 @@
 			</th>
 		</tr>
 		<tr ng-if="isLoggedIn">
-		<th></th>
+			<th></th>
 			<td class="text-center active">
-				<button class="text-center btn btn-default btn-sm btn-tryit"
+				<button class="text-center btn btn-default btn-sm btn-tryit btn-sniff-md"
 				        ng-show="!home.subscription"
 				        ng-click="startPlan('free')">Try It
 				</button>
@@ -119,7 +119,7 @@
 				        ng-click="setPlanToPay('monthly')"
 				        data-template="../views/modals/monthly-plan.html"
 				        bs-modal="modalMonthly">
-				Start Now
+					Start Now
 				</button>
 
 				<h4 class="label label-success"

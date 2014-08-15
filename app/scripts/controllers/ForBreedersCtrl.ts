@@ -6,10 +6,16 @@ interface IForBreedersScope extends IMainScope {
 }
 class ForBreedersCtrl {
 
-    constructor(public $scope:IForBreedersScope, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope:IForBreedersScope, $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, $location, $anchorScroll) {
         $scope.forBreeders = this;
         $scope.home.IsSearchHidden = false;
         $scope.home.IsHome = false;
+
+
+        if ($stateParams.scroll) {
+            $location.hash('upgrade');
+            $anchorScroll();
+        }
     }
 
     ShowSuccess(note:string) {
