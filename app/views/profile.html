@@ -9,8 +9,6 @@
 
 		<breeder-profile-nav></breeder-profile-nav>
 		<message-nav-menu ng-show="home.isOwner"></message-nav-menu>
-
-		<!-- OWNER PAGE VIEW -->
 		<div class="row sniff-content-wrapper" ng-show="home.isOwner">
 			<div class="col-xs-2">
 				<user-profile-nav></user-profile-nav>
@@ -35,7 +33,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="col-xs-4">
 				<breeder-details home="home" text='{{index.BreederName}}' ctrl="index"></breeder-details>
 				<current-litters></current-litters>
