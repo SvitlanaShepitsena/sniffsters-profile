@@ -60,6 +60,7 @@ class BreedersCtrl {
                                 }
                             }
 
+
                             breeder.LittersNumber = breeder.hasOwnProperty('litters') ? _.values(breeder.litters).length : 0;
 
                             if (breeder.hasOwnProperty('feedbacks')) {
