@@ -144,11 +144,38 @@
 .aside-messages {
   padding-right: 0px;
   padding-left: 0px !important;
+  font-size:;
+
+  .nav-pills > li > a {
+    background-color: #e8e8e8;
+    font-style: italic;
+    border-radius: 0px;
+    padding: 10px 3px !important;
+  }
+  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    border-radius: 0px;
+    padding: 10px 3px !important;
+    background-color: white;
+    color: @color-info;
+    font-weight: 700;
+    font-style: italic;
+  }
+}
+
+.messages-wrapper {
+  background-color: @colorLightBackground;
+  height: 500px;
+}
+
+.col-messages {
+  background-color: white;
+  height: 500px;
+  padding-right: 0px;
+  padding-left: 0px;
+  position: relative;
 }
 
 .messageUserList {
-  background-color: @colorLightBackground;
-  min-height: 761px;
   margin-bottom: 1px;
 }
 
@@ -183,26 +210,8 @@
   margin-top: 5px;
 }
 
-.col-messages {
-  background-color: @colorLightBackground;
-  padding-right: 0px;
-  padding-left: 10px;
-}
-
 .scroll-content {
   margin-right: 15px;
-}
-
-.messages-wrapper {
-  border-top: 1px #ebebeb solid !important;
-}
-
-.messagesScrollBar {
-  .scrollBar();
-  //constrain the height of section
-  min-height: 252px;
-
-  margin-top: 5px;
 }
 
 .messagesScrollBarTrash {
@@ -213,15 +222,11 @@
 
 .messagesScrollBox {
   font-size: 12px;
-  .scroll();
+  padding-right: 5px;
   hr {
     margin-top: 10px;
     margin-bottom: 0px;
   }
-}
-
-.messagesScrollContent {
-  .scrollContent();
 }
 
 .messageBody {
@@ -261,10 +266,10 @@
 .h4-reply {
   color: @color-subhead;
   margin-top: 1px;
+  margin-bottom: 5px;
 }
 
 .form-group-reply {
-  margin-top: 10px;
   margin-bottom: 15px;
 }
 
@@ -273,29 +278,29 @@
   margin-bottom: 0px;
 }
 
-.btn-send {
-  margin-left: 5px;
-  .btn-custom-padding();
-}
-
 .btn-del-message {
   .btn-custom-padding();
 }
 
 .reply-container {
-  background-color: #f4f1f1;
-  border-top: 1px #ebebeb solid;
-  border-bottom: 1px #f4f1f1 solid;
-  border-bottom-right-radius: 6px;
-  padding: 15px 15px 50px 15px;
-  margin-left: -10px;
+  background-color: #ebebeb;
+  padding: 10px 10px 50px 10px;
   margin-right: 0px !important;
+  margin-top: 10px;
+  position: absolute;
+  height: 180px;
+  bottom: 0px;
+  left: 0px;
 }
 
 .text-reply {
   margin-top: 0px;
-  height: 180px !important;
+  height: 80px !important;
   width: 300px !important;
+}
+
+.ul-messages {
+  padding-left: 15px;
 }
 
 /**********************
@@ -309,5 +314,8 @@
       =Trash
 ***********************/
 .trash-buttons {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
   padding: 15px;
 }

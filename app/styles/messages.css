@@ -1683,9 +1683,27 @@
     padding-left: 0px !important;
 }
 
+.aside-messages fon .nav-pills > li.active > a,
+.aside-messages .nav-pills > li.active > a:hover,
+.aside-messages .nav-pills > li.active > a:focus {
+    background-color: #e8e8e8;
+    color: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+}
+
+.messages-wrapper {
+    background-color: #f7f7f7;
+    height: 500px;
+}
+
+.col-messages {
+    background-color: white;
+    height: 500px;
+    padding-right: 0px;
+    padding-left: 0px;
+    position: relative;
+}
+
 .messageUserList {
-    background-color: #fcf9f9;
-    min-height: 761px;
     margin-bottom: 1px;
 }
 
@@ -1693,12 +1711,12 @@
     overflow: auto !important;
     width: 100% !important;
     height: 745px;
-    border-bottom-left-radius: 6px #fcf9f9 solid !important;
+    border-bottom-left-radius: 6px #f7f7f7 solid !important;
 }
 
 .scrollBoxAside {
-    background-color: #fcf9f9;
-    border-bottom-left-radius: 6px #fcf9f9 solid !important;
+    background-color: #f7f7f7;
+    border-bottom-left-radius: 6px #f7f7f7 solid !important;
     max-width: 100%;
     overflow: hidden;
     position: relative;
@@ -1723,25 +1741,8 @@
     margin-top: 5px;
 }
 
-.col-messages {
-    background-color: #fcf9f9;
-    padding-right: 0px;
-    padding-left: 10px;
-}
-
 .scroll-content {
     margin-right: 15px;
-}
-
-.messages-wrapper {
-    border-top: 1px #ebebeb solid !important;
-}
-
-.messagesScrollBar {
-    overflow: auto !important;
-    width: 100% !important;
-    min-height: 252px;
-    margin-top: 5px;
 }
 
 .messagesScrollBarTrash {
@@ -1752,22 +1753,12 @@
 
 .messagesScrollBox {
     font-size: 12px;
-    max-width: 100%;
-    overflow: hidden;
-    position: relative;
-    height: auto !important;
+    padding-right: 5px;
 }
 
 .messagesScrollBox hr {
     margin-top: 10px;
     margin-bottom: 0px;
-}
-
-.messagesScrollContent {
-    overflow: hidden;
-    position: relative;
-    top: 0;
-    width: auto;
 }
 
 .messageBody {
@@ -1806,10 +1797,10 @@
 .h4-reply {
     color: #3a3a3a;
     margin-top: 1px;
+    margin-bottom: 5px;
 }
 
 .form-group-reply {
-    margin-top: 10px;
     margin-bottom: 15px;
 }
 
@@ -1818,31 +1809,30 @@
     margin-bottom: 0px;
 }
 
-.btn-send {
-    margin-left: 5px;
-    padding-left: 35px;
-    padding-right: 40px;
-}
-
 .btn-del-message {
     padding-left: 35px;
     padding-right: 40px;
 }
 
 .reply-container {
-    background-color: #f4f1f1;
-    border-top: 1px #ebebeb solid;
-    border-bottom: 1px #f4f1f1 solid;
-    border-bottom-right-radius: 6px;
-    padding: 15px 15px 50px 15px;
-    margin-left: -10px;
+    background-color: #ebebeb;
+    padding: 10px 10px 50px 10px;
     margin-right: 0px !important;
+    margin-top: 10px;
+    position: absolute;
+    height: 180px;
+    bottom: 0px;
+    left: 0px;
 }
 
 .text-reply {
     margin-top: 0px;
-    height: 180px !important;
+    height: 80px !important;
     width: 300px !important;
+}
+
+.ul-messages {
+    padding-left: 15px;
 }
 
 /**********************
@@ -1856,5 +1846,8 @@
       =Trash
 ***********************/
 .trash-buttons {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
     padding: 15px;
 }

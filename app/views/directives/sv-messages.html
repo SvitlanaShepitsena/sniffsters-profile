@@ -1,9 +1,15 @@
-<div class="messages-wrapper">
-	<div class="col-xs-4 aside-messages">
-		<div>
+<div class="">
+	<div class="text-center">
+		<h3 class="text-warning"
+		    ng-show="!(messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName|orderByPriority).length">
+			{{noMessages}}</h3>
+	</div>
+	<div class="messages-wrapper"
+	     ng-hide="!(messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName|orderByPriority).length">
+		<div class="col-xs-4 aside-messages">
 			<div>
-				<ul class="nav nav-pills nav-stacked messageUserList">
-					<li ng-class="{active:messages.selectedUserIndex==$index}"
+				<ul class="nav nav-pills nav-stacked messageUserList" sv-slider h="500">
+				<li ng-class="{active:messages.selectedUserIndex==$index}"
 					    class="cursor-p text-center"
 					    ng-click="messages.SetSelectedUser($index)"
 					    ng-repeat="u in messages.fireMessages | selectUsers:isTrash">
@@ -13,16 +19,12 @@
 					</li>
 				</ul>
 			</div>
+
 		</div>
-	</div>
-	<div class="col-xs-8 col-messages" bs-affixjjj>
-		<div class="messagesScrollBar">
-			<div class="messagesScrollBox">
-				<h3 class="text-warning"
-				    ng-show="!(messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName|orderByPriority).length">
-					{{noMessages}}</h3>
-				<ul class="list-unstyled">
-					<li class="li-message-body"
+		<div class="col-xs-8 col-messages">
+			<div class="messagesScrollBox" sv-slider h="300">
+				<ul class="list-unstyled ul-messages">
+				<li class="li-message-body"
 					    ng-repeat="m in messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName|orderBy:'sent':true">
 						<ul class="list-inline">
 							<li class="userName" ng-hide="m.amISender">{{messages.selectedUser.nickName | unfire}}
@@ -42,40 +44,42 @@
 					</li>
 				</ul>
 			</div>
-		</div>
-		<div ng-show="isTrash && (messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName).length"
-		     class="trash-buttons pull-right">
-			<button class="btn btn-danger" ng-click="messages.DeleteForever()">Delete Forever</button>
-			<button class="btn btn-success" ng-click="messages.Recover()">Recover</button>
-		</div>
-		<div ng-show="!isTrash  && (messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName).length"
-		     class="reply-container">
 
-			<form role="form" name="form" id="form" novalidate>
-				<div class="form-group form-group-reply" ng-class="{'has-error':form.message.$error.maxlength}">
-					<label class="h4-reply">
-						Write a reply....</label>
+			<div ng-show="isTrash && (messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName).length"
+			     class="trash-buttons pull-right">
+				<button class="btn btn-danger btn-sniff-md" ng-click="messages.DeleteForever()">Delete Forever</button>
+				<button class="btn btn-primary ml5 btn-sniff-md" ng-click="messages.Recover()">Recover</button>
+			</div>
+			<div ng-show="!isTrash  && (messages.fireMessages|selectedUserMessages:isTrash:messages.selectedUser.userName).length"
+			     class="reply-container">
+
+				<form role="form" name="form" id="form" novalidate>
+					<div class="form-group form-group-reply" ng-class="{'has-error':form.message.$error.maxlength}">
+						<label class="h4-reply">
+							Write a reply....
+						</label>
 			<span ng-show="form.message.$error.maxlength"
 			      class="text text-danger pull-right  maxsymb">Max 1000 symbols!</span>
-					<textarea name="message"
-					          id="message"
-					          class="form-control text-reply"
-					          ng-maxlength="1000"
-					          required
-					          ng-model="reply.body" id="body">
-					</textarea>
-				</div>
-				<div class="pull-right btn-send-container form-group">
-					<button class="btn btn-danger btn-sniff-md"
-					        ng-click="messages.Delete()">Delete Conversation
-					</button>
-					<button class="btn btn-primary btn-send btn-sniff-md"
-					        ng-disabled="form.message.$pristine || form.message.$invalid"
-					        ng-click="messages.SendNewMessage(messages.selectedUser.nickName, reply.body,false);reply.body=''">
-						Send
-					</button>
-				</div>
-			</form>
+						<textarea name="message"
+						          id="message"
+						          class="form-control text-reply"
+						          ng-maxlength="1000"
+						          required
+						          ng-model="reply.body" id="body">
+						</textarea>
+					</div>
+					<div class="pull-right btn-send-container form-group">
+						<button class="btn btn-default btn-sniff-md"
+						        ng-click="messages.Delete()">Delete Conversation
+						</button>
+						<button class="btn btn-primary ml5 btn-sniff-md"
+						        ng-disabled="form.message.$pristine || form.message.$invalid"
+						        ng-click="messages.SendNewMessage(messages.selectedUser.nickName, reply.body,false);reply.body=''">
+							Send
+						</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

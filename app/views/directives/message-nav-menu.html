@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="alert alert-warning col-xs-8 sniff-alert">
-		<a class="btn btn-default btn-message shuffle-animation"
+		<a class="btn btn-default btn-message btn-sniff-md shuffle-animation"
 		   ui-sref-active="active"
 		   ng-class="{}"
 		   ng-if="home.isBreeder===true"
@@ -8,14 +8,14 @@
 			Inbox <strong ng-show="index.unReadMessagesNumber">({{index.unReadMessagesNumber}})</strong>
 		</a>
 
-		<a class="btn btn-default btn-message shuffle-animation"
+		<a class="btn btn-default btn-message btn-sniff-md shuffle-animation"
 		   ng-if="home.isBreeder===false"
 		   ui-sref-active="active"
 		   ui-sref="looker.messages"><i class="fa fa-envelope-o fa-fw fa-md "></i>
 			Inbox
 		</a>
 
-		<a class="btn btn-default btn-message shuffle-animation"
+		<a class="btn btn-default btn-message btn-sniff-md shuffle-animation"
 		   ng-if="home.isBreeder===true"
 		   ui-sref-active="active"
 		   ui-sref="user.profile.messages.trash">
@@ -23,7 +23,7 @@
 			Trash
 		</a>
 
-		<a class="btn btn-default btn-message shuffle-animation"
+		<a class="btn btn-default btn-message btn-sniff-md shuffle-animation"
 		   ng-if="home.isBreeder===false"
 		   ui-sref-active="active"
 		   ui-sref="looker.messages.trash">
