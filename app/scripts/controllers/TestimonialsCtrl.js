@@ -26,19 +26,17 @@ var TestimonialsCtrl = (function () {
 
         $scope.isOk = false;
 
-        //        $scope.$watch("testimonials.FeedbacksNew", () => {
-        //            for (var i = 0; i < this.FeedbacksNew.length; i++) {
-        //                var feedback:IFeedback = this.FeedbacksNew[i];
-        //                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0) &&
-        //                    (feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500 )) {
-        //                    this.$scope.isOk = true;
-        //                    break;
-        //                }
-        //                else {
-        //                    this.$scope.isOk = false;
-        //                }
-        //            }
-        //        }, true);
+        $scope.$watch("testimonials.FeedbacksNew", function () {
+            for (var i = 0; i < _this.FeedbacksNew.length; i++) {
+                var feedback = _this.FeedbacksNew[i];
+                if (!(feedback.ClientName.length > 0 && feedback.FeedbackBody.length > 0) && (feedback.ClientName.length < 250 && feedback.FeedbackBody.length < 500)) {
+                    _this.$scope.isOk = true;
+                    break;
+                } else {
+                    _this.$scope.isOk = false;
+                }
+            }
+        }, true);
         $scope.remove = function (key) {
             _this.$scope.feedbacks.$remove(key);
         };

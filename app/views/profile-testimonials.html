@@ -21,7 +21,9 @@
 							<label for="clientName" class="subheadlabel control-label">Name:</label>
 							<span class="textMuted" ng-show="home.isOwner">Required</span>
 			<span ng-show="form.clientName.$error.maxlength"
-			      class="text text-danger pull-right maxSymb">Max 250 symbols!</span>
+			      class="text text-danger pull-right maxSymb">
+				Max 250 symbols!
+			</span>
 							<input id="clientName" name="clientName" class="form-control"
 							       ng-model="feedback.ClientName"
 							       ng-disabled="!home.isOwner"
@@ -34,14 +36,17 @@
 							<label for="clientName" class="subheadlabel control-label">Rating:</label>
 							<span class="textMuted">Optional</span>
 							<angular-ratings notify-url="notify.json" notify-id="id"
-							                 ng-model="feedback.Evaluation"></angular-ratings>
+							                 ng-model="feedback.Evaluation">
+							</angular-ratings>
 						</div>
 						<div class="form-group has-feedback"
 						     ng-class="{'has-error':form.feedbackBody.$invalid}">
 							<label for="feedbackBody" class="coltrol-label">Feedback:</label>
 							<span class="textMuted">Required</span>
-			<span ng-show="form.feedbackBody.$error.maxlength"
-			      class="text text-danger pull-right maxSymb">Max 500 symbols!</span>
+			<span class="text text-danger pull-right maxSymb"
+			      ng-show="form.feedbackBody.$error.maxlength">
+				Max 500 symbols!
+			</span>
 							<textarea rows="5" cols="30" name="feedbackBody" id="feedbackBody" class="form-control"
 							          ng-model="feedback.FeedbackBody"
 							          ng-maxlength="500"
@@ -66,7 +71,7 @@
 		<li ng-repeat="f in feedbacks|orderByPriority|orderBy:'-AddedAt'">
 			<div class="pull-right" ng-show="home.isOwner">
 				<a class="light-gray" ui-sref="user.profile.testimonials5.edit({id:f.$id})">
-				<i class="fa fa-pencil"></i>
+					<i class="fa fa-pencil"></i>
 				</a>
 				<button class="btn-link light-gray"
 				        data-content="{{popover.content}}"
@@ -77,7 +82,7 @@
 				        bs-popover="popoverDelete">
 
 
-				<i class="fa fa-trash-o"></i>
+					<i class="fa fa-trash-o"></i>
 				</button>
 			</div>
 			<feedback f="f"></feedback>
