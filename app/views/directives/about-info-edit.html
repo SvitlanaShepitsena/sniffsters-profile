@@ -152,16 +152,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="form-group profileSave text-center">
-			<a class="btn btn-default" ui-sref="user.profile.about1">Cancel</a>
-			<button class="btn btn-warning"
+		<div class="form-group profileSave text-right">
+			<button class="btn btn-warning btn-sniff-md"
 			        ng-click="ResetAllFields();form.info.$setDirty()"> Reset all fields
 			</button>
-			<button class="btn btn-primary"
+			<button class="btn btn-primary btn-sniff-md ml5"
 			        ng-disabled="form.$invalid || form.$pristine"
 			        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save
 			</button>
-			<a class="btn btn-default" ui-sref="user.profile.photos2">Next Section</a>
+			<a class="btn btn-default btn-sniff-md ml5"
+			   ui-sref="user.profile.photos2">Next Section
+			</a>
 		</div>
 	</form>
 </div>

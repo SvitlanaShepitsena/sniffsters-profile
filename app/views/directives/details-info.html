@@ -1,85 +1,83 @@
 <div>
 	<div class="row">
-		<div class="col-xs-9">
-			<h3 class="sniff-head-info">PERSONAL INFO</h3>
-		</div>
-
 		<div class="col-xs-1 pull-right" ng-show="home.isOwner">
 			<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
 		</div>
 	</div>
-	<h4>Kennel Name</h4>
+	<div sv-slider h="1200" ng-cloak>
+		<h3 class="sniff-head-info">PERSONAL INFO</h3>
+		<h4>Kennel Name</h4>
 
-	<p>{{index.BreederProfile.KennelName}}</p>
+		<p>{{index.BreederProfile.KennelName}}</p>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.KennelName">What is your Kennel Name?</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.KennelName">What is your Kennel Name?</p>
 
-	<h4>Website</h4>
+		<h4>Website</h4>
 
-	<p>{{index.BreederProfile.Website}}</p>
+		<p>{{index.BreederProfile.Website}}</p>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.Website">Your website?</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.Website">Your website?</p>
 
-	<h4>Email</h4>
+		<h4>Email</h4>
 
-	<p>{{index.BreederProfile.Email}}</p>
+		<p>{{index.BreederProfile.Email}}</p>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.Email">Your Email?</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.Email">Your Email?</p>
 
-	<h4>Phone</h4>
+		<h4>Phone</h4>
 
-	<p>{{index.BreederProfile.Phone}}</p>
+		<p>{{index.BreederProfile.Phone}}</p>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.Phone">What is your phone number?</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.Phone">What is your phone number?</p>
 
-	<h3 class="sniff-head-info">LOCATION</h3>
+		<h3 class="sniff-head-info">LOCATION</h3>
 
-	<h4>City</h4>
+		<h4>City</h4>
 
-	<p>{{index.BreederProfile.City}}</p>
+		<p>{{index.BreederProfile.City}}</p>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.City">What is your city?</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.City">What is your city?</p>
 
-	<h4>Zip</h4>
+		<h4>Zip</h4>
 
-	<p>{{index.BreederProfile.Zip}}</p>
+		<p>{{index.BreederProfile.Zip}}</p>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.Zip">Your zip?</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.Zip">Your zip?</p>
 
-	<h4>State</h4>
+		<h4>State</h4>
 
-	<p>{{index.BreederProfile.State}}</p>
+		<p>{{index.BreederProfile.State}}</p>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.Zip">Your state?</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.Zip">Your state?</p>
 
-	<h3 class="sniff-head-info">SPECIFICS</h3>
-	<!--<div ui-view="info"></div>-->
+		<h3 class="sniff-head-info">SPECIFICS</h3>
+		<!--<div ui-view="info"></div>-->
 
-	<h4>Certifications</h4>
+		<h4>Certifications</h4>
 
-	<p ng-repeat="c in index.BreederProfile.Certifications">
-		{{c.Title}} - {{c.isActive | boolString}}
-	</p>
+		<p ng-repeat="c in index.BreederProfile.Certifications">
+			{{c.Title}} - {{c.isActive | boolString}}
+		</p>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.Certifications">Add your certifications.</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.Certifications">Add your certifications.</p>
 
-	<h4>Vet Services</h4>
+		<h4>Vet Services</h4>
 
-	<p>{{index.BreederProfile.VetServices|boolString}}</p>
+		<p>{{index.BreederProfile.VetServices|boolString}}</p>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.VetServices">Do you provide any vet services?</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.VetServices">Do you provide any vet services?</p>
 
-	<h4>Insurance</h4>
+		<h4>Insurance</h4>
 
-	<p ng-repeat="c in index.BreederProfile.Insurances">
-		{{c.Title}} - {{c.isActive | boolString}}
-	</p>
+		<p ng-repeat="c in index.BreederProfile.Insurances">
+			{{c.Title}} - {{c.isActive | boolString}}
+		</p>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.Insurances">Do you offer insurances?</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.Insurances">Do you offer insurances?</p>
 
-	<h4>Shipping</h4>
+		<h4>Shipping</h4>
 
-	<p>{{index.BreederProfile.Shipping|boolString}}</p>
+		<p>{{index.BreederProfile.Shipping|boolString}}</p>
+	</div>
 
-	<p class="textMuted" ng-hide="index.BreederProfile.Shipping">Do you provide shipping?</p>
 </div>
