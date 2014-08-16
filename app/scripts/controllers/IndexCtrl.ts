@@ -53,6 +53,17 @@ class IndexCtrl {
         requestedBreederRef.$on('value', (snapshot:any)=> {
             breederProfile = snapshot.snapshot.value;
             this.BreederProfile = breederProfile;
+
+            this.error = false;
+            this.BreederProfile = breederProfile;
+            this.BreederName = breederProfile.UserName;
+
+
+            this.CopyProfileService.SetProfile(breederProfile);
+            this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+            this.spinner = false;
+            $scope.home.isLoadFinished = true;
+
         });
 
 
@@ -118,13 +129,6 @@ class IndexCtrl {
 
                 this.rating = numb > 0 ? Math.ceil(total / numb) : 0;
 
-                this.error = false;
-                this.BreederProfile = breederProfile;
-                this.BreederName = breederProfile.UserName;
-
-
-                this.CopyProfileService.SetProfile(breederProfile);
-                this.BreederProfileEdit = CopyProfileService.GetProfileClone();
 
             })
         })

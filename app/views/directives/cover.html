@@ -44,7 +44,7 @@
 		     ng-src="../../imgdir/default/myimg/maincover.jpg"/>
 	</div>
 
-	<div id="profile-picture"
+	<div id="profile-picture" ng-cloak
 	     class="profileMainPic"
 	     ng-mouseover="chgBtnShown()"
 	     ng-mouseleave="chgBtnHidden()">
@@ -60,7 +60,8 @@
 		<img ng-show="isAvatarChanged==true" class="thumbnail thPictureSmall img-responsive"
 		     ng-src="{{avatarsrc}}"/>
 
-		<img ng-show="isAvatarChanged==false" class="thumbnail thPictureSmall img-responsive"
-		     src="../../imgdir/default/myimg/mainpic.jpg"/>
+		<img ng-cloak ng-if="home.isLoadFinished && isAvatarChanged==false"
+		     class="thumbnail thPictureSmall img-responsive"
+		     ng-src="../../imgdir/default/myimg/mainpic.jpg"/>
 	</div>
 </div>
