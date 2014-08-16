@@ -1,4 +1,7 @@
-<div ui-view="">
+<div ui-view="" ng-cloak>
+	<div ng-hide="home.isLoadFinished">
+		<sv-spinner></sv-spinner>
+	</div>
 	<ol class="breadcrumb" ng-hide="!home.isOwner">
 	<li><a ui-sref="^">Current Litters</a></li>
 		<li class="active">{{litter.Title}}</li>
@@ -18,7 +21,7 @@
 			   class="fa fa-trash-o light-gray"></i>
 		</button>
 	</div>
-	<div class="slider-wrapper" sv-slider h="1200">
+	<div class="slider-wrapper" sv-slider h="1200" ng-show="home.isLoadFinished">
 		<h3 class="sniff-head-info text-center">
 		{{litter.Title}}
 		</h3>
@@ -44,8 +47,8 @@
 			{{litter.Colors}}
 		</p>
 		<ul class="list-unstyled">
-			<li ng-repeat="p in litter.Photos">
-				<img class="img-responsive" ng-src="{{p.file64}}">
+			<li ng-repeat="p in litter.Photos" class="shuffle-animation">
+			<img class="img-responsive" ng-src="{{p.file64}}">
 				<h5>
 					{{p.caption}}
 				</h5>

@@ -33,8 +33,9 @@
 
 		<h3 class="sniff-head-info">Current Litters</h3>
 		<hr/>
-
-		<h3 class="text-warning" ng-show="!(litters|orderByPriority).length">{{noLitterNotice}}</h3>
+		<sv-spinner ng-hide="home.isLoadFinished"></sv-spinner>
+		<h3 class="text-warning" ng-show="home.isLoadFinished && !(litters|orderByPriority).length">
+			{{noLitterNotice}}</h3>
 
 		<div class="row">
 			<ul class="list-unstyled list-inline">

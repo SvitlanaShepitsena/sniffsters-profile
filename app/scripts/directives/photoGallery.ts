@@ -14,10 +14,14 @@ var photoGallery:(data) => ng.IDirective = () => {
         replace: true,
         controller: ($scope, $firebase, $modal, DataService:DataService, $stateParams, $state, toastr) => {
             var galleryId = $stateParams.id;
+            var username = $scope.home.FireProcess($stateParams.uname);
+            var galleryUrl = $scope.home.MainUrl + 'breeders/' + username + '/galleries/' + galleryId;
+            $scope.gallery = $firebase(new Firebase(galleryUrl));
+
+
             $scope.home.auth.$getCurrentUser().then((user) => {
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
-                    var galleryUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries/' + galleryId;
-                    $scope.gallery = $firebase(new Firebase(galleryUrl));
+                    $scope.home.isLoadFinished = true;
                 })
             })
 

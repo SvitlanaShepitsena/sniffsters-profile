@@ -1,4 +1,7 @@
 <div>
+	<div ng-hide="home.isLoadFinished">
+		<sv-spinner></sv-spinner>
+	</div>
 	<ol class="breadcrumb" ng-hide="!home.isOwner">
 		<li><a ui-sref="^">Photo Galleries</a></li>
 		<li class="active">{{gallery.Title}}</li>

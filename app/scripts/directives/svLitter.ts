@@ -13,10 +13,14 @@ var svLitter:() => ng.IDirective = () => {
         controller($scope, $firebase, $modal, DataService:DataService, $stateParams, $state) {
             $scope.files = [];
             var litterId = $stateParams.id;
+            var username = $scope.home.FireProcess($stateParams.uname);
+
+            var litterUrl = $scope.home.MainUrl + 'breeders/' + username + '/litters/' + litterId;
+            $scope.litter = $firebase(new Firebase(litterUrl));
+
             $scope.home.auth.$getCurrentUser().then((user) => {
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
-                    var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/litters/' + litterId;
-                    $scope.litter = $firebase(new Firebase(litterUrl));
+                    $scope.home.isLoadFinished = true;
                 })
             })
 
