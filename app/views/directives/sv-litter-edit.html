@@ -1,4 +1,4 @@
-<div>
+<div ng-hide="!home.isOwner">
 	<ol class="breadcrumb">
 		<li><a ui-sref="user.profile.puppies3">Current Litters</a></li>
 		<li><a ui-sref="^">{{litter.Title}}</a></li>
@@ -13,7 +13,7 @@
 		        ng-click="saveLitter(); form.$setPristine();">Save
 		</button>
 	</div>
-	<div class="well" sv-slider h="1200">
+	<div class="slider-wrapper" sv-slider h="1200">
 		<form role="form" name="form" id="form" novalidate>
 			<div class="form-group">
 				<label class="sniff-subhead" for="title"> Title</label>&nbsp<span class="textMuted">Required</span>
@@ -105,7 +105,7 @@
 					files="files"
 					is-mult="true"
 					file-size="3000000"
-					btn-title="Upload Pictures">
+					btn-title="Browse">
 			</sv-image-upload>
 		</form>
 	</div>

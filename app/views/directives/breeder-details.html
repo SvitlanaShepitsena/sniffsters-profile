@@ -40,91 +40,95 @@
 		</ul>
 	</div>
 
-	<form role="form" class="alert alert-warning alert-details form-horizontal" name="myDetailsForm" id="myDetailsForm"
-	      ng-cloack
-	      novalidate>
-		<div class="form-group">
-			<label class="labelMyDetails">Location:</label>
-			<span>{{index.BreederProfile.Location}}</span>
-			<span class="textMuted" ng-hide="index.BreederProfile.Location || IsEdit">Where are you from?</span>
-		</div>
+	<div class="alert alert-warning alert-details ">
+		<form role="form" class="form-horizontal form-details" name="myDetailsForm"
+		      id="myDetailsForm"
+		      ng-cloack
+		      novalidate>
+			<div class="form-group">
+				<label class="labelMyDetails">Location:</label>
+				<span>{{index.BreederProfile.Location}}</span>
+				<span class="textMuted" ng-hide="index.BreederProfile.Location || IsEdit">Where are you from?</span>
+			</div>
 
-		<div class="form-group" ng-show="home.isOwner">
-			<label class="labelMyDetails">Website:</label>
-			<span class="textMuted" ng-hide="index.BreederProfile.Website || IsEdit">Your website?</span>
-			<span ng-show="!IsEdit">{{index.BreederProfile.Website}}</span>
-			<input type="text" class="form-control"
-			       placeholder="Your website?"
-			       ng-model="index.BreederProfileCopy.Website"
-			       ng-show="IsEdit">
-		</div>
-		<div class="form-group" ng-show="!home.isOwner" ng-cloack>
-			<label class="labelMyDetails">Website:</label>
-			<span ng-show="!IsEdit">{{index.BreederProfile.Website}}</span>
-		</div>
+			<div class="form-group" ng-show="home.isOwner">
+				<label class="labelMyDetails">Website:</label>
+				<span class="textMuted" ng-hide="index.BreederProfile.Website || IsEdit">Your website?</span>
+				<span ng-show="!IsEdit">{{index.BreederProfile.Website}}</span>
+				<input type="text" class="form-control"
+				       placeholder="Your website?"
+				       ng-model="index.BreederProfileCopy.Website"
+				       ng-show="IsEdit">
+			</div>
+			<div class="form-group" ng-show="!home.isOwner" ng-cloack>
+				<label class="labelMyDetails">Website:</label>
+				<span ng-show="!IsEdit">{{index.BreederProfile.Website}}</span>
+			</div>
 
-		<div class="form-group" ng-show="home.isOwner" ng-cloack>
-			<label class="labelMyDetails">Email:</label>
+			<div class="form-group" ng-show="home.isOwner" ng-cloack>
+				<label class="labelMyDetails">Email:</label>
 			<span class="textMuted"
 			      ng-hide="index.BreederProfile.Email || IsEdit">Contact information is important.</span>
-			<span>{{index.BreederProfile.Email}}</span>
-		</div>
+				<span>{{index.BreederProfile.Email}}</span>
+			</div>
 
-		<div class="form-group" ng-show="!home.isOwner">
-			<label class="labelMyDetails">Email:</label>
-			<span ng-show="!IsEdit">{{index.BreederProfile.Email}}</span>
-		</div>
+			<div class="form-group" ng-show="!home.isOwner">
+				<label class="labelMyDetails">Email:</label>
+				<span ng-show="!IsEdit">{{index.BreederProfile.Email}}</span>
+			</div>
 
-		<div class="form-group" ng-show="home.isOwner">
-			<label class="labelMyDetails">Phone:</label>
-			<span ng-show="!IsEdit">{{index.BreederProfile.Phone}}</span>
-			<span class="textMuted" ng-hide="index.BreederProfile.Phone || IsEdit">What is your phone number?</span>
-			<input type="text" class="form-control"
-			       placeholder="Your phone?"
-			       ng-model="index.BreederProfileCopy.Phone"
-			       ng-show="IsEdit">
-		</div>
+			<div class="form-group" ng-show="home.isOwner">
+				<label class="labelMyDetails">Phone:</label>
+				<span ng-show="!IsEdit">{{index.BreederProfile.Phone}}</span>
+				<span class="textMuted" ng-hide="index.BreederProfile.Phone || IsEdit">What is your phone number?</span>
+				<input type="text" class="form-control"
+				       placeholder="Your phone?"
+				       ng-model="index.BreederProfileCopy.Phone"
+				       ng-show="IsEdit">
+			</div>
 
-		<div class="form-group" ng-show="!home.isOwner">
-			<label class="labelMyDetails">Phone:</label>
-			<span ng-show="!IsEdit">{{index.BreederProfile.Phone}}</span>
-		</div>
+			<div class="form-group" ng-show="!home.isOwner">
+				<label class="labelMyDetails">Phone:</label>
+				<span ng-show="!IsEdit">{{index.BreederProfile.Phone}}</span>
+			</div>
 
 
-		<div class="form-group" ng-show="home.isOwner">
-			<label class="labelMyDetails">Shipping:</label>
-			<span ng-show="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
-			<span class="textMuted" ng-hide="index.BreederProfile.Shipping || IsEdit">Do you provide shipping?</span>
-			<input type="checkbox" ng-model="index.BreederProfileCopy.Shipping"
-			       ng-show="IsEdit">
-		</div>
+			<div class="form-group" ng-show="home.isOwner">
+				<label class="labelMyDetails">Shipping:</label>
+				<span ng-show="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
+				<span class="textMuted"
+				      ng-hide="index.BreederProfile.Shipping || IsEdit">Do you provide shipping?</span>
+				<input type="checkbox" ng-model="index.BreederProfileCopy.Shipping"
+				       ng-show="IsEdit">
+			</div>
 
-		<div class="form-group" ng-show="!home.isOwner">
-			<label class="labelMyDetails">Shipping:</label>
-			<span ng-show="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
-		</div>
-		<div class="form-group" ng-show="!IsEdit && index.rating">
-			<label class="labelMyDetails">Average rating:</label>
+			<div class="form-group" ng-show="!home.isOwner">
+				<label class="labelMyDetails">Shipping:</label>
+				<span ng-show="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
+			</div>
+			<div class="form-group" ng-show="!IsEdit && index.rating">
+				<label class="labelMyDetails">Average rating:</label>
 
-			<angular-ratings ng-model="index.rating"></angular-ratings>
-		</div>
+				<angular-ratings ng-model="index.rating"></angular-ratings>
+			</div>
 
-		<div class="form-group  profileSave text-center" ng-show="home.isOwner">
-			<button class="btn btn-default btn-sniff-md"
-			        ng-show="!IsEdit"
-			        ng-click="Edit()">Edit
-			</button>
-		</div>
-		<div class="form-group profileSave text-left" ng-show="home.isOwner">
-			<div class="text-left" ng-show="IsEdit">
-				<button class="btn btn-primary btn-sniff-md"
-				        ng-disabled="myDetailsForm.$invalid"
-				        ng-click="Save(); myDetailsForm.$setPristine()">Save
-				</button>
-				<button class="btn btn-default btn-sniff-md ml5"
-				        ng-click="Cancel()">Cancel
+			<div class="form-group  profileSave text-center" ng-show="home.isOwner">
+				<button class="btn btn-default btn-sniff-md"
+				        ng-show="!IsEdit"
+				        ng-click="Edit()">Edit
 				</button>
 			</div>
-		</div>
-	</form>
+			<div class="form-group profileSave text-left" ng-show="home.isOwner">
+				<div class="text-left" ng-show="IsEdit">
+					<button class="btn btn-primary btn-sniff-md"
+					        ng-disabled="myDetailsForm.$invalid"
+					        ng-click="Save(); myDetailsForm.$setPristine()">Save
+					</button>
+					<button class="btn btn-default btn-sniff-md ml5"
+					        ng-click="Cancel()">Cancel
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>

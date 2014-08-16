@@ -1,10 +1,10 @@
 <div>
 	<ol class="breadcrumb" ng-hide="!home.isOwner">
-	<li><a ui-sref="^">Photo Galleries</a></li>
+		<li><a ui-sref="^">Photo Galleries</a></li>
 		<li class="active">{{gallery.Title}}</li>
 	</ol>
 	<div class="text-right btn-wrapper" ng-hide="!home.isOwner">
-	<!--<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"-->
+		<!--<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"-->
 		<!--ng-show="gallery.isTemp"-->
 		<!--ng-click="shareGallery()">-->
 		<!--<i class="fa fa-share"></i>-->
@@ -24,8 +24,8 @@
 
 	</div>
 	<div class="slider-wrapper" sv-slider h="1200">
-		<h3 class="text-center">
-			{{gallery.Title | uppercase}}
+		<h3 class="text-center sniff-head-info">
+		{{gallery.Title | uppercase}}
 		</h3>
 		<ul class="list-unstyled list-inline">
 			<li class="col-xs-12 shuffle-animation"

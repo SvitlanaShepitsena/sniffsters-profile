@@ -1,10 +1,10 @@
 <div ui-view="">
-	<ol class="breadcrumb">
-		<li><a ui-sref="^">Current Litters</a></li>
+	<ol class="breadcrumb" ng-hide="!home.isOwner">
+	<li><a ui-sref="^">Current Litters</a></li>
 		<li class="active">{{litter.Title}}</li>
 	</ol>
-	<div class="text-right btn-wrapper">
-		<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
+	<div class="text-right btn-wrapper" ng-hide="!home.isOwner">
+	<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
 		        ui-sref=".edit">
 			<i class="fa fa-pencil"></i>
 		</button>
@@ -18,9 +18,9 @@
 			   class="fa fa-trash-o light-gray"></i>
 		</button>
 	</div>
-	<div class="well" sv-slider h="1200">
-		<h3 class="sniff-head-info">
-			{{litter.Title}}
+	<div class="slider-wrapper" sv-slider h="1200">
+		<h3 class="sniff-head-info text-center">
+		{{litter.Title}}
 		</h3>
 		<hr/>
 		<p>
