@@ -11,12 +11,7 @@ var currentLitters:() => ng.IDirective = () => {
         templateUrl: 'views/directives/current-litters.html',
         // replace directive tag with template info
         replace: true,
-        scope: {
-            ctrl: '=',
 
-            text: '@',
-            func: '&'
-        },
         link: (scope:ICurrentLitters, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
         }
     }

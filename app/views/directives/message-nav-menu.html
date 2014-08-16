@@ -1,5 +1,5 @@
-<div class="row">
-	<div class="alert alert-warning col-xs-8 sniff-alert">
+<div class="row alert alert-warning sniff-alert">
+	<div class="col-xs-12">
 		<a class="btn btn-default btn-message btn-sniff-md shuffle-animation"
 		   ui-sref-active="active"
 		   ng-class="{}"
@@ -30,30 +30,27 @@
 			<i class="fa fa-trash-o fa-md fa-fw"></i>
 			Trash
 		</a>
-	</div>
-	<div class="alert alert-warning col-xs-4 sniff-alert">
 
-		<div ng-if="home.isBreeder===true">
-			<button class="btn btn-primary pull-right btn-sniff-md"
-			        ng-disabled="!home.subscription || (home.subscription.Messages>0 && index.messagesNumber>=home.subscription.Messages)"
-			        ui-sref="user.profile.messages.create">
-				<i class="fa fa-pencil fa-fw fa-md "></i>
-				New Message
-			</button>
+		<button class="btn btn-primary pull-right btn-sniff-md"
+		        ng-if="home.isBreeder===true"
+		        ng-disabled="!home.subscription || (home.subscription.Messages>0 && index.messagesNumber>=home.subscription.Messages)"
+		        ui-sref="user.profile.messages.create">
+			<i class="fa fa-pencil fa-fw fa-md "></i>
+			New Message
+		</button>
 
-			<a class="btn btn-link pull-right"
-			   ui-sref="sniff.forBreeders({scroll:1})"
-			   ng-show="!home.subscription || (home.subscription.Messages>0 && index.messagesNumber>=home.subscription.Messages)">
-				Upgrade subscription
-			</a>
-		</div>
+		<button class="btn btn-link pull-right"
+		        ng-if="home.isBreeder===true"
+		        ui-sref="sniff.forBreeders({scroll:1})"
+		        ng-show="!home.subscription || (home.subscription.Messages>0 && index.messagesNumber>=home.subscription.Messages)">
+			Please get a subscription to use your mailbox.
+		</button>
+
 		<button class="btn btn-primary pull-right"
 		        ng-if="home.isBreeder===false"
 		        ui-sref="looker.messages.create">
 			<i class="fa fa-pencil fa-fw fa-md "></i>
 			New Message
 		</button>
-
 	</div>
-
 </div>

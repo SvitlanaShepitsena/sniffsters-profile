@@ -12,7 +12,10 @@
 	<!--<h6>2 Records Found</h6>-->
 	<h4>Subscriptions</h4>
 
-	<div ng-show="!hasSubscription">You do not have any Subscription plan</div>
+	<div ng-show="!hasSubscription">
+		You do not have any Subscription plan. To learn more about the Subscription Plans please click
+		<a class="className" ui-sref="sniff.forBreeders({scroll:1})"><span class="click-here">here</span></a>.
+	</div>
 	<table ng-show="hasSubscription" class="table table-bordered table-invoices">
 		<tr>
 			<th>Plan</th>
@@ -51,7 +54,7 @@
 	<ul class="list-unstyled">
 		<li ng-show="!home.subscription || home.subscription.name!='Annually'">
 			<button class="btn btn-primary btn-sniff-md"
-			        ui-sref="sniff.forBreeders({scroll:1})">Upgrade Subscription
+			        ui-sref="sniff.forBreeders({scroll:1})">Get Subscription
 			</button>
 		</li>
 		<br/>
