@@ -40,7 +40,6 @@ var BreedersCtrl = (function () {
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
                 var url = $scope.home.MainUrl + 'breeders';
                 var breedersRef = $firebase(new Firebase(url));
-
                 breedersRef.$on('value', function (snapshot) {
                     var breedersArr = $filter('orderByPriority')(snapshot.snapshot.value);
                     breedersArr.forEach(function (breeder) {
@@ -73,10 +72,10 @@ var BreedersCtrl = (function () {
                             }
                             $scope.breeders.push(breeder);
                         }
+                        $scope.isDataLoading = false;
                     });
                 });
             });
-            $scope.isDataLoading = false;
         });
     }
     BreedersCtrl.prototype.ShowSuccess = function (note) {
