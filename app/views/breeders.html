@@ -21,9 +21,12 @@
 </div>
 <br/>
 <h4 class="text-warning" ng-hide="isDataLoading || breeders.length">No Results Found</h4>
-<div class="well" sv-slider h="1780" ng-show="breeders.length">
+<div ng-show="isDataLoading">
+	<sv-spinner></sv-spinner>
+</div>
+<div class="well" sv-slider h="1780" ng-show="!isDataLoading && breeders.length">
 
-	<button type="button" class="btn btn-default btn-search-panel"
+<button type="button" class="btn btn-default btn-search-panel"
 	        ng-model="sortFeature.val"
 	        ng-options="sort.val as sort.name for sort in sortBy"
 	        placeholder="Sort By"

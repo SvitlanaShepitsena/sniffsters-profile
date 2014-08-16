@@ -39,7 +39,6 @@ class BreedersCtrl {
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
                 var url = $scope.home.MainUrl + 'breeders';
                 var breedersRef = $firebase(new Firebase(url));
-
                 breedersRef.$on('value', (snapshot:any)=> {
 
 
@@ -77,10 +76,10 @@ class BreedersCtrl {
                             }
                             $scope.breeders.push(breeder)
                         }
+                        $scope.isDataLoading = false;
                     })
                 })
             })
-            $scope.isDataLoading = false;
         })
     }
 
