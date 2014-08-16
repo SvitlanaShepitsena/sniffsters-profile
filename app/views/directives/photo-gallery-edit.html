@@ -1,4 +1,4 @@
-<div>
+<div ng-hide="!home.isOwner">
 	<ol class="breadcrumb">
 		<li><a ui-sref="user.profile.photos2">Photo Galleries</a></li>
 		<li><a ui-sref="^">{{gallery.Title}}</a></li>
@@ -10,42 +10,37 @@
 		        data-toggle="tooltip" data-placement="left" title="Save Gallery Changes"
 		        ng-disabled="files.length==0 && form.$pristine"
 		        ng-click="saveGallery(); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">
-		Save
+			Save
 		</button>
 	</div>
-	<div class="well" sv-slider h="1200">
+	<div class="slider-wrapper" sv-slider h="1200">
 		<form class="form" name="form" id="form" novalidate>
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="form-group">
-						<label class="sniff-subhead">Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
+			<div class="form-group">
+				<label class="sniff-subhead">Gallery Title:</label>&nbsp<span class="textMuted">Required</span>
 					<span ng-show="form.galTitleEdit.$error.maxlength"
-					      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
+					      class="text text-danger pull-right  maxSymb">Max 50 symbols!</span>
 
-						<div class="row">
-							<div class="col-xs-11">
-								<input type="text"
-								       placeholder="Gallery Title"
-								       name="galTitleEdit"
-								       class="form-control"
-								       ng-model="gallery.Title"
-								       ng-class="{inputEmpty:!gallery.Title}"
-								       ng-maxLength="250"
-								       required>
-							</div>
-							<div class="col-xs-1">
-								<button class="btn pull-right btn-save"
-								        data-toggle="tooltip" data-placement="left" title="Save Gallery Title"
-								        ng-disabled="form.galTitleEdit.$invalid || form.$pristine"
-								        ng-click="saveTitle(); form.$setPristine();">
-									<i class="fa fa-save"></i>
-								</button>
-							</div>
-						</div>
+				<div class="row">
+					<div class="col-xs-11">
+						<input type="text"
+						       placeholder="Gallery Title"
+						       name="galTitleEdit"
+						       class="form-control"
+						       ng-model="gallery.Title"
+						       ng-class="{inputEmpty:!gallery.Title}"
+						       ng-maxLength="50"
+						       required>
+					</div>
+					<div class="col-xs-1">
+						<button class="btn pull-right btn-save"
+						        data-toggle="tooltip" data-placement="left" title="Save Gallery Title"
+						        ng-disabled="form.galTitleEdit.$invalid || form.$pristine"
+						        ng-click="saveTitle(); form.$setPristine();">
+							<i class="fa fa-save"></i>
+						</button>
 					</div>
 				</div>
 			</div>
-
 			<ul class="list-unstyled row">
 				<li class="col-xs-12 shuffle-animation"
 				    ng-repeat="(key,p) in gallery.Photos">
@@ -63,7 +58,9 @@
 
 						<div class="form-group">
 						<span ng-show="form.picCap.$error.maxlength"
-						      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
+						      class="text text-danger pull-right  maxSymb">
+							Max 250 symbols!
+						</span>
 							<input type="text"
 							       class="form-control"
 							       name="picCap"
@@ -74,19 +71,18 @@
 					</div>
 				</li>
 			</ul>
-
 		</form>
 
 		<sv-image-upload
 				files="files"
 				is-mult="true"
 				file-size="3000000"
-				btn-title="Add More Pictures">
+				btn-title="Browse">
 		</sv-image-upload>
 	</div>
 	<div class="btn-wrapper">
-		<a ui-sref="^" class="btn btn-default">Cancel</a>
-		<button class="btn btn-primary"
+		<a ui-sref="^" class="btn btn-default btn-sniff-md">Cancel</a>
+		<button class="btn btn-primary btn-sniff-md ml5"
 		        data-toggle="tooltip" data-placement="left" title="Save Gallery Changes"
 		        ng-disabled="files.length==0 && form.$pristine"
 		        ng-click="saveGallery(); form.$setPristine(); location.$setPristine(); specifics.$setPristine();">

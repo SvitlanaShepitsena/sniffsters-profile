@@ -1,10 +1,10 @@
 <div>
-	<ol class="breadcrumb">
-		<li><a ui-sref="^">Photo Galleries</a></li>
+	<ol class="breadcrumb" ng-hide="!home.isOwner">
+	<li><a ui-sref="^">Photo Galleries</a></li>
 		<li class="active">{{gallery.Title}}</li>
 	</ol>
-	<div class="text-right btn-wrapper">
-		<!--<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"-->
+	<div class="text-right btn-wrapper" ng-hide="!home.isOwner">
+	<!--<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"-->
 		<!--ng-show="gallery.isTemp"-->
 		<!--ng-click="shareGallery()">-->
 		<!--<i class="fa fa-share"></i>-->
@@ -23,30 +23,22 @@
 		</button>
 
 	</div>
-	<div class="well" sv-slider h="1200">
-		<div class="row sniff-row">
-			<div class="col-xs-9">
-				<h3 class="content text-center">
-					{{gallery.Title | uppercase}}
-				</h3>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12">
-				<ul class="list-unstyled list-inline">
-					<li class="col-xs-12 shuffle-animation"
-					    ng-repeat="p in gallery.Photos">
-						<div class="thumbnail">
+	<div class="slider-wrapper" sv-slider h="1200">
+		<h3 class="text-center">
+			{{gallery.Title | uppercase}}
+		</h3>
+		<ul class="list-unstyled list-inline">
+			<li class="col-xs-12 shuffle-animation"
+			    ng-repeat="p in gallery.Photos">
+				<div class="thumbnail">
 
-							<img ng-src="{{p.file64}}">
+					<img ng-src="{{p.file64}}">
 
-							<div class="caption">
-								<h4>{{p.caption}}</h4>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
+					<div class="caption">
+						<h4>{{p.caption}}</h4>
+					</div>
+				</div>
+			</li>
+		</ul>
 	</div>
 </div>
