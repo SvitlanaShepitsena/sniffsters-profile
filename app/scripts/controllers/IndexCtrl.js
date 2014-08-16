@@ -35,6 +35,15 @@ var IndexCtrl = (function () {
         requestedBreederRef.$on('value', function (snapshot) {
             breederProfile = snapshot.snapshot.value;
             _this.BreederProfile = breederProfile;
+
+            _this.error = false;
+            _this.BreederProfile = breederProfile;
+            _this.BreederName = breederProfile.UserName;
+
+            _this.CopyProfileService.SetProfile(breederProfile);
+            _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+            _this.spinner = false;
+            $scope.home.isLoadFinished = true;
         });
 
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
@@ -93,13 +102,6 @@ var IndexCtrl = (function () {
                 });
 
                 _this.rating = numb > 0 ? Math.ceil(total / numb) : 0;
-
-                _this.error = false;
-                _this.BreederProfile = breederProfile;
-                _this.BreederName = breederProfile.UserName;
-
-                _this.CopyProfileService.SetProfile(breederProfile);
-                _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
             });
         });
     }
