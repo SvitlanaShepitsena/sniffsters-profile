@@ -20,7 +20,7 @@
 				<input type="text" ng-model="g.Title" class="form-control gal-title">
 			</div>
 
-			<sv-image-upload
+			<sv-image-upload ng-show="home.isOwner"
 					files="g.Photos"
 					is-mult="true"
 					is-drag-hidden="true"
@@ -30,8 +30,8 @@
 
 			<a class="btn btn-link pull-right"
 			   ui-sref="sniff.forBreeders({scroll:1})"
-			   ng-show="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries)">
-				Upgrade subscription
+			   ng-show="home.isOwner && (!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries))">
+			Upgrade subscription
 			</a>
 		</div>
 	</div>

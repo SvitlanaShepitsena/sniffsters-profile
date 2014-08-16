@@ -13,10 +13,13 @@ var PuppiesCtrl = (function () {
         this.settings = settings;
         $scope.noLitterNotice = settings.noLitterNotice;
 
+        var username = $scope.home.FireProcess($stateParams.uname);
+        var litterUrl = $scope.home.MainUrl + 'breeders/' + username + '/litters';
+        $scope.litters = $firebase(new Firebase(litterUrl));
+
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
-                var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/litters';
-                $scope.litters = $firebase(new Firebase(litterUrl));
+                $scope.home.isLoadFinished = true;
             });
         });
         this.LittersNew = [];

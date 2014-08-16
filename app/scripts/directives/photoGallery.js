@@ -9,10 +9,13 @@ var photoGallery = function () {
         replace: true,
         controller: function ($scope, $firebase, $modal, DataService, $stateParams, $state, toastr) {
             var galleryId = $stateParams.id;
+            var username = $scope.home.FireProcess($stateParams.uname);
+            var galleryUrl = $scope.home.MainUrl + 'breeders/' + username + '/galleries/' + galleryId;
+            $scope.gallery = $firebase(new Firebase(galleryUrl));
+
             $scope.home.auth.$getCurrentUser().then(function (user) {
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(function () {
-                    var galleryUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/galleries/' + galleryId;
-                    $scope.gallery = $firebase(new Firebase(galleryUrl));
+                    $scope.home.isLoadFinished = true;
                 });
             });
 
