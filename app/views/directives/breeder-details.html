@@ -45,11 +45,30 @@
 		      id="myDetailsForm"
 		      ng-cloack
 		      novalidate>
-			<div class="form-group">
+
+			<div class="form-group" ng-if="home.isOwner">
 				<label class="labelMyDetails">Location:</label>
-				<span>{{index.BreederProfile.Location}}</span>
 				<span class="textMuted"
-				      ng-if="!index.BreederProfile.Location">Where are you from?</span>
+				      ng-if="!index.BreederProfile.City && !index.BreederProfile.State">Where are you from?</span>
+				<span ng-if="!IsEdit">{{index.BreederProfile.City}}, {{index.BreederProfile.State}} </span>
+				<input type="text"
+				       class="form-control input-sm"
+				       placeholder="City?"
+				       ng-model="index.BreederProfileCopy.City"
+				       ng-if="IsEdit">
+
+				<div class="margin-left-60">
+					<input type="text"
+					       class="form-control input-sm "
+					       placeholder="City?"
+					       ng-model="index.BreederProfileCopy.State"
+					       ng-if="IsEdit">
+				</div>
+			</div>
+
+			<div class="form-group" ng-if="!home.isOwner" ng-cloack>
+				<label class="labelMyDetails">Location:</label>
+				<span ng-if="!IsEdit">{{index.BreederProfile.Location}}</span>
 			</div>
 
 			<div class="form-group" ng-if="home.isOwner">
@@ -96,12 +115,12 @@
 				<span ng-if="!IsEdit">{{index.BreederProfile.Phone}}</span>
 			</div>
 
-			<div class="form-group mt15" ng-if="home.isOwner">
+			<div class="form-group " ng-if="home.isOwner">
 				<label class="labelMyDetails">Certifications:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Certifications}}</span>
 				<span class="textMuted"
-				      ng-if="!index.BreederProfile.Certifications">Your certifications</span>
-				<input type="checkbox" class="checkbox-sm"
+				      ng-if="!index.BreederProfile.Certifications">Your certifications</span></span>
+				<input type="text" class="form-control input-sm"
 				       ng-model="index.BreederProfileCopy.Certifications"
 				       ng-if="IsEdit">
 			</div>
@@ -112,23 +131,23 @@
 
 			<div class="form-group" ng-if="home.isOwner">
 				<label class="labelMyDetails">Vet Services:</label>
-				<span ng-if="!IsEdit">{{index.BreederProfile.VetServices}}</span>
+				<span ng-if="!IsEdit">{{index.BreederProfile.VetServices|boolString}}</span>
 				<span class="textMuted"
-				      ng-if="!index.BreederProfile.VetServices">Do you provide vet services?</span>
+				      ng-if="!index.BreederProfile.hasOwnProperty('VetServices')">Do you provide vet services?</span>
 				<input type="checkbox" class="checkbox-sm"
 				       ng-model="index.BreederProfileCopy.VetServices"
 				       ng-if="IsEdit">
 			</div>
 			<div class="form-group" ng-if="!home.isOwner">
 				<label class="labelMyDetails">Vet Services:</label>
-				<span ng-if="!IsEdit">{{index.BreederProfile.VetCervices}}</span>
+				<span ng-if="!IsEdit">{{index.BreederProfile.VetServices}}</span>
 			</div>
 
 			<div class="form-group" ng-if="home.isOwner">
 				<label class="labelMyDetails">Shipping:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
 				<span class="textMuted"
-				      ng-if="!index.BreederProfile.Shipping">Do you provide shipping?</span>
+				      ng-if="!index.BreederProfile.hasOwnProperty('Shipping')">Do you provide shipping?</span>
 				<input type="checkbox" class="checkbox-sm"
 				       ng-model="index.BreederProfileCopy.Shipping"
 				       ng-if="IsEdit">
@@ -138,11 +157,7 @@
 				<label class="labelMyDetails">Shipping:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
 			</div>
-			<div class="form-group" ng-if="!IsEdit && index.rating">
-				<label class="labelMyDetails">Average rating:</label>
 
-				<angular-ratings ng-model="index.rating"></angular-ratings>
-			</div>
 
 			<div class="form-group text-center profileSave">
 

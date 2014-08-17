@@ -366,11 +366,9 @@ class DataService {
 
 
         var firebaseUrl = this.urlBreeder + key + '/profile';
-        console.log(firebaseUrl);
         this.fb = this.$firebase(new Firebase(firebaseUrl));
 
         for (var key in t) {
-            console.log(key, t[key]);
             this.fb[key] = t[key];
         }
 

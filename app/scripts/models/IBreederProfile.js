@@ -84,11 +84,12 @@ var BreederProfile = (function () {
         this.City = "";
         this.Zip = "";
         this.State = "";
-        this.Certifications = [];
-        this.VetServices = false;
-        this.Insurances = [];
-        this.Shipping = false;
+        this.Certifications = "";
 
+        //        this.VetServices = false;
+        this.Insurances = [];
+
+        //        this.Shipping = false;
         this.IsShowEmail = true;
         this.IsShowPhoneNumber = true;
         this.Breeds = [];

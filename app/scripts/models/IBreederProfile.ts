@@ -74,7 +74,7 @@ interface IBreederProfile extends IUser {
     City:string;
     Zip:string;
     State:string;
-    Certifications:string[];
+    Certifications:string;
     Breeds:string[];
     VetServices:boolean;
     Insurances:string[];
@@ -187,7 +187,7 @@ class BreederProfile implements IBreederProfile {
     Website:string;
     Email:string;
     Phone:string;
-    Certifications:string[];
+    Certifications:string;
     VetServices:boolean;
     Insurances:string[];
     Shipping:boolean;
@@ -214,10 +214,10 @@ class BreederProfile implements IBreederProfile {
         this.City = "";
         this.Zip = "";
         this.State = "";
-        this.Certifications = [];
-        this.VetServices = false;
+        this.Certifications = "";
+//        this.VetServices = false;
         this.Insurances = [];
-        this.Shipping = false;
+//        this.Shipping = false;
 
 
         this.IsShowEmail = true;

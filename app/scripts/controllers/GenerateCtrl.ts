@@ -309,7 +309,7 @@ class GenerateCtrl {
         breeder1.Location = "Chicago,IL";
         breeder1.Zip = "60630";
         breeder1.State = "IL";
-        breeder1.Certifications = ["Cenrtification 1"];
+        breeder1.Certifications = "Certification 1";
         breeder1.VetServices = true;
         breeder1.Insurances = ["Insurance 1"];
         breeder1.Shipping = false;
@@ -331,7 +331,7 @@ class GenerateCtrl {
         breeder2.City = "Chicago";
         breeder2.Zip = "60630";
         breeder2.State = "IL";
-        breeder2.Certifications = ["Cenrtification 1"];
+        breeder2.Certifications = "Certification 1";
         breeder2.VetServices = true;
         breeder2.Insurances = ["Insurance 1"];
         breeder2.Shipping = false;
@@ -353,7 +353,7 @@ class GenerateCtrl {
         breeder3.City = "Chicago";
         breeder3.Zip = "60630";
         breeder3.State = "IL";
-        breeder3.Certifications = ["Cenrtification 1"];
+        breeder3.Certifications = "Certification 1";
         breeder3.VetServices = true;
         breeder3.Insurances = ["Insurance 1"];
         breeder3.Shipping = false;
@@ -375,7 +375,7 @@ class GenerateCtrl {
         breeder4.City = "Chicago";
         breeder4.Zip = "60630";
         breeder4.State = "IL";
-        breeder4.Certifications = ["Cenrtification 1"];
+        breeder4.Certifications = "Certification 1";
         breeder4.VetServices = true;
         breeder4.Insurances = ["Insurance 1"];
         breeder4.Shipping = false;
@@ -397,7 +397,7 @@ class GenerateCtrl {
         breeder5.City = "Chicago";
         breeder5.Zip = "60630";
         breeder5.State = "IL";
-        breeder5.Certifications = ["Cenrtification 1"];
+        breeder5.Certifications = "Certification 1";
         breeder5.VetServices = true;
         breeder5.Insurances = ["Insurance 1"];
         breeder5.Shipping = false;
@@ -419,7 +419,7 @@ class GenerateCtrl {
         breeder6.City = "Chicago";
         breeder6.Zip = "60630";
         breeder6.State = "IL";
-        breeder6.Certifications = ["Cenrtification 1"];
+        breeder6.Certifications = "Certification 1";
         breeder6.VetServices = true;
         breeder6.Insurances = ["Insurance 1"];
         breeder6.Shipping = false;
@@ -442,7 +442,7 @@ class GenerateCtrl {
         breeder7.City = "Chicago";
         breeder7.Zip = "60630";
         breeder7.State = "IL";
-        breeder7.Certifications = ["Cenrtification 1"];
+        breeder7.Certifications = "Certification 1";
         breeder7.VetServices = true;
         breeder7.Insurances = ["Insurance 1"];
         breeder7.Shipping = false;
@@ -465,7 +465,7 @@ class GenerateCtrl {
         breeder8.City = "Chicago";
         breeder8.Zip = "60630";
         breeder8.State = "IL";
-        breeder8.Certifications = ["Cenrtification 1"];
+        breeder8.Certifications = "Certification 1";
         breeder8.VetServices = true;
         breeder8.Insurances = ["Insurance 1"];
         breeder8.Shipping = false;
@@ -488,7 +488,7 @@ class GenerateCtrl {
         breeder9.City = "Chicago";
         breeder9.Zip = "60630";
         breeder9.State = "IL";
-        breeder9.Certifications = ["Cenrtification 1"];
+        breeder9.Certifications = "Certification 1";
         breeder9.VetServices = true;
         breeder9.Insurances = ["Insurance 1"];
         breeder9.Shipping = false;
