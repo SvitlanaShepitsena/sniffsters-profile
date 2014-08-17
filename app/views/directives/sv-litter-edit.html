@@ -1,123 +1,128 @@
-<div ng-hide="!home.isOwner">
-	<ol class="breadcrumb">
-		<li><a ui-sref="user.profile.puppies3">Current Litters</a></li>
-		<li><a ui-sref="^">{{litter.Title}}</a></li>
-		<li class="active">Edit</li>
-	</ol>
-	<div class="text-right btn-wrapper">
-		<button ui-sref="^" class="btn btn-link">Cancel</button>
-		<button class="right btn btn-link"
-		        ng-disabled="(files.length==0 && form.$pristine)
+<div>
+	<div ng-hide="home.isLoadFinished">
+		<sv-spinner></sv-spinner>
+	</div>
+	<div ng-hide="!home.isOwner">
+		<ol class="breadcrumb">
+			<li><a ui-sref="user.profile.puppies3">Current Litters</a></li>
+			<li><a ui-sref="^">{{litter.Title}}</a></li>
+			<li class="active">Edit</li>
+		</ol>
+		<div class="text-right btn-wrapper">
+			<button ui-sref="^" class="btn btn-link">Cancel</button>
+			<button class="right btn btn-link"
+			        ng-disabled="(files.length==0 && form.$pristine)
 					|| (form.title.$invalid || form.dateOfBirth.$invalid
 					 || form.puppies.$invalid)|| form.colors.$invalid"
-		        ng-click="saveLitter(); form.$setPristine();">Save
-		</button>
-	</div>
-	<div class="slider-wrapper" sv-slider h="1200">
-		<form role="form" name="form" id="form" novalidate>
-			<div class="form-group">
-				<label class="sniff-subhead" for="title"> Title</label>&nbsp<span class="textMuted">Required</span>
+			        ng-click="saveLitter(); form.$setPristine();">Save
+			</button>
+		</div>
+		<div class="slider-wrapper" sv-slider h="1200">
+			<form role="form" name="form" id="form" novalidate>
+				<div class="form-group">
+					<label class="sniff-subhead" for="title"> Title</label>&nbsp<span class="textMuted">Required</span>
 			<span ng-show="form.title.$error.maxlength"
 			      class="text text-danger pull-right maxsymb">Max 250 symbols!
 			</span>
-				<input type="text" class="form-control" id="title" name="title" placeholder="title"
-				       ng-class="{inputEmpty:!litter.Title}"
-				       ng-required="true"
-				       ng-maxLength="250"
-				       ng-model="litter.Title">
-			</div>
-
-			<div class="form-group">
-				<label class="sniff-subhead" for="date">Date of Birth</label>&nbsp<span
-					class="textMuted">Required</span>
-
-				<div class="input-group calendar">
-					<input type="text" id="date" name="date" class="form-control"
-					       datepicker-popup='dd.MM.yyyy' is-open="opened"
-					       datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
-					       ng-class="{inputEmpty:!litter.DateOfBirth}"
-					       ng-model="litter.DateOfBirth"
-					       ng-model="dt"
-					       ng-maxLength="250"
+					<input type="text" class="form-control" id="title" name="title" placeholder="title"
+					       ng-class="{inputEmpty:!litter.Title}"
 					       ng-required="true"
-					       close-text="Close"/>
-					<button class="btn btn-default btn-calendar"
-					        ng-click="open($event)">
-						<i class="fa fa-calendar"></i>
-					</button>
-
+					       ng-maxLength="250"
+					       ng-model="litter.Title">
 				</div>
-			</div>
 
-			<div class="form-group">
-				<label class="sniff-subhead" for="puppies">Number of puppies and sex</label>&nbsp<span
-					class="textMuted">Required</span>
+				<div class="form-group">
+					<label class="sniff-subhead" for="date">Date of Birth</label>&nbsp<span
+						class="textMuted">Required</span>
+
+					<div class="input-group">
+
+              <span class="input-group-addon">
+	                <i class="fa fa-calendar"></i>
+              </span>
+						<input type="text" id="date" name="date" class="form-control"
+						       placeholder="Date of Birth"
+						       ng-class="{inputEmpty:!litter.DateOfBirth}"
+						       ng-model="litter.DateOfBirth"
+						       data-autoclose="1"
+						       is-open="opened"
+						       close-text="Close"
+						       bs-datepicker
+						       required
+								>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="sniff-subhead" for="puppies">Number of puppies and sex</label>&nbsp<span
+						class="textMuted">Required</span>
 					<span ng-show="form.puppies.$error.maxlength"
 					      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
-				<input type="text" class="form-control" id="puppies" name="puppies" placeholder="title"
-				       ng-class="{inputEmpty:!litter.Puppies}"
-				       ng-maxLength="250"
-				       ng-model="litter.Puppies"
-				       ng-required="true">
-			</div>
-			<div class="form-group">
-				<label class="sniff-subhead" for="colors">Colors</label>&nbsp<span class="textMuted">Required</span>
+					<input type="text" class="form-control" id="puppies" name="puppies" placeholder="title"
+					       ng-class="{inputEmpty:!litter.Puppies}"
+					       ng-maxLength="250"
+					       ng-model="litter.Puppies"
+					       ng-required="true">
+				</div>
+				<div class="form-group">
+					<label class="sniff-subhead" for="colors">Colors</label>&nbsp<span class="textMuted">Required</span>
 					<span ng-show="form.colors.$error.maxlength"
 					      class="text text-danger pull-right  maxSymb">Max 250 symbols!</span>
-				<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title"
-				       ng-class="{inputEmpty:!litter.Colors}"
-				       ng-maxLength="250"
-				       ng-model="litter.Colors"
-				       ng-required="true">
-			</div>
+					<input tybpe="text" class="form-control" id="colors" name="colors" placeholder="title"
+					       ng-class="{inputEmpty:!litter.Colors}"
+					       ng-maxLength="250"
+					       ng-model="litter.Colors"
+					       ng-required="true">
+				</div>
 
-			<div class="row">
-				<ul class="list-unstyled ">
-					<li class="col-xs-12 shuffle-animation" ng-repeat="(key,p) in litter.Photos">
-						<button class="btn pull-right btn-del-pic"
-						        data-toggle="tooltip" data-placement="left" title="Delete this photo."
-						        title="{{popoverDelete.title}}"
-						        data-content="{{popover.content}}"
-						        data-template="../views/modals/delete-confirmation.html"
-						        data-animation="am-flip-x"
-						        bs-popover="popoverDelete">
-							<i class="fa fa-trash-o"></i>
-						</button>
-						<div class="thumbnail">
-							<img class="puppyPic"
-							     ng-src="{{p.file64}}">
+				<div class="row">
+					<ul class="list-unstyled ">
+						<li class="col-xs-12 shuffle-animation" ng-repeat="(key,p) in litter.Photos">
+							<button class="btn pull-right btn-del-pic"
+							        data-toggle="tooltip" data-placement="left" title="Delete this photo."
+							        title="{{popoverDelete.title}}"
+							        data-content="{{popover.content}}"
+							        data-template="../views/modals/delete-confirmation.html"
+							        data-animation="am-flip-x"
+							        bs-popover="popoverDelete">
+								<i class="fa fa-trash-o"></i>
+							</button>
+							<div class="thumbnail">
+								<img class="puppyPic"
+								     ng-src="{{p.file64}}">
 
-							<div class="form-group">
+								<div class="form-group">
 					<span ng-show="form.cap.$invalid"
 					      class="text text-danger pull-right maxSymb">Max 250 symbols!</span>
-								<input type="text" class="form-control"
-								       name="cap"
-								       id="cap"
-								       ng-maxLength="250"
-								       ng-model="p.caption">
+									<input type="text" class="form-control"
+									       name="cap"
+									       id="cap"
+									       ng-maxLength="250"
+									       ng-model="p.caption">
+								</div>
 							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
+						</li>
+					</ul>
+				</div>
 
-			<sv-image-upload
-					files="files"
-					is-mult="true"
-					file-size="3000000"
-					btn-title="Browse">
-			</sv-image-upload>
-		</form>
-	</div>
-	<div class="btn-wrapper">
-		<a ui-sref="^" class="btn btn-default btn-sniff-md">Cancel</a>
-		<button class="btn btn-info btn-sniff-md"
-		        ng-disabled="(files.length==0 && form.$pristine)
+				<sv-image-upload
+						files="files"
+						is-mult="true"
+						file-size="3000000"
+						btn-title="Browse">
+				</sv-image-upload>
+			</form>
+		</div>
+		<div class="btn-wrapper">
+			<a ui-sref="^" class="btn btn-default btn-sniff-md">Cancel</a>
+			<button class="btn btn-info btn-sniff-md"
+			        ng-disabled="(files.length==0 && form.$pristine)
 					|| (form.title.$invalid || form.dateOfBirth.$invalid
 					 || form.puppies.$invalid)|| form.colors.$invalid
 					 || form.cap.$invalid"
-		        ng-click="saveLitter(); form.$setPristine();">Save
-		</button>
+			        ng-click="saveLitter(); form.$setPristine();">Save
+			</button>
 
+		</div>
 	</div>
 </div>

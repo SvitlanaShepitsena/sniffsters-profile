@@ -17,6 +17,7 @@ var svLitterEdit:() => ng.IDirective = () => {
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
                     var litterUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/litters/' + litterId;
                     $scope.litter = $firebase(new Firebase(litterUrl));
+                    $scope.home.isLoadFinished = true;
                 })
             })
 
