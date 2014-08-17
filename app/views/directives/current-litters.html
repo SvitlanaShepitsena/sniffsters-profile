@@ -1,23 +1,14 @@
-<div class="panel panel-primary panel-ad">
-	<div class="panel-heading panel-ad-heading">
-	<h3 class="panel-title text-center">----</h3>
-	</div>
-	<div class="panel-body text-center panel-body-litters">
-		<br/>
-
-		<h3 class="hCurrentLitters">Litters</h3>
-
-		<button class="btn btn-default btn-sniff-md btn-edit-litters" ng-show="home.isOwner"
-		        ui-sref="user.profile.puppies3">
-			Edit
-		</button>
-		<div class="check-out-wrapper" ng-hide="home.isOwner">
-			<a class="check-out"
-			   ui-sref="user.profile.puppies3">
+<div class="panel-litters">
+	<button class="btn btn-default btn-sniff-md btn-edit-litters" ng-show="home.isOwner"
+	        ui-sref="user.profile.puppies3">
+		Edit
+	</button>
+	<div class="check-out-wrapper"
+	     ng-hide="home.isOwner">
+		<a class="check-out"
+		   ui-sref="user.profile.puppies3">
 			Check out our current puppies >
-			</a>
-		</div>
-
-		<br/>
+		</a>
 	</div>
+
 </div>

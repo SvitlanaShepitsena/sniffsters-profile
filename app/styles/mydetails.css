@@ -20,6 +20,7 @@
     MY DETAILS
 ***********************/
 .myDetailsContWrapper {
+    position: relative;
     margin-right: -15px;
 }
 
@@ -37,7 +38,6 @@
     display: inline-block;
     padding: 2px 5px;
     line-height: 16px;
-    height: 28px;
 }
 
 .myDetails-alert {
@@ -72,7 +72,15 @@
 }
 
 .profileSave {
-    margin-top: 10px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.btn-edit-details {
+    position: relative;
+    left: 100px;
+    bottom: 10px;
 }
 
 .dl-horizontal dt {
@@ -85,11 +93,12 @@
 }
 
 .labelMyDetails {
+    margin-right: 5px;
     font-family: arial, sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 14px;
     color: #3a3a3a;
-    margin-right: 5px;
 }
 
 .spanCertif {
@@ -110,4 +119,20 @@
 
 .aside-user-header {
     padding-top: 10px;
+}
+
+.alert-details {
+    height: 240px;
+    color: #3a3a3a;
+    background: url("../img/sidebar/my-details-background.png") no-repeat;
+}
+
+.form-details {
+    padding: 22px 15px 15px 15px;
+    line-height: 16px;
+}
+
+.input-sm {
+    height: 18px !important;
+    margin: 0px !important;
 }

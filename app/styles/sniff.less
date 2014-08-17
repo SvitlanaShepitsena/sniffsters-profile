@@ -83,9 +83,9 @@ body {
 
 .btn-sniff-md {
   font-family: arial, sans-serif;
-  width: 136px;
+  width: 110px;
   padding: 5px 3px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .btn-primary {
@@ -170,6 +170,10 @@ label {
   font-size: 22px;
   color: @color-subhead !important;
   font-weight: normal;
+  line-height: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .sniff-head-sm {
@@ -192,6 +196,8 @@ h3 {
   font-weight: normal !important;
   font-size: 22px !important;
   color: #a0403f !important;
+  line-height: 18px;
+  letter-spacing: 1px;
 }
 
 .sniff-head-info {
@@ -200,6 +206,8 @@ h3 {
   font-weight: normal !important;
   font-size: 22px !important;
   color: @color-info !important;
+  line-height: 18px;
+  letter-spacing: 1px;
 }
 
 h4 {
@@ -221,7 +229,7 @@ h4 {
 }
 
 input {
-  //  margin-top: 5px;
+  margin-top: 5px;
 }
 
 textarea {
@@ -257,6 +265,14 @@ textarea {
 
 .ml5 {
   margin-left: 5px;
+}
+
+.mt15 {
+  margin-top: 15px;
+}
+
+.checkbox-sm {
+  margin-top: 0px !important;
 }
 
 /**********************
@@ -489,12 +505,19 @@ textarea {
 }
 
 .btn-edit-litters {
-  margin-top: 15px;
+  position: relative;
+  top: 150px;
+  left: 96px;
 }
 
 .panel-ad {
   height: 220px;
   border-radius: 15px;
+}
+
+.panel-litters {
+  height: 240px;
+  background: url("../img/sidebar/litters.png") no-repeat;
 }
 
 .panel-ad-heading {
@@ -804,7 +827,7 @@ textarea {
 
 /**********************
      =Manage Account
-***********************/
+***********************
 .table-invoices {
   font-size: 12px !important;
 }
@@ -838,60 +861,10 @@ input[type="checkbox"]:checked + label span {
   background: url(../imgdir/check_radio_sheet.png) -19px top no-repeat;
 }
 
-/*
-* Datepicker element
-*/
-.datepicker.dropdown-menu {
-  width: 250px;
-  height: 270px;
-  button {
-    outline: none;
-    border: 0px;
-  }
-  tbody {
-    height: 180px;
-  }
-  tbody button {
-    padding: 6px;
-  }
-  &.datepicker-mode-1, &.datepicker-mode-2 {
-    tbody button {
-      height: 65px;
-    }
-  }
+/**********************
+ Previous Puppies
+***********************/
+.panel-previous-puppies {
+
 }
 
-.datepicker.dropdown-menu {
-  width: 250px;
-  height: 250px;
-  button {
-    outline: none;
-    border: 0px;
-  }
-  tbody {
-    height: 180px;
-  }
-  tbody button {
-    padding: 6px;
-  }
-  &.datepicker-mode-1, &.datepicker-mode-2 {
-    tbody button {
-      height: 65px;
-    }
-  }
-}
-
-.timepicker.dropdown-menu {
-  padding: 0 4px;
-  button {
-    outline: none;
-    border: 0px;
-  }
-  tbody button {
-    padding: 6px;
-  }
-}
-
-.sm-height {
-  line-height: 12px;
-}
