@@ -9,9 +9,10 @@ interface IFollowersScope extends IMainScope {
 }
 class FollowersCtrl {
 
-    constructor(public $scope, $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $scope, public settings, $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.followersCtrl = this;
         $scope.followers = [];
+        $scope.noFollowers = settings.noFollowers;
 
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {

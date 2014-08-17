@@ -236,6 +236,8 @@ profile.value("settings", {
     noSuchUser: 'The user with such username does not exist',
     userExists: 'This username is already in use. Please try another',
     noMessages: 'You have no new messages',
+    noFollowing: 'You are not following anyone',
+    noFollowers: 'You have no followers yet',
     dataSaved: 'Successfully saved',
     dbError: 'Db Connection Error!'
 })

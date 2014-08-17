@@ -1,6 +1,6 @@
 <h2 class="sniff-head-info">Followers</h2>
 <hr/>
-<h3 class="text-warning" ng-hide="followers.length">Nobody follows your profile</h3>
+<h3 class="text-warning text-center" ng-hide="followers.length">{{noFollowers}}</h3>
 <div ng-show="followers.length" class="searchBreederDescription" ng-cloak sv-slider h="1200">
 	<ul class="list-unstyled">
 		<li class="shuffle-animation li-follow" ng-repeat="(key,f) in followers">
