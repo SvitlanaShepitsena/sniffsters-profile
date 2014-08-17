@@ -90,23 +90,17 @@
 					<a class="sniff-menu btn-logout"
 					   ng-click="home.Logout()">LOG OUT
 					</a>
-
 				</li>
 
 				<li ng-if="!home.auth.user">
-
-
 					<sv-login-popover lp-shown="lpShown" rp-shown="rpShown"
-					                  ng-click="loginPopover()"></sv-login-popover>
-
-
+					                  ng-click="loginPopover()">
+					</sv-login-popover>
 				</li>
 				<li ng-if="!home.auth.user">
-
 					<sv-register-popover lp-shown="lpShown" rp-shown="rpShown"
-					                     ng-click="registerPopover()"></sv-register-popover>
-
-
+					                     ng-click="registerPopover()">
+					</sv-register-popover>
 				</li>
 			</ul>
 
