@@ -1,39 +1,21 @@
-<div class="panel-previous-puppies img-responsive ">
-	<div class="previous">
-		<div class="img-thumb-container-previous-puppies img-responsive">
-			<img class="img-thumb-previous img-responsive"
-			     ng-src="{{expuppies[indexPrev].file64 || '../img/avatar-lg.png'}}"
-			     alt="Image Avatar">
+<div>
+	<div class="panel-previous-puppies img-responsive ">
+		<div class="previous">
+			<div class="img-thumb-container-previous-puppies img-responsive">
+				<img class="img-thumb-previous img-responsive"
+				     ng-src="{{expuppies[indexPrev].file64 || '../img/avatar-lg.png'}}"
+				     alt="Image Avatar">
+			</div>
+			<a class="btn-slider-left" ng-click="prev()"></a>
+			<a class="btn-slider-right" ng-click="next()"></a>
 		</div>
-		<a class="btn-slider-left" ng-click="prev()"></a>
-		<a class="btn-slider-right" ng-click="next()"></a>
+
 	</div>
-
-
-	<div sv-slider h="700">
-
-		<div ng-show="g.Photos.length">
-			<input type="text" ng-model="g.Title" class="form-control gal-title">
-			<button class="btn btn-link pull-right" ng-click="savePrevPuppies()">Save Gallery</button>
-		</div>
-
-		<div ng-mouseover="addBtnShown()"
-		     ng-mouseleave="addBtnHidden()">
-			<sv-image-upload ng-if="home.isOwner"
-			                 files="g.Photos"
-			                 is-mult="true"
-			                 is-drag-hidden="true"
-			                 file-size="3000000"
-			                 btn-title="{{btnTitle}}">
-			</sv-image-upload>
-		</div>
-
-		<a class="btn btn-link pull-right"
-		   ui-sref="sniff.forBreeders({scroll:1})"
-		   ng-show="home.isOwner && (!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries))">
-			st
-			<int> Upgrade subscription
-		</a>
+	<div>
+		</br>
+		</br>
+		</br>
+		</br>
+		<sv-add-prev-puppies></sv-add-prev-puppies>
 	</div>
-
 </div>

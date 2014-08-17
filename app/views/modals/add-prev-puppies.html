@@ -1,0 +1,40 @@
+<div class="modal" tabindex="-1" role="dialog" xmlns="http://www.w3.org/1999/html">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="$hide()">&times;</button>
+				<h3 class="modal-title">Add Previous Puppies Pictures</h3>
+			</div>
+			<div class="modal-body">
+				<div sv-slider h="650">
+					<label for="title"> Gallery Title</label>
+					<input id="title" type="text" ng-model="g.Title" class="form-control gal-title">
+
+					<div ng-show="g.Photos.length">
+						<button class="btn btn-link pull-right" ng-click="savePrevPuppies();$hide()">Save Gallery
+						</button>
+					</div>
+
+					<div ng-mouseover="addBtnShown()"
+					     ng-mouseleave="addBtnHidden()">
+
+						<sv-image-upload ng-if="home.isOwner"
+						                 files="g.Photos"
+						                 is-mult="true"
+						                 file-size="3000000"
+						                 btn-title="{{btnTitle}}">
+						</sv-image-upload>
+
+					</div>
+
+					<a class="btn btn-link pull-right"
+					   ui-sref="sniff.forBreeders({scroll:1})"
+					   ng-show="home.isOwner && (!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries))">
+
+						Upgrade subscription
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -85,6 +85,7 @@
 /// <reference path="directives/svSpinner.ts" />
 /// <reference path="directives/svLoginPopover.ts" />
 /// <reference path="directives/svRegisterPopover.ts" />
+/// <reference path="directives/svAddPrevPuppies.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ngSanitize', 'ratings', 'mgcrea.ngStrap.helpers.dateParser', 'mgcrea.ngStrap.affix', 'mgcrea.ngStrap.typeahead', 'mgcrea.ngStrap.helpers.parseOptions', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
@@ -182,6 +183,7 @@ profile.directive("svStartPlanButton", svStartPlanButton);
 profile.directive("svSpinner", svSpinner);
 profile.directive("svLoginPopover", svLoginPopover);
 profile.directive("svRegisterPopover", svRegisterPopover);
+profile.directive("svAddPrevPuppies", svAddPrevPuppies);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
