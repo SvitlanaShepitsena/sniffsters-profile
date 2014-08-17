@@ -16,13 +16,16 @@
 			<button class="btn btn-link pull-right" ng-click="savePrevPuppies()">Save Gallery</button>
 		</div>
 
-		<sv-image-upload ng-show="home.isOwner"
-		                 files="g.Photos"
-		                 is-mult="true"
-		                 is-drag-hidden="true"
-		                 file-size="3000000"
-		                 btn-title="{{btnTitle}}">
-		</sv-image-upload>
+		<div ng-mouseover="addBtnShown()"
+		     ng-mouseleave="addBtnHidden()">
+			<sv-image-upload ng-if="home.isOwner"
+			                 files="g.Photos"
+			                 is-mult="true"
+			                 is-drag-hidden="true"
+			                 file-size="3000000"
+			                 btn-title="{{btnTitle}}">
+			</sv-image-upload>
+		</div>
 
 		<a class="btn btn-link pull-right"
 		   ui-sref="sniff.forBreeders({scroll:1})"

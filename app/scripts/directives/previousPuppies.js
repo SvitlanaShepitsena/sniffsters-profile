@@ -14,6 +14,14 @@ var previousPuppies = function () {
             var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
             $scope.galleries = $firebase(new Firebase(galleriesUrl));
             $scope.indexPrev = 0;
+            $scope.showAddPhotosButton = false;
+
+            $scope.addBtnShown = function () {
+                $scope.showAddPhotosButton = true;
+            };
+            $scope.addBtnHidden = function () {
+                $scope.showAddPhotosButton = false;
+            };
 
             $scope.next = function () {
                 $scope.indexPrev++;

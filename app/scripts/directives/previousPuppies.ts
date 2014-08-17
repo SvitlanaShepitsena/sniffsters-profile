@@ -18,6 +18,14 @@ var previousPuppies:() => ng.IDirective = () => {
             var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
             $scope.galleries = $firebase(new Firebase(galleriesUrl));
             $scope.indexPrev = 0;
+            $scope.showAddPhotosButton = false;
+
+            $scope.addBtnShown = () => {
+                $scope.showAddPhotosButton = true;
+            }
+            $scope.addBtnHidden = () => {
+                $scope.showAddPhotosButton = false;
+            }
 
             $scope.next = () => {
                 $scope.indexPrev++;
