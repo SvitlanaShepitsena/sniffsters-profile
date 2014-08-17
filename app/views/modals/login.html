@@ -1,4 +1,4 @@
-<div class="popover popover-login" tabindex="-1" role="dialog" ng-show="!home.auth.user" ng-style="lpop">
+<div class="popover popover-login" tabindex="-1" role="dialog" ng-show="!home.auth.user">
 	<div class="arrow popover-arrow-register"></div>
 	<div class="popover-dialog">
 		<div class="popover-content">
@@ -30,7 +30,7 @@
 							       ng-model="login.pass">
 						</div>
 						<div class="text-right">
-						<button class="btn btn-danger btn-sniff-md h-sign-up-white"
+							<button class="btn btn-danger btn-sniff-md h-sign-up-white"
 							        ng-click="home.Signin(login.email, login.pass)">
 								LOG IN
 							</button>
@@ -46,7 +46,7 @@
 				<div class="row">
 					<div class="col-xs-12 ">
 						<div id="socialLoginForm" class="text-right">
-						<button class="btn btn-primary btn-facebook-login btn-sniff-md h-sign-up-white"
+							<button class="btn btn-primary btn-facebook-login btn-sniff-md h-sign-up-white"
 							        ng-click="home.FacebookSignin()">
 								<i class="fa fa-facebook"></i>
 								LOG IN

@@ -20,126 +20,150 @@
         STYLES
 ***********************/
 .home-buttons {
-  padding-top: 20px;
-  padding-bottom: 50px;
-  padding-right: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 440px;
-  position: absolute;
-  top: 210px;
-  left: 92px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-right: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 440px;
+    position: absolute;
+    top: 210px;
+    left: 92px;
 }
+
 .home-btn-wrapper {
-  padding-top: 20px;
-  padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
+
 .or {
-  position: absolute;
-  left: 290px;
-  top: 248px;
-  font-size: 28px;
-  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    position: absolute;
+    left: 290px;
+    top: 248px;
+    font-size: 28px;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
 }
+
 .btn-looking-wrapper {
-  height: 76px;
-  width: 210px;
-  background: url("../../img/button-left.png") no-repeat;
-  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    height: 76px;
+    width: 210px;
+    background: url("../../img/button-left.png") no-repeat;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
 }
+
 .btn-looking-wrapper:hover {
-  background: url("../../img/button-left-hover.png") no-repeat;
+    background: url("../../img/button-left-hover.png") no-repeat;
 }
+
 .btn-breeder-wrapper {
-  height: 78px;
-  width: 215px;
-  background: url("../../img/button-right.png") no-repeat;
-  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    height: 78px;
+    width: 215px;
+    background: url("../../img/button-right.png") no-repeat;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
 }
+
 .btn-breeder-wrapper:hover {
-  background: url("../../img/button-right-hover.png") no-repeat;
+    background: url("../../img/button-right-hover.png") no-repeat;
 }
+
 .btn-home {
-  position: relative;
-  font-size: 20px !important;
-  line-height: 20px;
-  color: whitesmoke !important;
-  font-style: normal !important;
+    position: relative;
+    font-size: 20px !important;
+    line-height: 20px;
+    color: whitesmoke !important;
+    font-style: normal !important;
 }
+
 .menu-modal {
-  margin-top: 5px !important;
+    margin-top: 5px !important;
 }
+
 .btn-great-search {
-  margin-top: 15px;
-  margin-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
+
 .ad-text-sm {
-  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
-  font-weight: normal;
-  font-size: 16px !important;
-  color: #3a3a3a;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+    font-weight: normal;
+    font-size: 16px !important;
+    color: #3a3a3a;
 }
+
 .home-ad-wrapper {
-  margin-left: 30px;
+    margin-left: 30px;
 }
+
 .find-out {
-  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
-  color: #217ac8;
-  font-size: 16px !important;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif !important;
+    color: #217ac8;
+    font-size: 16px !important;
 }
+
 .p-home {
-  margin-left: 30px;
+    margin-left: 30px;
 }
+
 .greatForm {
-  margin-top: 20px !important;
+    margin-top: 20px !important;
 }
+
 .welc-text {
-  font-size: 46px !important;
-  font-weight: bold;
-  font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
-  text-align: center;
-  margin-top: 60px !important;
-  margin-bottom: 5px;
-  color: #472d1e;
+    font-size: 46px !important;
+    font-weight: bold;
+    font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
+    text-align: center;
+    margin-top: 60px !important;
+    margin-bottom: 5px;
+    color: #472d1e;
 }
+
 .help-text {
-  color: #472d1e !important;
-  font-weight: bold;
-  font-size: 32px;
-  margin-top: 0px;
+    color: #472d1e !important;
+    font-weight: bold;
+    font-size: 32px;
+    margin-top: 0px;
 }
+
 .home-wrapper {
-  background: url("../../img/Landing_background.png") no-repeat;
-  width: 1200px;
-  padding-top: 70px !important;
-  padding-bottom: 230px !important;
-  margin-bottom: -134px;
+    background: url("../../img/Landing_background.png") no-repeat;
+    width: 1200px;
+    padding-top: 70px !important;
+    padding-bottom: 230px !important;
+    margin-bottom: -134px;
 }
+
 .homeJumbo {
-  height: 486px !important;
-  padding-bottom: 30px !important;
-  background: url("../../img/jumbotron-background.png") no-repeat;
+    height: 486px !important;
+    padding-bottom: 30px !important;
+    background: url("../../img/jumbotron-background.png") no-repeat;
 }
+
 .social-media-container {
-  margin-left: 90px;
-  margin-top: 10px;
+    margin-left: 90px;
+    margin-top: 10px;
 }
+
 .sm-home {
-  display: inline-block;
-  margin-left: 5px;
+    display: inline-block;
+    margin-left: 5px;
 }
+
 .home-links {
-  position: relative;
-  top: 146px;
-  left: -15px;
+    position: relative;
+    top: 146px;
+    left: -15px;
 }
+
 .home-links .fa-caret-right {
-  margin-left: 3px;
+    margin-left: 3px;
 }
+
 .great-links .fa-caret-right {
-  margin-left: 3px;
+    margin-left: 3px;
 }
+
 .input-search {
-  margin-right: 5px;
-  margin-left: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
