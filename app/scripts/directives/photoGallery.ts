@@ -13,6 +13,8 @@ var photoGallery:(data) => ng.IDirective = () => {
         // replace directive tag with template info
         replace: true,
         controller: ($scope, $firebase, $modal, DataService:DataService, $stateParams, $state, toastr) => {
+            $scope.home.isLoadFinished = false;
+
             var galleryId = $stateParams.id;
             var username = $scope.home.FireProcess($stateParams.uname);
             var galleryUrl = $scope.home.MainUrl + 'breeders/' + username + '/galleries/' + galleryId;
@@ -20,6 +22,11 @@ var photoGallery:(data) => ng.IDirective = () => {
 
 
             $scope.home.auth.$getCurrentUser().then((user) => {
+
+                if (user == null) {
+                    $scope.home.isLoadFinished = true;
+                    return;
+                }
                 $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
                     $scope.home.isLoadFinished = true;
                 })

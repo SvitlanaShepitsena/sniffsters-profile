@@ -42,7 +42,11 @@
 			</div>
 			<h3 class="sniff-head-info">Current Galleries</h3>
 			<hr/>
-			<h3 class="text-warning" ng-show="!(galleries|orderByPriority).length">{{noGalleryNotice}}</h3>
+			<div ng-hide="home.isLoadFinished">
+				<sv-spinner></sv-spinner>
+			</div>
+
+			<h3 class="text-warning" ng-if="home.isLoadFinished && index.galleriesNumber==0">{{noGalleryNotice}}</h3>
 			<ul class="list-unstyled row">
 				<li class="col-xs-4"
 				    ng-if="g.isTemp"

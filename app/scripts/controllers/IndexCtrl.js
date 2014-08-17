@@ -27,8 +27,34 @@ var IndexCtrl = (function () {
         this.spinner = true;
 
         var requestEmail = $stateParams.uname;
-        var requestEmailFire = $scope.home.FireProcess(requestEmail);
 
+        if (requestEmail == "public") {
+            this.$scope.home.auth.$getCurrentUser().then(function (user) {
+                requestEmail = $scope.home.FireProcess(user.email);
+
+                var requestEmailFire = $scope.home.FireProcess(requestEmail);
+                var requestedBreederRef = $firebase(new Firebase($scope.home.MainUrl + 'breeders/' + requestEmailFire + "/profile"));
+
+                var breederProfile;
+                requestedBreederRef.$on('value', function (snapshot) {
+                    breederProfile = snapshot.snapshot.value;
+                    _this.BreederProfile = breederProfile;
+
+                    _this.error = false;
+                    _this.BreederProfile = breederProfile;
+                    _this.BreederName = breederProfile.UserName;
+
+                    _this.CopyProfileService.SetProfile(breederProfile);
+                    _this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+                    _this.spinner = false;
+                    $scope.home.isLoadFinished = true;
+                    $scope.home.isOwner = false;
+                });
+            });
+            return;
+        }
+
+        var requestEmailFire = $scope.home.FireProcess(requestEmail);
         var requestedBreederRef = $firebase(new Firebase($scope.home.MainUrl + 'breeders/' + requestEmailFire + "/profile"));
 
         var breederProfile;
@@ -55,10 +81,6 @@ var IndexCtrl = (function () {
                 user.email = user.id;
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
                 _this.spinner = false;
-
-                if (requestEmail == "public") {
-                    requestEmail = $scope.home.userName;
-                }
 
                 //Success
                 var ownership = $scope.home.Ownership();

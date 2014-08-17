@@ -30,12 +30,19 @@ class PhotosCtrl {
         $scope.photosCtrl = this;
         $scope.home.url = "photos";
 
-        this.$scope.home.auth.$getCurrentUser().then((user) => {
 
+        var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
+        $scope.galleries = $firebase(new Firebase(galleriesUrl));
+
+        $scope.newGalleries = [];
+
+        this.$scope.home.auth.$getCurrentUser().then((user) => {
+            if (user == null) {
+                $scope.home.isLoadFinished = true;
+                return;
+            }
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
-                var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
-                $scope.galleries = $firebase(new Firebase(galleriesUrl));
-                $scope.newGalleries = [];
+                $scope.home.isLoadFinished = true;
             })
         })
         $scope.onNewFileSelect = ($files, galleryId:string) => {

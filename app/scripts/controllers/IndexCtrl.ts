@@ -44,8 +44,38 @@ class IndexCtrl {
         this.spinner = true;
 
         var requestEmail = $stateParams.uname;
-        var requestEmailFire = $scope.home.FireProcess(requestEmail);
 
+        if (requestEmail == "public") {
+            this.$scope.home.auth.$getCurrentUser().then((user) => {
+                requestEmail = $scope.home.FireProcess(user.email);
+
+                var requestEmailFire = $scope.home.FireProcess(requestEmail);
+                var requestedBreederRef = $firebase(new Firebase($scope.home.MainUrl + 'breeders/' + requestEmailFire + "/profile"));
+
+
+                var breederProfile:IBreederProfile;
+                requestedBreederRef.$on('value', (snapshot:any)=> {
+                    breederProfile = snapshot.snapshot.value;
+                    this.BreederProfile = breederProfile;
+
+                    this.error = false;
+                    this.BreederProfile = breederProfile;
+                    this.BreederName = breederProfile.UserName;
+
+
+                    this.CopyProfileService.SetProfile(breederProfile);
+                    this.BreederProfileEdit = CopyProfileService.GetProfileClone();
+                    this.spinner = false;
+                    $scope.home.isLoadFinished = true;
+                    $scope.home.isOwner = false;
+
+                });
+            });
+            return;
+        }
+
+
+        var requestEmailFire = $scope.home.FireProcess(requestEmail);
         var requestedBreederRef = $firebase(new Firebase($scope.home.MainUrl + 'breeders/' + requestEmailFire + "/profile"));
 
 
@@ -77,9 +107,6 @@ class IndexCtrl {
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
                 this.spinner = false;
 
-                if (requestEmail == "public") {
-                    requestEmail = $scope.home.userName;
-                }
 
                 //Success
                 var ownership = $scope.home.Ownership();
