@@ -1,38 +1,35 @@
-<div class="panel panel-info text-center panel-previous-puppies">
-	<div class="panel-heading">
-	<h2 class="panel-title"><p ng-transclude></p></h2>
+<div class="panel-previous-puppies">
+	<div class="previous">
+		<div class="img-thumb-container-previous-puppies">
+			<img class="img-thumb-previous" ng-src="{{expuppies[indexPrev].file64 || '../img/avatar-lg.png'}}"
+			     alt="Image Avatar">
+		</div>
+		<a class="btn-slider-left" ng-click="prev()"></a>
+		<a class="btn-slider-right" ng-click="next()"></a>
 	</div>
-	<div class="panel-body">
 
-		<div class="thumbnail">
-			<a href="#">
-				<img ng-src="{{expuppies[indexPrev].file64 || '../img/avatar-lg.png'}}" alt="Image Avatar">
-			</a>
-			<button ng-click="prev()">Prev</button>
-			&nbsp;
-			<button ng-click="next()">Next</button>
+
+	<div sv-slider h="700">
+
+		<div ng-show="g.Photos.length">
+			<input type="text" ng-model="g.Title" class="form-control gal-title">
+			<button class="btn btn-link pull-right" ng-click="savePrevPuppies()">Save Gallery</button>
 		</div>
 
-		<div sv-slider h="700">
+		<sv-image-upload ng-show="home.isOwner"
+		                 files="g.Photos"
+		                 is-mult="true"
+		                 is-drag-hidden="true"
+		                 file-size="3000000"
+		                 btn-title="{{btnTitle}}">
+		</sv-image-upload>
 
-			<div ng-show="g.Photos.length">
-				<button class="btn btn-link pull-right" ng-click="savePrevPuppies()">Save Gallery</button>
-				<input type="text" ng-model="g.Title" class="form-control gal-title">
-			</div>
-
-			<sv-image-upload ng-show="home.isOwner"
-					files="g.Photos"
-					is-mult="true"
-					is-drag-hidden="true"
-					file-size="3000000"
-					btn-title="{{btnTitle}}">
-			</sv-image-upload>
-
-			<a class="btn btn-link pull-right"
-			   ui-sref="sniff.forBreeders({scroll:1})"
-			   ng-show="home.isOwner && (!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries))">
-			Upgrade subscription
-			</a>
-		</div>
+		<a class="btn btn-link pull-right"
+		   ui-sref="sniff.forBreeders({scroll:1})"
+		   ng-show="home.isOwner && (!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries))">
+			st
+			<int> Upgrade subscription
+		</a>
 	</div>
+
 </div>

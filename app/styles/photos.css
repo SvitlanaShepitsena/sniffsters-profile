@@ -33,6 +33,20 @@
     height: 100px;
 }
 
+.img-thumb-container-previous-puppies {
+    position: relative;
+    overflow: hidden;
+    width: 248px;
+    margin: 0px auto;
+}
+
+.img-thumb-previous {
+    position: relative;
+    direction: ltr;
+    display: block;
+    height: 236px;
+}
+
 .puppyPic {
     margin-top: 10px;
     margin-bottom: 10px;
