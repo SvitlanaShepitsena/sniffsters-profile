@@ -83,6 +83,8 @@
 /// <reference path="controllers/PaymentSuccessAnnuallyCtrl.ts" />
 /// <reference path="controllers/PaymentCancelAnnuallyCtrl.ts" />
 /// <reference path="directives/svSpinner.ts" />
+/// <reference path="directives/svLoginPopover.ts" />
+/// <reference path="directives/svRegisterPopover.ts" />
 //#ref
 var profile = angular.module("profile", ['ngSanitize', 'ratings', 'mgcrea.ngStrap.helpers.dateParser', 'mgcrea.ngStrap.affix', 'mgcrea.ngStrap.typeahead', 'mgcrea.ngStrap.helpers.parseOptions', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
 
@@ -175,6 +177,8 @@ profile.directive("svContactModal", svContactModal);
 profile.directive("svPwCheck", svPwCheck);
 profile.directive("svStartPlanButton", svStartPlanButton);
 profile.directive("svSpinner", svSpinner);
+profile.directive("svLoginPopover", svLoginPopover);
+profile.directive("svRegisterPopover", svRegisterPopover);
 
 //#dir
 profile.directive("aboutInfo", aboutInfo);

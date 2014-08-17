@@ -1,7 +1,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 
-var #jname#:() => ng.IDirective = () => {
+var #jname# = () => {
 
     return{
         restrict: 'E',

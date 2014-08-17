@@ -96,23 +96,16 @@
 				<li ng-if="!home.auth.user">
 
 
-					<button class="sniff-menu btn-link btn menu-modal"
-					        data-template="views/modals/login.html"
-					        data-placement="bottom"
-					        bs-popover="popoverLogin"
-							>LOG IN
-					</button>
+					<sv-login-popover lp-shown="lpShown" rp-shown="rpShown"
+					                  ng-click="loginPopover()"></sv-login-popover>
+
 
 				</li>
 				<li ng-if="!home.auth.user">
 
+					<sv-register-popover lp-shown="lpShown" rp-shown="rpShown"
+					                     ng-click="registerPopover()"></sv-register-popover>
 
-					<button id="register" class="sniff-menu btn-link btn menu-modal"
-					        data-template="views/modals/register.html"
-					        data-placement="bottom"
-					        bs-popover="popoverRegister"
-							>REGISTER
-					</button>
 
 				</li>
 			</ul>
@@ -187,7 +180,7 @@
 
 <script src="bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script>
 
-<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="bower_components/angular-strap/src/datepicker/datepicker.js"></script>
 
@@ -312,6 +305,8 @@
 <script src="scripts/controllers/PaymentSuccessAnnuallyCtrl.js"></script>
 <script src="scripts/controllers/PaymentCancelAnnuallyCtrl.js"></script>
 <script src="scripts/directives/svSpinner.js"></script>
+<script src="scripts/directives/svLoginPopover.js"></script>
+<script src="scripts/directives/svRegisterPopover.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>
@@ -327,4 +322,4 @@
 <script src="bower_components/jcrop/jquery.Jcrop.min.js"></script>
 <script src="plugin/angular-ratings-master/angular.ratings.js"></script>
 </body>
-</html>  
+</html>

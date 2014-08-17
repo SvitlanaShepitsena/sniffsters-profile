@@ -1,4 +1,4 @@
-<div class=" popover popover-register" ng-show="!home.auth.user">
+<div class="popover popover-register" tabindex="-1" role="dialog" ng-show="!home.auth.user" ng-style="lpop">
 
 	<div class="arrow popover-arrow-register"></div>
 	<div class="popover-dialog">
@@ -99,7 +99,7 @@
 					        data-template="views/modals/login.html"
 					        data-placement="left"
 					        bs-popover="popoverLogin"
-							>LOG IN HERE
+							>LOG IN HERE <i class="fa fa-chevron-circle-right"></i>
 					</button>
 
 				</h4>
