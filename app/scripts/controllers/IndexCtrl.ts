@@ -34,7 +34,7 @@ class IndexCtrl {
     unReadMessagesNumber:number;
 
     constructor(public $scope, public $firebase, public $filter, public settings, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-
+        console.log($stateParams);
         $scope.index = this;
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
@@ -44,35 +44,6 @@ class IndexCtrl {
         this.spinner = true;
 
         var requestEmail = $stateParams.uname;
-
-        if (requestEmail == "public") {
-            this.$scope.home.auth.$getCurrentUser().then((user) => {
-                requestEmail = $scope.home.FireProcess(user.email);
-
-                var requestEmailFire = $scope.home.FireProcess(requestEmail);
-                var requestedBreederRef = $firebase(new Firebase($scope.home.MainUrl + 'breeders/' + requestEmailFire + "/profile"));
-
-
-                var breederProfile:IBreederProfile;
-                requestedBreederRef.$on('value', (snapshot:any)=> {
-                    breederProfile = snapshot.snapshot.value;
-                    this.BreederProfile = breederProfile;
-
-                    this.error = false;
-                    this.BreederProfile = breederProfile;
-                    this.BreederName = breederProfile.UserName;
-
-
-                    this.CopyProfileService.SetProfile(breederProfile);
-                    this.BreederProfileEdit = CopyProfileService.GetProfileClone();
-                    this.spinner = false;
-                    $scope.home.isLoadFinished = true;
-                    $scope.home.isOwner = false;
-
-                });
-            });
-            return;
-        }
 
 
         var requestEmailFire = $scope.home.FireProcess(requestEmail);

@@ -30,11 +30,18 @@ var PhotosCtrl = (function () {
         $scope.photosCtrl = this;
         $scope.home.url = "photos";
 
+        var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
+        $scope.galleries = $firebase(new Firebase(galleriesUrl));
+
+        $scope.newGalleries = [];
+
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
+            if (user == null) {
+                $scope.home.isLoadFinished = true;
+                return;
+            }
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
-                var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
-                $scope.galleries = $firebase(new Firebase(galleriesUrl));
-                $scope.newGalleries = [];
+                $scope.home.isLoadFinished = true;
             });
         });
         $scope.onNewFileSelect = function ($files, galleryId) {
