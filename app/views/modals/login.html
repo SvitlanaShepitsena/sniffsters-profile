@@ -3,7 +3,8 @@
 	<div class="popover-dialog">
 		<div class="popover-content">
 			<div>
-				<button type="button" class="close" ng-click="$hide()">&times;</button>
+				<button type="button" class="close"
+				        ng-click="$hide();login.email='';login.pass='';incorrectCredentials=false;">&times;</button>
 			</div>
 			<div class="popover-body">
 				<div class="row">
