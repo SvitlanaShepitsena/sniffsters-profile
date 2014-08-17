@@ -494,7 +494,13 @@ class HomeCtrl {
     }
 
 
-    Ownership() {
+    Ownership(notOwner?:boolean) {
+
+        if (notOwner == true) {
+            this.isOwner = false;
+            return false;
+        }
+
         var breederUserName:string = this.$stateParams.uname;
         if (this.auth.user === null)
             return false;

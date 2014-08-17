@@ -77,11 +77,9 @@
 				<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.explore">EXPLORE
 				</a></li>
 			</ul>
-			<!--isloggedIn:{{home.isLoggedIn || false}}<br/>-->
-			<!--AuthUser:{{home.auth.user || "null"}}-->
 			<ul class="nav navbar-nav navbar-right" ng-cloak>
 				<li ng-show="home.auth.user">
-					<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName})"
+					<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName,asuser:''})"
 					   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!</a>
 
 					<a class="hello-user" ui-sref="looker.account({uname:home.userName})"
@@ -161,7 +159,7 @@
 
 <div class="container body-content">
 	<div class="main-content-wrapper" ng-cloak>
-	<div ui-view>
+		<div ui-view>
 		</div>
 	</div>
 </div>
@@ -329,4 +327,4 @@
 <script src="bower_components/jcrop/jquery.Jcrop.min.js"></script>
 <script src="plugin/angular-ratings-master/angular.ratings.js"></script>
 </body>
-</html>
+</html>  

@@ -18,6 +18,7 @@
 		<li ui-sref-active="active-aside">
 			<a class="sniff-menu a-profile-nav" ui-sref="user.profile.followers">Followers</a></li>
 		<!--<li><a class="sniff-menu a-profile-nav" href="/Messages/Index">Verifications</a></li>-->
-		<li><a class="sniff-menu a-profile-nav" href="#/profile/{{home.userName}}/about?vu=1">View My Page</a></li>
+		<li><a class="sniff-menu a-profile-nav" ui-sref="user.profile.about1({uname:home.userName,asuser:'/as-user'})">View
+			as User</a></li>
 	</ul>
 </div>

@@ -55,8 +55,8 @@
 
 		<h4>Certifications</h4>
 
-		<p ng-repeat="c in index.BreederProfile.Certifications">
-			{{c.Title}} - {{c.isActive | boolString}}
+		<p>
+			{{index.BreederProfile.Certifications}}
 		</p>
 
 		<p class="textMuted" ng-hide="index.BreederProfile.Certifications">Add your certifications.</p>

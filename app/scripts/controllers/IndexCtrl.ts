@@ -33,8 +33,7 @@ class IndexCtrl {
     littersNumber:number;
     unReadMessagesNumber:number;
 
-    constructor(public $scope, public $firebase, public $filter, public settings, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
-        console.log($stateParams);
+    constructor(public $scope, public $firebase, public $filter, public settings, $location, $stateParams, public $rootScope, public $window, public toastr, public DataService:DataService, public CopyProfileService:CopyProfileService) {
         $scope.index = this;
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
@@ -77,10 +76,12 @@ class IndexCtrl {
             if (_.isUndefined(user.email))user.email = user.id;
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
                 this.spinner = false;
-
-
+                var viewAsUser:boolean;
+                if (!_.isUndefined($stateParams.asuser) && $stateParams.asuser == '/as-user') {
+                    viewAsUser = true;
+                }
                 //Success
-                var ownership = $scope.home.Ownership();
+                var ownership = $scope.home.Ownership(viewAsUser);
                 if (ownership) {
 
                     this.subscription = $scope.home.subscription;

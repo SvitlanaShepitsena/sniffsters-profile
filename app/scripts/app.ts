@@ -255,7 +255,7 @@ profile.config(
             })
             .state("user.profile", {
                 abstract: true,
-                url: "/profile/:uname",
+                url: "/profile/:uname{asuser:(?:/[^/]+)?}",
                 controller: IndexCtrl,
                 templateUrl: "../views/profile.html"
             })

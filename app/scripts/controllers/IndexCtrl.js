@@ -7,7 +7,7 @@
 /// <reference path="../../bower_components/DefinitelyTyped/toastr/toastr.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
 var IndexCtrl = (function () {
-    function IndexCtrl($scope, $firebase, $filter, settings, $stateParams, $rootScope, $window, toastr, DataService, CopyProfileService) {
+    function IndexCtrl($scope, $firebase, $filter, settings, $location, $stateParams, $rootScope, $window, toastr, DataService, CopyProfileService) {
         var _this = this;
         this.$scope = $scope;
         this.$firebase = $firebase;
@@ -18,7 +18,6 @@ var IndexCtrl = (function () {
         this.toastr = toastr;
         this.DataService = DataService;
         this.CopyProfileService = CopyProfileService;
-        console.log($stateParams);
         $scope.index = this;
         $scope.home.IsSearchHidden = false;
         $scope.home.url = 'about';
@@ -56,9 +55,13 @@ var IndexCtrl = (function () {
                 user.email = user.id;
             _this.$scope.home.Breedership(_this.$scope.home.FireProcess(user.email)).then(function () {
                 _this.spinner = false;
+                var viewAsUser;
+                if (!_.isUndefined($stateParams.asuser) && $stateParams.asuser == '/as-user') {
+                    viewAsUser = true;
+                }
 
                 //Success
-                var ownership = $scope.home.Ownership();
+                var ownership = $scope.home.Ownership(viewAsUser);
                 if (ownership) {
                     _this.subscription = $scope.home.subscription;
 

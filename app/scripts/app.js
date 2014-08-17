@@ -245,7 +245,7 @@ profile.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../views/profile-side-bar.html"
     }).state("user.profile", {
         abstract: true,
-        url: "/profile/:uname",
+        url: "/profile/:uname{asuser:(?:/[^/]+)?}",
         controller: IndexCtrl,
         templateUrl: "../views/profile.html"
     }).state("user.profile.about1", {
