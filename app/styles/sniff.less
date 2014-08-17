@@ -221,7 +221,7 @@ h4 {
 }
 
 input {
-  margin-top: 5px;
+  //  margin-top: 5px;
 }
 
 textarea {
@@ -838,3 +838,60 @@ input[type="checkbox"]:checked + label span {
   background: url(../imgdir/check_radio_sheet.png) -19px top no-repeat;
 }
 
+/*
+* Datepicker element
+*/
+.datepicker.dropdown-menu {
+  width: 250px;
+  height: 270px;
+  button {
+    outline: none;
+    border: 0px;
+  }
+  tbody {
+    height: 180px;
+  }
+  tbody button {
+    padding: 6px;
+  }
+  &.datepicker-mode-1, &.datepicker-mode-2 {
+    tbody button {
+      height: 65px;
+    }
+  }
+}
+
+.datepicker.dropdown-menu {
+  width: 250px;
+  height: 250px;
+  button {
+    outline: none;
+    border: 0px;
+  }
+  tbody {
+    height: 180px;
+  }
+  tbody button {
+    padding: 6px;
+  }
+  &.datepicker-mode-1, &.datepicker-mode-2 {
+    tbody button {
+      height: 65px;
+    }
+  }
+}
+
+.timepicker.dropdown-menu {
+  padding: 0 4px;
+  button {
+    outline: none;
+    border: 0px;
+  }
+  tbody button {
+    padding: 6px;
+  }
+}
+
+.sm-height {
+  line-height: 12px;
+}
