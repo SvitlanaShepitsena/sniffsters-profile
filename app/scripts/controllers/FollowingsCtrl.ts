@@ -26,8 +26,6 @@ class FollowingsCtrl {
                     var breederRef = $firebase(new Firebase(breederUrl));
                     breederRef.$on('value', (snapshot:any)=> {
                         var breeder = snapshot.snapshot.value;
-                        if (!_.isUndefined(breeder.profile.images)) {
-                        }
                         $scope.followings.push({
                             userName: breeder.profile.Email,
                             nickName: breeder.profile.UserName,

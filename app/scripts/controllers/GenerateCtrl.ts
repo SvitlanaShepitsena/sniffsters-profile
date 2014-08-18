@@ -159,33 +159,7 @@ class GenerateCtrl {
                 messagesRef.$add(note);
             })
 
-            var followingsRef = lookerRef.$child('followings');
 
-            followingsRef.$add({
-                KennelName: "Dogs Paradise",
-                Email: "breeder2@gmail.com",
-                City: "Chicago",
-                State: "IL",
-                Website: "www.dogsparadise.com",
-                Phone: '773-123-45-67'
-            });
-            followingsRef.$add({
-                KennelName: "Dogs Paradise",
-                Email: "breeder3@gmail.com",
-                City: "Chicago",
-                State: "IL",
-                Website: "www.dogsparadise.com",
-                Phone: '773-123-45-67'
-            });
-            followingsRef.$add({
-                KennelName: "Dogs Paradise",
-                Email: "breeder4@gmail.com",
-                City: "Chicago",
-                State: "IL",
-                Website: "www.dogsparadise.com",
-                Phone: '773-123-45-67'
-            });
-            followingsRef.$save();
             lookerRef.$save();
         })
 

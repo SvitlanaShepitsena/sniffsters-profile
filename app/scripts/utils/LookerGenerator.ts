@@ -15,7 +15,7 @@ class LookerGenerator implements IUserGenerator {
         var userRef = usersRef.$child(email);
         var profileRef = userRef.$child('profile');
 
-        user.Email = email;
+        user.Email = this.FireUnProcess(email);
         user.UserName = nickName;
 //        console.log(user);
 
@@ -24,5 +24,17 @@ class LookerGenerator implements IUserGenerator {
         usersRef.$save(email);
 
         return user;
+    }
+
+    FireProcess(userName:string) {
+        if (_.isUndefined(userName)) return;
+        return userName.replace(/\./g, '(p)');
+
+    }
+
+    FireUnProcess(userName:string) {
+        if (_.isUndefined(userName)) return;
+        return userName.replace(/\(p\)/g, '.');
+
     }
 }
