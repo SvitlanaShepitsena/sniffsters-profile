@@ -1,5 +1,4 @@
-<div>
-
+<div class="my-account-wrapper">
 	<h3 class="sniff-head-info">My Account</h3>
 	<hr/>
 	<!--<h3><i class="fa fa-credit-card"></i> Billing & Payments</h3>-->
@@ -10,7 +9,7 @@
 	<!--<h5 class="label label-info">You ar using autorenewal with PayPal</h5>-->
 	<!--<h4>My Invoices</h4>-->
 	<!--<h6>2 Records Found</h6>-->
-	<h4>Subscriptions</h4>
+	<h4 class="text-center">My Subscriptions</h4>
 
 	<div ng-show="!hasSubscription">
 		You do not have any Subscription plan. To learn more about the Subscription Plans please click
@@ -33,18 +32,25 @@
 					<li><strong>Litters: </strong>{{home.subscription.Litters || 'unlimited'}}</li>
 				</ul>
 			</td>
-			<td class="text-center">
-				<button class="btn btn-warning btn-sniff-md"
-				        data-toggle="tooltip" data-placement="left" title="Deactivate subscription plan"
-				        data-content="{{popover.content}}"
-				        data-template="../views/modals/cancel-subscription.html"
-				        data-animation="am-flip-x"
-				        bs-popover="popoverCancelSubscription">
-					Cancel
-				</button>
-				<button class="btn btn-info btn-sniff-md"
-				        ui-sref="sniff.forBreeders({scroll:1})">Upgrade
-				</button>
+			<td class="text-center change">
+				<p>
+					<button class="btn btn-default btn-sniff-md"
+					        data-toggle="tooltip" data-placement="left" title="Deactivate subscription plan"
+					        data-content="{{popover.content}}"
+					        data-template="../views/modals/cancel-subscription.html"
+					        data-animation="am-flip-x"
+					        bs-popover="popoverCancelSubscription">
+						Cancel
+					</button>
+				</p>
+				<p>
+					<button class="btn btn-primary btn-sniff-md"
+					        ui-sref="sniff.forBreeders({scroll:1})">
+						Upgrade
+					</button>
+				</p>
+
+
 			</td>
 		</tr>
 
