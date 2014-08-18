@@ -480,10 +480,15 @@ class HomeCtrl {
         this.auth.$logout();
         this.isLoggedIn = false;
         this.auth.user = null;
-//        this.auth = null;
+        this.userName = null;
+        this.userNameFire = null;
+
+        this.nickName = null;
+        this.nickNameFire = null;
 
 
-        this.$state.go('home');
+        this.$state.go('home', {}, {reload: true});
+//        this.$state.reload();
     }
 
     IsSearchHidden:boolean;

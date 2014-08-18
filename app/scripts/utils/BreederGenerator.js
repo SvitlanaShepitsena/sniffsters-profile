@@ -14,7 +14,7 @@ var BreederGenerator = (function () {
         var userRef = usersRef.$child(email);
         var profileRef = userRef.$child('profile');
 
-        user.Email = email;
+        user.Email = this.FireUnProcess(email);
         user.UserName = nickName;
 
         profileRef.$set(user);
@@ -22,6 +22,18 @@ var BreederGenerator = (function () {
         usersRef.$save(email);
 
         return user;
+    };
+
+    BreederGenerator.prototype.FireProcess = function (userName) {
+        if (_.isUndefined(userName))
+            return;
+        return userName.replace(/\./g, '(p)');
+    };
+
+    BreederGenerator.prototype.FireUnProcess = function (userName) {
+        if (_.isUndefined(userName))
+            return;
+        return userName.replace(/\(p\)/g, '.');
     };
     return BreederGenerator;
 })();

@@ -16,7 +16,7 @@ var LookerGenerator = (function () {
         var userRef = usersRef.$child(email);
         var profileRef = userRef.$child('profile');
 
-        user.Email = email;
+        user.Email = this.FireUnProcess(email);
         user.UserName = nickName;
 
         //        console.log(user);
@@ -25,6 +25,18 @@ var LookerGenerator = (function () {
         usersRef.$save(email);
 
         return user;
+    };
+
+    LookerGenerator.prototype.FireProcess = function (userName) {
+        if (_.isUndefined(userName))
+            return;
+        return userName.replace(/\./g, '(p)');
+    };
+
+    LookerGenerator.prototype.FireUnProcess = function (userName) {
+        if (_.isUndefined(userName))
+            return;
+        return userName.replace(/\(p\)/g, '.');
     };
     return LookerGenerator;
 })();
