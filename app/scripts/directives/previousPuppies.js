@@ -74,7 +74,6 @@ var previousPuppies = function () {
             $scope.savePrevPuppies = function () {
                 var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
                 $scope.galleries = $firebase(new Firebase(galleriesUrl));
-
                 if ($scope.g.Title === "") {
                     $scope.g.Title = "Our Previous Puppies Photos";
                 }

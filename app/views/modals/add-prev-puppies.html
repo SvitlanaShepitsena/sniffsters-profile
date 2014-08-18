@@ -29,8 +29,8 @@
 
 					<a class="btn btn-link pull-right"
 					   ui-sref="sniff.forBreeders({scroll:1})"
+					   ng-click="$hide()"
 					   ng-show="home.isOwner && (!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries))">
-
 						Upgrade subscription
 					</a>
 				</div>
