@@ -39,7 +39,6 @@ class HomeCtrl {
     isLoggedIn:boolean = false;
 
     FacebookSignin() {
-        console.log('fblog');
         this.auth.$login('facebook',
             {rememberMe: false}
         ).then((user)=> {
@@ -373,6 +372,7 @@ class HomeCtrl {
     }
 
     Breedership(email:string) {
+
         var d = this.$q.defer();
 
         if (email == 'no') {
@@ -394,7 +394,6 @@ class HomeCtrl {
                     this.Followings = _.map(_.keys(breeder.followings), (key)=> {
                         return this.FireUnProcess(key);
                     });
-//                    console.log(this.Followings);
                 }
 
 
@@ -425,9 +424,7 @@ class HomeCtrl {
                     this.Followings = _.map(_.keys(looker.followings), (key)=> {
                         return this.FireUnProcess(key);
                     });
-//                    console.log(this.Followings);
                 }
-
 
                 d.resolve();
             }

@@ -56,7 +56,7 @@ class IndexCtrl {
 
             this.error = false;
             this.BreederProfile = breederProfile;
-            this.BreederName = breederProfile.UserName;
+//            this.BreederName = breederProfile.UserName;
 
 
             this.CopyProfileService.SetProfile(breederProfile);
@@ -74,62 +74,60 @@ class IndexCtrl {
             }
 
             if (_.isUndefined(user.email))user.email = user.id;
-            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
-                this.spinner = false;
-                var viewAsUser:boolean;
-                if (!_.isUndefined($stateParams.asuser) && $stateParams.asuser == '/as-user') {
-                    viewAsUser = true;
+            this.spinner = false;
+            var viewAsUser:boolean;
+            if (!_.isUndefined($stateParams.asuser) && $stateParams.asuser == '/as-user') {
+                viewAsUser = true;
+            }
+            //Success
+            var ownership = $scope.home.Ownership(viewAsUser);
+            if (ownership) {
+
+                this.subscription = $scope.home.subscription;
+
+                // Messages Count
+                var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
+                var messagesRef = $firebase(new Firebase(messagesUrl));
+                this.messagesNumber = messagesRef.$getIndex().length;
+
+                // Galleries Count
+                var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/galleries';
+                var galleriesRef = $firebase(new Firebase(galleriesUrl));
+                this.galleriesNumber = galleriesRef.$getIndex().length;
+
+                // Messages Count
+                var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters';
+                var littersRef = $firebase(new Firebase(littersUrl));
+                this.littersNumber = littersRef.$getIndex().length;
+
+                messagesRef.$on('value', (snapshot:any)=> {
+                    var messages = snapshot.snapshot.value;
+                    var messagesArr = $filter('orderByPriority')(messages);
+                    var unReadMessages = _.where(messagesArr, {isUnread: true});
+                    this.unReadMessagesNumber = unReadMessages.length;
+
+
+                });
+
+            }
+            var feedbacksUrl = $scope.home.MainUrl + 'breeders/' + this.$scope.home.FireProcess(requestEmail) + '/feedbacks';
+            var feedbacksRef = $firebase(new Firebase(feedbacksUrl));
+            var feedbacksKeys = feedbacksRef.$getIndex();
+            var total = 0;
+            var numb = 0;
+            feedbacksKeys.forEach((key)=> {
+                var feedback = feedbacksRef[key];
+
+                if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
+                    total += feedback.Evaluation;
+                    numb++;
                 }
-                //Success
-                var ownership = $scope.home.Ownership(viewAsUser);
-                if (ownership) {
-
-                    this.subscription = $scope.home.subscription;
-
-                    // Messages Count
-                    var messagesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/messages';
-                    var messagesRef = $firebase(new Firebase(messagesUrl));
-                    this.messagesNumber = messagesRef.$getIndex().length;
-
-                    // Galleries Count
-                    var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/galleries';
-                    var galleriesRef = $firebase(new Firebase(galleriesUrl));
-                    this.galleriesNumber = galleriesRef.$getIndex().length;
-
-                    // Messages Count
-                    var littersUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/litters';
-                    var littersRef = $firebase(new Firebase(littersUrl));
-                    this.littersNumber = littersRef.$getIndex().length;
-
-                    messagesRef.$on('value', (snapshot:any)=> {
-                        var messages = snapshot.snapshot.value;
-                        var messagesArr = $filter('orderByPriority')(messages);
-                        var unReadMessages = _.where(messagesArr, {isUnread: true});
-                        this.unReadMessagesNumber = unReadMessages.length;
-
-
-                    });
-
-                }
-                var feedbacksUrl = $scope.home.MainUrl + 'breeders/' + this.$scope.home.FireProcess(requestEmail) + '/feedbacks';
-                var feedbacksRef = $firebase(new Firebase(feedbacksUrl));
-                var feedbacksKeys = feedbacksRef.$getIndex();
-                var total = 0;
-                var numb = 0;
-                feedbacksKeys.forEach((key)=> {
-                    var feedback = feedbacksRef[key];
-
-                    if (feedback.hasOwnProperty('Evaluation') && feedback.Evaluation > 0) {
-                        total += feedback.Evaluation;
-                        numb++;
-                    }
-
-                })
-
-                this.rating = numb > 0 ? Math.ceil(total / numb) : 0;
-
 
             })
+
+            this.rating = numb > 0 ? Math.ceil(total / numb) : 0;
+
+
         })
     }
 

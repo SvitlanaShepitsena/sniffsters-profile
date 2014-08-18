@@ -2,24 +2,22 @@
 <hr/>
 <h3 class="text-warning text-center" ng-hide="followers.length">{{noFollowers}}</h3>
 <div ng-show="followers.length" class="searchBreederDescription" ng-cloak sv-slider h="1200">
-	<ul class="list-unstyled">
-		<li class="shuffle-animation li-follow" ng-repeat="(key,f) in followers">
-			<div class="row ">
-				<div class="col-xs-4">
-					<div class="thumbnail no-b-margin">
-						<a ui-sref="user.profile.about1({uname:f.userName})">
-							<h3 class="text-info breederName text-center">
-								{{f.nickName}}
-							</h3>
-							<img ng-src="{{f.avatar}}" alt="">
-							<img ng-show="!f.avatar" ng-src="../imgdir/default/myimg/mainpic.jpg" alt="">
-						</a>
-					</div>
-					<div class="rating-container">
-						<angular-ratings ng-model="f.rating"></angular-ratings>
-					</div>
-				</div>
+	<ul class="list-unstyled row">
+		<li class="shuffle-animation li-follow col-xs-4 " ng-repeat="(key,f) in followers">
+			<div class="thumbnail no-b-margin">
+				<a ui-sref="user.profile.about1({uname:f.userName})">
+					<h3 class="text-info breederName text-center">
+						{{f.nickName}}
+					</h3>
+					<img ng-src="{{f.avatar}}" alt="">
+					<img ng-show="!f.avatar" ng-src="../imgdir/default/myimg/mainpic.jpg" alt="">
+				</a>
 			</div>
+			<div class="rating-container">
+				<angular-ratings ng-model="f.rating"></angular-ratings>
+			</div>
+
+
 		</li>
 	</ul>
 </div>

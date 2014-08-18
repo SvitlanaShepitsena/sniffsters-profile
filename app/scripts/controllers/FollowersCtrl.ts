@@ -20,16 +20,17 @@ class FollowersCtrl {
                 followersUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
                 followersUrl += $scope.home.FireProcess(user.email) + '/followers';
 
-                $scope.followersKeys = $firebase(new Firebase(followersUrl)).$getIndex();
+                $scope.followersRef = $firebase(new Firebase(followersUrl));
+                $scope.followersKeys = $scope.followersRef.$getIndex();
 
 
                 $scope.followersKeys.forEach((key)=> {
 
-                    var isBreeder = $scope.followersKeys[key];
+                    var isBreeder = _.values($scope.followersRef[key])[0];
 
                     var userType = (isBreeder) ? 'breeders' : 'lookers';
-
                     var userUrl = $scope.home.MainUrl + userType + '/' + key;
+
                     var userRef = $firebase(new Firebase(userUrl));
                     userRef.$on('value', (snapshot:any)=> {
                         var breeder = snapshot.snapshot.value;
@@ -38,7 +39,7 @@ class FollowersCtrl {
 
                             userName: breeder.profile.Email,
                             nickName: breeder.profile.UserName,
-                            avatar: (breeder.profile.images) ? _.values(breeder.profile.images.avatar) : null
+                            avatar: (breeder.profile.images) ? _.values(breeder.profile.images.avatar)[0] : null
                         });
                     });
                 })

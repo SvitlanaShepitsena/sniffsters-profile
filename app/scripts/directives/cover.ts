@@ -50,31 +50,28 @@ var cover:() => ng.IDirective = () => {
 
             var requestEmail = $stateParams.uname;
 
-            $scope.home.Breedership($scope.home.FireProcess(requestEmail)).then(() => {
 
-                var profilePicUrl = $scope.home.MainUrl;
-                profilePicUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
-                profilePicUrl += $scope.home.FireProcess(requestEmail) + '/profile/images/avatar';
+            var profilePicUrl = $scope.home.MainUrl;
+            profilePicUrl += $scope.home.FireProcess(requestEmail) + 'breeders/profile/images/avatar';
 
-                $scope.avatar = $firebase(new Firebase(profilePicUrl));
+            $scope.avatar = $firebase(new Firebase(profilePicUrl));
 
-                $scope.avatar.$on('value', (snapshot:any)=> {
-                    $scope.isAvatarChanged = !_.isEmpty(snapshot.snapshot.value);
-                    $scope.avatarsrc = _.values(snapshot.snapshot.value)[0];
-                });
+            $scope.avatar.$on('value', (snapshot:any)=> {
+                $scope.isAvatarChanged = !_.isEmpty(snapshot.snapshot.value);
+                $scope.avatarsrc = _.values(snapshot.snapshot.value)[0];
+            });
 
-                var coverPicUrl = $scope.home.MainUrl;
-                coverPicUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/' + 'profile/';
-                coverPicUrl += $scope.home.FireProcess(requestEmail) + '/images/cover';
+            var coverPicUrl = $scope.home.MainUrl;
+            coverPicUrl += 'breeders/' + 'profile/';
+            coverPicUrl += $scope.home.FireProcess(requestEmail) + '/images/cover';
 
-                $scope.cover = $firebase(new Firebase(coverPicUrl));
+            $scope.cover = $firebase(new Firebase(coverPicUrl));
 
-                $scope.cover.$on('value', (snapshot:any)=> {
-                    $scope.isCoverChanged = !_.isEmpty(snapshot.snapshot.value);
-                    $scope.coversrc = _.values(snapshot.snapshot.value)[0];
-                });
+            $scope.cover.$on('value', (snapshot:any)=> {
+                $scope.isCoverChanged = !_.isEmpty(snapshot.snapshot.value);
+                $scope.coversrc = _.values(snapshot.snapshot.value)[0];
+            });
 
-            })
         }
     }
 }
