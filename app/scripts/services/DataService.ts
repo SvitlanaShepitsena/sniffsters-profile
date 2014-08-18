@@ -307,7 +307,7 @@ class DataService {
 
         var userType = amIBreeder ? this.urlBreeder : this.urlLooker;
 
-        var followingUrl = userType + userName + "/followings";
+        var followingUrl = userType + userName + "/followings/" + this.FireProcess(followerName);
         var followingRef = this.$firebase(new Firebase(followingUrl));
 
         followingRef.$remove();
