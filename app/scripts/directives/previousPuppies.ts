@@ -42,16 +42,18 @@ var previousPuppies:() => ng.IDirective = () => {
             $scope.selectPrevPictures = (galleries) => {
                 var photosArr = [];
                 galleries.$on('value', (snapshot:any)=> {
-                    var galleries = snapshot.snapshot.value;
-                    var galleriesArr = _.values($filter('orderByPriority')(galleries));
+                    var galleriesVal = snapshot.snapshot.value;
+                    var galleriesArr = galleries.$getIndex();
 
-                    galleriesArr.forEach((gallery:any)=> {
+                    galleriesArr.forEach((key:any)=> {
+                        var gallery = galleries[key];
                         if (!gallery.isPrevPuppy) {
                             return;
                         }
+
                         _.values(gallery.Photos).forEach((photo)=> {
                             if (photosArr.indexOf(photo) == -1) {
-
+                                photo = _.extend(photo, {gid: key});
                                 photosArr.push(photo);
                             }
                         })

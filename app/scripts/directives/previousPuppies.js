@@ -38,15 +38,18 @@ var previousPuppies = function () {
             $scope.selectPrevPictures = function (galleries) {
                 var photosArr = [];
                 galleries.$on('value', function (snapshot) {
-                    var galleries = snapshot.snapshot.value;
-                    var galleriesArr = _.values($filter('orderByPriority')(galleries));
+                    var galleriesVal = snapshot.snapshot.value;
+                    var galleriesArr = galleries.$getIndex();
 
-                    galleriesArr.forEach(function (gallery) {
+                    galleriesArr.forEach(function (key) {
+                        var gallery = galleries[key];
                         if (!gallery.isPrevPuppy) {
                             return;
                         }
+
                         _.values(gallery.Photos).forEach(function (photo) {
                             if (photosArr.indexOf(photo) == -1) {
+                                photo = _.extend(photo, { gid: key });
                                 photosArr.push(photo);
                             }
                         });
