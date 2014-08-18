@@ -42,6 +42,9 @@
 			</div>
 			<h3 class="sniff-head-info">Current Galleries</h3>
 			<hr/>
+
+			<!--<button class="btn btn-primary" type="button" data-trigger="hover" data-type="success" data-title="Test" bs-tooltip>Click me</button>-->
+
 			<div ng-hide="home.isLoadFinished">
 				<sv-spinner></sv-spinner>
 			</div>
@@ -55,8 +58,13 @@
 				    ng-if="g.isTemp"
 				    ng-repeat="(id,g) in galleries">
 					<a class="thumbnail text-center"
+					   data-trigger="hover"
+					   data-type="info"
+					   data-title="{{g.Title}}"
+					   bs-tooltip
 					   ui-sref="user.profile.photos2.galleries({id:id})">
-						<h4>{{g.Title}}</h4>
+						<h4>{{g.Title| titleLength:10}}</h4>
+
 
 						<div class="img-thumb-container">
 							<img class="img-thumb"

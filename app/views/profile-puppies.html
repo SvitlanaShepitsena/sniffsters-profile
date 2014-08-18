@@ -44,9 +44,13 @@
 				<li class="col-xs-4" ng-repeat="(id,l) in litters">
 					<div class="litter-wrapper">
 						<a ui-sref="user.profile.puppies3.litter({id:id})"
+						   data-trigger="hover"
+						   data-type="info"
+						   data-title="{{l.Title}}"
+						   bs-tooltip
 						   class="thumbnail">
 							<div class="img-thumb-container">
-								<h4 class="text-center"> {{l.Title}} </h4>
+								<h4 class="text-center">{{l.Title| titleLength:10 }} </h4>
 								<img class="img-thumb"
 								     ng-src="{{(l.Photos|orderByPriority)[0].file64}}">
 								<img class="img-thumb"
