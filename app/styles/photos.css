@@ -26,25 +26,15 @@
 
 .img-thumb {
     position: relative;
-    direction: ltr;
     display: block;
-    background-position: 50% 25%;
-    background-size: cover;
     height: 100px;
-}
-
-.img-thumb-container-previous-puppies {
-    position: relative;
-    overflow: hidden;
-    width: 248px;
-    margin: 0px auto;
 }
 
 .img-thumb-previous {
     position: relative;
-    direction: ltr;
+    right: 20%;
     display: block;
-    height: 236px;
+    height: 234px;
 }
 
 .puppyPic {

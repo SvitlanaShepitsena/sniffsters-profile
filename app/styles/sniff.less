@@ -891,14 +891,25 @@ input[type="checkbox"]:checked + label span {
  Previous Puppies
 ***********************/
 .panel-previous-puppies {
+  position: relative;
   background: url("../img/sidebar/previous-puppies.png") no-repeat;
   width: 300px;
+  height: 340px;
   margin-top: 10px;
 }
 
 .previous {
   position: relative;
+  width: 250px;
   top: 76px;
+  left: 25px;
+}
+
+.add-previous {
+  position: absolute;
+  z-index: 2;
+  bottom: 50px;
+  left: 100px;
 }
 
 .btn-slider-left {
@@ -906,14 +917,14 @@ input[type="checkbox"]:checked + label span {
   display: block;
   width: 41px;
   height: 46px;
-  bottom: 100px;
+  bottom: 120px;
   left: -8px;
   background: url("../img/sidebar/slider-left.png") no-repeat;
 }
 
 .btn-slider-right {
   position: absolute;
-  bottom: 100px;
+  bottom: 120px;
   left: 267px;
   display: block;
   width: 41px;

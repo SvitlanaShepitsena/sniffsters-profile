@@ -5,7 +5,7 @@ var svAddPrevPuppies = ($modal) => {
 
     return{
         restrict: 'E',
-        template: '<button class="btn btn-primary z-index-high" ng-click="showAddPrevPuppies()">Add Photos</button>',
+        template: '<button class="btn btn-default btn-sniff-md z-index-high" ng-click="showAddPrevPuppies()">Add Photos</button>',
         replace: true,
 
         controller($scope) {
@@ -15,8 +15,6 @@ var svAddPrevPuppies = ($modal) => {
             }
         },
         link: (scope, element, attrs) => {
-
-
         }
     }
 }

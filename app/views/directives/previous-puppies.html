@@ -1,21 +1,18 @@
-<div>
-	<div class="panel-previous-puppies img-responsive ">
-		<div class="previous">
-			<div class="img-thumb-container-previous-puppies img-responsive">
-				<img class="img-thumb-previous img-responsive"
+<div class="panel-previous-puppies img-responsive ">
+	<div class="previous">
+		<a class="" ui-sref="http://">
+			<div class="img-thumb-container">
+				<img class="img-thumb-previous"
 				     ng-src="{{expuppies[indexPrev].file64 || '../img/avatar-lg.png'}}"
 				     alt="Image Avatar">
 			</div>
-			<a class="btn-slider-left" ng-click="prev()"></a>
-			<a class="btn-slider-right" ng-click="next()"></a>
-		</div>
+		</a>
 
 	</div>
-	<div>
-		</br>
-		</br>
-		</br>
-		</br>
-		<sv-add-prev-puppies></sv-add-prev-puppies>
+	<a class="btn-slider-left" ng-click="prev()"></a>
+	<a class="btn-slider-right" ng-click="next()"></a>
+
+	<div class="add-previous">
+	<sv-add-prev-puppies></sv-add-prev-puppies>
 	</div>
 </div>
