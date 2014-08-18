@@ -85,11 +85,8 @@ var BreederProfile = (function () {
         this.Zip = "";
         this.State = "";
         this.Certifications = "";
+        this.Insurances = "";
 
-        //        this.VetServices = false;
-        this.Insurances = [];
-
-        //        this.Shipping = false;
         this.IsShowEmail = true;
         this.IsShowPhoneNumber = true;
         this.Breeds = [];

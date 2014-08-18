@@ -285,7 +285,7 @@ class GenerateCtrl {
         breeder1.State = "IL";
         breeder1.Certifications = "Certification 1";
         breeder1.VetServices = true;
-        breeder1.Insurances = ["Insurance 1"];
+        breeder1.Insurances = "Insurance 1";
         breeder1.Shipping = false;
 
         breeders.push(breeder1);
@@ -307,7 +307,7 @@ class GenerateCtrl {
         breeder2.State = "IL";
         breeder2.Certifications = "Certification 1";
         breeder2.VetServices = true;
-        breeder2.Insurances = ["Insurance 1"];
+        breeder2.Insurances = "Insurance 1";
         breeder2.Shipping = false;
 
         breeders.push(breeder2);
@@ -329,7 +329,7 @@ class GenerateCtrl {
         breeder3.State = "IL";
         breeder3.Certifications = "Certification 1";
         breeder3.VetServices = true;
-        breeder3.Insurances = ["Insurance 1"];
+        breeder3.Insurances = "Insurance 1";
         breeder3.Shipping = false;
 
         breeders.push(breeder3);
@@ -351,7 +351,7 @@ class GenerateCtrl {
         breeder4.State = "IL";
         breeder4.Certifications = "Certification 1";
         breeder4.VetServices = true;
-        breeder4.Insurances = ["Insurance 1"];
+        breeder4.Insurances = "Insurance 1";
         breeder4.Shipping = false;
 
         breeders.push(breeder4);
@@ -373,7 +373,7 @@ class GenerateCtrl {
         breeder5.State = "IL";
         breeder5.Certifications = "Certification 1";
         breeder5.VetServices = true;
-        breeder5.Insurances = ["Insurance 1"];
+        breeder5.Insurances = "Insurance 1";
         breeder5.Shipping = false;
 
         breeders.push(breeder5);
@@ -395,7 +395,7 @@ class GenerateCtrl {
         breeder6.State = "IL";
         breeder6.Certifications = "Certification 1";
         breeder6.VetServices = true;
-        breeder6.Insurances = ["Insurance 1"];
+        breeder6.Insurances = "Insurance 1";
         breeder6.Shipping = false;
 
         breeders.push(breeder6);
@@ -418,7 +418,7 @@ class GenerateCtrl {
         breeder7.State = "IL";
         breeder7.Certifications = "Certification 1";
         breeder7.VetServices = true;
-        breeder7.Insurances = ["Insurance 1"];
+        breeder7.Insurances = "Insurance 1";
         breeder7.Shipping = false;
 
         breeders.push(breeder7);
@@ -441,7 +441,7 @@ class GenerateCtrl {
         breeder8.State = "IL";
         breeder8.Certifications = "Certification 1";
         breeder8.VetServices = true;
-        breeder8.Insurances = ["Insurance 1"];
+        breeder8.Insurances = "Insurance 1";
         breeder8.Shipping = false;
 
         breeders.push(breeder8);
@@ -464,7 +464,7 @@ class GenerateCtrl {
         breeder9.State = "IL";
         breeder9.Certifications = "Certification 1";
         breeder9.VetServices = true;
-        breeder9.Insurances = ["Insurance 1"];
+        breeder9.Insurances = "Insurance 1";
         breeder9.Shipping = false;
 
         breeders.push(breeder9);
