@@ -11,15 +11,15 @@
 		</button>
 		<button class="btn btn-link"
 
-		        ng-disabled="!home.subscription || (home.subscription.Litters>0 && index.littersNumber>home.subscription.Litters)"
+		        ng-disabled="!home.subscription || (home.subscription.Litters>0 && index.littersNumber>=home.subscription.Litters)"
 		        ng-click="puppies.addNewLitter()">
 			Add New Litter
 		</button>
 
 		<a class="btn btn-link pull-right"
 		   ui-sref="sniff.forBreeders({scroll:1})"
-		   ng-show="!home.subscription || (home.subscription.Litters>0 && index.galleriesNumber>home.subscription.Litters)">
-			Upgrade subscription
+		   ng-show="!home.subscription || (home.subscription.Litters>0 && index.littersNumber>=home.subscription.Litters)">
+		Upgrade subscription
 		</a>
 	</div>
 	<div sv-slider h="1200">
