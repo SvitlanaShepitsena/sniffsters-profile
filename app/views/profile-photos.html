@@ -5,20 +5,21 @@
 			Cancel
 		</button>
 		<button class="btn btn-link" ng-show="newGalleries.length"
-		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries)"
+		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)"
 		        ng-click="photosCtrl.saveNewGalleries()">
 			Save
 		</button>
+		{{home.subscription.Galleries+ index.galleriesNumber}}
 		<button class="btn btn-link"
-		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries)"
+		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)"
 		        ng-click="photosCtrl.addGallery()">
 			Add new gallery
 		</button>
 
 		<a class="btn btn-link pull-right"
 		   ui-sref="sniff.forBreeders({scroll:1})"
-		   ng-show="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries)">
-			Upgrade subscription
+		   ng-show="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)">
+		Upgrade subscription
 		</a>
 	</div>
 
