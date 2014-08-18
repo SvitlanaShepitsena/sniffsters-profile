@@ -46,7 +46,10 @@
 				<sv-spinner></sv-spinner>
 			</div>
 
-			<h3 class="text-warning" ng-if="home.isLoadFinished && index.galleriesNumber==0">{{noGalleryNotice}}</h3>
+			<h3 class="text-warning text-center"
+			    ng-show="home.isLoadFinished && !(galleries|orderByPriority).length">
+				{{noGalleryNotice}}
+			</h3>
 			<ul class="list-unstyled row">
 				<li class="col-xs-4"
 				    ng-if="g.isTemp"

@@ -5,27 +5,27 @@
 				<button type="button" class="close" ng-click="$hide()">&times;</button>
 				<h3 class="modal-title">Add Previous Puppies Pictures</h3>
 			</div>
+
 			<div class="modal-body">
-				<div sv-slider h="650">
+				<button class="btn btn-link pull-right" ng-show="g.Photos.length"
+				        ng-click="savePrevPuppies();$hide()">Save Gallery
+				</button>
+
+				<div class="form-group">
 					<label for="title"> Gallery Title</label>
-					<input id="title" type="text" ng-model="g.Title" class="form-control gal-title">
+					<input class="form-control gal-title"
+					       id="title" type="text"
+					       ng-model="g.Title">
+				</div>
 
-					<div ng-show="g.Photos.length">
-						<button class="btn btn-link pull-right" ng-click="savePrevPuppies();$hide()">Save Gallery
-						</button>
-					</div>
+				<div sv-slider h="580">
 
-					<div ng-mouseover="addBtnShown()"
-					     ng-mouseleave="addBtnHidden()">
-
-						<sv-image-upload ng-if="home.isOwner"
-						                 files="g.Photos"
-						                 is-mult="true"
-						                 file-size="3000000"
-						                 btn-title="{{btnTitle}}">
-						</sv-image-upload>
-
-					</div>
+					<sv-image-upload ng-if="home.isOwner"
+					                 files="g.Photos"
+					                 is-mult="true"
+					                 file-size="3000000"
+					                 btn-title="{{btnTitle}}">
+					</sv-image-upload>
 
 					<a class="btn btn-link pull-right"
 					   ui-sref="sniff.forBreeders({scroll:1})"

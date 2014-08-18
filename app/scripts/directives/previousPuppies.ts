@@ -32,7 +32,6 @@ var previousPuppies:() => ng.IDirective = () => {
                 if ($scope.indexPrev >= $scope.expuppies.length) {
                     $scope.indexPrev = 0;
                 }
-
             }
             $scope.prev = () => {
                 $scope.indexPrev--;
@@ -62,9 +61,7 @@ var previousPuppies:() => ng.IDirective = () => {
                         return photo.caption;
                     })));
                 });
-
             }
-
 
             $scope.selectPrevPictures($scope.galleries);
 
@@ -80,12 +77,9 @@ var previousPuppies:() => ng.IDirective = () => {
                 }
             }, true);
 
-
             $scope.savePrevPuppies = () => {
                 var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
                 $scope.galleries = $firebase(new Firebase(galleriesUrl));
-
-
                 if ($scope.g.Title === "") {
                     $scope.g.Title = "Our Previous Puppies Photos";
                 }
@@ -98,13 +92,9 @@ var previousPuppies:() => ng.IDirective = () => {
                     $scope.g.Title = "Our Previous Puppies Photos";
                     $scope.btnTitle = "Add Photos";
                 });
-
-
             }
-
         },
         link: (scope:IPreviousPuppies, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
-
         }
     }
 }
