@@ -80,36 +80,31 @@
 			<ul class="nav navbar-nav navbar-right" ng-cloak>
 				<li ng-show="home.auth.user">
 					<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName,asuser:''})"
-					   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!</a>
+					   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!
+					</a>
 
 					<a class="hello-user" ui-sref="looker.account({uname:home.userName})"
-					   ng-if="home.isBreeder===false">Hello, {{home.nickName}}!</a>
+					   ng-if="home.isBreeder===false">Hello, {{home.nickName}}!
+					</a>
 				</li>
 
 				<li ng-if="home.auth.user">
 					<a class="sniff-menu btn-logout"
 					   ng-click="home.Logout()">LOG OUT
 					</a>
-
 				</li>
 
 				<li ng-if="!home.auth.user">
-
-
 					<sv-login-popover lp-shown="lpShown" rp-shown="rpShown" home="home"
-					                  ng-click="loginPopover()"></sv-login-popover>
-
-
+					                  ng-click="loginPopover()">
+					</sv-login-popover>
 				</li>
 				<li ng-if="!home.auth.user">
-
 					<sv-register-popover lp-shown="lpShown" rp-shown="rpShown" home="home"
-					                     ng-click="registerPopover()"></sv-register-popover>
-
-
+					                     ng-click="registerPopover()">
+					</sv-register-popover>
 				</li>
 			</ul>
-
 		</div>
 	</div>
 </div>
@@ -160,13 +155,17 @@
 <footer>
 	<div class="container footer-container ">
 		<div class="footer-content" ng-class="{'footer-background':!home.IsHome}">
-			<div class="footer-text-container">
-				<span class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</span>
-				<ul class="nav nav-pills navbar-right nav-footer">
-					<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
-					<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
-					<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
+			<div class="footer-text-container row">
+				<ul class="col-xs-3">
+					<span class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</span>
 				</ul>
+				<div class="col-xs-9">
+					<ul class="nav navbar-nav navbar-right nav-footer">
+						<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
+						<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
+						<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

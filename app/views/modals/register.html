@@ -24,7 +24,7 @@
 							<div class="form-group has-feedback"
 							     ng-class="{'has-error':(form.pass.$dirty && form.pass.$invalid)}">
 								<label for="pass">Password</label>
-								<span class="textMuted">More then 6 symbols</span>
+								<span class="textMuted pass-restriction">More then 6 symbols</span>
 								<input type="password"
 								       class="form-control"
 								       id="pass"
@@ -48,7 +48,7 @@
 								       required>
 							</div>
 
-							<div class="form-group">
+							<div class="form-group looking-for">
 								<input id="looker" ng-required="" type="radio" ng-model="isRegisteredBreeder"
 								       ng-checked="1" ng-value=false>
 								Looking for a dog <br/>
@@ -59,23 +59,22 @@
 
 							</div>
 
-							<div class="text-center">
-								<input type="submit" class="btn btn-info btn-sniff-md h-sign-up-white"
+							<div class="text-right">
+								<input type="submit" class="btn btn-danger btn-sniff-md h-sign-up-white"
 								       value="REGISTER"
 								       ng-disabled="form.$invalid"
 								       ng-click="register(email,pass,confpass,isRegisteredBreeder)"/>
-
 							</div>
 						</form>
-						<div class="h-sign-up-black">
+						<p class="p-or">
 							Or
-						</div>
+						</p>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-xs-12 ">
-						<div id="socialLoginForm" class="text-center">
+						<div id="socialLoginForm" class="text-right">
 							<button class="btn btn-primary btn-facebook-login btn-sniff-md h-sign-up-white"
 							        ng-click="home.FacebookSignin()">
 								<i class="fa fa-facebook"></i>
@@ -83,26 +82,25 @@
 							</button>
 						</div>
 					</div>
-
 				</div>
 
 
 			</div>
 
-			<div class="popover-footer">
-				<h4 class="margin-top-20">
-				<span class="h-sign-up-black"> ALREADY HAVE AN ACCOUNT?</br>
-				</span>
+			<ul class="list-unstyled ul-login">
+				<li class="ad-text-sm"> ALREADY HAVE AN ACCOUNT?</br>
+				</li>
 
+				<li>
 					<button class="no-pad-margin btn-link btn h-sign-up"
 					        data-template="views/modals/login.html"
 					        data-placement="left"
 					        bs-popover="popoverLogin"
-							>LOG IN HERE <i class="fa fa-chevron-circle-right"></i>
+							>LOG IN HERE
+						<i class="fa fa-caret-right"></i>
 					</button>
-
-				</h4>
-			</div>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>

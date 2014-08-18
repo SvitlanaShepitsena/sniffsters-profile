@@ -1,4 +1,8 @@
 <div>
+	<ol class="breadcrumb">
+		<li><a ui-sref="^">My Profile</a></li>
+		<li class="active">Edit</li>
+	</ol>
 	<div class="row">
 		<div class="col-xs-8">
 			<h3 class="sniff-head-info">PERSONAL INFO</h3>
@@ -107,10 +111,8 @@
 		</div>
 		<br/>
 
-		<div class="form-group  profileSave text-center">
-			<a class="btn btn-default" ui-sref="looker.account">Cancel</a>
-			<!--<a class="btn btn-warning" ng-click="ResetAllFields();form.$setDirty()">Reset all fields</a>-->
-			<button class="btn btn-primary"
+		<div class="form-group text-right">
+			<button class="btn btn-primary btn-sniff-md"
 			        ng-disabled="(form.$pristine) || (form.$invalid)"
 			        ng-click="ctrl.Save(ctrl.BreederProfileEdit); form.$setPristine();">
 				Save
