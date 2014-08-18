@@ -24,11 +24,13 @@
 
 		<p class="textMuted" ng-hide="index.BreederProfile.Email">Your Email?</p>
 
-		<h4>Phone</h4>
+		<div ng-hide="!home.isOwner && !index.BreederProfile.IsShowPhoneNumber">
+			<h4>Phone</h4>
 
-		<p>{{index.BreederProfile.Phone}}</p>
+			<p>{{index.BreederProfile.Phone}}</p>
 
-		<p class="textMuted" ng-hide="index.BreederProfile.Phone">What is your phone number?</p>
+			<p class="textMuted" ng-hide="index.BreederProfile.Phone">What is your phone number?</p>
+		</div>
 
 		<h3 class="sniff-head-info">LOCATION</h3>
 

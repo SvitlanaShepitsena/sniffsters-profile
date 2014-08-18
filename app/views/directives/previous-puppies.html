@@ -1,9 +1,9 @@
 <div class="panel-previous-puppies img-responsive ">
 	<div class="previous">
 		<a class="" ui-sref="user.profile.photos2.galleries({id:expuppies[indexPrev].gid})">
-		<div class="img-thumb-container">
+			<div class="img-thumb-container">
 				<img class="img-thumb-previous text-center"
-				     ng-src="{{expuppies[indexPrev].file64}}">
+				     ng-src="{{expuppies[indexPrev].file64 || '../img/avatar-lg.png'}}">
 			</div>
 		</a>
 	</div>

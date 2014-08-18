@@ -110,7 +110,7 @@
 				       ng-if="IsEdit">
 			</div>
 
-			<div class="form-group" ng-if="!home.isOwner">
+			<div class="form-group" ng-if="!home.isOwner" ng-show="index.BreederProfile.IsShowPhoneNumber">
 				<label class="labelMyDetails">Phone:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Phone}}</span>
 			</div>
@@ -140,7 +140,7 @@
 			</div>
 			<div class="form-group" ng-if="!home.isOwner">
 				<label class="labelMyDetails">Vet Services:</label>
-				<span ng-if="!IsEdit">{{index.BreederProfile.VetServices}}</span>
+				<span ng-if="!IsEdit">{{index.BreederProfile.VetServices|boolString}}</span>
 			</div>
 
 			<div class="form-group" ng-if="home.isOwner">

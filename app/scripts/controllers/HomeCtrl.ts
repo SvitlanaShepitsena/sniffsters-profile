@@ -358,11 +358,11 @@ class HomeCtrl {
 
                 this.isLoggedIn = true;
                 if (this.isBreeder === true) {
-                    this.$state.go('user.profile.about1', {uname: user.email});
+                    this.$state.go('user.profile.about1', {uname: user.email}, {reload: true});
                 }
 
                 if (this.isBreeder === false) {
-                    this.$state.go('looker.account', {uname: user.email});
+                    this.$state.go('looker.account', {uname: user.email}, {reload: true});
                 }
             })
         }, () => {
@@ -482,7 +482,8 @@ class HomeCtrl {
         this.auth.user = null;
         this.userName = null;
         this.userNameFire = null;
-
+        this.isOwner = null;
+        this.isAdmin = null;
         this.nickName = null;
         this.nickNameFire = null;
 
