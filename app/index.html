@@ -123,12 +123,14 @@
 				<label class="quick-search">
 					QUICK SEARCH
 				</label>
-				<select class="form-control search-dropdown"
+				<button class="btn btn-default search-dropdown"
+				        type="button"
+				        placeholder='Breeds  <span class="pull-right">|</span>'
 				        ng-model="searchBreed.val"
-				        placeholder="Breeds"
-				        ng-options="breed for breed in breeds">
-					<option value="">Breeds</option>
-				</select>
+				        ng-options="breed for breed in breeds"
+				        bs-select>
+				</button>
+
 
 				<select class="form-control search-dropdown"
 				        ng-model="searchLocation.val"
@@ -155,8 +157,8 @@
 
 	<div class="footer-container ">
 		<div class="footer-content" ng-class="{'footer-background':!home.IsHome}">
-		<div class="footer-text-container row">
-				<ul class="col-xs-3">
+			<div class="footer-text-container row">
+			<ul class="col-xs-3">
 					<span class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</span>
 				</ul>
 				<div class="col-xs-9">
