@@ -173,12 +173,19 @@
 
 
 		<div class="form-group">
-			<h5 class="sniff-subhead control-label bold">Insurances:</h5>
+			<h5 class="sniff-subhead control-label bold">Vet Services:</h5>
+			<input class="checkbox-sm" type="checkbox" ng-model='ctrl.BreederProfileEdit.VetServices'>
+		</div>
+
+		<div class="form-group">
+		<h5 class="sniff-subhead control-label bold">Insurances:</h5>
 			<input class="form-control" type="text" ng-model='ctrl.BreederProfileEdit.Insurances'>
 		</div>
-		<br/>
-		<br/>
 
+		<div class="form-group">
+			<h5 class="sniff-subhead control-label bold">Shipping:</h5>
+			<input class="checkbox-sm" type="checkbox" ng-model='ctrl.BreederProfileEdit.Shipping'>
+		</div>
 		<div class="form-group text-right">
 			<a class="btn btn-warning btn-sniff-md" ng-click="ResetAllFields();form.$setDirty()">Reset all fields</a>
 			<button class="btn btn-primary btn-sniff-md ml5"
