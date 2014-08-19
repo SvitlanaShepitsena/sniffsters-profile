@@ -245,7 +245,9 @@ profile.value("settings", {
     dbError: 'Db Connection Error!'
 });
 
-profile.config(function ($stateProvider, $urlRouterProvider) {
+profile.config(function ($selectProvider, $stateProvider, $urlRouterProvider) {
+    angular.extend($selectProvider.defaults, {});
+
     $urlRouterProvider.otherwise("/");
 
     $stateProvider.state("user", {

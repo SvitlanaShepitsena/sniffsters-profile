@@ -250,7 +250,10 @@ profile.value("settings", {
 
 
 profile.config(
-    ($stateProvider, $urlRouterProvider) => {
+    ($selectProvider, $stateProvider, $urlRouterProvider) => {
+        angular.extend($selectProvider.defaults, {
+        });
+
         $urlRouterProvider.otherwise("/");
 
         $stateProvider
