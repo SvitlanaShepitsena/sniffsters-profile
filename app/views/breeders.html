@@ -26,7 +26,7 @@
 </div>
 <div class="well" sv-slider h="1780" ng-show="!isDataLoading && breeders.length">
 
-<button type="button" class="btn btn-default btn-search-panel"
+	<button type="button" class="btn btn-default btn-search-panel"
 	        ng-model="sortFeature.val"
 	        ng-options="sort.val as sort.name for sort in sortBy"
 	        placeholder="Sort By"
@@ -39,7 +39,7 @@
 			<li class="shuffle-animation" ng-repeat="b in breeders|orderBy:sortFeature.val">
 				<hr/>
 				<div class="row">
-				<div class="col-md-3">
+					<div class="col-md-3">
 						<div class="thumbnail thPictureSmall">
 							<a ui-sref="user.profile.about1({uname:b.profile.Email})">
 								<img ng-show="(b.profile.images.avatar|orderByPriority)[0]"
@@ -94,10 +94,10 @@
 							<li class="cityState">
 								{{b.profile.City}}, {{b.profile.State}}
 							</li>
-							<li>
+							<li ng-show="b.profile.IsShowPhoneNumber">
 								{{b.profile.Phone}}
 							</li>
-							<li>
+							<li ng-show="b.profile.IsShowEmail">
 								{{b.profile.Email}}
 							</li>
 						</ul>
@@ -117,7 +117,7 @@
 							<button class="btn btn-link sniff-head-sm"
 							        ng-show="home.Followings.indexOf(b.profile.Email)>-1"
 							        role="button" ng-click="home.unFollowUser(home.userName,b.profile.Email)">
-							UnFollow -
+								UnFollow -
 							</button>
 
 						</li>

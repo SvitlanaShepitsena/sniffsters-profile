@@ -19,11 +19,13 @@
 
 		<p class="textMuted" ng-hide="index.BreederProfile.Website">Your website?</p>
 
-		<h4>Email</h4>
+		<div ng-show="index.BreederProfile.IsShowEmail">
+			<h4>Email</h4>
 
-		<p>{{index.BreederProfile.Email}}</p>
+			<p>{{index.BreederProfile.Email}}</p>
 
-		<p class="textMuted" ng-hide="index.BreederProfile.Email">Your Email?</p>
+			<p class="textMuted" ng-hide="index.BreederProfile.Email">Your Email?</p>
+		</div>
 
 		<div ng-hide="!home.isOwner && !index.BreederProfile.IsShowPhoneNumber">
 			<h4>Phone</h4>
@@ -51,7 +53,7 @@
 
 		<p>{{index.BreederProfile.State}}</p>
 
-		<p class="textMuted" ng-hide="index.BreederProfile.Zip">Your state?</p>
+		<p class="textMuted" ng-hide="index.BreederProfile.State">Your state?</p>
 
 		<h3 class="sniff-head-info">SPECIFICS</h3>
 		<!--<div ui-view="info"></div>-->
