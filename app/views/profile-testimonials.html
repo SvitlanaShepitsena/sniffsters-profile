@@ -1,5 +1,10 @@
 <div ui-view>
 	<div class="text-right">
+
+		<button class="btn btn-link"
+		        ng-show="testimonials.FeedbacksNew.length>0"
+		        ng-click="testimonials.cancelNew(); form.setPristine()">Cancel
+		</button>
 		<button class="btn btn-link"
 		        ng-show="testimonials.FeedbacksNew.length>0"
 		        ng-disabled="isOk"

@@ -38,6 +38,10 @@ class TestimonialsCtrl {
         }
     }
 
+    cancelNew() {
+        this.FeedbacksNew = [];
+    }
+
     addNewTestimonial() {
 
         var feedback = new Feedback();
