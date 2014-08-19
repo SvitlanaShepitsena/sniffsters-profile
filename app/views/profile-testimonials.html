@@ -9,6 +9,10 @@
 		        ng-show="home.userName && home.isOwner"
 		        ng-click="testimonials.addNewTestimonial()">Add New
 		</button>
+		<button class="btn btn-link"
+		        ng-show="home.userName && !home.isOwner"
+		        ng-click="testimonials.addNewTestimonial()">Leave feedback
+		</button>
 	</div>
 
 	<div class="row" ng-show="testimonials.FeedbacksNew.length>0">
