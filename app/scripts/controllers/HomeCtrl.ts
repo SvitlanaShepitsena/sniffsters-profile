@@ -115,7 +115,7 @@ class HomeCtrl {
             })
 
         $scope.home = this;
-        this.menuIndex = 1;
+//        this.menuIndex = 1;
 
 
         $scope.usernameFb = {};

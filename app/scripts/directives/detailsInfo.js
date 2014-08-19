@@ -6,6 +6,8 @@ var detailsInfo = function () {
         templateUrl: 'views/directives/details-info.html',
         replace: true,
         link: function (scope, element, attrs) {
+            scope.home.menuIndex = 4;
+            scope.home.url = 'details';
         }
     };
 };

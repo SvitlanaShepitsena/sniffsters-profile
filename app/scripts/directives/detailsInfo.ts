@@ -11,7 +11,10 @@ var detailsInfo:() => ng.IDirective = () => {
         templateUrl: 'views/directives/details-info.html',
         replace: true,
 
-        link: (scope:IDetailsInfo, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+        link: (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes) => {
+            scope.home.menuIndex = 4;
+            scope.home.url = 'details';
         }
+
     }
 }
