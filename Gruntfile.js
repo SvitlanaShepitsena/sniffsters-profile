@@ -81,7 +81,7 @@ module.exports = function (grunt) {
                 tasks: ['coffee:test']
             },
             typescript: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
+                files: ['<%= yeoman.app %>/scripts/{,*/}*.ts']
 //                tasks: ['typescript:same']
             },
             livereload: {
@@ -308,7 +308,7 @@ module.exports = function (grunt) {
         },
         concurrent: {
             server: [
-                'coffee:dist',
+                'coffee:dist'
 //                'typescript:same'
             ],
             test: [
