@@ -123,7 +123,7 @@
 			<div class="profile-breeds">
 				<div class="control-group" id="fields">
 					<div class="controls">
-						<form role="form" name="form" id="form" autocomplete="off">
+						<form role="form" name="form-breeds" id="form-breeds" ng-submit="addNewBreeds(breeder.breeds)">
 							<div class="form-group">
 								<div class="entry input-group col-xs-12">
 
@@ -132,11 +132,12 @@
 									        data-multiple="1"
 									        ng-options="breed for breed in breedsa"
 									        placeholder="Breed"
+									        ng-click="addNewBreeds(breeder.breeds)"
 									        bs-select="selectBreeder">
-										Action <span class="caret"></span>{{breeder.breeds}}
+										Select Breed <span class="caret"></span>{{breeder.breeds}}
 									</button>
 
-									<button ng-click="addNewBreeds(breeder.breeds)" class="btn btn-default btn-add"
+									<button class="btn btn-default btn-add"
                                     type="button">
 	                            <span class="glyphicon glyphicon-plus">
 	                            </span>
@@ -157,7 +158,7 @@
 			</button>
 			<button class="btn btn-primary btn-sniff-md ml5"
 			        ng-disabled="form.$invalid || form.$pristine"
-			        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save
+			        ng-click="ctrl.Save(ctrl.BreederProfileEdit);addNewBreeds(breeder.breeds);form.$setPristine()">Save
 			</button>
 			<a class="btn btn-default btn-sniff-md ml5"
 			   ui-sref="user.profile.photos2">Next Section

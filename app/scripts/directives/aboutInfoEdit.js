@@ -1,5 +1,5 @@
 /// <reference path="../app.ts" />
-var aboutInfoEdit = function () {
+var aboutInfoEdit = function (hotkeys) {
     return {
         restrict: 'E',
         templateUrl: 'views/directives/about-info-edit.html',

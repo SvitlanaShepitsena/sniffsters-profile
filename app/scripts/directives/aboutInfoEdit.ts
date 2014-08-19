@@ -1,6 +1,6 @@
 /// <reference path="../app.ts" />
 
-var aboutInfoEdit:() => ng.IDirective = () => {
+var aboutInfoEdit = (hotkeys) => {
 
     return{
         restrict: 'E',
@@ -17,6 +17,7 @@ var aboutInfoEdit:() => ng.IDirective = () => {
             breedsa: '='
         },
         controller($scope, $stateParams, $firebase, $modal) {
+
 
 //            var id = $stateParams.id;
             var id = $scope.home.FireProcess($stateParams.uname);
