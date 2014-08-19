@@ -90,30 +90,6 @@ body {
   font-size: 12px;
 }
 
-.btn-primary {
-  .gradient(#2279c1, #2279c1, #498cc6);
-  //  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#498cc6), to(#2779c1));
-
-  &:hover {
-    background-color: #4b95d6 !important;
-    border-color: #4389cf !important;
-  }
-
-  &:active {
-    background-color: #4b95d6 !important;
-    border-color: #4389cf !important;
-  }
-  &:focus {
-    background-color: #4b95d6 !important;
-    border-color: #4389cf !important;
-  }
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-  background-color: #4b95d6 !important;
-  border-color: #4389cf !important;
-}
-
 .cursor-p {
   cursor: pointer;
 }
@@ -983,8 +959,56 @@ input[type="checkbox"]:checked + label span {
   background: -webkit-linear-gradient(#c9c9c9, #bbbbbb);
   background: -moz-linear-gradient(#c9c9c9, #bbbbbb);
   background: -ms-linear-gradient(#c9c9c9, #bbbbbb);
-  box-shadow: 0px 1px 1px 0px rgba(1, 11, 24, 0.34), inset 0px 1px 1px 0px rgba(255, 255, 255, 0.08);
+  box-shadow: 0px 1px 1px 0px rgba(1, 11, 24, 0.34), inset;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(31, 113, 184);
+  border-radius: 6px;
+  background: -webkit-linear-gradient(#498cc6, #2779c1);
+  background: -moz-linear-gradient(#498cc6, #2779c1);
+  background: -ms-linear-gradient(#498cc6, #2779c1);
+  box-shadow: inset 0.5px 0.866px 1px 0px #78afdf;
+
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #63a4dc;
+  border-radius: 6px;
+  background: -webkit-linear-gradient(#c9c9c9, #bbbbbb);
+  background: -moz-linear-gradient(#4d97d7, #3f83cd);
+  background: -ms-linear-gradient(#c9c9c9, #bbbbbb);
+  box-shadow: inset 0.5px 0.866px 1px 0px #78afdf;
+}
+
+.btn-danger {
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d62342;
+  border-radius: 6px;
+  background: -webkit-linear-gradient(#da2243, #991f3f);
+  background: -moz-linear-gradient(#da2243, #991f3f);
+  background: -ms-linear-gradient(#da2243, #991f3f);
+  box-shadow: inset 0.5px 0.866px 1px 0px #b0576e;
+
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #831b36;
+  border-radius: 6px;
+  background: -webkit-linear-gradient(#c9c9c9, #991f3f);
+  background: -moz-linear-gradient(#4d97d7, #991f3f);
+  background: -ms-linear-gradient(#c9c9c9, #991f3f);
+  box-shadow: inset 0.5px 0.866px 1px 0px #c64637;
 }
 
 .edit-pencil {
