@@ -41,6 +41,10 @@ var TestimonialsCtrl = (function () {
             _this.$scope.feedbacks.$remove(key);
         };
     }
+    TestimonialsCtrl.prototype.cancelNew = function () {
+        this.FeedbacksNew = [];
+    };
+
     TestimonialsCtrl.prototype.addNewTestimonial = function () {
         var feedback = new Feedback();
         if (!this.$scope.home.isOwner) {
