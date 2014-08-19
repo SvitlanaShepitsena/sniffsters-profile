@@ -1,28 +1,42 @@
 <div ui-view>
 	<div class="row">
 		<div class="col-xs-1 pull-right">
-			<a class="right" ui-sref=".edit"><i class="fa fa-pencil light-gray"></i></a>
+			<a class="edit-pencil right" ui-sref=".edit">
+			</a>
 		</div>
 	</div>
 	<h3 class="sniff-head-info">Personal Info</h3>
 
-	<p>
-		First Name: {{looker.profile.FirstName}}
-	</p>
+	<h4 class="sniff-subhead">
+		First Name:
+	</h4>
 
 	<p>
-		Last Name:
-		{{looker.profile.LastName}}
+		{{looker.profile.FirstName}}
 	</p>
 
-	<p>
-		Phone:
-		{{looker.profile.Phone}}
-	</p>
+	<h4 class="sniff-subhead">
+	Last Name:
+	</h4>
 
 	<p>
-		Email:
-		{{looker.profile.Email}}
+	{{looker.profile.LastName}}
+	</p>
+
+	<h4 class="sniff-subhead">
+	Phone:
+	</h4>
+
+	<p>
+	{{looker.profile.Phone}}
+	</p>
+
+	<h4 class="sniff-subhead">
+	Email:
+	</h4>
+
+	<p>
+	{{looker.profile.Email}}
 	</p>
 
 	<h3 class="sniff-head-info">Address</h3>

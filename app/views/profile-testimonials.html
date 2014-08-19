@@ -5,7 +5,8 @@
 		        ng-disabled="isOk"
 		        ng-click="testimonials.saveNewTestimonials(); form.setPristine()">Save All
 		</button>
-		<button class="btn btn-link" ng-show="home.userName"
+		<button class="btn btn-link"
+		        ng-show="home.userName && home.isOwner"
 		        ng-click="testimonials.addNewTestimonial()">Add New
 		</button>
 	</div>

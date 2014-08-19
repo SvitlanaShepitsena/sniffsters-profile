@@ -1,11 +1,18 @@
 <div class="panel-previous-puppies img-responsive ">
-	<div class="previous">
+	<div class="previous"
+	     ng-show="expuppies.length">
 		<a class="" ui-sref="user.profile.photos2.galleries({id:expuppies[indexPrev].gid})">
 			<div class="img-thumb-container">
 				<img class="img-thumb-previous text-center"
-				     ng-src="{{expuppies[indexPrev].file64 || '../img/avatar-lg.png'}}">
+				     ng-src="{{expuppies[indexPrev].file64}}">
 			</div>
 		</a>
+	</div>
+	<div class="avatar-previous"
+	     ng-show="!expuppies.length">
+		<img class="text-center"
+		     ng-src="{{'../img/avatar-lg.png'}}"
+		     alt="Image Avatar">
 	</div>
 	<a class="btn-slider-left" ng-click="prev()"></a>
 	<a class="btn-slider-right" ng-click="next()"></a>
