@@ -49,13 +49,6 @@
     padding-top: 10px !important;
 }
 
-.btn-del {
-    margin-top: 3px !important;
-    margin-bottom: 5px !important;
-    margin-right: 5px !important;
-    padding: 1px 7px;
-}
-
 .btn-share {
     margin-top: 3px !important;
     margin-bottom: 5px !important;
@@ -74,10 +67,7 @@
 }
 
 .btn-edit {
-    margin-top: 3px !important;
-    margin-bottom: 5px !important;
-    margin-right: 5px !important;
-    padding: 1px 7px;
+    display: inline-block;
 }
 
 .btn-save {

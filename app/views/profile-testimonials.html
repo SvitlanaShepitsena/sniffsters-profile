@@ -69,22 +69,23 @@
 	</div>
 	<ul class="list-unstyled">
 		<li ng-repeat="f in feedbacks|orderByPriority|orderBy:'-AddedAt'">
-			<div class="pull-right" ng-show="home.isOwner">
-				<a class="light-gray" ui-sref="user.profile.testimonials5.edit({id:f.$id})">
-					<i class="fa fa-pencil"></i>
-				</a>
-				<button class="btn-link light-gray"
-				        data-content="{{popover.content}}"
-				        data-title="Delete forever?"
-				        data-template="../views/modals/delete-confirmation.html"
-				        data-key="{{f.$id}}"
-				        data-animation="am-flip-x"
-				        bs-popover="popoverDelete">
-
-
-					<i class="fa fa-trash-o"></i>
-				</button>
-			</div>
+			<ul class="list-inline pull-right btn-feedback-wrapper" ng-show="home.isOwner">
+				<li>
+					<button class="btn-link del-feedback"
+					        data-content="{{popover.content}}"
+					        data-title="Delete forever?"
+					        data-template="../views/modals/delete-confirmation.html"
+					        data-key="{{f.$id}}"
+					        data-animation="am-flip-x"
+					        bs-popover="popoverDelete">
+						Delete feedback
+					</button>
+				</li>
+				<li>
+					<a class="edit-pencil" ui-sref="user.profile.testimonials5.edit({id:f.$id})">
+					</a>
+				</li>
+			</ul>
 			<feedback f="f"></feedback>
 		</li>
 	</ul>

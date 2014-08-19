@@ -6,29 +6,31 @@
 		<li><a ui-sref="^">Photo Galleries</a></li>
 		<li class="active">{{gallery.Title}}</li>
 	</ol>
-	<div class="text-right btn-wrapper" ng-hide="!home.isOwner">
+	<ul class="list-inline text-right btn-wrapper" ng-hide="!home.isOwner">
 		<!--<button class="btn btn-share " data-toggle="tooltip" data-placement="left" title="Share this gallery"-->
 		<!--ng-show="gallery.isTemp"-->
 		<!--ng-click="shareGallery()">-->
 		<!--<i class="fa fa-share"></i>-->
 		<!--</button>-->
-		<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
-		        ui-sref=".edit">
-			<i class="fa fa-pencil"></i>
-		</button>
-		<button class="btn btn-del"
-		        data-toggle="tooltip" data-placement="left" title="Delete this gallery"
-		        data-content="{{popover.content}}"
-		        data-template="../views/modals/delete-confirmation.html"
-		        data-animation="am-flip-x"
-		        bs-popover="popoverDelete">
-			<i class="fa fa-trash-o"></i>
-		</button>
-
-	</div>
+		<li>
+			<button class="btn btn-link btn-del"
+			        data-toggle="tooltip" data-placement="left" title="Delete this gallery"
+			        data-content="{{popover.content}}"
+			        data-template="../views/modals/delete-confirmation.html"
+			        data-animation="am-flip-x"
+			        bs-popover="popoverDelete">
+				Delete gallery
+			</button>
+		</li>
+		<li>
+			<a class="edit-pencil btn-edit " data-toggle="tooltip" data-placement="left" title="Edit this gallery"
+			   ui-sref=".edit">
+			</a>
+		</li>
+	</ul>
 	<div class="slider-wrapper" sv-slider h="1200">
 		<h3 class="text-center sniff-head-info">
-		{{gallery.Title | uppercase}}
+			{{gallery.Title | uppercase}}
 		</h3>
 		<ul class="list-unstyled list-inline">
 			<li class="col-xs-12 shuffle-animation"

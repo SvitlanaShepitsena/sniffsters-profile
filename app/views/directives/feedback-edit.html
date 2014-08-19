@@ -38,7 +38,7 @@
 			<a class="btn btn-default" ui-sref="user.profile.testimonials5">Cancel</a>
 			<button class="btn btn-primary"
 			        data-toggle="tooltip" data-placement="left" title="Save Feedback Title"
-			        ng-disabled="formTestimonials.$invalid"
+			        ng-disabled="formTestimonials.$invalid || formTestimonials.$pristine"
 			        ng-click="updateFeedback(feedback.ClientName,feedback.Evaluation, feedback.FeedbackBody)">
 				Save
 			</button>

@@ -73,14 +73,18 @@
 
 .profileSave {
     position: absolute;
-    bottom: 0px;
+    bottom: 15px;
     left: 0px;
+}
+
+.details-btn-wrapper {
+    position: relative;
+    left: 25px;
 }
 
 .btn-edit-details {
     position: relative;
     left: 100px;
-    bottom: 10px;
 }
 
 .dl-horizontal dt {
@@ -106,10 +110,10 @@
 }
 
 .btn-save-details {
-    margin-top: 4px !important;
-    margin-bottom: 5px !important;
-    margin-right: 0px !important;
-    padding: 2px 5px;
+    position: absolute;
+    display: block;
+    right: 85px;
+    top: 0px;
 }
 
 .aside-breeder-header {
@@ -135,4 +139,10 @@
 .input-sm {
     height: 18px !important;
     margin: 0px !important;
+}
+
+.input-xs {
+    height: 18px !important;
+    margin: 0px !important;
+    width: 100px !important;
 }

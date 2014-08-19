@@ -111,18 +111,17 @@
 						file-size="3000000"
 						btn-title="Browse">
 				</sv-image-upload>
-			</form>
-		</div>
-		<div class="btn-wrapper">
-			<a ui-sref="^" class="btn btn-default btn-sniff-md">Cancel</a>
-			<button class="btn btn-info btn-sniff-md"
-			        ng-disabled="(files.length==0 && form.$pristine)
+				<div class="form-group text-right">
+					<a ui-sref="^" class="btn btn-default btn-sniff-md">Cancel</a>
+					<button class="btn btn-primary btn-sniff-md"
+					        ng-disabled="(files.length==0 && form.$pristine)
 					|| (form.title.$invalid || form.dateOfBirth.$invalid
 					 || form.puppies.$invalid)|| form.colors.$invalid
 					 || form.cap.$invalid"
-			        ng-click="saveLitter(); form.$setPristine();">Save
-			</button>
-
+					        ng-click="saveLitter(); form.$setPristine();">Save
+					</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

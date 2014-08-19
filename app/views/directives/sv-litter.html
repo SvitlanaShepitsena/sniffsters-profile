@@ -3,27 +3,29 @@
 		<sv-spinner></sv-spinner>
 	</div>
 	<ol class="breadcrumb" ng-hide="!home.isOwner">
-	<li><a ui-sref="^">Current Litters</a></li>
+		<li><a ui-sref="^">Current Litters</a></li>
 		<li class="active">{{litter.Title}}</li>
 	</ol>
-	<div class="text-right btn-wrapper" ng-hide="!home.isOwner">
-	<button class="btn btn-edit" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
-		        ui-sref=".edit">
-			<i class="fa fa-pencil"></i>
-		</button>
-		<button class="btn btn-del"
-		        title="{{popoverDelete.title}}"
-		        data-content="{{popover.content}}"
-		        data-template="../views/modals/delete-confirmation.html"
-		        data-animation="am-flip-x"
-		        bs-popover="popoverDelete">
-		<i data-toggle="tooltip" data-placement="left" title="Delete this litter"
-			   class="fa fa-trash-o light-gray"></i>
-		</button>
-	</div>
+	<ul class="list-inline text-right btn-wrapper" ng-hide="!home.isOwner">
+		<li>
+			<button class="btn btn-link btn-del"
+			        title="{{popoverDelete.title}}"
+			        data-content="{{popover.content}}"
+			        data-template="../views/modals/delete-confirmation.html"
+			        data-animation="am-flip-x"
+			        bs-popover="popoverDelete">
+				Delete litter
+			</button>
+		</li>
+		<li>
+			<a class="edit-pencil" data-toggle="tooltip" data-placement="left" title="Edit this gallery"
+			   ui-sref=".edit">
+			</a>
+		</li>
+	</ul>
 	<div class="slider-wrapper" sv-slider h="1200" ng-show="home.isLoadFinished">
 		<h3 class="sniff-head-info text-center">
-		{{litter.Title}}
+			{{litter.Title}}
 		</h3>
 		<hr/>
 		<p>
@@ -48,7 +50,7 @@
 		</p>
 		<ul class="list-unstyled">
 			<li ng-repeat="p in litter.Photos" class="shuffle-animation">
-			<img class="img-responsive" ng-src="{{p.file64}}">
+				<img class="img-responsive" ng-src="{{p.file64}}">
 				<h5>
 					{{p.caption}}
 				</h5>
