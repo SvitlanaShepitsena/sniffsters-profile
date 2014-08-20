@@ -17,6 +17,7 @@ var svShare = ($popover, $location) => {
 
                 placement: 'top',
                 scope: scope
+
             });
             scope.shareUrl = encodeURIComponent($location.absUrl());
 
