@@ -86,10 +86,10 @@
 /// <reference path="directives/svLoginPopover.ts" />
 /// <reference path="directives/svRegisterPopover.ts" />
 /// <reference path="directives/svAddPrevPuppies.ts" />
+/// <reference path="directives/svShare.ts" />
 /// <reference path="directives/svSvUpgradeNotification.ts" />
 //#ref
-var profile = angular.module("profile", ['cfp.hotkeys', 'ngSanitize', 'ratings', 'mgcrea.ngStrap.helpers.dateParser', 'mgcrea.ngStrap.affix', 'mgcrea.ngStrap.typeahead', 'mgcrea.ngStrap.helpers.parseOptions', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.helpers.dimensions', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
-
+var profile = angular.module("profile", ['ngSanitize', 'ratings', 'mgcrea.ngStrap.helpers.dateParser', 'mgcrea.ngStrap.affix', 'mgcrea.ngStrap.typeahead', 'mgcrea.ngStrap.helpers.parseOptions', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.helpers.dimensions', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
 profile.filter('boolString', function () {
     return function (value) {
         return BoolString.filter(value);
@@ -182,6 +182,7 @@ profile.directive("svSpinner", svSpinner);
 profile.directive("svLoginPopover", svLoginPopover);
 profile.directive("svRegisterPopover", svRegisterPopover);
 profile.directive("svAddPrevPuppies", svAddPrevPuppies);
+profile.directive("svShare", svShare);
 profile.directive("svSvUpgradeNotification", svSvUpgradeNotification);
 
 //#dir
@@ -248,9 +249,8 @@ profile.value("settings", {
     upgradeSubscription: 'Please upgrade your subscription'
 });
 
-profile.config(function ($selectProvider, $stateProvider, $urlRouterProvider) {
-    angular.extend($selectProvider.defaults, {});
-
+profile.config(function ($selectProvider, $stateProvider, $urlRouterProvider, $locationProvider) {
+    //$locationProvider.html5Mode(true).hashPrefix('!');
     $urlRouterProvider.otherwise("/");
 
     $stateProvider.state("user", {

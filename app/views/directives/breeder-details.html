@@ -1,9 +1,7 @@
 <div class="myDetailsContWrapper">
 	<div ng-if="home.isOwner" class="aside-breeder-header">
 		<h3 class="text-center sniff-head">MY DETAILS
-			<a class="edit-pencil-info btn-save-details right"
-			   ng-if="!IsEdit"
-			   ng-click="Edit()">
+			<a class="edit-pencil-info btn-save-details right" ng-if="!IsEdit" ng-click="Edit()">
 				</i>
 			</a>
 		</h3>
@@ -13,160 +11,114 @@
 			<li>
 				<p class="text-center" ng-if="home.FireUname">
 					<button class="btn btn-link sniff-head-sm"
-					        ng-hide="home.Followings.indexOf(index.BreederProfile.Email)>-1"
-					        role="button" ng-click="home.followUser(home.FireUname,index.BreederProfile.Email)">
+					        ng-hide="home.Followings.indexOf(index.BreederProfile.Email)>-1" role="button"
+					        ng-click="home.followUser(home.FireUname,index.BreederProfile.Email)">
 						Follow
 					</button>
-
 					<button class="btn btn-link sniff-head-sm"
-					        ng-if="home.Followings.indexOf(index.BreederProfile.Email)>-1"
-					        role="button" ng-click="home.unFollowUser(home.FireUname,index.BreederProfile.Email)">
+					        ng-if="home.Followings.indexOf(index.BreederProfile.Email)>-1" role="button"
+					        ng-click="home.unFollowUser(home.FireUname,index.BreederProfile.Email)">
 						UnFollow
 					</button>
 				</p>
 			</li>
 			<li>
-				<button class="btn btn-link sniff-head-sm">
-					Share
-				</button>
+				<sv-share></sv-share>
 			</li>
 			<li>
 				<sv-contact-modal></sv-contact-modal>
 			</li>
 		</ul>
 	</div>
-
 	<div class="alert-details">
-		<form role="form" class="form-horizontal form-details" name="myDetailsForm"
-		      id="myDetailsForm"
-		      ng-cloack
+		<form role="form" class="form-horizontal form-details" name="myDetailsForm" id="myDetailsForm" ng-cloack
 		      novalidate>
-
 			<div class="form-group" ng-if="home.isOwner">
 				<label class="labelMyDetails">Location:</label>
-				<span class="textMuted"
-				      ng-if="!index.BreederProfile.City && !index.BreederProfile.State">Where are you from?</span>
+				<span class="textMuted" ng-if="!index.BreederProfile.City && !index.BreederProfile.State">Where are you from?</span>
 				<span ng-if="!IsEdit">{{index.BreederProfile.City}}, {{index.BreederProfile.State}} </span>
-				<input type="text"
-				       class="form-control input-xs"
-				       placeholder="City?"
-				       ng-model="index.BreederProfileCopy.City"
-				       ng-if="IsEdit">
-
-				<input type="text"
-				       class="form-control input-xs"
-				       placeholder="City?"
-				       ng-model="index.BreederProfileCopy.State"
-				       ng-if="IsEdit">
+				<input type="text" class="form-control input-xs" placeholder="City?"
+				       ng-model="index.BreederProfileCopy.City" ng-if="IsEdit">
+				<input type="text" class="form-control input-xs" placeholder="City?"
+				       ng-model="index.BreederProfileCopy.State" ng-if="IsEdit">
 			</div>
-
 			<div class="form-group" ng-if="!home.isOwner" ng-cloack>
 				<label class="labelMyDetails">Location:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Location}}</span>
 			</div>
-
 			<div class="form-group" ng-if="home.isOwner">
 				<label class="labelMyDetails">Website:</label>
-				<span class="textMuted"
-				      ng-if="!index.BreederProfile.Website">Your website?</span>
+				<span class="textMuted" ng-if="!index.BreederProfile.Website">Your website?</span>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Website}}</span>
-				<input type="text"
-				       class="form-control input-sm"
-				       placeholder="Your website?"
-				       ng-model="index.BreederProfileCopy.Website"
-				       ng-if="IsEdit">
+				<input type="text" class="form-control input-sm" placeholder="Your website?"
+				       ng-model="index.BreederProfileCopy.Website" ng-if="IsEdit">
 			</div>
 			<div class="form-group" ng-if="!home.isOwner" ng-cloack>
 				<label class="labelMyDetails">Website:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Website}}</span>
 			</div>
-
 			<div class="form-group" ng-if="home.isOwner" ng-cloack>
 				<label class="labelMyDetails">Email:</label>
 			<span class="textMuted"
 			      ng-hide="index.BreederProfile.Email || IsEdit">Contact information is important.</span>
 				<span>{{index.BreederProfile.Email}}</span>
 			</div>
-
 			<div class="form-group" ng-if="!home.isOwner" ng-show="index.BreederProfile.IsShowEmail">
 				<label class="labelMyDetails">Email:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Email}}</span>
 			</div>
-
 			<div class="form-group" ng-if="home.isOwner">
 				<label class="labelMyDetails">Phone:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Phone}}</span>
 				<span class="textMuted" ng-hide="index.BreederProfile.Phone || IsEdit">What is your phone number?</span>
-				<input type="text"
-				       class="form-control input-sm"
-				       placeholder="Your phone?"
-				       ng-model="index.BreederProfileCopy.Phone"
-				       ng-if="IsEdit">
+				<input type="text" class="form-control input-sm" placeholder="Your phone?"
+				       ng-model="index.BreederProfileCopy.Phone" ng-if="IsEdit">
 			</div>
-
 			<div class="form-group" ng-if="!home.isOwner" ng-show="index.BreederProfile.IsShowPhoneNumber">
 				<label class="labelMyDetails">Phone:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Phone}}</span>
 			</div>
-
 			<div class="form-group " ng-if="home.isOwner">
 				<label class="labelMyDetails">Certifications:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Certifications}}</span>
-				<span class="textMuted"
-				      ng-if="!index.BreederProfile.Certifications">Your certifications</span></span>
-				<input type="text" class="form-control input-sm"
-				       ng-model="index.BreederProfileCopy.Certifications"
+				<span class="textMuted" ng-if="!index.BreederProfile.Certifications">Your certifications</span></span>
+				<input type="text" class="form-control input-sm" ng-model="index.BreederProfileCopy.Certifications"
 				       ng-if="IsEdit">
 			</div>
 			<div class="form-group" ng-if="!home.isOwner">
 				<label class="labelMyDetails">Certifications:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Certifications}}</span>
 			</div>
-
 			<div class="form-group" ng-if="home.isOwner">
 				<label class="labelMyDetails">Vet Services:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.VetServices|boolString}}</span>
-				<span class="textMuted"
-				      ng-if="!index.BreederProfile.hasOwnProperty('VetServices')">Do you provide vet services?</span>
-				<input type="checkbox" class="checkbox-sm"
-				       ng-model="index.BreederProfileCopy.VetServices"
+				<span class="textMuted" ng-if="!index.BreederProfile.hasOwnProperty('VetServices')">Do you provide vet services?</span>
+				<input type="checkbox" class="checkbox-sm" ng-model="index.BreederProfileCopy.VetServices"
 				       ng-if="IsEdit">
 			</div>
 			<div class="form-group" ng-if="!home.isOwner">
 				<label class="labelMyDetails">Vet Services:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.VetServices|boolString}}</span>
 			</div>
-
 			<div class="form-group" ng-if="home.isOwner">
 				<label class="labelMyDetails">Shipping:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
-				<span class="textMuted"
-				      ng-if="!index.BreederProfile.hasOwnProperty('Shipping')">Do you provide shipping?</span>
-				<input type="checkbox" class="checkbox-sm"
-				       ng-model="index.BreederProfileCopy.Shipping"
-				       ng-if="IsEdit">
+				<span class="textMuted" ng-if="!index.BreederProfile.hasOwnProperty('Shipping')">Do you provide shipping?</span>
+				<input type="checkbox" class="checkbox-sm" ng-model="index.BreederProfileCopy.Shipping" ng-if="IsEdit">
 			</div>
-
 			<div class="form-group" ng-if="!home.isOwner">
 				<label class="labelMyDetails">Shipping:</label>
 				<span ng-if="!IsEdit">{{index.BreederProfile.Shipping|boolString}}</span>
 			</div>
-
 			<div class="form-group text-center profileSave">
-				<button class="btn btn-default btn-sniff-md btn-edit-details"
-				        ng-if="home.isOwner && !IsEdit"
+				<button class="btn btn-default btn-sniff-md btn-edit-details" ng-if="home.isOwner && !IsEdit"
 				        ng-click="Edit()">Edit
 				</button>
-
 				<div class="details-btn-wrapper">
-					<button class="btn btn-primary btn-sniff-md"
-					        ng-if="IsEdit"
-					        ng-disabled="myDetailsForm.$invalid"
+					<button class="btn btn-primary btn-sniff-md" ng-if="IsEdit" ng-disabled="myDetailsForm.$invalid"
 					        ng-click="Save(); myDetailsForm.$setPristine()">Save
 					</button>
-					<button class="btn btn-default btn-sniff-md ml5"
-					        ng-if="IsEdit"
-					        ng-click="Cancel()">Cancel
+					<button class="btn btn-default btn-sniff-md ml5" ng-if="IsEdit" ng-click="Cancel()">Cancel
 					</button>
 				</div>
 			</div>

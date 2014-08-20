@@ -19,12 +19,10 @@
 .avatarModel {
     padding: 30px 50px 30px 50px;
 }
-
 .fileContainer {
     overflow: hidden;
     position: relative;
 }
-
 .fileContainer [type=file] {
     display: block;
     opacity: 0;
@@ -33,83 +31,66 @@
     top: 0;
     cursor: pointer;
 }
-
 .chooseFilesButton {
     margin-left: 5px;
     width: 110px;
     height: 40px;
 }
-
 /**********************
    ADD NEW GALLERY
 ***********************/
 .panel-file-upload {
     padding: 1.7em;
 }
-
 .panel-file-upload label {
     margin-right: 0px;
 }
-
 .dropFilesHere {
     border: 2px #c3c3c3 dashed;
     min-height: 100px;
     padding-bottom: 20px;
 }
-
 .dragPhotosImg {
     margin-top: 2.5em;
     margin-bottom: 1.4em;
 }
-
 .gal-title {
     margin-top: 15px;
     margin-bottom: 10px;
 }
-
 .upgrade-label {
     font-size: 14px !important;
 }
-
 .drag-file-content {
     padding-top: 70px;
 }
-
 .drag-file {
     border: 2px dashed #c3c3c3 !important;
     width: 100%;
     height: 230px;
     padding-bottom: 30px;
 }
-
 .img-upload-container {
     margin-top: 20px !important;
 }
-
 .btn-crop {
     margin-bottom: 20px;
 }
-
 .crop-ava {
     margin-top: 20px !important;
 }
-
 .addNewGalleryLink {
     padding: 1.1em 1.1em 1.2em;
 }
-
 .h4-addNewGallery {
     color: #585858;
 }
-
 .inputEmpty {
     border: 1px solid red !important;
 }
-
 .fa-browse-btn {
     margin-right: 5px;
 }
-
 .drag-photos {
     font-size: 18px;
     color: #bababa;

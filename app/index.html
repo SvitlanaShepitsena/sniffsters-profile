@@ -6,6 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<base href="/"/>
 	<title></title>
 	<meta name="description" content="">
 	<script src="js/spin.min.js"></script>
@@ -24,11 +25,40 @@
 	<link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css">
 	<link rel="stylesheet" href="css/jquery.Jcrop.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="http://help.typekit.com/customer/portal/articles/6780-adding-fonts-to-your-site">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<!-- endbuild -->
 </head>
 <body ng-controller="HomeCtrl as home">
+<div id="fb-root"></div>
+<script>
+	window.fbAsyncInit = function () {
+		FB.init({
+			appId: '365015036974181',
+			xfbml: true,
+			version: 'v2.0'
+		});
+	};
+
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/javascript">
+	(function (d) {
+		var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+		p.type = 'text/javascript';
+		p.async = true;
+		p.src = '//assets.pinterest.com/js/pinit.js';
+		f.parentNode.insertBefore(p, f);
+	}(document));
+</script>
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
 	today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
@@ -290,6 +320,7 @@
 <script src="scripts/directives/svLoginPopover.js"></script>
 <script src="scripts/directives/svRegisterPopover.js"></script>
 <script src="scripts/directives/svAddPrevPuppies.js"></script>
+<script src="scripts/directives/svShare.js"></script>
 <script src="scripts/directives/svSvUpgradeNotification.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>

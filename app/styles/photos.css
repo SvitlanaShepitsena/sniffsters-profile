@@ -23,7 +23,6 @@
     position: relative;
     overflow: hidden;
 }
-
 .img-thumb {
     position: relative;
     display: block;
@@ -32,30 +31,25 @@
     height: 100px;
     direction: ltr;
 }
-
 .img-thumb-previous {
     position: relative;
     right: 20%;
     display: block;
     height: 234px;
 }
-
 .puppyPic {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
 .puppyPicWrapper {
     padding-top: 10px !important;
 }
-
 .btn-share {
     margin-top: 3px !important;
     margin-bottom: 5px !important;
     margin-right: 5px !important;
     padding: 1px 7px;
 }
-
 .btn-del-pic {
     margin-top: 10px !important;
     margin-bottom: 5px !important;
@@ -65,18 +59,15 @@
     top: 20px;
     right: 25px;
 }
-
 .btn-edit {
     display: inline-block;
 }
-
 .btn-save {
     margin-top: 4px !important;
     margin-bottom: 5px !important;
     margin-right: 0px !important;
     padding: 1px 7px;
 }
-
 .img-thumb-avatar {
     height: 100px;
     width: 100px;

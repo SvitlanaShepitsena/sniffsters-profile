@@ -5,16 +5,18 @@
 		<div class="socialMediaSection">
 			<ul class="list-unstyled">
 				<li class="">
-					<a href="https://www.facebook.com" class="facebook-cover" target="_blank">
+					<a href="http://facebook.com/sharer.php?u={{shareUrl}}" class="facebook-cover" target="_blank">
 					</a>
 				</li>
 				<li class="sm-cover">
-					<a href="https://www.twitter.com" class="twitter-cover" target="_blank">
+					<a href="http://twitter.com/intent/tweet?text={{shareUrl}}" class="twitter-cover" target="_blank">
 					</a>
 				</li>
-				<li>
-					<a href="https://www.pinterest.com" class="pinterest-cover" target="_blank">
-					</a>
+				<li class="li-margin cursor-p">
+					<a href="//www.pinterest.com/pin/create/button/?url={{urlToShare}}" data-pin-shape="round"
+					   data-pin-height="28" data-pin-do="buttonPin"></a>
+					<!-- Please call pinit.js only once per page -->
+					<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
 				</li>
 			</ul>
 		</div>

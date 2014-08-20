@@ -1,0 +1,32 @@
+<div class="popover" tabindex="-1" role="dialog" ng-show="!home.auth.user">
+	<div class="arrow"></div>
+	<div class="popover-dialog">
+		<div class="popover-title">
+			<div>
+				<button type="button" class="close"
+				        ng-click="$hide();login.email='';login.pass='';incorrectCredentials=false;">&times;</button>
+			</div>
+			<div class="popover-content width-50">
+				<ul class="list-unstyled">
+					<li class="li-margin">
+						<a href="http://facebook.com/sharer.php?u={{shareUrl}}" target="_blank">
+							<img src="../../img/social-media/facebook-13.png" alt="Sniffsters Facebook">
+						</a>
+					</li>
+					<li class="li-margin">
+						<a href="http://twitter.com/intent/tweet?text={{shareUrl}}" target="_blank">
+							<img src="../../img/social-media/twit-18.png" alt="Sniffsters Twitter">
+						</a>
+					</li>
+					<li class="li-margin cursor-p">
+						<a href="//www.pinterest.com/pin/create/button/?url={{urlToShare}}" data-pin-shape="round"
+						   data-pin-height="28" data-pin-do="buttonPin">
+							<img src="../../img/social-media/pin-16.png">
+						</a>
+						<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
