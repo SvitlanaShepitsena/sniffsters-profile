@@ -123,7 +123,7 @@
 			<div class="profile-breeds">
 				<div class="control-group" id="fields">
 					<div class="controls">
-						<form role="form" name="form-breeds" id="form-breeds" ng-submit="addNewBreeds(breeder.breeds)">
+						<form role="form" name="form" id="form" autocomplete="off">
 							<div class="form-group">
 								<div class="entry input-group col-xs-12">
 
@@ -132,16 +132,15 @@
 									        data-multiple="1"
 									        ng-options="breed for breed in breedsa"
 									        placeholder="Breed"
-									        ng-click="addNewBreeds(breeder.breeds)"
 									        bs-select="selectBreeder">
-										Select Breed <span class="caret"></span>{{breeder.breeds}}
+										Action <span class="caret"></span>{{breeder.breeds}}
 									</button>
 
-									<button class="btn btn-default btn-add"
-                                    type="button">
+									<button ng-click="addNewBreeds(breeder.breeds)" class="btn btn-default btn-add"
+									        type="button">
 	                            <span class="glyphicon glyphicon-plus">
 	                            </span>
-                            </button>
+									</button>
 
 								</div>
 							</div>
@@ -153,12 +152,12 @@
 		<br/>
 
 		<div class="form-group text-right">
-		<button class="btn btn-warning btn-sniff-md"
+			<button class="btn btn-warning btn-sniff-md"
 			        ng-click="ResetAllFields();form.info.$setDirty()"> Reset all fields
 			</button>
 			<button class="btn btn-primary btn-sniff-md ml5"
 			        ng-disabled="form.$invalid || form.$pristine"
-			        ng-click="ctrl.Save(ctrl.BreederProfileEdit);addNewBreeds(breeder.breeds);form.$setPristine()">Save
+			        ng-click="ctrl.Save(ctrl.BreederProfileEdit);form.$setPristine()">Save
 			</button>
 			<a class="btn btn-default btn-sniff-md ml5"
 			   ui-sref="user.profile.photos2">Next Section

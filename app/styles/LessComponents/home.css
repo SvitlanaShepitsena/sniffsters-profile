@@ -163,6 +163,39 @@
     margin-left: 3px;
 }
 
+.facebook-home {
+    display: block;
+    background: url("../../img/social-media/facebook-13.png") no-repeat;
+    width: 13px;
+    height: 26px;
+}
+
+.facebook-home:hover {
+    background: url("../../img/social-media/facebook-hover-13.png") no-repeat;
+}
+
+.twitter-home {
+    display: block;
+    background: url("../../img/social-media/twit-24.png") no-repeat;
+    width: 24px;
+    height: 26px;
+}
+
+.twitter-home:hover {
+    background: url("../../img/social-media/twit-hover-24.png") no-repeat;
+}
+
+.pinterest-home {
+    display: block;
+    background: url("../../img/social-media/pin-18.png") no-repeat;
+    width: 18px;
+    height: 23px;
+}
+
+.pinterest-home:hover {
+    background: url("../../img/social-media/pin-hover-18.png") no-repeat;
+}
+
 .input-search {
     margin-right: 5px;
     margin-left: 5px;

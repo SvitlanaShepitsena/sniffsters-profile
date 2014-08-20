@@ -29,8 +29,6 @@
 			       ng-model="ctrl.BreederProfileEdit.KennelName"
 			       ng-maxlength="250"
 			       required/>
-			<span ng-show="form.kennel.$invalid" class="fa fa-times form-control-feedback"></span>
-			<span ng-hide="form.kennel.$invalid" class="fa fa-check form-control-feedback"></span>
 		</div>
 
 		<div class="form-group">
@@ -46,7 +44,7 @@
 				</div>
 				<label class="sniff-subhead control-label">Display your email?</label>
 
-				<div class="col-xs-6">
+				<div class="col-xs-6  profile-checkbox">
 					<input type="checkbox" id="displayEmail1" name="displayEmail"
 					       placeholder="Your Email?"
 					       ng-model="ctrl.BreederProfileEdit.IsShowEmail"/> Yes
@@ -61,9 +59,6 @@
 			       placeholder="What is your phone number?"
 			       ng-model="ctrl.BreederProfileEdit.Email"
 			       disabled/>
-
-			<span ng-show="form.email.$invalid" class="fa fa-times form-control-feedback"></span>
-			<span ng-hide="form.email.$invalid" class="fa fa-check form-control-feedback"></span>
 		</div>
 
 		<div class="row">
@@ -74,16 +69,14 @@
 				       placeholder="What is your phone number?"
 				       ng-model="ctrl.BreederProfileEdit.Phone"
 				       required/>
-
-				<span ng-show="form.phone.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
-				<span ng-hide="form.phone.$invalid" class="fa custom-col fa-check form-control-feedback"></span>
 			</div>
 
 			<div class="form-group">
 				<label class="sniff-subhead control-label">Display your phone?</label>
 
-				<div class="col-xs-6">
-					<input type="checkbox" id="displayPhone1" name="displayPhone"
+				<div class="col-xs-6 profile-checkbox">
+					<input type="checkbox"
+					       id="displayPhone1" name="displayPhone"
 					       placeholder="Your zip?"
 					       ng-model="ctrl.BreederProfileEdit.IsShowPhoneNumber"> Yes
 				</div>
@@ -116,8 +109,6 @@
 				       placeholder="Your city"
 				       ng-model="ctrl.BreederProfileEdit.City"
 				       required/>
-				<span ng-show="form.city.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
-				<span ng-hide="form.city.$invalid" class="fa custom-col  fa-check form-control-feedback"></span>
 			</div>
 
 			<div class="form-group col-xs-6 has-feedback" ng-class="{'has-error':location.zip.$invalid}">
@@ -127,8 +118,6 @@
 				       placeholder="Your zip"
 				       ng-model="ctrl.BreederProfileEdit.Zip"
 				       required/>
-				<span ng-show="form.zip.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
-				<span ng-hide="form.zip.$invalid" class="fa custom-col  fa-check form-control-feedback"></span>
 			</div>
 		</div>
 		<div class="row">
@@ -142,10 +131,6 @@
 				       ng-options="state.abbreviation as state.name for state in states"
 				       data-animation="am-flip-x"
 				       bs-typeahead type="text">
-
-
-				<span ng-show="form.state.$invalid" class="fa custom-col fa-times form-control-feedback"></span>
-				<span ng-hide="form.state.$invalid" class="fa custom-col  fa-check form-control-feedback"></span>
 			</div>
 		</div>
 	</form>
@@ -178,7 +163,7 @@
 		</div>
 
 		<div class="form-group">
-		<h5 class="sniff-subhead control-label bold">Insurances:</h5>
+			<h5 class="sniff-subhead control-label bold">Insurances:</h5>
 			<input class="form-control" type="text" ng-model='ctrl.BreederProfileEdit.Insurances'>
 		</div>
 
