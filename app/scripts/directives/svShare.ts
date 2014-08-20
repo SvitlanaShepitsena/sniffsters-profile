@@ -14,6 +14,7 @@ var svShare = ($popover, $location) => {
 
             scope.social = $popover(element, {
                 template: '../../views/modals/share.html',
+
                 placement: 'top',
                 scope: scope
             });
