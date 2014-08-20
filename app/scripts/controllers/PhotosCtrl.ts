@@ -8,7 +8,6 @@ class PhotosCtrl {
 
     constructor(public $scope, public $filter, public $firebase, $stateParams, public $state, settings) {
         $scope.home.menuIndex = 2;
-        $scope.noGalleryNotice = settings.noGalleryNotice;
 
         $scope.$watch("photosCtrl.GalleriesNew", () => {
             for (var i = 0; i < this.GalleriesNew.length; i++) {

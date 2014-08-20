@@ -105,8 +105,8 @@
 					QUICK SEARCH
 				</label>
 
-				<div class="btn-group my-drop" ng-cloak>
-					<button type="button" class="btn btn-default search-dropdown align-left">{{searchBreed.val ||
+				<div class="btn-group fetch-group" ng-cloak>
+				<button type="button" class="btn btn-default search-dropdown align-left">{{searchBreed.val ||
 						'Breeds'}}
 					</button>
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -119,8 +119,8 @@
 						</li>
 					</ul>
 				</div>
-				<div class="btn-group my-drop" ng-cloak>
-					<button type="button" class="btn btn-default search-dropdown align-left">{{searchLocation.val ||
+				<div class="btn-group fetch-group" ng-cloak>
+				<button type="button" class="btn btn-default search-dropdown align-left">{{searchLocation.val ||
 						'Locations'}}
 					</button>
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -133,10 +133,13 @@
 						</li>
 					</ul>
 				</div>
-				<button ng-click="fetchDog()" class="btn btn-primary btn-fetch">
-					<i class="fa fa-search"></i>
-					Fetch
-				</button>
+				<div class="btn-group">
+					<button ng-click="fetchDog()"
+					        class="btn btn-primary btn-fetch fetch-group">
+						<i class="fa fa-search"></i>
+						Fetch
+					</button>
+				</div>
 			</form>
 		</div>
 	</div>

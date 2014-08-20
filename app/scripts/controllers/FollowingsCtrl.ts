@@ -11,7 +11,6 @@ class FollowingsCtrl {
     constructor(public $scope, public settings, $firebase, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.followingsCtrl = this;
         $scope.followings = [];
-        $scope.noFollowing = settings.noFollowing;
 
         $scope.home.auth.$getCurrentUser().then((user) => {
             $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {

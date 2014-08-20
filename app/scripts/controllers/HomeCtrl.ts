@@ -86,12 +86,14 @@ class HomeCtrl {
             })
     }
 
-
     constructor(public $rootScope, public $popover, public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.lpShown = true;
         $scope.rpShown = true;
+        $scope.noGalleryNotice = settings.noGalleryNotice;
+        $scope.noFollowers = settings.noFollowers;
+        $scope.noFollowing = settings.noFollowing;
+        $scope.noLitterNotice = settings.noLitterNotice;
         $scope.upgradeSubscription = settings.upgradeSubscription;
-
 
         $scope.registerPopover = () => {
             $scope.rpShown = true;
@@ -117,8 +119,6 @@ class HomeCtrl {
 
         $scope.home = this;
 //        this.menuIndex = 1;
-
-
         $scope.usernameFb = {};
         $scope.isBreederFb = {};
 
@@ -503,9 +503,7 @@ class HomeCtrl {
         this.toastr.error(note);
     }
 
-
     Ownership(notOwner?:boolean) {
-
         if (notOwner == true) {
             this.isOwner = false;
             return false;
@@ -520,19 +518,15 @@ class HomeCtrl {
 
     navigate(menuIndex:number) {
         this.$scope.slide = this.animationDirection(menuIndex);
-
-
         if (menuIndex == 1) {
             this.menuIndex = 1;
             this.$state.go("user.profile.about1");
         }
 
-
         if (menuIndex == 2) {
             this.menuIndex = 2;
             this.$state.go('user.profile.photos2');
         }
-
 
         if (menuIndex == 3) {
             this.url = 'puppies';
@@ -540,13 +534,11 @@ class HomeCtrl {
             this.$state.go('user.profile.puppies3');
         }
 
-
         if (menuIndex == 4) {
             this.url = 'details';
             this.menuIndex = 4;
             this.$state.go('user.profile.details4');
         }
-
 
         if (menuIndex == 5) {
             this.url = 'testimonials';

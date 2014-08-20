@@ -10,7 +10,6 @@ var PhotosCtrl = (function () {
         this.$firebase = $firebase;
         this.$state = $state;
         $scope.home.menuIndex = 2;
-        $scope.noGalleryNotice = settings.noGalleryNotice;
 
         $scope.$watch("photosCtrl.GalleriesNew", function () {
             for (var i = 0; i < _this.GalleriesNew.length; i++) {

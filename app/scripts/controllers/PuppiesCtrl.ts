@@ -13,9 +13,6 @@ class PuppiesCtrl {
     SelectedLitterEdit:ILitter;
 
     constructor(public $scope, public $firebase, public $modal, public $stateParams, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService, public CopyProfileService:CopyProfileService, public settings) {
-        $scope.noLitterNotice = settings.noLitterNotice;
-        $scope.upgradeSubscription = settings.upgradeSubscription;
-
         var username = $scope.home.FireProcess($stateParams.uname);
         var litterUrl = $scope.home.MainUrl + 'breeders/' + username + '/litters';
         $scope.litters = $firebase(new Firebase(litterUrl));
@@ -68,7 +65,6 @@ class PuppiesCtrl {
     cancelLitters() {
         this.LittersNew = [];
     }
-
 
     ShowSuccess(note:string) {
         this.toastr.info(note);
