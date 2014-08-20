@@ -10,7 +10,7 @@ var previousPuppies = function () {
         transclude: true,
         // replace directive tag with template info
         replace: true,
-        controller: function ($scope, $stateParams, $firebase, $filter) {
+        controller: function ($scope, $stateParams, $firebase, $filter, settings) {
             var galleriesUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess($stateParams.uname) + '/galleries';
             $scope.galleries = $firebase(new Firebase(galleriesUrl));
             $scope.indexPrev = 0;

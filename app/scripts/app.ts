@@ -86,6 +86,7 @@
 /// <reference path="directives/svLoginPopover.ts" />
 /// <reference path="directives/svRegisterPopover.ts" />
 /// <reference path="directives/svAddPrevPuppies.ts" />
+/// <reference path="directives/svSvUpgradeNotification.ts" />
 //#ref
 
 var profile = angular.module("profile", ['cfp.hotkeys', 'ngSanitize', 'ratings', 'mgcrea.ngStrap.helpers.dateParser', 'mgcrea.ngStrap.affix', 'mgcrea.ngStrap.typeahead', 'mgcrea.ngStrap.helpers.parseOptions', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.helpers.dimensions', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
@@ -184,6 +185,7 @@ profile.directive("svSpinner", svSpinner);
 profile.directive("svLoginPopover", svLoginPopover);
 profile.directive("svRegisterPopover", svRegisterPopover);
 profile.directive("svAddPrevPuppies", svAddPrevPuppies);
+profile.directive("svSvUpgradeNotification", svSvUpgradeNotification);
 //#dir
 profile.directive("aboutInfo", aboutInfo);
 profile.directive("breederDetails", breederDetails);
@@ -245,7 +247,8 @@ profile.value("settings", {
     noFollowing: 'You are not following anyone',
     noFollowers: 'You have no followers yet',
     dataSaved: 'Successfully saved',
-    dbError: 'Db Connection Error!'
+    dbError: 'Db Connection Error!',
+    upgradeSubscription: 'Please upgrade your subscription'
 })
 
 

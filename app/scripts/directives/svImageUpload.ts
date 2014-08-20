@@ -4,7 +4,6 @@
 
 
 var svImageUpload:() => ng.IDirective = () => {
-
     return{
         restrict: 'E',
         templateUrl: 'views/directives/sv-image-upload.html',
@@ -19,6 +18,7 @@ var svImageUpload:() => ng.IDirective = () => {
             isMult: '=',
             isDragShown: '=',
             isDragHidden: '=',
+            isDisabled: '=',
             mainRef: '=',
             btnTitle: '@',
             okModal: '&',
@@ -26,13 +26,9 @@ var svImageUpload:() => ng.IDirective = () => {
             width: '='
         },
         controller($scope) {
-
             if (!$scope.isMult) {
                 $scope.files = [];
-
             }
-
-
             $scope.onFileSelect = ($files, index?:number) => {
 
                 $files.forEach((file)=> {
@@ -44,7 +40,6 @@ var svImageUpload:() => ng.IDirective = () => {
                             $scope.files[index] = new SImage(false, file.name);
                         }
                     } else {
-
                         reader.onload = (loadEvent)=> {
                             var file64 = loadEvent.target.result;
                             $scope.$apply(() => {
@@ -53,11 +48,9 @@ var svImageUpload:() => ng.IDirective = () => {
                                     $scope.files.push(new SImage(true, file.name, file64));
                                 } else {
                                     $scope.files[index] = new SImage(true, file.name, file64)
-
                                 }
                             });
                         }
-
                         reader.readAsDataURL(file);
                     }
                 })

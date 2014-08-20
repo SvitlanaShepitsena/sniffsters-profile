@@ -67,6 +67,10 @@
     margin-bottom: 10px;
 }
 
+.upgrade-label {
+    font-size: 14px !important;
+}
+
 .drag-file-content {
     padding-top: 70px;
 }

@@ -1,20 +1,24 @@
 <div ui-view>
 	<div class="text-right" ng-show="home.isOwner">
-		<button class="btn btn-link" ng-show="newGalleries.length"
-		        ng-click="photosCtrl.cancelGalleries()">
-			Cancel
+		<p class="label label-success">
+			{{upgradeSubscription}}
+			to add more galleries
+		</p>
+	</div>
+	<div class="text-right" ng-show="home.isOwner">
+		<button class="btn btn-link"
+		        ng-show="newGalleries.length"
+		        ng-click="photosCtrl.cancelGalleries()"> Cancel
 		</button>
-		<button class="btn btn-link" ng-show="newGalleries.length"
+		<button class="btn btn-link"
+		        ng-show="newGalleries.length"
 		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)"
-		        ng-click="photosCtrl.saveNewGalleries()">
-			Save
+		        ng-click="photosCtrl.saveNewGalleries()"> Save
 		</button>
 		<button class="btn btn-link"
 		        ng-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)"
-		        ng-click="photosCtrl.addGallery()">
-			Add new gallery
+		        ng-click="photosCtrl.addGallery()"> Add new gallery
 		</button>
-
 		<a class="btn btn-link pull-right"
 		   ui-sref="sniff.forBreeders({scroll:1})"
 		   ng-show="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)">
@@ -23,61 +27,55 @@
 	</div>
 
 	<div sv-slider h="1200">
-		<div class="current-galleeries">
-			<div ng-show="newGalleries.length">
-				<h3 ng-show="addGallTemplate">New Galleries</h3>
-				<ul class="list-unstyled">
-					<li ng-repeat="g in newGalleries">
-						<input class="form-control gal-title " type="text"
-						       ng-model="g.Title"
-						       placeholder="gallery title"/>
-						<sv-image-upload
-								files="g.Photos"
-								is-mult="true"
-								file-size="3000000"
-								btn-title="Upload Pictures">
-						</sv-image-upload>
-					</li>
-				</ul>
-			</div>
-			<h3 class="sniff-head-info">Current Galleries</h3>
-			<hr/>
-
-			<!--<button class="btn btn-primary" type="button" data-trigger="hover" data-type="success" data-title="Test" bs-tooltip>Click me</button>-->
-
-			<div ng-hide="home.isLoadFinished">
-				<sv-spinner></sv-spinner>
-			</div>
-
-			<h3 class="text-warning text-center"
-			    ng-show="home.isLoadFinished && !(galleries|orderByPriority).length">
-				{{noGalleryNotice}}
-			</h3>
-			<ul class="list-unstyled row">
-				<li class="col-xs-4"
-				    ng-if="g.isTemp"
-				    ng-repeat="(id,g) in galleries">
-					<a class="thumbnail text-center"
-					   data-trigger="hover"
-					   data-type="info"
-					   data-title="{{g.Title}}"
-					   bs-tooltip
-					   ui-sref="user.profile.photos2.galleries({id:id})">
-						<h4>{{g.Title| titleLength:10}}</h4>
-
-
-						<div class="img-thumb-container">
-							<img class="img-thumb"
-							     ng-show="(g.Photos| orderByPriority).length"
-							     ng-src="{{(g.Photos| orderByPriority)[0].file64}}">
-							<img class="img-thumb"
-							     ng-hide="(g.Photos| orderByPriority).length"
-							     ng-src="../img/avatar-lg.png">
-						</div>
-					</a>
+		<div ng-show="newGalleries.length">
+			<h3 ng-show="addGallTemplate">New Galleries</h3>
+			<ul class="list-unstyled">
+				<li ng-repeat="g in newGalleries">
+					<input class="form-control gal-title " type="text"
+					       ng-model="g.Title"
+					       placeholder="gallery title"/>
+					<sv-image-upload
+							files="g.Photos"
+							is-mult="true"
+							file-size="3000000"
+							btn-title="Upload Pictures">
+					</sv-image-upload>
 				</li>
 			</ul>
 		</div>
+		<h3 class="sniff-head-info">Current Galleries</h3>
+		<hr/>
+		<div ng-hide="home.isLoadFinished">
+			<sv-spinner></sv-spinner>
+		</div>
+
+		<h3 class="text-warning text-center"
+		    ng-show="home.isLoadFinished && !(galleries|orderByPriority).length">
+			{{noGalleryNotice}}
+		</h3>
+		<ul class="row list-unstyled">
+			<li class="col-xs-4"
+			    ng-if="g.isTemp"
+			    ng-repeat="(id,g) in galleries">
+				<a class="thumbnail text-center"
+				   data-trigger="hover"
+				   data-type="info"
+				   data-title="{{g.Title}}"
+				   ui-sref="user.profile.photos2.galleries({id:id})"
+				   bs-tooltip>
+					<h4>{{g.Title| titleLength:10}}</h4>
+
+					<div class="img-thumb-container">
+						<img class="img-thumb"
+						     ng-show="(g.Photos| orderByPriority).length"
+						     ng-src="{{(g.Photos| orderByPriority)[0].file64}}">
+						<img class="img-thumb-avatar"
+						     ng-hide="(g.Photos| orderByPriority).length"
+						     ng-src="../img/avatar-md.png">
+					</div>
+				</a>
+			</li>
+		</ul>
 	</div>
 </div>
 

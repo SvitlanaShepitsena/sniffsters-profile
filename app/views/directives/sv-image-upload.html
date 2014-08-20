@@ -11,8 +11,8 @@
 		</div>
 		<div class="text-center">
 			<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer ">
-				<button class="btn btn-default btn-choose btn-sniff-md">
-					<!--ng-disabled="newLitterForm.$invalid"-->
+				<button class="btn btn-default btn-choose btn-sniff-md"
+				        ng-disabled="isDisabled">
 					<i class="fa fa-camera"></i>
 					{{btnTitle}}
 				</button>

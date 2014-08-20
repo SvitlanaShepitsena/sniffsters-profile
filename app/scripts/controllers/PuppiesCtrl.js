@@ -12,6 +12,7 @@ var PuppiesCtrl = (function () {
         this.CopyProfileService = CopyProfileService;
         this.settings = settings;
         $scope.noLitterNotice = settings.noLitterNotice;
+        $scope.upgradeSubscription = settings.upgradeSubscription;
 
         var username = $scope.home.FireProcess($stateParams.uname);
         var litterUrl = $scope.home.MainUrl + 'breeders/' + username + '/litters';

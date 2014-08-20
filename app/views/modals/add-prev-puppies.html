@@ -19,20 +19,25 @@
 				</div>
 
 				<div sv-slider h="580">
-
 					<sv-image-upload ng-if="home.isOwner"
+					                 is-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)"
 					                 files="g.Photos"
 					                 is-mult="true"
 					                 file-size="3000000"
 					                 btn-title="{{btnTitle}}">
 					</sv-image-upload>
 
-					<a class="btn btn-link pull-right"
-					   ui-sref="sniff.forBreeders({scroll:1})"
-					   ng-click="$hide()"
-					   ng-show="home.isOwner && (!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries))">
-						Upgrade subscription
-					</a>
+					<div class="pull-right upgrade-label">
+						<p class="label label-success">
+							{{upgradeSubscription}} to add more pictures
+						</p>
+						<a class="btn btn-link"
+						   ui-sref="sniff.forBreeders({scroll:1})"
+						   ng-click="$hide()"
+						   ng-show="home.isOwner && (!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>home.subscription.Galleries))">
+							Upgrade subscription
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
