@@ -8,6 +8,45 @@
         STYLES
 ***********************/
 
+.body-wrapper {
+  background: url('../../img/left-grass-pattern.png') top left repeat-y,
+  url('../../img/right-grass-pattern.png') top right repeat-y,
+  url("../../img/grass_texture.png") top center;
+  width: 90%;
+  min-width: 785px;
+  margin: 0 auto;
+}
+
+.home-wrapper {
+  background: url("../../img/jumbotron-background.png") no-repeat top center;
+  z-index: 100;
+  margin: 0 auto;
+  width: 100%;
+  min-width: 585px;
+  text-align: center;
+  height: 500px !important;
+}
+
+.body-content {
+  background: white;
+  z-index: 120;
+}
+
+.content-wrapper {
+}
+
+.home-jumbotron {
+
+}
+
+.footer-home {
+  height: 100px !important;
+  background: url('../../img/home/footer-home-left.png') bottom left no-repeat,
+  url('../../img/home/footer-home-right.png') top right no-repeat,
+  url("../../img/footer-pattern.png") bottom center repeat-x;
+
+}
+
 .home-buttons {
   padding-top: 20px;
   padding-bottom: 50px;
@@ -61,6 +100,10 @@
   font-style: normal !important;
 }
 
+.search-bar-wrapper {
+
+}
+
 .menu-modal {
   margin-top: 5px !important;
 }
@@ -100,8 +143,6 @@
   font-weight: bold;
   font-family: @font-sniff;
   text-align: center;
-  margin-top: 60px !important;
-  margin-bottom: 5px;
   color: @color-welcome;
 }
 
@@ -109,21 +150,6 @@
   color: @color-welcome !important;
   font-weight: bold;
   font-size: 32px;
-  margin-top: 0px;
-}
-
-.home-wrapper {
-  background: url("../../img/Landing_background.png") no-repeat;
-  width: 1200px;
-  padding-top: 70px !important;
-  padding-bottom: 230px !important;
-  margin-bottom: -134px;
-}
-
-.homeJumbo {
-  height: 486px !important;
-  padding-bottom: 30px !important;
-  background: url("../../img/jumbotron-background.png") no-repeat;
 }
 
 .social-media-container {
@@ -167,7 +193,7 @@
   width: 24px;
   height: 26px;
   &:hover {
-    background: url("../../img/social-media/twit-hover-24.png") no-repeat;
+    background: url("../../img/social-media/twit-hover-20.png") no-repeat;
   }
 }
 
