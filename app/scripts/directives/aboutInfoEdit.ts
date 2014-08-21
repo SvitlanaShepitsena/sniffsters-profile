@@ -1,6 +1,6 @@
 /// <reference path="../app.ts" />
 
-var aboutInfoEdit = (hotkeys) => {
+var aboutInfoEdit = () => {
 
     return{
         restrict: 'E',

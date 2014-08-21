@@ -19,60 +19,6 @@
 /**********************
         STYLES
 ***********************/
-.home-wrapper {
-    padding-top: 70px !important;
-    padding-bottom: 230px !important;
-}
-
-.ball {
-    position: relative;
-    top: 356px;
-    left: 140px;
-}
-
-.left-side-home {
-    background: url("../img/home/left-grass-home.png") repeat-y;
-    height: 1100px !important;
-}
-
-.right-side-home {
-    background: url("../img/home/right-grass-home.png") repeat-y;
-    height: 1100px !important;
-}
-
-.fill-grass {
-    background: url("../img/home/landing_home.png");
-    height: 1100px;
-}
-
-.collar-home {
-    background: url("../../img/home/collar-pattern.png") repeat-x;
-    height: 58px;
-    margin-bottom: -12px;
-}
-
-.footer-home {
-    height: 100px !important;
-    box-sizing: border-box !important;
-    width: 100% !important;
-    bottom: 0px !important;
-}
-
-.foot-left {
-    background: url("../../img/home/foot-home-left.png") 0 0 no-repeat;
-    height: 125px;
-}
-
-.foot-right {
-    background: url("../../img/home/footer-home-right.png") 0 0 no-repeat;
-    height: 125px;
-}
-
-.fill-footer {
-    background: url("../../img/home/footer.png") repeat-x;
-    height: 125px;
-}
-
 .home-buttons {
     padding-top: 20px;
     padding-bottom: 50px;
@@ -177,6 +123,14 @@
     font-weight: bold;
     font-size: 32px;
     margin-top: 0px;
+}
+
+.home-wrapper {
+    background: url("../../img/Landing_background.png") no-repeat;
+    width: 1200px;
+    padding-top: 70px !important;
+    padding-bottom: 230px !important;
+    margin-bottom: -134px;
 }
 
 .homeJumbo {

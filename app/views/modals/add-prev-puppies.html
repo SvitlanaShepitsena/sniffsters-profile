@@ -11,7 +11,9 @@
 				        ng-click="savePrevPuppies();$hide()">Save Gallery
 				</button>
 
-				<div class="form-group">
+				<div class="form-group"
+				     ng-hide="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)"
+						>
 					<label for="title"> Gallery Title</label>
 					<input class="form-control gal-title"
 					       id="title" type="text"
@@ -20,7 +22,7 @@
 
 				<div sv-slider h="580">
 					<sv-image-upload ng-if="home.isOwner"
-					                 is-disabled="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)"
+					                 ng-hide="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)"
 					                 files="g.Photos"
 					                 is-mult="true"
 					                 file-size="3000000"

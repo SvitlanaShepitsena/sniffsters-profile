@@ -12,9 +12,8 @@
 		<div class="text-center">
 			<label ng-class="{'text-muted':!newLitterForm}" class="fileContainer ">
 				<button class="btn btn-default btn-choose btn-sniff-md"
-				        ng-disabled="isDisabled">
-					<i class="fa fa-camera"></i>
-					{{btnTitle}}
+				<i class="fa fa-camera"></i>
+				{{btnTitle}}
 				</button>
 
 				<input ng-show="isMult" class="panel panel-default" type="file" ng-file-select="onFileSelect($files)"
