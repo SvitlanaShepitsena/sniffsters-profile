@@ -122,9 +122,18 @@
 		</div>
 	</div>
 </div>
-<div class="container">
-	<div class="row">
+<!--Colar-->
+<div class="container" ng-if="!home.IsHome">
+<div class="row">
 		<div class="collar col-xs-12"></div>
+	</div>
+</div>
+<!--Colar Home Page-->
+
+<div class="container-fluid" ng-if="home.IsHome">
+	<div class="row">
+		<div class="collar-home col-xs-12">
+		</div>
 	</div>
 </div>
 <div class="search-bar-wrapper" ng-hide="home.IsSearchHidden">
@@ -136,7 +145,7 @@
 				</label>
 
 				<div class="btn-group fetch-group" ng-cloak>
-				<button type="button" class="btn btn-default search-dropdown align-left">{{searchBreed.val ||
+					<button type="button" class="btn btn-default search-dropdown align-left">{{searchBreed.val ||
 						'Breeds'}}
 					</button>
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -150,7 +159,7 @@
 					</ul>
 				</div>
 				<div class="btn-group fetch-group" ng-cloak>
-				<button type="button" class="btn btn-default search-dropdown align-left">{{searchLocation.val ||
+					<button type="button" class="btn btn-default search-dropdown align-left">{{searchLocation.val ||
 						'Locations'}}
 					</button>
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -174,27 +183,71 @@
 		</div>
 	</div>
 </div>
-<div class="container body-content">
-	<div class="main-content-wrapper" ng-cloak>
-		<div ui-view></div>
-	</div>
-	<div class="footer-container ">
-		<div class="footer-content" ng-class="{'footer-background':!home.IsHome}">
-			<div class="footer-text-container row">
-				<ul class="col-xs-3">
-					<span class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</span>
-				</ul>
-				<div class="col-xs-9">
-					<ul class="nav navbar-nav navbar-right nav-footer">
-						<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
-						<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
-						<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
-					</ul>
+<div class="container-fluid"
+     ng-if="!home.IsHome">
+	<div class="row">
+		<div class="col-xs-1">
+		</div>
+		<div class="col-xs-10">
+			<div class="container body-content">
+				<div class="main-content-wrapper" ng-cloak>
+					<div ui-view></div>
+				</div>
+				<div class="footer-container ">
+					<div class="footer-content" ng-class="{'footer-background':!home.IsHome}">
+						<div class="footer-text-container row">
+							<ul class="col-xs-3">
+								<span class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</span>
+							</ul>
+							<div class="col-xs-9">
+								<ul class="nav navbar-nav navbar-right nav-footer">
+									<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
+									<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
+									<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="col-xs-1" ng-class="{'right-side-home':home.IsHome}">
+		</div>
 	</div>
 </div>
+<!--Home Page View-->
+<div class="container-fluid fill-grass"
+     ng-if="home.IsHome">
+	<div class="row">
+		<div class="col-xs-1 left-side-home">
+		</div>
+		<div class="col-xs-10 main-content-home">
+			<div class="container">
+				<div class="main-content-wrapper" ng-cloak>
+					<div ui-view></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-1" ng-class="{'right-side-home':home.IsHome}">
+		</div>
+	</div>
+</div>
+<footer ng-if="home.IsHome" class="footer-home">
+	<div class="container-fluid fill-footer">
+		<div class="row row-foot">
+			<div class="foot-left col-xs-1">
+			</div>
+			<div class="foot-content col-xs-10">
+
+			</div>
+			<div class="foot-right col-xs-1">
+			</div>
+
+		</div>
+	</div>
+</footer>
+
+
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
