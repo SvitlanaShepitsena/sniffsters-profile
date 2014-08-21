@@ -20,27 +20,28 @@
         STYLES
 ***********************/
 .body-wrapper {
-  background: url('../../img/left-grass-pattern.png') top left repeat-y, url('../../img/right-grass-pattern.png') top right repeat-y, url("../../img/grass_texture.png") top center;
-  width: 90%;
-  min-width: 785px;
-  margin: 0 auto;
+    background: url('../../img/left-grass-pattern.png') top left repeat-y, url('../../img/right-grass-pattern.png') top right repeat-y, url("../../img/grass_texture.png") top center;
+    width: 90%;
+    min-width: 785px;
+    margin: 0 auto;
 }
 .home-wrapper {
-  background: url("../../img/jumbotron-background.png") no-repeat top center;
-  z-index: 100;
-  margin: 0 auto;
-  width: 100%;
-  min-width: 585px;
-  text-align: center;
-  height: 500px !important;
+    background: url("../../img/jumbotron-background.png") no-repeat top center;
+    z-index: 100;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 585px;
+    text-align: center;
+    height: 500px !important;
 }
+
 .body-content {
-  background: white;
-  z-index: 120;
+    background: white;
+    z-index: 120;
 }
 .footer-home {
   height: 100px !important;
-  background: url('../../img/home/footer-home-left.png') bottom left no-repeat, url('../../img/home/footer-home-right.png') top right no-repeat, url("../../img/footer-pattern.png") bottom center repeat-x;
+    background: url('../../img/home/footer-home-left.png') bottom left no-repeat, url('../../img/home/footer-home-right.png') top right no-repeat, url("../../img/footer-pattern.png") bottom center repeat-x;
 }
 .home-buttons {
   padding-top: 20px;
@@ -163,7 +164,7 @@
   height: 26px;
 }
 .twitter-home:hover {
-  background: url("../../img/social-media/twit-hover-20.png") no-repeat;
+    background: url("../../img/social-media/twit-hover-20.png") no-repeat;
 }
 .pinterest-home {
   display: block;
