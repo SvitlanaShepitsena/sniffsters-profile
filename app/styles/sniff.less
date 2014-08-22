@@ -20,6 +20,9 @@
 /*************************
   BOOTSTRAP CUSTOM STYLES
 **************************/
+.container-fluid {
+  width: 100%;
+}
 
 .logo-wrapper {
   position: relative;
@@ -32,11 +35,20 @@ body {
   font-size: 12px !important;
   color: #3a3a3a;
 }
+
 .body-content {
   background-color: white;
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
+  border-left: 10px #dfdfdf solid;
+  border-right: 10px #dfdfdf solid;
+  border-bottom: 10px #dfdfdf solid;
+  box-shadow: inset 0.5px 0.866px 1px 0px rgba(255, 255, 255, 0.004);
   padding: 0px;
   height: 2000px;
   position: relative;
+  width: 85%;
+  margin: 0px auto;
 }
 
 .middle-center {
@@ -46,15 +58,25 @@ body {
   top: 50%;
   left: 40%;
 }
+
 .container {
   width: 1200px !important;
 }
 
 .sniff-row {
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-bottom: -100px;
-  min-heigth: 1000px;
+  //  margin-bottom: -100px;
+  //  min-heigth: 1000px;
+}
+
+.Rounded_Rectangle_2 {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(67, 80, 94);
+  border-radius: 17px;
+  background-image: -moz-linear-gradient(90deg, rgb(68, 77, 87) 0%, rgba(68, 77, 87, 0) 100%);
+  background-image: -webkit-linear-gradient(90deg, rgb(68, 77, 87) 0%, rgba(68, 77, 87, 0) 100%);
+  background-image: -ms-linear-gradient(90deg, rgb(68, 77, 87) 0%, rgba(68, 77, 87, 0) 100%);
+  box-shadow: inset 0.5px 0.866px 1px 0px rgba(255, 255, 255, 0.004);
 }
 
 .sniff-content-wrapper {
@@ -249,11 +271,13 @@ textarea {
 .nav-profile-wrapper {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: @colorLightShadow;
 }
 
 .nav-profile {
-  margin-left: 30px;
+  background-color: @colorLightShadow;
+  width: 100%;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .sidebar-width {
@@ -342,10 +366,8 @@ textarea {
 }
 
 .collar {
-  height: 68px;
-  background: url("../img/collar.png") no-repeat;
-  margin-top: -12px;
-  margin-bottom: -12px;
+  height: 48px;
+  background: url("../img/home/collar-pattern.png") 0 0 repeat;
 }
 
 /**********************
@@ -439,7 +461,7 @@ textarea {
 }
 
 .navbar-sniff {
-  background-color: #FFFFFF;
+  background-color: pink;
   margin-bottom: 0px;
 }
 
@@ -528,6 +550,7 @@ textarea {
 
 .sniff-footer-menu {
   font-family: @font-sniff;
+  color: white;
   font-size: 18px;
   font-weight: normal !important;
   &:hover {
@@ -568,8 +591,6 @@ textarea {
 .footer-text-container {
   position: relative;
   top: 45px;
-  width: 74%;
-  margin: 0 auto;
 }
 
 .footer-background {
@@ -583,8 +604,6 @@ textarea {
   font-family: @font-sniff;
   font-size: 18px;
   font-weight: normal !important;
-  padding-left: 20px;
-  margin-left: 10px;
   margin-top: 10px;
 }
 

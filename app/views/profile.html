@@ -1,61 +1,65 @@
-<div class="row sniff-row">
-	<div class="col-xs-1 left-side">
+<div class="main-content">
+	<div class="socialMediaSection">
+		<ul class="list-unstyled">
+			<li class="">
+				<a href="http://facebook.com/sharer.php?u={{shareUrl}}" class="facebook-cover" target="_blank">
+				</a>
+			</li>
+			<li class="sm-cover">
+				<a href="http://twitter.com/intent/tweet?text={{shareUrl}}" class="twitter-cover"
+				   target="_blank">
+				</a>
+			</li>
+			<li class="li-margin cursor-p">
+				<a href="//www.pinterest.com/pin/create/button/?url={{urlToShare}}" class="pinterest-cover"
+				   data-pin-shape="round"
+				   data-pin-height="28" data-pin-do="buttonPin"></a>
+				<!-- Please call pinit.js only once per page -->
+				<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+			</li>
+		</ul>
 	</div>
-	<div class="col-xs-10 main-content">
-		<div class="socialMediaSection">
-			<ul class="list-unstyled">
-				<li class="">
-					<a href="http://facebook.com/sharer.php?u={{shareUrl}}" class="facebook-cover" target="_blank">
-					</a>
-				</li>
-				<li class="sm-cover">
-					<a href="http://twitter.com/intent/tweet?text={{shareUrl}}" class="twitter-cover" target="_blank">
-					</a>
-				</li>
-				<li class="li-margin cursor-p">
-					<a href="//www.pinterest.com/pin/create/button/?url={{urlToShare}}" class="pinterest-cover"
-					   data-pin-shape="round"
-					   data-pin-height="28" data-pin-do="buttonPin"></a>
-					<!-- Please call pinit.js only once per page -->
-					<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
-				</li>
-			</ul>
+	<div class="row">
+		<div class="col-xs-12 col-cover">
+			<cover></cover>
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-cover">
-				<cover></cover>
-			</div>
+	</div>
+	<div class="row ">
+		<div class="col-xs-12 nav-profile-wrapper">
+			<breeder-profile-nav></breeder-profile-nav>
 		</div>
-		<breeder-profile-nav></breeder-profile-nav>
-		<message-nav-menu ng-show="home.isOwner"></message-nav-menu>
-		<div class="row sniff-content-wrapper" ng-show="home.isOwner">
-			<div class="col-xs-2">
-				<user-profile-nav></user-profile-nav>
-			</div>
+	</div>
+	<message-nav-menu ng-show="home.isOwner"></message-nav-menu>
+	<div class="row sniff-content-wrapper" ng-show="home.isOwner">
+		<div class="col-xs-2">
+			<user-profile-nav></user-profile-nav>
+		</div>
 
-			<div class="col-xs-6 profile-wrapper" ui-view>
-			</div>
-			<div class="col-xs-4">
-				<breeder-details home="home" text='{{index.BreederName}}' ctrl="index"></breeder-details>
-				<current-litters></current-litters>
-				<previous-puppies>Previous Puppies</previous-puppies>
-			</div>
+		<div class="col-xs-6 profile-wrapper" ui-view>
 		</div>
-		<div class="row sniff-content-wrapper" ng-hide="home.isOwner">
-			<div class="col-xs-8 no-r-pad " ng-hide="home.isOwner">
-				<div class="row">
-					<div class="col-xs-12 profile-wrapper user-page-view" ui-view>
-					</div>
+		<div class="col-xs-4">
+			<breeder-details home="home" text='{{index.BreederName}}' ctrl="index"></breeder-details>
+			<current-litters></current-litters>
+			<previous-puppies>Previous Puppies</previous-puppies>
+		</div>
+	</div>
+	<div class="row sniff-content-wrapper" ng-hide="home.isOwner">
+		<div class="col-xs-8 no-r-pad " ng-hide="home.isOwner">
+			<div class="row">
+				<div class="col-xs-12 profile-wrapper user-page-view" ui-view>
 				</div>
 			</div>
-			<div class="col-xs-4">
-				<breeder-details home="home" text='{{index.BreederName}}' ctrl="index"></breeder-details>
-				<current-litters></current-litters>
-				<previous-puppies>Previous Puppies</previous-puppies>
-			</div>
+		</div>
+		<div class="col-xs-4">
+			<breeder-details home="home" text='{{index.BreederName}}' ctrl="index"></breeder-details>
+			<current-litters></current-litters>
+			<previous-puppies>Previous Puppies</previous-puppies>
 		</div>
 	</div>
-	<div class="col-xs-1 right-side">
-	</div>
 </div>
+
+<!--	<div class="col-xs-1 right-side">
+	</div>-->
+
+
 

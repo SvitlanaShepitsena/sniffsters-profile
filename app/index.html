@@ -29,99 +29,100 @@
 	<!-- endbuild -->
 </head>
 <body ng-controller="HomeCtrl as home">
-<div class="body-wrapper">
-	<div id="fb-root"></div>
-	<script>
-		window.fbAsyncInit = function () {
-			FB.init({
-				appId: '365015036974181',
-				xfbml: true,
-				version: 'v2.0'
-			});
-		};
+<div id="fb-root"></div>
+<script>
+	window.fbAsyncInit = function () {
+		FB.init({
+			appId: '365015036974181',
+			xfbml: true,
+			version: 'v2.0'
+		});
+	};
 
-		(function (d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) {
-				return;
-			}
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "//connect.facebook.net/en_US/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-	<!--[if lt IE 7]>
-	<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
-		today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to
-		better
-		experience this site.</p>
-	<![endif]-->
-	<!--[if lt IE 9]>
-	<script src="bower_components/es5-shim/es5-shim.js"></script>
-	<script src="bower_components/json3/lib/json3.min.js"></script>
-	<![endif]-->
-	<!-----{{home.auth.user}}---->
-	<div class="content-wrapper">
-		<div class="navbar navbar-default navbar-sniff">
-			<div class="container navbar-sniff-content">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<div class="logo-wrapper">
-						<a ui-sref="home">
-							<img src="img/Logo_web.png" alt="Sniffsters Logo">
-						</a>
-					</div>
-				</div>
-				<div class="navbar-collapse collapse sniff-collapse">
-					<ul class="nav navbar-nav">
-						<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="home">HOME
-						</a></li>
-						<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.about">ABOUT
-						</a></li>
-						<li><a class="sniff-menu" ui-sref-active="active-custom"
-						       ui-sref="sniff.breeders({breed:'',location:''})">BREEDERS
-						</a></li>
-						<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.dogs">DOGS
-						</a></li>
-						<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.explore">EXPLORE
-						</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right" ng-cloak>
-						<li ng-show="home.auth.user">
-							<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName,asuser:''})"
-							   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!
-							</a>
-							<a class="hello-user" ui-sref="looker.account({uname:home.userName})"
-							   ng-if="home.isBreeder===false">Hello, {{home.nickName}}!
-							</a>
-						</li>
-						<li ng-if="home.auth.user">
-							<a class="sniff-menu btn-logout" ng-click="home.Logout()">LOG OUT
-							</a>
-						</li>
-						<li ng-if="!home.auth.user">
-							<sv-login-popover lp-shown="lpShown" rp-shown="rpShown" home="home"
-							                  ng-click="loginPopover()"></sv-login-popover>
-						</li>
-						<li ng-if="!home.auth.user">
-							<sv-register-popover lp-shown="lpShown" rp-shown="rpShown" home="home"
-							                     ng-click="registerPopover()"></sv-register-popover>
-						</li>
-					</ul>
-				</div>
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
+	today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to
+	better
+	experience this site.</p>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+<!-----{{home.auth.user}}---->
+
+<div class="navbar navbar-default navbar-sniff">
+	<div class="container navbar-sniff-content">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="logo-wrapper">
+				<a ui-sref="home">
+					<img src="img/Logo_web.png" alt="Sniffsters Logo">
+				</a>
 			</div>
 		</div>
-		<!--Colar-->
-		<div class="container" ng-if="!home.IsHome">
-			<div class="row">
-				<div class="collar col-xs-12"></div>
-			</div>
+		<div class="navbar-collapse collapse sniff-collapse">
+			<ul class="nav navbar-nav">
+				<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="home">HOME
+				</a></li>
+				<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.about">ABOUT
+				</a></li>
+				<li><a class="sniff-menu" ui-sref-active="active-custom"
+				       ui-sref="sniff.breeders({breed:'',location:''})">BREEDERS
+				</a></li>
+				<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.dogs">DOGS
+				</a></li>
+				<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.explore">EXPLORE
+				</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right" ng-cloak>
+				<li ng-show="home.auth.user">
+					<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName,asuser:''})"
+					   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!
+					</a>
+					<a class="hello-user" ui-sref="looker.account({uname:home.userName})"
+					   ng-if="home.isBreeder===false">Hello, {{home.nickName}}!
+					</a>
+				</li>
+				<li ng-if="home.auth.user">
+					<a class="sniff-menu btn-logout" ng-click="home.Logout()">LOG OUT
+					</a>
+				</li>
+				<li ng-if="!home.auth.user">
+					<sv-login-popover lp-shown="lpShown" rp-shown="rpShown" home="home"
+					                  ng-click="loginPopover()"></sv-login-popover>
+				</li>
+				<li ng-if="!home.auth.user">
+					<sv-register-popover lp-shown="lpShown" rp-shown="rpShown" home="home"
+					                     ng-click="registerPopover()"></sv-register-popover>
+				</li>
+			</ul>
 		</div>
+	</div>
+</div>
+<!--Colar-->
+<div class="container-fluid" ng-if="!home.IsHome">
+	<div class="row">
+		<div class="collar col-xs-12"></div>
+	</div>
+</div>
+<div class="body-wrapper" ng-class="{'home-height':home.IsHome}">
+	<div class="container-fluid">
 		<!--Colar Home Page-->
 		<!--<div class="container-fluid" ng-if="home.IsHome">-->
 		<!--<div class="row">-->
@@ -176,54 +177,59 @@
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid" ng-if="!home.IsHome">
+
+		<div class="container" ng-if="!home.IsHome">
 			<div class="row">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-10">
-					<div class="container body-content">
-						<div class="main-content-wrapper" ng-cloak>
+				<div class="col-xs-12">
+					<div class="body-content" ng-cloak>
+
+						<div ui-view></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!--Home Page View-->
+		<div class="container" ng-if="home.IsHome">
+			<div class="row">
+				<div class="col-xs-1 left-side-home"></div>
+				<div class="col-xs-10 main-content-home">
+					<div class="container">
+					<div class="main-content-wrapper" ng-cloak>
 							<div ui-view></div>
 						</div>
 					</div>
 				</div>
+				<div class="col-xs-1" ng-class="{'right-side-home':home.IsHome}"></div>
 			</div>
 		</div>
-	</div>
-	<!--Home Page View-->
-	<div class="container-fluid fill-grass" ng-if="home.IsHome">
-		<div class="row">
-			<div class="col-xs-1 left-side-home"></div>
-			<div class="col-xs-10 main-content-home">
-				<div class="container">
-					<div class="main-content-wrapper" ng-cloak>
-						<div ui-view></div>
+		<footer class="footer-home">
+			<div class="container footer-text-container">
+				<div class="row" ng-show="!home.IsHome">
+					<div class="col-xs-3">
+						<div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
+					</div>
+					<div class="col-xs-9">
+						<ul class="nav navbar-nav navbar-right nav-footer">
+							<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
+							<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
+							<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="container-fluid fill-footer" ng-show="home.IsHome">
+					<div class="row row-foot">
+						<div class="foot-left col-xs-1"></div>
+						<div class="foot-content col-xs-10"></div>
+						<div class="foot-right col-xs-1"></div>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-1" ng-class="{'right-side-home':home.IsHome}"></div>
-		</div>
+		</footer>
+
 	</div>
-	<footer class="footer-home">
-		<div class="footer-text-container row" ng-show="!home.IsHome">
-			<div class="col-xs-3">
-				<div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
-			</div>
-			<div class="col-xs-9">
-				<ul class="nav navbar-nav navbar-right nav-footer">
-					<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
-					<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
-					<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="container-fluid fill-footer" ng-show="home.IsHome">
-			<div class="row row-foot">
-				<div class="foot-left col-xs-1"></div>
-				<div class="foot-content col-xs-10"></div>
-				<div class="foot-right col-xs-1"></div>
-			</div>
-		</div>
-	</footer>
 </div>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
