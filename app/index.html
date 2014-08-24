@@ -64,6 +64,7 @@
 <!-----{{home.auth.user}}---->
 <div class="contentScroller container-fluid">
 	<div class="content container-fluid ">
+
 		<div class="navbar navbar-default navbar-sniff">
 			<div class=" navbar-sniff-content">
 				<div class="navbar-header">
@@ -122,129 +123,116 @@
 				<div class="collar col-xs-12"></div>
 			</div>
 		</div>
-		<!--<div class="">
-			<div class="row">
-				<div class="col-xs-12 trial-fill">
-						<div class="mycontent">
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-								deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-								provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et
-								dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-								soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere
-								possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et
-								aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-								molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-								voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat</p>
+		<!--Colar Home Page-->
+		<!--<div class="" ng-if="home.IsHome">-->
+		<!--<div class="row">-->
+		<!--<div class="collar-home col-xs-12"></div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<div class="search-bar-wrapper" ng-hide="home.IsSearchHidden">
+			<div class="search-bar-content">
+				<div class="search-bar text-center">
+					<form class="form-inline">
+						<label class="quick-search">
+							QUICK SEARCH
+						</label>
+
+						<div class="btn-group fetch-group" ng-cloak>
+							<button type="button" class="btn btn-default search-dropdown align-left">
+								{{searchBreed.val
+								||
+								'Breeds'}}
+							</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li ng-repeat="b in breeds" ng-click="searchBreed.val=b">
+									<a class="cursor-p">{{b}}</a>
+								</li>
+							</ul>
 						</div>
+						<div class="btn-group fetch-group" ng-cloak>
+							<button type="button" class="btn btn-default search-dropdown align-left">
+								{{searchLocation.val ||
+								'Locations'}}
+							</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li ng-repeat="s in states" ng-click="searchLocation.val=s.abbreviation">
+									<a class="cursor-p">{{s.name}}</a>
+								</li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button ng-click="fetchDog()" class="btn btn-primary btn-fetch fetch-group">
+								<i class="fa fa-search"></i>
+								Fetch
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
-		</div>-->
+		</div>
 		<div class="body-wrapper" ng-class="{'home-height':home.IsHome}">
-			<div class="">
-				<!--Colar Home Page-->
-				<!--<div class="" ng-if="home.IsHome">-->
-				<!--<div class="row">-->
-				<!--<div class="collar-home col-xs-12"></div>-->
-				<!--</div>-->
-				<!--</div>-->
-				<div class="search-bar-wrapper" ng-hide="home.IsSearchHidden">
-					<div class="search-bar-content">
-						<div class="search-bar text-center">
-							<form class="form-inline">
-								<label class="quick-search">
-									QUICK SEARCH
-								</label>
-
-								<div class="btn-group fetch-group" ng-cloak>
-									<button type="button" class="btn btn-default search-dropdown align-left">
-										{{searchBreed.val
-										||
-										'Breeds'}}
-									</button>
-									<button type="button" class="btn btn-default dropdown-toggle"
-									        data-toggle="dropdown">
-										<span class="caret"></span>
-										<span class="sr-only">Toggle Dropdown</span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li ng-repeat="b in breeds" ng-click="searchBreed.val=b">
-											<a class="cursor-p">{{b}}</a>
-										</li>
-									</ul>
-								</div>
-								<div class="btn-group fetch-group" ng-cloak>
-									<button type="button" class="btn btn-default search-dropdown align-left">
-										{{searchLocation.val ||
-										'Locations'}}
-									</button>
-									<button type="button" class="btn btn-default dropdown-toggle"
-									        data-toggle="dropdown">
-										<span class="caret"></span>
-										<span class="sr-only">Toggle Dropdown</span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li ng-repeat="s in states" ng-click="searchLocation.val=s.abbreviation">
-											<a class="cursor-p">{{s.name}}</a>
-										</li>
-									</ul>
-								</div>
-								<div class="btn-group">
-									<button ng-click="fetchDog()" class="btn btn-primary btn-fetch fetch-group">
-										<i class="fa fa-search"></i>
-										Fetch
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="my-content" ng-if="!home.IsHome">
-					<div class="row">
-						<div class="col-xs-12">
-							<div class="body-content" ng-cloak>
-								<div ui-view></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--Home Page View-->
-				<div class="my-content" ng-if="home.IsHome">
-					<div class="row">
-						<div class="col-xs-1 left-side-home"></div>
-						<div class="col-xs-10 main-content-home">
-							<div class="">
-								<div class="main-content-wrapper" ng-cloak>
+			<div class="row">
+				<div class="col-xs-1 left-side-home"></div>
+				<div class="col-xs-10 main-content-home">
+					<div class="my-content" ng-if="!home.IsHome">
+						<div class="row">
+							<div class="col-xs-1"></div>
+							<div class="col-xs-10">
+								<div class="body-content" ng-cloak>
 									<div ui-view></div>
 								</div>
 							</div>
+							<div class="col-xs-1"></div>
 						</div>
-						<div class="col-xs-1" ng-class="{'right-side-home':home.IsHome}"></div>
+					</div>
+					<!--Home Page View-->
+					<div class="my-content" ng-if="home.IsHome">
+						<div class="row">
+							<div class="col-xs-1 left-side-home"></div>
+							<div class="col-xs-10">
+								<div class="">
+									<div class="main-content-wrapper" ng-cloak>
+										<div ui-view></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-1" ng-class="{'right-side-home':home.IsHome}"></div>
+						</div>
 					</div>
 				</div>
-				<footer class="footer-home">
-					<div class="footer-text-">
-						<div class="row" ng-show="!home.IsHome">
-							<div class="col-xs-3">
-								<div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
-							</div>
-							<div class="col-xs-9">
-								<ul class="nav navbar-nav navbar-right nav-footer">
-									<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
-									<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
-									<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
-								</ul>
-							</div>
+				<div class="col-xs-1 left-side-home"></div>
+			</div>
+			<footer class="footer-home">
+				<div class="footer-text-container">
+					<div class="row" ng-show="!home.IsHome">
+						<div class="col-xs-3">
+							<div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
 						</div>
-						<div class=" fill-footer" ng-show="home.IsHome">
-							<div class="row row-foot">
-								<div class="foot-left col-xs-1"></div>
-								<div class="foot-content col-xs-10"></div>
-								<div class="foot-right col-xs-1"></div>
-							</div>
+						<div class="col-xs-9">
+							<ul class="nav navbar-nav navbar-right nav-footer">
+								<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
+								<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
+								<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
+							</ul>
 						</div>
 					</div>
-				</footer>
-			</div>
+					<div class="fill-footer" ng-show="home.IsHome">
+						<div class="row row-foot">
+							<div class="foot-left col-xs-1"></div>
+							<div class="foot-content col-xs-10"></div>
+							<div class="foot-right col-xs-1"></div>
+						</div>
+					</div>
+				</div>
+			</footer>
 		</div>
 	</div>
 </div>

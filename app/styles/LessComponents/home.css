@@ -22,19 +22,33 @@
 .home-wrapper {
   background: url("../../img/jumbotron-background.png") no-repeat top center;
   z-index: 100;
-  margin: 0 auto;
   width: 90%;
   text-align: center;
   height: 500px !important;
-  margin-bottom: 399px;
+  margin: 0 auto 399px;
 }
 .body-content {
   background: white !important;
   z-index: 120;
 }
+.main-content-home {
+  background: url("../../img/home/landing-home.png") repeat;
+  height: 100%;
+  position: relative;
+  bottom: 0px;
+}
 .footer-home {
-  height: 100px !important;
-  background: url('../../img/home/footer-home-left.png') bottom left no-repeat, url('../../img/home/footer-home-right.png') top right no-repeat, url("../../img/home/footer.png") bottom center repeat-x;
+  background: url("../../img/home/footer-wide.png") no-repeat bottom center;
+  background-size: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 212px;
+  width: 100%;
+  /*  height: 100px !important;
+    background: url('../../img/home/footer-home-left.png') bottom left no-repeat,
+    url('../../img/home/footer-home-right.png') top right no-repeat,
+    url("../../img/home/footer.png") bottom center repeat-x;*/
 }
 .home-buttons {
   padding-top: 20px;
