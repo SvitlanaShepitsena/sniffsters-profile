@@ -23,6 +23,7 @@ var IndexCtrl = (function () {
         $scope.home.url = 'about';
         $scope.home.hideMenu = false;
         $scope.slide = '';
+        $scope.home.IsHome = false;
 
         this.spinner = true;
 

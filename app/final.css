@@ -4,7 +4,6 @@ body {
     url("img/home/landing_home.png") top center;
 
     background-size: 10%, 10%, 10%;
-
 }
 
 .contentScroller {
@@ -16,4 +15,9 @@ body {
 .content {
     visibility: visible;
 }
+
+.main-content {
+    background-color: white;
+}
+
 
