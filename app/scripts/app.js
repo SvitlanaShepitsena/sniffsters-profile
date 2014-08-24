@@ -261,10 +261,12 @@ profile.config(function ($selectProvider, $stateProvider, $urlRouterProvider, $l
         abstract: true,
         templateUrl: "../views/profile-side-bar.html"
     }).state("user.profile", {
+        abstract: true,
         url: "/:uname",
         controller: IndexCtrl,
         templateUrl: "../views/profile.html"
     }).state("user.profile.about1", {
+        url: '',
         templateUrl: "../views/profile-about.html"
     }).state("user.profile.about1.edit", {
         url: "/edit",

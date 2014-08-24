@@ -358,13 +358,15 @@ class HomeCtrl {
                     this.isLoggedIn = true;
                     this.userNameFire = this.FireProcess(this.userName);
 
+                    this.nickName = userProfile.UserName;
+                    console.log(this.nickName);
                     this.isLoggedIn = true;
                     if (this.isBreeder === true) {
-                        this.$state.go('user.profile.about1', {uname: user.email}, {reload: true});
+                        this.$state.go('user.profile.about1', {uname: this.nickName}, {reload: true});
                     }
 
                     if (this.isBreeder === false) {
-                        this.$state.go('looker.account', {uname: user.email}, {reload: true});
+                        this.$state.go('looker.account', {uname: this.nickName}, {reload: true});
                     }
                 })
             })
@@ -380,7 +382,6 @@ class HomeCtrl {
         if (userName == 'no') {
             d.resolve();
         }
-
 
         this.FinduserService.findByEmail(userName).then((user)=> {
             var userName = user.UserName;

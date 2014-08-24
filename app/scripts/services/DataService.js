@@ -347,7 +347,7 @@ var DataService = (function () {
     DataService.prototype.updateProfile = function (t) {
         var d = this.$q.defer();
 
-        var key = t.Email.replace(/\./g, '(p)');
+        var key = t.UserName.replace(/\./g, '(p)');
 
         t = _.omit(t, ['Breeds', 'breeds', 'LittersNumber']);
 

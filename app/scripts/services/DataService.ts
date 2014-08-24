@@ -360,7 +360,7 @@ class DataService {
         var d = this.$q.defer();
 
 
-        var key:string = t.Email.replace(/\./g, '(p)');
+        var key:string = t.UserName.replace(/\./g, '(p)');
 
         t = _.omit(t, ['Breeds', 'breeds', 'LittersNumber']);
 

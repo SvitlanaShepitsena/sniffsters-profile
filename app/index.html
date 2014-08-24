@@ -96,10 +96,10 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-right" ng-cloak>
 							<li ng-show="home.auth.user">
-								<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName,asuser:''})"
+								<a class="hello-user" ui-sref="user.profile.about1({uname:home.nickName,asuser:''})"
 								   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!
 								</a>
-								<a class="hello-user" ui-sref="looker.account({uname:home.userName})"
+								<a class="hello-user" ui-sref="looker.account({uname:home.nickName})"
 								   ng-if="home.isBreeder===false">Hello, {{home.nickName}}!
 								</a>
 							</li>

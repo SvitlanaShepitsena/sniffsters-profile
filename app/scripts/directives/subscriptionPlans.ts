@@ -96,13 +96,13 @@ var subscriptionPlans = ($popover, $state, $filter, $firebase, settings, Plankee
                                             userSubscriptions[feautureName] = feautureRestriction;
 
                                         })
-                                        var breederUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.userNameFire + '/subscriptions';
+                                        var breederUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.nickName + '/subscriptions';
 
                                         var breederRef = $firebase(new Firebase(breederUrl));
                                         breederRef.$remove();
                                         breederRef.$add(userSubscriptions).then(() => {
                                             toastr.success(userSubscriptions.name + ' plan is activated');
-                                            $state.go('user.profile.manage');
+                                            $state.go('user.profile.manage', {uname: $scope.home.nickName});
                                         });
                                     }
                                 })

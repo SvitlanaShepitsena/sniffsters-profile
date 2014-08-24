@@ -1,6 +1,7 @@
 <div ui-view>
-	<div class="text-right" ng-show="home.isOwner">
-		<p class="label label-success">
+	<div class="text-right"
+	     ng-show="!home.subscription || (home.subscription.Galleries>0 && index.galleriesNumber>=home.subscription.Galleries)">
+	<p class="label label-success">
 			{{upgradeSubscription}}
 			to add more galleries
 		</p>

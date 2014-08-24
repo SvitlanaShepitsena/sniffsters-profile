@@ -5,15 +5,15 @@ class ManageBreederAccountCtrl {
     constructor(public $scope, public settings, public $state:ng.ui.IStateService, public toastr:Toastr, public $firebase) {
         $scope.manageBreederAccount = this;
         this.$scope.home.auth.$getCurrentUser().then((user) => {
-            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
+            this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then((userName) => {
 
-                var subscriptionUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email) + '/subscriptions';
+                var subscriptionUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(userName) + '/subscriptions';
                 $scope.subscription = $firebase(new Firebase(subscriptionUrl));
                 $scope.subscription.$on('value', (snapshot:any)=> {
                     $scope.hasSubscription = (!_.isEmpty(snapshot.snapshot.value));
                 });
 
-                var breederUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(user.email);
+                var breederUrl = $scope.home.MainUrl + 'breeders/' + $scope.home.FireProcess(userName);
                 $scope.breeder = $firebase(new Firebase(breederUrl));
             })
         })
