@@ -95,10 +95,10 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right" ng-cloak>
 						<li ng-show="home.auth.user">
-							<a class="hello-user" ui-sref="user.profile.about1({uname:home.nickName,asuser:''})"
+							<a class="hello-user" ui-sref="user.profile.about1({uname:home.userName,asuser:''})"
 							   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!
 							</a>
-							<a class="hello-user" ui-sref="looker.account({uname:home.nickName})"
+							<a class="hello-user" ui-sref="looker.account({uname:home.userName})"
 							   ng-if="home.isBreeder===false">Hello, {{home.nickName}}!
 							</a>
 						</li>
@@ -178,6 +178,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="body-wrapper" ng-class="{'home-height':home.IsHome}">
 			<div class="row">
 				<div class="col-xs-1 left-side-home"></div>
@@ -194,7 +195,7 @@
 						</div>
 					</div>
 					<!--Home Page View-->
-					<div class="my-content" ng-if="home.IsHome">
+					<div class="my-content" ng-if="!home.IsHome">
 						<div class="row">
 							<div class="col-xs-1 left-side-home"></div>
 							<div class="col-xs-10">
@@ -364,7 +365,6 @@
 <script src="scripts/directives/svAddPrevPuppies.js"></script>
 <script src="scripts/directives/svShare.js"></script>
 <script src="scripts/directives/svSvUpgradeNotification.js"></script>
-<script src="scripts/services/UnamebyemailService.js"></script>
 <!-- links -->
 <script src="scripts/controllers/PuppiesCtrl.js"></script>
 <script src="scripts/controllers/TestimonialsCtrl.js"></script>
