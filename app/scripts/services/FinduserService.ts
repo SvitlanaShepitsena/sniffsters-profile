@@ -6,6 +6,7 @@ class FinduserService {
     }
 
     find(userName:string) {
+        console.log(userName);
         userName = this.FireProcess(userName);
         var d = this.$q.defer();
         var mainRef = this.$firebase(new Firebase(this.settings.mainUrl));
@@ -47,7 +48,6 @@ class FinduserService {
 
     findByEmail(email:string) {
         email = this.FireProcess(email);
-        console.log(email);
         var d = this.$q.defer();
         var mainRef = this.$firebase(new Firebase(this.settings.mainUrl));
         this.getUserByEmail(mainRef, 'breeders', email).then((user:any)=> {
@@ -65,20 +65,23 @@ class FinduserService {
 
     getUserByEmail(mainRef, type:string, email:string) {
         var d = this.$q.defer();
-        email = this.FireProcess(email);
-
+        email = this.FireUnProcess(email);
         var breeders = mainRef.$child(type);
-        var keys = breeders.$getIndex();
-        var wasFound = false;
-        keys.forEach((key)=> {
-            if (key == email) {
-                wasFound = true;
-                d.resolve(breeders[key]);
+        breeders.$on('value', (snapshot:any)=> {
+            var bs = snapshot.snapshot.value;
+            var keys = breeders.$getIndex();
+            var wasFound = false;
+            keys.forEach((key)=> {
+                var user = breeders[key];
+                if (user.profile.Email == email) {
+                    wasFound = true;
+                    d.resolve(breeders[key]);
+                }
+            })
+            if (!wasFound) {
+                d.reject(null);
             }
-        })
-        if (!wasFound) {
-            d.reject(null);
-        }
+        });
 
         return d.promise;
     }

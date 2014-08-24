@@ -41,7 +41,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="thumbnail thPictureSmall">
-							<a ui-sref="user.profile.about1({uname:b.profile.Email})">
+							<a ui-sref="user.profile.about1({uname:b.profile.UserName})">
 								<img ng-show="(b.profile.images.avatar|orderByPriority)[0]"
 								     ng-src="{{(b.profile.images.avatar|orderByPriority)[0]}}" alt="">
 								<img ng-hide="(b.profile.images.avatar|orderByPriority)[0]"
@@ -55,8 +55,7 @@
 					<div class="col-md-5">
 						<div class="">
 							<h3 class="text-info breederName">
-
-								<a ui-sref="user.profile.about1({uname:b.profile.Email})">
+								<a ui-sref="user.profile.about1({uname:b.profile.UserName})">
 									{{b.profile.FirstName}} {{b.profile.LastName}}
 								</a>
 							</h3>
@@ -107,16 +106,16 @@
 						<li>
 							<sv-contact-modal></sv-contact-modal>
 						</li>
-						<li ng-show="home.userName && home.userName!=b.profile.Email">
+						<li ng-show="home.userName && home.userName!=b.profile.UserName">
 							<button class="btn btn-link sniff-head-sm"
-							        ng-hide="home.Followings.indexOf(b.profile.Email)>-1"
-							        role="button" ng-click="home.followUser(home.userName,b.profile.Email)">
+							        ng-hide="home.Followings.indexOf(b.profile.UserName)>-1" role="button"
+							        ng-click="home.followUser(home.nickName,b.profile.UserName)">
 								Follow +
 							</button>
 
 							<button class="btn btn-link sniff-head-sm"
-							        ng-show="home.Followings.indexOf(b.profile.Email)>-1"
-							        role="button" ng-click="home.unFollowUser(home.userName,b.profile.Email)">
+							        ng-show="home.Followings.indexOf(b.profile.UserName)>-1" role="button"
+							        ng-click="home.unFollowUser(home.nickName,b.profile.UserName)">
 								UnFollow -
 							</button>
 

@@ -13,11 +13,11 @@ class FollowingsCtrl {
         $scope.followings = [];
 
         $scope.home.auth.$getCurrentUser().then((user) => {
-            $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
+            $scope.home.Breedership($scope.home.FireProcess(user.email)).then((userName) => {
 
                 var followingsUrl = $scope.home.MainUrl;
                 followingsUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
-                followingsUrl += $scope.home.FireProcess(user.email) + '/followings';
+                followingsUrl += $scope.home.FireProcess(userName) + '/followings';
                 $scope.followingsKeys = _.uniq($firebase(new Firebase(followingsUrl)).$getIndex());
 
                 $scope.followingsKeys.forEach((key)=> {

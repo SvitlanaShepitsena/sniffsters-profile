@@ -30,7 +30,7 @@ var MessagesCtrl = (function () {
                 if ($scope.home.isBreeder === false) {
                     type = "lookers/";
                 }
-                messagesUrl = messagesUrl + type + $scope.home.FireProcess(user.email) + '/messages';
+                messagesUrl = messagesUrl + type + $scope.home.FireProcess($scope.home.userName) + '/messages';
                 _this.messagesRef = $firebase(new Firebase(messagesUrl));
                 _this.fireMessages = (_this.messagesRef);
                 _this.SetSelectedUser(0);
@@ -123,10 +123,10 @@ var MessagesCtrl = (function () {
                             if (levelUp) {
                                 _this.$state.go('^');
                             }
-                            _this.$scope.note.body = "";
-                            _this.$scope.note.to = "";
-                            _this.$scope.reply.body = "";
 
+                            //this.$scope.note.body = "";
+                            //this.$scope.note.to = "";
+                            //this.$scope.reply.body = "";
                             _this.ShowSuccess(_this.settings.messageSuccessNotice);
                         });
                     }
@@ -146,7 +146,9 @@ var MessagesCtrl = (function () {
         var notes = this.fireMessages;
 
         notes = _.sortBy(notes, function (note) {
-            return -note.sent;
+            if (!!note) {
+                return -note.sent;
+            }
         });
 
         var userNames = _.map(_.uniq(_.filter(notes, function (note) {

@@ -38,9 +38,9 @@ class MessagesCtrl {
                 if ($scope.home.isBreeder === false) {
                     type = "lookers/";
                 }
-                messagesUrl = messagesUrl + type + $scope.home.FireProcess(user.email) + '/messages';
+                messagesUrl = messagesUrl + type + $scope.home.FireProcess($scope.home.userName) + '/messages';
                 this.messagesRef = $firebase(new Firebase(messagesUrl));
-                this.fireMessages = (this.messagesRef);
+                this.fireMessages = (this.messagesRef)
                 this.SetSelectedUser(0);
 
 
@@ -137,9 +137,10 @@ class MessagesCtrl {
                                 if (levelUp) {
                                     this.$state.go('^');
                                 }
-                                this.$scope.note.body = "";
-                                this.$scope.note.to = "";
-                                this.$scope.reply.body = "";
+
+                                //this.$scope.note.body = "";
+                                //this.$scope.note.to = "";
+                                //this.$scope.reply.body = "";
 
                                 this.ShowSuccess(this.settings.messageSuccessNotice);
                             })
@@ -162,7 +163,9 @@ class MessagesCtrl {
         var notes = this.fireMessages;
 
         notes = _.sortBy(notes, (note:INote)=> {
-            return -note.sent;
+            if (!!note) {
+                return -note.sent;
+            }
         });
 
         var userNames = _.map(_.uniq(_.filter(notes, (note:INote)=> {

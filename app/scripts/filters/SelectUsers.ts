@@ -3,7 +3,10 @@
 class SelectUsers {
     static filter(notes:INote[], isTrash:boolean):string[] {
         notes = _.sortBy(notes, (note:INote)=> {
-            return -note.sent;
+            if (!!note) {
+                return -note.sent;
+
+            }
         });
 
 

@@ -4,7 +4,7 @@
 /// <reference path="../utils/LookerGenerator.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/firebase/firebase-simplelogin.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularfire/angularfire.d.ts" />
-
+/// <reference path="../services/UnamebyemailService.ts" />
 
 interface IHomeScope extends IMainScope {
     home:HomeCtrl;
@@ -260,65 +260,65 @@ class HomeCtrl {
 //        });
 
         $scope.states = [
-            { name: 'ALABAMA', abbreviation: 'AL'},
-            { name: 'ALASKA', abbreviation: 'AK'},
-            { name: 'AMERICAN SAMOA', abbreviation: 'AS'},
-            { name: 'ARIZONA', abbreviation: 'AZ'},
-            { name: 'ARKANSAS', abbreviation: 'AR'},
-            { name: 'CALIFORNIA', abbreviation: 'CA'},
-            { name: 'COLORADO', abbreviation: 'CO'},
-            { name: 'CONNECTICUT', abbreviation: 'CT'},
-            { name: 'DELAWARE', abbreviation: 'DE'},
-            { name: 'DISTRICT OF COLUMBIA', abbreviation: 'DC'},
-            { name: 'FEDERATED STATES OF MICRONESIA', abbreviation: 'FM'},
-            { name: 'FLORIDA', abbreviation: 'FL'},
-            { name: 'GEORGIA', abbreviation: 'GA'},
-            { name: 'GUAM', abbreviation: 'GU'},
-            { name: 'HAWAII', abbreviation: 'HI'},
-            { name: 'IDAHO', abbreviation: 'ID'},
-            { name: 'ILLINOIS', abbreviation: 'IL'},
-            { name: 'INDIANA', abbreviation: 'IN'},
-            { name: 'IOWA', abbreviation: 'IA'},
-            { name: 'KANSAS', abbreviation: 'KS'},
-            { name: 'KENTUCKY', abbreviation: 'KY'},
-            { name: 'LOUISIANA', abbreviation: 'LA'},
-            { name: 'MAINE', abbreviation: 'ME'},
-            { name: 'MARSHALL ISLANDS', abbreviation: 'MH'},
-            { name: 'MARYLAND', abbreviation: 'MD'},
-            { name: 'MASSACHUSETTS', abbreviation: 'MA'},
-            { name: 'MICHIGAN', abbreviation: 'MI'},
-            { name: 'MINNESOTA', abbreviation: 'MN'},
-            { name: 'MISSISSIPPI', abbreviation: 'MS'},
-            { name: 'MISSOURI', abbreviation: 'MO'},
-            { name: 'MONTANA', abbreviation: 'MT'},
-            { name: 'NEBRASKA', abbreviation: 'NE'},
-            { name: 'NEVADA', abbreviation: 'NV'},
-            { name: 'NEW HAMPSHIRE', abbreviation: 'NH'},
-            { name: 'NEW JERSEY', abbreviation: 'NJ'},
-            { name: 'NEW MEXICO', abbreviation: 'NM'},
-            { name: 'NEW YORK', abbreviation: 'NY'},
-            { name: 'NORTH CAROLINA', abbreviation: 'NC'},
-            { name: 'NORTH DAKOTA', abbreviation: 'ND'},
-            { name: 'NORTHERN MARIANA ISLANDS', abbreviation: 'MP'},
-            { name: 'OHIO', abbreviation: 'OH'},
-            { name: 'OKLAHOMA', abbreviation: 'OK'},
-            { name: 'OREGON', abbreviation: 'OR'},
-            { name: 'PALAU', abbreviation: 'PW'},
-            { name: 'PENNSYLVANIA', abbreviation: 'PA'},
-            { name: 'PUERTO RICO', abbreviation: 'PR'},
-            { name: 'RHODE ISLAND', abbreviation: 'RI'},
-            { name: 'SOUTH CAROLINA', abbreviation: 'SC'},
-            { name: 'SOUTH DAKOTA', abbreviation: 'SD'},
-            { name: 'TENNESSEE', abbreviation: 'TN'},
-            { name: 'TEXAS', abbreviation: 'TX'},
-            { name: 'UTAH', abbreviation: 'UT'},
-            { name: 'VERMONT', abbreviation: 'VT'},
-            { name: 'VIRGIN ISLANDS', abbreviation: 'VI'},
-            { name: 'VIRGINIA', abbreviation: 'VA'},
-            { name: 'WASHINGTON', abbreviation: 'WA'},
-            { name: 'WEST VIRGINIA', abbreviation: 'WV'},
-            { name: 'WISCONSIN', abbreviation: 'WI'},
-            { name: 'WYOMING', abbreviation: 'WY' }
+            {name: 'ALABAMA', abbreviation: 'AL'},
+            {name: 'ALASKA', abbreviation: 'AK'},
+            {name: 'AMERICAN SAMOA', abbreviation: 'AS'},
+            {name: 'ARIZONA', abbreviation: 'AZ'},
+            {name: 'ARKANSAS', abbreviation: 'AR'},
+            {name: 'CALIFORNIA', abbreviation: 'CA'},
+            {name: 'COLORADO', abbreviation: 'CO'},
+            {name: 'CONNECTICUT', abbreviation: 'CT'},
+            {name: 'DELAWARE', abbreviation: 'DE'},
+            {name: 'DISTRICT OF COLUMBIA', abbreviation: 'DC'},
+            {name: 'FEDERATED STATES OF MICRONESIA', abbreviation: 'FM'},
+            {name: 'FLORIDA', abbreviation: 'FL'},
+            {name: 'GEORGIA', abbreviation: 'GA'},
+            {name: 'GUAM', abbreviation: 'GU'},
+            {name: 'HAWAII', abbreviation: 'HI'},
+            {name: 'IDAHO', abbreviation: 'ID'},
+            {name: 'ILLINOIS', abbreviation: 'IL'},
+            {name: 'INDIANA', abbreviation: 'IN'},
+            {name: 'IOWA', abbreviation: 'IA'},
+            {name: 'KANSAS', abbreviation: 'KS'},
+            {name: 'KENTUCKY', abbreviation: 'KY'},
+            {name: 'LOUISIANA', abbreviation: 'LA'},
+            {name: 'MAINE', abbreviation: 'ME'},
+            {name: 'MARSHALL ISLANDS', abbreviation: 'MH'},
+            {name: 'MARYLAND', abbreviation: 'MD'},
+            {name: 'MASSACHUSETTS', abbreviation: 'MA'},
+            {name: 'MICHIGAN', abbreviation: 'MI'},
+            {name: 'MINNESOTA', abbreviation: 'MN'},
+            {name: 'MISSISSIPPI', abbreviation: 'MS'},
+            {name: 'MISSOURI', abbreviation: 'MO'},
+            {name: 'MONTANA', abbreviation: 'MT'},
+            {name: 'NEBRASKA', abbreviation: 'NE'},
+            {name: 'NEVADA', abbreviation: 'NV'},
+            {name: 'NEW HAMPSHIRE', abbreviation: 'NH'},
+            {name: 'NEW JERSEY', abbreviation: 'NJ'},
+            {name: 'NEW MEXICO', abbreviation: 'NM'},
+            {name: 'NEW YORK', abbreviation: 'NY'},
+            {name: 'NORTH CAROLINA', abbreviation: 'NC'},
+            {name: 'NORTH DAKOTA', abbreviation: 'ND'},
+            {name: 'NORTHERN MARIANA ISLANDS', abbreviation: 'MP'},
+            {name: 'OHIO', abbreviation: 'OH'},
+            {name: 'OKLAHOMA', abbreviation: 'OK'},
+            {name: 'OREGON', abbreviation: 'OR'},
+            {name: 'PALAU', abbreviation: 'PW'},
+            {name: 'PENNSYLVANIA', abbreviation: 'PA'},
+            {name: 'PUERTO RICO', abbreviation: 'PR'},
+            {name: 'RHODE ISLAND', abbreviation: 'RI'},
+            {name: 'SOUTH CAROLINA', abbreviation: 'SC'},
+            {name: 'SOUTH DAKOTA', abbreviation: 'SD'},
+            {name: 'TENNESSEE', abbreviation: 'TN'},
+            {name: 'TEXAS', abbreviation: 'TX'},
+            {name: 'UTAH', abbreviation: 'UT'},
+            {name: 'VERMONT', abbreviation: 'VT'},
+            {name: 'VIRGIN ISLANDS', abbreviation: 'VI'},
+            {name: 'VIRGINIA', abbreviation: 'VA'},
+            {name: 'WASHINGTON', abbreviation: 'WA'},
+            {name: 'WEST VIRGINIA', abbreviation: 'WV'},
+            {name: 'WISCONSIN', abbreviation: 'WI'},
+            {name: 'WYOMING', abbreviation: 'WY'}
         ];
 
 
@@ -332,9 +332,9 @@ class HomeCtrl {
 
             this.Breedership(this.FireProcess(user.email)).then(() => {
                 this.userName = user.email;
+                this.userNameFire = this.FireProcess(this.userName);
                 this.isLoggedIn = true;
 
-                this.userNameFire = this.FireProcess(this.userName);
             });
         });
     }
@@ -352,19 +352,21 @@ class HomeCtrl {
             }
 
             this.Breedership(this.FireProcess(user.email)).then(() => {
-                this.userName = user.email;
-                this.isLoggedIn = true;
+                this.FinduserService.findByEmail(user.email).then((userProfile)=> {
 
-                this.userNameFire = this.FireProcess(this.userName);
+                    this.userName = userProfile.UserName;
+                    this.isLoggedIn = true;
+                    this.userNameFire = this.FireProcess(this.userName);
 
-                this.isLoggedIn = true;
-                if (this.isBreeder === true) {
-                    this.$state.go('user.profile.about1', {uname: user.email}, {reload: true});
-                }
+                    this.isLoggedIn = true;
+                    if (this.isBreeder === true) {
+                        this.$state.go('user.profile.about1', {uname: user.email}, {reload: true});
+                    }
 
-                if (this.isBreeder === false) {
-                    this.$state.go('looker.account', {uname: user.email}, {reload: true});
-                }
+                    if (this.isBreeder === false) {
+                        this.$state.go('looker.account', {uname: user.email}, {reload: true});
+                    }
+                })
             })
         }, () => {
             this.ShowError('Your login or password was entered incorrectly.');
@@ -372,64 +374,79 @@ class HomeCtrl {
         });
     }
 
-    Breedership(email:string) {
-
+    Breedership(userName:string) {
         var d = this.$q.defer();
 
-        if (email == 'no') {
+        if (userName == 'no') {
             d.resolve();
         }
 
-        var breederUrl = this.MainUrl + "breeders/" + email;
-        var lookerUrl = this.MainUrl + "lookers/" + email;
 
-        var breederRef = this.$firebase(new Firebase(breederUrl));
-        var lookerRef = this.$firebase(new Firebase(lookerUrl));
+        this.FinduserService.findByEmail(userName).then((user)=> {
+            var userName = user.UserName;
 
-        breederRef.$on('value', (snapshot:any)=> {
+            var breederUrl = this.MainUrl + "breeders/" + userName;
+            var lookerUrl = this.MainUrl + "lookers/" + userName;
+
+            var breederRef = this.$firebase(new Firebase(breederUrl));
+            var lookerRef = this.$firebase(new Firebase(lookerUrl));
+
+            breederRef.$on('value', (snapshot:any)=> {
 
 
-            var breeder = snapshot.snapshot.value;
-            if (!_.isNull(breeder) && !_.isUndefined(breeder.profile)) {
-                if (breeder.hasOwnProperty('followings')) {
-                    this.Followings = _.map(_.keys(breeder.followings), (key)=> {
-                        return this.FireUnProcess(key);
+                var breeder = snapshot.snapshot.value;
+                if (!_.isNull(breeder) && !_.isUndefined(breeder.profile)) {
+                    if (breeder.hasOwnProperty('followings')) {
+                        this.Followings = _.map(_.keys(breeder.followings), (key)=> {
+                            return this.FireUnProcess(key);
+                        });
+                    }
+
+
+                    this.nickName = breeder.profile.UserName;
+                    this.nickNameFire = this.FireProcess(this.nickName);
+
+                    this.userName = this.nickName;
+                    this.userNameFire = this.nickNameFire;
+
+                    this.isBreeder = true;
+                    this.isAdmin = breeder.profile.isAdmin;
+
+                    var subscriptionUrl = this.MainUrl + 'breeders/' + this.FireProcess(breeder.profile.UserName) + '/subscriptions';
+                    var subscriptionRef = this.$firebase(new Firebase(subscriptionUrl));
+                    subscriptionRef.$on('value', (snapshot:any)=> {
+                        var subscription = snapshot.snapshot.value;
+                        this.subscription = this.$filter('orderByPriority')(subscription)[0];
                     });
+
+
+                    d.resolve(this.nickName);
                 }
+            });
+            lookerRef.$on('value', (snapshot:any)=> {
+                var looker = snapshot.snapshot.value;
+                if (!_.isNull(looker) && !_.isUndefined(looker.profile)) {
+                    this.nickName = looker.profile.UserName;
+                    this.nickNameFire = this.FireProcess(this.nickName);
 
 
-                this.nickName = breeder.profile.UserName;
-                this.nickNameFire = this.FireProcess(this.nickName);
-                this.isBreeder = true;
-                this.isAdmin = breeder.profile.isAdmin;
-
-                var subscriptionUrl = this.MainUrl + 'breeders/' + this.FireProcess(breeder.profile.Email) + '/subscriptions';
-                var subscriptionRef = this.$firebase(new Firebase(subscriptionUrl));
-                subscriptionRef.$on('value', (snapshot:any)=> {
-                    var subscription = snapshot.snapshot.value;
-                    this.subscription = this.$filter('orderByPriority')(subscription)[0];
-                });
+                    this.userName = this.nickName;
+                    this.userNameFire = this.nickNameFire;
 
 
-                d.resolve();
-            }
-        });
-        lookerRef.$on('value', (snapshot:any)=> {
-            var looker = snapshot.snapshot.value;
-            if (!_.isNull(looker) && !_.isUndefined(looker.profile)) {
-                this.nickName = looker.profile.UserName;
-                this.nickNameFire = this.FireProcess(this.nickName);
-                this.isBreeder = false;
+                    this.isBreeder = false;
 
-                if (looker.hasOwnProperty('followings')) {
-                    this.Followings = _.map(_.keys(looker.followings), (key)=> {
-                        return this.FireUnProcess(key);
-                    });
+                    if (looker.hasOwnProperty('followings')) {
+                        this.Followings = _.map(_.keys(looker.followings), (key)=> {
+                            return this.FireUnProcess(key);
+                        });
+                    }
+
+                    d.resolve(this.nickName);
                 }
+            });
 
-                d.resolve();
-            }
-        });
+        })
         return d.promise;
     }
 
@@ -457,13 +474,13 @@ class HomeCtrl {
     }
 
     FireProcess(userName:string) {
-        if (_.isUndefined(userName)) return;
+        if (_.isUndefined(userName) || _.isNull(userName)) return;
         return userName.replace(/\./g, '(p)');
 
     }
 
     FireUnProcess(userName:string) {
-        if (_.isUndefined(userName)) return;
+        if (_.isUndefined(userName) || _.isNull(userName)) return;
         return userName.replace(/\(p\)/g, '.');
 
     }
@@ -503,18 +520,19 @@ class HomeCtrl {
         this.toastr.error(note);
     }
 
-    Ownership(notOwner?:boolean) {
-        if (notOwner == true) {
-            this.isOwner = false;
-            return false;
-        }
-
-        var breederUserName:string = this.$stateParams.uname;
-        if (this.auth.user === null)
-            return false;
-        this.isOwner = (breederUserName === this.auth.user.email) || (breederUserName === this.auth.user.id);
-        return this.isOwner;
-    }
+    //Ownership(notOwner?:boolean) {
+    //
+    //    if (notOwner == true) {
+    //        this.isOwner = false;
+    //        return false;
+    //    }
+    //
+    //    var breederUserName:string = this.$stateParams.uname;
+    //    if (this.auth.user === null)
+    //        return false;
+    //    this.isOwner = (breederUserName === this.nickName) || (breederUserName === this.auth.user.id);
+    //    return this.isOwner;
+    //}
 
     navigate(menuIndex:number) {
         this.$scope.slide = this.animationDirection(menuIndex);

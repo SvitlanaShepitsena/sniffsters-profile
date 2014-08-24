@@ -14,10 +14,10 @@ class FollowersCtrl {
         $scope.followers = [];
 
         $scope.home.auth.$getCurrentUser().then((user) => {
-            $scope.home.Breedership($scope.home.FireProcess(user.email)).then(() => {
+            $scope.home.Breedership($scope.home.FireProcess(user.email)).then((userName) => {
                 var followersUrl = $scope.home.MainUrl;
                 followersUrl += ($scope.home.isBreeder) ? 'breeders/' : 'lookers/';
-                followersUrl += $scope.home.FireProcess(user.email) + '/followers';
+                followersUrl += $scope.home.FireProcess(userName) + '/followers';
 
                 $scope.followersRef = $firebase(new Firebase(followersUrl));
                 $scope.followersKeys = $scope.followersRef.$getIndex();

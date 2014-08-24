@@ -37,6 +37,7 @@ class BreedersCtrl {
                 user = {email: 'no'};
             }
             this.$scope.home.Breedership(this.$scope.home.FireProcess(user.email)).then(() => {
+
                 var url = $scope.home.MainUrl + 'breeders';
                 var breedersRef = $firebase(new Firebase(url));
                 breedersRef.$on('value', (snapshot:any)=> {

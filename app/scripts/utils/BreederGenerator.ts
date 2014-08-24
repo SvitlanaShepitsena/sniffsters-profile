@@ -7,19 +7,17 @@ class BreederGenerator implements IUserGenerator {
     create(email:string, mainRef:string, $firebase:any, nickName:string) {
 
         var user = new BreederProfile();
-        var userUrl = mainRef + "breeders";
+        var profileUrl = mainRef + "breeders" + '/' + nickName + '/' + 'profile';
 
-        var usersRef = $firebase(new Firebase(userUrl));
+        var userProfileRef = $firebase(new Firebase(profileUrl));
 
-        var userRef = usersRef.$child(email);
-        var profileRef = userRef.$child('profile');
+
 
         user.Email = this.FireUnProcess(email);
         user.UserName = nickName;
 
-        profileRef.$set(user);
-
-        usersRef.$save(email);
+        userProfileRef.$set(user);
+        userProfileRef.$save();
 
         return user;
     }
