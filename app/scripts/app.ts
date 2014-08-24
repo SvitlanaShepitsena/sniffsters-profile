@@ -259,23 +259,25 @@ profile.config(
         //$locationProvider.html5Mode(true).hashPrefix('!');
 
         $urlRouterProvider.otherwise("/");
-
         $stateProvider
+            .state("home", {
+                url: "/",
+                templateUrl: "../views/home.html"
+            })
         /**********************
          =Breeder
          ***********************/
             .state("user", {
+                url: "/breeder",
                 abstract: true,
                 templateUrl: "../views/profile-side-bar.html"
             })
             .state("user.profile", {
-                abstract: true,
-                url: "/profile/:uname{asuser:(?:/[^/]+)?}",
+                url: "/:uname",
                 controller: IndexCtrl,
                 templateUrl: "../views/profile.html"
             })
             .state("user.profile.about1", {
-                url: "/about",
                 templateUrl: "../views/profile-about.html"
             })
             .state("user.profile.about1.edit", {
@@ -336,10 +338,6 @@ profile.config(
          Home Menu
          ***********************/
 
-            .state("home", {
-                url: "/",
-                templateUrl: "../views/home.html"
-            })
 
             .state("sniff.login", {
                 url: "/login",
