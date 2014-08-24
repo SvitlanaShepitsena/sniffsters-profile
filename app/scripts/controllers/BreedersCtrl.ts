@@ -28,10 +28,10 @@ class BreedersCtrl {
         $scope.searchLocation = ($stateParams.location == null || $stateParams.location == "") ? null : $stateParams.location;
         $scope.searchBreed = ($stateParams.breed == null || $stateParams.breed == "") ? null : $stateParams.breed;
 
-        $scope.breeders = [];
         $scope.isDataLoading = true;
 
 
+        $scope.breeders = [];
         this.$scope.home.auth.$getCurrentUser().then((user) => {
             if (_.isNull(user)) {
                 user = {email: 'no'};

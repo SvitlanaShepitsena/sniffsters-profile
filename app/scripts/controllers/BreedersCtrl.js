@@ -30,9 +30,9 @@ var BreedersCtrl = (function () {
         $scope.searchLocation = ($stateParams.location == null || $stateParams.location == "") ? null : $stateParams.location;
         $scope.searchBreed = ($stateParams.breed == null || $stateParams.breed == "") ? null : $stateParams.breed;
 
-        $scope.breeders = [];
         $scope.isDataLoading = true;
 
+        $scope.breeders = [];
         this.$scope.home.auth.$getCurrentUser().then(function (user) {
             if (_.isNull(user)) {
                 user = { email: 'no' };
