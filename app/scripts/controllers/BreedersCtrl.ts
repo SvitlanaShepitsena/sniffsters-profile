@@ -44,6 +44,7 @@ class BreedersCtrl {
 
 
                     var breedersArr = $filter('orderByPriority')(snapshot.snapshot.value);
+                    $scope.breeders = [];
                     breedersArr.forEach((breeder)=> {
 
                         if (!_.isUndefined(breeder.profile) && !breeder.profile.isAdmin) {

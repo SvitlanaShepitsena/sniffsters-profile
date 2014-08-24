@@ -42,6 +42,7 @@ var BreedersCtrl = (function () {
                 var breedersRef = $firebase(new Firebase(url));
                 breedersRef.$on('value', function (snapshot) {
                     var breedersArr = $filter('orderByPriority')(snapshot.snapshot.value);
+                    $scope.breeders = [];
                     breedersArr.forEach(function (breeder) {
                         if (!_.isUndefined(breeder.profile) && !breeder.profile.isAdmin) {
                             if (!_.isNull($scope.searchLocation)) {

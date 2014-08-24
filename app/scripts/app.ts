@@ -88,7 +88,6 @@
 /// <reference path="directives/svAddPrevPuppies.ts" />
 /// <reference path="directives/svShare.ts" />
 /// <reference path="directives/svSvUpgradeNotification.ts" />
-/// <reference path="services/UnamebyemailService.ts" />
 //#ref
 
 var profile = angular.module("profile", ['ngSanitize', 'ratings', 'mgcrea.ngStrap.helpers.dateParser', 'mgcrea.ngStrap.affix', 'mgcrea.ngStrap.typeahead', 'mgcrea.ngStrap.helpers.parseOptions', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.helpers.dimensions', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
@@ -142,7 +141,6 @@ profile.service("CopyProfileService", CopyProfileService);
 profile.service("GalleryService", GalleryService);
 profile.service("FinduserService", FinduserService);
 profile.service("PlankeeperService", PlankeeperService);
-profile.service("UnamebyemailService", UnamebyemailService);
 //#serv
 
 profile.directive("aboutInfoEdit", aboutInfoEdit);
