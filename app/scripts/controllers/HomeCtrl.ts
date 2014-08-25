@@ -86,8 +86,18 @@ class HomeCtrl {
             })
     }
 
-    constructor(public $rootScope, public $popover, public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
+    constructor(public $window, public $rootScope, public $popover, public $scope, public $modal, public FinduserService, public settings, public $filter, public $stateParams, public $q:ng.IQService, public $firebase, public $firebaseSimpleLogin, public $state:ng.ui.IStateService, public toastr:Toastr, public DataService:DataService) {
         $scope.lpShown = true;
+
+        $scope.windowWidth = $window.innerWidth;
+
+        $(window).resize(function () {
+
+            $scope.$apply(function () {
+                $scope.windowWidth = window.innerWidth;
+            });
+        });
+
         $scope.rpShown = true;
         $scope.noGalleryNotice = settings.noGalleryNotice;
         $scope.noFollowers = settings.noFollowers;

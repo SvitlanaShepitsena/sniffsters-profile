@@ -64,6 +64,7 @@
 <!-----{{home.auth.user}}---->
 <div class="contentScroller container-fluid">
 	<div class="content">
+		{{windowWidth}}
 		<div class="my-nav-content">
 			<div class="navbar navbar-default navbar-sniff">
 				<div class=" navbar-sniff-content">
@@ -171,39 +172,37 @@
 					</div>
 				</div>
 			</div>
-			<div class="row" ng-if="!home.IsHome">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-10 main-content-fill">
-					<div class="my-content">
-						<div class="row">
-							<div class="col-xs-12">
-								<div class="body-content" ng-cloak>
-									<div ui-view></div>
+			<div class="landing-wrappper">
+				<div class="landing-left-border"></div>
+				<div class="landing-container">
+					<div class="row">
+						<div class="col-xs-12 main-content-fill">
+							<div class="my-content" ng-if="!home.IsHome">
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="body-content" ng-cloak>
+											<div ui-view></div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-1"></div>
-			</div>
-			<!--Home Page View-->
-			<div class="row" ng-if="home.IsHome">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-10  main-content-fill">
-					<div class="home-inner-content">
-						<div class="row">
-							<div class="col-xs-12">
-								<div class="">
-									<div class="main-content-wrapper" ng-cloak>
-										<div ui-view></div>
+							<div class="home-inner-content" ng-if="home.IsHome">
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="">
+											<div class="main-content-wrapper" ng-cloak>
+												<div ui-view></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-1"></div>
+				<div class="landing-right-border"></div>
 			</div>
+			<!--Home Page View-->
 			<footer class="footer-home">
 				<div class="footer-text-container" ng-show="!home.IsHome">
 					<div class="row">
