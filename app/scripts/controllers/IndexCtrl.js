@@ -100,7 +100,7 @@ var IndexCtrl = (function () {
                             var messages = snapshot.snapshot.value;
                             var messagesArr = $filter('orderByPriority')(messages);
                             _this.messagesNumber = messagesArr.length;
-                            var unReadMessages = _.where(messagesArr, {isUnread: true});
+	                        var unReadMessages = _.where(messagesArr, {isUnread: true});
                             _this.unReadMessagesNumber = unReadMessages.length;
                         });
                     }

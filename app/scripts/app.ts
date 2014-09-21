@@ -92,48 +92,48 @@
 
 var profile = angular.module("profile", ['ngSanitize', 'ratings', 'mgcrea.ngStrap.helpers.dateParser', 'mgcrea.ngStrap.affix', 'mgcrea.ngStrap.typeahead', 'mgcrea.ngStrap.helpers.parseOptions', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.select', 'mgcrea.ngStrap.modal', 'mgcrea.ngStrap.datepicker', 'mgcrea.ngStrap.popover', 'mgcrea.ngStrap.helpers.dimensions', 'mgcrea.ngStrap.tooltip', 'ui.router', 'ImageCropper', 'angularFileUpload', 'ngAnimate', 'firebase']);
 profile.filter('boolString', () => {
-    return (value:boolean):string => {
-        return BoolString.filter(value);
-    }
+  return (value:boolean):string => {
+    return BoolString.filter(value);
+  }
 });
 
 
 profile.filter('spacesToDashes', () => {
-    return (value:string):string => {
-        return SpacesToDashes.filter(value);
-    }
+  return (value:string):string => {
+    return SpacesToDashes.filter(value);
+  }
 });
 profile.filter('titleLength', () => {
-    return (value:string, len:number):string => {
-        return TitleLength.filter(value, len);
-    }
+  return (value:string, len:number):string => {
+    return TitleLength.filter(value, len);
+  }
 });
 profile.filter('galleryActive', () => {
-    return (Galleries:IGallery[], isActive:Boolean):IGallery[] => {
-        return GalleryActive.filter(Galleries, isActive);
-    }
+  return (Galleries:IGallery[], isActive:Boolean):IGallery[] => {
+    return GalleryActive.filter(Galleries, isActive);
+  }
 });
 
 
 profile.filter('selectUsers', () => {
-    return (notes:INote[], isTrash:boolean):string[] => {
-        return SelectUsers.filter(notes, isTrash);
-    }
+  return (notes:INote[], isTrash:boolean):string[] => {
+    return SelectUsers.filter(notes, isTrash);
+  }
 });
 profile.filter('selectedUserMessages', () => {
-    return (notes:INote[], isTrash:boolean, userName:string):INote[] => {
-        return SelectedUserMessages.filter(notes, isTrash, userName);
-    }
+  return (notes:INote[], isTrash:boolean, userName:string):INote[] => {
+    return SelectedUserMessages.filter(notes, isTrash, userName);
+  }
 });
 profile.filter('unfire', () => {
-    return (value:string):string => {
-        return Unfire.filter(value);
-    }
+  return (value:string):string => {
+    return Unfire.filter(value);
+  }
 });
 profile.filter('unshared', () => {
-    return (value, isTemp) => {
-        return Unshared.filter(value, isTemp);
-    }
+  return (value, isTemp) => {
+    return Unshared.filter(value, isTemp);
+  }
 });
 //#filt
 
@@ -234,306 +234,305 @@ profile.service("DataService", DataService);
 profile.value("toastr", toastr)
 
 profile.value("settings", {
-    deleteConfirm: 'Delete forever?',
-    freeSubscriptionNotice: 'Your free subscription plan is activated.',
-    monthlySubscriptionNotice: 'Your monthly subscription plan is activated.',
-    annualSubscriptionNotice: 'Your annual subscription plan is activated.',
-    delSubscriptionNotice: 'Your subscription plan was successfully deactivated.',
-    mainUrl: "https://torid-fire-6526.firebaseio.com/",
-    messageSuccessNotice: 'Message has been sent',
-    noGalleryNotice: 'Here is no any gallery yet',
-    noLitterNotice: 'Here is no any litter yet',
-    noSuchUser: 'The user with such username does not exist',
-    userExists: 'This username is already in use. Please try another',
-    noMessages: 'You have no new messages',
-    noFollowing: 'You are not following anyone',
-    noFollowers: 'You have no followers yet',
-    dataSaved: 'Successfully saved',
-    dbError: 'Db Connection Error!',
-    upgradeSubscription: 'Please upgrade your subscription'
+  deleteConfirm: 'Delete forever?',
+  freeSubscriptionNotice: 'Your free subscription plan is activated.',
+  monthlySubscriptionNotice: 'Your monthly subscription plan is activated.',
+  annualSubscriptionNotice: 'Your annual subscription plan is activated.',
+  delSubscriptionNotice: 'Your subscription plan was successfully deactivated.',
+  mainUrl: "https://torid-fire-6526.firebaseio.com/",
+  messageSuccessNotice: 'Message has been sent',
+  noGalleryNotice: 'Here is no any gallery yet',
+  noLitterNotice: 'Here is no any litter yet',
+  noSuchUser: 'The user with such username does not exist',
+  userExists: 'This username is already in use. Please try another',
+  noMessages: 'You have no new messages',
+  noFollowing: 'You are not following anyone',
+  noFollowers: 'You have no followers yet',
+  dataSaved: 'Successfully saved',
+  dbError: 'Db Connection Error!',
+  upgradeSubscription: 'Please upgrade your subscription'
 })
 
 
 profile.config(
-    ($selectProvider, $stateProvider, $urlRouterProvider, $locationProvider) => {
+  ($selectProvider, $stateProvider, $urlRouterProvider, $locationProvider) => {
 
-        //$locationProvider.html5Mode(true).hashPrefix('!');
+    //$locationProvider.html5Mode(true).hashPrefix('!');
 
-        $urlRouterProvider.otherwise("/");
-        $stateProvider
-            .state("home", {
-                url: "/",
-                templateUrl: "../views/home.html"
-            })
-        /**********************
-         =Breeder
-         ***********************/
-            .state("user", {
-                url: "/breeder",
-                abstract: true,
-                templateUrl: "../views/profile-side-bar.html"
-            })
-            .state("user.profile", {
-                abstract: true,
-                url: "/:uname",
-                controller: IndexCtrl,
-                templateUrl: "../views/profile.html"
-            })
-            .state("user.profile.about1", {
-                url: '',
-                templateUrl: "../views/profile-about.html"
-            })
-            .state("user.profile.about1.edit", {
-                url: "/edit",
-                templateUrl: "../views/profile-about-edit.html"
-            })
-            .state("user.profile.photos2", {
-                url: "/photos",
-                controller: "PhotosCtrl",
-                templateUrl: "../views/profile-photos.html"
-            })
-            .state("user.profile.photos2.galleries", {
-                url: "/gallery/:id",
-                template: "<div ui-view><photo-gallery></photo-gallery></div>"
-            })
-            .state("user.profile.photos2.galleries.edit", {
-                url: "/edit",
-                template: "<photo-gallery-edit></photo-gallery-edit>"
-            })
-            .state("user.profile.puppies3", {
-                url: "/puppies",
-                controller: "PuppiesCtrl",
+    $urlRouterProvider.otherwise("/");
+    $stateProvider
+      .state("home", {
+        url: "/",
+        templateUrl: "../views/home.html"
+      })
+    /**********************
+     =Breeder
+     ***********************/
+      .state("user", {
+        url: "/breeder",
+        abstract: true,
+        templateUrl: "../views/profile-side-bar.html"
+      })
+      .state("user.profile", {
+        abstract: true,
+        url: "/:uname",
+        controller: IndexCtrl,
+        templateUrl: "../views/profile.html"
+      })
+      .state("user.profile.about1", {
+        url: '',
+        templateUrl: "../views/profile-about.html"
+      })
+      .state("user.profile.about1.edit", {
+        url: "/edit",
+        templateUrl: "../views/profile-about-edit.html"
+      })
+      .state("user.profile.photos2", {
+        url: "/photos",
+        controller: "PhotosCtrl",
+        templateUrl: "../views/profile-photos.html"
+      })
+      .state("user.profile.photos2.galleries", {
+        url: "/gallery/:id",
+        template: "<div ui-view><photo-gallery></photo-gallery></div>"
+      })
+      .state("user.profile.photos2.galleries.edit", {
+        url: "/edit",
+        template: "<photo-gallery-edit></photo-gallery-edit>"
+      })
+      .state("user.profile.puppies3", {
+        url: "/puppies",
+        controller: "PuppiesCtrl",
 
-                templateUrl: "../views/profile-puppies.html"
-            })
-            .state("user.profile.puppies3.litter", {
-                url: "/litter/:id",
-                template: "<sv-litter></sv-litter>"
-            })
-            .state("user.profile.puppies3.litter.edit", {
-                url: "/edit",
-                template: "<sv-litter-edit></sv-litter-edit>"
-            })
-            .state("user.profile.details4", {
-                url: "/details",
-                templateUrl: "../views/profile-details.html"
-            })
-            .state("user.profile.details4.edit", {
-                url: "/edit",
-                templateUrl: "../views/profile-detailsEdit.html"
-            })
-            .state("user.profile.testimonials5", {
-                url: "/testimonials",
-                controller: "TestimonialsCtrl",
-                templateUrl: "../views/profile-testimonials.html"
-            })
-            .state("user.profile.testimonials5.edit", {
-                url: "/edit/:id",
-                template: "<feedback-edit is-owner='home.isOwner' ></feedback-edit>"
-            })
-            .state("generate", {
-                url: "/generate",
-                controller: "GenerateCtrl",
-                templateUrl: "../views/generate.html"
-            })
+        templateUrl: "../views/profile-puppies.html"
+      })
+      .state("user.profile.puppies3.litter", {
+        url: "/litter/:id",
+        template: "<sv-litter></sv-litter>"
+      })
+      .state("user.profile.puppies3.litter.edit", {
+        url: "/edit",
+        template: "<sv-litter-edit></sv-litter-edit>"
+      })
+      .state("user.profile.details4", {
+        url: "/details",
+        templateUrl: "../views/profile-details.html"
+      })
+      .state("user.profile.details4.edit", {
+        url: "/edit",
+        templateUrl: "../views/profile-detailsEdit.html"
+      })
+      .state("user.profile.testimonials5", {
+        url: "/testimonials",
+        controller: "TestimonialsCtrl",
+        templateUrl: "../views/profile-testimonials.html"
+      })
+      .state("user.profile.testimonials5.edit", {
+        url: "/edit/:id",
+        template: "<feedback-edit is-owner='home.isOwner' ></feedback-edit>"
+      })
+      .state("generate", {
+        url: "/generate",
+        controller: "GenerateCtrl",
+        templateUrl: "../views/generate.html"
+      })
 
-        /**********************
-         Home Menu
-         ***********************/
-
-
-            .state("sniff.login", {
-                url: "/login",
-                controller: "LoginCtrl",
-                templateUrl: "../views/login.html"
-            })
-            .state("sniff.register", {
-                url: "/register",
-                controller: "RegisterCtrl",
-                templateUrl: "../views/register.html"
-            })
-
-            .state("looking-for-dog", {
-                url: "/looking-for-a-dog",
-                controller: "LookingForDogCtrl",
-                templateUrl: "../views/looking-for-dog.html"
-            })
-            .state("sniff", {
-                abstract: true,
-                templateUrl: "../views/sniff.html"
-            })
-            .state("sniff.about", {
-                url: "/about",
-                controller: "AboutCtrl",
-                templateUrl: "../views/about.html"
-            })
-            .state("sniff.breeders", {
-                url: "/breeders/:breed/:location",
-                controller: "BreedersCtrl",
-                templateUrl: "../views/breeders.html"
-            })
-            .state("sniff.dogs", {
-                url: "/dogs",
-                controller: "DogsCtrl",
-                templateUrl: "../views/dogs.html"
-            })
-            .state("sniff.explore", {
-                url: "/explore",
-                controller: "ExploreCtrl",
-                templateUrl: "../views/explore.html"
-            })
-            .state("sniff.advertise", {
-                url: "/advertise",
-                controller: "AdvertiseCtrl",
-                templateUrl: "../views/advertise.html"
-            })
-            .state("sniff.terms", {
-                url: "/terms",
-                controller: "TermsCtrl",
-                templateUrl: "../views/terms.html"
-            })
-            .state("sniff.contact", {
-                url: "/contact",
-                controller: "ContactCtrl",
-                templateUrl: "../views/contact.html"
-            })
-            .state("sniff.forBreeders", {
-                url: "/for-breeders/:scroll",
-                controller: "ForBreedersCtrl",
-                templateUrl: "../views/for-breeders.html"
-
-            })
-        /**********************
-         * =Messages Breeder Profile
-         ***********************/
-
-            .state("user.profile.messages", {
-                url: "/messages",
-                controller: "MessagesCtrl",
-                templateUrl: "../views/messages.html"
-            })
-            .state("user.profile.messages.create", {
-                url: "/create-message",
-                controller: "CreateMessageCtrl",
-                templateUrl: "../views/createMessage.html"
-            })
-            .state("user.profile.messages.trash", {
-                url: "/trash",
-                templateUrl: "../views/messages-trash.html"
-            })
-            .state("user.profile.followings", {
-                url: "/followings",
-                controller: "FollowingsCtrl",
-                templateUrl: "../views/followings.html"
-            })
-
-            .state("user.profile.followers", {
-                url: "/followers",
-                controller: "FollowersCtrl",
-                templateUrl: "../views/followers.html"
-            })
-
-            .state("sniff.forBreeders({scroll:1}))", {
-                url: "/upgrade",
-                controller: "UpgradeCtrl",
-                templateUrl: "../views/upgrade.html"
-            })
-
-            .state("user.profile.manage", {
-                url: "/manage-breeder-account",
-                controller: "ManageBreederAccountCtrl",
-                templateUrl: "../views/manage-breeder-account.html"
-            })
-
-        /**********************
-         * =Admin
-         ***********************/
-            .state("admin", {
-                abstract: true,
-                controller: "AdminPanelCtrl",
-                templateUrl: "../views/adminPanel.html"
-            })
-
-            .state("admin.management", {
-                url: "/user-management",
-                controller: "UserManagementCtrl",
-                templateUrl: "../views/userManagement.html"
-            })
-            .state("admin.subscriptions", {
-                url: "/subscriptions",
-                controller: "SubscriptionsCtrl",
-                templateUrl: "../views/subscriptions.html"
-            })
-            .state("admin.breeds", {
-                url: "/breeds",
-                controller: "BreedsCtrl",
-                templateUrl: "../views/breeds.html"
-            })
+    /**********************
+     Home Menu
+     ***********************/
 
 
-        /**********************
-         * =Looker
-         ***********************/
-            .state("looker", {
-                abstract: true,
-                controller: "LookerCtrl",
-                url: "/:uname",
-                templateUrl: "../views/looker.html"
-            })
-            .state("looker.account", {
-                url: "/account",
-                templateUrl: "../views/looker-account.html"
-            })
-            .state("looker.account.edit", {
-                url: "/edit",
-                templateUrl: "../views/looker-account-edit.html"
-            })
-            .state("looker.followings", {
-                url: "/followings",
-                controller: "FollowingsCtrl",
-                templateUrl: "../views/followings.html"
-            })
+      .state("sniff.login", {
+        url: "/login",
+        controller: "LoginCtrl",
+        templateUrl: "../views/login.html"
+      })
+      .state("sniff.register", {
+        url: "/register",
+        controller: "RegisterCtrl",
+        templateUrl: "../views/register.html"
+      })
 
-        /**********************
-         * =Messages Looker Profile
-         ***********************/
+      .state("looking-for-dog", {
+        url: "/looking-for-a-dog",
+        controller: "LookingForDogCtrl",
+        templateUrl: "../views/looking-for-dog.html"
+      })
+      .state("sniff", {
+        abstract: true,
+        templateUrl: "../views/sniff.html"
+      })
+      .state("sniff.about", {
+        url: "/about",
+        controller: "AboutCtrl",
+        templateUrl: "../views/about.html"
+      })
+      .state("sniff.breeders", {
+        url: "/breeders/:breed/:location",
+        controller: "BreedersCtrl",
+        templateUrl: "../views/breeders.html"
+      })
+      .state("sniff.dogs", {
+        url: "/dogs",
+        controller: "DogsCtrl",
+        templateUrl: "../views/dogs.html"
+      })
+      .state("sniff.explore", {
+        url: "/explore",
+        controller: "ExploreCtrl",
+        templateUrl: "../views/explore.html"
+      })
+      .state("sniff.advertise", {
+        url: "/advertise",
+        controller: "AdvertiseCtrl",
+        templateUrl: "../views/advertise.html"
+      })
+      .state("sniff.terms", {
+        url: "/terms",
+        controller: "TermsCtrl",
+        templateUrl: "../views/terms.html"
+      })
+      .state("sniff.contact", {
+        url: "/contact",
+        controller: "ContactCtrl",
+        templateUrl: "../views/contact.html"
+      })
+      .state("sniff.forBreeders", {
+        url: "/for-breeders/:scroll",
+        controller: "ForBreedersCtrl",
+        templateUrl: "../views/for-breeders.html"
+
+      })
+    /**********************
+     * =Messages Breeder Profile
+     ***********************/
+
+      .state("user.profile.messages", {
+        url: "/messages",
+        controller: "MessagesCtrl",
+        templateUrl: "../views/messages.html"
+      })
+      .state("user.profile.messages.create", {
+        url: "/create-message",
+        controller: "CreateMessageCtrl",
+        templateUrl: "../views/createMessage.html"
+      })
+      .state("user.profile.messages.trash", {
+        url: "/trash",
+        templateUrl: "../views/messages-trash.html"
+      })
+      .state("user.profile.followings", {
+        url: "/followings",
+        controller: "FollowingsCtrl",
+        templateUrl: "../views/followings.html"
+      })
+
+      .state("user.profile.followers", {
+        url: "/followers",
+        controller: "FollowersCtrl",
+        templateUrl: "../views/followers.html"
+      })
+
+      .state("sniff.forBreeders({scroll:1}))", {
+        url: "/upgrade",
+        controller: "UpgradeCtrl",
+        templateUrl: "../views/upgrade.html"
+      })
+
+      .state("user.profile.manage", {
+        url: "/manage-breeder-account",
+        controller: "ManageBreederAccountCtrl",
+        templateUrl: "../views/manage-breeder-account.html"
+      })
+
+    /**********************
+     * =Admin
+     ***********************/
+      .state("admin", {
+        abstract: true,
+        controller: "AdminPanelCtrl",
+        templateUrl: "../views/adminPanel.html"
+      })
+
+      .state("admin.management", {
+        url: "/user-management",
+        controller: "UserManagementCtrl",
+        templateUrl: "../views/userManagement.html"
+      })
+      .state("admin.subscriptions", {
+        url: "/subscriptions",
+        controller: "SubscriptionsCtrl",
+        templateUrl: "../views/subscriptions.html"
+      })
+      .state("admin.breeds", {
+        url: "/breeds",
+        controller: "BreedsCtrl",
+        templateUrl: "../views/breeds.html"
+      })
 
 
-            .state("looker.messages", {
-                url: "/messages",
-                controller: "MessagesCtrl",
-                templateUrl: "../views/messages.html"
-            })
-            .state("looker.messages.create", {
-                url: "/create-message",
-                controller: "CreateMessageCtrl",
-                templateUrl: "../views/createMessage.html"
-            })
-            .state("looker.messages.trash", {
-                url: "/trash",
-                templateUrl: "../views/messages-trash.html"
-            })
+    /**********************
+     * =Looker
+     ***********************/
+      .state("looker", {
+        abstract: true,
+        controller: "LookerCtrl",
+        url: "/:uname",
+        templateUrl: "../views/looker.html"
+      })
+      .state("looker.account", {
+        url: "/account",
+        templateUrl: "../views/looker-account.html"
+      })
+      .state("looker.account.edit", {
+        url: "/edit",
+        templateUrl: "../views/looker-account-edit.html"
+      })
+      .state("looker.followings", {
+        url: "/followings",
+        controller: "FollowingsCtrl",
+        templateUrl: "../views/followings.html"
+      })
 
-            .state("payment-success", {
-                url: "/payment-success",
-                controller: "PaymentSuccessCtrl",
-                templateUrl: "../views/payment-success.html"
-            })
-            .state("payment-cancel", {
-                url: "/payment-cancel",
-                controller: "PaymentCancelCtrl",
-                templateUrl: "../views/payment-cancel.html"
-            })
-            .state("payment-success-annually", {
-                url: "/payment-success-annually",
-                controller: "PaymentSuccessAnnuallyCtrl",
-                templateUrl: "../views/payment-success-annually.html"
-            })
-            .state("payment-cancel-annually", {
-                url: "/payment-cancel-annually",
-                controller: "PaymentCancelAnnuallyCtrl",
-                templateUrl: "../views/payment-cancel-annually.html"
-            })
+    /**********************
+     * =Messages Looker Profile
+     ***********************/
+
+
+      .state("looker.messages", {
+        url: "/messages",
+        controller: "MessagesCtrl",
+        templateUrl: "../views/messages.html"
+      })
+      .state("looker.messages.create", {
+        url: "/create-message",
+        controller: "CreateMessageCtrl",
+        templateUrl: "../views/createMessage.html"
+      })
+      .state("looker.messages.trash", {
+        url: "/trash",
+        templateUrl: "../views/messages-trash.html"
+      })
+      .state("payment-success", {
+        url: "/payment-success",
+        controller: "PaymentSuccessCtrl",
+        templateUrl: "../views/payment-success.html"
+      })
+      .state("payment-cancel", {
+        url: "/payment-cancel",
+        controller: "PaymentCancelCtrl",
+        templateUrl: "../views/payment-cancel.html"
+      })
+      .state("payment-success-annually", {
+        url: "/payment-success-annually",
+        controller: "PaymentSuccessAnnuallyCtrl",
+        templateUrl: "../views/payment-success-annually.html"
+      })
+      .state("payment-cancel-annually", {
+        url: "/payment-cancel-annually",
+        controller: "PaymentCancelAnnuallyCtrl",
+        templateUrl: "../views/payment-cancel-annually.html"
+      })
 //#state
-    });
+  });
 
