@@ -29,7 +29,7 @@
           <div class="col-xs-6">
             <ul class="list-unstyled home-ad-wrapper">
               <li class="ad-text-sm">NOT SURE?</li>
-              <li class="">
+              <li>
                 <a class="find-out" ui-sref="sniff.about">LET US TELL YOU MORE
                   <i class="fa fa-caret-right"></i>
                 </a>
@@ -38,17 +38,19 @@
           </div>
           <div class="col-xs-6">
             <ul class="list-inline social-home-wrapper">
-              <li class="sm-home">
-                <a href="https://www.facebook.com" class="facebook-home" target="_blank">
+              <li>
+                <a href="http://facebook.com/sharer.php?u={{shareUrl}}" class="facebook-cover" target="_blank">
                 </a>
               </li>
-              <li class="sm-home">
-                <a href="https://www.twitter.com" class="twitter-home" target="_blank">
+              <li>
+                <a href="http://twitter.com/intent/tweet?text={{shareUrl}}" class="twitter-cover" target="_blank">
                 </a>
               </li>
-              <li class="sm-home">
-                <a href="https://www.pinterest.com" class="pinterest-home" target="_blank">
+              <li>
+                <a href="http://pinterest.com" target="_blank" class="pinterest-cover">
                 </a>
+                <!-- Please call pinit.js only once per page -->
+                <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
               </li>
             </ul>
           </div>
