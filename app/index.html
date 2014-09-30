@@ -4,58 +4,58 @@
 <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!-->
 <html ng-app="profile" class="no-js"> <!--<![endif]-->
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<base href="/"/>
-	<title></title>
-	<meta name="description" content="">
-	<script src="js/spin.min.js"></script>
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<!-- build:css({.tmp,app}) styles/main.css -->
-	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="bower_components/toastr/toastr.min.css">
-	<style>
-		[ng\:cloak], [ng-cloak], .ng-cloak {
-			display: none !important;
-		}
-	</style>
-	<link rel="stylesheet" href="styles/sniff.css">
-	<link rel="stylesheet" href="plugin/angular-ratings-master/angular.ratings.css">
-	<link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css">
-	<link rel="stylesheet" href="css/jquery.Jcrop.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-	<link rel="stylesheet" href="final.css">
-	<!-- endbuild -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <base href="/"/>
+  <title></title>
+  <meta name="description" content="">
+  <script src="js/spin.min.js"></script>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css({.tmp,app}) styles/main.css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/toastr/toastr.min.css">
+  <style>
+    [ng\:cloak], [ng-cloak], .ng-cloak {
+      display: none !important;
+    }
+  </style>
+  <link rel="stylesheet" href="styles/sniff.css">
+  <link rel="stylesheet" href="plugin/angular-ratings-master/angular.ratings.css">
+  <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css">
+  <link rel="stylesheet" href="css/jquery.Jcrop.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="final.css">
+  <!-- endbuild -->
 </head>
 <body ng-controller="HomeCtrl as home">
 <div id="fb-root"></div>
 <script>
-	window.fbAsyncInit = function () {
-		FB.init({
-			appId: '365015036974181',
-			xfbml: true,
-			version: 'v2.0'
-		});
-	};
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '365015036974181',
+      xfbml: true,
+      version: 'v2.0'
+    });
+  };
 
-	(function (d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) {
-			return;
-		}
-		js = d.createElement(s);
-		js.id = id;
-		js.src = "//connect.facebook.net/en_US/sdk.js";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 </script>
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
-	today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to
-	better
-	experience this site.</p>
+  today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to
+  better
+  experience this site.</p>
 <![endif]-->
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -63,194 +63,193 @@
 <![endif]-->
 <!-----{{home.auth.user}}---->
 <div class="contentScroller container-fluid">
-	<div class="content">
-		<div class="my-nav-content">
-			<div class="navbar navbar-default navbar-sniff">
-				<div class=" navbar-sniff-content">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse"
-						        data-target=".navbar-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<div class="logo-wrapper">
-							<a ui-sref="home">
-								<img src="img/Logo_web.png" alt="Sniffsters Logo">
-							</a>
-						</div>
-					</div>
-					<div class="navbar-collapse collapse sniff-collapse">
-						<ul class="nav navbar-nav">
-							<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="home">HOME
-							</a></li>
-							<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.about">ABOUT
-							</a></li>
-							<li><a class="sniff-menu" ui-sref-active="active-custom"
-							       ui-sref="sniff.breeders({breed:'',location:''})">BREEDERS
-							</a></li>
-							<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.dogs">DOGS
-							</a></li>
-							<li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.explore">EXPLORE
-							</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right" ng-cloak>
-							<li ng-show="home.auth.user">
-								<a class="hello-user" ui-sref="user.profile.about1({uname:home.nickName,asuser:''})"
-								   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!
-								</a>
-								<a class="hello-user" ui-sref="looker.account({uname:home.nickName})"
-								   ng-if="home.isBreeder===false">Hello,
-									{{home.nickName}}!
-								</a>
-							</li>
-							<li ng-if="home.auth.user">
-								<a class="sniff-menu btn-logout" ng-click="home.Logout()">LOG OUT
-								</a>
-							</li>
-							<li ng-if="!home.auth.user">
-								<sv-login-popover lp-shown="lpShown" rp-shown="rpShown" home="home"
-								                  ng-click="loginPopover()"></sv-login-popover>
-							</li>
-							<li ng-if="!home.auth.user">
-								<sv-register-popover lp-shown="lpShown" rp-shown="rpShown" home="home"
-								                     ng-click="registerPopover()"></sv-register-popover>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="body-wrapper" ng-class="{'home-height':home.IsHome}">
-			<div class="collar"></div>
-			<div class="search-bar-content" ng-hide="home.IsSearchHidden">
-				<div class="my-content">
-					<div class="search-bar text-center">
-						<form class="form-inline">
-							<label class="quick-search">
-								QUICK SEARCH
-							</label>
+  <div class="content">
+    <div class="my-nav-content">
+      <div class="navbar navbar-default navbar-sniff">
+        <div class=" navbar-sniff-content">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="logo-wrapper">
+              <a ui-sref="home">
+                <img src="img/Logo_web.png" alt="Sniffsters Logo">
+              </a>
+            </div>
+          </div>
+          <div class="navbar-collapse collapse sniff-collapse">
+            <ul class="nav navbar-nav">
+              <li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="home">HOME
+              </a></li>
+              <li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.about">ABOUT
+              </a></li>
+              <li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.breeders({breed:'',location:''})">BREEDERS
+              </a></li>
+              <li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.dogs">DOGS
+              </a></li>
+              <li><a class="sniff-menu" ui-sref-active="active-custom" ui-sref="sniff.explore">EXPLORE
+              </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-cloak>
+              <li ng-show="home.auth.user">
+                <a class="hello-user" ui-sref="user.profile.about1({uname:home.nickName,asuser:''})"
+                   ng-if="home.isBreeder===true">Hello, {{home.nickName}}!
+                </a>
+                <a class="hello-user" ui-sref="looker.account({uname:home.nickName})" ng-if="home.isBreeder===false">Hello,
+                  {{home.nickName}}!
+                </a>
+              </li>
+              <li ng-if="home.auth.user">
+                <a class="sniff-menu btn-logout" ng-click="home.Logout()">LOG OUT
+                </a>
+              </li>
+              <li ng-if="!home.auth.user">
+                <sv-login-popover lp-shown="lpShown" rp-shown="rpShown" home="home"
+                                  ng-click="loginPopover()"></sv-login-popover>
+              </li>
+              <li ng-if="!home.auth.user">
+                <sv-register-popover lp-shown="lpShown" rp-shown="rpShown" home="home"
+                                     ng-click="registerPopover()"></sv-register-popover>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body-wrapper" ng-class="{'home-height':home.IsHome}">
+      <div class="collar"></div>
+      <div class="search-bar-content" ng-hide="home.IsSearchHidden">
+        <div class="my-content">
+          <div class="search-bar text-center">
+            <form class="form-inline">
+              <label class="quick-search">
+                QUICK SEARCH
+              </label>
 
-							<div class="btn-group fetch-group" ng-cloak>
-								<button type="button" class="btn btn-default search-dropdown align-left">
-									{{searchBreed.val
-									||
-									'Breeds'}}
-								</button>
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-									<span class="caret"></span>
-									<span class="sr-only">Toggle Dropdown</span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li ng-repeat="b in breeds" ng-click="searchBreed.val=b">
-										<a class="cursor-p">{{b}}</a>
-									</li>
-								</ul>
-							</div>
-							<div class="btn-group fetch-group" ng-cloak>
-								<button type="button" class="btn btn-default search-dropdown align-left">
-									{{searchLocation.val ||
-									'Locations'}}
-								</button>
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-									<span class="caret"></span>
-									<span class="sr-only">Toggle Dropdown</span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li ng-repeat="s in states" ng-click="searchLocation.val=s.abbreviation">
-										<a class="cursor-p">{{s.name}}</a>
-									</li>
-								</ul>
-							</div>
-							<div class="btn-group">
-								<button ng-click="fetchDog()" class="btn btn-primary btn-fetch fetch-group">
-									<i class="fa fa-search"></i>
-									Fetch
-								</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="row" ng-if="!home.IsHome">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-10 main-content-fill">
-					<div class="my-content">
-						<div class="row">
-							<div class="col-xs-12">
-								<div class="body-content" ng-cloak>
-									<div ui-view></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-1"></div>
-			</div>
-			<!--Home Page View-->
-			<div class="row" ng-if="home.IsHome">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-10  main-content-fill" ng-style="{'height':height}">
-					<div class="home-inner-content">
-						<div class="row">
-							<div class="col-xs-12">
-								<div class="">
-									<div class="main-content-wrapper" ng-cloak>
-										<div ui-view></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-1"></div>
-			</div>
-			<footer class="footer-home">
-				<div class="footer-text-container" ng-show="!home.IsHome">
-					<div class="row">
-						<div class="col-xs-3">
-							<div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
-						</div>
-						<div class="col-xs-9">
-							<ul class="nav navbar-nav navbar-right nav-footer">
-								<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
-								<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
-								<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="fill-footer" ng-show="home.IsHome">
-						<div class="row row-foot">
-							<div class="foot-left col-xs-1"></div>
-							<div class="foot-content col-xs-10"></div>
-							<div class="foot-right col-xs-1"></div>
-						</div>
-					</div>
-				</div>
-				<div class="footer-text-container" ng-show="home.IsHome">
-					<div class="row">
-						<div class="col-xs-3">
-							<div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
-						</div>
-						<div class="col-xs-9">
-							<ul class="nav navbar-nav navbar-right nav-footer">
-								<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
-								<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
-								<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="fill-footer" ng-show="home.IsHome">
-						<div class="row row-foot">
-							<div class="foot-left col-xs-1"></div>
-							<div class="foot-content col-xs-10"></div>
-							<div class="foot-right col-xs-1"></div>
-						</div>
-					</div>
-				</div>
-			</footer>
-		</div>
-	</div>
+              <div class="btn-group fetch-group" ng-cloak>
+                <button type="button" class="btn btn-default search-dropdown align-left">
+                  {{searchBreed.val
+                  ||
+                  'Breeds'}}
+                </button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li ng-repeat="b in breeds" ng-click="searchBreed.val=b">
+                    <a class="cursor-p">{{b}}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="btn-group fetch-group" ng-cloak>
+                <button type="button" class="btn btn-default search-dropdown align-left">
+                  {{searchLocation.val ||
+                  'Locations'}}
+                </button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li ng-repeat="s in states" ng-click="searchLocation.val=s.abbreviation">
+                    <a class="cursor-p">{{s.name}}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="btn-group">
+                <button ng-click="fetchDog()" class="btn btn-primary btn-fetch fetch-group">
+                  <i class="fa fa-search"></i>
+                  Fetch
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="main-content-fill">
+        <div class="row">
+          <div class="col-xs-1">
+            <div class="left-border"></div>
+          </div>
+          <div class="col-xs-10" ng-if="!home.IsHome">
+            <div class="my-content">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="body-content" ng-cloak>
+                    <div ui-view></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Home Page View-->
+          <div class="col-xs-10" ng-style="{'height':height}" ng-if="home.IsHome">
+            <div class="home-inner-content">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="">
+                    <div class="main-content-wrapper" ng-cloak>
+                      <div ui-view></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-1">
+            <div class="right-border"></div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer-home">
+        <div class="footer-text-container" ng-show="!home.IsHome">
+          <div class="row">
+            <div class="col-xs-3">
+              <div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
+            </div>
+            <div class="col-xs-9">
+              <ul class="nav navbar-nav navbar-right nav-footer">
+                <li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
+                <li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
+                <li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="fill-footer" ng-show="home.IsHome">
+            <div class="row row-foot">
+              <div class="foot-left col-xs-1"></div>
+              <div class="foot-content col-xs-10"></div>
+              <div class="foot-right col-xs-1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-text-container" ng-show="home.IsHome">
+          <div class="row">
+            <div class="col-xs-3">
+              <div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
+            </div>
+            <div class="col-xs-9">
+              <ul class="nav navbar-nav navbar-right nav-footer">
+                <li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
+                <li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
+                <li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="fill-footer" ng-show="home.IsHome">
+            <div class="row row-foot">
+              <div class="foot-left col-xs-1"></div>
+              <div class="foot-content col-xs-10"></div>
+              <div class="foot-right col-xs-1"></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
 </div>
 <!--</div>-->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>

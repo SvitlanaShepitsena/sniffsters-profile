@@ -126,7 +126,7 @@ class HomeCtrl {
     $rootScope.$on('$stateChangeSuccess',
       function (event, toState, toParams, fromState, fromParams) {
         this.url2 = toState.name;
-      })
+      }
 
     $scope.home = this;
 //        this.menuIndex = 1;

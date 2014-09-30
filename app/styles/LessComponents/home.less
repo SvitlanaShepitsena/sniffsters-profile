@@ -12,14 +12,24 @@
   width: 1200px;
   margin: 0px auto;
 }
+
 .home-wrapper {
   background: url("../../img/jumbotron-background.png") no-repeat top center;
   z-index: 100;
   width: 90%;
-  //  min-width: 585px;
-  text-align: center;
+  width: 585px;
   height: 500px !important;
   margin: 0 auto 399px;
+}
+
+.home-text-wrapper {
+  ul {
+    position: relative;
+    margin-top: 24px;
+    margin-bottom: 45px;
+  }
+  position: relative;
+  padding: 75px 20px 30px 20px;
 }
 
 .main-content-wrapper {
@@ -50,16 +60,31 @@
 
 .ball-wrapper {
   position: relative;
-  top: 490px;
+  top: 460px;
   left: 150px;
-
 }
+
+.left-border {
+  background: url("../../img/home/left-border-pattern.png") repeat-y;
+  width: 12px;
+  height: 3000px;
+  position: relative;
+}
+
+.right-border {
+  background: url("../../img/home/right-border-pattern.png") repeat-y;
+  right: 15px;
+  float: right;
+  width: 12px;
+  height: 3000px;
+  position: relative;
+}
+
 .main-content-fill {
   background: url("../../img/home/landing-home.png") repeat;
   height: 100%;
   position: relative;
 }
-
 
 .footer-home {
   background: url("../../img/home/footer-wide.png") repeat-x;
@@ -91,10 +116,11 @@
   padding-bottom: 10px;
 }
 
-.or {
+.or-text {
   position: absolute;
-  left: 290px;
-  top: 248px;
+  left: 250px;
+  top: 20px;
+  z-index: 99;
   font-size: 28px;
   font-family: 'Bangers', cursive, "Futura-CondensedExtraBold", sans-serif;
 }
@@ -110,7 +136,7 @@
 }
 
 .btn-breeder-wrapper {
-  height: 78px;
+  height: 76px;
   width: 215px;
   background: url("../../img/button-right.png") no-repeat;
   font-family: @font-sniff;
@@ -125,10 +151,6 @@
   line-height: 20px;
   color: whitesmoke !important;
   font-style: normal !important;
-}
-
-.search-bar-wrapper {
-
 }
 
 .menu-modal {
@@ -148,7 +170,14 @@
 }
 
 .home-ad-wrapper {
-  margin-left: 30px;
+  position: relative;
+  left: 65px;
+}
+
+.social-home-wrapper {
+  position: relative;
+  left: 65px;
+  padding: 10px;
 }
 
 .find-out {
