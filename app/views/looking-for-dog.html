@@ -1,47 +1,45 @@
 <setter></setter>
 <setter-ishome></setter-ishome>
-<div class="ball-wrapper">
-  <img src="../img/home/ball.png" alt=""/>
-</div>
-<div class="home-wrapper">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="home-text-wrapper">
-        <h2 class="welc-text">GREAT,</h2>
+<div>
+  <h2 class="welc-text">GREAT,</h2>
 
-        <h3 class="text-center help-text">LET'S FIND YOUR PUPPY!</h3>
+  <h3 class="text-center help-text">LET'S FIND YOUR PUPPY!</h3>
 
-        <div class="home-btn-wrapper">
-          <form class="form-find-puppy">
-            <div class="form-group">
-              <select class="form-control search-dropdown" ng-model="searchBreed.val" placeholder="Breeds"
-                      ng-options="breed for breed in breeds">
-                <option value="">Breeds</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <select class="form-control search-dropdown" ng-model="searchLocation.val"
-                      ng-options="state.abbreviation as state.name for state in states">
-                <option value="">Locations</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <button ng-click="fetchDog()" class="btn btn-primary btn-fetch">
-                <i class="fa fa-search"></i>
-                Fetch
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="great-links">
-          <span class="let-top">ARE YOU A BREEDER?</span>
-
-          <p class="p-home">
-            <a class="find-out" ui-sref="sniff.forBreeders" class="">FIND OUT HOW WE CAN
-              HELP &raquo;</a>
-          </p>
-        </div>
+  <div class="home-btn-wrapper">
+    <form class="form-find-puppy">
+      <div class="form-group">
+        <select class="form-control search-dropdown" ng-model="searchBreed.val" placeholder="Breeds"
+                ng-options="breed for breed in breeds">
+          <option value="">Breeds</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class="form-control search-dropdown" ng-model="searchLocation.val"
+                ng-options="state.abbreviation as state.name for state in states">
+          <option value="">Locations</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button ng-click="fetchDog()" class="btn btn-primary btn-fetch">
+          <i class="fa fa-search"></i>
+          Fetch
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="home-links-content">
+    <div class="row">
+      <div class="col-xs-6">
+        <ul class="list-unstyled home-ad-wrapper">
+          <li class="ad-text-sm">ARE YOU A BREEDER?</li>
+          <li>
+            <a class="find-out" ui-sref="sniff.forBreeders">FIND OUT HOW WE CAN HELP
+              <i class="fa fa-caret-right"></i>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
+

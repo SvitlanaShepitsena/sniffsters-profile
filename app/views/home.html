@@ -1,63 +1,61 @@
 <setter></setter>
 <setter-ishome></setter-ishome>
-<div class="ball-wrapper">
-  <img src="../img/home/ball.png" alt=""/>
-</div>
-<div class="home-wrapper">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="home-text-wrapper">
-        <h2 class="welc-text">WELCOME!</h2>
-        <h3 class="text-center help-text">HOW CAN WE HELP YOU?</h3>
-        <ul class="list-inline text-center">
+<div>
+  <h2 class="welc-text">WELCOME!</h2>
+
+  <h3 class="text-center help-text">HOW CAN WE HELP YOU?</h3>
+  <ul class="list-inline text-center ul-home-buttons">
+    <li>
+      <button class="btn btn-looking-wrapper btn-home" ui-sref="looking-for-dog">
+        I'm looking for <br/>a dog
+      </button>
+    </li>
+    <li class="or-text">
+      or
+    </li>
+    <li>
+      <button class="btn btn-breeder-wrapper  btn-home" ui-sref="sniff.forBreeders">
+        I'm a breeder
+      </button>
+    </li>
+  </ul>
+  <div class="home-links-content">
+    <div class="row">
+      <div class="col-xs-6">
+        <ul class="list-unstyled home-ad-wrapper">
+          <li class="ad-text-sm">NOT SURE?</li>
           <li>
-            <button class="btn btn-looking-wrapper btn-home" ui-sref="looking-for-dog">
-              I'm looking for <br/>a dog
-            </button>
-          </li>
-          <li class="or-text">
-            or
-          </li>
-          <li>
-            <button class="btn btn-breeder-wrapper  btn-home" ui-sref="sniff.forBreeders">
-              I'm a breeder
-            </button>
+            <a class="find-out" ui-sref="sniff.about">LET US TELL YOU MORE
+              <i class="fa fa-caret-right"></i>
+            </a>
           </li>
         </ul>
-        <div class="row">
-          <div class="col-xs-6">
-            <ul class="list-unstyled home-ad-wrapper">
-              <li class="ad-text-sm">NOT SURE?</li>
-              <li>
-                <a class="find-out" ui-sref="sniff.about">LET US TELL YOU MORE
-                  <i class="fa fa-caret-right"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-xs-6">
-            <ul class="list-inline social-home-wrapper">
-              <li>
-                <a href="http://facebook.com/sharer.php?u={{shareUrl}}" class="facebook-cover" target="_blank">
-                </a>
-              </li>
-              <li>
-                <a href="http://twitter.com/intent/tweet?text={{shareUrl}}" class="twitter-cover" target="_blank">
-                </a>
-              </li>
-              <li>
-                <a href="http://pinterest.com" target="_blank" class="pinterest-cover">
-                </a>
-                <!-- Please call pinit.js only once per page -->
-                <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
-              </li>
-            </ul>
-          </div>
-        </div>
+      </div>
+      <div class="col-xs-6">
+        <ul class="list-inline social-home-wrapper">
+          <li>
+            <a href="http://facebook.com/sharer.php?u={{shareUrl}}" class="facebook-cover" target="_blank">
+            </a>
+          </li>
+          <li>
+            <a href="http://twitter.com/intent/tweet?text={{shareUrl}}" class="twitter-cover" target="_blank">
+            </a>
+          </li>
+          <li>
+            <a href="http://pinterest.com" target="_blank" class="pinterest-cover">
+            </a>
+            <!-- Please call pinit.js only once per page -->
+            <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-
 </div>
+
+
+
+
+
 
 

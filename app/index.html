@@ -191,7 +191,12 @@
               <div class="row">
                 <div class="col-xs-12">
                   <div class="main-content-wrapper" ng-cloak>
-                    <div ui-view></div>
+                    <div class="home-wrapper">
+                      <div class="ball-wrapper">
+                        <img src="../img/home/ball.png" alt=""/>
+                      </div>
+                      <div class="home-text-wrapper" ui-view></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -202,50 +207,53 @@
           </div>
         </div>
       </div>
-      <footer class="footer-home">
-        <div class="footer-text-container" ng-show="!home.IsHome">
-          <div class="row">
-            <div class="col-xs-3">
-              <div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
+      <!-- =main-content-fill-->
+      <footer class="footer footer-home">
+        <div class="container">
+          <div class="footer-container">
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
+              </div>
+              <div class="col-xs-9">
+                <ul class="nav navbar-nav navbar-right nav-footer">
+                  <li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
+                  <li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
+                  <li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
+                </ul>
+              </div>
             </div>
-            <div class="col-xs-9">
-              <ul class="nav navbar-nav navbar-right nav-footer">
-                <li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
-                <li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
-                <li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="fill-footer" ng-show="home.IsHome">
-            <div class="row row-foot">
-              <div class="foot-left col-xs-1"></div>
-              <div class="foot-content col-xs-10"></div>
-              <div class="foot-right col-xs-1"></div>
-            </div>
-          </div>
-        </div>
-        <div class="footer-text-container" ng-show="home.IsHome">
-          <div class="row">
-            <div class="col-xs-3">
-              <div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>
-            </div>
-            <div class="col-xs-9">
-              <ul class="nav navbar-nav navbar-right nav-footer">
-                <li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>
-                <li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>
-                <li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="fill-footer" ng-show="home.IsHome">
-            <div class="row row-foot">
-              <div class="foot-left col-xs-1"></div>
-              <div class="foot-content col-xs-10"></div>
-              <div class="foot-right col-xs-1"></div>
+            <div class="fill-footer" ng-show="home.IsHome">
+              <div class="row row-foot">
+                <div class="foot-left col-xs-1"></div>
+                <div class="foot-content col-xs-10"></div>
+                <div class="foot-right col-xs-1"></div>
+              </div>
             </div>
           </div>
         </div>
       </footer>
+      <!--<div class="footer-text-container" ng-show="home.IsHome">-->
+      <!--<div class="row">-->
+      <!--<div class="col-xs-3">-->
+      <!--<div class="copyright">COPYRIGHT ©2014 SNIFFSTERS LLC</div>-->
+      <!--</div>-->
+      <!--<div class="col-xs-9">-->
+      <!--<ul class="nav navbar-nav navbar-right nav-footer">-->
+      <!--<li><a class="sniff-footer-menu" ui-sref="sniff.advertise">ADVERTISE</a></li>-->
+      <!--<li><a class="sniff-footer-menu" ui-sref="sniff.terms">TERMS</a></li>-->
+      <!--<li><a class="sniff-footer-menu" ui-sref="sniff.contact">CONTACT</a></li>-->
+      <!--</ul>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="fill-footer" ng-show="home.IsHome">-->
+      <!--<div class="row row-foot">-->
+      <!--<div class="foot-left col-xs-1"></div>-->
+      <!--<div class="foot-content col-xs-10"></div>-->
+      <!--<div class="foot-right col-xs-1"></div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
     </div>
   </div>
 </div>

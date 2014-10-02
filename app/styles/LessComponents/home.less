@@ -2,7 +2,7 @@
        IMPORTS
 ***********************/
 @import "elements";
-@import "Functions";
+@import "functions";
 
 /**********************
         STYLES
@@ -22,18 +22,19 @@
 }
 
 .home-text-wrapper {
-  ul {
-    position: relative;
-    margin-top: 24px;
-    margin-bottom: 45px;
-  }
   position: relative;
   padding: 75px 20px 30px 20px;
 }
 
 .main-content-wrapper {
-  padding: 0px;
+  padding: 200px 0px;
   margin: 0 auto;
+}
+
+.ball-wrapper {
+  position: absolute;
+  left: 170px;
+  top: 520px;
 }
 
 .collar {
@@ -55,12 +56,6 @@
   position: relative;
   left: 0;
   bottom: 0;
-}
-
-.ball-wrapper {
-  position: relative;
-  top: 460px;
-  left: 150px;
 }
 
 .left-border {
@@ -85,38 +80,15 @@
   position: relative;
 }
 
-.footer-home {
-  background: url("../../img/home/footer-wide.png") repeat-x;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  height: 80px;
-  width: 100%;
-  /*  height: 100px !important;
-    background: url('../../img/home/footer-home-left.png') bottom left no-repeat,
-    url('../../img/home/footer-home-right.png') top right no-repeat,
-    url("../../img/home/footer.png") bottom center repeat-x;*/
-}
-
-.home-buttons {
-  padding-top: 20px;
-  padding-bottom: 50px;
-  padding-right: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 440px;
-  position: absolute;
-  top: 210px;
-  left: 92px;
-}
 
 .home-btn-wrapper {
   width: 210px;
-  margin: 0px auto;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  form {
+  margin: 24px auto 0px auto;
+}
 
+.form-find-puppy {
+  .form-group {
+    margin-bottom: 5px;
   }
 }
 
@@ -173,12 +145,22 @@
   color: @color-subhead;
 }
 
+.ul-home-buttons {
+  position: relative;
+  margin-bottom: 0px;
+  margin-top: 24px;
+}
+
 .home-ad-wrapper {
   position: relative;
   left: 70px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .social-home-wrapper {
+  margin-top: 0px;
+  margin-bottom: 0px;
   position: relative;
   left: 65px;
   padding: 10px;
@@ -234,6 +216,16 @@
   position: relative;
   top: 146px;
   left: -15px;
+}
+
+.home-links-wrapper {
+  position: relative;
+}
+
+.home-links-content {
+  position: absolute;
+  width: 100%;
+  top: 375px;
 }
 
 .great-links {
